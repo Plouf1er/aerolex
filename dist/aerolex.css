@@ -1,0 +1,67 @@
+/*!
+ * AeroLex — CSS autonome (distributable)
+ * Copie fidèle des règles .glos du projet aero-coach/assets/aero.css
+ * Distributable sur tout site tiers qui inclut aerolex.js.
+ */
+
+/* ── Terme glossaire (base) ─────────────────────────────────────────────── */
+.glos {
+  border-bottom: 1.5px dotted #64748b;
+  cursor: help;
+  text-decoration: none;
+}
+.glos:hover,
+.glos:focus-visible {
+  border-bottom-color: #1e3a5f;
+  background: #eff6ff;
+  border-radius: 2px;
+}
+
+/* ── Toutes occurrences traitées pareillement (décision 02/08/2026) ──────── */
+.glos[data-occ="n"] {
+  border-bottom: 1.5px dotted #64748b;
+  transition: border-bottom-color 0.15s ease, background 0.15s ease;
+}
+.glos[data-occ="n"]:hover,
+.glos[data-occ="n"]:focus-visible {
+  border-bottom-color: #1e3a5f;
+  background: #eff6ff;
+  border-radius: 2px;
+  cursor: help;
+}
+
+/* ── Fiche à rédiger (terme du lexique sans définition) ──────────────────── */
+.glos-vide {
+  background: #ffd6d6 !important;
+  border-bottom: 1px dotted #c00 !important;
+}
+
+/* ── Groupe METAR/TAF (dans les blocs .metar) ───────────────────────────── */
+.glos-metar {
+  border-bottom: 1.5px dashed #94a3b8;
+  cursor: help;
+  font-family: inherit;
+}
+.metar .glos-metar {
+  border-bottom-style: dashed;
+  border-bottom-color: #94a3b8;
+  font-family: inherit;
+}
+.glos-metar:hover,
+.glos-metar:focus-visible,
+.metar .glos-metar:hover,
+.metar .glos-metar:focus-visible {
+  background: #fef3c7;
+  border-bottom-color: #b45309;
+}
+
+/* ── Bandeau runtime (injecté par aerolex.js) ───────────────────────────── */
+#aerolex-banner {
+  font-size: 0.75rem;
+  color: #64748b;
+  background: #f8fafc;
+  border-bottom: 1px solid #e2e8f0;
+  padding: 4px 12px;
+  text-align: right;
+  letter-spacing: 0.01em;
+}

@@ -161,6 +161,7 @@ GLOSSAIRE = {
         "statut": "a_rediger",
         "occurrences": 20,
         "nb_seances": 1,
+        "variantes": ["ailes"],
     },
     "aileron": {
         "definition": "Fiche en construction.",
@@ -169,6 +170,7 @@ GLOSSAIRE = {
         "statut": "a_rediger",
         "occurrences": 25,
         "nb_seances": 3,
+        "variantes": ["ailerons"],
     },
     "aileron au vent": {
         "definition": "Fiche en construction.",
@@ -177,22 +179,6 @@ GLOSSAIRE = {
         "statut": "a_rediger",
         "occurrences": 25,
         "nb_seances": 3,
-    },
-    "ailerons": {
-        "definition": "Fiche en construction.",
-        "categorie": "divers",
-        "origine": "corpus",
-        "statut": "a_rediger",
-        "occurrences": 94,
-        "nb_seances": 12,
-    },
-    "ailes": {
-        "definition": "Fiche en construction.",
-        "categorie": "divers",
-        "origine": "corpus",
-        "statut": "a_rediger",
-        "occurrences": 21,
-        "nb_seances": 7,
     },
     "ailes à plat": {
         "definition": "Fiche en construction.",
@@ -207,14 +193,6 @@ GLOSSAIRE = {
         "categorie": "Réglementation & docs",
         "origine": "corpus",
         "statut": "redigee",
-    },
-    "air": {
-        "definition": "Fiche en construction.",
-        "categorie": "divers",
-        "origine": "corpus",
-        "statut": "a_rediger",
-        "occurrences": 750,
-        "nb_seances": 34,
     },
     "AIRAC": {
         "definition": "<em>Aeronautical Information Regulation And Control</em> — « régulation et contrôle de l'information aéronautique ». Cycle de 28 jours au rythme duquel les données aéronautiques officielles sont mises à jour. Une carte « à jour » = un cycle AIRAC en vigueur : vérifie la date d'effet, pas celle du téléchargement.",
@@ -254,22 +232,7 @@ GLOSSAIRE = {
         "statut": "a_rediger",
         "occurrences": 14,
         "nb_seances": 4,
-    },
-    "alpha": {
-        "definition": "Fiche en construction.",
-        "categorie": "divers",
-        "origine": "corpus",
-        "statut": "a_rediger",
-        "occurrences": 42,
-        "nb_seances": 3,
-    },
-    "alphabet": {
-        "definition": "Fiche en construction.",
-        "categorie": "divers",
-        "origine": "corpus",
-        "statut": "a_rediger",
-        "occurrences": 12,
-        "nb_seances": 3,
+        "synonymes": ["ignition"],
     },
     "alphabet aviation": {
         "definition": "Fiche en construction.",
@@ -318,6 +281,7 @@ GLOSSAIRE = {
         "statut": "a_rediger",
         "occurrences": 21,
         "nb_seances": 10,
+        "variantes": ["altitudes"],
     },
     "altitude de croisière": {
         "definition": "Fiche en construction.",
@@ -379,14 +343,6 @@ GLOSSAIRE = {
         "variantes": ["altitude pression", "altitudes-pression", "pressure altitude"],
         "xrefs": ["niveau de vol", "altitude-densité", "calage standard"],
     },
-    "altitudes": {
-        "definition": "Fiche en construction.",
-        "categorie": "divers",
-        "origine": "corpus",
-        "statut": "a_rediger",
-        "occurrences": 50,
-        "nb_seances": 13,
-    },
     "altocumulus": {
         "definition": "Fiche en construction.",
         "categorie": "divers",
@@ -424,14 +380,6 @@ GLOSSAIRE = {
         "statut": "a_rediger",
         "occurrences": 161,
         "nb_seances": 0,
-    },
-    "angle": {
-        "definition": "Fiche en construction.",
-        "categorie": "divers",
-        "origine": "corpus",
-        "statut": "a_rediger",
-        "occurrences": 14,
-        "nb_seances": 6,
     },
     "angle d'attaque": {
         "definition": "Fiche en construction.",
@@ -796,14 +744,7 @@ GLOSSAIRE = {
         "statut": "a_rediger",
         "occurrences": 23,
         "nb_seances": 23,
-    },
-    "averses": {
-        "definition": "Fiche en construction.",
-        "categorie": "divers",
-        "origine": "corpus",
-        "statut": "a_rediger",
-        "occurrences": 104,
-        "nb_seances": 8,
+        "variantes": ["averses"],
     },
     "aviate": {
         "definition": "Fiche en construction.",
@@ -820,14 +761,6 @@ GLOSSAIRE = {
         "statut": "a_rediger",
         "occurrences": 80,
         "nb_seances": 16,
-    },
-    "avion": {
-        "definition": "Fiche en construction.",
-        "categorie": "divers",
-        "origine": "corpus",
-        "statut": "a_rediger",
-        "occurrences": 505,
-        "nb_seances": 36,
     },
     "avitaillement": {
         "definition": "Fiche en construction.",
@@ -1001,14 +934,6 @@ GLOSSAIRE = {
         "statut": "a_rediger",
         "occurrences": 108,
         "nb_seances": 16,
-    },
-    "bord": {
-        "definition": "Fiche en construction.",
-        "categorie": "divers",
-        "origine": "corpus",
-        "statut": "a_rediger",
-        "occurrences": 255,
-        "nb_seances": 32,
     },
     "both": {
         "definition": "Fiche en construction.",
@@ -1274,6 +1199,7 @@ GLOSSAIRE = {
         "statut": "a_rediger",
         "occurrences": 31,
         "nb_seances": 14,
+        "synonymes": ["fuel"],
     },
     "carburant degagement": {
         "definition": "Fiche en construction.",
@@ -1330,6 +1256,7 @@ GLOSSAIRE = {
         "statut": "a_rediger",
         "occurrences": 548,
         "nb_seances": 29,
+        "variantes": ["cartes"],
     },
     "carte oaci": {
         "definition": "Fiche en construction.",
@@ -1354,14 +1281,6 @@ GLOSSAIRE = {
         "statut": "a_rediger",
         "occurrences": 21,
         "nb_seances": 10,
-    },
-    "cartes": {
-        "definition": "Fiche en construction.",
-        "categorie": "divers",
-        "origine": "corpus",
-        "statut": "a_rediger",
-        "occurrences": 69,
-        "nb_seances": 13,
     },
     "cas": {
         "definition": "Fiche en construction.",
@@ -1471,14 +1390,6 @@ GLOSSAIRE = {
         "occurrences": 0,
         "nb_seances": 0,
     },
-    "chaleur": {
-        "definition": "Fiche en construction.",
-        "categorie": "divers",
-        "origine": "corpus",
-        "statut": "a_rediger",
-        "occurrences": 108,
-        "nb_seances": 27,
-    },
     "champ": {
         "definition": "Fiche en construction.",
         "categorie": "divers",
@@ -1494,6 +1405,7 @@ GLOSSAIRE = {
         "statut": "a_rediger",
         "occurrences": 103,
         "nb_seances": 18,
+        "variantes": ["charges"],
     },
     "charge de travail": {
         "definition": "Fiche en construction.",
@@ -1502,14 +1414,6 @@ GLOSSAIRE = {
         "statut": "a_rediger",
         "occurrences": 41,
         "nb_seances": 12,
-    },
-    "charges": {
-        "definition": "Fiche en construction.",
-        "categorie": "divers",
-        "origine": "corpus",
-        "statut": "a_rediger",
-        "occurrences": 45,
-        "nb_seances": 11,
     },
     "chaud": {
         "definition": "Fiche en construction.",
@@ -1542,6 +1446,7 @@ GLOSSAIRE = {
         "statut": "a_rediger",
         "occurrences": 127,
         "nb_seances": 22,
+        "variantes": ["check-lists"],
     },
     "check-list atterrissage": {
         "definition": "Fiche en construction.",
@@ -1558,14 +1463,6 @@ GLOSSAIRE = {
         "statut": "a_rediger",
         "occurrences": 0,
         "nb_seances": 0,
-    },
-    "check-lists": {
-        "definition": "Fiche en construction.",
-        "categorie": "divers",
-        "origine": "corpus",
-        "statut": "a_rediger",
-        "occurrences": 66,
-        "nb_seances": 12,
     },
     "checklist": {
         "definition": "Fiche en construction.",
@@ -1615,14 +1512,6 @@ GLOSSAIRE = {
         "occurrences": 4,
         "nb_seances": 0,
     },
-    "ciel": {
-        "definition": "Fiche en construction.",
-        "categorie": "divers",
-        "origine": "corpus",
-        "statut": "a_rediger",
-        "occurrences": 165,
-        "nb_seances": 30,
-    },
     "circuit": {
         "definition": "Fiche en construction.",
         "categorie": "divers",
@@ -1630,6 +1519,7 @@ GLOSSAIRE = {
         "statut": "a_rediger",
         "occurrences": 388,
         "nb_seances": 33,
+        "variantes": ["circuits"],
     },
     "circuit basse hauteur": {
         "definition": "Fiche en construction.",
@@ -1638,14 +1528,6 @@ GLOSSAIRE = {
         "statut": "a_rediger",
         "occurrences": 0,
         "nb_seances": 0,
-    },
-    "circuits": {
-        "definition": "Fiche en construction.",
-        "categorie": "divers",
-        "origine": "corpus",
-        "statut": "a_rediger",
-        "occurrences": 49,
-        "nb_seances": 15,
     },
     "cirrostratus": {
         "definition": "Fiche en construction.",
@@ -1684,6 +1566,7 @@ GLOSSAIRE = {
         "statut": "a_rediger",
         "occurrences": 13,
         "nb_seances": 2,
+        "variantes": ["clairances"],
     },
     "clairance de décollage": {
         "definition": "Fiche en construction.",
@@ -1692,14 +1575,6 @@ GLOSSAIRE = {
         "statut": "a_rediger",
         "occurrences": 6,
         "nb_seances": 0,
-    },
-    "clairances": {
-        "definition": "Fiche en construction.",
-        "categorie": "divers",
-        "origine": "corpus",
-        "statut": "a_rediger",
-        "occurrences": 68,
-        "nb_seances": 10,
     },
     "classe": {
         "definition": "Fiche en construction.",
@@ -1788,14 +1663,7 @@ GLOSSAIRE = {
         "statut": "a_rediger",
         "occurrences": 61,
         "nb_seances": 21,
-    },
-    "commandes": {
-        "definition": "Fiche en construction.",
-        "categorie": "divers",
-        "origine": "corpus",
-        "statut": "a_rediger",
-        "occurrences": 102,
-        "nb_seances": 18,
+        "variantes": ["commandes"],
     },
     "compas": {
         "definition": "Fiche en construction.",
@@ -1812,14 +1680,6 @@ GLOSSAIRE = {
         "statut": "a_rediger",
         "occurrences": 0,
         "nb_seances": 0,
-    },
-    "composante": {
-        "definition": "Fiche en construction.",
-        "categorie": "divers",
-        "origine": "corpus",
-        "statut": "a_rediger",
-        "occurrences": 19,
-        "nb_seances": 7,
     },
     "composante arrière": {
         "definition": "Vent qui te pousse par l'arrière : il allonge fortement le décollage et l'atterrissage. Souvent limité à 5 ou 10 kt selon l'avion — au-delà, on change de piste. Une composante de face négative est une composante arrière.",
@@ -1848,14 +1708,6 @@ GLOSSAIRE = {
         "synonymes": ["vent de travers", "crosswind"],
         "xrefs": ["composante de face", "décrabage", "vent traversier", "θ"],
         "schema": "composantes_face_travers",
-    },
-    "composantes": {
-        "definition": "Fiche en construction.",
-        "categorie": "divers",
-        "origine": "corpus",
-        "statut": "a_rediger",
-        "occurrences": 52,
-        "nb_seances": 10,
     },
     "composite": {
         "definition": "Fiche en construction.",
@@ -1929,22 +1781,6 @@ GLOSSAIRE = {
         "occurrences": 0,
         "nb_seances": 0,
     },
-    "consigne": {
-        "definition": "Fiche en construction.",
-        "categorie": "divers",
-        "origine": "corpus",
-        "statut": "a_rediger",
-        "occurrences": 53,
-        "nb_seances": 17,
-    },
-    "consignes": {
-        "definition": "Fiche en construction.",
-        "categorie": "divers",
-        "origine": "corpus",
-        "statut": "a_rediger",
-        "occurrences": 137,
-        "nb_seances": 24,
-    },
     "conso": {
         "definition": "Fiche en construction.",
         "categorie": "divers",
@@ -1976,14 +1812,6 @@ GLOSSAIRE = {
         "statut": "a_rediger",
         "occurrences": 0,
         "nb_seances": 0,
-    },
-    "contact": {
-        "definition": "Fiche en construction.",
-        "categorie": "divers",
-        "origine": "corpus",
-        "statut": "a_rediger",
-        "occurrences": 188,
-        "nb_seances": 21,
     },
     "continuation": {
         "definition": "Fiche en construction.",
@@ -2033,14 +1861,6 @@ GLOSSAIRE = {
         "occurrences": 0,
         "nb_seances": 0,
     },
-    "conversion": {
-        "definition": "Fiche en construction.",
-        "categorie": "divers",
-        "origine": "corpus",
-        "statut": "a_rediger",
-        "occurrences": 48,
-        "nb_seances": 11,
-    },
     "coordonné": {
         "definition": "Fiche en construction.",
         "categorie": "divers",
@@ -2072,6 +1892,7 @@ GLOSSAIRE = {
         "statut": "a_rediger",
         "occurrences": 123,
         "nb_seances": 25,
+        "variantes": ["couches"],
     },
     "couche d'inversion": {
         "definition": "Fiche en construction.",
@@ -2081,14 +1902,6 @@ GLOSSAIRE = {
         "occurrences": 0,
         "nb_seances": 0,
     },
-    "couches": {
-        "definition": "Fiche en construction.",
-        "categorie": "divers",
-        "origine": "corpus",
-        "statut": "a_rediger",
-        "occurrences": 61,
-        "nb_seances": 14,
-    },
     "couper": {
         "definition": "Fiche en construction.",
         "categorie": "divers",
@@ -2096,14 +1909,6 @@ GLOSSAIRE = {
         "statut": "a_rediger",
         "occurrences": 185,
         "nb_seances": 31,
-    },
-    "couple": {
-        "definition": "Fiche en construction.",
-        "categorie": "divers",
-        "origine": "corpus",
-        "statut": "a_rediger",
-        "occurrences": 56,
-        "nb_seances": 16,
     },
     "couple gyroscopique": {
         "definition": "Fiche en construction.",
@@ -2128,14 +1933,6 @@ GLOSSAIRE = {
         "statut": "a_rediger",
         "occurrences": 4,
         "nb_seances": 0,
-    },
-    "courbe": {
-        "definition": "Fiche en construction.",
-        "categorie": "divers",
-        "origine": "corpus",
-        "statut": "a_rediger",
-        "occurrences": 59,
-        "nb_seances": 10,
     },
     "courte": {
         "definition": "Fiche en construction.",
@@ -2185,6 +1982,7 @@ GLOSSAIRE = {
         "statut": "a_rediger",
         "occurrences": 21,
         "nb_seances": 10,
+        "synonymes": ["cruise"],
     },
     "cruise": {
         "definition": "Fiche en construction.",
@@ -2193,6 +1991,7 @@ GLOSSAIRE = {
         "statut": "a_rediger",
         "occurrences": 46,
         "nb_seances": 2,
+        "synonymes": ["croisière"],
     },
     "CTR": {
         "definition": "<em>Control Traffic Region</em> : zone de contrôle autour d'un aérodrome. À LFPN, tu y vis en permanence : pénétrer dedans suppose le contact radio et l'autorisation.",
@@ -2264,14 +2063,6 @@ GLOSSAIRE = {
         "occurrences": 54,
         "nb_seances": 19,
     },
-    "dangereux": {
-        "definition": "Fiche en construction.",
-        "categorie": "divers",
-        "origine": "corpus",
-        "statut": "a_rediger",
-        "occurrences": 117,
-        "nb_seances": 31,
-    },
     "datum": {
         "definition": "Fiche en construction.",
         "categorie": "divers",
@@ -2279,14 +2070,6 @@ GLOSSAIRE = {
         "statut": "a_rediger",
         "occurrences": 26,
         "nb_seances": 3,
-    },
-    "décision": {
-        "definition": "Fiche en construction.",
-        "categorie": "divers",
-        "origine": "corpus",
-        "statut": "a_rediger",
-        "occurrences": 458,
-        "nb_seances": 37,
     },
     "déclinaison magnétique": {
         "definition": "Écart angulaire entre le nord vrai et le nord magnétique en un lieu donné, positif vers l'est. En France métropolitaine elle est faible (de l'ordre de quelques degrés) et évolue lentement : la valeur exacte se lit sur la <strong>carte ou la VAC en vigueur</strong>, jamais de mémoire. C'est elle qui fait passer d'un cap vrai à un cap magnétique — et donc du vent METAR (vrai) au QFU (magnétique).",
@@ -2376,14 +2159,7 @@ GLOSSAIRE = {
         "statut": "a_rediger",
         "occurrences": 90,
         "nb_seances": 12,
-    },
-    "démontrés": {
-        "definition": "Fiche en construction.",
-        "categorie": "divers",
-        "origine": "corpus",
-        "statut": "a_rediger",
-        "occurrences": 46,
-        "nb_seances": 8,
+        "variantes": ["démontrés"],
     },
     "dense": {
         "definition": "Fiche en construction.",
@@ -2549,14 +2325,6 @@ GLOSSAIRE = {
         "occurrences": 135,
         "nb_seances": 32,
     },
-    "distance": {
-        "definition": "Fiche en construction.",
-        "categorie": "divers",
-        "origine": "corpus",
-        "statut": "a_rediger",
-        "occurrences": 343,
-        "nb_seances": 24,
-    },
     "distance d'atterrissage": {
         "definition": "Fiche en construction.",
         "categorie": "Vitesses & performances",
@@ -2585,14 +2353,6 @@ GLOSSAIRE = {
         "occurrences": 14,
         "nb_seances": 0,
     },
-    "distances": {
-        "definition": "Fiche en construction.",
-        "categorie": "divers",
-        "origine": "corpus",
-        "statut": "a_rediger",
-        "occurrences": 152,
-        "nb_seances": 25,
-    },
     "divergence": {
         "definition": "Fiche en construction.",
         "categorie": "divers",
@@ -2616,14 +2376,7 @@ GLOSSAIRE = {
         "statut": "a_rediger",
         "occurrences": 59,
         "nb_seances": 12,
-    },
-    "documents": {
-        "definition": "Fiche en construction.",
-        "categorie": "divers",
-        "origine": "corpus",
-        "statut": "a_rediger",
-        "occurrences": 46,
-        "nb_seances": 7,
+        "variantes": ["documents"],
     },
     "domaine": {
         "definition": "Fiche en construction.",
@@ -2657,14 +2410,6 @@ GLOSSAIRE = {
         "occurrences": 23,
         "nb_seances": 15,
     },
-    "durée": {
-        "definition": "Fiche en construction.",
-        "categorie": "divers",
-        "origine": "corpus",
-        "statut": "a_rediger",
-        "occurrences": 44,
-        "nb_seances": 14,
-    },
     "easa": {
         "definition": "Fiche en construction.",
         "categorie": "divers",
@@ -2680,14 +2425,6 @@ GLOSSAIRE = {
         "statut": "a_rediger",
         "occurrences": 19,
         "nb_seances": 4,
-    },
-    "eau": {
-        "definition": "Fiche en construction.",
-        "categorie": "divers",
-        "origine": "corpus",
-        "statut": "a_rediger",
-        "occurrences": 70,
-        "nb_seances": 18,
     },
     "échec": {
         "definition": "Fiche en construction.",
@@ -2835,6 +2572,7 @@ GLOSSAIRE = {
         "statut": "a_rediger",
         "occurrences": 50,
         "nb_seances": 8,
+        "synonymes": ["moteur"],
     },
     "entrée": {
         "definition": "Fiche en construction.",
@@ -2852,22 +2590,6 @@ GLOSSAIRE = {
         "occurrences": 15,
         "nb_seances": 5,
     },
-    "erreur": {
-        "definition": "Fiche en construction.",
-        "categorie": "divers",
-        "origine": "corpus",
-        "statut": "a_rediger",
-        "occurrences": 15,
-        "nb_seances": 13,
-    },
-    "erreurs": {
-        "definition": "Fiche en construction.",
-        "categorie": "divers",
-        "origine": "corpus",
-        "statut": "a_rediger",
-        "occurrences": 113,
-        "nb_seances": 25,
-    },
     "espace": {
         "definition": "Fiche en construction.",
         "categorie": "divers",
@@ -2875,6 +2597,7 @@ GLOSSAIRE = {
         "statut": "a_rediger",
         "occurrences": 90,
         "nb_seances": 17,
+        "variantes": ["espaces"],
     },
     "espace aérien": {
         "definition": "Fiche en construction.",
@@ -2900,14 +2623,6 @@ GLOSSAIRE = {
         "occurrences": 0,
         "nb_seances": 0,
     },
-    "espaces": {
-        "definition": "Fiche en construction.",
-        "categorie": "divers",
-        "origine": "corpus",
-        "statut": "a_rediger",
-        "occurrences": 147,
-        "nb_seances": 13,
-    },
     "espaces aériens": {
         "definition": "Fiche en construction.",
         "categorie": "divers",
@@ -2923,6 +2638,7 @@ GLOSSAIRE = {
         "statut": "a_rediger",
         "occurrences": 50,
         "nb_seances": 10,
+        "variantes": ["essais"],
     },
     "essai magnétos": {
         "definition": "Fiche en construction.",
@@ -2931,14 +2647,6 @@ GLOSSAIRE = {
         "statut": "a_rediger",
         "occurrences": 4,
         "nb_seances": 0,
-    },
-    "essais": {
-        "definition": "Fiche en construction.",
-        "categorie": "divers",
-        "origine": "corpus",
-        "statut": "a_rediger",
-        "occurrences": 47,
-        "nb_seances": 7,
     },
     "estime": {
         "definition": "Fiche en construction.",
@@ -2955,14 +2663,6 @@ GLOSSAIRE = {
         "statut": "a_rediger",
         "occurrences": 58,
         "nb_seances": 10,
-    },
-    "étape": {
-        "definition": "Fiche en construction.",
-        "categorie": "divers",
-        "origine": "corpus",
-        "statut": "a_rediger",
-        "occurrences": 44,
-        "nb_seances": 12,
     },
     "étape de base": {
         "definition": "Branche du tour de piste perpendiculaire à l'axe de piste, volée entre le vent arrière et la finale. C'est la branche de transition : on y ajuste le plan de descente, on sort la configuration prévue, et on vérifie que la finale est libre avant de s'y engager. Une base trop serrée oblige à un dernier virage appuyé ; une base trop large étire la finale.",
@@ -3029,14 +2729,6 @@ GLOSSAIRE = {
         "occurrences": 18,
         "nb_seances": 6,
     },
-    "fenêtre": {
-        "definition": "Fiche en construction.",
-        "categorie": "divers",
-        "origine": "corpus",
-        "statut": "a_rediger",
-        "occurrences": 109,
-        "nb_seances": 15,
-    },
     "feu": {
         "definition": "Fiche en construction.",
         "categorie": "divers",
@@ -3044,6 +2736,7 @@ GLOSSAIRE = {
         "statut": "a_rediger",
         "occurrences": 127,
         "nb_seances": 12,
+        "variantes": ["feux"],
     },
     "feu cabine": {
         "definition": "Fiche en construction.",
@@ -3060,14 +2753,6 @@ GLOSSAIRE = {
         "statut": "a_rediger",
         "occurrences": 11,
         "nb_seances": 1,
-    },
-    "feux": {
-        "definition": "Fiche en construction.",
-        "categorie": "divers",
-        "origine": "corpus",
-        "statut": "a_rediger",
-        "occurrences": 106,
-        "nb_seances": 12,
     },
     "few": {
         "definition": "Fiche en construction.",
@@ -3148,14 +2833,6 @@ GLOSSAIRE = {
         "occurrences": 21,
         "nb_seances": 4,
     },
-    "flux": {
-        "definition": "Fiche en construction.",
-        "categorie": "divers",
-        "origine": "corpus",
-        "statut": "a_rediger",
-        "occurrences": 90,
-        "nb_seances": 15,
-    },
     "foehn": {
         "definition": "Fiche en construction.",
         "categorie": "divers",
@@ -3169,30 +2846,6 @@ GLOSSAIRE = {
         "categorie": "Vent",
         "origine": "corpus",
         "statut": "redigee",
-    },
-    "force": {
-        "definition": "Fiche en construction.",
-        "categorie": "divers",
-        "origine": "corpus",
-        "statut": "a_rediger",
-        "occurrences": 122,
-        "nb_seances": 29,
-    },
-    "forces": {
-        "definition": "Fiche en construction.",
-        "categorie": "divers",
-        "origine": "corpus",
-        "statut": "a_rediger",
-        "occurrences": 70,
-        "nb_seances": 19,
-    },
-    "formation": {
-        "definition": "Fiche en construction.",
-        "categorie": "divers",
-        "origine": "corpus",
-        "statut": "a_rediger",
-        "occurrences": 80,
-        "nb_seances": 19,
     },
     "foxtrot": {
         "definition": "Fiche en construction.",
@@ -3225,6 +2878,7 @@ GLOSSAIRE = {
         "statut": "a_rediger",
         "occurrences": 95,
         "nb_seances": 17,
+        "variantes": ["freins"],
     },
     "freinage": {
         "definition": "Fiche en construction.",
@@ -3234,14 +2888,6 @@ GLOSSAIRE = {
         "occurrences": 73,
         "nb_seances": 14,
     },
-    "freins": {
-        "definition": "Fiche en construction.",
-        "categorie": "divers",
-        "origine": "corpus",
-        "statut": "a_rediger",
-        "occurrences": 106,
-        "nb_seances": 18,
-    },
     "fréquence": {
         "definition": "Fiche en construction.",
         "categorie": "divers",
@@ -3249,14 +2895,7 @@ GLOSSAIRE = {
         "statut": "a_rediger",
         "occurrences": 311,
         "nb_seances": 24,
-    },
-    "fréquences": {
-        "definition": "Fiche en construction.",
-        "categorie": "divers",
-        "origine": "corpus",
-        "statut": "a_rediger",
-        "occurrences": 145,
-        "nb_seances": 17,
+        "variantes": ["fréquences"],
     },
     "froid": {
         "definition": "Fiche en construction.",
@@ -3281,6 +2920,7 @@ GLOSSAIRE = {
         "statut": "a_rediger",
         "occurrences": 11,
         "nb_seances": 1,
+        "variantes": ["fronts"],
     },
     "front chaud": {
         "definition": "Limite où l'air chaud glisse au-dessus de l'air froid. Dégradation lente et insidieuse : plafond qui descend, pluie continue, visibilité qui pourrit sur des centaines de kilomètres.",
@@ -3301,14 +2941,6 @@ GLOSSAIRE = {
         "statut": "a_rediger",
         "occurrences": 12,
         "nb_seances": 0,
-    },
-    "fronts": {
-        "definition": "Fiche en construction.",
-        "categorie": "divers",
-        "origine": "corpus",
-        "statut": "a_rediger",
-        "occurrences": 55,
-        "nb_seances": 5,
     },
     "ft": {
         "definition": "<em>Foot / feet</em> — pied : unité d'altitude et de hauteur en aviation (1 ft = 0,3048 m). Les plafonds METAR, les niveaux de vol et l'altimètre parlent en pieds, pas en mètres.",
@@ -3357,6 +2989,7 @@ GLOSSAIRE = {
         "statut": "a_rediger",
         "occurrences": 21,
         "nb_seances": 5,
+        "synonymes": ["carburant"],
     },
     "fuel pump": {
         "definition": "Fiche en construction.",
@@ -3531,14 +3164,6 @@ GLOSSAIRE = {
         "occurrences": 63,
         "nb_seances": 4,
     },
-    "grandeur": {
-        "definition": "Fiche en construction.",
-        "categorie": "divers",
-        "origine": "corpus",
-        "statut": "a_rediger",
-        "occurrences": 195,
-        "nb_seances": 33,
-    },
     "ground roll": {
         "definition": "Fiche en construction.",
         "categorie": "divers",
@@ -3600,6 +3225,7 @@ GLOSSAIRE = {
         "statut": "a_rediger",
         "occurrences": 35,
         "nb_seances": 5,
+        "synonymes": ["prop"],
     },
     "herbe": {
         "definition": "Fiche en construction.",
@@ -3616,14 +3242,6 @@ GLOSSAIRE = {
         "statut": "a_rediger",
         "occurrences": 31,
         "nb_seances": 3,
-    },
-    "heure": {
-        "definition": "Fiche en construction.",
-        "categorie": "divers",
-        "origine": "corpus",
-        "statut": "a_rediger",
-        "occurrences": 139,
-        "nb_seances": 25,
     },
     "heure d'arrivée": {
         "definition": "Fiche en construction.",
@@ -3648,14 +3266,6 @@ GLOSSAIRE = {
         "statut": "a_rediger",
         "occurrences": 2,
         "nb_seances": 0,
-    },
-    "heures": {
-        "definition": "Fiche en construction.",
-        "categorie": "divers",
-        "origine": "corpus",
-        "statut": "a_rediger",
-        "occurrences": 80,
-        "nb_seances": 21,
     },
     "hippodrome": {
         "definition": "Fiche en construction.",
@@ -3806,6 +3416,7 @@ GLOSSAIRE = {
         "statut": "a_rediger",
         "occurrences": 21,
         "nb_seances": 4,
+        "synonymes": ["allumage"],
     },
     "illusion": {
         "definition": "Fiche en construction.",
@@ -3814,6 +3425,7 @@ GLOSSAIRE = {
         "statut": "a_rediger",
         "occurrences": 56,
         "nb_seances": 6,
+        "variantes": ["illusions"],
     },
     "illusion somatogyrale": {
         "definition": "Fiche en construction.",
@@ -3822,14 +3434,6 @@ GLOSSAIRE = {
         "statut": "a_rediger",
         "occurrences": 0,
         "nb_seances": 0,
-    },
-    "illusions": {
-        "definition": "Fiche en construction.",
-        "categorie": "divers",
-        "origine": "corpus",
-        "statut": "a_rediger",
-        "occurrences": 61,
-        "nb_seances": 4,
     },
     "ils": {
         "definition": "Fiche en construction.",
@@ -3956,14 +3560,7 @@ GLOSSAIRE = {
         "statut": "a_rediger",
         "occurrences": 50,
         "nb_seances": 14,
-    },
-    "instruments": {
-        "definition": "Fiche en construction.",
-        "categorie": "divers",
-        "origine": "corpus",
-        "statut": "a_rediger",
-        "occurrences": 188,
-        "nb_seances": 22,
+        "variantes": ["instruments"],
     },
     "intégration": {
         "definition": "Manière de rejoindre le tour de piste d'un terrain en arrivant de l'extérieur, sans gêner ni surprendre les avions déjà en circuit. Elle suit un cheminement publié : la <strong>carte VAC</strong> du terrain indique les points d'entrée, le sens du tour de piste et la hauteur à respecter. L'objectif est d'être vu, entendu et prévisible — on annonce sa position et ses intentions à la radio avant d'entrer dans le circuit.",
@@ -4199,6 +3796,7 @@ GLOSSAIRE = {
         "statut": "a_rediger",
         "occurrences": 45,
         "nb_seances": 1,
+        "synonymes": ["mélange"],
     },
     "légal": {
         "definition": "Fiche en construction.",
@@ -4632,14 +4230,6 @@ GLOSSAIRE = {
         "occurrences": 79,
         "nb_seances": 8,
     },
-    "ligne": {
-        "definition": "Fiche en construction.",
-        "categorie": "divers",
-        "origine": "corpus",
-        "statut": "a_rediger",
-        "occurrences": 158,
-        "nb_seances": 31,
-    },
     "ligne de grain": {
         "definition": "Fiche en construction.",
         "categorie": "divers",
@@ -4647,14 +4237,6 @@ GLOSSAIRE = {
         "statut": "a_rediger",
         "occurrences": 0,
         "nb_seances": 0,
-    },
-    "limite": {
-        "definition": "Fiche en construction.",
-        "categorie": "divers",
-        "origine": "corpus",
-        "statut": "a_rediger",
-        "occurrences": 15,
-        "nb_seances": 2,
     },
     "limite arriere": {
         "definition": "Fiche en construction.",
@@ -4672,14 +4254,6 @@ GLOSSAIRE = {
         "occurrences": 0,
         "nb_seances": 0,
     },
-    "limites": {
-        "definition": "Fiche en construction.",
-        "categorie": "divers",
-        "origine": "corpus",
-        "statut": "a_rediger",
-        "occurrences": 134,
-        "nb_seances": 27,
-    },
     "lisse": {
         "definition": "Fiche en construction.",
         "categorie": "divers",
@@ -4695,14 +4269,6 @@ GLOSSAIRE = {
         "statut": "a_rediger",
         "occurrences": 0,
         "nb_seances": 0,
-    },
-    "longue": {
-        "definition": "Fiche en construction.",
-        "categorie": "divers",
-        "origine": "corpus",
-        "statut": "a_rediger",
-        "occurrences": 102,
-        "nb_seances": 28,
     },
     "longue finale": {
         "definition": "Partie initiale de la finale, loin du seuil, juste après l'alignement sur l'axe de piste. On y installe l'approche : axe, plan de descente et vitesse sont mis en place pendant qu'il reste de la distance pour corriger tranquillement. C'est aussi la position qu'on annonce à la radio en arrivant de l'extérieur du circuit, pour se faire connaître des avions déjà en tour de piste.",
@@ -4832,6 +4398,7 @@ GLOSSAIRE = {
         "statut": "a_rediger",
         "occurrences": 0,
         "nb_seances": 0,
+        "synonymes": ["throttle"],
     },
     "manoeuvre": {
         "definition": "Fiche en construction.",
@@ -4864,6 +4431,7 @@ GLOSSAIRE = {
         "statut": "a_rediger",
         "occurrences": 13,
         "nb_seances": 1,
+        "variantes": ["marges"],
     },
     "marge de decrochage": {
         "definition": "Fiche en construction.",
@@ -4881,14 +4449,6 @@ GLOSSAIRE = {
         "occurrences": 0,
         "nb_seances": 0,
     },
-    "marges": {
-        "definition": "Fiche en construction.",
-        "categorie": "divers",
-        "origine": "corpus",
-        "statut": "a_rediger",
-        "occurrences": 68,
-        "nb_seances": 16,
-    },
     "masse": {
         "definition": "Fiche en construction.",
         "categorie": "divers",
@@ -4896,6 +4456,7 @@ GLOSSAIRE = {
         "statut": "a_rediger",
         "occurrences": 23,
         "nb_seances": 23,
+        "variantes": ["masses"],
     },
     "masse a vide": {
         "definition": "Fiche en construction.",
@@ -4929,14 +4490,6 @@ GLOSSAIRE = {
         "occurrences": 8,
         "nb_seances": 0,
     },
-    "masses": {
-        "definition": "Fiche en construction.",
-        "categorie": "divers",
-        "origine": "corpus",
-        "statut": "a_rediger",
-        "occurrences": 55,
-        "nb_seances": 12,
-    },
     "matin": {
         "definition": "Fiche en construction.",
         "categorie": "divers",
@@ -4961,14 +4514,6 @@ GLOSSAIRE = {
         "occurrences": 95,
         "nb_seances": 6,
     },
-    "mélange": {
-        "definition": "Fiche en construction.",
-        "categorie": "divers",
-        "origine": "corpus",
-        "statut": "a_rediger",
-        "occurrences": 53,
-        "nb_seances": 18,
-    },
     "mémoire de travail": {
         "definition": "Fiche en construction.",
         "categorie": "divers",
@@ -4984,14 +4529,7 @@ GLOSSAIRE = {
         "statut": "a_rediger",
         "occurrences": 82,
         "nb_seances": 6,
-    },
-    "menaces": {
-        "definition": "Fiche en construction.",
-        "categorie": "divers",
-        "origine": "corpus",
-        "statut": "a_rediger",
-        "occurrences": 46,
-        "nb_seances": 5,
+        "variantes": ["menaces"],
     },
     "mer": {
         "definition": "Fiche en construction.",
@@ -5000,22 +4538,6 @@ GLOSSAIRE = {
         "statut": "a_rediger",
         "occurrences": 159,
         "nb_seances": 16,
-    },
-    "message": {
-        "definition": "Fiche en construction.",
-        "categorie": "divers",
-        "origine": "corpus",
-        "statut": "a_rediger",
-        "occurrences": 339,
-        "nb_seances": 36,
-    },
-    "messages": {
-        "definition": "Fiche en construction.",
-        "categorie": "divers",
-        "origine": "corpus",
-        "statut": "a_rediger",
-        "occurrences": 65,
-        "nb_seances": 21,
     },
     "METAR": {
         "definition": "<em>METeorological Aerodrome Report</em> — « message d'observation météorologique d'aérodrome ». Émis toutes les 30 ou 60 minutes. Codé mais ultra-standardisé : vent, visibilité, phénomènes, nuages, température/point de rosée, QNH, tendance.",
@@ -5079,22 +4601,6 @@ GLOSSAIRE = {
         "occurrences": 6,
         "nb_seances": 0,
     },
-    "minute": {
-        "definition": "Fiche en construction.",
-        "categorie": "divers",
-        "origine": "corpus",
-        "statut": "a_rediger",
-        "occurrences": 50,
-        "nb_seances": 21,
-    },
-    "minutes": {
-        "definition": "Fiche en construction.",
-        "categorie": "divers",
-        "origine": "corpus",
-        "statut": "a_rediger",
-        "occurrences": 225,
-        "nb_seances": 30,
-    },
     "mise en route": {
         "definition": "Fiche en construction.",
         "categorie": "divers",
@@ -5142,14 +4648,6 @@ GLOSSAIRE = {
         "statut": "a_rediger",
         "occurrences": 0,
         "nb_seances": 0,
-    },
-    "moment": {
-        "definition": "Fiche en construction.",
-        "categorie": "divers",
-        "origine": "corpus",
-        "statut": "a_rediger",
-        "occurrences": 224,
-        "nb_seances": 35,
     },
     "moment de rappel": {
         "definition": "Fiche en construction.",
@@ -5208,6 +4706,7 @@ GLOSSAIRE = {
         "statut": "a_rediger",
         "occurrences": 13,
         "nb_seances": 10,
+        "synonymes": ["engine"],
     },
     "moulinet": {
         "definition": "Fiche en construction.",
@@ -5265,14 +4764,6 @@ GLOSSAIRE = {
         "occurrences": 0,
         "nb_seances": 0,
     },
-    "nez": {
-        "definition": "Fiche en construction.",
-        "categorie": "divers",
-        "origine": "corpus",
-        "statut": "a_rediger",
-        "occurrences": 19,
-        "nb_seances": 3,
-    },
     "nimbostratus": {
         "definition": "Fiche en construction.",
         "categorie": "divers",
@@ -5288,6 +4779,7 @@ GLOSSAIRE = {
         "statut": "a_rediger",
         "occurrences": 36,
         "nb_seances": 10,
+        "variantes": ["niveaux"],
     },
     "niveau de transition": {
         "definition": "Fiche en construction.",
@@ -5305,14 +4797,6 @@ GLOSSAIRE = {
         "variantes": ["niveaux de vol", "FL", "flight level"],
         "synonymes": ["FL"],
         "xrefs": ["altitude-pression", "calage standard", "altitude de transition"],
-    },
-    "niveaux": {
-        "definition": "Fiche en construction.",
-        "categorie": "divers",
-        "origine": "corpus",
-        "statut": "a_rediger",
-        "occurrences": 62,
-        "nb_seances": 14,
     },
     "NM": {
         "definition": "<em>Nautical Mile</em> — mille marin : 1852 m exactement. Unité de distance horizontale en navigation aérienne et maritime. 1 kt = 1 NM/h.",
@@ -5380,6 +4864,7 @@ GLOSSAIRE = {
         "statut": "a_rediger",
         "occurrences": 25,
         "nb_seances": 13,
+        "variantes": ["nuages"],
     },
     "nuage du jour": {
         "definition": "Fiche en construction.",
@@ -5388,14 +4873,6 @@ GLOSSAIRE = {
         "statut": "a_rediger",
         "occurrences": 25,
         "nb_seances": 13,
-    },
-    "nuages": {
-        "definition": "Fiche en construction.",
-        "categorie": "divers",
-        "origine": "corpus",
-        "statut": "a_rediger",
-        "occurrences": 12,
-        "nb_seances": 6,
     },
     "nuit": {
         "definition": "Fiche en construction.",
@@ -5436,6 +4913,7 @@ GLOSSAIRE = {
         "statut": "a_rediger",
         "occurrences": 100,
         "nb_seances": 14,
+        "variantes": ["obstacles"],
     },
     "obstacle artificiel": {
         "definition": "Fiche en construction.",
@@ -5444,14 +4922,6 @@ GLOSSAIRE = {
         "statut": "a_rediger",
         "occurrences": 0,
         "nb_seances": 0,
-    },
-    "obstacles": {
-        "definition": "Fiche en construction.",
-        "categorie": "divers",
-        "origine": "corpus",
-        "statut": "a_rediger",
-        "occurrences": 93,
-        "nb_seances": 19,
     },
     "occlusion": {
         "definition": "Front froid qui rattrape le front chaud : les deux systèmes fusionnent. Restes de pluie, plafonds bas, traînées — un occlus qui traîne sur l'Île-de-France peut pourrir toute une journée.",
@@ -5518,14 +4988,6 @@ GLOSSAIRE = {
         "statut": "a_rediger",
         "occurrences": 52,
         "nb_seances": 10,
-    },
-    "orientation": {
-        "definition": "Fiche en construction.",
-        "categorie": "divers",
-        "origine": "corpus",
-        "statut": "a_rediger",
-        "occurrences": 50,
-        "nb_seances": 15,
     },
     "ouest": {
         "definition": "Fiche en construction.",
@@ -5703,22 +5165,6 @@ GLOSSAIRE = {
         "occurrences": 0,
         "nb_seances": 0,
     },
-    "performance": {
-        "definition": "Fiche en construction.",
-        "categorie": "divers",
-        "origine": "corpus",
-        "statut": "a_rediger",
-        "occurrences": 95,
-        "nb_seances": 20,
-    },
-    "performances": {
-        "definition": "Fiche en construction.",
-        "categorie": "divers",
-        "origine": "corpus",
-        "statut": "a_rediger",
-        "occurrences": 139,
-        "nb_seances": 33,
-    },
     "perte": {
         "definition": "Fiche en construction.",
         "categorie": "divers",
@@ -5759,28 +5205,12 @@ GLOSSAIRE = {
         "occurrences": 65,
         "nb_seances": 11,
     },
-    "piège": {
-        "definition": "Fiche en construction.",
-        "categorie": "divers",
-        "origine": "corpus",
-        "statut": "a_rediger",
-        "occurrences": 51,
-        "nb_seances": 24,
-    },
     "piège classique": {
         "definition": "Fiche en construction.",
         "categorie": "divers",
         "origine": "corpus",
         "statut": "a_rediger",
         "occurrences": 51,
-        "nb_seances": 24,
-    },
-    "pièges": {
-        "definition": "Fiche en construction.",
-        "categorie": "divers",
-        "origine": "corpus",
-        "statut": "a_rediger",
-        "occurrences": 59,
         "nb_seances": 24,
     },
     "piégeux": {
@@ -5790,14 +5220,6 @@ GLOSSAIRE = {
         "statut": "a_rediger",
         "occurrences": 47,
         "nb_seances": 18,
-    },
-    "pilotage": {
-        "definition": "Fiche en construction.",
-        "categorie": "divers",
-        "origine": "corpus",
-        "statut": "a_rediger",
-        "occurrences": 62,
-        "nb_seances": 20,
     },
     "piloter": {
         "definition": "Fiche en construction.",
@@ -6043,6 +5465,7 @@ GLOSSAIRE = {
         "statut": "a_rediger",
         "occurrences": 124,
         "nb_seances": 10,
+        "synonymes": ["pump"],
     },
     "pompe électrique": {
         "definition": "Fiche en construction.",
@@ -6205,6 +5628,7 @@ GLOSSAIRE = {
         "statut": "a_rediger",
         "occurrences": 254,
         "nb_seances": 31,
+        "variantes": ["procédures"],
     },
     "procedure d'attente": {
         "definition": "Fiche en construction.",
@@ -6213,14 +5637,6 @@ GLOSSAIRE = {
         "statut": "a_rediger",
         "occurrences": 0,
         "nb_seances": 0,
-    },
-    "procédures": {
-        "definition": "Fiche en construction.",
-        "categorie": "divers",
-        "origine": "corpus",
-        "statut": "a_rediger",
-        "occurrences": 130,
-        "nb_seances": 22,
     },
     "profil": {
         "definition": "Fiche en construction.",
@@ -6253,6 +5669,7 @@ GLOSSAIRE = {
         "statut": "a_rediger",
         "occurrences": 49,
         "nb_seances": 5,
+        "synonymes": ["hélice"],
     },
     "prorogation": {
         "definition": "Fiche en construction.",
@@ -6293,6 +5710,7 @@ GLOSSAIRE = {
         "statut": "a_rediger",
         "occurrences": 21,
         "nb_seances": 5,
+        "synonymes": ["pompe"],
     },
     "purge": {
         "definition": "Fiche en construction.",
@@ -6395,14 +5813,7 @@ GLOSSAIRE = {
         "categorie": "Vent",
         "origine": "corpus",
         "statut": "redigee",
-    },
-    "rafales": {
-        "definition": "Fiche en construction.",
-        "categorie": "divers",
-        "origine": "corpus",
-        "statut": "a_rediger",
-        "occurrences": 17,
-        "nb_seances": 5,
+        "variantes": ["rafales"],
     },
     "rayon": {
         "definition": "Fiche en construction.",
@@ -6484,14 +5895,6 @@ GLOSSAIRE = {
         "occurrences": 50,
         "nb_seances": 11,
     },
-    "réflexe": {
-        "definition": "Fiche en construction.",
-        "categorie": "divers",
-        "origine": "corpus",
-        "statut": "a_rediger",
-        "occurrences": 126,
-        "nb_seances": 31,
-    },
     "refroidissement": {
         "definition": "Fiche en construction.",
         "categorie": "divers",
@@ -6540,14 +5943,6 @@ GLOSSAIRE = {
         "occurrences": 2,
         "nb_seances": 0,
     },
-    "règle": {
-        "definition": "Fiche en construction.",
-        "categorie": "divers",
-        "origine": "corpus",
-        "statut": "a_rediger",
-        "occurrences": 240,
-        "nb_seances": 37,
-    },
     "règle d'or": {
         "definition": "Fiche en construction.",
         "categorie": "divers",
@@ -6563,14 +5958,6 @@ GLOSSAIRE = {
         "statut": "a_rediger",
         "occurrences": 88,
         "nb_seances": 26,
-    },
-    "règles": {
-        "definition": "Fiche en construction.",
-        "categorie": "divers",
-        "origine": "corpus",
-        "statut": "a_rediger",
-        "occurrences": 75,
-        "nb_seances": 18,
     },
     "règles de l'air": {
         "definition": "Fiche en construction.",
@@ -6933,14 +6320,6 @@ GLOSSAIRE = {
         "occurrences": 90,
         "nb_seances": 16,
     },
-    "secondes": {
-        "definition": "Fiche en construction.",
-        "categorie": "divers",
-        "origine": "corpus",
-        "statut": "a_rediger",
-        "occurrences": 122,
-        "nb_seances": 31,
-    },
     "secours": {
         "definition": "Fiche en construction.",
         "categorie": "divers",
@@ -6997,14 +6376,6 @@ GLOSSAIRE = {
         "statut": "a_rediger",
         "occurrences": 0,
         "nb_seances": 0,
-    },
-    "sensation": {
-        "definition": "Fiche en construction.",
-        "categorie": "divers",
-        "origine": "corpus",
-        "statut": "a_rediger",
-        "occurrences": 75,
-        "nb_seances": 12,
     },
     "sep": {
         "definition": "Fiche en construction.",
@@ -7136,14 +6507,6 @@ GLOSSAIRE = {
         "occurrences": 11,
         "nb_seances": 4,
     },
-    "situation": {
-        "definition": "Fiche en construction.",
-        "categorie": "divers",
-        "origine": "corpus",
-        "statut": "a_rediger",
-        "occurrences": 127,
-        "nb_seances": 30,
-    },
     "siv": {
         "definition": "Fiche en construction.",
         "categorie": "divers",
@@ -7159,14 +6522,6 @@ GLOSSAIRE = {
         "statut": "a_rediger",
         "occurrences": 55,
         "nb_seances": 21,
-    },
-    "sol": {
-        "definition": "Fiche en construction.",
-        "categorie": "divers",
-        "origine": "corpus",
-        "statut": "a_rediger",
-        "occurrences": 27,
-        "nb_seances": 12,
     },
     "soleil": {
         "definition": "Fiche en construction.",
@@ -7382,14 +6737,6 @@ GLOSSAIRE = {
         "occurrences": 0,
         "nb_seances": 0,
     },
-    "surface": {
-        "definition": "Fiche en construction.",
-        "categorie": "divers",
-        "origine": "corpus",
-        "statut": "a_rediger",
-        "occurrences": 120,
-        "nb_seances": 22,
-    },
     "surface de piste": {
         "definition": "Fiche en construction.",
         "categorie": "divers",
@@ -7405,14 +6752,6 @@ GLOSSAIRE = {
         "statut": "a_rediger",
         "occurrences": 51,
         "nb_seances": 11,
-    },
-    "tableau": {
-        "definition": "Fiche en construction.",
-        "categorie": "divers",
-        "origine": "corpus",
-        "statut": "a_rediger",
-        "occurrences": 118,
-        "nb_seances": 29,
     },
     "tableau de déviation": {
         "definition": "Fiche en construction.",
@@ -7587,6 +6926,7 @@ GLOSSAIRE = {
         "statut": "a_rediger",
         "occurrences": 35,
         "nb_seances": 35,
+        "variantes": ["terrains"],
     },
     "terrain de dégagement": {
         "definition": "Fiche en construction.",
@@ -7595,14 +6935,6 @@ GLOSSAIRE = {
         "statut": "a_rediger",
         "occurrences": 11,
         "nb_seances": 0,
-    },
-    "terrains": {
-        "definition": "Fiche en construction.",
-        "categorie": "divers",
-        "origine": "corpus",
-        "statut": "a_rediger",
-        "occurrences": 75,
-        "nb_seances": 17,
     },
     "terre": {
         "definition": "Fiche en construction.",
@@ -7619,14 +6951,7 @@ GLOSSAIRE = {
         "statut": "a_rediger",
         "occurrences": 83,
         "nb_seances": 14,
-    },
-    "thermiques": {
-        "definition": "Fiche en construction.",
-        "categorie": "divers",
-        "origine": "corpus",
-        "statut": "a_rediger",
-        "occurrences": 51,
-        "nb_seances": 9,
+        "variantes": ["thermiques"],
     },
     "throttle": {
         "definition": "Fiche en construction.",
@@ -7635,6 +6960,7 @@ GLOSSAIRE = {
         "statut": "a_rediger",
         "occurrences": 15,
         "nb_seances": 3,
+        "synonymes": ["manette"],
     },
     "TMA": {
         "definition": "<em>Terminal Control Area</em> : espace contrôlé au-dessus d'une zone d'aérodromes. Celle de Paris plafonne bas autour de LFPN : une verticale mal gérée, et tu chatouilles les couloirs d'Orly.",
@@ -8038,14 +7364,6 @@ GLOSSAIRE = {
         "occurrences": 0,
         "nb_seances": 0,
     },
-    "vent": {
-        "definition": "Fiche en construction.",
-        "categorie": "divers",
-        "origine": "corpus",
-        "statut": "a_rediger",
-        "occurrences": 80,
-        "nb_seances": 22,
-    },
     "vent anabatique": {
         "definition": "Fiche en construction.",
         "categorie": "divers",
@@ -8206,14 +7524,6 @@ GLOSSAIRE = {
         "occurrences": 51,
         "nb_seances": 19,
     },
-    "vigueur": {
-        "definition": "Fiche en construction.",
-        "categorie": "divers",
-        "origine": "corpus",
-        "statut": "a_rediger",
-        "occurrences": 96,
-        "nb_seances": 17,
-    },
     "virage": {
         "definition": "Fiche en construction.",
         "categorie": "divers",
@@ -8268,14 +7578,6 @@ GLOSSAIRE = {
         "occurrences": 18,
         "nb_seances": 0,
     },
-    "vision": {
-        "definition": "Fiche en construction.",
-        "categorie": "divers",
-        "origine": "corpus",
-        "statut": "a_rediger",
-        "occurrences": 78,
-        "nb_seances": 6,
-    },
     "vision nocturne": {
         "definition": "Fiche en construction.",
         "categorie": "divers",
@@ -8291,14 +7593,6 @@ GLOSSAIRE = {
         "statut": "a_rediger",
         "occurrences": 14,
         "nb_seances": 7,
-    },
-    "vitesse": {
-        "definition": "Fiche en construction.",
-        "categorie": "divers",
-        "origine": "corpus",
-        "statut": "a_rediger",
-        "occurrences": 698,
-        "nb_seances": 33,
     },
     "vitesse air": {
         "definition": "Fiche en construction.",
@@ -8388,14 +7682,6 @@ GLOSSAIRE = {
         "statut": "a_rediger",
         "occurrences": 0,
         "nb_seances": 0,
-    },
-    "vitesses": {
-        "definition": "Fiche en construction.",
-        "categorie": "divers",
-        "origine": "corpus",
-        "statut": "a_rediger",
-        "occurrences": 124,
-        "nb_seances": 27,
     },
     "vitesses caractéristiques": {
         "definition": "Famille des vitesses repères d'un avion, notées <strong>V</strong> suivi d'un indice, et lues sur l'anémométre en KIAS (vitesse indiquée). Sur l'Aquila AT01-100A : VNE 165, VNO 130, VA 112, VFE 90, VS1 49, VS0 39 KIAS. Ce sont les valeurs du <strong>manuel de vol de l'exemplaire</strong> qui font foi.",
@@ -8593,14 +7879,6 @@ GLOSSAIRE = {
         "variantes": ["Vs1", "vs1", "V S1", "VS₁", "V-S1"],
         "xrefs": ["VS0", "décrochage", "vitesse de décrochage", "vitesses caractéristiques"],
     },
-    "vue": {
-        "definition": "Fiche en construction.",
-        "categorie": "divers",
-        "origine": "corpus",
-        "statut": "a_rediger",
-        "occurrences": 127,
-        "nb_seances": 25,
-    },
     "Vx": {
         "definition": "Vitesse du meilleur <strong>angle</strong> de montée : le plus d'altitude gagnée par mètre parcouru au sol. C'est la vitesse du franchissement d'obstacle, tenue seulement le temps de le passer. Sur l'AT01-100A : <strong>52 KIAS</strong> (manuel de vol).",
         "categorie": "Vitesses & performances",
@@ -8649,14 +7927,6 @@ GLOSSAIRE = {
         "occurrences": 11,
         "nb_seances": 3,
     },
-    "yeux": {
-        "definition": "Fiche en construction.",
-        "categorie": "divers",
-        "origine": "corpus",
-        "statut": "a_rediger",
-        "occurrences": 81,
-        "nb_seances": 23,
-    },
     "zone": {
         "definition": "Fiche en construction.",
         "categorie": "divers",
@@ -8664,6 +7934,7 @@ GLOSSAIRE = {
         "statut": "a_rediger",
         "occurrences": 386,
         "nb_seances": 35,
+        "variantes": ["zones"],
     },
     "zone dangereuse": {
         "definition": "Fiche en construction.",
@@ -8696,14 +7967,6 @@ GLOSSAIRE = {
         "statut": "a_rediger",
         "occurrences": 0,
         "nb_seances": 0,
-    },
-    "zones": {
-        "definition": "Fiche en construction.",
-        "categorie": "divers",
-        "origine": "corpus",
-        "statut": "a_rediger",
-        "occurrences": 120,
-        "nb_seances": 25,
     },
     "θ": {
         "definition": "Écart angulaire entre l'axe de piste (QFU) et la direction d'où vient le vent. C'est l'angle qui commande tout. En briefing PPL on place θ dans un secteur (0–30 / 30–60 / 60–90) pour le travers mental ; la référence exacte reste face = V × cos θ, travers = V × sin θ. À θ = 0° tout est de face ; à 90°, tout est de travers.",

@@ -1,0 +1,229 @@
+# AeroLex — monomots restant a arbitrer
+
+_Genere le 2026-08-03. AeroLex : **1 033 entrees** (etait 1 101)._
+
+## Deja traite (round 1)
+
+- **25 mots supprimes** : francais courant sans sens aero (`erreur`, `heure`, `minute`, `vue`, `ciel`, `eau`, `tableau`, `sensation`, `alphabet`...)
+- **43 pluriels fusionnes** en `variantes` de leur singulier — regle Louis : `aileron`/`ailerons` = piece aero utile, mais **une seule entree**
+- **8 anglais lies en synonymes** : `engine`=`moteur`, `fuel`=`carburant`, `pump`=`pompe`, `throttle`=`manette`, `prop`=`helice`, `ignition`=`allumage`, `lean`=`melange`, `cruise`=`croisiere` (entrees anglaises **conservees**)
+- **Gardes malgre l'apparence** : `amers` (reperes de nav), `alerte` (INCERFA/ALERFA/DETRESFA), `entree` (entree d'espace), `espace`, `champ`, `perte`, `phase`
+
+---
+
+## GROUPE B — atome couvert par une expression composee (204)
+
+**Reco : supprimer l'atome**, l'expression porte le sens. Biffe ce que tu veux garder.
+
+- `abaque` -> `abaque de centrage`
+- `agl` -> `ft agl`
+- `aileron` -> `aileron au vent`
+- `air` -> `mal de l'air`, `manche à air`, `règles de l'air`
+- `altitude` -> `altitude de croisière`, `altitude de sécurité`, `altitude de transition`
+- `angle` -> `angle d'attaque`, `angle de dérive`
+- `approche` -> `approche finale`, `approche interrompue`, `approche stabilisée`
+- `arc` -> `arc blanc`, `arc dme`, `arc jaune`
+- `arrivée` -> `briefing arrivée`, `heure d'arrivée`
+- `ascendance` -> `ascendance thermique`
+- `assiette` -> `assiette de croisière`, `assiette de montée`, `assiette de reference`
+- `attente` -> `point d'attente`, `procedure d'attente`
+- `atterrissage` -> `atterrissage de précaution`, `atterrissage forcé`, `atterrissage precaution`
+- `attitude` -> `attitude de vol`
+- `autonomie` -> `autonomie carburant`
+- `autorisation` -> `autorisation atterrissage`
+- `aviation` -> `alphabet aviation`
+- `axe` -> `axe de piste`
+- `aérodrome` -> `aérodrome de dégagement`, `contrôle d'aérodrome`
+- `basse` -> `circuit basse hauteur`, `cisaillement basse couche`, `tour de piste basse hauteur`
+- `biais` -> `biais de confirmation`
+- `blanc` -> `arc blanc`
+- `briefing` -> `briefing arrivée`, `briefing départ`
+- `brise` -> `brise de mer`, `brise de pente`, `brise de terre`
+- `cabine` -> `feu cabine`
+- `calage` -> `calage altimétrique`, `calage helice`, `calage standard`
+- `canal` -> `canal unique`
+- `cap` -> `cap compas`, `cap magnétique`, `cap vrai`
+- `carburant` -> `autonomie carburant`, `bilan carburant`, `carburant degagement`
+- `carburateur` -> `givrage carburateur`, `réchauffage carburateur`
+- `carnet` -> `carnet de route`
+- `carte` -> `carte oaci`, `carte topographique`, `carte vac`
+- `centrage` -> `abaque de centrage`, `masse et centrage`
+- `certificat` -> `certificat médical`
+- `charge` -> `charge de travail`, `facteur de charge`, `plan de charge`
+- `chaud` -> `front chaud`
+- `check` -> `check-list atterrissage`, `check-list décollage`
+- `check-list` -> `check-list atterrissage`, `check-list décollage`
+- `chute` -> `chute de pression`, `taux de chute`
+- `circuit` -> `circuit basse hauteur`
+- `clairance` -> `clairance de décollage`, `collationnement clairance`
+- `collationnement` -> `collationnement clairance`
+- `commande` -> `double commande`
+- `compas` -> `cap compas`, `déviation compas`
+- `composante` -> `composante arrière`, `composante de face`, `composante de travers`
+- `congestus` -> `cumulus congestus`
+- `consommation` -> `consommation horaire`
+- `continuation` -> `plan continuation bias`
+- `contrôle` -> `contrôle d'aérodrome`, `espace contrôlé`, `tour de contrôle`
+- `convection` -> `convection thermique`
+- `couche` -> `cisaillement basse couche`, `couche d'inversion`
+- `couple` -> `couple gyroscopique`, `couple moteur`
+- `courte` -> `courte finale`, `finale courte`
+- `croisière` -> `altitude de croisière`, `assiette de croisière`, `palier de croisière`
+- `cumulus` -> `cumulus congestus`
+- `dangereuse` -> `zone dangereuse`
+- `datum` -> `mm aft datum`
+- `demi-tour` -> `demi-tour standard`
+- `densité` -> `altitude densité`
+- `descente` -> `descente initiale`, `pente de descente`, `plan de descente`
+- `distance` -> `distance d'atterrissage`, `distance de décollage`, `distance de franchissement`
+- `dme` -> `arc dme`
+- `domaine` -> `domaine de vol`
+- `dégagement` -> `aérodrome de dégagement`, `carburant degagement`, `terrain de dégagement`
+- `démontré` -> `vent de travers démontré`
+- `départ` -> `briefing départ`, `heure de départ`
+- `détresse` -> `détresse mayday`
+- `déviation` -> `déviation compas`, `tableau de déviation`
+- `effet` -> `effet de foehn`, `effet de pente`, `effet de site`
+- `espace` -> `espace aérien`, `espace contrôlé`
+- `essai` -> `essai magnétos`
+- `estime` -> `temps estimé`, `vent estimé`
+- `feu` -> `feu cabine`, `feu moteur`
+- `foehn` -> `effet de foehn`
+- `force` -> `atterrissage forcé`
+- `freinage` -> `coefficient de freinage`
+- `froid` -> `front froid`
+- `front` -> `front chaud`, `front froid`, `front occlus`
+- `fuel` -> `fuel pump`, `fuel pump on`
+- `gaz` -> `plein gaz`, `remise de gaz interrompue`, `remise des gaz`
+- `givrage` -> `givrage carburateur`, `givrage en vol`, `givrage moteur`
+- `gradient` -> `gradient de vent`, `gradient thermique`, `vent gradient`
+- `grain` -> `ligne de grain`
+- `hauteur` -> `circuit basse hauteur`, `hauteur de sécurité`, `hauteur tour de piste`
+- `herbe` -> `herbe sèche`
+- `horizon` -> `horizon artificiel`
+- `horizontal` -> `virage horizontal stabilisé`
+- `huile` -> `pression d'huile`, `température d'huile`
+- `hélice` -> `calage helice`, `pas d'hélice`, `régime hélice`
+- `ignition` -> `off ignition off`
+- `illusion` -> `illusion somatogyrale`
+- `incidence` -> `incidence critique`
+- `inclinaison` -> `inclinaison standard`
+- `instabilité` -> `instabilité atmosphérique`
+- `interdite` -> `zone interdite`
+- `isotherme` -> `isotherme zero`
+- `jaune` -> `arc jaune`
+- `lacet` -> `lacet adverse`
+- `largeur` -> `largeur de piste`
+- `levier` -> `bras de levier`
+- `limite` -> `limite arriere`, `limite avant`
+- `longue` -> `longue finale`
+- `magnétique` -> `cap magnétique`, `déclinaison magnétique`, `nord magnétique`
+- `magnéto` -> `magnéto droite`, `magnéto gauche`
+- `majoration` -> `majoration rafale`
+- `manche` -> `effort au manche`, `manche à air`
+- `marge` -> `marge de decrochage`, `marge de franchissement`
+- `masse` -> `devis de masse`, `masse a vide`, `masse du jour`
+- `mayday` -> `détresse mayday`
+- `mer` -> `brise de mer`
+- `minima` -> `minima météo`
+- `mm` -> `mm aft datum`
+- `monomoteur` -> `monomoteur léger`
+- `montée` -> `assiette de montée`, `montée initiale`, `pente de montée`
+- `moteur` -> `couple moteur`, `feu moteur`, `givrage moteur`
+- `médical` -> `certificat médical`
+- `mélange` -> `richesse mélange`
+- `météo` -> `météo du jour`, `minima météo`
+- `niveau` -> `niveau de transition`, `niveau de vol`
+- `nord` -> `nord magnétique`, `nord vrai`
+- `nuage` -> `nuage du jour`
+- `nuit` -> `vol de nuit`
+- `oaci` -> `carte oaci`
+- `obstacle` -> `obstacle artificiel`
+- `onde` -> `onde de relief`
+- `oreille` -> `oreille interne`
+- `palier` -> `palier de croisière`
+- `pan` -> `urgence pan pan`
+- `panne` -> `panne électrique`, `panne moteur`, `panne radio`
+- `pente` -> `brise de pente`, `effet de pente`, `pente de descente`
+- `percee` -> `percée verticale`
+- `perte` -> `perte de position`
+- `pesée` -> `fiche de pesée`
+- `piège` -> `piège classique`
+- `plat` -> `ailes à plat`, `vrille à plat`
+- `plein` -> `plein gaz`
+- `pompe` -> `pompe électrique`
+- `position` -> `perte de position`
+- `pression` -> `chute de pression`, `pression d'huile`, `pression standard`
+- `procédure` -> `procedure d'attente`
+- `précaution` -> `atterrissage de précaution`, `atterrissage precaution`
+- `prévol` -> `visite prévol`
+- `pump` -> `fuel pump`, `fuel pump on`
+- `rabattant` -> `rabattant sous le vent`
+- `radio` -> `panne radio`, `silence radio`
+- `rayonnement` -> `brouillard de rayonnement`
+- `recalage` -> `recalage en route`
+- `relief` -> `onde de relief`, `relief environnant`
+- `remise` -> `remise de gaz interrompue`, `remise des gaz`
+- `rentrés` -> `volets rentrés`
+- `report` -> `point de report`, `points de report`
+- `richesse` -> `richesse mélange`
+- `roll` -> `ground roll`
+- `rosée` -> `point de rosée`
+- `rotation` -> `vitesse de rotation`
+- `rouge` -> `trait rouge`
+- `route` -> `carnet de route`, `mise en route`, `recalage en route`
+- `règle` -> `règle d'or`
+- `récupération` -> `récupération de décrochage`
+- `régime` -> `régime hélice`, `régime moteur`, `regime venturi`
+- `réglementaire` -> `espacement réglementaire`, `réserve réglementaire`
+- `réserve` -> `réserve de carburant`, `reserve finale`, `réserve réglementaire`
+- `secteur` -> `secteur variable`
+- `signaux` -> `signaux lumineux`
+- `sillage` -> `turbulence de sillage`
+- `sol` -> `effet de sol`, `roulage au sol`, `vitesse sol`
+- `sortis` -> `volets sortis`
+- `stabilisé` -> `virage horizontal stabilisé`
+- `stabilité` -> `stabilité atmosphérique`, `stabilité statique`
+- `stall` -> `stall warning`
+- `statique` -> `stabilité statique`
+- `structurale` -> `constante structurale`
+- `surface` -> `surface de piste`
+- `sèche` -> `herbe sèche`
+- `sécurité` -> `altitude de sécurité`, `hauteur de sécurité`, `vent arriere de securite`
+- `taux` -> `taux de chute`, `taux de descente`, `taux de montée`
+- `température` -> `inversion de température`, `température culasse`, `température d'huile`
+- `terrain` -> `terrain de dégagement`, `verticale terrain`
+- `terre` -> `brise de terre`
+- `thermique` -> `ascendance thermique`, `convection thermique`, `gradient thermique`
+- `tour` -> `altitude tour de piste`, `demi-tour standard`, `hauteur tour de piste`
+- `trafic` -> `info trafic`, `information trafic`
+- `train` -> `atterrissage train rentré`
+- `transpondeur` -> `transpondeur 7500`, `transpondeur 7600`, `transpondeur 7700`
+- `travers` -> `composante de travers`, `kt de travers`, `vent de travers démontré`
+- `traînée` -> `traînée induite`, `traînée parasite`
+- `triangle` -> `triangle des vitesses`
+- `trou` -> `trou noir`
+- `turbulence` -> `turbulence de sillage`, `turbulence en air clair`, `turbulence mécanique`
+- `up` -> `volets up`
+- `urgence` -> `urgence pan pan`
+- `utilisable` -> `carburant utilisable`
+- `vallée` -> `brise de vallée`
+- `vent` -> `aileron au vent`, `cisaillement de vent`, `gradient de vent`
+- `vert` -> `arc vert`
+- `virage` -> `dernier virage`, `virage horizontal stabilisé`, `virage standard`
+- `vitesse` -> `vitesse air`, `vitesse corrigee`, `vitesse d'approche`
+- `vol` -> `attitude de vol`, `domaine de vol`, `givrage en vol`
+- `volets` -> `volets rentrés`, `volets sortis`, `volets up`
+- `vrille` -> `vrille à plat`
+- `warning` -> `stall warning`
+- `zone` -> `zone dangereuse`, `zone de contrôle`, `zone interdite`
+- `électrique` -> `panne électrique`, `pompe électrique`
+- `énergie` -> `énergie cinétique`
+
+---
+
+## GROUPE C — sans expression composee (388)
+
+Termes aero autonomes. **Reco : garder**, sauf ceux que tu biffes.
+
+`accident`, `accélération`, `adf`, `advection`, `aerocolique`, `aerofrein`, `afis`, `aile`, `alcool`, `alerte`, `allumage`, `alt`, `alternateur`, `altimètre`, `altimétrie`, `altocumulus`, `altostratus`, `amers`, `annonce`, `anémomètre`, `aquila`, `asi`, `atc`, `ats`, `atterrir`, `atz`, `autorisé`, `autorotation`, `averse`, `aviate`, `avion`, `avitaillement`, `aéronautique`, `badin`, `bagages`, `barotraumatisme`, `bat`, `batterie`, `becs`, `bille`, `bkn`, `both`, `br`, `branche`, `brassage`, `bravo`, `brief`, `cabré`, `calvus`, `carbu`, `cas`, `castellanus`, `catégorie`, `caution`, `cellule`, `cerveau`, `cg`, `champ`, `chauffage`, `checklist`, `choke`, `cht`, `cirrostratus`, `classe`, `clôture`, `cockpit`, `code`, `collationner`, `com`, `compensateur`, `composite`, `config`, `configuration`, `conflit`, `conservateur`, `consigne`, `conso`, `convergence`, `conversion`, `coordonné`, `cos`, `couper`, `crm`, `cruise`, `créneau`, `crête`, `cu`, `cumulonimbus`, `dalr`, `danger`, `dangereux`, `dense`, `descendre`, `destination`, `dgac`, `diagnostic`, `discipline`, `divergence`, `document`, `dos`, `déroutement`, `easa`, `eet`, `elr`, `empennage`, `engine`, `entrée`, `enveloppe`, `eta`, `examen`, `fatigue`, `few`, `fi`, `filet`, `fir`, `flaps`, `flux`, `formation`, `foxtrot`, `fpl`, `fractus`, `frein`, `fréquence`, `ft/min`, `fuselage`, `givre`, `glace`, `gnss`, `golf`, `gouverne`, `gps`, `grandeur`, `gyroscope`, `géométrie`, `haute`, `hippodrome`, `hiver`, `holding`, `hotel`, `humide`, `humidité`, `humilis`, `hyperventilation`, `hypoxie`, `iac`, `idle`, `ils`, `imsafe`, `indicatif`, `instable`, `instructeur`, `instrument`, `interception`, `interdit`, `jugement`, `kg`, `kg/l`, `km`, `km/h`, `ktas`, `l/h`, `landing`, `ldg`, `lean`, `lenticularis`, `lfac`, `lfat`, `lfbd`, `lfbo`, `lfeh`, `lfen`, `lfey`, `lfjr`, `lflc`, `lfll`, `lfln`, `lflx`, `lfmd`, `lfml`, `lfmn`, `lfmp`, `lfmt`, `lfob`, `lfod`, `lfoe`, `lfoh`, `lfoi`, `lfoj`, `lfok`, `lfoo`, `lfor`, `lfot`, `lfou`, `lfow`, `lfox`, `lfoy`, `lfoz`, `lfpb`, `lfpg`, `lfpk`, `lfpn`, `lfpo`, `lfpt`, `lfpv`, `lfqq`, `lfrb`, `lfrd`, `lfrg`, `lfrn`, `lfrs`, `lfsb`, `lfsn`, `lfst`, `lftw`, `lfxu`, `licence`, `lisse`, `longeron`, `lâcher`, `légal`, `m/s`, `machmetre`, `mag`, `mammatus`, `manette`, `manoeuvre`, `manœuvre`, `matin`, `menace`, `message`, `metar/taf`, `micro`, `mike`, `mission`, `mistral`, `monter`, `moulinet`, `mtom`, `nav`, `navigabilité`, `navigation`, `nervure`, `nez`, `nimbostratus`, `no-go`, `oat`, `obligatoire`, `orage`, `organisme`, `orientation`, `ouest`, `ovc`, `oxygène`, `palonnier`, `papillon`, `parking`, `passager`, `pax`, `performance`, `phase`, `phraséologie`, `pilotage`, `piloter`, `piqué`, `pitot`, `piégeux`, `plancher`, `plané`, `plongée`, `pluie`, `poids`, `polaire`, `portance`, `porte`, `ppl`, `priorité`, `prob`, `profil`, `profondeur`, `prop`, `prorogation`, `pré-lâcher`, `précipitations`, `prévention`, `psi`, `publiée`, `puissance`, `purge`, `qcm`, `qdm`, `qdr`, `radiale`, `radiocompas`, `rayon`, `read-back`, `refroidissement`, `repère`, `risque`, `rmz`, `roger`, `rotax`, `rotor`, `roue`, `roulette`, `roulis`, `rpm`, `rugosité`, `réducteur`, `réflexe`, `réservoir`, `saturation`, `saturé`, `scan`, `schéma`, `sct`, `scénario`, `sec`, `secours`, `selector`, `sep`, `servitude`, `seul`, `shra`, `sigma`, `sigmet`, `sin`, `siv`, `siège`, `soir`, `soleil`, `solo`, `sommeil`, `sortie`, `squawk`, `stabiliser`, `stable`, `start`, `station`, `stratocumulus`, `stratus`, `stress`, `structure`, `subsidence`, `sud`, `séparation`, `séquence`, `t/o`, `tachymetre`, `tangage`, `tango`, `tcds`, `tem`, `temsi`, `throttle`, `tmz`, `tod`, `totalisateur`, `traction`, `trajectoire`, `trajet`, `tramontane`, `trim`, `tropopause`, `troposphere`, `uir`, `utc`, `validité`, `variometre`, `vertical`, `victor`, `vigilance`, `vigueur`, `vireur`, `vle`, `voler`, `volt`, `vor`, `voyant`, `vr`, `vrb`, `wca`, `wintem`, `x-ray`, `yeux`, `échec`, `élevée`, `élève`, `évitement`
