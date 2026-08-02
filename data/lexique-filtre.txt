@@ -1,0 +1,1152 @@
+# LEXIQUE AERO — candidats juges (Aero Coach, 37 seances)
+# Format bloc CORPUS : terme <TAB> occurrences <TAB> nb_seances
+#   (nb_seances = 0 quand le terme vient d'une passe sans comptage par seance)
+# Format bloc METIER : terme (une par ligne)
+#
+# ORIGINE DES TERMES — deux blocs, deux statuts
+#   corpus  = le terme APPARAIT reellement dans les seances. Presence
+#             verifiee PAR PROGRAMME contre un index construit sur les
+#             158 fichiers du corpus (sessions/*.html + data_*.py +
+#             meteo_utils / glos_utils / plan_seances / docs md).
+#             -> lien actif sur les pages de seance.
+#   metier  = vocabulaire aero francais standard, reellement employe en
+#             aeronautique, mais ABSENT du corpus. Fiche a creer,
+#             PAS de lien actif tant que le mot n'apparait nulle part.
+#
+# Le classement corpus/metier est MECANIQUE : il decoule uniquement du
+# test de presence, jamais d'un jugement. Un terme juge pertinent mais
+# introuvable dans le corpus va en METIER, il n'est jamais promu corpus.
+#
+# REGLE D'AFFICHAGE — LONGEST MATCH WINS
+#   A l'affichage sur les pages de seance, une expression de plusieurs
+#   mots est PRIORITAIRE sur une expression plus courte : on trie les
+#   termes par nombre de mots puis par longueur de chaine decroissante,
+#   le premier qui matche gagne, et une portion de texte deja consommee
+#   par un lien n'est plus candidate pour un terme plus court.
+#   Ex. `ft/min` l'emporte sur `ft` ; `vent arriere` sur `vent` ;
+#       `point de rosee` sur `point`.
+#
+# NOTE — atomes polysemiques
+#   Quelques atomes retenus sont aussi des mots courants du francais
+#   (`va`, `moment`, `point`, `plan`, `air`). Ils sont conserves car ils
+#   portent un sens aero reel dans le corpus (Va = vitesse de manoeuvre,
+#   moment = masse et centrage). La regle longest-match les protege :
+#   `vitesse de manoeuvre` et `moment de tangage` gagnent avant eux.
+#
+# EXCLUSIONS — villes, lieux, immatriculations (decision Louis 02/08/2026)
+#   Un nom de ville / de region / de pays n'est PAS un terme aero : on ne
+#   definit pas de villes dans un glossaire de vol. 34 entrees retirees
+#   (paris, orly, montpellier, bordeaux, bale, clermont, toussus,
+#   toussus-le-noble, beauvais, brest, chartres, etampes, meaux,
+#   mulhouse, nice, pontoise, roissy, toulouse, villacoublay, france,
+#   ile-de-france, idf, chavenay, coulommiers, enghien, lognes, lyon,
+#   marseille, moisselles, nantes, persan, rennes, saint-cyr,
+#   strasbourg). Idem pour les immatriculations d'aeronefs : 2 entrees
+#   retirees (f-haat, fm-at) — une immat identifie une machine, pas un
+#   concept.
+#
+#   CONSERVES malgre l'apparence geographique :
+#     - les 50 codes OACI (lfpn, lfpo, lfsb, lfmt, lfbd, lflc, ...) :
+#       un code OACI designe un TERRAIN, avec sa carte VAC, ses pistes,
+#       ses procedures, son tour de piste -> il merite sa fiche.
+#     - `tma paris` : designation d'espace aerien, pas une ville.
+#     - `mer`, `terre`, `nord`, `sud`, `ouest` : atomes aero reels
+#       (brise de mer, brise de terre, nord magnetique, nord vrai,
+#       secteurs cardinaux de navigation). Proteges par longest-match.
+#     - `hippodrome` : forme du circuit d'attente, pas un lieu.
+
+### DANS LE CORPUS (962)
+vol	1334	37
+air	750	34
+radio	714	34
+vitesse	698	33
+carte	548	29
+avion	505	36
+météo	490	37
+gaz	487	29
+décision	458	37
+tour	411	34
+circuit	388	33
+zone	386	35
+nuit	362	32
+distance	343	24
+message	339	36
+seul	330	36
+puissance	324	29
+fréquence	311	24
+trajectoire	308	26
+risque	307	34
+froid	306	23
+nav	306	27
+basse	303	33
+courte	290	34
+chaud	279	22
+plein	279	27
+remise	275	22
+bord	255	32
+procédure	254	31
+haute	249	35
+obligatoire	247	35
+ppl	245	32
+sécurité	241	35
+règle	240	37
+pente	237	15
+interdit	232	35
+wca	232	4
+minutes	225	30
+régime	225	26
+moment	224	35
+assiette	220	22
+trafic	218	25
+position	214	23
+contrôle	209	33
+trim	207	20
+départ	204	32
+réserve	204	23
+stable	197	29
+grandeur	195	33
+kt	190	17
+contact	188	21
+instruments	188	22
+couper	185	31
+check	181	26
+ils	180	0
+instructeur	180	30
+brief	173	22
+bagages	169	14
+ciel	165	30
+priorité	165	27
+anémomètre	161	0
+navigation	161	32
+approche	160	31
+mer	159	16
+ligne	158	31
+pan	157	3
+autorisé	156	18
+classe	155	11
+destination	155	19
+matin	154	23
+remise de gaz	153	16
+distances	152	25
+structure	152	25
+attitude	151	31
+ouest	150	15
+clôture	148	37
+espaces	147	13
+créneau	145	21
+fréquences	145	17
+taux	145	17
+perte	141	25
+code	140	18
+heure	139	25
+performances	139	33
+consignes	137	24
+urgence	137	17
+discipline	135	32
+limites	134	27
+chute	133	13
+utilisable	133	24
+mission	132	17
+calage	131	23
+dérive	131	19
+stabilisé	131	20
+procédures	130	22
+check-list	127	22
+feu	127	12
+situation	127	30
+vue	127	25
+réflexe	126	31
+compas	124	14
+pompe	124	10
+sec	124	19
+vitesses	124	27
+électrique	124	16
+couche	123	25
+force	122	29
+légal	122	29
+secondes	122	31
+rotation	121	17
+holding	120	8
+surface	120	22
+zones	120	25
+kg	119	12
+poids	119	11
+danger	118	27
+ifr	118	28
+tableau	118	29
+dangereux	117	31
+temsi	117	7
+demi-tour	116	16
+densité	116	22
+détresse	115	9
+nm	114	9
+erreurs	113	25
+plein gaz	113	17
+read-back	112	6
+atterrir	111	14
+ft	111	11
+passager	111	21
+cabré	110	12
+fenêtre	109	15
+front froid	109	3
+blanc	108	16
+chaleur	108	27
+panne	108	12
+panne radio	108	12
+no-go	107	4
+feux	106	12
+freins	106	18
+humidité	106	14
+orage	106	18
+énergie	106	20
+branche	105	12
+attente	104	18
+averses	104	8
+herbe	104	13
+voyant	104	9
+charge	103	18
+configuration	103	25
+facteur de charge	103	18
+commandes	102	18
+ctr	102	9
+longue	102	28
+cockpit	101	26
+déclinaison	100	8
+obstacle	100	14
+verticale	100	20
+voler	100	26
+inversion	99	9
+sigmet	98	5
+utc	98	6
+élevée	98	31
+cisaillement	97	13
+front chaud	97	3
+statique	97	9
+carnet	96	18
+profondeur	96	19
+vigueur	96	17
+frein	95	17
+médical	95	6
+performance	95	20
+scénario	95	28
+soleil	95	20
+ailerons	94	12
+tem	94	5
+humide	93	13
+kias	93	12
+obstacles	93	19
+siège	93	10
+tod	93	3
+travers	93	5
+horizontal	92	18
+inclinaison	92	9
+occlusion	92	0
+palier	92	11
+station	92	8
+arrondi	90	23
+dense	90	24
+démontré	90	12
+espace	90	17
+flux	90	15
+imsafe	90	4
+instabilité	90	0
+profil	90	14
+scan	90	7
+sèche	90	16
+caution	89	7
+pluie	89	17
+rotor	89	5
+transpondeur	89	12
+afis	88	6
+décoller	88	27
+go-around	88	12
+majoration	88	7
+monter	88	28
+réglementaire	88	26
+piste	87	25
+tour de piste	87	25
+landing	86	13
+terre	85	10
+jaune	84	9
+altimètre	83	19
+convection	83	9
+diagnostic	83	18
+palonnier	83	12
+thermique	83	14
+crabe	82	6
+hypoxie	82	4
+menace	82	6
+yeux	81	23
+aviation	80	16
+formation	80	19
+heures	80	21
+rabattant	80	0
+vent	80	22
+vent de travers	80	22
+alignement	79	22
+licence	79	8
+piqué	79	0
+vapp	79	4
+dégagement	78	15
+monomoteur	78	25
+saturation	78	14
+vision	78	6
+anticyclone	76	0
+déroutement	76	9
+instable	76	12
+triangle	76	7
+annonce	75	23
+règles	75	18
+sensation	75	12
+terrains	75	17
+vent fort	75	15
+arc	74	11
+catégorie	74	7
+collationnement	74	6
+intégration	74	19
+météo du jour	74	35
+traction	74	6
+freinage	73	14
+plat	73	19
+accélération	72	12
+batterie	72	7
+radiale	72	1
+saturé	71	16
+signaux	71	13
+séquence	71	16
+eau	70	18
+forces	70	19
+phase	70	16
+qcm	70	35
+refroidissement	70	14
+roulement	70	12
+secours	70	21
+validité	70	11
+alternateur	69	0
+cartes	69	13
+dme	69	2
+jugement	69	12
+rugosité	69	4
+clairances	68	10
+marges	68	16
+metar	68	34
+précaution	68	13
+taf	68	34
+carte oaci	67	7
+oaci	67	7
+check-lists	66	12
+agl	65	12
+champ	65	11
+ft agl	65	12
+géométrie	65	20
+messages	65	21
+phraséologie	65	11
+examen	64	20
+mtom	64	17
+roll	64	7
+aal	63	10
+arrivée	63	16
+ats	63	6
+ft aal	63	10
+grain	63	4
+lenticularis	63	0
+vertical	63	15
+wintem	63	3
+both	62	5
+metar/taf	62	33
+niveaux	62	14
+pilotage	62	20
+plané	62	6
+schéma	62	27
+trou	62	14
+cabine	61	12
+commande	61	21
+continuation	61	5
+couches	61	14
+crête	61	6
+illusions	61	4
+navigabilité	61	3
+précipitations	61	6
+rayonnement	61	7
+réservoir	61	10
+composite	60	2
+descendre	60	17
+filet	60	21
+porte	60	24
+roger	60	5
+vent de face	60	14
+°c	60	8
+courbe	59	10
+document	59	12
+pièges	59	24
+vol lent	59	10
+vor	59	3
+eta	58	10
+pistes	58	18
+tangage	58	6
+aviate	57	8
+glace	57	8
+panne moteur	57	13
+abaque	56	9
+canal	56	7
+couple	56	16
+illusion	56	6
+ovc	56	0
+prévention	56	12
+trajet	56	12
+élève	56	16
+alcool	55	5
+amsl	55	6
+certificat	55	4
+fronts	55	5
+ft amsl	55	6
+masses	55	12
+pitot	55	8
+soir	55	21
+sommeil	55	5
+autonomie	54	0
+collationner	54	5
+dangereuse	54	19
+dépression	54	8
+manuel de vol	54	3
+consigne	53	17
+facteurs humains	53	7
+ktas	53	6
+mise en route	53	19
+mélange	53	18
+oreille	53	6
+recalage	53	7
+route	53	19
+évitement	53	10
+asi	52	6
+cerveau	52	11
+composantes	52	10
+entrée	52	19
+organisme	52	10
+plongée	52	3
+structurale	52	9
+sud	52	11
+carburateur	51	0
+hiver	51	13
+montée initiale	51	17
+piège	51	24
+piège classique	51	24
+plancher	51	10
+premier contact	51	5
+stabiliser	51	17
+t/o	51	11
+thermiques	51	9
+vigilance	51	19
+altitudes	50	13
+choke	50	5
+conflit	50	11
+engine	50	8
+essai	50	10
+instrument	50	14
+minute	50	21
+orientation	50	15
+oxygène	50	5
+réducteur	50	11
+secteur	50	1
+sortis	50	6
+vallée	50	6
+vitesse sol	50	13
+volets sortis	50	6
+alerte	49	11
+altimétrie	49	31
+aéronautique	49	15
+circuits	49	15
+gouverne	49	0
+prop	49	5
+séparation	49	8
+conversion	48	11
+coordonné	48	8
+ldg	48	9
+rayon	48	11
+autorisation	47	18
+chauffage	47	7
+essais	47	7
+piégeux	47	18
+sillage	47	8
+amers	46	6
+cruise	46	2
+documents	46	7
+démontrés	46	8
+lfpn	46	37
+menaces	46	5
+qfe	46	14
+récupération	46	9
+taxiway	46	5
+accident	45	9
+carnet de route	45	6
+charges	45	11
+com	45	9
+consommation	45	0
+foehn	45	4
+interception	45	4
+largeur	45	9
+lean	45	1
+micro	45	8
+piloter	45	15
+points de report	45	10
+report	45	10
+repère	45	17
+vrille	45	7
+échec	45	15
+brise	44	4
+brise de mer	44	4
+durée	44	14
+givrage	44	11
+l/h	44	7
+étape	44	12
+interdite	43	22
+plan de vol	43	9
+publiée	43	15
+alpha	42	3
+foxtrot	42	3
+hotel	42	3
+ailes à plat	41	0
+charge de travail	41	12
+décrabage	41	0
+piste en service	41	17
+arc vert	40	0
+lfpo	40	36
+axe de piste	38	0
+bat	38	3
+cavok	38	15
+congestus	38	0
+magnéto	38	0
+montée	38	11
+point de rosée	38	9
+rosée	38	9
+taux de montée	38	11
+vert	38	2
+face au vent	37	12
+inertie	37	0
+vitesse air	37	10
+niveau	36	10
+tango	36	3
+trou noir	36	3
+alt	35	4
+décrochage	35	10
+hélice	35	5
+nosig	35	16
+poh	35	13
+point d'attente	35	5
+régime hélice	35	5
+start	35	4
+terrain	35	35
+tma	35	9
+tma paris	35	9
+vitesse de décrochage	35	10
+few	34	22
+stabilité	34	4
+stabilité statique	34	4
+vs	34	6
+atmosphère standard	33	0
+turbulence	33	4
+turbulence mécanique	33	4
+arc blanc	32	0
+arc jaune	32	0
+carburant	31	14
+carburant utilisable	31	14
+herbe sèche	31	3
+atterrissage forcé	30	9
+domaine	30	9
+domaine de vol	30	9
+plan continuation bias	30	3
+rentrés	30	5
+virage	30	6
+virage horizontal stabilisé	30	6
+volets rentrés	30	5
+commandant de bord	29	9
+hpa	29	6
+m/s	29	0
+rouge	29	3
+lfox	28	3
+monomoteur léger	28	16
+traînée	28	5
+traînée induite	28	5
+brouillard	27	6
+brouillard de rayonnement	27	6
+castellanus	27	0
+parking	27	2
+sol	27	12
+vitesse indiquée	27	0
+canal unique	26	2
+cap vrai	26	0
+datum	26	3
+humilis	26	6
+mm	26	3
+mm aft datum	26	3
+remise des gaz	26	8
+tours de piste	26	9
+aileron	25	3
+aileron au vent	25	3
+biais	25	2
+biais de confirmation	25	2
+isobare	25	0
+nuage	25	13
+nuage du jour	25	13
+point de report	25	8
+règle d'or	25	20
+vitesse d'approche	25	0
+azimut	24	0
+briefing départ	24	0
+choix de piste	24	6
+isa	24	7
+kt de travers	24	5
+lfmt	24	24
+perte de position	24	4
+pompe électrique	24	5
+stratus	24	5
+atterrissage	23	7
+atterrissage de précaution	23	7
+averse	23	23
+brume	23	23
+cas	23	13
+cg	23	4
+degrés vrais	23	4
+double commande	23	15
+givrage carburateur	23	0
+givre	23	23
+ground roll	23	3
+incidence	23	23
+lfbd	23	23
+lflc	23	23
+lfsb	23	23
+longue finale	23	0
+masse	23	23
+minima	23	23
+mémoire de travail	23	4
+niveaux de vol	23	0
+plafond	23	23
+portance	23	23
+signaux lumineux	23	4
+stall	23	6
+stall warning	23	6
+vfr	23	23
+warning	23	6
+aip	22	11
+basses couches	22	3
+magnétique	22	5
+nord	22	4
+nord magnétique	22	5
+nord vrai	22	4
+point d'arrêt	22	4
+seuil de piste	22	0
+turbulence de sillage	22	0
+ailes	21	7
+altitude	21	10
+altitude de croisière	21	10
+carte vac	21	10
+cellule	21	2
+composante arrière	21	0
+croisière	21	10
+cv	21	2
+déclinaison magnétique	21	0
+flaps	21	4
+fuel	21	5
+fuel pump	21	5
+fuel pump on	21	5
+ignition	21	4
+off ignition off	21	4
+pump	21	5
+secteur variable	21	0
+volt	21	3
+aile	20	1
+altitude de sécurité	20	4
+cb	20	2
+centrage	20	12
+composante de travers	20	0
+cos	20	6
+dalr	20	2
+effet venturi	20	0
+elr	20	2
+espaces aériens	20	0
+huile	20	3
+masse du jour	20	7
+masse et centrage	20	12
+piste mouillée	20	6
+rafale	20	2
+tas	20	2
+vitesse de croisière	20	0
+altitude de transition	19	0
+aquila	19	16
+composante	19	7
+composante de face	19	7
+diagramme v-n	19	2
+east is least	19	4
+espace aérien	19	0
+horizon	19	4
+horizon artificiel	19	4
+largeur de piste	19	0
+lfor	19	3
+mayday	19	1
+nez	19	3
+niveau de vol	19	6
+route magnétique	19	0
+sct	19	18
+vol de nuit	19	5
+atis	18	4
+bilan carburant	18	0
+bras de levier	18	5
+certificat médical	18	2
+correction de dérive	18	0
+fatigue	18	6
+kg/l	18	5
+levier	18	5
+lflx	18	1
+mal de l'air	18	3
+roue	18	2
+régime moteur	18	0
+stress	18	6
+traversier	18	9
+vent réel	18	6
+vent traversier	18	9
+visibilité verticale	18	0
+calage altimétrique	17	14
+descente	17	7
+fiche de pesée	17	4
+pesée	17	4
+rafales	17	5
+silence radio	17	12
+triangle des vitesses	17	5
+up	17	6
+vmc	17	4
+volets	17	6
+volets up	17	6
+brise de terre	16	2
+cap	16	7
+cap compas	16	0
+cap magnétique	16	7
+effet	16	10
+facteur humain	16	6
+finesse	16	1
+finesse max	16	1
+fromage suisse	16	1
+gradient thermique	16	0
+info trafic	16	6
+lacet	16	2
+lacet adverse	16	2
+mag	16	2
+niveau de transition	16	0
+panne électrique	16	4
+qfu	16	2
+rotax	16	14
+rpm	16	4
+selector	16	3
+taxi	16	3
+vrb	16	7
+étape de base	16	0
+assiette de montée	15	0
+bkn	15	10
+cm	15	1
+crm	15	2
+dgac	15	3
+distance de décollage	15	5
+décollage	15	5
+eet	15	2
+enveloppe	15	5
+erreur	15	13
+indicatif	15	4
+km	15	1
+limite	15	2
+nearest airfield	15	3
+oreille interne	15	3
+pas d'hélice	15	0
+say again	15	4
+seuil	15	4
+throttle	15	3
+trait rouge	15	1
+traînée parasite	15	3
+vac	15	9
+vent arrière	15	5
+allumage	14	4
+angle	14	6
+atc	14	3
+bravo	14	2
+briefing	14	8
+centre de gravité	14	0
+cht	14	3
+config	14	3
+courte finale	14	6
+distance de roulement	14	0
+déviation	14	3
+finale	14	6
+gradient	14	5
+gradient de vent	14	5
+idle	14	3
+pente de montée	14	2
+pression d'huile	14	6
+prévol	14	7
+psi	14	2
+tache aveugle	14	1
+vfe	14	4
+visite prévol	14	7
+vne	14	4
+vno	14	4
+ascendance	13	0
+aérodrome	13	2
+bande	13	8
+bille	13	5
+clairance	13	2
+cu	13	1
+dos	13	2
+easa	13	3
+espace contrôlé	13	4
+fi	13	1
+fpl	13	1
+hauteur	13	1
+ias	13	2
+isotherme	13	2
+km/h	13	1
+lisse	13	3
+lâcher	13	8
+marge	13	1
+moteur	13	10
+prorogation	13	1
+qdm	13	1
+qdr	13	1
+qnh	13	2
+red lines	13	1
+roulage	13	2
+roulette	13	4
+roulis	13	2
+sep	13	1
+shra	13	5
+solo	13	10
+souffle hélicoïdal	13	0
+tcds	13	3
+train	13	6
+vx	13	3
+vy	13	3
+état de piste	13	0
+alphabet	12	3
+angle d'attaque	12	3
+approche stabilisée	12	0
+axe	12	5
+branche vent arrière	12	0
+calage standard	12	6
+carbu	12	4
+checklist	12	11
+conso	12	4
+contrôle d'aérodrome	12	0
+cz max	12	3
+front occlus	12	0
+incidence critique	12	4
+lfpg	12	11
+mike	12	3
+nuages	12	6
+pression standard	12	0
+prob	12	5
+route vraie	12	3
+température	12	6
+victor	12	3
+visibilité	12	5
+br	11	4
+distance d'atterrissage	11	0
+feu moteur	11	1
+fractus	11	0
+front	11	1
+ft/min	11	2
+golf	11	3
+gps	11	8
+imc	11	1
+manche	11	1
+notam	11	6
+oat	11	2
+onde	11	3
+onde de relief	11	3
+pax	11	1
+pression	11	1
+pré-lâcher	11	11
+relief	11	3
+règles de l'air	11	4
+service d'information	11	0
+sin	11	4
+sortie	11	5
+tempo	11	4
+terrain de dégagement	11	0
+vitesse propre	11	0
+x-ray	11	3
+zone dangereuse	11	0
+base	10	4
+cumulus	10	4
+vitesse de rotation	10	0
+calvus	9	0
+finale courte	9	0
+mammatus	9	0
+brise de pente	8	0
+déviation compas	8	0
+effort au manche	8	0
+masse maximale	8	0
+réserve réglementaire	8	0
+virage standard	8	0
+visibilité horizontale	8	0
+cisaillement de vent	7	0
+kts	7	0
+taux de chute	7	0
+température d'huile	7	0
+base des nuages	6	0
+circuit d'aérodrome	6	0
+clairance de décollage	6	0
+détresse mayday	6	0
+longueur de piste	6	0
+minima météo	6	0
+rabattant sous le vent	5	0
+vent anabatique	5	0
+vol à vue	5	0
+altitude densité	4	0
+assiette de croisière	4	0
+chute de pression	4	0
+coefficient de freinage	4	0
+courant descendant	4	0
+effet de foehn	4	0
+essai magnétos	4	0
+heure d'arrivée	4	0
+heure de départ	4	0
+inversion de température	4	0
+plafond nuageux	4	0
+plan de descente	4	0
+sélecteur carburant	4	0
+tour de contrôle	4	0
+transpondeur 7600	4	0
+vol aux instruments	4	0
+zone interdite	4	0
+brise de vallée	3	0
+convection thermique	3	0
+manoeuvre	3	0
+température standard	3	0
+transpondeur 7700	3	0
+vent catabatique	3	0
+altitude minimale	2	0
+angle de dérive	2	0
+approche finale	2	0
+briefing arrivée	2	0
+check-list atterrissage	2	0
+cisaillement basse couche	2	0
+collationnement clairance	2	0
+conditions imc	2	0
+conditions vmc	2	0
+hauteur de sécurité	2	0
+heure estimée	2	0
+magnéto droite	2	0
+richesse	2	0
+région terminale	2	0
+réserve de carburant	2	0
+temps estimé	2	0
+température culasse	2	0
+vent effectif	2	0
+vitesse de sécurité	2	0
+zone de contrôle	2	0
+portée visuelle de piste	1	0
+urgence pan pan	1	0
+adf	0	0
+advection	0	0
+altocumulus	0	0
+altostratus	0	0
+arc dme	0	0
+autorotation	0	0
+badin	0	0
+barotraumatisme	0	0
+brassage	0	0
+carburant inutilisable	0	0
+cirrostratus	0	0
+compensateur	0	0
+conscience de la situation	0	0
+conservateur	0	0
+convergence	0	0
+cumulonimbus	0	0
+cumulus congestus	0	0
+devis de masse	0	0
+divergence	0	0
+effet de pente	0	0
+effet girouette	0	0
+empennage	0	0
+estime	0	0
+fir	0	0
+fuselage	0	0
+gnss	0	0
+gyroscope	0	0
+hyperventilation	0	0
+illusion somatogyrale	0	0
+lfat	0	0
+lfbo	0	0
+lfmn	0	0
+lfpb	0	0
+lfpt	0	0
+lfpv	0	0
+lfrb	0	0
+lfrg	0	0
+lfrs	0	0
+lfxu	0	0
+ligne de grain	0	0
+limite arriere	0	0
+limite avant	0	0
+longeron	0	0
+machmetre	0	0
+manette	0	0
+marge de decrochage	0	0
+masse a vide	0	0
+moulinet	0	0
+nervure	0	0
+nimbostratus	0	0
+papillon	0	0
+pas variable	0	0
+percee	0	0
+point de decision	0	0
+polaire	0	0
+purge	0	0
+reserve finale	0	0
+rmz	0	0
+siv	0	0
+squawk	0	0
+stratocumulus	0	0
+subsidence	0	0
+sup aip	0	0
+tachymetre	0	0
+temps de reaction	0	0
+tmz	0	0
+totalisateur	0	0
+tropopause	0	0
+troposphere	0	0
+va	0	0
+variometre	0	0
+vision nocturne	0	0
+vitesse vraie	0	0
+vle	0	0
+vr	0	0
+vs1	0	0
+
+### METIER — hors corpus, fiche sans lien actif (130)
+aerocolique
+aerofrein
+atz
+avitaillement
+becs
+hippodrome
+iac
+lfac
+lfeh
+lfen
+lfey
+lfjr
+lfll
+lfln
+lfmd
+lfml
+lfmp
+lfob
+lfod
+lfoe
+lfoh
+lfoi
+lfoj
+lfok
+lfoo
+lfot
+lfou
+lfow
+lfoy
+lfoz
+lfpk
+lfqq
+lfrd
+lfrn
+lfsn
+lfst
+lftw
+manœuvre
+mistral
+radiocompas
+servitude
+sigma
+tramontane
+uir
+vireur
+vso
+action vitale
+alphabet aviation
+altitude pression
+approche interrompue
+ascendance thermique
+atterrissage precaution
+autonomie carburant
+autorisation atterrissage
+bande derobee
+calage helice
+carburant degagement
+carte topographique
+check-list décollage
+consommation horaire
+constante structurale
+couche d'inversion
+couple gyroscopique
+couple moteur
+demi-tour standard
+derive constatee
+descente initiale
+décrochage dynamique
+décrochage secondaire
+effet gyroscopique
+espacement réglementaire
+feu cabine
+givrage moteur
+givrage structural
+inclinaison standard
+information trafic
+instabilité atmosphérique
+intégration verticale
+iso zero
+isotherme zero
+magnéto gauche
+obstacle artificiel
+percée verticale
+piste contaminée
+point fixe
+procedure d'attente
+prolongement d'arret
+regime venturi
+relief environnant
+richesse mélange
+réchauffage carburateur
+stabilité atmosphérique
+transpondeur 7500
+vent estimé
+verification vitale
+vitesse corrigee
+vitesse d'envol
+zone stabilisée
+abaque de centrage
+assiette de reference
+atterrissage train rentré
+attitude de vol
+aérodrome de dégagement
+chaine des erreurs
+circuit basse hauteur
+distance de franchissement
+effet de sol
+givrage en vol
+marge de franchissement
+moment de rappel
+palier de croisière
+pente de descente
+plan de charge
+recalage en route
+roulage au sol
+récupération de décrochage
+surface de piste
+tableau de déviation
+transpondeur mode c
+vitesse de manoeuvre
+vrille à plat
+altitude tour de piste
+hauteur tour de piste
+modele threat and error
+point de non retour
+remise de gaz interrompue
+turbulence en air clair
+vent arriere de securite
+sens du tour de piste
+tour de piste basse hauteur

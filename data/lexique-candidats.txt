@@ -1,0 +1,2535 @@
+### UNITES
+kt	1796
+ft	1507
+NM	777
+°C	664
+KIAS	632
+min	530
+h	327
+hPa	111
+°	60
+km/h	45
+m/s	7
+kts	2
+
+### UNIGRAMMES (non couverts par le glossaire actuel)
+vent	2537	37
+piste	1401	37
+vol	1334	37
+lfpn	1254	37
+avant	1189	37
+sol	1164	37
+séance	1069	37
+fuel	909	20
+jour	898	37
+même	827	37
+uniquement	807	37
+travers	790	29
+toujours	756	37
+air	750	34
+face	739	31
+masse	734	34
+radio	714	34
+terrain	712	37
+souvent	711	37
+vitesse	698	33
+non	686	37
+seulement	680	37
+après	674	36
+bas	666	36
+moteur	647	33
+n'est	637	26
+deux	630	37
+max	625	31
+altitude	622	35
+c'est	621	37
+cas	605	36
+selon	596	37
+min	595	37
+route	588	32
+temps	562	37
+questions	557	37
+carte	548	29
+décollage	538	34
+plan	536	31
+arrière	508	31
+avion	505	36
+point	495	37
+météo	490	37
+gaz	487	29
+sais	486	37
+parce	485	34
+volets	481	22
+off	471	11
+décision	458	37
+parking	449	35
+montée	438	28
+panne	432	31
+reste	432	36
+hors	430	36
+pression	421	31
+tester	418	37
+rpm	417	10
+tour	411	34
+surtout	409	37
+club	406	34
+marge	404	33
+déjà	404	35
+virage	404	21
+croisière	402	35
+compréhension	401	37
+rappel	398	36
+explique-moi	394	37
+charge	394	32
+être	389	37
+clairance	389	13
+circuit	388	33
+pilote	388	34
+trop	387	37
+zone	386	35
+briefing	380	31
+au-dessus	375	36
+type	365	37
+nuit	362	32
+ordre	357	35
+cap	356	19
+sens	348	34
+possible	343	36
+distance	343	24
+limite	343	31
+jamais	342	37
+message	339	36
+peu	338	34
+hélice	334	23
+cours	330	37
+seul	330	36
+piège	325	37
+puissance	324	29
+alt	320	13
+fréquence	311	24
+trajectoire	308	26
+risque	307	34
+froid	306	23
+nav	306	27
+front	304	9
+basse	303	33
+chaque	292	37
+atterrissage	292	30
+courte	290	34
+utile	288	36
+pédagogique	286	35
+très	280	36
+minima	279	33
+chaud	279	22
+plein	279	27
+voir	276	33
+remise	275	22
+exemple	274	31
+descente	274	24
+école	274	34
+premier	272	34
+nez	272	21
+turbulence	268	23
+pourquoi	267	37
+erreur	267	30
+remplace	263	35
+lien	258	35
+bord	255	32
+lire	254	37
+hauteur	254	30
+portance	254	33
+procédure	254	31
+autre	253	35
+section	251	33
+haute	249	35
+obligatoire	247	35
+local	246	33
+ppl	245	32
+sécurité	241	35
+règle	240	37
+haut	240	31
+dès	239	36
+classique	238	36
+pente	237	15
+seule	235	36
+droite	235	25
+besoin	235	35
+niveau	233	37
+faible	232	33
+interdit	232	35
+wca	232	4
+l/h	231	9
+rouge	231	25
+gps	230	29
+l'avion	228	21
+d'abord	226	23
+minutes	225	30
+régime	225	26
+moment	224	35
+typique	223	36
+d'un	222	26
+solo	221	31
+assiette	220	22
+prochaine	219	37
+trafic	218	25
+aucun	216	37
+fixe	216	32
+position	214	23
+points	213	37
+facteur	213	27
+tôt	213	29
+trois	212	36
+vrai	212	28
+faux	211	33
+magnétique	211	17
+contrôle	209	33
+vite	209	35
+stress	209	18
+gradient	208	16
+trim	207	20
+conduite	206	21
+oaci	205	18
+élève	205	32
+départ	204	32
+gauche	204	21
+vert	204	27
+réserve	204	23
+direction	202	24
+plutôt	200	36
+rapport	199	37
+lecture	199	34
+dit	198	36
+stable	197	29
+double	197	33
+fois	196	36
+standard	196	33
+mal	196	33
+grandeur	195	33
+carburant	194	32
+bon	193	36
+toi	193	36
+manche	193	21
+oui	192	31
+fort	192	33
+environ	191	31
+calcul	191	27
+axe	191	24
+référence	190	36
+pré-lâcher	190	24
+bkn	189	24
+près	189	32
+instruments	188	22
+séances	188	35
+contact	188	21
+pax	188	11
+nuage	187	22
+juste	187	36
+stabilité	187	13
+mental	186	34
+couper	185	31
+toussus	184	27
+côté	184	33
+mtom	184	17
+log	183	8
+toucher	182	19
+quelle	181	32
+calme	181	29
+retour	181	30
+check	181	26
+instructeur	180	30
+incidence	180	30
+fatigue	180	16
+méthode	179	32
+éviter	179	33
+chiffres	177	36
+réelle	176	33
+conditions	175	31
+proche	174	37
+température	173	30
+donne	173	35
+brief	173	22
+huile	173	16
+rien	172	34
+augmente	172	29
+critique	172	25
+effet	171	29
+devient	169	36
+ici	169	36
+bagages	169	14
+l'air	167	24
+rotax	167	31
+relief	167	18
+train	167	27
+t/o	167	16
+moyen	166	21
+ignorer	166	35
+cos	166	11
+ciel	165	30
+priorité	165	27
+écart	164	24
+pendant	164	33
+simple	164	33
+angle	163	21
+mayday	162	6
+navigation	161	32
+approche	160	31
+mer	159	16
+jusqu'à	159	23
+fin	159	34
+parfois	159	32
+réchauffe	158	12
+ligne	158	31
+carbu	158	14
+nuages	157	20
+pan	157	3
+autorisé	156	18
+service	156	25
+lâcher	156	26
+destination	155	19
+classe	155	11
+matin	154	23
+rester	154	33
+givrage	153	15
+traînée	153	12
+structure	152	25
+distances	152	25
+droit	152	28
+locale	151	31
+attitude	151	31
+sert	150	37
+change	150	34
+doute	150	23
+ouest	150	15
+feeling	150	26
+aile	150	17
+machine	149	30
+demande	149	29
+réel	149	36
+clôture	148	37
+mentale	148	34
+aquila	147	37
+espaces	147	13
+config	147	22
+signifie	146	33
+sin	146	9
+man	145	26
+fréquences	145	17
+créneau	145	21
+taux	145	17
+chiffre	144	34
+heat	144	7
+léger	143	30
+bar	143	10
+vide	143	19
+dire	142	31
+état	142	25
+complet	142	27
+atc	142	11
+perte	141	25
+domaine	141	21
+lent	141	28
+bras	141	9
+ldg	141	14
+code	140	18
+f-haat	140	9
+heure	139	25
+monte	139	30
+nord	139	15
+performances	139	33
+bonne	138	33
+abord	138	24
+vérifier	137	32
+consignes	137	24
+urgence	137	17
+l'aile	136	12
+discipline	135	32
+note	134	30
+correction	134	30
+limites	134	27
+n'as	134	36
+zéro	133	29
+chute	133	13
+réduire	133	20
+utilisable	133	24
+pratique	132	35
+prévol	132	18
+l'axe	132	14
+mission	132	17
+calage	131	23
+stabilisé	131	20
+procédures	130	22
+start	130	8
+lfpo	129	37
+large	128	26
+phrase	128	34
+révision	128	35
+long	127	27
+vue	127	25
+situation	127	30
+check-list	127	22
+feu	127	12
+réflexe	126	31
+travail	126	30
+fond	126	26
+sct	125	27
+faut	125	27
+unique	125	31
+sec	124	19
+passe	124	34
+compas	124	14
+logique	124	28
+vitesses	124	27
+électrique	124	16
+pompe	124	10
+couche	123	25
+synthèse	123	35
+table	123	18
+remplacer	123	35
+ailes	123	17
+cellule	123	22
+beaucoup	122	33
+opérationnelle	122	34
+sortie	122	24
+secondes	122	31
+force	122	29
+légal	122	29
+france	121	20
+beau	121	26
+composante	121	19
+action	121	27
+rotation	121	17
+depuis	121	25
+surface	120	22
+zones	120	25
+holding	120	8
+report	119	22
+exercice	119	28
+mauvaise	119	28
+technique	119	24
+poids	119	11
+quel	118	30
+danger	118	27
+go/no	118	32
+propre	118	29
+tableau	118	29
+horizon	118	10
+culture	118	29
+alpha	118	3
+dangereux	117	31
+temsi	117	7
+densité	116	22
+principe	116	33
+chaîne	116	24
+demi-tour	116	16
+diminue	115	20
+baisse	115	29
+info	115	19
+détresse	115	9
+valeur	114	32
+compte	114	35
+uvre	114	27
+d'attente	114	9
+indicatif	114	10
+erreurs	113	25
+information	113	14
+court	112	31
+score	112	37
+vaut	112	34
+secteur	112	11
+item	112	17
+read-back	112	6
+annule	111	31
+tête	111	30
+contrôlé	111	19
+atterrir	111	14
+passager	111	21
+totale	110	28
+lis	110	27
+cabré	110	12
+fenêtre	109	15
+général	109	28
+mémoire	109	23
+total	109	27
+après-midi	109	15
+biais	109	10
+qcm	108	37
+immédiat	108	37
+manuel	108	20
+chaleur	108	27
+normale	108	20
+blanc	108	16
+réponse	107	37
+aucune	107	34
+d'une	107	25
+restes	107	28
+autour	107	24
+jusqu	107	26
+centrage	107	20
+no-go	107	4
+automatique	106	32
+orage	106	18
+humidité	106	14
+source	106	26
+énergie	106	20
+correcte	106	30
+tenir	106	26
+freins	106	18
+inverse	106	23
+feux	106	12
+suis	105	24
+branche	105	12
+brise	105	4
+tendance	104	23
+averses	104	8
+passage	104	22
+herbe	104	13
+pure	104	28
+attente	104	18
+traîne	104	4
+voyant	104	9
+d'où	103	23
+configuration	103	25
+problème	103	28
+stop	103	14
+nulle	102	27
+givre	102	25
+longue	102	28
+commandes	102	18
+silence	102	15
+etc	101	27
+cockpit	101	26
+derrière	101	21
+cht	101	8
+voler	100	26
+changement	100	26
+verticale	100	20
+mauvais	100	32
+obstacle	100	14
+pic	100	11
+fpl	100	3
+prends	99	37
+mieux	99	22
+utc	98	6
+vient	98	25
+élevée	98	31
+perso	98	11
+oat	98	10
+trait	98	8
+sigmet	98	5
+l'altitude	97	19
+au-delà	97	23
+statique	97	9
+autres	96	30
+été	96	24
+vigueur	96	17
+onde	96	4
+opérationnel	96	34
+cadre	96	22
+profondeur	96	19
+carnet	96	18
+lettre	96	10
+soleil	95	20
+moyenne	95	19
+peuvent	95	32
+scénario	95	28
+savoir	95	32
+performance	95	20
+mag	95	7
+prêt	95	17
+frein	95	17
+médical	95	6
+ft/min	94	13
+signal	94	22
+tem	94	5
+ailerons	94	12
+rapide	93	26
+définition	93	29
+minimum	93	25
+obstacles	93	19
+humide	93	13
+siège	93	10
+tod	93	3
+station	92	8
+principal	92	28
+horizontal	92	18
+inclinaison	92	9
+palier	92	11
+mécanique	91	20
+cumulus	90	12
+dense	90	24
+démontré	90	12
+espace	90	17
+flux	90	15
+confirmer	90	23
+arrondi	90	23
+sèche	90	16
+système	90	24
+profil	90	14
+scan	90	7
+imsafe	90	4
+pluie	89	17
+rotor	89	5
+coller	89	26
+regarder	89	30
+transpondeur	89	12
+caution	89	7
+réglementaire	88	26
+continue	88	23
+constante	88	14
+meilleure	88	27
+monter	88	28
+majoration	88	7
+aide	88	22
+décoller	88	27
+checklist	88	26
+afis	88	6
+clair	87	30
+l'incidence	87	3
+confondre	86	30
+changer	86	28
+prévu	86	27
+liste	86	36
+réduit	86	22
+saine	86	23
+landing	86	13
+soit	85	30
+mise	85	26
+terre	85	10
+forte	84	25
+l'altimètre	84	11
+rattrapage	84	37
+grand	84	23
+sortir	84	29
+arrêt	84	17
+jaune	84	9
+sep	84	3
+convection	83	9
+thermique	83	14
+altimètre	83	19
+attention	83	29
+palonnier	83	12
+diagnostic	83	18
+active	83	16
+normal	82	27
+valeurs	82	28
+lit	82	26
+rappels	82	35
+immédiatement	82	28
+menace	82	6
+flaps	82	12
+foxtrot	82	4
+hypoxie	82	4
+indique	81	18
+yeux	81	23
+pile	81	25
+aileron	81	8
+mode	81	15
+ignition	81	6
+heures	80	21
+formation	80	19
+aviation	80	16
+place	80	30
+tant	80	32
+augmenter	80	19
+signe	79	22
+facteurs	79	17
+passer	79	30
+alignement	79	22
+vapp	79	4
+confirmation	79	13
+fiche	79	16
+licence	79	8
+rubriques	78	37
+few	78	28
+saturation	78	14
+monomoteur	78	25
+mesure	78	22
+choix	78	21
+exact	78	29
+comment	78	28
+dégagement	78	15
+tard	78	26
+dossier	78	12
+jambe	78	7
+vision	78	6
+paris	77	14
+nul	77	23
+tcds	77	8
+partir	77	28
+image	77	18
+part	77	28
+sinon	77	29
+correct	77	27
+roulis	77	7
+instable	76	12
+triangle	76	7
+l'atis	76	7
+lacet	76	8
+full	76	11
+volume	76	13
+déroutement	76	9
+throttle	76	8
+annonce	75	23
+terrains	75	17
+lieu	75	25
+existe	75	25
+voix	75	21
+révisions	75	35
+l'exemplaire	75	17
+sensation	75	12
+règles	75	18
+fais	75	29
+bat	75	8
+commence	74	37
+dessous	74	22
+choisir	74	26
+pur	74	23
+exacte	74	28
+déviation	74	8
+relatif	74	12
+partie	74	31
+coupe	74	24
+traction	74	6
+catégorie	74	7
+arc	74	11
+intégration	74	19
+collationnement	74	6
+n'a	73	25
+plat	73	19
+notes	73	27
+agl	73	14
+utiliser	73	26
+croire	73	22
+décide	73	34
+suivre	73	23
+freinage	73	14
+ouvre	73	33
+devant	73	22
+datum	73	4
+hotel	73	3
+permet	72	36
+qu'un	72	21
+automatiquement	72	28
+telegram	72	36
+claire	72	22
+suite	72	27
+demander	72	20
+accélération	72	12
+batterie	72	7
+radiale	72	1
+préparation	71	22
+saturé	71	16
+formule	71	22
+égale	71	23
+complète	71	28
+décider	71	26
+séquence	71	16
+nouvelle	71	19
+mettre	71	28
+signaux	71	13
+approx	71	17
+kg/l	71	7
+validité	70	11
+petit	70	23
+roulement	70	12
+impact	70	19
+secours	70	21
+attendre	70	26
+tirer	70	17
+eau	70	18
+phase	70	16
+forces	70	19
+corps	70	10
+refroidissement	70	14
+bille	70	10
+dalr	70	3
+aérodrome	69	17
+cartes	69	13
+contre	69	27
+possibles	69	17
+cycle	69	17
+bascule	69	27
+mentalement	69	28
+physique	69	26
+jugement	69	12
+d'espace	69	8
+eet	69	4
+dme	69	2
+rugosité	69	4
+références	68	12
+l'angle	68	13
+meilleur	68	23
+marges	68	16
+initiale	68	19
+averse	68	25
+précaution	68	13
+mac	68	4
+warning	68	9
+clairances	68	10
+tango	68	3
+and	67	17
+dépend	67	26
+garder	67	28
+détail	67	27
+fm-at	67	14
+elr	67	2
+stratus	66	11
+effets	66	13
+usage	66	21
+parle	66	27
+suffit	66	26
+gagner	66	25
+l'analyse	66	15
+assez	66	24
+mécanisme	66	16
+check-lists	66	12
+lfox	66	4
+maintenant	65	26
+valide	65	16
+vraie	65	25
+loin	65	27
+fausse	65	23
+sera	65	19
+exactement	65	26
+l'atterrissage	65	19
+lisse	65	10
+messages	65	21
+intermédiaire	65	21
+géométrie	65	20
+ego	65	16
+intention	65	12
+champ	65	11
+antérieures	65	32
+mcp	65	8
+phraséologie	65	11
+examen	64	20
+forme	64	21
+connaître	64	29
+forcément	64	23
+annuler	64	24
+pesée	64	8
+roll	64	7
+mois	63	10
+vertical	63	15
+via	63	26
+écrit	63	21
+ressource	63	8
+ats	63	6
+arrivée	63	16
+grain	63	4
+wintem	63	3
+metar/taf	62	33
+exemplaire	62	20
+forcé	62	16
+prendre	62	21
+couleur	62	27
+pilotage	62	20
+niveaux	62	14
+jusqu'au	62	21
+trou	62	14
+schéma	62	27
+plané	62	6
+both	62	5
+lflx	62	1
+quelques	61	23
+couches	61	14
+question	61	31
+calcule	61	20
+crête	61	6
+commande	61	21
+cabine	61	12
+inventer	61	21
+confort	61	24
+corriger	61	20
+parler	61	20
+rayonnement	61	7
+réservoir	61	10
+conso	61	12
+continuation	61	5
+précipitations	61	6
+navigabilité	61	3
+pull	61	6
+illusions	61	4
+qu'il	60	22
+impose	60	27
+descendre	60	17
+arrive	60	22
+regarde	60	28
+porte	60	24
+enveloppe	60	11
+idée	60	26
+filet	60	21
+dynamique	60	12
+sortis	60	7
+écoute	60	12
+roger	60	5
+composite	60	2
+pièges	59	24
+numéro	59	16
+dégrade	59	25
+inutile	59	26
+sauf	59	21
+comprendre	59	25
+cinq	59	19
+courbe	59	10
+absence	59	14
+idle	59	8
+document	59	12
+vor	59	3
+récente	59	6
+date	58	10
+pistes	58	18
+préparer	58	36
+anticiper	58	18
+utiles	58	25
+ignore	58	22
+constant	58	12
+tangage	58	6
+retard	58	14
+eta	58	10
+personnels	58	7
+a/c/d	58	2
+d'altitude	57	13
+île-de-france	57	16
+réduite	57	15
+confortable	57	24
+pire	57	25
+noir	57	9
+immédiate	57	22
+négatif	57	18
+gérer	57	22
+d'attaque	57	9
+contexte	57	18
+photo	57	20
+glace	57	8
+aviate	57	8
+pump	57	5
+restent	56	30
+dépasser	56	18
+trajet	56	12
+élevé	56	16
+illusion	56	6
+compris	56	22
+km/h	56	4
+couple	56	16
+idf	56	9
+abaque	56	9
+l'at	56	20
+range	56	8
+levier	56	10
+lfmt	56	24
+prévention	56	12
+dehors	56	20
+canal	56	7
+presque	55	26
+soir	55	21
+corrige	55	21
+pitot	55	8
+parfaitement	55	20
+habitude	55	23
+l'autre	55	20
+l'ordre	55	19
+cohérent	55	24
+libre	55	24
+calculer	55	22
+masses	55	12
+honnête	55	22
+est-ce	55	18
+centre	55	13
+laisser	55	23
+certificat	55	4
+sûr	55	20
+lfor	55	5
+alcool	55	5
+sommeil	55	5
+fronts	55	5
+volt	55	4
+veille	54	13
+différence	54	23
+disponible	54	18
+voles	54	21
+critères	54	16
+poser	54	16
+vraiment	54	24
+veut	54	25
+dangereuse	54	19
+programme	54	23
+humains	54	8
+loisir	54	8
+collationner	54	5
+allumage	54	8
+probable	53	22
+journée	53	19
+revoir	53	37
+papier	53	20
+recalage	53	7
+plusieurs	53	20
+direct	53	26
+mélange	53	18
+l'abaque	53	5
+objectif	53	25
+consigne	53	17
+regard	53	18
+outil	53	23
+évitement	53	10
+modèle	53	15
+main	53	15
+ktas	53	6
+oreille	53	6
+veux	52	23
+from	52	9
+d'air	52	15
+retiens	52	26
+sud	52	11
+qu'à	52	36
+composantes	52	10
+gestion	52	16
+planification	52	14
+suit	52	24
+défaut	52	21
+lourd	52	13
+entrée	52	19
+structurale	52	9
+organisme	52	10
+finir	52	16
+cerveau	52	11
+coupes	52	21
+lfbd	52	24
+arbre	52	9
+asi	52	6
+plongée	52	3
+/bat	52	4
+lfpg	51	16
+hiver	51	13
+vigilance	51	19
+début	51	20
+thermiques	51	9
+parfait	51	24
+retenir	51	26
+capacité	51	19
+grave	51	15
+plancher	51	10
+coup	51	22
+bilan	51	8
+tire	51	21
+positive	51	12
+magique	51	24
+stabiliser	51	17
+l'ias	51	7
+première	51	21
+milieu	51	15
+améliore	51	19
+compétence	51	19
+l'arc	51	8
+l'écart	50	11
+impossible	50	26
+qu'une	50	21
+typiquement	50	25
+vallée	50	6
+test	50	14
+altitudes	50	13
+sujet	50	25
+instrument	50	14
+sort	50	22
+orientation	50	15
+ordres	50	26
+montre	50	20
+minute	50	21
+forcer	50	16
+personne	50	19
+engine	50	8
+lfsb	50	23
+réducteur	50	11
+essai	50	10
+conflit	50	11
+choke	50	5
+oxygène	50	5
+transition	49	14
+recommandé	49	25
+altimétrie	49	31
+séparation	49	8
+vols	49	18
+raison	49	24
+aéronautique	49	15
+ouvrir	49	20
+circuits	49	15
+systématique	49	22
+bleu	49	21
+expérience	49	8
+extérieur	49	13
+transfert	49	8
+alerte	49	11
+qdm	49	1
+prop	49	5
+permanent	48	27
+coordonné	48	8
+certains	48	22
+prochain	48	18
+surveiller	48	20
+orly	48	36
+conversion	48	11
+pilotes	48	21
+façon	48	25
+petite	48	21
+exactes	48	16
+raisonnement	48	21
+chose	48	26
+croiser	48	20
+moments	48	8
+rayon	48	11
+voie	48	7
+mesurer	47	16
+chauffage	47	7
+calé	47	12
+identique	47	24
+piégeux	47	18
+sillage	47	8
+autorisation	47	18
+doux	47	15
+gère	47	19
+essais	47	7
+l'assiette	47	8
+/cos	47	7
+parasite	47	4
+lflc	47	23
+dépasse	46	17
+quasi	46	22
+monde	46	20
+ajoute	46	24
+théorique	46	21
+pousse	46	18
+démontrés	46	8
+menaces	46	5
+prioritaire	46	17
+continuer	46	15
+l'anémomètre	46	7
+récupération	46	9
+critiques	46	15
+conditionnel	46	9
+cruise	46	2
+amers	46	6
+documents	46	7
+observation	45	9
+dernier	45	20
+donnée	45	16
+malgré	45	18
+repère	45	17
+foehn	45	4
+largeur	45	9
+accident	45	9
+faibles	45	36
+critère	45	17
+visible	45	16
+charges	45	11
+échec	45	15
+piloter	45	15
+dis	45	17
+fréquent	45	15
+d'aile	45	25
+com	45	9
+filtre	45	19
+prévue	45	23
+intérieur	45	10
+vrille	45	7
+interception	45	4
+micro	45	8
+lean	45	1
+correspond	44	23
+durée	44	14
+réalité	44	22
+gagne	44	18
+inventé	44	17
+d'atterrissage	44	11
+options	44	14
+typiques	44	23
+tend	44	18
+items	44	9
+nouveau	44	16
+étape	44	12
+jeu	44	13
+indésirable	44	4
+août	43	32
+interdite	43	22
+laisse	43	23
+corrigé	43	12
+publiée	43	15
+conséquence	43	23
+
+### BIGRAMMES (non couverts par le glossaire actuel)
+no go	498	36
+compréhension questions	391	37
+kt kt	334	21
+rappel séance	223	36
+nm nm	206	9
+ft ft	205	12
+kg kg	205	14
+travers kt	154	9
+prochaine section	152	25
+kias kias	150	12
+kt travers	132	7
+face kt	126	9
+vs kt	123	12
+vs vs	116	9
+plein gaz	113	17
+man uvre	111	26
+panne radio	108	12
+cz max	107	5
+°c °c	102	9
+point d'attente	101	8
+décision go	100	35
+auto kt	100	37
+gs kt	99	6
+go no	94	35
+min min	92	5
+aquila at	87	37
+kt cavok	82	17
+pan pan	81	3
+metar taf	79	36
+vent kt	79	19
+face travers	79	5
+kt face	77	7
+l/h l/h	76	7
+metar lfpn	75	37
+taf lfpn	75	37
+vent fort	75	15
+kias poh	75	13
+qcm questions	74	37
+cg mm	71	4
+jour metar	70	35
+révisions rappels	70	35
+rappels séances	70	35
+jour décision	68	35
+carte oaci	67	7
+voix haute	67	20
+poh at	67	21
+hotel alpha	66	3
+ft agl	65	12
+séances antérieures	65	32
+mtom kg	64	17
+alpha tango	64	3
+ft aal	63	10
+volets up	62	10
+vol lent	59	10
+lfpn kt	57	37
+panne moteur	57	13
+kt sct	56	26
+ft amsl	55	6
+vent relatif	55	6
+beau temps	53	16
+facteurs humains	53	7
+réchauffe carbu	53	7
+poh fm-at	52	12
+alt /bat	52	4
+piège classique	51	24
+montée initiale	51	17
+premier contact	51	5
+séance rappel	51	16
+volets t/o	51	11
+vitesse sol	50	13
+volets sortis	50	6
+voir l'analyse	50	9
+secteur chaud	50	1
+air froid	49	6
+minima personnels	49	5
+trop bas	48	13
+volets ldg	48	9
+fuel off	48	5
+kt few	47	26
+rafale kt	47	2
+kg cg	47	7
+cg avant	47	6
+at poh	47	16
+minima perso	47	5
+fuel pump	47	5
+lfpn auto	46	37
+aucun effet	46	23
+masse max	46	7
+lflc metar	46	23
+moyen kt	45	4
+masse kg	45	10
+oat °c	45	6
+air calme	44	8
+kt démontrés	44	8
+at lfpn	44	25
+givrage carbu	44	11
+basse hauteur	43	12
+état indésirable	43	3
+séance vent	42	31
+masse air	42	7
+après atterrissage	42	15
+foxtrot hotel	42	3
+metar lfpo	41	36
+prochaine séance	41	37
+vent mag	41	2
+juste après	41	20
+sert surtout	41	24
+virage horizontal	41	7
+après décollage	41	11
+hors limite	41	5
+masse vide	41	10
+mm mm	41	3
+autorisé atterrir	41	5
+vfr loisir	41	6
+lfpo auto	40	36
+lfpn metar	40	34
+at kg	40	13
+km nm	40	3
+plan continuation	40	3
+travers rafale	39	3
+selon procédure	39	15
+kt vs	39	6
+rpm rpm	39	5
+temps séance	38	37
+qfu face	38	5
+lfpn taf	38	34
+taf taf	38	34
+proche metar	38	32
+catégorie normale	38	1
+rv rm	38	3
+vert fixe	38	2
+bat off	38	3
+voyant fuel	38	4
+commence prends	37	37
+rattrapage clique	37	37
+score points	37	37
+points revoir	37	37
+revoir recommencer	37	37
+es déjà	37	19
+vitesse air	37	10
+lfpo metar	37	34
+sommaire cours	36	36
+clôture cours	36	36
+kt vent	36	9
+séance envoyer	36	36
+score arthur	36	36
+questions ratées	36	36
+ratées partent	36	36
+telegram c'est	36	36
+points faibles	36	36
+faibles préparer	36	36
+message s'ouvre	36	36
+s'ouvre pré-rempli	36	36
+qu'à l'envoyer	36	36
+travers moyen	36	2
+go possible	36	27
+trop tôt	36	17
+vent faible	36	10
+horizontal stabilisé	36	6
+ft nm	36	6
+aft datum	36	3
+go conditionnel	36	8
+alpha alpha	36	3
+trou noir	36	3
+cavok nosig	35	16
+vol vfr	35	14
+tma paris	35	9
+terrain metar	35	35
+rattrapage révisions	35	35
+réponse feedback	35	35
+feedback immédiat	35	35
+immédiat explication	35	35
+explication détaillée	35	35
+révision espacée	35	35
+chaque vol	35	21
+metar orly	35	34
+cg arrière	35	4
+régime hélice	35	5
+d'attente piste	35	5
+/bat off	35	4
+hélice start	35	4
+continuation bias	35	3
+go clôture	34	34
+séances précédentes	34	32
+taf qcm	34	34
+référence proche	34	30
+vy kias	34	8
+distance sol	34	5
+stabilité statique	34	4
+point arrêt	34	8
+niveau relevé	33	33
+air chaud	33	8
+turbulence mécanique	33	4
+synthèse opérationnelle	33	24
+kias volets	33	10
+nm ft	33	6
+bagages kg	33	4
+rm rv	33	3
+vent moyen	32	5
+questions reprennent	32	32
+précédentes rappel	32	32
+séances d'origine	32	32
+trop tard	32	14
+antérieures rubriques	32	32
+antérieures révision	32	32
+piste qnh	32	5
+carburetor heat	32	4
+ignition off	32	4
+ft au-dessus	31	3
+séance altimétrie	31	29
+vent face	31	10
+août min	31	31
+carburant utilisable	31	14
+herbe sèche	31	3
+piste deux	31	4
+sin wca	31	2
+prêt rouler	31	2
+élève pré-lâcher	30	17
+travers face	30	4
+chaque cas	30	30
+jour où	30	15
+même logique	30	18
+orly référence	30	30
+volets rentrés	30	5
+full fuel	30	5
+exemple poh	30	5
+pa ft	30	4
+min fuel	30	5
+nm gs	30	4
+atterrissage forcé	30	9
+vac lfpn	30	9
+feu moteur	30	2
+off alt	30	4
+hpa ft	29	6
+basse vitesse	29	9
+lien séance	29	20
+vs kias	29	7
+fuel utilisable	29	9
+deux cinq	29	2
+rouge fixe	29	3
+pompe fuel	29	5
+lfpn toussus-le-noble	28	20
+td °c	28	5
+monomoteur léger	28	16
+kt qfu	28	5
+as besoin	28	17
+piste vent	28	10
+limite structurale	28	4
+même temps	28	12
+vitesse constante	28	6
+bord d'attaque	28	7
+ldg kias	28	6
+vno vne	28	7
+traînée induite	28	5
+vfe kias	28	8
+lfpn lfox	28	3
+expérience récente	28	1
+toussus tour	28	3
+as required	28	4
+stop bar	28	1
+°c/ °c/	28	1
+°c ft	27	5
+démontré kt	27	9
+peuvent être	27	16
+kg poh	27	11
+circuit lfpn	27	14
+mieux vaut	27	18
+br bkn	27	6
+as déjà	27	20
+parking aquila	27	2
+toussus sol	27	2
+cumulus humilis	26	6
+non authentiques	26	26
+environ ft	26	8
+vent qfu	26	6
+ça passe	26	9
+travers démontré	26	9
+lien direct	26	17
+l'incidence critique	26	3
+metar d'exercice	26	25
+légal vfr	26	23
+mm aft	26	3
+kt min	26	5
+canal unique	26	2
+p/s heat	26	3
+km km	25	5
+ft °c	25	5
+règle d'or	25	20
+go go	25	13
+lfpo metar/taf	25	25
+vx vy	25	9
+moteur coupé	25	14
+selon poh	25	14
+améliore toujours	25	16
+limite arrière	25	3
+kg/l kg/l	25	5
+heat off	25	5
+terrain ft	24	6
+sct bkn	24	14
+trop haut	24	13
+quelque chose	24	15
+lfmt metar	24	24
+metar montpellier	24	24
+séance incidence	24	24
+avant chaque	24	15
+exemple pédagogique	24	16
+l'entraînement non	24	24
+parce qu	24	10
+stratus bas	24	5
+cg vide	24	4
+ft isa	24	7
+nm kt	24	6
+cm km	24	2
+décollage autorisé	24	2
+pompe électrique	24	5
+off ignition	24	4
+base ft	23	6
+plafond bas	23	9
+double commande	23	15
+cas piégeux	23	13
+degrés vrais	23	4
+travers pur	23	5
+charge mentale	23	12
+peu près	23	15
+trop vite	23	15
+travail lfsb	23	23
+lfsb lfmt	23	23
+lfmt lfbd	23	23
+d'exercice go/no	23	23
+go givre	23	23
+givre chaleur/masse	23	23
+chaleur/masse minima	23	23
+minima lire	23	23
+l'état d'aile	23	23
+authentiques lfpn	23	23
+nosig lfsb	23	23
+lfsb metar	23	23
+metar bâle	23	23
+bâle brume	23	23
+brume givre	23	23
+givre pédagogique	23	23
+montpellier go	23	23
+lfbd metar	23	23
+metar bordeaux	23	23
+bordeaux cavok	23	23
+cavok chaleur	23	23
+chaleur masse	23	23
+metar clermont	23	23
+clermont averse	23	23
+averse plafond	23	23
+incidence portance	23	23
+portance rappel	23	23
+altimétrie rappel	23	23
+vent niveau	23	23
+rpm hélice	23	6
+ground roll	23	3
+aviate navigate	23	6
+procédure club	23	7
+signaux lumineux	23	4
+stall warning	23	6
+aujourd hui	23	9
+vent nul	22	9
+vol local	22	15
+lfpn vent	22	10
+deux fois	22	11
+vent °/	22	6
+piste courte	22	10
+vent travers	22	11
+qfu travers	22	2
+at kt	22	10
+veut dire	22	18
+pression dynamique	22	6
+poh kias	22	9
+pédagogique lfmt	22	22
+possible lfbd	22	22
+masse lflc	22	22
+plafond qcm	22	22
+point d'arrêt	22	4
+max min	22	4
+vac aip	22	11
+absence totale	22	9
+wca gs	22	2
+non contrôlé	22	4
+avion abord	22	5
+parking brake	22	4
+cht max	22	4
+basses couches	22	3
+bkn tempo	21	7
+man uvres	21	7
+carte vac	21	10
+doivent être	21	12
+décision no	21	9
+at rotax	21	16
+travers sin	21	6
+section suivante	21	12
+face avant	21	4
+kt rafale	21	2
+non stabilisé	21	9
+ailes plat	21	7
+max kg	21	7
+up kias	21	5
+poh exemplaire	21	9
+vfr local	21	9
+rappel seance-	21	8
+seance- rappel	21	8
+kg fuel	21	4
+kias flaps	21	4
+cm cc	21	2
+corrigé cas	21	4
+wca cv	21	2
+eet min	21	2
+voyant volt	21	3
+pluie continue	21	2
+givrage cellule	21	2
+temps significatif	20	3
+tempo bkn	20	5
+écart °c	20	6
+vent calme	20	11
+altitude terrain	20	8
+kias vs	20	9
+piste lfpn	20	13
+cas lfpn	20	10
+hors domaine	20	9
+cos sin	20	6
+piste mouillée	20	6
+sct nosig	20	15
+aile basse	20	1
+poh kg	20	9
+°c td	20	4
+max volets	20	6
+hors sujet	20	8
+f-haat f-gxcf	20	8
+aip france	20	5
+gs tas	20	2
+min nm	20	3
+cv cm	20	3
+message type	20	4
+air humide	20	7
+fil rouge	20	15
+a/c/d faux	20	2
+huile °c	20	3
+puissance réduite	20	4
+carb heat	20	4
+cb alt	20	2
+elr dalr	20	2
+vent vent	19	11
+°c air	19	5
+basse couche	19	5
+max démontré	19	4
+région parisienne	19	8
+clôture clôture	19	19
+vent vient	19	5
+kt km/h	19	1
+mag qfu	19	2
+east is	19	4
+is least	19	4
+km/h km/h	19	1
+démontré at	19	9
+point attente	19	6
+plan bas	19	2
+vx kias	19	6
+horizon artificiel	19	4
+environ nm	19	6
+diagramme v-n	19	2
+virage stabilisé	19	6
+vol réel	19	9
+max °c	19	4
+at kias	19	7
+bagages max	19	5
+kg bras	19	3
+mm mac	19	3
+f-gxcf f-gxmv	19	6
+tas gs	19	4
+nm min	19	5
+sup aip	19	4
+lfpn lfor	19	3
+gs eet	19	3
+navigate communicate	19	6
+récente pax	19	1
+clairance d'atterrissage	19	2
+mayday mayday	19	1
+chaleur latente	19	4
+réchauffe off	19	4
+air très	18	8
+altitude amsl	18	5
+air sec	18	4
+haute altitude	18	10
+ft qnh	18	4
+jusqu'à ft	18	7
+parce qu'il	18	9
+vent réel	18	6
+feu vert	18	7
+poh vs	18	7
+météo limite	18	11
+manche arrière	18	5
+ligne droite	18	8
+max vs	18	4
+vne kias	18	8
+pied droit	18	2
+signifie surtout	18	14
+go voir	18	9
+f-gxmv f-harm	18	6
+vide pilote	18	1
+l/h ft	18	5
+cv gs	18	1
+certificat médical	18	2
+fatigue stress	18	6
+pression sociale	18	7
+terrain contrôlé	18	5
+lettre atis	18	4
+do not	18	6
+heat pull	18	4
+alt off	18	5
+wide open	18	3
+lfpn lflx	18	1
+oui toujours	17	12
+avant vol	17	10
+calage altimétrique	17	14
+rafales kt	17	5
+non négociable	17	11
+vent piste	17	6
+pédagogique kt	17	4
+uniquement après	17	12
+moment où	17	12
+l'angle d'attaque	17	4
+meilleur taux	17	6
+quelle affirmation	17	12
+descente rapide	17	7
+silence radio	17	12
+vaut mieux	17	14
+mm hors	17	3
+avant mise	17	12
+frein parking	17	7
+local lfpn	17	11
+pilote pax	17	4
+kg vide	17	4
+ft pa	17	5
+da ft	17	2
+vfr jour	17	8
+kt eet	17	2
+minima vmc	17	4
+instruments moteur	17	3
+chute rpm	17	3
+bar bar	17	2
+pression huile	17	7
+alt alt	17	3
+bas niveau	17	4
+bkn ft	16	5
+minima vfr	16	7
+hauteur au-dessus	16	5
+facteur humain	16	6
+basse pression	16	5
+vrb kt	16	7
+bon réflexe	16	13
+vent metar	16	6
+sin kt	16	4
+face face	16	3
+sin cos	16	5
+premier réflexe	16	9
+d'origine rappel	16	16
+mauvaise idée	16	12
+few nosig	16	14
+arrière piste	16	6
+cz constant	16	2
+vne vfe	16	5
+finesse max	16	1
+kt tas	16	4
+même masse	16	8
+lacet adverse	16	2
+moment kg	16	3
+effort nul	16	3
+uniquement au-dessus	16	12
+start taxi	16	3
+réserve min	16	6
+piste dure	16	1
+flaps t/o	16	3
+gs réelle	16	5
+distance nm	16	3
+d'origine révision	16	16
+vac notam	16	8
+cap droite	16	3
+info trafic	16	6
+stress aigu	16	2
+foxtrot golf	16	3
+panne électrique	16	4
+cabin heat	16	3
+alt cb	16	2
+bas niveaux	16	3
+fuel selector	16	3
+feu électrique	16	1
+fromage suisse	16	1
+few sct	15	8
+terrain lfpn	15	10
+jamais dépasser	15	4
+devient nulle	15	7
+erreur classique	15	13
+calage qnh	15	7
+basse altitude	15	8
+avion léger	15	7
+idées emporter	15	15
+face cos	15	3
+vent local	15	2
+décide go	15	14
+masse d'air	15	9
+vaut environ	15	11
+vrai seulement	15	7
+effet typique	15	11
+trajectoire sol	15	5
+haute vitesse	15	7
+augmente toujours	15	11
+traînée parasite	15	3
+t/o kias	15	7
+kias up	15	6
+nm vent	15	4
+décollage lfpn	15	7
+ordre mental	15	8
+grandeur pédagogique	15	8
+bon sens	15	10
+trait rouge	15	1
+hors enveloppe	15	5
+bagages fuel	15	4
+meilleure finesse	15	5
+kias vy	15	6
+max rpm	15	4
+hp rpm	15	2
+décision voir	15	7
+fuel mission	15	5
+prochain vol	15	9
+gradient sol	15	1
+flaps up	15	5
+trajet réserve	15	1
+dist nm	15	3
+cc cm	15	2
+après nm	15	2
+droit devant	15	5
+hors nuage	15	2
+selon procédures	15	8
+trafic connu	15	1
+say again	15	4
+rien dire	15	5
+manuel dgac	15	3
+indicatif complet	15	4
+piste dégagée	15	2
+dès qu	15	8
+contact off	15	7
+nearest airfield	15	3
+throttle wide	15	3
+flaps ldg	15	4
+switch off	15	3
+pente douce	15	2
+masses air	15	3
+air frais	15	2
+premier non	15	2
+oreille interne	15	3
+plan trop	15	2
+crm mono-pilote	15	2
+kt bkn	14	11
+°c d'écart	14	5
+visite prévol	14	7
+kt rafales	14	7
+turbulence sévère	14	5
+lfpn toussus	14	6
+metar kt	14	5
+vent magnétique	14	5
+environ kt	14	4
+procédure normale	14	3
+démontrés at	14	3
+virage serré	14	8
+dire non	14	8
+meilleur angle	14	6
+seulement au-dessus	14	8
+×cos kt	14	5
+config atterrissage	14	3
+mtom at	14	12
+regard dehors	14	7
+nav vfr	14	8
+base finale	14	5
+schéma pédagogique	14	9
+kt poh	14	5
+imc non	14	3
+effets moteur	14	2
+cg trop	14	2
+masse centrage	14	6
+croisière haute	14	8
+pression d'huile	14	6
+vide kg	14	2
+briefing météo	14	8
+isa °c	14	3
+kt gs	14	4
+sol nm	14	3
+nm droite	14	4
+wca cap	14	2
+vw vp	14	2
+cap gauche	14	3
+conduite correcte	14	4
+devant toi	14	8
+clairance atc	14	3
+bkn lfpo	14	11
+pression temps	14	3
+service d'alerte	14	1
+information bravo	14	2
+piste xx	14	1
+visual inspection	14	2
+throttle idle	14	3
+essais allumage	14	4
+bar psi	14	2
+panne alt	14	2
+procédures normales	14	4
+turbulence convective	14	3
+perso plan	14	2
+oreille moyenne	14	2
+tache aveugle	14	1
+lfpg kt	13	11
+ciel clair	13	7
+très faible	13	10
+tempo shra	13	5
+°c isa	13	4
+es ft	13	3
+d'un coup	13	9
+espace contrôlé	13	4
+vent vrai	13	5
+vrai magnétique	13	3
+trente secondes	13	8
+avant même	13	10
+juste avant	13	12
+piste étroite	13	2
+vent basse	13	2
+dès ft	13	7
+trois-quarts arrière	13	1
+train avant	13	6
+cas limite	13	2
+tempo kt	13	4
+go automatique	13	10
+plein volets	13	7
+limite avant	13	4
+config lisse	13	3
+nm environ	13	6
+seulement après	13	10
+as vu	13	13
+ias tas	13	2
+kg mtom	13	5
+nuit claire	13	3
+vno kias	13	6
+vol solo	13	10
+pax bagages	13	4
+bille centrée	13	5
+puissance max	13	6
+selon consignes	13	7
+trop arrière	13	3
+datum mac	13	2
+bande passante	13	8
+tcds easa	13	3
+kg bagages	13	5
+utilisable at	13	9
+bras moment	13	3
+ordre poh	13	10
+depuis lfpn	13	7
+autre avion	13	8
+utilisable poh	13	8
+nuit seulement	13	11
+ft l/h	13	3
+min l/h	13	4
+note poh	13	7
+nm km	13	2
+piste fermée	13	10
+rv vent	13	2
+few lfpn	13	12
+qdm qdr	13	1
+metar auto	13	9
+autre trafic	13	7
+f/g bas	13	1
+médical classe	13	2
+prorogation sep	13	1
+vol fi	13	1
+pilote vfr	13	5
+clairance d'alignement	13	5
+vent qnh	13	6
+fpl ouvert	13	1
+tour f-haat	13	4
+personnes bord	13	3
+rouge clignotant	13	2
+aérodrome dangereux	13	2
+prop rpm	13	2
+°c huile	13	3
+at least	13	4
+alt pull	13	2
+traits pleins	13	1
+côté piste	13	1
+latitudes moyennes	13	2
+base cu	13	1
+plutôt qu	13	6
+isotherme °c	13	2
+références réduites	13	1
+croire haut	13	1
+red lines	13	1
+température °c	12	6
+metar lfpg	12	11
+sct tempo	12	8
+prob tempo	12	5
+visibilité km	12	5
+amsl ft	12	4
+°c base	12	4
+sol °c	12	2
+premier geste	12	7
+altitude réelle	12	5
+pourquoi c'est	12	6
+agl ft	12	3
+danger principal	12	6
+route vent	12	2
+arrière kt	12	6
+kt piste	12	4
+même vent	12	6
+axe plan	12	5
+plan vitesse	12	5
+plafond école	12	2
+trois fois	12	5
+même chose	12	11
+vent d'abord	12	2
+bonne visibilité	12	4
+kt majoration	12	1
+majoration kt	12	1
+checklist mentale	12	11
+séance t'a	12	9
+ailes plates	12	4
+hors zone	12	7
+montée stabilisée	12	2
+moteur réduit	12	4
+angle d'attaque	12	3
+nez bas	12	5
+portance requise	12	4
+cz cz	12	3
+at volets	12	7
+masse vs	12	5
+virage vs	12	5
+sens inverse	12	6
+incidence critique	12	4
+aile propre	12	2
+décrochage avant	12	2
+aile intérieure	12	2
+dernière section	12	11
+metar cavok	12	7
+cas piège	12	9
+cas go/no	12	10
+ouvre l'analyse	12	11
+up t/o	12	6
+cavok lfpn	12	11
+tas kt	12	4
+non intentionnelle	12	2
+tempo br	12	4
+réflexion ouverte	12	12
+croisière at	12	5
+l'exemple poh	12	5
+décollage at	12	4
+section synthèse	12	12
+cg ok	12	2
+fuel avant	12	4
+roulage parking	12	4
+retour lfpn	12	9
+rpm max	12	3
+conso l/h	12	4
+taxi montée	12	3
+derrière toi	12	7
+temps min	12	4
+min gs	12	3
+même famille	12	6
+nm temps	12	2
+kt wca	12	2
+cm gs	12	2
+écart latéral	12	3
+nuages bas	12	6
+explique-moi synthèse	12	12
+consignes particulières	12	4
+d'un autre	12	5
+très haut	12	7
+idée force	12	4
+cas général	12	1
+avion moteur	12	1
+dossier météo	12	3
+alphabet oaci	12	3
+atis sol	12	4
+mike victor	12	3
+zéro sept	12	2
+line up	12	3
+premier solo	12	7
+danger grave	12	1
+must be	12	5
+°c cht	12	3
+
+### TRIGRAMMES (non couverts par le glossaire actuel)
+sais pas explique-moi	393	37
+tester ma compréhension	391	37
+kt kt kt	190	17
+remise de gaz	153	16
+parce que le	131	29
+ordre de grandeur	126	29
+n'est pas un	120	25
+kg kg kg	119	12
+nm nm nm	114	9
+ft ft ft	111	11
+n'est pas une	96	24
+kt travers kt	93	5
+kias kias kias	93	12
+face kt travers	89	5
+décision go no	81	35
+rubriques du jour	74	37
+météo du jour	74	35
+voir le diagnostic	73	15
+qcm questions de	70	35
+questions de rattrapage	70	35
+révisions rappels séances	70	35
+jour décision go	68	35
+jour metar taf	68	34
+diagnostic et la	67	14
+rappels séances antérieures	64	32
+°c °c °c	60	8
+min min min	59	5
+travers kt face	55	5
+manuel de vol	54	3
+mise en route	53	19
+parce que la	51	20
+kt face kt	51	4
+rappel séance rappel	51	16
+au-dessus de la	48	21
+avant le vol	48	26
+c'est ce qui	47	36
+lfpn auto kt	46	37
+metar lfpn auto	45	37
+points de report	45	10
+carnet de route	45	6
+l/h l/h l/h	44	7
+brise de mer	44	4
+taf lfpn kt	43	37
+plan de vol	43	9
+ordres de grandeur	42	23
+foxtrot hotel alpha	42	3
+n'est pas le	41	21
+piste en service	41	17
+charge de travail	41	12
+metar lfpo auto	40	36
+lfpo auto kt	40	36
+auto kt cavok	38	15
+taux de montée	38	11
+commence prends ton	37	37
+prends ton temps	37	37
+rattrapage clique sur	37	37
+clique sur une	37	37
+score points revoir	37	37
+points revoir recommencer	37	37
+revoir recommencer la	37	37
+recommencer la séance	37	37
+face au vent	37	12
+niveau de la	36	10
+au-dessus de ft	36	20
+séance envoyer mon	36	36
+envoyer mon score	36	36
+score arthur un	36	36
+arthur un tap	36	36
+tap ton score	36	36
+score et la	36	36
+liste des questions	36	36
+questions ratées partent	36	36
+ratées partent sur	36	36
+partent sur telegram	36	36
+telegram c'est ce	36	36
+permet de cibler	36	36
+cibler la prochaine	36	36
+prochaine séance sur	36	36
+séance sur tes	36	36
+points faibles préparer	36	36
+faibles préparer le	36	36
+préparer le message	36	36
+message le message	36	36
+message s'ouvre pré-rempli	36	36
+s'ouvre pré-rempli dans	36	36
+pré-rempli dans telegram	36	36
+telegram tu n'as	36	36
+n'as plus qu'à	36	36
+lfpn taf taf	36	34
+taf taf lfpn	36	34
+hotel alpha alpha	36	3
+alpha alpha tango	36	3
+kt cavok nosig	35	16
+terrain metar lfpn	35	35
+rattrapage révisions rappels	35	35
+réponse feedback immédiat	35	35
+feedback immédiat explication	35	35
+immédiat explication détaillée	35	35
+vitesse de décrochage	35	10
+poh de l'exemplaire	35	13
+séance rappel séance	35	13
+point d'attente piste	35	5
+alt /bat off	35	4
+no go clôture	34	34
+go clôture cours	34	34
+auto kt few	34	22
+dès que tu	34	18
+metar taf qcm	34	34
+taf qcm questions	34	34
+lfpo metar orly	34	34
+référence proche metar	34	30
+vs vs vs	34	6
+niveau relevé par	33	33
+relevé par rapport	33	33
+compréhension questions le	32	20
+révision espacée ces	32	32
+espacée ces questions	32	32
+questions reprennent les	32	32
+reprennent les séances	32	32
+séances précédentes rappel	32	32
+précédentes rappel séance	32	32
+rapport aux séances	32	32
+lfpn metar ton	32	32
+metar ton terrain	32	32
+proche metar lfpo	32	32
+rappel séance vent	32	29
+séances antérieures rubriques	32	32
+antérieures rubriques du	32	32
+séances antérieures révision	32	32
+antérieures révision espacée	32	32
+metar orly référence	30	30
+orly référence proche	30	30
+virage horizontal stabilisé	30	6
+domaine de vol	30	9
+prochaine section le	30	17
+plan continuation bias	30	3
+commandant de bord	29	9
+gagner du temps	29	14
+metar taf lfpn	28	28
+piste deux cinq	28	2
+près du sol	27	12
+rappel séance altimétrie	27	27
+dès que le	27	14
+brouillard de rayonnement	27	6
+go ou no	26	14
+lfpn et lfpo	26	26
+n'est pas la	26	14
+no go ou	26	15
+mm aft datum	26	3
+nuage du jour	25	13
+au-dessus du terrain	25	3
+aileron au vent	25	3
+taf lfpn et	25	25
+point de report	25	8
+biais de confirmation	25	2
+choix de piste	24	6
+kt de travers	24	5
+bas sous le	24	2
+lfpo metar/taf du	24	24
+metar/taf du pour	24	24
+terrain de travail	24	24
+lfmt metar montpellier	24	24
+réalistes pour l'entraînement	24	24
+perte de position	24	4
+travail lfsb lfmt	23	23
+lfsb lfmt lfbd	23	23
+lfmt lfbd et	23	23
+lfbd et lflc	23	23
+lflc metar d'exercice	23	23
+metar d'exercice go/no	23	23
+d'exercice go/no go	23	23
+go/no go givre	23	23
+go givre chaleur/masse	23	23
+givre chaleur/masse minima	23	23
+chaleur/masse minima lire	23	23
+minima lire aussi	23	23
+lire aussi l'état	23	23
+l'état d'aile et	23	23
+d'aile et les	23	23
+performances pas seulement	23	23
+seulement le légal	23	23
+légal vfr ces	23	23
+vfr ces metar	23	23
+metar sont réalistes	23	23
+l'entraînement non authentiques	23	23
+non authentiques lfpn	23	23
+authentiques lfpn metar	23	23
+nosig lfsb metar	23	23
+lfsb metar bâle	23	23
+metar bâle brume	23	23
+bâle brume givre	23	23
+brume givre pédagogique	23	23
+metar montpellier go	23	23
+montpellier go possible	23	23
+lfbd metar bordeaux	23	23
+metar bordeaux cavok	23	23
+bordeaux cavok chaleur	23	23
+cavok chaleur masse	23	23
+lflc metar clermont	23	23
+metar clermont averse	23	23
+clermont averse plafond	23	23
+rappel séance incidence	23	23
+séance incidence portance	23	23
+incidence portance rappel	23	23
+portance rappel séance	23	23
+séance altimétrie rappel	23	23
+altimétrie rappel séance	23	23
+séance vent niveau	23	23
+vent niveau relevé	23	23
+cas de doute	23	13
+kg cg mm	23	4
+mémoire de travail	23	4
+atterrissage de précaution	23	7
+face et travers	22	5
+lien avec la	22	16
+kt vs kt	22	5
+givre pédagogique lfmt	22	22
+pédagogique lfmt metar	22	22
+go possible lfbd	22	22
+possible lfbd metar	22	22
+chaleur masse lflc	22	22
+masse lflc metar	22	22
+averse plafond qcm	22	22
+plafond qcm questions	22	22
+altitude de croisière	21	10
+autour de lfpn	21	12
+décision no go	21	9
+partie de la	21	16
+vs kt kt	21	4
+vs kt vs	21	4
+avant un vol	21	11
+rappel seance- rappel	21	8
+mm mm mm	21	3
+hotel alpha tango	21	2
+off ignition off	21	4
+fuel pump on	21	5
+lfpn kt cavok	20	17
+masse du jour	20	7
+travers rafale kt	20	2
+masse et centrage	20	12
+parce que les	20	12
+altitude de sécurité	20	4
+droite de la	20	5
+seance- rappel séance	20	8
+après le vol	20	12
+quelle est la	19	11
+east is least	19	4
+nez au vent	19	3
+lien avec le	19	15
+long de la	19	4
+tableau de bord	19	10
+aquila at lfpn	19	16
+nm gs kt	19	4
+lfpn kt sct	19	18
+vol de nuit	19	5
+ft au-dessus du	18	3
+moyen kt rafale	18	2
+roue au vent	18	2
+n'est pas du	18	11
+emportes de la	18	17
+annule le besoin	18	13
+bras de levier	18	5
+°c td °c	18	4
+coin de man	18	1
+f-gxcf f-gxmv f-harm	18	6
+kg/l kg/l kg/l	18	5
+aviate navigate communicate	18	6
+heat pull on	18	4
+mal de air	18	3
+au-dessus du sol	17	6
+question de réflexion	17	17
+face travers face	17	2
+n'est pas de	17	14
+clôture ce que	17	17
+kias volets up	17	6
+avant chaque vol	17	10
+fiche de pesée	17	4
+avant mise en	17	12
+kg et kg	17	3
+f-haat f-gxcf f-gxmv	17	6
+triangle des vitesses	17	5
+pan pan pan	17	1
+clôture les idées	16	16
+même si le	16	12
+ft plus bas	16	4
+aucun effet sur	16	10
+aquila at rotax	16	14
+vent mag qfu	16	2
+travers en rafale	16	2
+jour où tu	16	9
+séances d'origine rappel	16	16
+ordre de lecture	16	6
+parce que tu	16	11
+kt few nosig	16	14
+kt rafale kt	16	1
+tant que le	16	10
+altitude de circuit	16	3
+séances d'origine révision	16	16
+rpm rpm rpm	16	4
+carburetor heat pull	16	4
+brise de terre	16	2
+auto kt sct	15	14
+kt sct bkn	15	10
+proche de la	15	10
+numéro de série	15	8
+distance de décollage	15	5
+où tu es	15	11
+clôture clôture les	15	15
+travers face travers	15	2
+couper la radio	15	11
+compréhension questions la	15	12
+avant le seuil	15	4
+parce que vs	15	4
+au-dessus de va	15	2
+plutôt que de	15	9
+hors limite arrière	15	2
+montée en route	15	3
+go voir l'analyse	15	6
+cm km nm	15	1
+gs kt eet	15	2
+absence totale de	15	8
+vac du jour	15	9
+carnet de vol	15	3
+vent arrière piste	15	5
+fréquence en cours	15	1
+off alt /bat	15	3
+throttle wide open	15	3
+as pas besoin	15	9
+°c/ °c/ °c/	15	1
+carte de déviation	14	3
+courte finale tu	14	6
+gradient de vent	14	5
+travers moyen kt	14	2
+vent kt qfu	14	1
+kt sct nosig	14	11
+pente de montée	14	2
+bord de fuite	14	3
+lien direct avec	14	11
+vno vne vfe	14	4
+ft nm nm	14	3
+près de la	14	6
+vs vs kt	14	6
+log de nav	14	4
+wca gs kt	14	2
+kt eet min	14	2
+go si tu	14	6
+est-ce que je	14	8
+kias poh fm-at	14	2
+pompe fuel on	14	4
+cht max °c	14	3
+décision voir le	14	6
+fin de journée	13	9
+connaître par ur	13	11
+bas que l'indication	13	1
+départ de lfpn	13	7
+changer de fréquence	13	5
+no go sans	13	10
+vent °/ kt	13	6
+km/h km/h km/h	13	1
+côté de la	13	6
+roulette de nez	13	4
+kt démontrés at	13	3
+avant le lâcher	13	8
+vent de gauche	13	4
+travers démontré kt	13	6
+dos au vent	13	2
+faut plus de	13	8
+vx et vy	13	3
+départ en roulis	13	2
+vitesse de man	13	6
+couper le moteur	13	10
+faux je ne	13	5
+aft datum mac	13	2
+gauche de la	13	6
+kias kias poh	13	6
+uniquement au-dessus de	13	11
+nm kt min	13	4
+fin de séance	13	9
+kt few lfpn	13	12
+few lfpn taf	13	12
+bkn lfpo metar	13	11
+qnh un zéro	13	2
+clairance de roulage	13	2
+ouvre la correction	13	13
+marge de hauteur	13	1
+décollage de nuit	13	1
+plan trop bas	13	1
+metar lfpg kt	12	11
+km km km	12	3
+dès que la	12	9
+calé au qnh	12	3
+es plus bas	12	4
+quel que soit	12	7
+go pour un	12	8
+qfu face kt	12	2
+parce que c'est	12	10
+point de toucher	12	5
+go si le	12	9
+séance tu sais	12	12
+dépend de la	12	8
+nez dans le	12	6
+axe plan vitesse	12	5
+l'aile au vent	12	1
+as besoin de	12	8
+cz max vs	12	3
+sens de la	12	6
+pendant que tu	12	9
+cas go/no go	12	10
+juste après décollage	12	4
+kt cavok lfpn	12	11
+cavok lfpn taf	12	11
+masse kg bras	12	3
+no go go	12	9
+prochaine section la	12	8
+uniquement la couleur	12	10
+clairance de contrôle	12	1
+d'attente piste qnh	12	3
+réchauffe carbu on	12	4
+parce qu il	12	6
+côté au vent	12	1
+dessous de ft	11	6
+centaines de pieds	11	8
+direction du vent	11	9
+kt tu es	11	6
+vfr de jour	11	11
+haut que l'indication	11	1
+vent moyen kt	11	4
+no go décision	11	11
+vent vient de	11	4
+vient le vent	11	4
+travers sin kt	11	4
+l'ordre de grandeur	11	6
+parce que est	11	8
+d'origine rappel séance	11	11
+porte de sortie	11	5
+vent au sol	11	7
+remplace pas le	11	7
+remets les gaz	11	7
+vent plus fort	11	5
+kt majoration kt	11	1
+manche au vent	11	1
+hauteur de décision	11	2
+pré-lâcher sur aquila	11	11
+ciel est bleu	11	9
+kg cg avant	11	4
+seulement au-dessus de	11	6
+nm ft nm	11	1
+même si tu	11	8
+améliore toujours la	11	9
+rappel séance en	11	8
+nosig lfpg metar	11	10
+tempo br bkn	11	4
+lien avec les	11	9
+bras moment kg	11	3
+bagages kg fuel	11	2
+total cg mm	11	2
+ft/min gs kt	11	2
+uniquement le gps	11	8
+temps de vol	11	4
+règle du en	11	2
+lfpn pour chaque	11	11
+ligne de position	11	2
+où je suis	11	5
+notam du jour	11	6
+règles de l'air	11	4
+expérience récente pax	11	1
+numéro de piste	11	4
+coupes la radio	11	6
+toi le micro	11	2
+foxtrot golf x-ray	11	3
+toussus sol foxtrot	11	2
+sol foxtrot hotel	11	2
+prêt au départ	11	3
+oat °c td	11	2
+ignition off alt	11	2
+feu moteur sol	11	1
+derrière le front	11	1
+minima perso plan	11	2
+imc non intentionnelle	11	1
+gueule de bois	11	1
+pression du temps	11	1
+air très sec	10	5
+base des cumulus	10	4
+type de nuage	10	5
+décision go/no go	10	8
+high to low	10	4
+look out below	10	4
+ft par °c	10	3
