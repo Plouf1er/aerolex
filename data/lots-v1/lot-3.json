@@ -1,0 +1,481 @@
+{
+ "effet de foehn": {
+  "categorie": "divers",
+  "variantes": [],
+  "synonymes": []
+ },
+ "effet de pente": {
+  "categorie": "divers",
+  "variantes": [],
+  "synonymes": []
+ },
+ "effet de site": {
+  "categorie": "Vent",
+  "variantes": [
+   "effets de site"
+  ],
+  "synonymes": []
+ },
+ "effet de sol": {
+  "categorie": "Aérodynamique",
+  "variantes": [],
+  "synonymes": []
+ },
+ "effet gyroscopique": {
+  "categorie": "divers",
+  "variantes": [],
+  "synonymes": []
+ },
+ "effet venturi": {
+  "categorie": "divers",
+  "variantes": [],
+  "synonymes": []
+ },
+ "effort au manche": {
+  "categorie": "divers",
+  "variantes": [],
+  "synonymes": []
+ },
+ "elr": {
+  "categorie": "divers",
+  "variantes": [],
+  "synonymes": []
+ },
+ "empennage": {
+  "categorie": "divers",
+  "variantes": [],
+  "synonymes": []
+ },
+ "encadrement": {
+  "categorie": "Aérodrome & cartes",
+  "variantes": [],
+  "synonymes": []
+ },
+ "engine": {
+  "categorie": "divers",
+  "variantes": [],
+  "synonymes": [
+   "moteur"
+  ]
+ },
+ "espace aérien": {
+  "categorie": "divers",
+  "variantes": [],
+  "synonymes": []
+ },
+ "espace contrôlé": {
+  "categorie": "divers",
+  "variantes": [],
+  "synonymes": []
+ },
+ "espacement réglementaire": {
+  "categorie": "divers",
+  "variantes": [],
+  "synonymes": []
+ },
+ "espaces aériens": {
+  "categorie": "divers",
+  "variantes": [],
+  "synonymes": []
+ },
+ "essai magnétos": {
+  "categorie": "divers",
+  "variantes": [],
+  "synonymes": []
+ },
+ "eta": {
+  "categorie": "divers",
+  "variantes": [],
+  "synonymes": []
+ },
+ "facteur humain": {
+  "categorie": "divers",
+  "variantes": [],
+  "synonymes": []
+ },
+ "facteurs humains": {
+  "categorie": "divers",
+  "variantes": [],
+  "synonymes": []
+ },
+ "fatigue": {
+  "categorie": "divers",
+  "variantes": [],
+  "synonymes": []
+ },
+ "feu cabine": {
+  "categorie": "divers",
+  "variantes": [],
+  "synonymes": []
+ },
+ "feu moteur": {
+  "categorie": "divers",
+  "variantes": [],
+  "synonymes": []
+ },
+ "few": {
+  "categorie": "divers",
+  "variantes": [],
+  "synonymes": []
+ },
+ "fi": {
+  "categorie": "divers",
+  "variantes": [],
+  "synonymes": []
+ },
+ "fiche de pesée": {
+  "categorie": "divers",
+  "variantes": [],
+  "synonymes": []
+ },
+ "finale courte": {
+  "categorie": "divers",
+  "variantes": [],
+  "synonymes": []
+ },
+ "finesse max": {
+  "categorie": "divers",
+  "variantes": [],
+  "synonymes": []
+ },
+ "fir": {
+  "categorie": "divers",
+  "variantes": [],
+  "synonymes": []
+ },
+ "flaps": {
+  "categorie": "divers",
+  "variantes": [],
+  "synonymes": []
+ },
+ "foehn": {
+  "categorie": "divers",
+  "variantes": [],
+  "synonymes": []
+ },
+ "foxtrot": {
+  "categorie": "divers",
+  "variantes": [],
+  "synonymes": []
+ },
+ "fpl": {
+  "categorie": "divers",
+  "variantes": [],
+  "synonymes": []
+ },
+ "fractus": {
+  "categorie": "divers",
+  "variantes": [],
+  "synonymes": []
+ },
+ "fromage suisse": {
+  "categorie": "divers",
+  "variantes": [],
+  "synonymes": []
+ },
+ "front": {
+  "categorie": "divers",
+  "variantes": [
+   "fronts"
+  ],
+  "synonymes": []
+ },
+ "front occlus": {
+  "categorie": "divers",
+  "variantes": [],
+  "synonymes": []
+ },
+ "fréquence": {
+  "categorie": "divers",
+  "variantes": [
+   "fréquences"
+  ],
+  "synonymes": []
+ },
+ "ft aal": {
+  "categorie": "divers",
+  "variantes": [],
+  "synonymes": []
+ },
+ "ft agl": {
+  "categorie": "divers",
+  "variantes": [],
+  "synonymes": []
+ },
+ "ft amsl": {
+  "categorie": "divers",
+  "variantes": [],
+  "synonymes": []
+ },
+ "ft/min": {
+  "categorie": "divers",
+  "variantes": [],
+  "synonymes": []
+ },
+ "fuel pump": {
+  "categorie": "divers",
+  "variantes": [],
+  "synonymes": []
+ },
+ "fuel pump on": {
+  "categorie": "divers",
+  "variantes": [],
+  "synonymes": []
+ },
+ "fuselage": {
+  "categorie": "divers",
+  "variantes": [],
+  "synonymes": []
+ },
+ "givrage": {
+  "categorie": "divers",
+  "variantes": [],
+  "synonymes": []
+ },
+ "givrage carburateur": {
+  "categorie": "divers",
+  "variantes": [],
+  "synonymes": []
+ },
+ "givrage en vol": {
+  "categorie": "divers",
+  "variantes": [],
+  "synonymes": []
+ },
+ "givrage moteur": {
+  "categorie": "divers",
+  "variantes": [],
+  "synonymes": []
+ },
+ "givrage structural": {
+  "categorie": "divers",
+  "variantes": [],
+  "synonymes": []
+ },
+ "givre": {
+  "categorie": "divers",
+  "variantes": [],
+  "synonymes": []
+ },
+ "gnss": {
+  "categorie": "divers",
+  "variantes": [],
+  "synonymes": []
+ },
+ "golf": {
+  "categorie": "divers",
+  "variantes": [],
+  "synonymes": []
+ },
+ "gouverne": {
+  "categorie": "divers",
+  "variantes": [],
+  "synonymes": []
+ },
+ "gps": {
+  "categorie": "divers",
+  "variantes": [],
+  "synonymes": []
+ },
+ "gradient de vent": {
+  "categorie": "divers",
+  "variantes": [],
+  "synonymes": []
+ },
+ "gradient thermique": {
+  "categorie": "divers",
+  "variantes": [],
+  "synonymes": []
+ },
+ "ground roll": {
+  "categorie": "divers",
+  "variantes": [],
+  "synonymes": []
+ },
+ "gyroscope": {
+  "categorie": "divers",
+  "variantes": [],
+  "synonymes": []
+ },
+ "hauteur de sécurité": {
+  "categorie": "divers",
+  "variantes": [],
+  "synonymes": []
+ },
+ "hauteur tour de piste": {
+  "categorie": "divers",
+  "variantes": [],
+  "synonymes": []
+ },
+ "herbe sèche": {
+  "categorie": "divers",
+  "variantes": [],
+  "synonymes": []
+ },
+ "heure d'arrivée": {
+  "categorie": "divers",
+  "variantes": [],
+  "synonymes": []
+ },
+ "heure de départ": {
+  "categorie": "divers",
+  "variantes": [],
+  "synonymes": []
+ },
+ "heure estimée": {
+  "categorie": "divers",
+  "variantes": [],
+  "synonymes": []
+ },
+ "hippodrome": {
+  "categorie": "divers",
+  "variantes": [],
+  "synonymes": []
+ },
+ "holding": {
+  "categorie": "divers",
+  "variantes": [],
+  "synonymes": []
+ },
+ "horizon artificiel": {
+  "categorie": "divers",
+  "variantes": [],
+  "synonymes": []
+ },
+ "hotel": {
+  "categorie": "divers",
+  "variantes": [],
+  "synonymes": []
+ },
+ "hyperventilation": {
+  "categorie": "divers",
+  "variantes": [],
+  "synonymes": []
+ },
+ "hypoxie": {
+  "categorie": "divers",
+  "variantes": [],
+  "synonymes": []
+ },
+ "hélice": {
+  "categorie": "divers",
+  "variantes": [],
+  "synonymes": [
+   "prop"
+  ]
+ },
+ "iac": {
+  "categorie": "divers",
+  "variantes": [],
+  "synonymes": []
+ },
+ "idle": {
+  "categorie": "divers",
+  "variantes": [],
+  "synonymes": []
+ },
+ "ignition": {
+  "categorie": "divers",
+  "variantes": [],
+  "synonymes": [
+   "allumage"
+  ]
+ },
+ "illusion somatogyrale": {
+  "categorie": "divers",
+  "variantes": [],
+  "synonymes": []
+ },
+ "ils": {
+  "categorie": "divers",
+  "variantes": [],
+  "synonymes": []
+ },
+ "imsafe": {
+  "categorie": "divers",
+  "variantes": [],
+  "synonymes": []
+ },
+ "incidence": {
+  "categorie": "divers",
+  "variantes": [],
+  "synonymes": []
+ },
+ "incidence critique": {
+  "categorie": "divers",
+  "variantes": [],
+  "synonymes": []
+ },
+ "inclinaison": {
+  "categorie": "divers",
+  "variantes": [],
+  "synonymes": []
+ },
+ "inclinaison standard": {
+  "categorie": "divers",
+  "variantes": [],
+  "synonymes": []
+ },
+ "indicatif": {
+  "categorie": "divers",
+  "variantes": [],
+  "synonymes": []
+ },
+ "info trafic": {
+  "categorie": "divers",
+  "variantes": [],
+  "synonymes": []
+ },
+ "information trafic": {
+  "categorie": "divers",
+  "variantes": [],
+  "synonymes": []
+ },
+ "instabilité": {
+  "categorie": "divers",
+  "variantes": [],
+  "synonymes": []
+ },
+ "instabilité atmosphérique": {
+  "categorie": "divers",
+  "variantes": [],
+  "synonymes": []
+ },
+ "instable": {
+  "categorie": "divers",
+  "variantes": [],
+  "synonymes": []
+ },
+ "instructeur": {
+  "categorie": "divers",
+  "variantes": [],
+  "synonymes": []
+ },
+ "instrument": {
+  "categorie": "divers",
+  "variantes": [
+   "instruments"
+  ],
+  "synonymes": []
+ },
+ "interception": {
+  "categorie": "divers",
+  "variantes": [],
+  "synonymes": []
+ },
+ "inversion de température": {
+  "categorie": "divers",
+  "variantes": [],
+  "synonymes": []
+ },
+ "iso zero": {
+  "categorie": "divers",
+  "variantes": [],
+  "synonymes": []
+ },
+ "isotherme": {
+  "categorie": "divers",
+  "variantes": [],
+  "synonymes": []
+ }
+}

@@ -1,0 +1,475 @@
+{
+ "Vapp": {
+  "categorie": "Vitesses & performances",
+  "variantes": [
+   "vapp"
+  ],
+  "synonymes": []
+ },
+ "abaque": {
+  "categorie": "divers",
+  "variantes": [],
+  "synonymes": []
+ },
+ "abaque de centrage": {
+  "categorie": "divers",
+  "variantes": [],
+  "synonymes": []
+ },
+ "action vitale": {
+  "categorie": "divers",
+  "variantes": [],
+  "synonymes": []
+ },
+ "adf": {
+  "categorie": "divers",
+  "variantes": [],
+  "synonymes": []
+ },
+ "advection": {
+  "categorie": "divers",
+  "variantes": [],
+  "synonymes": []
+ },
+ "aerocolique": {
+  "categorie": "divers",
+  "variantes": [],
+  "synonymes": []
+ },
+ "aerofrein": {
+  "categorie": "divers",
+  "variantes": [],
+  "synonymes": []
+ },
+ "afis": {
+  "categorie": "divers",
+  "variantes": [],
+  "synonymes": []
+ },
+ "agl": {
+  "categorie": "divers",
+  "variantes": [],
+  "synonymes": []
+ },
+ "aile": {
+  "categorie": "divers",
+  "variantes": [
+   "ailes"
+  ],
+  "synonymes": []
+ },
+ "aileron au vent": {
+  "categorie": "divers",
+  "variantes": [],
+  "synonymes": []
+ },
+ "ailes à plat": {
+  "categorie": "divers",
+  "variantes": [],
+  "synonymes": []
+ },
+ "alcool": {
+  "categorie": "divers",
+  "variantes": [],
+  "synonymes": []
+ },
+ "allumage": {
+  "categorie": "divers",
+  "variantes": [],
+  "synonymes": [
+   "ignition"
+  ]
+ },
+ "alphabet aviation": {
+  "categorie": "divers",
+  "variantes": [],
+  "synonymes": []
+ },
+ "alt": {
+  "categorie": "divers",
+  "variantes": [],
+  "synonymes": []
+ },
+ "alternateur": {
+  "categorie": "divers",
+  "variantes": [],
+  "synonymes": []
+ },
+ "altimètre": {
+  "categorie": "divers",
+  "variantes": [],
+  "synonymes": []
+ },
+ "altimétrie": {
+  "categorie": "divers",
+  "variantes": [],
+  "synonymes": []
+ },
+ "altitude de croisière": {
+  "categorie": "divers",
+  "variantes": [],
+  "synonymes": []
+ },
+ "altitude de sécurité": {
+  "categorie": "divers",
+  "variantes": [],
+  "synonymes": []
+ },
+ "altitude densité": {
+  "categorie": "divers",
+  "variantes": [],
+  "synonymes": []
+ },
+ "altitude minimale": {
+  "categorie": "divers",
+  "variantes": [],
+  "synonymes": []
+ },
+ "altitude tour de piste": {
+  "categorie": "divers",
+  "variantes": [],
+  "synonymes": []
+ },
+ "altocumulus": {
+  "categorie": "divers",
+  "variantes": [],
+  "synonymes": []
+ },
+ "altostratus": {
+  "categorie": "divers",
+  "variantes": [],
+  "synonymes": []
+ },
+ "amers": {
+  "categorie": "divers",
+  "variantes": [],
+  "synonymes": []
+ },
+ "angle d'attaque": {
+  "categorie": "divers",
+  "variantes": [],
+  "synonymes": []
+ },
+ "angle de dérive": {
+  "categorie": "divers",
+  "variantes": [],
+  "synonymes": []
+ },
+ "anémomètre": {
+  "categorie": "divers",
+  "variantes": [],
+  "synonymes": []
+ },
+ "approche finale": {
+  "categorie": "divers",
+  "variantes": [],
+  "synonymes": []
+ },
+ "approche interrompue": {
+  "categorie": "divers",
+  "variantes": [],
+  "synonymes": []
+ },
+ "aquila": {
+  "categorie": "divers",
+  "variantes": [],
+  "synonymes": []
+ },
+ "arc blanc": {
+  "categorie": "divers",
+  "variantes": [],
+  "synonymes": []
+ },
+ "arc dme": {
+  "categorie": "divers",
+  "variantes": [],
+  "synonymes": []
+ },
+ "arc jaune": {
+  "categorie": "divers",
+  "variantes": [],
+  "synonymes": []
+ },
+ "arc vert": {
+  "categorie": "divers",
+  "variantes": [],
+  "synonymes": []
+ },
+ "ascendance": {
+  "categorie": "divers",
+  "variantes": [],
+  "synonymes": []
+ },
+ "ascendance thermique": {
+  "categorie": "divers",
+  "variantes": [],
+  "synonymes": []
+ },
+ "asi": {
+  "categorie": "divers",
+  "variantes": [],
+  "synonymes": []
+ },
+ "assiette": {
+  "categorie": "divers",
+  "variantes": [],
+  "synonymes": []
+ },
+ "assiette de croisière": {
+  "categorie": "divers",
+  "variantes": [],
+  "synonymes": []
+ },
+ "assiette de montée": {
+  "categorie": "divers",
+  "variantes": [],
+  "synonymes": []
+ },
+ "assiette de reference": {
+  "categorie": "divers",
+  "variantes": [],
+  "synonymes": []
+ },
+ "atc": {
+  "categorie": "divers",
+  "variantes": [],
+  "synonymes": []
+ },
+ "atmosphère standard": {
+  "categorie": "divers",
+  "variantes": [],
+  "synonymes": []
+ },
+ "ats": {
+  "categorie": "divers",
+  "variantes": [],
+  "synonymes": []
+ },
+ "atterrissage de précaution": {
+  "categorie": "divers",
+  "variantes": [],
+  "synonymes": []
+ },
+ "atterrissage forcé": {
+  "categorie": "divers",
+  "variantes": [],
+  "synonymes": []
+ },
+ "atterrissage precaution": {
+  "categorie": "divers",
+  "variantes": [],
+  "synonymes": []
+ },
+ "atterrissage train rentré": {
+  "categorie": "divers",
+  "variantes": [],
+  "synonymes": []
+ },
+ "attitude": {
+  "categorie": "divers",
+  "variantes": [],
+  "synonymes": []
+ },
+ "attitude de vol": {
+  "categorie": "divers",
+  "variantes": [],
+  "synonymes": []
+ },
+ "atz": {
+  "categorie": "divers",
+  "variantes": [],
+  "synonymes": []
+ },
+ "autonomie": {
+  "categorie": "divers",
+  "variantes": [],
+  "synonymes": []
+ },
+ "autonomie carburant": {
+  "categorie": "divers",
+  "variantes": [],
+  "synonymes": []
+ },
+ "autorisation atterrissage": {
+  "categorie": "divers",
+  "variantes": [],
+  "synonymes": []
+ },
+ "autorotation": {
+  "categorie": "divers",
+  "variantes": [],
+  "synonymes": []
+ },
+ "averse": {
+  "categorie": "divers",
+  "variantes": [
+   "averses"
+  ],
+  "synonymes": []
+ },
+ "aviate": {
+  "categorie": "divers",
+  "variantes": [],
+  "synonymes": []
+ },
+ "avitaillement": {
+  "categorie": "divers",
+  "variantes": [],
+  "synonymes": []
+ },
+ "axe de piste": {
+  "categorie": "divers",
+  "variantes": [],
+  "synonymes": []
+ },
+ "aérodrome de dégagement": {
+  "categorie": "divers",
+  "variantes": [],
+  "synonymes": []
+ },
+ "aérofreinage": {
+  "categorie": "Aérodynamique",
+  "variantes": [],
+  "synonymes": []
+ },
+ "badin": {
+  "categorie": "divers",
+  "variantes": [],
+  "synonymes": []
+ },
+ "bande derobee": {
+  "categorie": "divers",
+  "variantes": [],
+  "synonymes": []
+ },
+ "barotraumatisme": {
+  "categorie": "divers",
+  "variantes": [],
+  "synonymes": []
+ },
+ "base des nuages": {
+  "categorie": "divers",
+  "variantes": [],
+  "synonymes": []
+ },
+ "basses couches": {
+  "categorie": "divers",
+  "variantes": [],
+  "synonymes": []
+ },
+ "bat": {
+  "categorie": "divers",
+  "variantes": [],
+  "synonymes": []
+ },
+ "batterie": {
+  "categorie": "divers",
+  "variantes": [],
+  "synonymes": []
+ },
+ "becs": {
+  "categorie": "divers",
+  "variantes": [],
+  "synonymes": []
+ },
+ "biais de confirmation": {
+  "categorie": "divers",
+  "variantes": [],
+  "synonymes": []
+ },
+ "bilan carburant": {
+  "categorie": "divers",
+  "variantes": [],
+  "synonymes": []
+ },
+ "bille": {
+  "categorie": "divers",
+  "variantes": [],
+  "synonymes": []
+ },
+ "bkn": {
+  "categorie": "divers",
+  "variantes": [],
+  "synonymes": []
+ },
+ "br": {
+  "categorie": "divers",
+  "variantes": [],
+  "synonymes": []
+ },
+ "branche": {
+  "categorie": "divers",
+  "variantes": [],
+  "synonymes": []
+ },
+ "bras de levier": {
+  "categorie": "divers",
+  "variantes": [],
+  "synonymes": []
+ },
+ "brassage": {
+  "categorie": "divers",
+  "variantes": [],
+  "synonymes": []
+ },
+ "brief": {
+  "categorie": "divers",
+  "variantes": [],
+  "synonymes": []
+ },
+ "briefing": {
+  "categorie": "divers",
+  "variantes": [],
+  "synonymes": []
+ },
+ "briefing arrivée": {
+  "categorie": "divers",
+  "variantes": [],
+  "synonymes": []
+ },
+ "briefing départ": {
+  "categorie": "divers",
+  "variantes": [],
+  "synonymes": []
+ },
+ "brise de mer": {
+  "categorie": "divers",
+  "variantes": [],
+  "synonymes": []
+ },
+ "brise de pente": {
+  "categorie": "divers",
+  "variantes": [],
+  "synonymes": []
+ },
+ "brise de terre": {
+  "categorie": "divers",
+  "variantes": [],
+  "synonymes": []
+ },
+ "brise de vallée": {
+  "categorie": "divers",
+  "variantes": [],
+  "synonymes": []
+ },
+ "brouillard de rayonnement": {
+  "categorie": "divers",
+  "variantes": [],
+  "synonymes": []
+ },
+ "cabré": {
+  "categorie": "divers",
+  "variantes": [],
+  "synonymes": []
+ },
+ "calage altimétrique": {
+  "categorie": "divers",
+  "variantes": [],
+  "synonymes": []
+ },
+ "calage helice": {
+  "categorie": "divers",
+  "variantes": [],
+  "synonymes": []
+ }
+}

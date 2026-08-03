@@ -1,0 +1,477 @@
+{
+ "menace": {
+  "categorie": "divers",
+  "variantes": [
+   "menaces"
+  ],
+  "synonymes": []
+ },
+ "metar/taf": {
+  "categorie": "divers",
+  "variantes": [],
+  "synonymes": []
+ },
+ "minima": {
+  "categorie": "divers",
+  "variantes": [],
+  "synonymes": []
+ },
+ "minima météo": {
+  "categorie": "divers",
+  "variantes": [],
+  "synonymes": []
+ },
+ "mise en route": {
+  "categorie": "divers",
+  "variantes": [],
+  "synonymes": []
+ },
+ "mistral": {
+  "categorie": "divers",
+  "variantes": [],
+  "synonymes": []
+ },
+ "mm aft datum": {
+  "categorie": "divers",
+  "variantes": [],
+  "synonymes": []
+ },
+ "modele threat and error": {
+  "categorie": "divers",
+  "variantes": [],
+  "synonymes": []
+ },
+ "moment de rappel": {
+  "categorie": "divers",
+  "variantes": [],
+  "synonymes": []
+ },
+ "monomoteur": {
+  "categorie": "divers",
+  "variantes": [],
+  "synonymes": []
+ },
+ "monomoteur léger": {
+  "categorie": "divers",
+  "variantes": [],
+  "synonymes": []
+ },
+ "moulinet": {
+  "categorie": "divers",
+  "variantes": [],
+  "synonymes": []
+ },
+ "mtom": {
+  "categorie": "divers",
+  "variantes": [],
+  "synonymes": []
+ },
+ "mémoire de travail": {
+  "categorie": "divers",
+  "variantes": [],
+  "synonymes": []
+ },
+ "météo du jour": {
+  "categorie": "divers",
+  "variantes": [],
+  "synonymes": []
+ },
+ "nav": {
+  "categorie": "divers",
+  "variantes": [],
+  "synonymes": []
+ },
+ "navigabilité": {
+  "categorie": "divers",
+  "variantes": [],
+  "synonymes": []
+ },
+ "navigation": {
+  "categorie": "divers",
+  "variantes": [],
+  "synonymes": []
+ },
+ "nearest airfield": {
+  "categorie": "divers",
+  "variantes": [],
+  "synonymes": []
+ },
+ "nervure": {
+  "categorie": "divers",
+  "variantes": [],
+  "synonymes": []
+ },
+ "nimbostratus": {
+  "categorie": "divers",
+  "variantes": [],
+  "synonymes": []
+ },
+ "niveau de transition": {
+  "categorie": "divers",
+  "variantes": [],
+  "synonymes": []
+ },
+ "no-go": {
+  "categorie": "divers",
+  "variantes": [],
+  "synonymes": []
+ },
+ "nord": {
+  "categorie": "divers",
+  "variantes": [],
+  "synonymes": []
+ },
+ "nuage": {
+  "categorie": "divers",
+  "variantes": [
+   "nuages"
+  ],
+  "synonymes": []
+ },
+ "nuage du jour": {
+  "categorie": "divers",
+  "variantes": [],
+  "synonymes": []
+ },
+ "nuit": {
+  "categorie": "divers",
+  "variantes": [],
+  "synonymes": []
+ },
+ "oaci": {
+  "categorie": "divers",
+  "variantes": [],
+  "synonymes": []
+ },
+ "oat": {
+  "categorie": "divers",
+  "variantes": [],
+  "synonymes": []
+ },
+ "obstacle artificiel": {
+  "categorie": "divers",
+  "variantes": [],
+  "synonymes": []
+ },
+ "off ignition off": {
+  "categorie": "divers",
+  "variantes": [],
+  "synonymes": []
+ },
+ "oreille interne": {
+  "categorie": "divers",
+  "variantes": [],
+  "synonymes": []
+ },
+ "ouest": {
+  "categorie": "divers",
+  "variantes": [],
+  "synonymes": []
+ },
+ "ovc": {
+  "categorie": "divers",
+  "variantes": [],
+  "synonymes": []
+ },
+ "oxygène": {
+  "categorie": "divers",
+  "variantes": [],
+  "synonymes": []
+ },
+ "palier": {
+  "categorie": "divers",
+  "variantes": [],
+  "synonymes": []
+ },
+ "palier de croisière": {
+  "categorie": "divers",
+  "variantes": [],
+  "synonymes": []
+ },
+ "palonnier": {
+  "categorie": "divers",
+  "variantes": [],
+  "synonymes": []
+ },
+ "panne moteur": {
+  "categorie": "divers",
+  "variantes": [],
+  "synonymes": []
+ },
+ "panne radio": {
+  "categorie": "divers",
+  "variantes": [],
+  "synonymes": []
+ },
+ "panne électrique": {
+  "categorie": "divers",
+  "variantes": [],
+  "synonymes": []
+ },
+ "parking": {
+  "categorie": "divers",
+  "variantes": [],
+  "synonymes": []
+ },
+ "pas d'hélice": {
+  "categorie": "divers",
+  "variantes": [],
+  "synonymes": []
+ },
+ "pas variable": {
+  "categorie": "divers",
+  "variantes": [],
+  "synonymes": []
+ },
+ "passager": {
+  "categorie": "divers",
+  "variantes": [],
+  "synonymes": []
+ },
+ "pax": {
+  "categorie": "divers",
+  "variantes": [],
+  "synonymes": []
+ },
+ "pente": {
+  "categorie": "divers",
+  "variantes": [],
+  "synonymes": []
+ },
+ "pente de descente": {
+  "categorie": "divers",
+  "variantes": [],
+  "synonymes": []
+ },
+ "pente de montée": {
+  "categorie": "divers",
+  "variantes": [],
+  "synonymes": []
+ },
+ "percée verticale": {
+  "categorie": "divers",
+  "variantes": [],
+  "synonymes": []
+ },
+ "perte de position": {
+  "categorie": "divers",
+  "variantes": [],
+  "synonymes": []
+ },
+ "phraséologie": {
+  "categorie": "divers",
+  "variantes": [],
+  "synonymes": []
+ },
+ "piqué": {
+  "categorie": "divers",
+  "variantes": [],
+  "synonymes": []
+ },
+ "piste contaminée": {
+  "categorie": "divers",
+  "variantes": [],
+  "synonymes": []
+ },
+ "piste en service": {
+  "categorie": "divers",
+  "variantes": [],
+  "synonymes": []
+ },
+ "piste mouillée": {
+  "categorie": "Aérodrome & cartes",
+  "variantes": [],
+  "synonymes": []
+ },
+ "pitot": {
+  "categorie": "divers",
+  "variantes": [],
+  "synonymes": []
+ },
+ "piège classique": {
+  "categorie": "divers",
+  "variantes": [],
+  "synonymes": []
+ },
+ "plafond nuageux": {
+  "categorie": "divers",
+  "variantes": [],
+  "synonymes": []
+ },
+ "plan continuation bias": {
+  "categorie": "divers",
+  "variantes": [],
+  "synonymes": []
+ },
+ "plan de charge": {
+  "categorie": "divers",
+  "variantes": [],
+  "synonymes": []
+ },
+ "plan de descente": {
+  "categorie": "Aérodrome & cartes",
+  "variantes": [],
+  "synonymes": []
+ },
+ "plan de vol": {
+  "categorie": "divers",
+  "variantes": [],
+  "synonymes": []
+ },
+ "plancher": {
+  "categorie": "divers",
+  "variantes": [],
+  "synonymes": []
+ },
+ "plané": {
+  "categorie": "divers",
+  "variantes": [],
+  "synonymes": []
+ },
+ "plein gaz": {
+  "categorie": "divers",
+  "variantes": [],
+  "synonymes": []
+ },
+ "pluie": {
+  "categorie": "divers",
+  "variantes": [],
+  "synonymes": []
+ },
+ "point d'arrêt": {
+  "categorie": "Aérodrome & cartes",
+  "variantes": [
+   "points d'arrêt"
+  ],
+  "synonymes": []
+ },
+ "point d'attente": {
+  "categorie": "divers",
+  "variantes": [],
+  "synonymes": []
+ },
+ "point de decision": {
+  "categorie": "divers",
+  "variantes": [],
+  "synonymes": []
+ },
+ "point de non retour": {
+  "categorie": "divers",
+  "variantes": [],
+  "synonymes": []
+ },
+ "point de report": {
+  "categorie": "divers",
+  "variantes": [],
+  "synonymes": []
+ },
+ "point fixe": {
+  "categorie": "divers",
+  "variantes": [],
+  "synonymes": []
+ },
+ "points de report": {
+  "categorie": "divers",
+  "variantes": [],
+  "synonymes": []
+ },
+ "polaire": {
+  "categorie": "divers",
+  "variantes": [],
+  "synonymes": []
+ },
+ "pompe": {
+  "categorie": "divers",
+  "variantes": [],
+  "synonymes": [
+   "pump"
+  ]
+ },
+ "pompe électrique": {
+  "categorie": "divers",
+  "variantes": [],
+  "synonymes": []
+ },
+ "portance": {
+  "categorie": "divers",
+  "variantes": [],
+  "synonymes": []
+ },
+ "portée visuelle de piste": {
+  "categorie": "divers",
+  "variantes": [],
+  "synonymes": []
+ },
+ "posé-décollé": {
+  "categorie": "Aérodrome & cartes",
+  "variantes": [],
+  "synonymes": []
+ },
+ "ppl": {
+  "categorie": "divers",
+  "variantes": [],
+  "synonymes": []
+ },
+ "premier contact": {
+  "categorie": "divers",
+  "variantes": [],
+  "synonymes": []
+ },
+ "pression": {
+  "categorie": "divers",
+  "variantes": [],
+  "synonymes": []
+ },
+ "pression d'huile": {
+  "categorie": "divers",
+  "variantes": [],
+  "synonymes": []
+ },
+ "pression standard": {
+  "categorie": "divers",
+  "variantes": [],
+  "synonymes": []
+ },
+ "priorité": {
+  "categorie": "divers",
+  "variantes": [],
+  "synonymes": []
+ },
+ "prob": {
+  "categorie": "divers",
+  "variantes": [],
+  "synonymes": []
+ },
+ "procedure d'attente": {
+  "categorie": "divers",
+  "variantes": [],
+  "synonymes": []
+ },
+ "profondeur": {
+  "categorie": "divers",
+  "variantes": [],
+  "synonymes": []
+ },
+ "prolongement d'arret": {
+  "categorie": "divers",
+  "variantes": [],
+  "synonymes": []
+ },
+ "prop": {
+  "categorie": "divers",
+  "variantes": [],
+  "synonymes": [
+   "hélice"
+  ]
+ },
+ "prorogation": {
+  "categorie": "divers",
+  "variantes": [],
+  "synonymes": []
+ },
+ "pré-lâcher": {
+  "categorie": "divers",
+  "variantes": [],
+  "synonymes": []
+ }
+}

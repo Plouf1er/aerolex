@@ -1,0 +1,441 @@
+{
+ "terrain de dégagement": {
+  "categorie": "divers",
+  "variantes": [],
+  "synonymes": []
+ },
+ "throttle": {
+  "categorie": "divers",
+  "variantes": [],
+  "synonymes": [
+   "manette"
+  ]
+ },
+ "tma paris": {
+  "categorie": "divers",
+  "variantes": [],
+  "synonymes": []
+ },
+ "tmz": {
+  "categorie": "divers",
+  "variantes": [],
+  "synonymes": []
+ },
+ "tod": {
+  "categorie": "divers",
+  "variantes": [],
+  "synonymes": []
+ },
+ "totalisateur": {
+  "categorie": "divers",
+  "variantes": [],
+  "synonymes": []
+ },
+ "touché": {
+  "categorie": "Aérodrome & cartes",
+  "variantes": [
+   "touch and go"
+  ],
+  "synonymes": []
+ },
+ "tour de contrôle": {
+  "categorie": "divers",
+  "variantes": [],
+  "synonymes": []
+ },
+ "tour de piste basse hauteur": {
+  "categorie": "Aérodrome & cartes",
+  "variantes": [],
+  "synonymes": []
+ },
+ "traction": {
+  "categorie": "divers",
+  "variantes": [],
+  "synonymes": []
+ },
+ "trafic": {
+  "categorie": "divers",
+  "variantes": [],
+  "synonymes": []
+ },
+ "trait rouge": {
+  "categorie": "divers",
+  "variantes": [],
+  "synonymes": []
+ },
+ "trajectoire": {
+  "categorie": "divers",
+  "variantes": [],
+  "synonymes": []
+ },
+ "tramontane": {
+  "categorie": "divers",
+  "variantes": [],
+  "synonymes": []
+ },
+ "transpondeur": {
+  "categorie": "divers",
+  "variantes": [],
+  "synonymes": []
+ },
+ "transpondeur 7500": {
+  "categorie": "divers",
+  "variantes": [],
+  "synonymes": []
+ },
+ "transpondeur 7600": {
+  "categorie": "divers",
+  "variantes": [],
+  "synonymes": []
+ },
+ "transpondeur 7700": {
+  "categorie": "divers",
+  "variantes": [],
+  "synonymes": []
+ },
+ "transpondeur mode c": {
+  "categorie": "divers",
+  "variantes": [],
+  "synonymes": []
+ },
+ "traînée": {
+  "categorie": "divers",
+  "variantes": [],
+  "synonymes": []
+ },
+ "traînée induite": {
+  "categorie": "divers",
+  "variantes": [],
+  "synonymes": []
+ },
+ "traînée parasite": {
+  "categorie": "divers",
+  "variantes": [],
+  "synonymes": []
+ },
+ "triangle des vitesses": {
+  "categorie": "divers",
+  "variantes": [],
+  "synonymes": []
+ },
+ "trim": {
+  "categorie": "divers",
+  "variantes": [],
+  "synonymes": []
+ },
+ "tropopause": {
+  "categorie": "divers",
+  "variantes": [],
+  "synonymes": []
+ },
+ "troposphere": {
+  "categorie": "divers",
+  "variantes": [],
+  "synonymes": []
+ },
+ "trou noir": {
+  "categorie": "divers",
+  "variantes": [],
+  "synonymes": []
+ },
+ "turbulence": {
+  "categorie": "divers",
+  "variantes": [],
+  "synonymes": []
+ },
+ "turbulence de sillage": {
+  "categorie": "Vent",
+  "variantes": [],
+  "synonymes": []
+ },
+ "turbulence en air clair": {
+  "categorie": "divers",
+  "variantes": [],
+  "synonymes": []
+ },
+ "turbulence mécanique": {
+  "categorie": "divers",
+  "variantes": [],
+  "synonymes": []
+ },
+ "uir": {
+  "categorie": "divers",
+  "variantes": [],
+  "synonymes": []
+ },
+ "urgence pan pan": {
+  "categorie": "divers",
+  "variantes": [],
+  "synonymes": []
+ },
+ "utc": {
+  "categorie": "divers",
+  "variantes": [],
+  "synonymes": []
+ },
+ "variometre": {
+  "categorie": "divers",
+  "variantes": [],
+  "synonymes": []
+ },
+ "vent anabatique": {
+  "categorie": "divers",
+  "variantes": [],
+  "synonymes": []
+ },
+ "vent arriere de securite": {
+  "categorie": "divers",
+  "variantes": [],
+  "synonymes": []
+ },
+ "vent catabatique": {
+  "categorie": "divers",
+  "variantes": [],
+  "synonymes": []
+ },
+ "vent de travers démontré": {
+  "categorie": "Vent",
+  "variantes": [],
+  "synonymes": []
+ },
+ "vent effectif": {
+  "categorie": "divers",
+  "variantes": [],
+  "synonymes": []
+ },
+ "vent estimé": {
+  "categorie": "divers",
+  "variantes": [],
+  "synonymes": []
+ },
+ "vent fort": {
+  "categorie": "divers",
+  "variantes": [],
+  "synonymes": []
+ },
+ "vent réel": {
+  "categorie": "divers",
+  "variantes": [],
+  "synonymes": []
+ },
+ "verification vitale": {
+  "categorie": "divers",
+  "variantes": [],
+  "synonymes": []
+ },
+ "victor": {
+  "categorie": "divers",
+  "variantes": [],
+  "synonymes": []
+ },
+ "virage": {
+  "categorie": "divers",
+  "variantes": [],
+  "synonymes": []
+ },
+ "virage horizontal stabilisé": {
+  "categorie": "divers",
+  "variantes": [],
+  "synonymes": []
+ },
+ "virage standard": {
+  "categorie": "divers",
+  "variantes": [],
+  "synonymes": []
+ },
+ "vireur": {
+  "categorie": "divers",
+  "variantes": [],
+  "synonymes": []
+ },
+ "visibilité horizontale": {
+  "categorie": "divers",
+  "variantes": [],
+  "synonymes": []
+ },
+ "visibilité verticale": {
+  "categorie": "divers",
+  "variantes": [],
+  "synonymes": []
+ },
+ "vision nocturne": {
+  "categorie": "divers",
+  "variantes": [],
+  "synonymes": []
+ },
+ "visite prévol": {
+  "categorie": "divers",
+  "variantes": [],
+  "synonymes": []
+ },
+ "vitesse": {
+  "categorie": "divers",
+  "variantes": [],
+  "synonymes": []
+ },
+ "vitesse air": {
+  "categorie": "divers",
+  "variantes": [],
+  "synonymes": []
+ },
+ "vitesse corrigee": {
+  "categorie": "divers",
+  "variantes": [],
+  "synonymes": []
+ },
+ "vitesse d'approche": {
+  "categorie": "divers",
+  "variantes": [],
+  "synonymes": []
+ },
+ "vitesse d'envol": {
+  "categorie": "divers",
+  "variantes": [],
+  "synonymes": []
+ },
+ "vitesse de croisière": {
+  "categorie": "divers",
+  "variantes": [],
+  "synonymes": []
+ },
+ "vitesse de rotation": {
+  "categorie": "divers",
+  "variantes": [],
+  "synonymes": []
+ },
+ "vitesse de sécurité": {
+  "categorie": "divers",
+  "variantes": [],
+  "synonymes": []
+ },
+ "vitesse propre": {
+  "categorie": "divers",
+  "variantes": [],
+  "synonymes": []
+ },
+ "vitesse sol": {
+  "categorie": "divers",
+  "variantes": [],
+  "synonymes": []
+ },
+ "vitesse vraie": {
+  "categorie": "divers",
+  "variantes": [],
+  "synonymes": []
+ },
+ "vle": {
+  "categorie": "divers",
+  "variantes": [],
+  "synonymes": []
+ },
+ "vol aux instruments": {
+  "categorie": "divers",
+  "variantes": [],
+  "synonymes": []
+ },
+ "vol de nuit": {
+  "categorie": "divers",
+  "variantes": [],
+  "synonymes": []
+ },
+ "vol lent": {
+  "categorie": "divers",
+  "variantes": [],
+  "synonymes": []
+ },
+ "vol à vue": {
+  "categorie": "divers",
+  "variantes": [],
+  "synonymes": []
+ },
+ "volets": {
+  "categorie": "divers",
+  "variantes": [],
+  "synonymes": []
+ },
+ "volets rentrés": {
+  "categorie": "divers",
+  "variantes": [],
+  "synonymes": []
+ },
+ "volets sortis": {
+  "categorie": "divers",
+  "variantes": [],
+  "synonymes": []
+ },
+ "volets up": {
+  "categorie": "divers",
+  "variantes": [],
+  "synonymes": []
+ },
+ "volt": {
+  "categorie": "divers",
+  "variantes": [],
+  "synonymes": []
+ },
+ "vor": {
+  "categorie": "divers",
+  "variantes": [],
+  "synonymes": []
+ },
+ "vr": {
+  "categorie": "divers",
+  "variantes": [],
+  "synonymes": []
+ },
+ "vrb": {
+  "categorie": "divers",
+  "variantes": [],
+  "synonymes": []
+ },
+ "vrille": {
+  "categorie": "divers",
+  "variantes": [],
+  "synonymes": []
+ },
+ "vrille à plat": {
+  "categorie": "divers",
+  "variantes": [],
+  "synonymes": []
+ },
+ "wca": {
+  "categorie": "divers",
+  "variantes": [],
+  "synonymes": []
+ },
+ "wintem": {
+  "categorie": "divers",
+  "variantes": [],
+  "synonymes": []
+ },
+ "zone dangereuse": {
+  "categorie": "divers",
+  "variantes": [],
+  "synonymes": []
+ },
+ "zone de contrôle": {
+  "categorie": "divers",
+  "variantes": [],
+  "synonymes": []
+ },
+ "zone interdite": {
+  "categorie": "divers",
+  "variantes": [],
+  "synonymes": []
+ },
+ "zone stabilisée": {
+  "categorie": "divers",
+  "variantes": [],
+  "synonymes": []
+ },
+ "état de piste": {
+  "categorie": "divers",
+  "variantes": [],
+  "synonymes": []
+ },
+ "évitement": {
+  "categorie": "divers",
+  "variantes": [],
+  "synonymes": []
+ }
+}

@@ -1,0 +1,20 @@
+{
+ "AAL": {
+  "definition": "<em>Above Aerodrome Level</em> : au-dessus du niveau de l'aérodrome. Une hauteur, pas une altitude — « plafond à 1500 ft AAL » signifie 1500 ft au-dessus du terrain.",
+  "categorie": "Altimétrie",
+  "origine": "corpus",
+  "statut": "redigee"
+ },
+ "AIP": {
+  "definition": "<em>Aeronautical Information Publication</em> : la documentation aéronautique officielle d'un pays, publiée par cycles AIRAC de 28 jours. Les VAC en sont l'extrait le plus utilisé par le pilote VFR.",
+  "categorie": "Réglementation & docs",
+  "origine": "corpus",
+  "statut": "redigee"
+ },
+ "AIRAC": {
+  "definition": "<em>Aeronautical Information Regulation And Control</em> — « régulation et contrôle de l'information aéronautique ». Cycle de 28 jours au rythme duquel les données aéronautiques officielles sont mises à jour. Une carte « à jour » = un cycle AIRAC en vigueur : vérifie la date d'effet, pas celle du téléchargement.",
+  "categorie": "Réglementation & docs",
+  "origine": "corpus",
+  "statut": "redigee"
+ }
+}

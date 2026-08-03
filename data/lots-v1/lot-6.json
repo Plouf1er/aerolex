@@ -1,0 +1,469 @@
+{
+ "psi": {
+  "categorie": "divers",
+  "variantes": [],
+  "synonymes": []
+ },
+ "pump": {
+  "categorie": "divers",
+  "variantes": [],
+  "synonymes": [
+   "pompe"
+  ]
+ },
+ "purge": {
+  "categorie": "divers",
+  "variantes": [],
+  "synonymes": []
+ },
+ "qcm": {
+  "categorie": "divers",
+  "variantes": [],
+  "synonymes": []
+ },
+ "qdm": {
+  "categorie": "divers",
+  "variantes": [],
+  "synonymes": []
+ },
+ "qdr": {
+  "categorie": "divers",
+  "variantes": [],
+  "synonymes": []
+ },
+ "rabattant": {
+  "categorie": "divers",
+  "variantes": [],
+  "synonymes": []
+ },
+ "rabattant sous le vent": {
+  "categorie": "divers",
+  "variantes": [],
+  "synonymes": []
+ },
+ "radiale": {
+  "categorie": "divers",
+  "variantes": [],
+  "synonymes": []
+ },
+ "radio": {
+  "categorie": "divers",
+  "variantes": [],
+  "synonymes": []
+ },
+ "radiocompas": {
+  "categorie": "divers",
+  "variantes": [],
+  "synonymes": []
+ },
+ "rayon": {
+  "categorie": "divers",
+  "variantes": [],
+  "synonymes": []
+ },
+ "read-back": {
+  "categorie": "divers",
+  "variantes": [],
+  "synonymes": []
+ },
+ "recalage en route": {
+  "categorie": "divers",
+  "variantes": [],
+  "synonymes": []
+ },
+ "red lines": {
+  "categorie": "divers",
+  "variantes": [],
+  "synonymes": []
+ },
+ "regime venturi": {
+  "categorie": "divers",
+  "variantes": [],
+  "synonymes": []
+ },
+ "relief environnant": {
+  "categorie": "divers",
+  "variantes": [],
+  "synonymes": []
+ },
+ "remise de gaz interrompue": {
+  "categorie": "divers",
+  "variantes": [],
+  "synonymes": []
+ },
+ "report": {
+  "categorie": "divers",
+  "variantes": [],
+  "synonymes": []
+ },
+ "reserve finale": {
+  "categorie": "divers",
+  "variantes": [],
+  "synonymes": []
+ },
+ "richesse": {
+  "categorie": "divers",
+  "variantes": [],
+  "synonymes": []
+ },
+ "richesse mélange": {
+  "categorie": "divers",
+  "variantes": [],
+  "synonymes": []
+ },
+ "rmz": {
+  "categorie": "divers",
+  "variantes": [],
+  "synonymes": []
+ },
+ "roger": {
+  "categorie": "divers",
+  "variantes": [],
+  "synonymes": []
+ },
+ "rotor": {
+  "categorie": "divers",
+  "variantes": [],
+  "synonymes": []
+ },
+ "roue": {
+  "categorie": "divers",
+  "variantes": [],
+  "synonymes": []
+ },
+ "roulage au sol": {
+  "categorie": "divers",
+  "variantes": [],
+  "synonymes": []
+ },
+ "roulette": {
+  "categorie": "divers",
+  "variantes": [],
+  "synonymes": []
+ },
+ "roulis": {
+  "categorie": "divers",
+  "variantes": [],
+  "synonymes": []
+ },
+ "route": {
+  "categorie": "divers",
+  "variantes": [],
+  "synonymes": []
+ },
+ "rpm": {
+  "categorie": "divers",
+  "variantes": [],
+  "synonymes": []
+ },
+ "rugosité": {
+  "categorie": "divers",
+  "variantes": [],
+  "synonymes": []
+ },
+ "règle d'or": {
+  "categorie": "divers",
+  "variantes": [],
+  "synonymes": []
+ },
+ "règles de l'air": {
+  "categorie": "divers",
+  "variantes": [],
+  "synonymes": []
+ },
+ "réchauffage carburateur": {
+  "categorie": "divers",
+  "variantes": [],
+  "synonymes": []
+ },
+ "récupération de décrochage": {
+  "categorie": "divers",
+  "variantes": [],
+  "synonymes": []
+ },
+ "réducteur": {
+  "categorie": "divers",
+  "variantes": [],
+  "synonymes": []
+ },
+ "régime hélice": {
+  "categorie": "divers",
+  "variantes": [],
+  "synonymes": []
+ },
+ "régime moteur": {
+  "categorie": "divers",
+  "variantes": [],
+  "synonymes": []
+ },
+ "région terminale": {
+  "categorie": "divers",
+  "variantes": [],
+  "synonymes": []
+ },
+ "réserve de carburant": {
+  "categorie": "divers",
+  "variantes": [],
+  "synonymes": []
+ },
+ "réserve réglementaire": {
+  "categorie": "divers",
+  "variantes": [],
+  "synonymes": []
+ },
+ "saturation": {
+  "categorie": "divers",
+  "variantes": [],
+  "synonymes": []
+ },
+ "say again": {
+  "categorie": "divers",
+  "variantes": [],
+  "synonymes": []
+ },
+ "sct": {
+  "categorie": "divers",
+  "variantes": [],
+  "synonymes": []
+ },
+ "sens du tour de piste": {
+  "categorie": "divers",
+  "variantes": [],
+  "synonymes": []
+ },
+ "sep": {
+  "categorie": "divers",
+  "variantes": [],
+  "synonymes": []
+ },
+ "service d'information": {
+  "categorie": "divers",
+  "variantes": [],
+  "synonymes": []
+ },
+ "shra": {
+  "categorie": "divers",
+  "variantes": [],
+  "synonymes": []
+ },
+ "sigma": {
+  "categorie": "divers",
+  "variantes": [],
+  "synonymes": []
+ },
+ "sigmet": {
+  "categorie": "divers",
+  "variantes": [],
+  "synonymes": []
+ },
+ "signaux": {
+  "categorie": "divers",
+  "variantes": [],
+  "synonymes": []
+ },
+ "signaux lumineux": {
+  "categorie": "divers",
+  "variantes": [],
+  "synonymes": []
+ },
+ "silence radio": {
+  "categorie": "divers",
+  "variantes": [],
+  "synonymes": []
+ },
+ "sillage": {
+  "categorie": "divers",
+  "variantes": [],
+  "synonymes": []
+ },
+ "sin": {
+  "categorie": "divers",
+  "variantes": [],
+  "synonymes": []
+ },
+ "siv": {
+  "categorie": "divers",
+  "variantes": [],
+  "synonymes": []
+ },
+ "solo": {
+  "categorie": "divers",
+  "variantes": [],
+  "synonymes": []
+ },
+ "souffle hélicoïdal": {
+  "categorie": "divers",
+  "variantes": [],
+  "synonymes": []
+ },
+ "squawk": {
+  "categorie": "divers",
+  "variantes": [],
+  "synonymes": []
+ },
+ "stabiliser": {
+  "categorie": "divers",
+  "variantes": [],
+  "synonymes": []
+ },
+ "stabilité atmosphérique": {
+  "categorie": "divers",
+  "variantes": [],
+  "synonymes": []
+ },
+ "stabilité statique": {
+  "categorie": "divers",
+  "variantes": [],
+  "synonymes": []
+ },
+ "stable": {
+  "categorie": "divers",
+  "variantes": [],
+  "synonymes": []
+ },
+ "stall": {
+  "categorie": "divers",
+  "variantes": [],
+  "synonymes": []
+ },
+ "stall warning": {
+  "categorie": "divers",
+  "variantes": [],
+  "synonymes": []
+ },
+ "station": {
+  "categorie": "divers",
+  "variantes": [],
+  "synonymes": []
+ },
+ "stratocumulus": {
+  "categorie": "divers",
+  "variantes": [],
+  "synonymes": []
+ },
+ "stratus": {
+  "categorie": "divers",
+  "variantes": [],
+  "synonymes": []
+ },
+ "stress": {
+  "categorie": "divers",
+  "variantes": [],
+  "synonymes": []
+ },
+ "structure": {
+  "categorie": "divers",
+  "variantes": [],
+  "synonymes": []
+ },
+ "sud": {
+  "categorie": "divers",
+  "variantes": [],
+  "synonymes": []
+ },
+ "sup aip": {
+  "categorie": "divers",
+  "variantes": [],
+  "synonymes": []
+ },
+ "surface de piste": {
+  "categorie": "divers",
+  "variantes": [],
+  "synonymes": []
+ },
+ "sélecteur carburant": {
+  "categorie": "divers",
+  "variantes": [],
+  "synonymes": []
+ },
+ "séparation": {
+  "categorie": "divers",
+  "variantes": [],
+  "synonymes": []
+ },
+ "t/o": {
+  "categorie": "divers",
+  "variantes": [],
+  "synonymes": []
+ },
+ "tableau de déviation": {
+  "categorie": "divers",
+  "variantes": [],
+  "synonymes": []
+ },
+ "tache aveugle": {
+  "categorie": "divers",
+  "variantes": [],
+  "synonymes": []
+ },
+ "tachymetre": {
+  "categorie": "divers",
+  "variantes": [],
+  "synonymes": []
+ },
+ "tangage": {
+  "categorie": "divers",
+  "variantes": [],
+  "synonymes": []
+ },
+ "tango": {
+  "categorie": "divers",
+  "variantes": [],
+  "synonymes": []
+ },
+ "taux de chute": {
+  "categorie": "divers",
+  "variantes": [],
+  "synonymes": []
+ },
+ "taux de descente": {
+  "categorie": "Vitesses & performances",
+  "variantes": [],
+  "synonymes": []
+ },
+ "taux de montée": {
+  "categorie": "divers",
+  "variantes": [],
+  "synonymes": []
+ },
+ "tcds": {
+  "categorie": "divers",
+  "variantes": [],
+  "synonymes": []
+ },
+ "tem": {
+  "categorie": "divers",
+  "variantes": [],
+  "synonymes": []
+ },
+ "temps de reaction": {
+  "categorie": "divers",
+  "variantes": [],
+  "synonymes": []
+ },
+ "temps estimé": {
+  "categorie": "divers",
+  "variantes": [],
+  "synonymes": []
+ },
+ "température culasse": {
+  "categorie": "divers",
+  "variantes": [],
+  "synonymes": []
+ },
+ "température d'huile": {
+  "categorie": "divers",
+  "variantes": [],
+  "synonymes": []
+ },
+ "température standard": {
+  "categorie": "divers",
+  "variantes": [],
+  "synonymes": []
+ },
+ "temsi": {
+  "categorie": "divers",
+  "variantes": [],
+  "synonymes": []
+ }
+}

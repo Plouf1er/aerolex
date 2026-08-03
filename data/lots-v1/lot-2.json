@@ -1,0 +1,475 @@
+{
+ "calvus": {
+  "categorie": "divers",
+  "variantes": [],
+  "synonymes": []
+ },
+ "canal unique": {
+  "categorie": "divers",
+  "variantes": [],
+  "synonymes": []
+ },
+ "cap": {
+  "categorie": "divers",
+  "variantes": [],
+  "synonymes": []
+ },
+ "cap compas": {
+  "categorie": "divers",
+  "variantes": [],
+  "synonymes": []
+ },
+ "carbu": {
+  "categorie": "divers",
+  "variantes": [],
+  "synonymes": []
+ },
+ "carburant degagement": {
+  "categorie": "divers",
+  "variantes": [],
+  "synonymes": []
+ },
+ "carburant inutilisable": {
+  "categorie": "divers",
+  "variantes": [],
+  "synonymes": []
+ },
+ "carburant utilisable": {
+  "categorie": "divers",
+  "variantes": [],
+  "synonymes": []
+ },
+ "carnet de route": {
+  "categorie": "divers",
+  "variantes": [],
+  "synonymes": []
+ },
+ "carte": {
+  "categorie": "divers",
+  "variantes": [
+   "cartes"
+  ],
+  "synonymes": []
+ },
+ "carte oaci": {
+  "categorie": "divers",
+  "variantes": [],
+  "synonymes": []
+ },
+ "carte topographique": {
+  "categorie": "divers",
+  "variantes": [],
+  "synonymes": []
+ },
+ "carte vac": {
+  "categorie": "divers",
+  "variantes": [],
+  "synonymes": []
+ },
+ "cas": {
+  "categorie": "divers",
+  "variantes": [],
+  "synonymes": []
+ },
+ "castellanus": {
+  "categorie": "divers",
+  "variantes": [],
+  "synonymes": []
+ },
+ "cellule": {
+  "categorie": "divers",
+  "variantes": [],
+  "synonymes": []
+ },
+ "centrage": {
+  "categorie": "divers",
+  "variantes": [],
+  "synonymes": []
+ },
+ "centre de gravité": {
+  "categorie": "divers",
+  "variantes": [],
+  "synonymes": []
+ },
+ "certificat médical": {
+  "categorie": "divers",
+  "variantes": [],
+  "synonymes": []
+ },
+ "cg": {
+  "categorie": "divers",
+  "variantes": [],
+  "synonymes": []
+ },
+ "chaine des erreurs": {
+  "categorie": "divers",
+  "variantes": [],
+  "synonymes": []
+ },
+ "charge de travail": {
+  "categorie": "divers",
+  "variantes": [],
+  "synonymes": []
+ },
+ "check-list": {
+  "categorie": "divers",
+  "variantes": [
+   "check-lists"
+  ],
+  "synonymes": []
+ },
+ "check-list atterrissage": {
+  "categorie": "divers",
+  "variantes": [],
+  "synonymes": []
+ },
+ "check-list décollage": {
+  "categorie": "divers",
+  "variantes": [],
+  "synonymes": []
+ },
+ "checklist": {
+  "categorie": "divers",
+  "variantes": [],
+  "synonymes": []
+ },
+ "choix de piste": {
+  "categorie": "divers",
+  "variantes": [],
+  "synonymes": []
+ },
+ "choke": {
+  "categorie": "divers",
+  "variantes": [],
+  "synonymes": []
+ },
+ "cht": {
+  "categorie": "divers",
+  "variantes": [],
+  "synonymes": []
+ },
+ "chute de pression": {
+  "categorie": "divers",
+  "variantes": [],
+  "synonymes": []
+ },
+ "circuit basse hauteur": {
+  "categorie": "divers",
+  "variantes": [],
+  "synonymes": []
+ },
+ "cirrostratus": {
+  "categorie": "divers",
+  "variantes": [],
+  "synonymes": []
+ },
+ "cisaillement basse couche": {
+  "categorie": "divers",
+  "variantes": [],
+  "synonymes": []
+ },
+ "cisaillement de vent": {
+  "categorie": "divers",
+  "variantes": [],
+  "synonymes": []
+ },
+ "clairance": {
+  "categorie": "divers",
+  "variantes": [
+   "clairances"
+  ],
+  "synonymes": []
+ },
+ "clairance de décollage": {
+  "categorie": "divers",
+  "variantes": [],
+  "synonymes": []
+ },
+ "classe": {
+  "categorie": "divers",
+  "variantes": [],
+  "synonymes": []
+ },
+ "cockpit": {
+  "categorie": "divers",
+  "variantes": [],
+  "synonymes": []
+ },
+ "coefficient de freinage": {
+  "categorie": "divers",
+  "variantes": [],
+  "synonymes": []
+ },
+ "collationnement clairance": {
+  "categorie": "divers",
+  "variantes": [],
+  "synonymes": []
+ },
+ "collationner": {
+  "categorie": "divers",
+  "variantes": [],
+  "synonymes": []
+ },
+ "com": {
+  "categorie": "divers",
+  "variantes": [],
+  "synonymes": []
+ },
+ "commandant de bord": {
+  "categorie": "divers",
+  "variantes": [],
+  "synonymes": []
+ },
+ "compas": {
+  "categorie": "divers",
+  "variantes": [],
+  "synonymes": []
+ },
+ "compensateur": {
+  "categorie": "divers",
+  "variantes": [],
+  "synonymes": []
+ },
+ "composite": {
+  "categorie": "divers",
+  "variantes": [],
+  "synonymes": []
+ },
+ "conditions imc": {
+  "categorie": "divers",
+  "variantes": [],
+  "synonymes": []
+ },
+ "conditions vmc": {
+  "categorie": "divers",
+  "variantes": [],
+  "synonymes": []
+ },
+ "configuration": {
+  "categorie": "divers",
+  "variantes": [],
+  "synonymes": []
+ },
+ "conflit": {
+  "categorie": "divers",
+  "variantes": [],
+  "synonymes": []
+ },
+ "conscience de la situation": {
+  "categorie": "divers",
+  "variantes": [],
+  "synonymes": []
+ },
+ "consommation horaire": {
+  "categorie": "divers",
+  "variantes": [],
+  "synonymes": []
+ },
+ "constante structurale": {
+  "categorie": "divers",
+  "variantes": [],
+  "synonymes": []
+ },
+ "contrôle d'aérodrome": {
+  "categorie": "divers",
+  "variantes": [],
+  "synonymes": []
+ },
+ "convection": {
+  "categorie": "divers",
+  "variantes": [],
+  "synonymes": []
+ },
+ "convection thermique": {
+  "categorie": "divers",
+  "variantes": [],
+  "synonymes": []
+ },
+ "convergence": {
+  "categorie": "divers",
+  "variantes": [],
+  "synonymes": []
+ },
+ "correction de dérive": {
+  "categorie": "divers",
+  "variantes": [],
+  "synonymes": []
+ },
+ "cos": {
+  "categorie": "divers",
+  "variantes": [],
+  "synonymes": []
+ },
+ "couche": {
+  "categorie": "divers",
+  "variantes": [
+   "couches"
+  ],
+  "synonymes": []
+ },
+ "couche d'inversion": {
+  "categorie": "divers",
+  "variantes": [],
+  "synonymes": []
+ },
+ "couple gyroscopique": {
+  "categorie": "divers",
+  "variantes": [],
+  "synonymes": []
+ },
+ "couple moteur": {
+  "categorie": "divers",
+  "variantes": [],
+  "synonymes": []
+ },
+ "courant descendant": {
+  "categorie": "divers",
+  "variantes": [],
+  "synonymes": []
+ },
+ "crm": {
+  "categorie": "divers",
+  "variantes": [],
+  "synonymes": []
+ },
+ "crête": {
+  "categorie": "divers",
+  "variantes": [],
+  "synonymes": []
+ },
+ "cu": {
+  "categorie": "divers",
+  "variantes": [],
+  "synonymes": []
+ },
+ "cumulonimbus": {
+  "categorie": "divers",
+  "variantes": [],
+  "synonymes": []
+ },
+ "cumulus": {
+  "categorie": "divers",
+  "variantes": [],
+  "synonymes": []
+ },
+ "cumulus congestus": {
+  "categorie": "divers",
+  "variantes": [],
+  "synonymes": []
+ },
+ "cz max": {
+  "categorie": "divers",
+  "variantes": [],
+  "synonymes": []
+ },
+ "dalr": {
+  "categorie": "divers",
+  "variantes": [],
+  "synonymes": []
+ },
+ "degrés vrais": {
+  "categorie": "divers",
+  "variantes": [],
+  "synonymes": []
+ },
+ "demi-tour standard": {
+  "categorie": "divers",
+  "variantes": [],
+  "synonymes": []
+ },
+ "derive constatee": {
+  "categorie": "divers",
+  "variantes": [],
+  "synonymes": []
+ },
+ "descente initiale": {
+  "categorie": "divers",
+  "variantes": [],
+  "synonymes": []
+ },
+ "devis de masse": {
+  "categorie": "divers",
+  "variantes": [],
+  "synonymes": []
+ },
+ "dgac": {
+  "categorie": "divers",
+  "variantes": [],
+  "synonymes": []
+ },
+ "diagramme v-n": {
+  "categorie": "divers",
+  "variantes": [],
+  "synonymes": []
+ },
+ "distance d'atterrissage": {
+  "categorie": "Vitesses & performances",
+  "variantes": [],
+  "synonymes": []
+ },
+ "distance de décollage": {
+  "categorie": "Vitesses & performances",
+  "variantes": [],
+  "synonymes": []
+ },
+ "distance de franchissement": {
+  "categorie": "divers",
+  "variantes": [],
+  "synonymes": []
+ },
+ "distance de roulement": {
+  "categorie": "divers",
+  "variantes": [],
+  "synonymes": []
+ },
+ "domaine de vol": {
+  "categorie": "divers",
+  "variantes": [],
+  "synonymes": []
+ },
+ "double commande": {
+  "categorie": "divers",
+  "variantes": [],
+  "synonymes": []
+ },
+ "décrochage dynamique": {
+  "categorie": "divers",
+  "variantes": [],
+  "synonymes": []
+ },
+ "décrochage secondaire": {
+  "categorie": "divers",
+  "variantes": [],
+  "synonymes": []
+ },
+ "déroutement": {
+  "categorie": "divers",
+  "variantes": [],
+  "synonymes": []
+ },
+ "détresse mayday": {
+  "categorie": "divers",
+  "variantes": [],
+  "synonymes": []
+ },
+ "déviation compas": {
+  "categorie": "divers",
+  "variantes": [],
+  "synonymes": []
+ },
+ "easa": {
+  "categorie": "divers",
+  "variantes": [],
+  "synonymes": []
+ },
+ "east is least": {
+  "categorie": "divers",
+  "variantes": [],
+  "synonymes": []
+ },
+ "eet": {
+  "categorie": "divers",
+  "variantes": [],
+  "synonymes": []
+ }
+}
