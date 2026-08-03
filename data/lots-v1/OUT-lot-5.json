@@ -1,0 +1,1150 @@
+{
+ "lot": 5,
+ "termes": {
+  "menace": {
+   "definition": "Événement ou erreur extérieure à l'équipage qui se produit en dehors de l'influence directe du pilote, augmente la complexité du vol et doit être gérée pour maintenir la sécurité (ex. météo imprévue, panne).",
+   "categorie": "Sécurité & facteurs humains",
+   "famille": "facteurs_humains",
+   "membres_famille": [
+    "menace",
+    "modele threat and error",
+    "mémoire de travail",
+    "plan continuation bias",
+    "plan de charge"
+   ],
+   "a_verifier": true,
+   "doute": "terme courant, sens aéronautique lié au modèle TEM (Threat and Error Management) à confirmer"
+  },
+  "metar/taf": {
+   "definition": "Messages météo réglementaires codés pour l'aviation. Le METAR décrit le temps observé à un instant donné sur un aérodrome, tandis que le TAF est une prévision d'évolution sur plusieurs heures.",
+   "categorie": "Météo",
+   "famille": "messages_meteo",
+   "membres_famille": [
+    "metar/taf",
+    "prob",
+    "pluie",
+    "ovc"
+   ],
+   "a_verifier": false
+  },
+  "minima": {
+   "definition": "Seuils réglementaires ou personnels de visibilité, de plafond ou de vent en dessous desquels un vol ou une approche ne doit pas être entrepris ou poursuivi.",
+   "categorie": "Réglementation & docs",
+   "famille": "minima_meteo",
+   "membres_famille": [
+    "minima",
+    "minima météo"
+   ],
+   "a_verifier": false
+  },
+  "minima météo": {
+   "definition": "Valeurs limites réglementaires de visibilité et de distance par rapport aux nuages pour voler en VFR, variant selon la classe d'espace (ex. 1500 m de visibilité hors des nuages sous la surface S).",
+   "categorie": "Réglementation & docs",
+   "famille": "minima_meteo",
+   "membres_famille": [
+    "minima",
+    "minima météo"
+   ],
+   "a_verifier": false
+  },
+  "mise en route": {
+   "definition": "Action de démarrer le moteur après avoir effectué les vérifications pré-vol obligatoires et la check-list dédiée. Sur les terrains contrôlés, elle nécessite parfois l'obtention préalable d'une clairance.",
+   "categorie": "Procédures",
+   "famille": "procedures_sol",
+   "membres_famille": [
+    "mise en route",
+    "point fixe",
+    "point d'attente",
+    "off ignition off"
+   ],
+   "a_verifier": false
+  },
+  "mistral": {
+   "definition": "Vent régional de secteur nord-ouest à nord, froid et souvent très fort, soufflant dans la vallée du Rhône. Il s'accompagne d'un ciel limpide mais génère de fortes turbulences et du cisaillement près du relief.",
+   "categorie": "Météo",
+   "famille": "vents_locaux",
+   "membres_famille": [
+    "mistral",
+    "tramontane"
+   ],
+   "a_verifier": false
+  },
+  "mm aft datum": {
+   "definition": "Unité de mesure anglo-saxonne (millimètres en arrière de la référence) exprimant la position du centre de gravité d'un avion par rapport à sa ligne de référence (datum).",
+   "categorie": "Masse & centrage",
+   "famille": "masse_et_centrage",
+   "membres_famille": [
+    "mm aft datum",
+    "moment de rappel",
+    "devis de masse",
+    "fiche de pesée",
+    "limite avant",
+    "limite arriere"
+   ],
+   "a_verifier": false
+  },
+  "modele threat and error": {
+   "definition": "<em>Threat and Error Management</em> (TEM). Modèle conceptuel d'analyse de la sécurité visant à identifier et gérer activement les menaces extérieures et les erreurs de l'équipage avant qu'elles ne mènent à un état indésirable de l'aéronef.",
+   "categorie": "Sécurité & facteurs humains",
+   "famille": "facteurs_humains",
+   "membres_famille": [
+    "menace",
+    "modele threat and error",
+    "mémoire de travail",
+    "plan continuation bias",
+    "plan de charge"
+   ],
+   "a_verifier": false
+  },
+  "moment de rappel": {
+   "definition": "Moment de force aérodynamique ou gravitationnel qui tend à ramener l'avion vers son assiette ou sa trajectoire d'équilibre initiale après une perturbation (ex. effet stabilisateur de l'empennage horizontal).",
+   "categorie": "Aérodynamique",
+   "famille": "masse_et_centrage",
+   "membres_famille": [
+    "mm aft datum",
+    "moment de rappel",
+    "devis de masse",
+    "fiche de pesée",
+    "limite avant",
+    "limite arriere"
+   ],
+   "a_verifier": false
+  },
+  "monomoteur": {
+   "definition": "Aéronef équipé d'un seul groupe motopropulseur. C'est la configuration standard pour l'apprentissage du PPL. En cas de panne moteur, la finesse de l'avion détermine la distance franchissable en plané.",
+   "categorie": "Structure & cellule",
+   "famille": "categories_aeronef",
+   "membres_famille": [
+    "monomoteur",
+    "monomoteur léger"
+   ],
+   "a_verifier": false
+  },
+  "monomoteur léger": {
+   "definition": "Avion monomoteur de masse maximale certifiée au décollage généralement inférieure à 5700 kg, principalement utilisé pour l'école, le voyage VFR ou le loisir.",
+   "categorie": "Structure & cellule",
+   "famille": "categories_aeronef",
+   "membres_famille": [
+    "monomoteur",
+    "monomoteur léger"
+   ],
+   "a_verifier": false
+  },
+  "moulinet": {
+   "definition": "Rotation de l'hélice entraînée uniquement par le vent relatif lorsque le moteur est coupé ou en panne en plein vol. Elle génère une traînée aérodynamique importante qui dégrade la finesse de plané.",
+   "categorie": "Moteur & hélice",
+   "famille": "helice",
+   "membres_famille": [
+    "pas d'hélice",
+    "pas variable",
+    "prop",
+    "moulinet"
+   ],
+   "a_verifier": false
+  },
+  "mtom": {
+   "definition": "<em>Maximum Take-Off Mass</em>. Masse maximale au décollage autorisée par la certification de l'appareil. Elle ne doit jamais être dépassée sous peine d'altérer gravement les performances de montée et de résistance structurale.",
+   "categorie": "Masse & centrage",
+   "famille": "masses_reglementaires",
+   "membres_famille": [
+    "mtom"
+   ],
+   "a_verifier": false
+  },
+  "mémoire de travail": {
+   "definition": "Composante cognitive à capacité limitée qui retient et traite temporairement l'information en vol (ex. mémoriser un code transpondeur ou une fréquence avant de l'afficher). Elle s'altère rapidement sous l'effet du stress ou de la fatigue.",
+   "categorie": "Sécurité & facteurs humains",
+   "famille": "facteurs_humains",
+   "membres_famille": [
+    "menace",
+    "modele threat and error",
+    "mémoire de travail",
+    "plan continuation bias",
+    "plan de charge"
+   ],
+   "a_verifier": false
+  },
+  "météo du jour": {
+   "definition": "Analyse indispensable des conditions météorologiques actuelles et prévues (METAR, TAF, TEMSI, WINTEM) effectuée par le pilote avant d'entreprendre le vol, afin de s'assurer de la faisabilité et de la sécurité du trajet.",
+   "categorie": "Météo",
+   "famille": "preparation_vol",
+   "membres_famille": [
+    "météo du jour",
+    "plan de vol",
+    "devis de masse"
+   ],
+   "a_verifier": false
+  },
+  "nav": {
+   "definition": "Diminutif courant désignant la préparation ou la conduite de la navigation, consistant à suivre une route définie en calculant l'estime, la dérive et en identifiant des points de repère visuels ou radioélectriques.",
+   "categorie": "Navigation",
+   "famille": "navigation_termes",
+   "membres_famille": [
+    "nav",
+    "navigation",
+    "recalage en route",
+    "perte de position"
+   ],
+   "a_verifier": false
+  },
+  "navigabilité": {
+   "definition": "État technique d'un aéronef conforme à sa définition certifiée et en état de voler en toute sécurité. Elle est attestée par des documents réglementaires comme le certificat de navigabilité (CDN) ou le CEN à jour.",
+   "categorie": "Réglementation & docs",
+   "famille": "documents_aeronef",
+   "membres_famille": [
+    "navigabilité",
+    "prorogation",
+    "licence"
+   ],
+   "a_verifier": false
+  },
+  "navigation": {
+   "definition": "Art et science de conduire un aéronef d'un point à un autre en toute sécurité. Elle repose en VFR sur le suivi de l'estime (cap et temps) complété par le cheminement visuel.",
+   "categorie": "Navigation",
+   "famille": "navigation_termes",
+   "membres_famille": [
+    "nav",
+    "navigation",
+    "recalage en route",
+    "perte de position"
+   ],
+   "a_verifier": false
+  },
+  "nearest airfield": {
+   "definition": "Aérodrome le plus proche accessible en vol. C'est l'option à identifier immédiatement sur GPS ou carte de navigation en cas de situation d'urgence, de dégradation météo ou de panne système à bord.",
+   "categorie": "Procédures",
+   "famille": "situations_urgence",
+   "membres_famille": [
+    "nearest airfield",
+    "panne moteur",
+    "panne radio",
+    "panne électrique",
+    "atterrissage forcé"
+   ],
+   "a_verifier": false
+  },
+  "nervure": {
+   "definition": "Élément de structure transversal de l'aile qui donne son profil aérodynamique à la voilure et transmet les efforts aérodynamiques du revêtement vers le longeron principal.",
+   "categorie": "Structure & cellule",
+   "famille": "structure_aile",
+   "membres_famille": [
+    "nervure",
+    "longeron"
+   ],
+   "a_verifier": false
+  },
+  "nimbostratus": {
+   "definition": "Nuage de grande extension verticale, sombre et d'aspect voilé, souvent associé à des précipitations continues sous forme de pluie ou de neige. Son plancher bas interdit généralement le vol VFR.",
+   "categorie": "Météo",
+   "famille": "nuages",
+   "membres_famille": [
+    "nimbostratus",
+    "nuage",
+    "nuage du jour",
+    "stratocumulus",
+    "stratus",
+    "cumulus",
+    "cumulonimbus",
+    "altocumulus",
+    "altostratus"
+   ],
+   "a_verifier": false
+  },
+  "niveau de transition": {
+   "definition": "Premier niveau de vol (FL) utilisable au-dessus de l'altitude de transition. Lors de la montée, c'est la limite où l'on passe d'un calage calé au QNH local au calage standard (1013,25 hPa).",
+   "categorie": "Altimétrie",
+   "famille": "altimetrie_references",
+   "membres_famille": [
+    "niveau de transition",
+    "altitude de transition",
+    "calage standard",
+    "plancher"
+   ],
+   "a_verifier": false
+  },
+  "no-go": {
+   "definition": "Décision ferme de ne pas entreprendre ou de ne pas poursuivre un vol en raison de conditions jugées non sécuritaires (météo dégradée, fatigue du pilote, anomalie technique sur l'aéronef).",
+   "categorie": "Sécurité & facteurs humains",
+   "famille": "prise_decision",
+   "membres_famille": [
+    "no-go",
+    "GO/NO GO",
+    "point de decision",
+    "point de non retour",
+    "piège classique"
+   ],
+   "a_verifier": false
+  },
+  "nord": {
+   "definition": "Direction de référence principale en navigation aéronautique. Elle peut être géographique (nord vrai), magnétique (nord indiqué par le compas corrigé de la déclinaison) ou compas (influencée par la déviation propre).",
+   "categorie": "Navigation",
+   "famille": "points_cardinaux",
+   "membres_famille": [
+    "nord",
+    "ouest",
+    "sud",
+    "est"
+   ],
+   "a_verifier": false
+  },
+  "nuage": {
+   "definition": "Amas visible de fines gouttelettes d'eau ou de cristaux de glace en suspension dans l'atmosphère. Pour le pilote VFR, les nuages dictent les conditions de visibilité et imposent des distances minimales d'évitement réglementaires.",
+   "categorie": "Météo",
+   "famille": "nuages",
+   "membres_famille": [
+    "nimbostratus",
+    "nuage",
+    "nuage du jour",
+    "stratocumulus",
+    "stratus",
+    "cumulus",
+    "cumulonimbus",
+    "altocumulus",
+    "altostratus"
+   ],
+   "a_verifier": false
+  },
+  "nuage du jour": {
+   "definition": "Nuage ou type de nébulosité prédominant observé ou prévu lors de la préparation des vols, influençant le choix de l'altitude de croisière et la décision d'entreprendre la navigation ou le tour de piste.",
+   "categorie": "Météo",
+   "famille": "nuages",
+   "membres_famille": [
+    "nimbostratus",
+    "nuage",
+    "nuage du jour",
+    "stratocumulus",
+    "stratus",
+    "cumulus",
+    "cumulonimbus",
+    "altocumulus",
+    "altostratus"
+   ],
+   "a_verifier": false
+  },
+  "nuit": {
+   "definition": "En aéronautique française, période commençant 30 minutes après le coucher du soleil et se terminant 30 minutes avant son lever. Le vol de nuit VFR requiert des qualifications et un équipement aéronef spécifiques.",
+   "categorie": "Réglementation & docs",
+   "famille": "regles_vol",
+   "membres_famille": [
+    "nuit",
+    "VFR",
+    "IFR",
+    "priorité"
+   ],
+   "a_verifier": false
+  },
+  "oaci": {
+   "definition": "<em>Organisation de l'Aviation Civile Internationale</em>. Institution spécialisée des Nations Unies qui édicte les normes et recommandations réglementaires mondiales pour la sécurité, l'efficacité et la régularité du transport aérien et de l'aviation générale.",
+   "categorie": "Réglementation & docs",
+   "famille": "organismes",
+   "membres_famille": [
+    "oaci",
+    "easa",
+    "dgac"
+   ],
+   "a_verifier": false
+  },
+  "oat": {
+   "definition": "<em>Outside Air Temperature</em> : température de l'air extérieur. Mesurée par une sonde, elle est essentielle pour calculer l'altitude-densité, la vitesse vraie (TAS) et évaluer le risque de givrage du carburateur ou de la cellule.",
+   "categorie": "Instruments",
+   "famille": "instruments_mesure",
+   "membres_famille": [
+    "oat",
+    "badin",
+    "altimètre",
+    "variometre"
+   ],
+   "a_verifier": false
+  },
+  "obstacle artificiel": {
+   "definition": "Structure construite par l'homme (antenne, éolienne, ligne à haute tension) représentant un danger pour la navigation basse hauteur. Ils sont répertoriés sur les cartes aéronautiques avec leur altitude maximale au sommet.",
+   "categorie": "Aérodrome & cartes",
+   "famille": "securite_sol",
+   "membres_famille": [
+    "obstacle artificiel",
+    "relief environnant",
+    "hauteur de sécurité"
+   ],
+   "a_verifier": false
+  },
+  "off ignition off": {
+   "definition": "Commande d'allumage des magnétos placée sur la position d'arrêt complet (OFF). C'est la configuration de sécurité obligatoire pour manipuler l'hélice au sol afin d'éviter tout démarrage accidentel du moteur.",
+   "categorie": "Procédures",
+   "famille": "procedures_sol",
+   "membres_famille": [
+    "mise en route",
+    "point fixe",
+    "point d'attente",
+    "off ignition off"
+   ],
+   "a_verifier": false
+  },
+  "oreille interne": {
+   "definition": "Organe de l'équilibre situé dans le crâne. En l'absence de références visuelles extérieures (vol dans le brouillard), elle peut transmettre des informations erronées et provoquer des illusions sensorielles graves pour le pilote.",
+   "categorie": "Sécurité & facteurs humains",
+   "famille": "physiologie",
+   "membres_famille": [
+    "oreille interne",
+    "hyperventilation",
+    "hypoxie",
+    "mal de l'air",
+    "illusion somatogyrale",
+    "oxygène"
+   ],
+   "a_verifier": false
+  },
+  "ouest": {
+   "definition": "Point cardinal correspondant au relèvement magnétique ou vrai de 270 degrés. C'est la direction opposée à l'est, face au soleil couchant.",
+   "categorie": "Navigation",
+   "famille": "points_cardinaux",
+   "membres_famille": [
+    "nord",
+    "ouest",
+    "sud",
+    "est"
+   ],
+   "a_verifier": false
+  },
+  "ovc": {
+   "definition": "Code METAR/TAF signifiant <em>Overcast</em> (couvert). Il indique que la totalité du ciel (8 octas) est masquée par une couche nuageuse continue, interdisant généralement de monter ou descendre en VFR au-dessus.",
+   "categorie": "Météo",
+   "famille": "couche_nuageuse",
+   "membres_famille": [
+    "ovc",
+    "few",
+    "sct",
+    "bkn",
+    "plafond nuageux"
+   ],
+   "a_verifier": false
+  },
+  "oxygène": {
+   "definition": "Gaz vital dont la pression partielle diminue avec l'altitude. Son manque dans le sang provoque l'hypoxie, altérant les facultés cognitives du pilote dès 10000 ft en vol non pressurisé sans apport d'oxygène de subsistance.",
+   "categorie": "Sécurité & facteurs humains",
+   "famille": "physiologie",
+   "membres_famille": [
+    "oreille interne",
+    "hyperventilation",
+    "hypoxie",
+    "mal de l'air",
+    "illusion somatogyrale",
+    "oxygène"
+   ],
+   "a_verifier": false
+  },
+  "palier": {
+   "definition": "Phase de vol stabilisée à altitude constante où la portance équilibre la masse de l'appareil et la traction compense la traînée. Sa tenue requiert un affichage précis de l'assiette et de la puissance.",
+   "categorie": "Procédures",
+   "famille": "phases_vol",
+   "membres_famille": [
+    "palier",
+    "palier de croisière",
+    "pente",
+    "pente de descente",
+    "pente de montée",
+    "piqué",
+    "plané",
+    "plein gaz",
+    "procedure d'attente"
+   ],
+   "a_verifier": false
+  },
+  "palier de croisière": {
+   "definition": "Palier de longue durée établi après la montée, à l'altitude ou au niveau de vol choisis pour la navigation. C'est la phase idéale pour ajuster la richesse du mélange et surveiller les paramètres.",
+   "categorie": "Procédures",
+   "famille": "phases_vol",
+   "membres_famille": [
+    "palier",
+    "palier de croisière",
+    "pente",
+    "pente de descente",
+    "pente de montée",
+    "piqué",
+    "plané",
+    "plein gaz",
+    "procedure d'attente"
+   ],
+   "a_verifier": false
+  },
+  "palonnier": {
+   "definition": "Commande de vol actionnée par les pieds du pilote, agissant sur la gouverne de direction pour contrôler l'axe de lacet. Au sol, il permet de diriger l'appareil et d'orienter la roulette de nez ou de queue.",
+   "categorie": "Structure & cellule",
+   "famille": "gouvernes_commandes",
+   "membres_famille": [
+    "palonnier",
+    "profondeur",
+    "ailerons",
+    "gouverne de direction"
+   ],
+   "a_verifier": false
+  },
+  "panne moteur": {
+   "definition": "Dysfonctionnement partiel ou total du groupe motopropulseur en vol. La priorité absolue est alors de maintenir la vitesse de finesse maximale pour choisir un terrain d'atterrissage forcé et appliquer la check-list d'urgence.",
+   "categorie": "Procédures",
+   "famille": "situations_urgence",
+   "membres_famille": [
+    "nearest airfield",
+    "panne moteur",
+    "panne radio",
+    "panne électrique",
+    "atterrissage forcé"
+   ],
+   "a_verifier": false
+  },
+  "panne radio": {
+   "definition": "Perte des liaisons radioélectriques VHF. Le pilote doit alors afficher le code transpondeur 7600, surveiller les signaux lumineux de la tour et suivre les procédures d'intégration standard définies sur la carte VAC.",
+   "categorie": "Procédures",
+   "famille": "situations_urgence",
+   "membres_famille": [
+    "nearest airfield",
+    "panne moteur",
+    "panne radio",
+    "panne électrique",
+    "atterrissage forcé"
+   ],
+   "a_verifier": false
+  },
+  "panne électrique": {
+   "definition": "Défaillance de l'alternateur ou court-circuit coupant l'alimentation de bord. La batterie assure une autonomie limitée ; le pilote doit rapidement couper les consommateurs non essentiels et préparer un atterrissage sur un terrain approprié.",
+   "categorie": "Procédures",
+   "famille": "situations_urgence",
+   "membres_famille": [
+    "nearest airfield",
+    "panne moteur",
+    "panne radio",
+    "panne électrique",
+    "atterrissage forcé"
+   ],
+   "a_verifier": false
+  },
+  "parking": {
+   "definition": "Aire de l'aérodrome réservée au stationnement, à l'avitaillement et à la préparation au sol des aéronefs. Les déplacements y sont lents et exigent une attention constante pour éviter les obstacles ou d'autres avions.",
+   "categorie": "Aérodrome & cartes",
+   "famille": "zones_aerodrome",
+   "membres_famille": [
+    "parking",
+    "piste en service",
+    "point d'arrêt",
+    "point d'attente"
+   ],
+   "a_verifier": false
+  },
+  "pas d'hélice": {
+   "definition": "Distance théorique parcourue vers l'avant par l'hélice en un tour complet. Un petit pas favorise le décollage et la montée (régime élevé), tandis qu'un grand pas optimise le vol de croisière.",
+   "categorie": "Moteur & hélice",
+   "famille": "helice",
+   "membres_famille": [
+    "pas d'hélice",
+    "pas variable",
+    "prop",
+    "moulinet"
+   ],
+   "a_verifier": false
+  },
+  "pas variable": {
+   "definition": "Dispositif permettant de modifier en vol l'angle de calage des pales de l'hélice pour optimiser son rendement à toutes les vitesses. Il est généralement géré par une manette de commande de pas dédiée.",
+   "categorie": "Moteur & hélice",
+   "famille": "helice",
+   "membres_famille": [
+    "pas d'hélice",
+    "pas variable",
+    "prop",
+    "moulinet"
+   ],
+   "a_verifier": false
+  },
+  "passager": {
+   "definition": "Personne transportée à bord n'exerçant aucune fonction de pilotage. Le commandant de bord est responsable de sa sécurité, doit effectuer un briefing de sécurité complet avant le vol et s'assurer de son confort.",
+   "categorie": "Réglementation & docs",
+   "famille": "radio_phraséologie",
+   "membres_famille": [
+    "passager",
+    "pax",
+    "commandant de bord",
+    "phraséologie",
+    "premier contact"
+   ],
+   "a_verifier": false
+  },
+  "pax": {
+   "definition": "Abréviation aéronautique désignant un passager. Utilisée fréquemment dans les devis de masse et centrage ainsi que dans la préparation opérationnelle des vols ou lors des échanges radio avec les services d'escale.",
+   "categorie": "Radio & phraséologie",
+   "famille": "radio_phraséologie",
+   "membres_famille": [
+    "passager",
+    "pax",
+    "commandant de bord",
+    "phraséologie",
+    "premier contact"
+   ],
+   "a_verifier": false
+  },
+  "pente": {
+   "definition": "Angle mesurant l'inclinaison de la trajectoire de vol par rapport à l'horizon. Elle s'exprime en degrés ou en pourcentage et ne doit pas être confondue avec l'assiette de l'aéronef.",
+   "categorie": "Vitesses & performances",
+   "famille": "pentes_descente",
+   "membres_famille": [
+    "pente",
+    "pente de descente",
+    "pente de montée",
+    "plan de descente"
+   ],
+   "a_verifier": false
+  },
+  "pente de descente": {
+   "definition": "Trajectoire descendante de l'appareil par rapport à l'horizon, exprimée en pourcentage ou en degrés. Une pente standard d'approche finale VFR est généralement de 5% (environ 3 degrés) pour assurer un plan régulier.",
+   "categorie": "Vitesses & performances",
+   "famille": "pentes_descente",
+   "membres_famille": [
+    "pente",
+    "pente de descente",
+    "pente de montée",
+    "plan de descente"
+   ],
+   "a_verifier": false
+  },
+  "pente de montée": {
+   "definition": "Rapport entre le gain d'altitude et la distance horizontale parcourue par rapport au sol. Elle dépend de la réserve de traction disponible et permet d'assurer le franchissement des obstacles après le décollage.",
+   "categorie": "Vitesses & performances",
+   "famille": "pentes_descente",
+   "membres_famille": [
+    "pente",
+    "pente de descente",
+    "pente de montée",
+    "plan de descente"
+   ],
+   "a_verifier": false
+  },
+  "percée verticale": {
+   "definition": "Action de descendre à travers une couche nuageuse fragmentée en conservant des références visuelles suffisantes avec le sol. C'est une manœuvre délicate en VFR qui exige le strict respect des hauteurs minimales de sécurité.",
+   "categorie": "Procédures",
+   "famille": "procedures_vol",
+   "membres_famille": [
+    "percée verticale",
+    "intégration",
+    "tour de piste"
+   ],
+   "a_verifier": false
+  },
+  "perte de position": {
+   "definition": "Situation où le pilote ne parvient plus à situer précisément sa position géographique sur la carte. Il convient alors de conserver son cap, de chercher des repères remarquables et de contacter un service d'information de vol.",
+   "categorie": "Navigation",
+   "famille": "navigation_termes",
+   "membres_famille": [
+    "nav",
+    "navigation",
+    "recalage en route",
+    "perte de position"
+   ],
+   "a_verifier": false
+  },
+  "phraséologie": {
+   "definition": "Ensemble de termes et d'expressions standardisés utilisés lors des communications radiotéléphoniques. Son emploi strict évite les malentendus avec le contrôle aérien et garantit la clarté et la rapidité des échanges.",
+   "categorie": "Radio & phraséologie",
+   "famille": "radio_phraséologie",
+   "membres_famille": [
+    "passager",
+    "pax",
+    "commandant de bord",
+    "phraséologie",
+    "premier contact"
+   ],
+   "a_verifier": false
+  },
+  "piqué": {
+   "definition": "Attitude de vol caractérisée par une assiette fortement négative et une augmentation rapide de la vitesse. C'est une manœuvre transitoire exigeant de surveiller la VNE et de doser le ressourcement pour préserver la structure.",
+   "categorie": "Procédures",
+   "famille": "phases_vol",
+   "membres_famille": [
+    "palier",
+    "palier de croisière",
+    "pente",
+    "pente de descente",
+    "pente de montée",
+    "piqué",
+    "plané",
+    "plein gaz",
+    "procedure d'attente"
+   ],
+   "a_verifier": false
+  },
+  "piste contaminée": {
+   "definition": "Piste recouverte sur une partie significative de sa surface par de l'eau stagnante, de la neige fondante ou de la glace. Cela diminue l'adhérence des pneumatiques et allonge considérablement la distance de roulement à l'atterrissage.",
+   "categorie": "Aérodrome & cartes",
+   "famille": "pistes",
+   "membres_famille": [
+    "piste contaminée",
+    "piste mouillée",
+    "piste en service"
+   ],
+   "a_verifier": false
+  },
+  "piste en service": {
+   "definition": "Piste active désignée pour les décollages et atterrissages, choisie prioritairement face au vent dominant. Son orientation est indiquée par son numéro correspondant au QFU (orientation magnétique arrondie aux dizaines de degrés les plus proches).",
+   "categorie": "Aérodrome & cartes",
+   "famille": "pistes",
+   "membres_famille": [
+    "piste contaminée",
+    "piste mouillée",
+    "piste en service"
+   ],
+   "a_verifier": false
+  },
+  "piste mouillée": {
+   "definition": "Piste dont la surface est humide ou recouverte d'une fine pellicule d'eau sans stagnation. Elle augmente les risques d'aquaplaning et nécessite d'adapter le freinage pour éviter toute perte de contrôle au sol.",
+   "categorie": "Aérodrome & cartes",
+   "famille": "pistes",
+   "membres_famille": [
+    "piste contaminée",
+    "piste mouillée",
+    "piste en service"
+   ],
+   "a_verifier": false
+  },
+  "pitot": {
+   "definition": "Tube orienté face au flux d'air qui mesure la pression totale nécessaire au fonctionnement de l'anémomètre (badin). Son obstruction totale ou partielle (glace, insecte) fausse instantanément les indications de vitesse à bord.",
+   "categorie": "Instruments",
+   "famille": "instruments_pression",
+   "membres_famille": [
+    "pitot",
+    "anémomètre",
+    "badin"
+   ],
+   "a_verifier": false
+  },
+  "piège classique": {
+   "definition": "Erreur de jugement récurrente commise par les pilotes, comme l'obstination au but (plan continuation bias) ou la mauvaise estimation de la météo. Connaître ces biais permet de s'en prémunir efficacement lors de la prise de décision.",
+   "categorie": "Sécurité & facteurs humains",
+   "famille": "prise_decision",
+   "membres_famille": [
+    "no-go",
+    "GO/NO GO",
+    "point de decision",
+    "point de non retour",
+    "piège classique"
+   ],
+   "a_verifier": false
+  },
+  "plafond nuageux": {
+   "definition": "Hauteur au-dessus du sol de la base de la plus basse couche de nuages qui couvre plus de la moitié du ciel (nébulosité supérieure ou égale à 5 octas, codée BKN ou OVC).",
+   "categorie": "Météo",
+   "famille": "couche_nuageuse",
+   "membres_famille": [
+    "ovc",
+    "few",
+    "sct",
+    "bkn",
+    "plafond nuageux"
+   ],
+   "a_verifier": false
+  },
+  "plan continuation bias": {
+   "definition": "Obstination inconsciente à poursuivre le vol prévu malgré des signes clairs de dégradation de la situation (météo, fatigue, carburant). C'est un biais cognitif redoutable à l'origine de nombreux accidents en aviation générale.",
+   "categorie": "Sécurité & facteurs humains",
+   "famille": "facteurs_humains",
+   "membres_famille": [
+    "menace",
+    "modele threat and error",
+    "mémoire de travail",
+    "plan continuation bias",
+    "plan de charge"
+   ],
+   "a_verifier": false
+  },
+  "plan de charge": {
+   "definition": "Répartition et niveau d'activité mentale requis du pilote pour accomplir les différentes tâches de conduite du vol (pilotage, navigation, radio). Il doit être anticipé pour éviter la saturation dans les phases critiques.",
+   "categorie": "Sécurité & facteurs humains",
+   "famille": "facteurs_humains",
+   "membres_famille": [
+    "menace",
+    "modele threat and error",
+    "mémoire de travail",
+    "plan continuation bias",
+    "plan de charge"
+   ],
+   "a_verifier": false
+  },
+  "plan de descente": {
+   "definition": "Trajectoire verticale théorique que l'avion doit suivre lors de son approche finale pour atterrir en sécurité. Un plan de descente standard est de 3 degrés (ou 5%), souvent matérialisé par un PAPI.",
+   "categorie": "Aérodrome & cartes",
+   "famille": "pentes_descente",
+   "membres_famille": [
+    "pente",
+    "pente de descente",
+    "pente de montée",
+    "plan de descente"
+   ],
+   "a_verifier": false
+  },
+  "plan de vol": {
+   "definition": "Document réglementaire décrivant l'itinéraire, l'autonomie et les intentions du pilote. Son dépôt est obligatoire pour les vols transfrontaliers, de nuit en voyage, ou lors de survols de zones hostiles pour déclencher les secours.",
+   "categorie": "Réglementation & docs",
+   "famille": "preparation_vol",
+   "membres_famille": [
+    "météo du jour",
+    "plan de vol",
+    "devis de masse"
+   ],
+   "a_verifier": false
+  },
+  "plancher": {
+   "definition": "Altitude ou niveau de vol minimal autorisé dans une zone donnée (ex. plancher d'une classe d'espace contrôlé). Le pilote doit impérativement voler au-dessus pour respecter la structure des espaces aériens.",
+   "categorie": "Réglementation & docs",
+   "famille": "altimetrie_references",
+   "membres_famille": [
+    "plancher",
+    "niveau de transition",
+    "altitude de transition"
+   ],
+   "a_verifier": false
+  },
+  "plané": {
+   "definition": "Vol non motorisé stabilisé durant lequel l'avion descend sous l'effet de sa propre masse. La vitesse de plané optimal permet de parcourir la plus grande distance possible par rapport au sol sans puissance moteur.",
+   "categorie": "Procédures",
+   "famille": "phases_vol",
+   "membres_famille": [
+    "palier",
+    "palier de croisière",
+    "pente",
+    "pente de descente",
+    "pente de montée",
+    "piqué",
+    "plané",
+    "plein gaz",
+    "procedure d'attente"
+   ],
+   "a_verifier": false
+  },
+  "plein gaz": {
+   "definition": "Position maximale de la manette des gaz fournissant la puissance maximale disponible du moteur. Utilisée systématiquement lors du décollage et de la remise des gaz pour garantir le meilleur taux de montée possible.",
+   "categorie": "Procédures",
+   "famille": "phases_vol",
+   "membres_famille": [
+    "palier",
+    "palier de croisière",
+    "pente",
+    "pente de descente",
+    "pente de montée",
+    "piqué",
+    "plané",
+    "plein gaz",
+    "procedure d'attente"
+   ],
+   "a_verifier": false
+  },
+  "pluie": {
+   "definition": "Précipitation d'eau sous forme liquide. Elle dégrade fortement la visibilité vers l'avant à travers le pare-brise de l'avion, peut altérer le profil aérodynamique de la voilure et rend la piste glissante à l'atterrissage.",
+   "categorie": "Météo",
+   "famille": "messages_meteo",
+   "membres_famille": [
+    "metar/taf",
+    "prob",
+    "pluie",
+    "ovc"
+   ],
+   "a_verifier": false
+  },
+  "point d'arrêt": {
+   "definition": "Emplacement matérialisé au sol par une ligne de peinture continue jaune et des panneaux de signalisation, situé avant de pénétrer sur la piste en service. Le pilote doit s'y arrêter pour effectuer ses vérifications.",
+   "categorie": "Aérodrome & cartes",
+   "famille": "points_aerodrome",
+   "membres_famille": [
+    "point d'arrêt",
+    "point d'attente",
+    "point fixe"
+   ],
+   "a_verifier": false
+  },
+  "point d'attente": {
+   "definition": "Position désignée sur une voie de circulation (taxiway) où un aéronef doit s'arrêter et attendre l'autorisation du contrôle avant de poursuivre son déplacement, de traverser ou de pénétrer sur une piste en service.",
+   "categorie": "Aérodrome & cartes",
+   "famille": "points_aerodrome",
+   "membres_famille": [
+    "point d'arrêt",
+    "point d'attente",
+    "point fixe"
+   ],
+   "a_verifier": false
+  },
+  "point de decision": {
+   "definition": "Repère géographique, temporel ou lié aux performances à partir duquel le pilote doit obligatoirement valider une option de vol ou appliquer une alternative définie (ex. demi-tour ou déroutement face au mauvais temps).",
+   "categorie": "Sécurité & facteurs humains",
+   "famille": "prise_decision",
+   "membres_famille": [
+    "no-go",
+    "GO/NO GO",
+    "point de decision",
+    "point de non retour",
+    "piège classique"
+   ],
+   "a_verifier": false
+  },
+  "point de non retour": {
+   "definition": "Limite géographique ou temporelle au-delà de laquelle l'appareil ne dispose plus de la réserve de carburant nécessaire pour faire demi-tour vers son aérodrome de départ ou de dégagement initial.",
+   "categorie": "Navigation",
+   "famille": "prise_decision",
+   "membres_famille": [
+    "no-go",
+    "GO/NO GO",
+    "point de decision",
+    "point de non retour"
+   ],
+   "a_verifier": false
+  },
+  "point de report": {
+   "definition": "Point géographique remarquable identifié au sol et figurant sur les cartes d'approche VAC (ex. échangeur d'autoroute, château d'eau), utilisé par le pilote pour annoncer sa position à la radio avant de s'intégrer.",
+   "categorie": "Navigation",
+   "famille": "points_navigation",
+   "membres_famille": [
+    "point de report",
+    "points de report"
+   ],
+   "a_verifier": false
+  },
+  "point fixe": {
+   "definition": "Zone de l'aérodrome où le pilote positionne son avion face au vent pour tester le bon fonctionnement des allumages (magnétos) et du réchauffage carburateur avant de s'aligner sur la piste pour le décollage.",
+   "categorie": "Procédures",
+   "famille": "points_aerodrome",
+   "membres_famille": [
+    "point d'arrêt",
+    "point d'attente",
+    "point fixe"
+   ],
+   "a_verifier": false
+  },
+  "points de report": {
+   "definition": "Repères visuels officiels définis sur les cartes de navigation et d'approche. Le signalement radio au passage de ces points permet d'assurer l'espacement et la conscience de la situation entre les différents aéronefs.",
+   "categorie": "Navigation",
+   "famille": "points_navigation",
+   "membres_famille": [
+    "point de report",
+    "points de report"
+   ],
+   "a_verifier": false
+  },
+  "polaire": {
+   "definition": "Courbe représentant les variations du coefficient de portance en fonction du coefficient de traînée pour différents angles d'incidence. Elle permet de déterminer la finesse maximale et la vitesse de chute minimale.",
+   "categorie": "Aérodynamique",
+   "famille": "aerodynamique",
+   "membres_famille": [
+    "polaire",
+    "portance",
+    "traînée"
+   ],
+   "a_verifier": false
+  },
+  "pompe": {
+   "definition": "Terme familier désignant un courant d'air ascendant vigoureux, d'origine thermique ou dynamique. Très recherchée par les vélivoles, elle provoque une brusque montée de l'avion et des secousses pour ses passagers.",
+   "categorie": "Météo",
+   "famille": "mouvements_air",
+   "membres_famille": [
+    "pompe",
+    "rabattant",
+    "ascendance"
+   ],
+   "a_verifier": false
+  },
+  "pompe électrique": {
+   "definition": "Pompe à carburant secondaire actionnée électriquement par le pilote. Elle est activée lors des phases critiques (décollage, approche, changement de réservoir) pour suppléer la pompe mécanique et prévenir toute baisse de pression d'alimentation.",
+   "categorie": "Moteur & hélice",
+   "famille": "circuit_carburant",
+   "membres_famille": [
+    "pompe électrique",
+    "sélecteur carburant"
+   ],
+   "a_verifier": false
+  },
+  "portance": {
+   "definition": "Force aérodynamique perpendiculaire au vent relatif, dirigée vers le haut, générée par l'écoulement de l'air autour de l'aile. En vol rectiligne stabilisé, la portance équilibre exactement la masse totale de l'avion.",
+   "categorie": "Aérodynamique",
+   "famille": "aerodynamique",
+   "membres_famille": [
+    "polaire",
+    "portance",
+    "traînée"
+   ],
+   "a_verifier": false
+  },
+  "portée visuelle de piste": {
+   "definition": "<em>Runway Visual Range</em> (RVR). Distance jusqu'à laquelle le pilote d'un aéronef placé sur l'axe de la piste peut voir les marquages ou les feux délimitant la piste. Mesurée par des transmissiomètres au sol.",
+   "categorie": "Météo",
+   "famille": "conditions_visibilite",
+   "membres_famille": [
+    "portée visuelle de piste",
+    "visibilité",
+    "visibilité horizontale"
+   ],
+   "a_verifier": false
+  },
+  "posé-décollé": {
+   "definition": "Manœuvre d'entraînement combinant un atterrissage complet suivi immédiatement d'un décollage sans s'arrêter sur la piste. Le pilote doit rapidement reconfigurer l'avion (rentrer les volets, compenser) avant de remettre plein gaz.",
+   "categorie": "Aérodrome & cartes",
+   "famille": "procedures_vol",
+   "membres_famille": [
+    "posé-décollé",
+    "touché",
+    "atterrissage"
+   ],
+   "a_verifier": false
+  },
+  "ppl": {
+   "definition": "<em>Private Pilot License</em> : licence de pilote privé permettant d'exercer sans rémunération les fonctions de commandant de bord sur des avions de loisir ou de voyage, en régime de vol à vue (VFR).",
+   "categorie": "Réglementation & docs",
+   "famille": "licences",
+   "membres_famille": [
+    "ppl",
+    "licence",
+    "prorogation"
+   ],
+   "a_verifier": false
+  },
+  "premier contact": {
+   "definition": "Premier appel radio adressé à un organisme de contrôle ou d'information de vol. Le pilote doit énoncer son indicatif complet, sa provenance, sa position actuelle, son altitude et ses intentions de vol.",
+   "categorie": "Radio & phraséologie",
+   "famille": "radio_phraséologie",
+   "membres_famille": [
+    "passager",
+    "pax",
+    "commandant de bord",
+    "phraséologie",
+    "premier contact"
+   ],
+   "a_verifier": false
+  },
+  "pression": {
+   "definition": "Force exercée par l'atmosphère par unité de surface, exprimée en hectopascals (hPa). Elle diminue d'environ 1 hPa tous les 28 pieds en basse couche, phénomène physique fondamental pour le fonctionnement de l'altimètre.",
+   "categorie": "Altimétrie",
+   "famille": "references_pression",
+   "membres_famille": [
+    "pression",
+    "pression d'huile",
+    "pression standard",
+    "qnh",
+    "qfe"
+   ],
+   "a_verifier": false
+  },
+  "pression d'huile": {
+   "definition": "Paramètre moteur vital indiquant la force de circulation du lubrifiant dans le bloc moteur. Une chute brutale de cette pression signale une fuite ou une panne majeure, imposant de réduire la puissance et de se poser.",
+   "categorie": "Moteur & hélice",
+   "famille": "parametres_moteur",
+   "membres_famille": [
+    "pression d'huile",
+    "température d'huile",
+    "tachymetre"
+   ],
+   "a_verifier": false
+  },
+  "pression standard": {
+   "definition": "Pression atmosphérique de référence au niveau de la mer dans l'atmosphère standard (ISA), égale à 1013,25 hPa. Ce calage est affiché à l'altimètre pour voler aux niveaux de vol (FL) au-dessus de l'altitude de transition.",
+   "categorie": "Altimétrie",
+   "famille": "references_pression",
+   "membres_famille": [
+    "pression",
+    "pression d'huile",
+    "pression standard",
+    "qnh",
+    "qfe"
+   ],
+   "a_verifier": false
+  },
+  "priorité": {
+   "definition": "Ensemble de règles d'évitement en vol dictant quel aéronef doit modifier sa trajectoire par rapport à un autre (ex. priorité aux planeurs sur les avions de tourisme, évitement par la droite en cas de rapprochement de face).",
+   "categorie": "Réglementation & docs",
+   "famille": "regles_vol",
+   "membres_famille": [
+    "nuit",
+    "VFR",
+    "IFR",
+    "priorité"
+   ],
+   "a_verifier": false
+  },
+  "prob": {
+   "definition": "Indicateur de probabilité utilisé dans les messages de prévisions TAF (suivi de 30 ou 40 pour exprimer un pourcentage) annonçant le risque de survenue d'un phénomène météo temporaire ou de courte durée.",
+   "categorie": "Météo",
+   "famille": "messages_meteo",
+   "membres_famille": [
+    "metar/taf",
+    "prob",
+    "pluie",
+    "ovc"
+   ],
+   "a_verifier": false
+  },
+  "procedure d'attente": {
+   "definition": "Trajectoire calibrée effectuée au-dessus d'un point géographique fixe, à une altitude donnée, permettant de retarder le vol en toute sécurité sur ordre du contrôle aérien en raison de la saturation du trafic.",
+   "categorie": "Procédures",
+   "famille": "phases_vol",
+   "membres_famille": [
+    "palier",
+    "palier de croisière",
+    "pente",
+    "pente de descente",
+    "pente de montée",
+    "piqué",
+    "plané",
+    "plein gaz",
+    "procedure d'attente"
+   ],
+   "a_verifier": false
+  },
+  "profondeur": {
+   "definition": "Gouverne de direction primaire articulée à l'arrière de l'empennage horizontal de l'appareil. Actionnée d'avant en arrière par le manche, elle fait pivoter l'avion autour de son axe de tangage pour modifier son assiette.",
+   "categorie": "Structure & cellule",
+   "famille": "gouvernes_commandes",
+   "membres_famille": [
+    "palonnier",
+    "profondeur",
+    "ailerons",
+    "gouverne de direction"
+   ],
+   "a_verifier": false
+  },
+  "prolongement d'arret": {
+   "definition": "Zone située au-delà de l'extrémité de la piste de décollage, préparée de manière à pouvoir supporter le freinage d'un avion devant interrompre son décollage. Elle intervient dans le calcul de la distance ASDA.",
+   "categorie": "Aérodrome & cartes",
+   "famille": "distances_declarees",
+   "membres_famille": [
+    "prolongement d'arret",
+    "longueur de piste",
+    "piste"
+   ],
+   "a_verifier": false
+  },
+  "prop": {
+   "definition": "Terme abrégé issu de l'anglais <em>propeller</em> pour désigner l'hélice de l'avion. En français aéronautique, on lui préfère le terme officiel d'hélice pour éviter l'usage excessif d'anglicismes lors des examens théoriques.",
+   "categorie": "Moteur & hélice",
+   "famille": "helice",
+   "membres_famille": [
+    "pas d'hélice",
+    "pas variable",
+    "prop",
+    "moulinet"
+   ],
+   "a_verifier": false
+  },
+  "prorogation": {
+   "definition": "Action de prolonger la validité d'une qualification de classe (comme la SEP) ou d'un certificat médical avant son expiration. Elle s'effectue généralement par expérience (heures de vol) ou par un contrôle avec examinateur.",
+   "categorie": "Réglementation & docs",
+   "famille": "licences",
+   "membres_famille": [
+    "ppl",
+    "licence",
+    "prorogation"
+   ],
+   "a_verifier": false
+  },
+  "pré-lâcher": {
+   "definition": "Phase d'apprentissage avancée précédant immédiatement le premier vol solo de l'élève pilote. L'instructeur valide la régularité et la sécurité des tours de piste de l'élève avant de le laisser partir seul à bord.",
+   "categorie": "Procédures",
+   "famille": "formation_pilote",
+   "membres_famille": [
+    "pré-lâcher",
+    "lâcher",
+    "double commande"
+   ],
+   "a_verifier": false
+  }
+ }
+}

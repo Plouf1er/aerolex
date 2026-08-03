@@ -1,0 +1,673 @@
+{
+ "lot": 6,
+ "termes": {
+  "psi": {
+   "definition": "<em>Pounds per Square Inch</em> : unité anglo-saxonne de pression (livres par pouce carré). Elle est couramment utilisée en aviation de loisir pour vérifier la pression des pneumatiques ou lire la pression d'huile moteur sur les instruments de bord.",
+   "categorie": "Unités",
+   "famille": null,
+   "membres_famille": [],
+   "a_verifier": false
+  },
+  "pump": {
+   "definition": "<em>Pump</em> : pompe de gavage ou d'alimentation en carburant. La pompe électrique (fuel pump) est activée par précaution lors des phases critiques, comme le décollage et l'atterrissage, pour suppléer une défaillance de la pompe mécanique entraînée par le moteur.",
+   "categorie": "Moteur & hélice",
+   "famille": null,
+   "membres_famille": [],
+   "a_verifier": false
+  },
+  "purge": {
+   "definition": "Action d'extraire une petite quantité de carburant par le point le plus bas d'un réservoir ou du filtre principal. Elle sert à détecter et éliminer l'eau de condensation ou les impuretés avant le premier vol de la journée.",
+   "categorie": "Procédures",
+   "famille": null,
+   "membres_famille": [],
+   "a_verifier": false
+  },
+  "qcm": {
+   "definition": "Questionnaire à Choix Multiples : format de l'examen théorique du brevet de pilote privé (PPL). Chaque épreuve comprend des questions à choix unique, exigeant un taux de réussite minimal de 75 % dans chaque module pour valider l'examen.",
+   "categorie": "Réglementation & docs",
+   "famille": null,
+   "membres_famille": [],
+   "a_verifier": false
+  },
+  "qdm": {
+   "definition": "Cap magnétique à suivre par l'aéronef sans vent pour rejoindre directement la station au sol. Il correspond au relèvement magnétique direct de la station et s'obtient à l'aide du radiocompas ou d'un service de goniométrie.",
+   "categorie": "Navigation",
+   "famille": null,
+   "membres_famille": [],
+   "a_verifier": false
+  },
+  "qdr": {
+   "definition": "Relèvement magnétique de l'aéronef mesuré par une station au sol. Il représente la route magnétique à suivre pour s'éloigner de la station sans vent et correspond à la radiale sur laquelle se situe l'avion par rapport à un VOR.",
+   "categorie": "Navigation",
+   "famille": null,
+   "membres_famille": [],
+   "a_verifier": false
+  },
+  "rabattant": {
+   "definition": "Courant d'air vertical descendant, intense et soudain, se formant en aval d'un relief ou sous des nuages convectifs. Un rabattant peut gravement détériorer le taux de montée d'un avion léger et nécessite une réaction immédiate du pilote.",
+   "categorie": "Vent",
+   "famille": null,
+   "membres_famille": [],
+   "a_verifier": false
+  },
+  "rabattant sous le vent": {
+   "definition": "Mouvement d'air descendant et turbulent localisé sur le versant abrité d'un relief franchi par un vent fort. C'est un piège redoutable pour les avions de faible puissance qui risquent de ne pas pouvoir contrer la perte d'altitude.",
+   "categorie": "Vent",
+   "famille": null,
+   "membres_famille": [],
+   "a_verifier": false
+  },
+  "radiale": {
+   "definition": "Axe de navigation magnétique orienté vers l'extérieur (éloignement) depuis une station VOR. Il existe 360 radiales (de 000° à 359°) permettant de se situer avec précision ou de suivre une route spécifiée sur les cartes aéronautiques.",
+   "categorie": "Navigation",
+   "famille": null,
+   "membres_famille": [],
+   "a_verifier": false
+  },
+  "radio": {
+   "definition": "Équipement émetteur-récepteur VHF de bord opérant dans la bande de fréquences 118 - 137 MHz. C'est l'outil indispensable pour communiquer avec les organismes de contrôle, recevoir l'ATIS ou assurer l'auto-information sur les aérodromes non contrôlés.",
+   "categorie": "Radio & phraséologie",
+   "famille": null,
+   "membres_famille": [],
+   "a_verifier": false
+  },
+  "radiocompas": {
+   "definition": "Instrument de radionavigation (ADF) qui indique par une aiguille le gisement d'une balise au sol NDB. L'aiguille pointe continuellement vers la station, permettant au pilote de s'orienter et de suivre un gisement donné.",
+   "categorie": "Instruments",
+   "famille": "instruments",
+   "membres_famille": [
+    "radiocompas",
+    "tachymetre"
+   ],
+   "a_verifier": false
+  },
+  "rayon": {
+   "definition": "Distance horizontale mesurant la courbure de la trajectoire d'un aéronef en virage. Ce rayon dépend uniquement de la vitesse propre de l'avion (TAS) et de son inclinaison : pour un virage serré, il faut réduire la vitesse.",
+   "categorie": "Aérodynamique",
+   "famille": null,
+   "membres_famille": [],
+   "a_verifier": false
+  },
+  "read-back": {
+   "definition": "Collationnement en phraséologie radio. Action pour le pilote de répéter obligatoirement les instructions clés du contrôleur (piste, calage, altitude) afin de confirmer leur bonne réception et d'éviter tout malentendu avant d'exécuter la manœuvre.",
+   "categorie": "Radio & phraséologie",
+   "famille": null,
+   "membres_famille": [],
+   "a_verifier": false
+  },
+  "recalage en route": {
+   "definition": "Action périodique de réaligner le conservateur de cap gyroscopique sur l'indication du compas magnétique lors d'un vol rectiligne stabilisé en palier. Cette manipulation indispensable compense la dérive naturelle du gyroscope (environ 15° par heure).",
+   "categorie": "Procédures",
+   "famille": null,
+   "membres_famille": [],
+   "a_verifier": false
+  },
+  "red lines": {
+   "definition": "Traits ou repères rouges tracés sur les cadrans des instruments de bord (anémomètre, compte-tours, températures). Ils matérialisent les limites absolues d'utilisation définies par le constructeur à ne jamais dépasser sous peine de dommages structurels ou moteurs.",
+   "categorie": "Instruments",
+   "famille": null,
+   "membres_famille": [],
+   "a_verifier": false
+  },
+  "regime venturi": {
+   "definition": "Phénomène aérodynamique d'aspiration et de baisse de pression créé par le passage de l'air dans un rétrécissement (effet Venturi). Ce principe est exploité dans le carburateur pour vaporiser le mélange et par certains gyroscopes entraînés par dépression.",
+   "categorie": "Aérodynamique",
+   "famille": null,
+   "membres_famille": [],
+   "a_verifier": false
+  },
+  "relief environnant": {
+   "definition": "Obstacles naturels et collines présents autour d'un aérodrome ou le long d'une route. L'étude du relief est primordiale lors de la préparation du vol pour définir l'altitude de sécurité et éviter les turbulences associées.",
+   "categorie": "Aérodrome & cartes",
+   "famille": null,
+   "membres_famille": [],
+   "a_verifier": false
+  },
+  "remise de gaz interrompue": {
+   "definition": "",
+   "categorie": "divers",
+   "famille": null,
+   "membres_famille": [],
+   "a_verifier": true,
+   "doute": "Expression non standard ou ambiguë en français. Une remise de gaz est une action entreprise pour interrompre une approche, mais l'expression 'remise de gaz interrompue' (balked landing) n'a pas de définition simple et stabilisée en français pour le PPL."
+  },
+  "report": {
+   "definition": "Transmission radio obligatoire ou recommandée par laquelle le pilote signale sa position géographique au-dessus d'un point remarquable défini sur la carte VAC. Cela permet au contrôle et aux autres aéronefs de visualiser l'intégration dans le circuit.",
+   "categorie": "Radio & phraséologie",
+   "famille": null,
+   "membres_famille": [],
+   "a_verifier": false
+  },
+  "reserve finale": {
+   "definition": "Quantité minimale de carburant devant obligatoirement rester à bord à la coupure du moteur. En vol VFR de jour, cette marge réglementaire correspond à 30 minutes de vol à la vitesse de croisière économique.",
+   "categorie": "Réglementation & docs",
+   "famille": null,
+   "membres_famille": [],
+   "a_verifier": false
+  },
+  "richesse": {
+   "definition": "Rapport entre la masse d'essence et la masse d'air admises dans les cylindres du moteur. Le pilote l'ajuste en vol à l'aide de la commande de mélange (manette rouge) pour optimiser la combustion et la consommation.",
+   "categorie": "Moteur & hélice",
+   "famille": null,
+   "membres_famille": [],
+   "a_verifier": false
+  },
+  "richesse mélange": {
+   "definition": "Dosage air-carburant introduit dans le moteur. En altitude, la diminution de la densité de l'air enrichit naturellement le mélange ; le pilote doit donc appauvrir (diminuer le débit de carburant) pour maintenir un fonctionnement optimal.",
+   "categorie": "Moteur & hélice",
+   "famille": null,
+   "membres_famille": [],
+   "a_verifier": false
+  },
+  "rmz": {
+   "definition": "<em>Radio Mandatory Zone</em> : zone à contact radio obligatoire. L'entrée dans cet espace aérien impose d'établir une communication bilatérale avec l'organisme de contrôle ou de veiller en continu la fréquence d'auto-information indiquée sur les cartes.",
+   "categorie": "Aérodrome & cartes",
+   "famille": null,
+   "membres_famille": [],
+   "a_verifier": false
+  },
+  "roger": {
+   "definition": "Mot de phraséologie aéronautique internationale signifiant « bien reçu » ou « j'ai compris votre message ». Attention, ce terme ne constitue en aucun cas une autorisation et ne remplace jamais un collationnement obligatoire d'instruction.",
+   "categorie": "Radio & phraséologie",
+   "famille": null,
+   "membres_famille": [],
+   "a_verifier": false
+  },
+  "rotor": {
+   "definition": "Tourbillon d'air violent à axe horizontal se formant sous le vent d'un relief, souvent associé à des ondes orographiques. C'est une zone d'extrême turbulence, extrêmement dangereuse pour les aéronefs légers, parfois matérialisée par un nuage rotor.",
+   "categorie": "Météo",
+   "famille": null,
+   "membres_famille": [],
+   "a_verifier": false
+  },
+  "roue": {
+   "definition": "Élément du train d'atterrissage comprenant la jante, le pneu et le système de freinage. Sur avion léger, la roue est soumise à de fortes contraintes lors du toucher des roues et doit faire l'objet d'une inspection rigoureuse avant le vol.",
+   "categorie": "Structure & cellule",
+   "famille": null,
+   "membres_famille": [],
+   "a_verifier": false
+  },
+  "roulage au sol": {
+   "definition": "Déplacement de l'aéronef sur l'aérodrome par ses propres moyens, hors décollage et atterrissage. Le roulage s'effectue à vitesse modérée, la trajectoire étant contrôlée au palonnier tandis que la vitesse est régulée au moteur et aux freins.",
+   "categorie": "Procédures",
+   "famille": null,
+   "membres_famille": [],
+   "a_verifier": false
+  },
+  "roulette": {
+   "definition": "Petite roue orientable ou folle située à l'arrière d'un avion à train classique (roulette de queue). Elle permet de diriger l'aéronef au sol lors du roulage par action sur les palonniers.",
+   "categorie": "Structure & cellule",
+   "famille": null,
+   "membres_famille": [],
+   "a_verifier": false
+  },
+  "roulis": {
+   "definition": "Mouvement de rotation de l'aéronef autour de son axe longitudinal. Commandé par le braquage différentiel des ailerons lors du déplacement latéral du manche, le roulis permet d'incliner l'avion pour amorcer un virage.",
+   "categorie": "Aérodynamique",
+   "famille": null,
+   "membres_famille": [],
+   "a_verifier": false
+  },
+  "route": {
+   "definition": "Angle formé entre le nord (vrai ou magnétique) et la trajectoire réelle suivie par l'aéronef par rapport au sol. La route diffère du cap d'une valeur angulaire appelée dérive, provoquée par l'effet du vent.",
+   "categorie": "Navigation",
+   "famille": null,
+   "membres_famille": [],
+   "a_verifier": false
+  },
+  "rpm": {
+   "definition": "<em>Revolutions Per Minute</em> : tours par minute. Unité mesurant le régime de rotation du moteur ou de l'hélice, lue sur le tachymètre pour ajuster la puissance lors des différentes phases du vol.",
+   "categorie": "Unités",
+   "famille": null,
+   "membres_famille": [],
+   "a_verifier": false
+  },
+  "rugosité": {
+   "definition": "État de surface de la piste d'atterrissage influençant l'adhérence des pneumatiques et la distance de freinage. Une rugosité altérée (piste humide, herbe haute, présence de glace) dégrade l'efficacité du freinage et augmente les distances d'arrêt.",
+   "categorie": "Aérodrome & cartes",
+   "famille": null,
+   "membres_famille": [],
+   "a_verifier": false
+  },
+  "règle d'or": {
+   "definition": "Principe fondamental de sécurité en vol, résumé par l'adage « piloter, naviguer, communiquer ». En toute situation, et particulièrement en cas d'urgence, la priorité absolue reste de maintenir l'avion dans son domaine de vol avant de naviguer ou de parler.",
+   "categorie": "Sécurité & facteurs humains",
+   "famille": null,
+   "membres_famille": [],
+   "a_verifier": false
+  },
+  "règles de l'air": {
+   "definition": "Ensemble des dispositions réglementaires nationales et internationales régissant la conduite des aéronefs en vol et au sol. Elles définissent notamment les priorités de passage, les hauteurs minimales de survol et les conditions de vol VFR.",
+   "categorie": "Réglementation & docs",
+   "famille": null,
+   "membres_famille": [],
+   "a_verifier": false
+  },
+  "réchauffage carburateur": {
+   "definition": "Dispositif permettant d'envoyer de l'air chaud prélevé autour de l'échappement vers l'admission du moteur pour faire fondre ou prévenir la formation de givre dans le carburateur. Son utilisation préventive est systématique lors des descentes à faible régime.",
+   "categorie": "Moteur & hélice",
+   "famille": null,
+   "membres_famille": [],
+   "a_verifier": false
+  },
+  "récupération de décrochage": {
+   "definition": "Action de pilotage immédiate visant à rétablir le vol normal après un décrochage. La priorité est de pousser sur le manche pour réduire l'angle d'incidence sous sa valeur limite, puis d'appliquer la puissance maximale tout en gardant les ailes horizontales.",
+   "categorie": "Procédures",
+   "famille": null,
+   "membres_famille": [],
+   "a_verifier": false
+  },
+  "réducteur": {
+   "definition": "Dispositif mécanique d'engrenages intercalé entre le vilebrequin du moteur et l'arbre de l'hélice. Il permet de faire tourner le moteur à un régime élevé de puissance maximale tout en maintenant l'hélice à un régime de rotation plus lent et silencieux.",
+   "categorie": "Moteur & hélice",
+   "famille": null,
+   "membres_famille": [],
+   "a_verifier": false
+  },
+  "régime hélice": {
+   "definition": "Vitesse de rotation de l'hélice, exprimée en tours par minute (RPM). Sur un avion à hélice à calage fixe, elle correspond directement au régime moteur. Sur hélice à pas variable, elle est contrôlée indépendamment via la commande de pas.",
+   "categorie": "Moteur & hélice",
+   "famille": null,
+   "membres_famille": [],
+   "a_verifier": false
+  },
+  "régime moteur": {
+   "definition": "Vitesse de rotation du vilebrequin du moteur, mesurée en tours par minute (RPM) par le tachymètre. Le pilote l'ajuste à l'aide de la manette des gaz pour contrôler la puissance délivrée par le moteur.",
+   "categorie": "Moteur & hélice",
+   "famille": null,
+   "membres_famille": [],
+   "a_verifier": false
+  },
+  "région terminale": {
+   "definition": "Espace aérien contrôlé (généralement une TMA) établi à la confluence de plusieurs routes aériennes autour d'un ou plusieurs aérodromes importants. Les pilotes VFR doivent y respecter des consignes de transit et d'altitude précises.",
+   "categorie": "Aérodrome & cartes",
+   "famille": null,
+   "membres_famille": [],
+   "a_verifier": false
+  },
+  "réserve de carburant": {
+   "definition": "Quantité de carburant embarquée en plus de la consommation estimée pour le trajet prévu. Elle comprend réglementairement la réserve pour déroutement vers l'aérodrome de dégagement et la réserve finale de trente minutes de jour.",
+   "categorie": "Réglementation & docs",
+   "famille": null,
+   "membres_famille": [],
+   "a_verifier": false
+  },
+  "réserve réglementaire": {
+   "definition": "Marge minimale obligatoire de carburant devant être emportée au départ de chaque vol pour faire face aux imprévus (vent défavorable, attente). En VFR, elle comprend le trajet, le dégagement éventuel et la réserve finale obligatoire.",
+   "categorie": "Réglementation & docs",
+   "famille": null,
+   "membres_famille": [],
+   "a_verifier": false
+  },
+  "saturation": {
+   "definition": "État d'une masse d'air contenant la quantité maximale de vapeur d'eau possible pour sa température (humidité relative de 100 %). Au-delà de ce point de saturation, l'excès d'eau se condense pour former de la brume, du brouillard ou des nuages.",
+   "categorie": "Météo",
+   "famille": null,
+   "membres_famille": [],
+   "a_verifier": false
+  },
+  "say again": {
+   "definition": "Expression anglaise de phraséologie radio signifiant « répétez ». Elle est utilisée par le pilote ou le contrôleur pour demander la répétition d'un message qui n'a pas été clairement reçu ou compris.",
+   "categorie": "Radio & phraséologie",
+   "famille": null,
+   "membres_famille": [],
+   "a_verifier": false
+  },
+  "sct": {
+   "definition": "Code METAR ou TAF (abréviation de Scattered) signifiant « nuages épars ». Il caractérise une couverture nuageuse couvrant entre 3 et 4 octas du ciel à l'altitude indiquée.",
+   "categorie": "Météo",
+   "famille": null,
+   "membres_famille": [],
+   "a_verifier": false
+  },
+  "sens du tour de piste": {
+   "definition": "Orientation des virages à effectuer dans le circuit de piste d'un aérodrome (à gauche par défaut, ou à droite si spécifié par la carte VAC). Ce sens unique évite les collisions en garantissant que tous les avions tournent du même côté.",
+   "categorie": "Aérodrome & cartes",
+   "famille": null,
+   "membres_famille": [],
+   "a_verifier": false
+  },
+  "sep": {
+   "definition": "<em>Single Engine Piston</em> : qualification de classe autorisant à piloter des aéronefs monomoteurs à pistons. Valable deux ans, elle s'obtient lors de la licence de pilote privé (PPL) et se proroge par expérience ou par contrôle en vol.",
+   "categorie": "Réglementation & docs",
+   "famille": null,
+   "membres_famille": [],
+   "a_verifier": false
+  },
+  "service d'information": {
+   "definition": "Service d'information de vol (SIV) fourni aux aéronefs pour assurer la sécurité et l'efficacité des vols. Il délivre des renseignements météo, des avis de trafic et des informations sur l'état des aérodromes, sans assurer de séparation radar.",
+   "categorie": "Radio & phraséologie",
+   "famille": null,
+   "membres_famille": [],
+   "a_verifier": false
+  },
+  "shra": {
+   "definition": "Code météo abrégé utilisé dans les METAR et TAF pour désigner des averses de pluie (<em>Shower Rain</em>). Ce phénomène convectif s'accompagne souvent de réductions temporaires et brutales de la visibilité et de turbulences.",
+   "categorie": "Météo",
+   "famille": null,
+   "membres_famille": [],
+   "a_verifier": false
+  },
+  "sigma": {
+   "definition": "",
+   "categorie": "divers",
+   "famille": null,
+   "membres_famille": [],
+   "a_verifier": true,
+   "doute": "Lettre grecque ou terme mathématique générique, sans signification aéronautique spécifique univoque dans le programme théorique PPL."
+  },
+  "sigmet": {
+   "definition": "Message d'avertissement météorologique de portée opérationnelle signalant l'apparition réelle ou prévue de phénomènes météorologiques en route particulièrement dangereux pour la navigation aérienne, tels que de fortes turbulences, du givrage de forte intensité ou des orages violents.",
+   "categorie": "Météo",
+   "famille": null,
+   "membres_famille": [],
+   "a_verifier": false
+  },
+  "signaux": {
+   "definition": "Ensemble de repères visuels disposés au sol sur l'aire de signaux d'un aérodrome (comme le té d'atterrissage ou la croix blanche). Ils transmettent aux pilotes des informations essentielles sur l'état du terrain et les règles de survol locales.",
+   "categorie": "Aérodrome & cartes",
+   "famille": null,
+   "membres_famille": [],
+   "a_verifier": false
+  },
+  "signaux lumineux": {
+   "definition": "Signaux de détresse ou d'instruction émis depuis la tour de contrôle à l'aide d'un projecteur à faisceau dirigé (pistolet Aldis). Ils permettent de communiquer avec un aéronef en panne de radio au sol ou en vol.",
+   "categorie": "Radio & phraséologie",
+   "famille": null,
+   "membres_famille": [],
+   "a_verifier": false
+  },
+  "silence radio": {
+   "definition": "Interruption temporaire des transmissions sur une fréquence aéronautique lors d'une situation d'urgence ou de détresse (décrétée par l'expression « impose silence »). Elle permet de réserver la fréquence exclusivement à l'aéronef en difficulté et aux sauveteurs.",
+   "categorie": "Radio & phraséologie",
+   "famille": null,
+   "membres_famille": [],
+   "a_verifier": false
+  },
+  "sillage": {
+   "definition": "Zone de turbulence et d'air perturbé générée derrière un aéronef en mouvement (turbulence de sillage), principalement due aux tourvillons marginaux en bouts d'ailes. Elle est particulièrement dangereuse pour les avions légers décollant derrière un gros-porteur.",
+   "categorie": "Aérodynamique",
+   "famille": null,
+   "membres_famille": [],
+   "a_verifier": false
+  },
+  "sin": {
+   "definition": "",
+   "categorie": "divers",
+   "famille": null,
+   "membres_famille": [],
+   "a_verifier": true,
+   "doute": "Terme mathématique (sinus) ou abréviation générique, n'ayant pas de signification ou d'usage aéronautique propre."
+  },
+  "siv": {
+   "definition": "Secteur d'Information de Vol ou Service d'Information de Vol. Organisme de contrôle au sol assurant l'assistance et l'information des vols VFR en espace de classe G, notamment en fournissant des informations de trafic et des données météo.",
+   "categorie": "Radio & phraséologie",
+   "famille": null,
+   "membres_famille": [],
+   "a_verifier": false
+  },
+  "solo": {
+   "definition": "Vol effectué par un élève-pilote seul à bord, sous la responsabilité de son instructeur resté au sol. C'est une étape clé de la formation PPL, exigeant une autorisation écrite préalable de l'instructeur dans le carnet de vol.",
+   "categorie": "Réglementation & docs",
+   "famille": null,
+   "membres_famille": [],
+   "a_verifier": false
+  },
+  "souffle hélicoïdal": {
+   "definition": "Flux d'air rejeté en spirale par la rotation de l'hélice autour du fuselage. Ce souffle vient frapper la dérive verticale par la gauche (pour un moteur tournant à droite), créant un mouvement de lacet parasite à corriger au palonnier.",
+   "categorie": "Aérodynamique",
+   "famille": null,
+   "membres_famille": [],
+   "a_verifier": false
+  },
+  "squawk": {
+   "definition": "Expression radio et terme désignant l'action d'afficher un code numérique à quatre chiffres sur le transpondeur de l'aéronef. Ce code permet au contrôleur radar au sol d'identifier l'appareil et de suivre sa trajectoire.",
+   "categorie": "Radio & phraséologie",
+   "famille": null,
+   "membres_famille": [],
+   "a_verifier": false
+  },
+  "stabiliser": {
+   "definition": "Établir et maintenir des paramètres de vol constants (vitesse, assiette, pente, configuration) lors d'une phase de vol. Une approche finale doit être stabilisée avant une hauteur minimale pour garantir la sécurité de l'atterrissage.",
+   "categorie": "Procédures",
+   "famille": null,
+   "membres_famille": [],
+   "a_verifier": false
+  },
+  "stabilité atmosphérique": {
+   "definition": "Propriété de l'atmosphère s'opposant aux mouvements verticaux de l'air. Une masse d'air stable limite la formation de nuages à développement vertical (orages) et procure un vol calme sans turbulences, souvent accompagné de brume ou brouillard.",
+   "categorie": "Météo",
+   "famille": null,
+   "membres_famille": [],
+   "a_verifier": false
+  },
+  "stabilité statique": {
+   "definition": "Tendance initiale d'un aéronef à revenir vers son état d'équilibre d'origine lorsqu'il en a été écarté par une perturbation ou une action sur les commandes. Elle dépend directement de la position du centre de gravité de l'appareil.",
+   "categorie": "Aérodynamique",
+   "famille": null,
+   "membres_famille": [],
+   "a_verifier": false
+  },
+  "stable": {
+   "definition": "Caractère d'un aéronef ou d'une masse d'air qui tend à conserver son état d'équilibre ou à y retourner après une perturbation. En phraséologie, l'expression « stable au niveau » confirme que l'altitude de consigne est atteinte et maintenue.",
+   "categorie": "Aérodynamique",
+   "famille": null,
+   "membres_famille": [],
+   "a_verifier": false
+  },
+  "stall": {
+   "definition": "Terme aéronautique anglais désignant le décrochage. Il se produit lorsque l'angle d'incidence de l'aile dépasse une valeur critique, provoquant une perte brutale de portance et exigeant une diminution immédiate de l'assiette.",
+   "categorie": "Aérodynamique",
+   "famille": null,
+   "membres_famille": [],
+   "a_verifier": false
+  },
+  "stall warning": {
+   "definition": "Avertisseur de décrochage. Dispositif de sécurité (sonore, lumineux ou mécanique) qui s'active à une vitesse légèrement supérieure à la vitesse de décrochage pour alerter le pilote de l'imminence de la perte de portance.",
+   "categorie": "Instruments",
+   "famille": null,
+   "membres_famille": [],
+   "a_verifier": false
+  },
+  "station": {
+   "definition": "",
+   "categorie": "divers",
+   "famille": null,
+   "membres_famille": [],
+   "a_verifier": true,
+   "doute": "Mot très courant (station service, station météo, station radio, station de radionavigation...) sans signification aéronautique unique propre."
+  },
+  "stratocumulus": {
+   "definition": "Nuage bas formant un banc, une couche ou une nappe grise et blanchâtre, présentant des parties sombres. Appartenant à la famille des nuages bas, il engendre parfois de faibles précipitations mais présente peu de turbulences.",
+   "categorie": "Météo",
+   "famille": "nuages",
+   "membres_famille": [
+    "stratocumulus",
+    "stratus"
+   ],
+   "a_verifier": false
+  },
+  "stratus": {
+   "definition": "Nuage bas très uniforme, de couleur grise, pouvant toucher le sol sous forme de brouillard. C'est le nuage dont la base est la plus basse ; il pose un risque majeur de perte de visibilité pour le pilote VFR.",
+   "categorie": "Météo",
+   "famille": "nuages",
+   "membres_famille": [
+    "stratocumulus",
+    "stratus"
+   ],
+   "a_verifier": false
+  },
+  "stress": {
+   "definition": "État de tension physiologique et psychologique provoqué par des situations perçues comme difficiles ou dangereuses en vol. Gérer son stress est essentiel pour conserver des capacités de décision et d'analyse optimales face aux imprévus.",
+   "categorie": "Sécurité & facteurs humains",
+   "famille": null,
+   "membres_famille": [],
+   "a_verifier": false
+  },
+  "structure": {
+   "definition": "",
+   "categorie": "divers",
+   "famille": null,
+   "membres_famille": [],
+   "a_verifier": true,
+   "doute": "Mot très courant sans sens aéronautique restreint unique, bien qu'on parle de la structure d'un aéronef (cellule, longerons, membrures)."
+  },
+  "sud": {
+   "definition": "Point cardinal correspondant à la direction géographique ou magnétique opposée au nord (cap 180°). En navigation, il sert de repère fondamental pour s'orienter sur les cartes aéronautiques et définir des trajectoires.",
+   "categorie": "Navigation",
+   "famille": null,
+   "membres_famille": [],
+   "a_verifier": false
+  },
+  "sup aip": {
+   "definition": "Supplément à la Publication d'Information Aéronautique. Document temporaire officiel diffusé par le SIA regroupant des informations opérationnelles de longue durée ou d'importance majeure (comme des zones interdites temporaires pour un événement sportif).",
+   "categorie": "Réglementation & docs",
+   "famille": null,
+   "membres_famille": [],
+   "a_verifier": false
+  },
+  "surface de piste": {
+   "definition": "Revêtement de la piste de décollage ou d'atterrissage, pouvant être dur (enrobé, béton) ou souple (herbe, terre battue). La nature et l'état de la surface influencent directement les calculs de distance de roulement.",
+   "categorie": "Aérodrome & cartes",
+   "famille": null,
+   "membres_famille": [],
+   "a_verifier": false
+  },
+  "sélecteur carburant": {
+   "definition": "Robinet de commande permettant au pilote de choisir le réservoir alimentant le moteur (gauche, droit, les deux si équipé, ou coupure). Sa manipulation fait partie des check-lists pour équilibrer la masse en vol.",
+   "categorie": "Moteur & hélice",
+   "famille": null,
+   "membres_famille": [],
+   "a_verifier": false
+  },
+  "séparation": {
+   "definition": "Distance minimale verticale ou horizontale maintenue entre deux aéronefs pour éviter les collisions. En espace aérien contrôlé, le contrôleur assure cette séparation, tandis qu'en espace non contrôlé, elle incombe au pilote (voir et éviter).",
+   "categorie": "Réglementation & docs",
+   "famille": null,
+   "membres_famille": [],
+   "a_verifier": false
+  },
+  "t/o": {
+   "definition": "<em>Take-Off</em> : décollage. Phase de vol critique consistant à accélérer l'aéronef au sol jusqu'à sa vitesse de rotation pour lui permettre de s'élever dans les airs, exigeant l'application de la puissance maximale.",
+   "categorie": "Procédures",
+   "famille": null,
+   "membres_famille": [],
+   "a_verifier": false
+  },
+  "tableau de déviation": {
+   "definition": "Fiche placée à proximité immédiate du compas magnétique indiquant la correction angulaire à appliquer pour compenser les perturbations magnétiques propres à l'avion. Il permet d'associer un cap magnétique à chaque cap compas.",
+   "categorie": "Instruments",
+   "famille": null,
+   "membres_famille": [],
+   "a_verifier": false
+  },
+  "tache aveugle": {
+   "definition": "Zone de la rétine dépourvue de récepteurs visuels à l'endroit où le nerf optique quitte l'œil. En vol, le pilote doit balayer visuellement le ciel de manière active pour compenser cette limite physiologique et repérer les trafics.",
+   "categorie": "Sécurité & facteurs humains",
+   "famille": null,
+   "membres_famille": [],
+   "a_verifier": false
+  },
+  "tachymetre": {
+   "definition": "Instrument de bord affichant la vitesse de rotation du moteur en tours par minute (RPM). C'est le principal indicateur pour régler la puissance du moteur à pistons et surveiller son bon fonctionnement.",
+   "categorie": "Instruments",
+   "famille": "instruments",
+   "membres_famille": [
+    "radiocompas",
+    "tachymetre"
+   ],
+   "a_verifier": false
+  },
+  "tangage": {
+   "definition": "Mouvement de rotation de l'aéronef autour de son axe transversal (passant d'une aile à l'autre). Commandé par le déplacement d'avant en arrière du manche agissant sur la gouverne de profondeur, il modifie l'assiette longitudinale.",
+   "categorie": "Aérodynamique",
+   "famille": null,
+   "membres_famille": [],
+   "a_verifier": false
+  },
+  "tango": {
+   "definition": "Lettre T dans l'alphabet phonétique international de l'OACI, utilisé en radiotéléphonie aéronautique pour épeler les immatriculations des aéronefs, les indicatifs de vol ou les messages de service afin d'éviter toute ambiguïté.",
+   "categorie": "Radio & phraséologie",
+   "famille": null,
+   "membres_famille": [],
+   "a_verifier": false
+  },
+  "taux de chute": {
+   "definition": "Vitesse verticale de descente d'un aéronef sans puissance motrice (planeur ou avion moteur coupé), généralement exprimée en mètres par seconde ou en pieds par minute. Il détermine la finesse et l'autonomie en vol plané.",
+   "categorie": "Vitesses & performances",
+   "famille": null,
+   "membres_famille": [],
+   "a_verifier": false
+  },
+  "taux de descente": {
+   "definition": "Vitesse verticale de perte d'altitude d'un aéronef lors d'une descente volontaire, exprimée en pieds par minute (ft/min). Ce taux est lu directement sur le variomètre et s'ajuste en combinant assiette et puissance moteur.",
+   "categorie": "Vitesses & performances",
+   "famille": null,
+   "membres_famille": [],
+   "a_verifier": false
+  },
+  "taux de montée": {
+   "definition": "Vitesse verticale de gain d'altitude d'un aéronef lors d'une montée, mesurée en pieds par minute (ft/min) au variomètre. Il dépend directement de l'excédent de puissance disponible du moteur pour une vitesse donnée.",
+   "categorie": "Vitesses & performances",
+   "famille": null,
+   "membres_famille": [],
+   "a_verifier": false
+  },
+  "tcds": {
+   "definition": "<em>Type Certificate Data Sheet</em> : fiche de données de certificat de type. Document technique officiel émis par l'autorité de certification (EASA) détaillant les limites d'utilisation, de masse et d'équipement certifiées pour un modèle d'aéronef précis.",
+   "categorie": "Réglementation & docs",
+   "famille": null,
+   "membres_famille": [],
+   "a_verifier": false
+  },
+  "tem": {
+   "definition": "<em>Threat and Error Management</em> : gestion des menaces et des erreurs. Modèle de sécurité et de facteurs humains visant à identifier de manière proactive les dangers externes (menaces) et les fautes de pilotage (erreurs) pour prévenir les accidents.",
+   "categorie": "Sécurité & facteurs humains",
+   "famille": null,
+   "membres_famille": [],
+   "a_verifier": false
+  },
+  "temps de reaction": {
+   "definition": "Délai s'écoulant entre la perception d'un événement imprévu en vol (alarme, trafic conflictuel) et le déclenchement de l'action corrective par le pilote. Ce facteur humain, influencé par la fatigue ou le stress, affecte directement la sécurité.",
+   "categorie": "Sécurité & facteurs humains",
+   "famille": null,
+   "membres_famille": [],
+   "a_verifier": false
+  },
+  "temps estimé": {
+   "definition": "Durée calculée à l'avance pour effectuer une branche de navigation ou l'ensemble d'un vol, basée sur la vitesse sol estimée. En route, le pilote compare régulièrement cette estimation avec l'heure réelle de passage.",
+   "categorie": "Navigation",
+   "famille": null,
+   "membres_famille": [],
+   "a_verifier": false
+  },
+  "température culasse": {
+   "definition": "Indicateur de température de la partie supérieure des cylindres (CHT). Sa surveillance constante en montée prolongée ou par forte chaleur est essentielle pour prévenir une surchauffe moteur pouvant endommager la mécanique.",
+   "categorie": "Moteur & hélice",
+   "famille": null,
+   "membres_famille": [],
+   "a_verifier": false
+  },
+  "température d'huile": {
+   "definition": "Indicateur thermique capital du groupe motopropulseur. Une température d'huile anormalement élevée, couplée à une baisse de pression d'huile, signale une panne imminente de lubrification et impose généralement un atterrissage de précaution.",
+   "categorie": "Moteur & hélice",
+   "famille": null,
+   "membres_famille": [],
+   "a_verifier": false
+  },
+  "température standard": {
+   "definition": "Température théorique de l'atmosphère standard (ISA) au niveau de la mer, définie réglementairement à +15 °C. Elle décroît de manière standard de 2 °C par tranche de 1000 pieds d'altitude gagnés.",
+   "categorie": "Altimétrie",
+   "famille": null,
+   "membres_famille": [],
+   "a_verifier": false
+  },
+  "temsi": {
+   "definition": "Carte de TEMps SIgnificatif. Carte météorologique graphique officielle publiée par Météo-France décrivant les phénomènes significatifs (orages, givrage, turbulences, nébulosité) prévus dans une zone géographique donnée à une heure précise.",
+   "categorie": "Météo",
+   "famille": null,
+   "membres_famille": [],
+   "a_verifier": false
+  }
+ }
+}

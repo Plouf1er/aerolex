@@ -1,0 +1,913 @@
+{
+  "lot": 2,
+  "termes": {
+    "calvus": {
+      "definition": "Espèce de cumulonimbus dont les sommets bourgeonnants commencent à s'aplatir et à perdre leurs contours nets, prenant un aspect vitreux. C'est le stade de transition avant le développement de l'enclume (capillatus), signalant un danger imminent d'orage.",
+      "categorie": "Météo",
+      "famille": "nuages",
+      "membres_famille": [
+        "castellanus",
+        "cirrostratus",
+        "cu",
+        "cumulonimbus",
+        "cumulus",
+        "cumulus congestus"
+      ],
+      "a_verifier": false
+    },
+    "canal unique": {
+      "definition": "",
+      "categorie": "divers",
+      "famille": null,
+      "membres_famille": [],
+      "a_verifier": true,
+      "doute": "terme ambigu sans définition aéronautique unique ou spécifique évidente dans le programme du théorique PPL FR"
+    },
+    "cap": {
+      "definition": "Angle entre une direction de référence (nord vrai, magnétique ou compas) et l'axe longitudinal de l'aéronef. C'est la direction vers laquelle pointe le nez de l'avion, qui diffère de la trajectoire sol en présence de vent (dérive).",
+      "categorie": "Navigation",
+      "famille": "navigation_caps_et_routes",
+      "membres_famille": [
+        "cap compas",
+        "correction de dérive",
+        "derive constatee",
+        "degrés vrais"
+      ],
+      "a_verifier": false
+    },
+    "cap compas": {
+      "definition": "Angle mesuré entre le nord du compas de l'aéronef et son axe longitudinal. C'est la valeur lue directement sur l'instrument par le pilote, obtenue en appliquant la déviation magnétique propre à l'avion au cap magnétique.",
+      "categorie": "Navigation",
+      "famille": "navigation_caps_et_routes",
+      "membres_famille": [
+        "cap",
+        "correction de dérive",
+        "derive constatee",
+        "degrés vrais"
+      ],
+      "a_verifier": false
+    },
+    "carbu": {
+      "definition": "Terme familier couramment employé par les pilotes pour désigner le carburateur (comme dans « réchauffe carbu » pour le réchauffage carburateur). Il fait référence au système de carburation, particulièrement sensible au givrage sous certaines conditions de température et d'humidité.",
+      "categorie": "Moteur & hélice",
+      "famille": null,
+      "membres_famille": [],
+      "a_verifier": false
+    },
+    "carburant degagement": {
+      "definition": "Quantité minimale de carburant requise pour voler de la destination prévue jusqu'à un aérodrome de dégagement en cas d'impossibilité d'atterrir sur le terrain de destination. Sa planification est obligatoire selon les règles de préparation des vols VFR.",
+      "categorie": "Réglementation & docs",
+      "famille": "gestion_carburant",
+      "membres_famille": [
+        "carburant inutilisable",
+        "carburant utilisable",
+        "consommation horaire"
+      ],
+      "a_verifier": false
+    },
+    "carburant inutilisable": {
+      "definition": "Quantité de carburant qui ne peut pas être acheminée vers les moteurs dans les attitudes de vol normales et autorisées de l'aéronef. Cette quantité morte doit être impérativement déduite du carburant embarqué lors du calcul de l'autonomie réelle.",
+      "categorie": "Masse & centrage",
+      "famille": "gestion_carburant",
+      "membres_famille": [
+        "carburant degagement",
+        "carburant utilisable",
+        "consommation horaire"
+      ],
+      "a_verifier": false
+    },
+    "carburant utilisable": {
+      "definition": "Quantité totale de carburant contenue dans les réservoirs diminuée du carburant inutilisable. C'est sur cette seule quantité que le pilote doit se baser pour calculer l'autonomie de l'aéronef, ses réserves obligatoires et son plan de vol.",
+      "categorie": "Masse & centrage",
+      "famille": "gestion_carburant",
+      "membres_famille": [
+        "carburant degagement",
+        "carburant inutilisable",
+        "consommation horaire"
+      ],
+      "a_verifier": false
+    },
+    "carnet de route": {
+      "definition": "Document officiel obligatoire à bord de l'aéronef, mis à jour après chaque vol. Il consigne l'identité du commandant de bord, les heures de départ et d'arrivée, les étapes, la consommation de carburant, ainsi que les éventuelles anomalies techniques constatées.",
+      "categorie": "Réglementation & docs",
+      "famille": null,
+      "membres_famille": [],
+      "a_verifier": false
+    },
+    "carte": {
+      "definition": "Représentation graphique plane d'une partie de la surface terrestre montrant les détails topographiques et aéronautiques. En vol VFR, la carte papier ou numérique à jour est l'outil fondamental pour la préparation, le suivi de la trajectoire et l'évitement des espaces aériens réglementés.",
+      "categorie": "Aérodrome & cartes",
+      "famille": "cartes_aeronautiques",
+      "membres_famille": [
+        "carte oaci",
+        "carte topographique",
+        "carte vac"
+      ],
+      "a_verifier": false
+    },
+    "carte oaci": {
+      "definition": "Carte aéronautique de navigation visuelle au 1/500 000 ou 1/250 000, éditée selon les normes de l'OACI. Elle regroupe la topographie au sol, les obstacles et l'ensemble de la structure des espaces aériens, indispensable pour naviguer en VFR.",
+      "categorie": "Aérodrome & cartes",
+      "famille": "cartes_aeronautiques",
+      "membres_famille": [
+        "carte",
+        "carte topographique",
+        "carte vac"
+      ],
+      "a_verifier": false
+    },
+    "carte topographique": {
+      "definition": "Carte axée sur la description précise du relief, de l'hydrographie, des voies de communication et des agglomérations. Bien que moins chargée en espaces aériens qu'une carte aéronautique pure, elle reste une référence précieuse pour l'identification visuelle des repères au sol.",
+      "categorie": "Aérodrome & cartes",
+      "famille": "cartes_aeronautiques",
+      "membres_famille": [
+        "carte",
+        "carte oaci",
+        "carte vac"
+      ],
+      "a_verifier": false
+    },
+    "carte vac": {
+      "definition": "<em>Visual Approach Chart</em> : carte d'approche et d'atterrissage à vue propre à chaque aérodrome. Elle détaille le tour de piste, les altitudes de survol, les fréquences radio, les trajectoires d'arrivée/départ et les consignes locales particulières à respecter impérativement.",
+      "categorie": "Aérodrome & cartes",
+      "famille": "cartes_aeronautiques",
+      "membres_famille": [
+        "carte",
+        "carte oaci",
+        "carte topographique"
+      ],
+      "a_verifier": false
+    },
+    "cas": {
+      "definition": "",
+      "categorie": "divers",
+      "famille": null,
+      "membres_famille": [],
+      "a_verifier": true,
+      "doute": "mot courant, sens aéro à confirmer"
+    },
+    "castellanus": {
+      "definition": "Nuage présentant des protubérances en forme de petites tours ou de créneaux, souvent disposées en lignes. Sa présence à l'étage moyen (altocumulus castellanus) révèle une instabilité de l'air propice au développement d'orages en fin de journée.",
+      "categorie": "Météo",
+      "famille": "nuages",
+      "membres_famille": [
+        "calvus",
+        "cirrostratus",
+        "cu",
+        "cumulonimbus",
+        "cumulus",
+        "cumulus congestus"
+      ],
+      "a_verifier": false
+    },
+    "cellule": {
+      "definition": "Ensemble de la structure d'un aéronef comprenant le fuselage, la voilure, l'empennage, les trains d'atterrissage et les commandes de vol, à l'exclusion du groupe motopropulseur. C'est l'ossature qui supporte toutes les charges aérodynamiques et de structure en vol.",
+      "categorie": "Structure & cellule",
+      "famille": null,
+      "membres_famille": [],
+      "a_verifier": false
+    },
+    "centrage": {
+      "definition": "Action consistant à calculer et à positionner le centre de gravité de l'aéronef par rapport à la corde moyenne aérodynamique de l'aile. Un bon centrage garantit la stabilité longitudinale et l'efficacité des gouvernes de profondeur dans tout le domaine de vol.",
+      "categorie": "Masse & centrage",
+      "famille": "masse_et_centrage",
+      "membres_famille": [
+        "centre de gravité",
+        "cg",
+        "devis de masse"
+      ],
+      "a_verifier": false
+    },
+    "centre de gravité": {
+      "definition": "Point d'application de la force de gravité s'exerçant sur l'aéronef. Sa position longitudinale, qui varie selon l'embarquement des passagers, des bagages et la consommation de carburant, doit impérativement rester dans les limites définies par le constructeur dans le manuel de vol.",
+      "categorie": "Masse & centrage",
+      "famille": "masse_et_centrage",
+      "membres_famille": [
+        "centrage",
+        "cg",
+        "devis de masse"
+      ],
+      "a_verifier": false
+    },
+    "certificat médical": {
+      "definition": "Document d'aptitude physique et mentale obligatoire pour qu'un pilote puisse exercer ses privilèges de licence (LAPL ou PPL). Délivré par un médecin aéronautique agréé, sa durée de validité dépend de la classe du certificat et de l'âge du pilote.",
+      "categorie": "Réglementation & docs",
+      "famille": null,
+      "membres_famille": [],
+      "a_verifier": false
+    },
+    "cg": {
+      "definition": "Abréviation aéronautique courante pour le <em>centre de gravité</em>. Point d'application de la résultante des forces de gravité (masse) de l'aéronef, dont la position longitudinale détermine la stabilité et la maniabilité de l'appareil en vol.",
+      "categorie": "Masse & centrage",
+      "famille": "masse_et_centrage",
+      "membres_famille": [
+        "centrage",
+        "centre de gravité",
+        "devis de masse"
+      ],
+      "a_verifier": false
+    },
+    "chaine des erreurs": {
+      "definition": "Succession logique et temporelle de défaillances mineures, d'omissions ou d'erreurs d'évaluation qui, accumulées sans être détectées ou corrigées, finissent par conduire inéluctablement à un accident. Briser cette chaîne nécessite une attitude vigilante et l'application stricte des procédures de vérification.",
+      "categorie": "Sécurité & facteurs humains",
+      "famille": "facteurs_humains",
+      "membres_famille": [
+        "charge de travail",
+        "conscience de la situation",
+        "crm"
+      ],
+      "a_verifier": false
+    },
+    "charge de travail": {
+      "definition": "Quantité d'activité mentale et physique requise de la part du pilote pour accomplir une tâche donnée en vol. Elle augmente considérablement lors des phases critiques (décollage, approche par mauvaise météo) et doit être gérée proactivement pour éviter la saturation.",
+      "categorie": "Sécurité & facteurs humains",
+      "famille": "facteurs_humains",
+      "membres_famille": [
+        "chaine des erreurs",
+        "conscience de la situation",
+        "crm"
+      ],
+      "a_verifier": false
+    },
+    "check-list": {
+      "definition": "Liste ordonnée d'actions ou de vérifications à effectuer de manière systématique durant les différentes phases du vol. Son utilisation rigoureuse permet de pallier les oublis dus à la fatigue, à la distraction ou à une surcharge de travail.",
+      "categorie": "Procédures",
+      "famille": "listes_de_verification",
+      "membres_famille": [
+        "check-list atterrissage",
+        "check-list décollage",
+        "checklist"
+      ],
+      "a_verifier": false
+    },
+    "check-list atterrissage": {
+      "definition": "Ensemble de vérifications obligatoires effectuées en phase d'approche avant de se poser (généralement initiée en étape de vent arrière ou de base). Elle permet de s'assurer du calage des volets, de la richesse du mélange, du phare d'atterrissage et du verrouillage du train.",
+      "categorie": "Procédures",
+      "famille": "listes_de_verification",
+      "membres_famille": [
+        "check-list",
+        "check-list décollage",
+        "checklist"
+      ],
+      "a_verifier": false
+    },
+    "check-list décollage": {
+      "definition": "Série de contrôles obligatoires exécutés juste avant de s'aligner sur la piste ou au point d'arrêt. Elle valide les configurations essentielles de l'avion (gouvernes libres, compensateur réglé, volets en position, richesse du mélange, réchauffe carburateur repoussée) pour un envol en toute sécurité.",
+      "categorie": "Procédures",
+      "famille": "listes_de_verification",
+      "membres_famille": [
+        "check-list",
+        "check-list atterrissage",
+        "checklist"
+      ],
+      "a_verifier": false
+    },
+    "checklist": {
+      "definition": "Variante orthographique anglaise courante de « check-list ». Elle désigne le même outil fondamental de sécurité et de procédure, utilisé en cockpit pour enchaîner méthodiquement les contrôles indispensables du démarrage du moteur à l'arrêt complet de l'appareil.",
+      "categorie": "Procédures",
+      "famille": "listes_de_verification",
+      "membres_famille": [
+        "check-list",
+        "check-list atterrissage",
+        "check-list décollage"
+      ],
+      "a_verifier": false
+    },
+    "choix de piste": {
+      "definition": "Décision prise par le pilote de sélectionner la piste de décollage ou d'atterrissage la plus adaptée. Ce choix dépend principalement de la direction et de la force du vent (privilégier le vent de face), de la longueur disponible et des consignes de la carte VAC.",
+      "categorie": "Procédures",
+      "famille": null,
+      "membres_famille": [],
+      "a_verifier": false
+    },
+    "choke": {
+      "definition": "Dispositif d'enrichissement manuel du mélange (volet de départ à froid), utilisé sur certains moteurs d'avions légers (comme les moteurs Rotax) pour faciliter le démarrage à froid. Il doit être complètement repoussé dès que le moteur tourne régulièrement.",
+      "categorie": "Moteur & hélice",
+      "famille": null,
+      "membres_famille": [],
+      "a_verifier": false
+    },
+    "cht": {
+      "definition": "<em>Cylinder Head Temperature</em> : température de culasse. Paramètre moteur surveillé en vol sur les avions refroidis par air. Une CHT excessive indique une surchauffe et impose de modifier le régime, d'enrichir ou de régler les volets de capot.",
+      "categorie": "Moteur & hélice",
+      "famille": null,
+      "membres_famille": [],
+      "a_verifier": false
+    },
+    "chute de pression": {
+      "definition": "Baisse anormale de la pression (souvent d'huile ou d'essence) lue sur les instruments moteur. Une chute rapide de la pression d'huile s'accompagne généralement d'un risque imminent de serrage moteur, imposant au pilote de préparer immédiatement un atterrissage de précaution ou d'urgence.",
+      "categorie": "Moteur & hélice",
+      "famille": null,
+      "membres_famille": [],
+      "a_verifier": false
+    },
+    "circuit basse hauteur": {
+      "definition": "Tour de piste effectué à une altitude inférieure à celle du circuit standard (généralement 500 ft de hauteur au lieu de 1000 ft), souvent utilisé pour l'entraînement à la panne de moteur ou lors de conditions météorologiques de plafond bas.",
+      "categorie": "Procédures",
+      "famille": null,
+      "membres_famille": [],
+      "a_verifier": false
+    },
+    "cirrostratus": {
+      "definition": "Voile nuageux élevé et translucide, composé de cristaux de glace, qui couvre souvent tout le ciel et produit des phénomènes de halo. Il annonce généralement l'arrivée d'un front chaud et une dégradation lente du temps dans les heures suivantes.",
+      "categorie": "Météo",
+      "famille": "nuages",
+      "membres_famille": [
+        "calvus",
+        "castellanus",
+        "cu",
+        "cumulonimbus",
+        "cumulus",
+        "cumulus congestus"
+      ],
+      "a_verifier": false
+    },
+    "cisaillement basse couche": {
+      "definition": "Cisaillement du vent se produisant à proximité immédiate du sol, souvent lié à des obstacles topographiques, des inversions thermiques ou des fronts de rafales. Il présente un danger majeur lors des phases critiques d'atterrissage et de décollage.",
+      "categorie": "Vent",
+      "famille": "cisaillement_de_vent",
+      "membres_famille": [
+        "cisaillement de vent"
+      ],
+      "a_verifier": false
+    },
+    "cisaillement de vent": {
+      "definition": "Changement brusque de la vitesse et/ou de la direction du vent sur une courte distance, horizontale ou verticale. Redoutable en approche et au décollage, il peut provoquer des pertes soudaines de portance et nécessite une réaction immédiate du pilote.",
+      "categorie": "Vent",
+      "famille": "cisaillement_de_vent",
+      "membres_famille": [
+        "cisaillement basse couche"
+      ],
+      "a_verifier": false
+    },
+    "clairance": {
+      "definition": "Autorisation officielle délivrée par le contrôle aérien à un aéronef pour effectuer une action spécifique (pénétrer un espace contrôlé, décoller, atterrir, etc.) dans des conditions données. Le pilote doit s'y conformer strictement ou la refuser si elle compromet la sécurité.",
+      "categorie": "Radio & phraséologie",
+      "famille": "radio_communications",
+      "membres_famille": [
+        "clairance de décollage",
+        "collationnement clairance",
+        "collationner",
+        "com"
+      ],
+      "a_verifier": false
+    },
+    "clairance de décollage": {
+      "definition": "Autorisation explicite accordée par le contrôleur de la tour de contrôle permettant au pilote de décoller. Elle ne peut être délivrée que si la piste est dégagée et que les conditions de sécurité de séparation avec les autres aéronefs sont assurées.",
+      "categorie": "Radio & phraséologie",
+      "famille": "radio_communications",
+      "membres_famille": [
+        "clairance",
+        "collationnement clairance",
+        "collationner",
+        "com"
+      ],
+      "a_verifier": false
+    },
+    "classe": {
+      "definition": "Qualification rattachée à une licence de pilote autorisant à voler sur un groupe d'aéronefs monomoteurs ou multimoteurs non complexes partageant des caractéristiques communes (ex. la classe SEP pour les monomoteurs à pistons terrestres). Sa validité doit être régulièrement prorogée.",
+      "categorie": "Réglementation & docs",
+      "famille": null,
+      "membres_famille": [],
+      "a_verifier": false
+    },
+    "cockpit": {
+      "definition": "Espace réservé à l'équipage à l'avant ou dans la cabine de l'aéronef, regroupant l'ensemble des instruments de bord, des commandes de vol et des systèmes de contrôle. Son aménagement ergonomique vise à optimiser le travail du pilote et à réduire la fatigue.",
+      "categorie": "Structure & cellule",
+      "famille": null,
+      "membres_famille": [],
+      "a_verifier": false
+    },
+    "coefficient de freinage": {
+      "definition": "Indicateur mesurant la résistance au glissement des roues sur la surface d'une piste (notamment mouillée, enneigée ou verglacée). Communiqué par le contrôle ou via l'ATIS, il permet au pilote d'estimer la distance d'arrêt nécessaire et de décider de la faisabilité de l'atterrissage.",
+      "categorie": "Aérodrome & cartes",
+      "famille": null,
+      "membres_famille": [],
+      "a_verifier": false
+    },
+    "collationnement clairance": {
+      "definition": "Répétition obligatoire par le pilote, mot à mot, des éléments essentiels d'une clairance reçue de l'organisme de contrôle. Ce processus permet au contrôleur de vérifier que ses instructions ont été correctement entendues et comprises, éliminant ainsi toute ambiguïté.",
+      "categorie": "Radio & phraséologie",
+      "famille": "radio_communications",
+      "membres_famille": [
+        "clairance",
+        "clairance de décollage",
+        "collationner",
+        "com"
+      ],
+      "a_verifier": false
+    },
+    "collationner": {
+      "definition": "Action de répéter à la radio les instructions et clairances clés reçues du contrôleur (altitudes, caps, fréquences, pistes, calages altimétriques). Le collationnement rigoureux est une règle de sécurité absolue pour prévenir les erreurs d'interprétation dans les espaces contrôlés.",
+      "categorie": "Radio & phraséologie",
+      "famille": "radio_communications",
+      "membres_famille": [
+        "clairance",
+        "clairance de décollage",
+        "collationnement clairance",
+        "com"
+      ],
+      "a_verifier": false
+    },
+    "com": {
+      "definition": "Abréviation ou sélecteur désignant les fonctions et instruments de radiocommunication à bord de l'aéronef (généralement repérés COM1 et COM2). Ils permettent au pilote d'établir des liaisons vocales VHF bidirectionnelles avec les organismes de contrôle ou d'auto-information.",
+      "categorie": "Radio & phraséologie",
+      "famille": "radio_communications",
+      "membres_famille": [
+        "clairance",
+        "clairance de décollage",
+        "collationnement clairance",
+        "collationner"
+      ],
+      "a_verifier": false
+    },
+    "commandant de bord": {
+      "definition": "Pilote responsable de la conduite en toute sécurité et de la direction d'un aéronef pendant le temps de vol. Il détient l'autorité décisionnelle finale à bord pour toutes les opérations, de la mise en route du moteur à l'arrêt complet de l'appareil.",
+      "categorie": "Réglementation & docs",
+      "famille": null,
+      "membres_famille": [],
+      "a_verifier": false
+    },
+    "compas": {
+      "definition": "Instrument autonome indiquant le cap magnétique de l'avion en utilisant le champ magnétique terrestre. Sujet à de nombreuses erreurs en virage et en accélération, il doit être recalé régulièrement en vol rectiligne et uniforme à l'aide du conservateur de cap.",
+      "categorie": "Instruments",
+      "famille": "compas_et_magnetisme",
+      "membres_famille": [
+        "déviation compas",
+        "east is least"
+      ],
+      "a_verifier": false
+    },
+    "compensateur": {
+      "definition": "Petite surface mobile articulée sur le bord de fuite d'une gouverne (généralement de profondeur) permettant d'annuler les efforts physiques sur le manche en vol. Un bon réglage du compensateur stabilise l'assiette souhaitée et réduit considérablement la fatigue du pilote.",
+      "categorie": "Aérodynamique",
+      "famille": null,
+      "membres_famille": [],
+      "a_verifier": false
+    },
+    "composite": {
+      "definition": "Matériau constitué de l'assemblage de plusieurs composants (fibres de verre, de carbone, résines) présentant des propriétés mécaniques supérieures. Très utilisé en construction aéronautique moderne, il offre une excellente rigidité pour une masse réduite, mais nécessite une inspection rigoureuse après un choc.",
+      "categorie": "Structure & cellule",
+      "famille": null,
+      "membres_famille": [],
+      "a_verifier": false
+    },
+    "conditions imc": {
+      "definition": "<em>Instrument Meteorological Conditions</em> : conditions météorologiques de vol aux instruments. Conditions de visibilité et d'espacement par rapport aux nuages inférieures aux minima prescrits pour le vol à vue (VFR), rendant le vol sous cette seule réglementation interdit pour un pilote PPL.",
+      "categorie": "Réglementation & docs",
+      "famille": "regles_meteo_vol",
+      "membres_famille": [
+        "conditions vmc"
+      ],
+      "a_verifier": false
+    },
+    "conditions vmc": {
+      "definition": "<em>Visual Meteorological Conditions</em> : conditions météorologiques de vol à vue. Seuils réglementaires minimaux de visibilité et de distance par rapport aux nuages permettant de piloter et de naviguer à vue en toute sécurité en régime VFR, définis selon la classe d'espace aérien.",
+      "categorie": "Réglementation & docs",
+      "famille": "regles_meteo_vol",
+      "membres_famille": [
+        "conditions imc"
+      ],
+      "a_verifier": false
+    },
+    "configuration": {
+      "definition": "État des éléments aérodynamiques mobiles ou escamotables d'un aéronef à un instant donné (position des volets, du train d'atterrissage, du compensateur). La configuration influe directement sur la portance, la traînée et les performances de l'appareil.",
+      "categorie": "Aérodynamique",
+      "famille": "limites_et_configurations_de_vol",
+      "membres_famille": [
+        "diagramme v-n",
+        "domaine de vol"
+      ],
+      "a_verifier": false
+    },
+    "conflit": {
+      "definition": "Situation de rapprochement excessif entre deux ou plusieurs aéronefs en vol, risquant de compromettre les séparations réglementaires ou de mener à une collision. En VFR, sa résolution repose sur la règle du « voir et éviter » et une phraséologie radio précise.",
+      "categorie": "Sécurité & facteurs humains",
+      "famille": null,
+      "membres_famille": [],
+      "a_verifier": false
+    },
+    "conscience de la situation": {
+      "definition": "Perception et compréhension continue de l'état de l'aéronef, de sa trajectoire, de l'environnement météorologique, des espaces aériens et des menaces potentielles dans un espace tridimensionnel. Une bonne conscience de la situation permet d'anticiper les événements plutôt que de les subir.",
+      "categorie": "Sécurité & facteurs humains",
+      "famille": "facteurs_humains",
+      "membres_famille": [
+        "chaine des erreurs",
+        "charge de travail",
+        "crm"
+      ],
+      "a_verifier": false
+    },
+    "consommation horaire": {
+      "definition": "Quantité de carburant consommée par le moteur en une heure de fonctionnement, exprimée en litres ou en gallons par heure. Elle dépend du régime moteur, de l'altitude, de la richesse du mélange et est essentielle pour estimer l'autonomie en vol.",
+      "categorie": "Moteur & hélice",
+      "famille": "gestion_carburant",
+      "membres_famille": [
+        "carburant degagement",
+        "carburant inutilisable",
+        "carburant utilisable"
+      ],
+      "a_verifier": false
+    },
+    "constante structurale": {
+      "definition": "",
+      "categorie": "divers",
+      "famille": null,
+      "membres_famille": [],
+      "a_verifier": true,
+      "doute": "terme inconnu du programme PPL français, semble provenir de la chimie ou des sciences sociales"
+    },
+    "contrôle d'aérodrome": {
+      "definition": "Service de la circulation aérienne assuré par la tour de contrôle pour réguler le trafic sur l'aire de manœuvre de l'aérodrome et dans son circuit de piste. Il vise à prévenir les collisions entre les aéronefs en vol et au sol.",
+      "categorie": "Réglementation & docs",
+      "famille": null,
+      "membres_famille": [],
+      "a_verifier": false
+    },
+    "convection": {
+      "definition": "Mouvement vertical de l'air provoqué par des différences de température (l'air chaud, plus léger, s'élève). En aéronautique, elle génère des ascendances thermiques recherchées par les vélivoles, des turbulences en basse couche et conduit parfois au développement de nuages cumuliformes.",
+      "categorie": "Météo",
+      "famille": "aerologie",
+      "membres_famille": [
+        "convection thermique",
+        "convergence",
+        "courant descendant"
+      ],
+      "a_verifier": false
+    },
+    "convection thermique": {
+      "definition": "Mouvement ascendant de bulles ou de colonnes d'air réchauffé par le contact avec le sol ensoleillé. Ce phénomène crée des courants thermiques exploitables en vol de distance, mais s'accompagne de turbulences parfois marquées sous la base des cumulus associés.",
+      "categorie": "Météo",
+      "famille": "aerologie",
+      "membres_famille": [
+        "convection",
+        "convergence",
+        "courant descendant"
+      ],
+      "a_verifier": false
+    },
+    "convergence": {
+      "definition": "Rencontre de deux flux d'air de directions différentes dans une même zone géographique, forçant l'air à s'élever. Ce mouvement ascendant forcé est propice à la formation de nuages de convection et de précipitations le long de la ligne de convergence.",
+      "categorie": "Météo",
+      "famille": "aerologie",
+      "membres_famille": [
+        "convection",
+        "convection thermique",
+        "courant descendant"
+      ],
+      "a_verifier": false
+    },
+    "correction de dérive": {
+      "definition": "Angle qu'il faut ajouter ou retrancher à la route souhaitée pour obtenir le cap à afficher, afin de compenser l'effet du vent de travers. Une correction correcte permet de maintenir l'avion sur la trajectoire sol prévue.",
+      "categorie": "Navigation",
+      "famille": "navigation_caps_et_routes",
+      "membres_famille": [
+        "cap",
+        "cap compas",
+        "derive constatee",
+        "degrés vrais"
+      ],
+      "a_verifier": false
+    },
+    "cos": {
+      "definition": "",
+      "categorie": "divers",
+      "famille": null,
+      "membres_famille": [],
+      "a_verifier": true,
+      "doute": "terme ambigu, pourrait être le cosinus en trigonométrie (vent de face) ou un sigle de navigabilité (COS) peu courant au PPL"
+    },
+    "couche": {
+      "definition": "Épaisseur continue d'air ou de nuages présentant des caractéristiques physiques homogènes (température, humidité, nébulosité). En météorologie, le pilote doit composer avec différentes couches atmosphériques pour anticiper le givrage, la turbulence ou la réduction de visibilité.",
+      "categorie": "Météo",
+      "famille": "couches_atmospheriques",
+      "membres_famille": [
+        "couche d'inversion"
+      ],
+      "a_verifier": false
+    },
+    "couche d'inversion": {
+      "definition": "Zone atmosphérique où la température augmente avec l'altitude au lieu de diminuer. Cette couche très stable bloque les mouvements verticaux de l'air, emprisonnant les polluants et la brume en dessous, et s'accompagne souvent d'une visibilité réduite mais de l'absence de turbulence.",
+      "categorie": "Météo",
+      "famille": "couches_atmospheriques",
+      "membres_famille": [
+        "couche"
+      ],
+      "a_verifier": false
+    },
+    "couple gyroscopique": {
+      "definition": "Effet aérodynamique parasite se produisant lorsque l'axe d'une pièce en rotation rapide (comme l'hélice) est incliné, créant une force perpendiculaire à la force appliquée. Il se manifeste principalement lors des changements d'assiette rapides (notamment au décollage sur les avions à train classique).",
+      "categorie": "Moteur & hélice",
+      "famille": "effets_moteur",
+      "membres_famille": [
+        "couple moteur"
+      ],
+      "a_verifier": false
+    },
+    "couple moteur": {
+      "definition": "Force de rotation exercée par l'arbre moteur sur l'hélice. Par action-réaction, ce couple tend à faire pivoter l'avion en sens inverse (généralement vers la gauche), effet que le pilote doit compenser au palonnier lors des phases à forte puissance et faible vitesse.",
+      "categorie": "Moteur & hélice",
+      "famille": "effets_moteur",
+      "membres_famille": [
+        "couple gyroscopique"
+      ],
+      "a_verifier": false
+    },
+    "courant descendant": {
+      "definition": "Mouvement vertical de l'air dirigé vers le sol, causé par le refroidissement de l'air ou la retombée de précipitations (notamment sous les nuages d'orage). Il engendre une perte d'altitude ou une dégradation des performances ascensionnelles de l'aéronef.",
+      "categorie": "Météo",
+      "famille": "aerologie",
+      "membres_famille": [
+        "convection",
+        "convection thermique",
+        "convergence"
+      ],
+      "a_verifier": false
+    },
+    "crm": {
+      "definition": "<em>Crew Resource Management</em> : gestion des ressources de l'équipage. Ensemble de méthodes et de comportements visant à optimiser l'utilisation de toutes les ressources disponibles (humaines, matérielles, informations) pour garantir la sécurité des vols et améliorer le travail en équipage ou en monopilote.",
+      "categorie": "Sécurité & facteurs humains",
+      "famille": "facteurs_humains",
+      "membres_famille": [
+        "chaine des erreurs",
+        "charge de travail",
+        "conscience de la situation"
+      ],
+      "a_verifier": false
+    },
+    "crête": {
+      "definition": "Ligne de sommet d'un relief montagneux ou crête barométrique (axe de hautes pressions prolongeant un anticyclone). Le survol d'une crête montagneuse par vent fort présente des risques majeurs d'ascendances sous le vent, de rabattants violents et de turbulences sévères.",
+      "categorie": "Météo",
+      "famille": null,
+      "membres_famille": [],
+      "a_verifier": false
+    },
+    "cu": {
+      "definition": "Abréviation météorologique officielle désignant le cumulus dans les observations METAR et prévisions TAF. Ce nuage de l'étage inférieur, bien que souvent associé au beau temps, traduit des ascendances thermiques générant de la turbulence à basse altitude.",
+      "categorie": "Météo",
+      "famille": "nuages",
+      "membres_famille": [
+        "calvus",
+        "castellanus",
+        "cirrostratus",
+        "cumulonimbus",
+        "cumulus",
+        "cumulus congestus"
+      ],
+      "a_verifier": false
+    },
+    "cumulonimbus": {
+      "definition": "Nuage d'orage à très grand développement vertical, redouté des pilotes en raison de ses turbulences extrêmes, grêle, givrage sévère et foudre. L'évitement visuel ou radar (au moins 10 milles nautiques) est la seule consigne de sécurité absolue.",
+      "categorie": "Météo",
+      "famille": "nuages",
+      "membres_famille": [
+        "calvus",
+        "castellanus",
+        "cirrostratus",
+        "cu",
+        "cumulus",
+        "cumulus congestus"
+      ],
+      "a_verifier": false
+    },
+    "cumulus": {
+      "definition": "Nuage de convection à base plate et à sommet bourgeonnant, typique des belles journées d'été. Sa base matérialise le niveau de condensation et le sommet des ascendances thermiques utilisables, tandis que sa présence indique de la turbulence en basse couche.",
+      "categorie": "Météo",
+      "famille": "nuages",
+      "membres_famille": [
+        "calvus",
+        "castellanus",
+        "cirrostratus",
+        "cu",
+        "cumulonimbus",
+        "cumulus congestus"
+      ],
+      "a_verifier": false
+    },
+    "cumulus congestus": {
+      "definition": "Cumulus à fort développement vertical, bourgeonnant intensément en forme de chou-fleur. Étape intermédiaire menant au cumulonimbus, il indique une forte instabilité de la masse d'air et s'accompagne d'averses de pluie parfois violentes et de fortes turbulences.",
+      "categorie": "Météo",
+      "famille": "nuages",
+      "membres_famille": [
+        "calvus",
+        "castellanus",
+        "cirrostratus",
+        "cu",
+        "cumulonimbus",
+        "cumulus"
+      ],
+      "a_verifier": false
+    },
+    "cz max": {
+      "definition": "Coefficient de portance maximal d'un profil ou d'une aile. Il est atteint à l'incidence de décrochage de l'aéronef, angle critique au-delà duquel la portance s'effondre brutalement et la traînée augmente massivement, provoquant la perte de contrôle de l'appareil.",
+      "categorie": "Aérodynamique",
+      "famille": null,
+      "membres_famille": [],
+      "a_verifier": false
+    },
+    "dalr": {
+      "definition": "<em>Dry Adiabatic Lapse Rate</em> : gradient adiabatique sec. Taux de refroidissement d'une particule d'air sec s'élevant dans l'atmosphère, égal à environ 1 °C pour 100 mètres (ou 3 °C pour 1000 ft). Ce paramètre est essentiel pour analyser l'instabilité de l'air.",
+      "categorie": "Météo",
+      "famille": null,
+      "membres_famille": [],
+      "a_verifier": false
+    },
+    "degrés vrais": {
+      "definition": "Unités de mesure d'angle orientées par rapport au Nord géographique (vrai). En navigation, les routes tracées sur la carte sont exprimées en degrés vrais, tandis que les caps et instruments de bord utilisent les degrés magnétiques.",
+      "categorie": "Navigation",
+      "famille": "navigation_caps_et_routes",
+      "membres_famille": [
+        "cap",
+        "cap compas",
+        "correction de dérive",
+        "derive constatee"
+      ],
+      "a_verifier": false
+    },
+    "demi-tour standard": {
+      "definition": "Manœuvre de virage standardisée exécutée à un taux de 3 degrés par seconde (taux 1), permettant d'effectuer un demi-tour complet de 180 degrés en exactement une minute. Elle est utilisée pour les procédures d'approche de précision ou d'urgence.",
+      "categorie": "Procédures",
+      "famille": null,
+      "membres_famille": [],
+      "a_verifier": false
+    },
+    "derive constatee": {
+      "definition": "Angle mesuré en vol entre l'axe longitudinal de l'aéronef (le cap) et sa trajectoire sol réelle (la route). Contrairement à la dérive estimée lors de la préparation de navigation, elle se mesure directement à l'aide de repères au sol.",
+      "categorie": "Navigation",
+      "famille": "navigation_caps_et_routes",
+      "membres_famille": [
+        "cap",
+        "cap compas",
+        "correction de dérive",
+        "degrés vrais"
+      ],
+      "a_verifier": false
+    },
+    "descente initiale": {
+      "definition": "Phase de vol marquant la transition entre la croisière et l'approche, durant laquelle le pilote réduit la puissance et adopte une assiette à piquer pour perdre de l'altitude tout en gérant le refroidissement du moteur et l'intégration dans l'espace de destination.",
+      "categorie": "Procédures",
+      "famille": null,
+      "membres_famille": [],
+      "a_verifier": false
+    },
+    "devis de masse": {
+      "definition": "Calcul préparatoire obligatoire avant chaque vol visant à vérifier que la masse totale de l'aéronef (à vide, avec passagers, bagages et carburant) reste inférieure à la masse maximale autorisée au décollage, tout en s'assurant du respect des limites de centrage.",
+      "categorie": "Masse & centrage",
+      "famille": "masse_et_centrage",
+      "membres_famille": [
+        "centrage",
+        "centre de gravité",
+        "cg"
+      ],
+      "a_verifier": false
+    },
+    "dgac": {
+      "definition": "<em>Direction Générale de l'Aviation Civile</em> : autorité administrative française chargée de réglementer, superviser la sécurité aérienne, gérer l'espace aérien et délivrer les licences de pilotes en France. C'est l'interlocuteur officiel pour l'examen théorique et pratique du PPL.",
+      "categorie": "Réglementation & docs",
+      "famille": "organismes_aviation",
+      "membres_famille": [
+        "easa"
+      ],
+      "a_verifier": false
+    },
+    "diagramme v-n": {
+      "definition": "Représentation graphique (vitesse en ordonnée, facteur de charge en abscisse) définissant les limites structurales et aérodynamiques d'un aéronef. Il délimite le domaine de vol autorisé en visant à séparer les zones normale, de rafales et de risques de rupture.",
+      "categorie": "Aérodynamique",
+      "famille": "limites_et_configurations_de_vol",
+      "membres_famille": [
+        "configuration",
+        "domaine de vol"
+      ],
+      "a_verifier": false
+    },
+    "distance d'atterrissage": {
+      "definition": "Distance totale requise pour poser l'aéronef et l'arrêter complètement depuis le passage des 50 ft au-dessus du seuil de piste. Elle dépend de la masse de l'appareil, de l'altitude-densité, du vent de face, de l'état de la piste et de l'utilisation des volets.",
+      "categorie": "Vitesses & performances",
+      "famille": "distances_performances",
+      "membres_famille": [
+        "distance de décollage",
+        "distance de franchissement",
+        "distance de roulement"
+      ],
+      "a_verifier": false
+    },
+    "distance de décollage": {
+      "definition": "Distance totale mesurée depuis le lâcher des freins jusqu'au franchissement d'un obstacle théorique de 50 ft en montée initiale. Cette valeur, capitale pour la sécurité, doit être calculée à l'aide des abaques de performance du manuel de vol avant le décollage.",
+      "categorie": "Vitesses & performances",
+      "famille": "distances_performances",
+      "membres_famille": [
+        "distance d'atterrissage",
+        "distance de franchissement",
+        "distance de roulement"
+      ],
+      "a_verifier": false
+    },
+    "distance de franchissement": {
+      "definition": "Distance horizontale nécessaire à un aéronef pour s'élever au-dessus d'un obstacle de hauteur donnée (généralement 50 ft) après le décollage. Ce paramètre critique détermine si l'appareil peut décoller en toute sécurité d'une piste courte bordée d'arbres ou d'obstacles.",
+      "categorie": "Vitesses & performances",
+      "famille": "distances_performances",
+      "membres_famille": [
+        "distance d'atterrissage",
+        "distance de décollage",
+        "distance de roulement"
+      ],
+      "a_verifier": false
+    },
+    "distance de roulement": {
+      "definition": "Distance parcourue au sol par l'aéronef pendant la phase de course au décollage (du lâcher des freins à la rotation) ou lors de la décélération à l'atterrissage (du toucher des roues à l'arrêt complet). Elle est toujours plus courte que la distance franchissement obstacle.",
+      "categorie": "Vitesses & performances",
+      "famille": "distances_performances",
+      "membres_famille": [
+        "distance d'atterrissage",
+        "distance de décollage",
+        "distance de franchissement"
+      ],
+      "a_verifier": false
+    },
+    "domaine de vol": {
+      "definition": "Ensemble des limites de vitesse, de facteur de charge et d'altitude à l'intérieur desquelles un aéronef peut être exploité en toute sécurité. Les frontières de ce domaine, définies par le constructeur, ne doivent jamais être franchies sous peine de dommages structurels majeurs.",
+      "categorie": "Vitesses & performances",
+      "famille": "limites_et_configurations_de_vol",
+      "membres_famille": [
+        "configuration",
+        "diagramme v-n"
+      ],
+      "a_verifier": false
+    },
+    "double commande": {
+      "definition": "Configuration de l'aéronef disposant de deux ensembles de commandes de vol interconnectés (manche, palonnier, manette des gaz). Elle permet à l'instructeur d'intervenir instantanément et de corriger les trajectoires d'un élève pilote durant sa formation pratique.",
+      "categorie": "Structure & cellule",
+      "famille": null,
+      "membres_famille": [],
+      "a_verifier": false
+    },
+    "décrochage dynamique": {
+      "definition": "Décrochage provoqué à une vitesse supérieure à la vitesse de décrochage normale sous l'effet d'une ressource brusque ou d'un virage serré augmentant le facteur de charge. L'avion décroche alors à cause d'un dépassement direct de l'incidence critique, surprenant souvent le pilote.",
+      "categorie": "Aérodynamique",
+      "famille": "decrochages",
+      "membres_famille": [
+        "décrochage secondaire"
+      ],
+      "a_verifier": false
+    },
+    "décrochage secondaire": {
+      "definition": "Nouveau décrochage provoqué involontairement par le pilote lors de la phase de récupération d'un premier décrochage, en tirant trop tôt ou trop fort sur le manche alors que l'avion n'a pas encore retrouvé une vitesse de vol suffisante pour reprendre sa ligne de vol.",
+      "categorie": "Aérodynamique",
+      "famille": "decrochages",
+      "membres_famille": [
+        "décrochage dynamique"
+      ],
+      "a_verifier": false
+    },
+    "déroutement": {
+      "definition": "Action de modifier l'itinéraire prévu en vol pour se diriger vers un autre aérodrome que celui de destination. Décidé pour des raisons de météo défavorable, de panne technique ou de fatigue du pilote, le déroutement est une marque de bon sens aéronautique.",
+      "categorie": "Procédures",
+      "famille": null,
+      "membres_famille": [],
+      "a_verifier": false
+    },
+    "détresse mayday": {
+      "definition": "Signal de détresse international radiotéléphonique (« MAYDAY » répété trois fois) indiquant qu'un aéronef et ses occupants sont menacés par un danger grave et imminent, et requièrent une assistance immédiate. Son utilisation donne la priorité absolue sur toutes les autres transmissions.",
+      "categorie": "Radio & phraséologie",
+      "famille": null,
+      "membres_famille": [],
+      "a_verifier": false
+    },
+    "déviation compas": {
+      "definition": "Écart angulaire entre le nord magnétique et le nord indiqué par le compas de l'aéronef, provoqué par les champs magnétiques parasites de l'avion (moteur, électronique). Sa valeur varie selon le cap et se lit sur la courbe de déviation.",
+      "categorie": "Instruments",
+      "famille": "compas_et_magnetisme",
+      "membres_famille": [
+        "compas",
+        "east is least"
+      ],
+      "a_verifier": false
+    },
+    "easa": {
+      "definition": "<em>European Union Aviation Safety Agency</em> : Agence européenne de la sécurité aérienne. Organisme de réglementation à l'échelle européenne qui définit les exigences de certification des aéronefs, de formation des équipages et de licences (comme le PPL européen), appliquées par la DGAC.",
+      "categorie": "Réglementation & docs",
+      "famille": "organismes_aviation",
+      "membres_famille": [
+        "dgac"
+      ],
+      "a_verifier": false
+    },
+    "east is least": {
+      "definition": "Moyen mnémotechnique anglais classique pour corriger la déclinaison ou la déviation : « East is Least, West is Best ». Il rappelle qu'une déclinaison ou déviation Est doit être soustraite, tandis qu'une valeur Ouest doit être additionnée au cap.",
+      "categorie": "Navigation",
+      "famille": "compas_et_magnetisme",
+      "membres_famille": [
+        "compas",
+        "déviation compas"
+      ],
+      "a_verifier": false
+    },
+    "eet": {
+      "definition": "<em>Estimated Elapsed Time</em> : durée estimée du vol ou temps de vol prévu pour rallier un point de report ou la destination finale depuis le décollage. L'EET est une information obligatoire à inscrire sur le plan de vol déposé auprès du contrôle.",
+      "categorie": "Navigation",
+      "famille": null,
+      "membres_famille": [],
+      "a_verifier": false
+    }
+  }
+}

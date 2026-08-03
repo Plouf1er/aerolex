@@ -1,0 +1,967 @@
+{
+"lfbd": {
+"categorie": "Aérodrome & cartes",
+"famille_actuelle": "codes_oaci",
+"apercu": "Code OACI de l'aéroport de Bordeaux-Mérignac. Plateforme commerciale d'Aquitaine disposant"
+},
+"lfbo": {
+"categorie": "Aérodrome & cartes",
+"famille_actuelle": "codes_oaci",
+"apercu": "Code OACI de l'aéroport de Toulouse-Blagnac. Grand terrain commercial et industriel (siège"
+},
+"lfeh": {
+"categorie": "Aérodrome & cartes",
+"famille_actuelle": "codes_oaci",
+"apercu": "Code OACI de l'aérodrome d'Aubigny-sur-Nère. Petit terrain d'aviation générale non contrôl"
+},
+"lfen": {
+"categorie": "Aérodrome & cartes",
+"famille_actuelle": "codes_oaci",
+"apercu": "Code OACI de l'aérodrome de Tours-Sorigny. Terrain d'aviation générale d'Indre-et-Loire di"
+},
+"lfey": {
+"categorie": "Aérodrome & cartes",
+"famille_actuelle": "codes_oaci",
+"apercu": "Code OACI de l'aérodrome de l'Île d'Yeu. Destination côtière prisée en VFR, exigeant une p"
+},
+"lfjr": {
+"categorie": "Aérodrome & cartes",
+"famille_actuelle": "codes_oaci",
+"apercu": "Code OACI de l'aérodrome d'Angers-Marcé. Terrain doté d'une piste en dur et d'une activité"
+},
+"lflc": {
+"categorie": "Aérodrome & cartes",
+"famille_actuelle": "codes_oaci",
+"apercu": "Code OACI de l'aéroport de Clermont-Ferrand Auvergne. Terrain situé au pied de la chaîne d"
+},
+"lfll": {
+"categorie": "Aérodrome & cartes",
+"famille_actuelle": "codes_oaci",
+"apercu": "Code OACI de l'aéroport de Lyon-Saint-Exupéry. Grande plateforme commerciale de classe A, "
+},
+"lfln": {
+"categorie": "Aérodrome & cartes",
+"famille_actuelle": "codes_oaci",
+"apercu": "Code OACI de l'aérodrome de Saint-Yan. Terrain mythique pour la formation aéronautique fra"
+},
+"lflx": {
+"categorie": "Aérodrome & cartes",
+"famille_actuelle": "codes_oaci",
+"apercu": "Code OACI de l'aérodrome de Limoges-Bellegarde. Plateforme contrôlée du Limousin, accueill"
+},
+"lfmd": {
+"categorie": "Aérodrome & cartes",
+"famille_actuelle": "codes_oaci",
+"apercu": "Code OACI de l'aérodrome de Cannes-Mandelieu. Terrain côtier de la Côte d'Azur à forte act"
+},
+"lfml": {
+"categorie": "Aérodrome & cartes",
+"famille_actuelle": "codes_oaci",
+"apercu": "Code OACI de l'aéroport de Marseille-Provence. Grande plateforme internationale de la côte"
+},
+"lfmn": {
+"categorie": "Aérodrome & cartes",
+"famille_actuelle": "codes_oaci",
+"apercu": "Code OACI de l'aéroport de Nice-Côte d'Azur. Plateforme majeure bordée par la mer, dont l'"
+},
+"lfmp": {
+"categorie": "Aérodrome & cartes",
+"famille_actuelle": "codes_oaci",
+"apercu": "Code OACI de l'aéroport de Perpignan-Rivesaltes. Terrain de la plaine du Roussillon exposé"
+},
+"lfmt": {
+"categorie": "Aérodrome & cartes",
+"famille_actuelle": "codes_oaci",
+"apercu": "Code OACI de l'aéroport de Montpellier-Méditerranée. Terrain mixte commercial et d'aviatio"
+},
+"lfob": {
+"categorie": "Aérodrome & cartes",
+"famille_actuelle": "codes_oaci",
+"apercu": "Code OACI de l'aéroport de Beauvais-Tillé. Plateforme à fort trafic de compagnies low-cost"
+},
+"lfod": {
+"categorie": "Aérodrome & cartes",
+"famille_actuelle": "codes_oaci",
+"apercu": "Code OACI de l'aérodrome de Saumur-Saint-Florent. Terrain de loisir du Maine-et-Loire, dot"
+},
+"lfoe": {
+"categorie": "Aérodrome & cartes",
+"famille_actuelle": "codes_oaci",
+"apercu": "Code OACI de la base aérienne militaire d'Évreux-Fauville. Terrain à statut particulier (m"
+},
+"lfoh": {
+"categorie": "Aérodrome & cartes",
+"famille_actuelle": "codes_oaci",
+"apercu": "Code OACI de l'aérodrome du Havre-Octeville. Terrain contrôlé situé en bord de falaise en "
+},
+"lfoi": {
+"categorie": "Aérodrome & cartes",
+"famille_actuelle": "codes_oaci",
+"apercu": "Code OACI de l'aérodrome d'Abbeville-Buigny. Terrain non contrôlé de la Somme, disposant d"
+},
+"lfoj": {
+"categorie": "Aérodrome & cartes",
+"famille_actuelle": "codes_oaci",
+"apercu": "Code OACI de la base aérienne militaire d'Orléans-Bricy. Terrain militaire (BA 123) héberg"
+},
+"lfok": {
+"categorie": "Aérodrome & cartes",
+"famille_actuelle": "codes_oaci",
+"apercu": "Code OACI de l'aéroport de Châlons-Vatry. Plateforme dotée d'une très longue piste, princi"
+},
+"lfoo": {
+"categorie": "Aérodrome & cartes",
+"famille_actuelle": "codes_oaci",
+"apercu": "Code OACI de l'aérodrome des Sables-d'Olonne - Talmont. Terrain de Vendée, très prisé pour"
+},
+"lfor": {
+"categorie": "Aérodrome & cartes",
+"famille_actuelle": "codes_oaci",
+"apercu": "Code OACI de l'aérodrome de Chartres-Métropole. Terrain d'Eure-et-Loir d'aviation générale"
+},
+"lfot": {
+"categorie": "Aérodrome & cartes",
+"famille_actuelle": "codes_oaci",
+"apercu": "Code OACI de l'aéroport de Tours-Val de Loire. Terrain contrôlé ouvert à la circulation aé"
+},
+"lfou": {
+"categorie": "Aérodrome & cartes",
+"famille_actuelle": "codes_oaci",
+"apercu": "Code OACI de l'aérodrome de Cholet-Le Pontreau. Terrain non contrôlé du Maine-et-Loire, ac"
+},
+"lfow": {
+"categorie": "Aérodrome & cartes",
+"famille_actuelle": "codes_oaci",
+"apercu": "Code OACI de l'aérodrome de Saint-Quentin - Roupy. Terrain non contrôlé de l'Aisne, dispos"
+},
+"lfox": {
+"categorie": "Aérodrome & cartes",
+"famille_actuelle": "codes_oaci",
+"apercu": "Code OACI de l'aérodrome d'Étampes-Mondésir. Plateforme d'aviation générale très active d'"
+},
+"lfoy": {
+"categorie": "Aérodrome & cartes",
+"famille_actuelle": "codes_oaci",
+"apercu": "Code OACI de l'aérodrome du Havre Saint-Romain-de-Colbosc. Petit terrain de Seine-Maritime"
+},
+"lfoz": {
+"categorie": "Aérodrome & cartes",
+"famille_actuelle": "codes_oaci",
+"apercu": "Code OACI de l'aérodrome d'Orléans - Saint-Denis-de-l'Hôtel. Terrain d'aviation générale a"
+},
+"lfpb": {
+"categorie": "Aérodrome & cartes",
+"famille_actuelle": "codes_oaci",
+"apercu": "Code OACI de l'aéroport de Paris-Le Bourget. Plateforme d'aviation d'affaires de renommée "
+},
+"lfpg": {
+"categorie": "Aérodrome & cartes",
+"famille_actuelle": "codes_oaci",
+"apercu": "Code OACI de l'aéroport de Paris-Charles de Gaulle. Premier aéroport de France, de classe "
+},
+"lfpk": {
+"categorie": "Aérodrome & cartes",
+"famille_actuelle": "codes_oaci",
+"apercu": "Code OACI de l'aérodrome de Coulommiers-Voisins. Terrain d'aviation générale de Seine-et-M"
+},
+"lfpn": {
+"categorie": "Aérodrome & cartes",
+"famille_actuelle": "codes_oaci",
+"apercu": "Code OACI de l'aérodrome de Toussus-le-Noble. L'une des plus grandes plateformes d'aviatio"
+},
+"lfpo": {
+"categorie": "Aérodrome & cartes",
+"famille_actuelle": "codes_oaci",
+"apercu": "Code OACI de l'aéroport de Paris-Orly. Grand terrain commercial de classe A situé au sud d"
+},
+"lfpt": {
+"categorie": "Aérodrome & cartes",
+"famille_actuelle": "codes_oaci",
+"apercu": "Code OACI de l'aérodrome de Pontoise-Cormeilles-en-Vexin. Plateforme contrôlée du nord-oue"
+},
+"lfpv": {
+"categorie": "Aérodrome & cartes",
+"famille_actuelle": "codes_oaci",
+"apercu": "Code OACI de la base aérienne militaire de Vélizy-Villacoublay. Zone militaire ultra-sécur"
+},
+"lfqq": {
+"categorie": "Aérodrome & cartes",
+"famille_actuelle": "codes_oaci",
+"apercu": "Code OACI de l'aéroport de Lille-Lesquin. Plateforme contrôlée du nord de la France, mixan"
+},
+"lfrb": {
+"categorie": "Aérodrome & cartes",
+"famille_actuelle": "codes_oaci",
+"apercu": "Code OACI de l'aéroport de Brest-Bretagne. Terrain contrôlé situé à la pointe du Finistère"
+},
+"lfrd": {
+"categorie": "Aérodrome & cartes",
+"famille_actuelle": "codes_oaci",
+"apercu": "Code OACI de l'aéroport de Dinard-Pleurtuit-Saint-Malo. Terrain contrôlé de la côte breton"
+},
+"lfrg": {
+"categorie": "Aérodrome & cartes",
+"famille_actuelle": "codes_oaci",
+"apercu": "Code OACI de l'aéroport de Deauville-Normandie. Plateforme contrôlée accueillant un trafic"
+},
+"lfrn": {
+"categorie": "Aérodrome & cartes",
+"famille_actuelle": "codes_oaci",
+"apercu": "Code OACI de l'aéroport de Rennes-Saint-Jacques. Plateforme contrôlée d'Ille-et-Vilaine, c"
+},
+"lfrs": {
+"categorie": "Aérodrome & cartes",
+"famille_actuelle": "codes_oaci",
+"apercu": "Code OACI de l'aéroport de Nantes-Atlantique. Grand terrain commercial de Loire-Atlantique"
+},
+"lfsb": {
+"categorie": "Aérodrome & cartes",
+"famille_actuelle": "codes_oaci",
+"apercu": "Code OACI de l'aéroport de Bâle-Mulhouse. Aéroport international unique au statut franco-s"
+},
+"lfsn": {
+"categorie": "Aérodrome & cartes",
+"famille_actuelle": "codes_oaci",
+"apercu": "Code OACI de l'aérodrome de Nancy-Essey. Terrain d'aviation générale de Meurthe-et-Moselle"
+},
+"lfst": {
+"categorie": "Aérodrome & cartes",
+"famille_actuelle": "codes_oaci",
+"apercu": "Code OACI de l'aéroport de Strasbourg-Entzheim. Plateforme contrôlée d'Alsace accueillant "
+},
+"lftw": {
+"categorie": "Aérodrome & cartes",
+"famille_actuelle": "codes_oaci",
+"apercu": "Code OACI de l'aéroport de Nîmes-Garons. Terrain mixte civil et militaire, servant égaleme"
+},
+"lfxu": {
+"categorie": "Aérodrome & cartes",
+"famille_actuelle": "codes_oaci",
+"apercu": "Code OACI de l'aérodrome des Mureaux. Terrain historique d'aviation générale d'Yvelines di"
+},
+"licence": {
+"categorie": "Réglementation & docs",
+"famille_actuelle": null,
+"apercu": "Titre aéronautique officiel (ex. PPL, LAPL) délivré par l'autorité de l'aviation civile, c"
+},
+"ligne de grain": {
+"categorie": "Météo",
+"famille_actuelle": null,
+"apercu": "Alignement de cellules orageuses actives de grande échelle, s'accompagnant de violentes tu"
+},
+"limite arriere": {
+"categorie": "Masse & centrage",
+"famille_actuelle": "limites_de_centrage",
+"apercu": "Limite maximale de recul du centre de gravité autorisée par le manuel de vol. Un centrage "
+},
+"limite avant": {
+"categorie": "Masse & centrage",
+"famille_actuelle": "limites_de_centrage",
+"apercu": "Limite maximale d'avancement du centre de gravité autorisée par le manuel de vol. Un centr"
+},
+"lisse": {
+"categorie": "Aérodynamique",
+"famille_actuelle": null,
+"apercu": "Configuration aérodynamique d'un avion lorsque tous les éléments mobiles (volets de courbu"
+},
+"longeron": {
+"categorie": "Structure & cellule",
+"famille_actuelle": null,
+"apercu": "Élément structural longitudinal principal d'une aile ou d'un empennage, conçu pour support"
+},
+"longue finale": {
+"categorie": "Aérodrome & cartes",
+"famille_actuelle": null,
+"apercu": "Partie initiale de la finale, loin du seuil, juste après l'alignement sur l'axe de piste. "
+},
+"longueur de piste": {
+"categorie": "Aérodrome & cartes",
+"famille_actuelle": "dimensions_piste",
+"apercu": "Distance longitudinale disponible pour le décollage ou l'atterrissage. Elle doit être comp"
+},
+"lâcher": {
+"categorie": "Procédures",
+"famille_actuelle": null,
+"apercu": "Étape clé de la formation où l'instructeur autorise l'élève pilote à effectuer son tout pr"
+},
+"légal": {
+"categorie": "Réglementation & docs",
+"famille_actuelle": null,
+"apercu": "Caractère conforme d'un vol par rapport à la réglementation en vigueur (SERA, arrêté d'imm"
+},
+"m/s": {
+"categorie": "Unités",
+"famille_actuelle": "unites",
+"apercu": "Mètres par seconde. Unité de vitesse verticale principalement utilisée sur les planeurs et"
+},
+"machmetre": {
+"categorie": "Instruments",
+"famille_actuelle": null,
+"apercu": "Instrument de bord indiquant le rapport entre la vitesse propre de l'aéronef et la vitesse"
+},
+"mag": {
+"categorie": "Navigation",
+"famille_actuelle": "references_magnetiques",
+"apercu": "Abréviation aéronautique courante pour « magnétique » (ex. cap magnétique, déclinaison mag"
+},
+"magnétique": {
+"categorie": "Navigation",
+"famille_actuelle": "references_magnetiques",
+"apercu": "Qualifie une direction, un cap ou une route mesurés par rapport au nord magnétique. Les ca"
+},
+"magnéto": {
+"categorie": "Moteur & hélice",
+"famille_actuelle": "magnetos",
+"apercu": "Générateur de courant autonome entraîné par le moteur pour alimenter les bougies d'allumag"
+},
+"magnéto droite": {
+"categorie": "Moteur & hélice",
+"famille_actuelle": "magnetos",
+"apercu": "L'un des deux circuits d'allumage magnéto indépendants du moteur, alimentant une bougie pa"
+},
+"magnéto gauche": {
+"categorie": "Moteur & hélice",
+"famille_actuelle": "magnetos",
+"apercu": "L'un des deux circuits d'allumage magnéto indépendants du moteur, complémentaire du circui"
+},
+"majoration rafale": {
+"categorie": "Vitesses & performances",
+"famille_actuelle": null,
+"apercu": "Augmentation de la vitesse d'approche recommandée (généralement égale à la moitié de la va"
+},
+"mal de l'air": {
+"categorie": "Sécurité & facteurs humains",
+"famille_actuelle": null,
+"apercu": "Trouble physiologique (cinétose) provoqué par un conflit sensoriel entre la vision et le s"
+},
+"mammatus": {
+"categorie": "Météo",
+"famille_actuelle": "nuages",
+"apercu": "Forme de nuage présentant des protubérances pendantes semblables à des mamelles, se dévelo"
+},
+"manche": {
+"categorie": "Structure & cellule",
+"famille_actuelle": "commandes_de_vol",
+"apercu": "Organe de pilotage primaire permettant au pilote de contrôler l'assiette longitudinale (pr"
+},
+"manche à air": {
+"categorie": "Aérodrome & cartes",
+"famille_actuelle": null,
+"apercu": "Cône en tissu au bord de piste : il donne le vent <strong>réel au sol, à l'endroit où tu v"
+},
+"manette": {
+"categorie": "Moteur & hélice",
+"famille_actuelle": "commandes_de_vol",
+"apercu": "Organe de contrôle de la puissance du moteur, permettant au pilote de régler l'admission d"
+},
+"manuel de vol": {
+"categorie": "Réglementation & docs",
+"famille_actuelle": null,
+"apercu": "Document officiel obligatoire à bord, propre à chaque aéronef immatriculé, contenant les l"
+},
+"marge de decrochage": {
+"categorie": "Vitesses & performances",
+"famille_actuelle": null,
+"apercu": "Écart entre la vitesse de vol actuelle de l'aéronef et sa vitesse de décrochage dans la co"
+},
+"marge de franchissement": {
+"categorie": "Procédures",
+"famille_actuelle": null,
+"apercu": "Hauteur minimale de sécurité calculée ou requise pour franchir les obstacles environnants "
+},
+"masse a vide": {
+"categorie": "Masse & centrage",
+"famille_actuelle": "masses",
+"apercu": "Masse de l'avion comprenant la structure, le moteur, les équipements fixes, les fluides in"
+},
+"masse du jour": {
+"categorie": "Masse & centrage",
+"famille_actuelle": "masses",
+"apercu": "Masse totale de l'aéronef calculée pour un vol précis, incluant la masse à vide, l'équipag"
+},
+"masse et centrage": {
+"categorie": "Masse & centrage",
+"famille_actuelle": null,
+"apercu": "Procédure réglementaire obligatoire avant chaque vol consistant à calculer le poids total "
+},
+"masse maximale": {
+"categorie": "Masse & centrage",
+"famille_actuelle": "masses",
+"apercu": "Limite structurale supérieure de masse de l'appareil fixée par le constructeur et indiquée"
+},
+"mayday": {
+"categorie": "Radio & phraséologie",
+"famille_actuelle": null,
+"apercu": "Signal de détresse international utilisé en radiotéléphonie pour indiquer qu'un aéronef es"
+},
+"menace": {
+"categorie": "Sécurité & facteurs humains",
+"famille_actuelle": "facteurs_humains",
+"apercu": "Événement ou erreur extérieure à l'équipage qui se produit en dehors de l'influence direct"
+},
+"metar/taf": {
+"categorie": "Météo",
+"famille_actuelle": "messages_meteo",
+"apercu": "Messages météo réglementaires codés pour l'aviation. Le METAR décrit le temps observé à un"
+},
+"minima": {
+"categorie": "Réglementation & docs",
+"famille_actuelle": "minima_meteo",
+"apercu": "Seuils réglementaires ou personnels de visibilité, de plafond ou de vent en dessous desque"
+},
+"minima météo": {
+"categorie": "Réglementation & docs",
+"famille_actuelle": "minima_meteo",
+"apercu": "Valeurs limites réglementaires de visibilité et de distance par rapport aux nuages pour vo"
+},
+"mise en route": {
+"categorie": "Procédures",
+"famille_actuelle": "procedures_sol",
+"apercu": "Action de démarrer le moteur après avoir effectué les vérifications pré-vol obligatoires e"
+},
+"mistral": {
+"categorie": "Météo",
+"famille_actuelle": "vents_locaux",
+"apercu": "Vent régional de secteur nord-ouest à nord, froid et souvent très fort, soufflant dans la "
+},
+"mm aft datum": {
+"categorie": "Masse & centrage",
+"famille_actuelle": "masse_et_centrage",
+"apercu": "Unité de mesure anglo-saxonne (millimètres en arrière de la référence) exprimant la positi"
+},
+"modele threat and error": {
+"categorie": "Sécurité & facteurs humains",
+"famille_actuelle": "facteurs_humains",
+"apercu": "<em>Threat and Error Management</em> (TEM). Modèle conceptuel d'analyse de la sécurité vis"
+},
+"moment de rappel": {
+"categorie": "Aérodynamique",
+"famille_actuelle": "masse_et_centrage",
+"apercu": "Moment de force aérodynamique ou gravitationnel qui tend à ramener l'avion vers son assiet"
+},
+"monomoteur": {
+"categorie": "Structure & cellule",
+"famille_actuelle": "categories_aeronef",
+"apercu": "Aéronef équipé d'un seul groupe motopropulseur. C'est la configuration standard pour l'app"
+},
+"monomoteur léger": {
+"categorie": "Structure & cellule",
+"famille_actuelle": "categories_aeronef",
+"apercu": "Avion monomoteur de masse maximale certifiée au décollage généralement inférieure à 5700 k"
+},
+"montée initiale": {
+"categorie": "Aérodrome & cartes",
+"famille_actuelle": null,
+"apercu": "Phase de montée dans l'axe de piste qui suit immédiatement le décollage, avant tout virage"
+},
+"moulinet": {
+"categorie": "Moteur & hélice",
+"famille_actuelle": "helice",
+"apercu": "Rotation de l'hélice entraînée uniquement par le vent relatif lorsque le moteur est coupé "
+},
+"mtom": {
+"categorie": "Masse & centrage",
+"famille_actuelle": "masses_reglementaires",
+"apercu": "<em>Maximum Take-Off Mass</em>. Masse maximale au décollage autorisée par la certification"
+},
+"mémoire de travail": {
+"categorie": "Sécurité & facteurs humains",
+"famille_actuelle": "facteurs_humains",
+"apercu": "Composante cognitive à capacité limitée qui retient et traite temporairement l'information"
+},
+"météo du jour": {
+"categorie": "Météo",
+"famille_actuelle": "preparation_vol",
+"apercu": "Analyse indispensable des conditions météorologiques actuelles et prévues (METAR, TAF, TEM"
+},
+"nav": {
+"categorie": "Navigation",
+"famille_actuelle": "navigation_termes",
+"apercu": "Diminutif courant désignant la préparation ou la conduite de la navigation, consistant à s"
+},
+"navigabilité": {
+"categorie": "Réglementation & docs",
+"famille_actuelle": "documents_aeronef",
+"apercu": "État technique d'un aéronef conforme à sa définition certifiée et en état de voler en tout"
+},
+"navigation": {
+"categorie": "Navigation",
+"famille_actuelle": "navigation_termes",
+"apercu": "Art et science de conduire un aéronef d'un point à un autre en toute sécurité. Elle repose"
+},
+"nearest airfield": {
+"categorie": "Procédures",
+"famille_actuelle": "situations_urgence",
+"apercu": "Aérodrome le plus proche accessible en vol. C'est l'option à identifier immédiatement sur "
+},
+"nervure": {
+"categorie": "Structure & cellule",
+"famille_actuelle": "structure_aile",
+"apercu": "Élément de structure transversal de l'aile qui donne son profil aérodynamique à la voilure"
+},
+"nimbostratus": {
+"categorie": "Météo",
+"famille_actuelle": "nuages",
+"apercu": "Nuage de grande extension verticale, sombre et d'aspect voilé, souvent associé à des préci"
+},
+"niveau de transition": {
+"categorie": "Altimétrie",
+"famille_actuelle": "altimetrie_references",
+"apercu": "Premier niveau de vol (FL) utilisable au-dessus de l'altitude de transition. Lors de la mo"
+},
+"niveau de vol": {
+"categorie": "Altimétrie",
+"famille_actuelle": null,
+"apercu": "Altitude-pression exprimée en centaines de pieds, calage 1013,25 hPa : FL45 = 4500 ft alti"
+},
+"no-go": {
+"categorie": "Sécurité & facteurs humains",
+"famille_actuelle": "prise_decision",
+"apercu": "Décision ferme de ne pas entreprendre ou de ne pas poursuivre un vol en raison de conditio"
+},
+"nord": {
+"categorie": "Navigation",
+"famille_actuelle": "points_cardinaux",
+"apercu": "Direction de référence principale en navigation aéronautique. Elle peut être géographique "
+},
+"nord magnétique": {
+"categorie": "Navigation",
+"famille_actuelle": null,
+"apercu": "Direction indiquée par l'aiguille du compas, vers le pôle magnétique — qui ne coïncide pas"
+},
+"nord vrai": {
+"categorie": "Navigation",
+"famille_actuelle": null,
+"apercu": "Direction du pôle Nord géographique, référence des méridiens de la carte. Le vent des <str"
+},
+"nuage": {
+"categorie": "Météo",
+"famille_actuelle": "nuages",
+"apercu": "Amas visible de fines gouttelettes d'eau ou de cristaux de glace en suspension dans l'atmo"
+},
+"nuage du jour": {
+"categorie": "Météo",
+"famille_actuelle": "nuages",
+"apercu": "Nuage ou type de nébulosité prédominant observé ou prévu lors de la préparation des vols, "
+},
+"nuit": {
+"categorie": "Réglementation & docs",
+"famille_actuelle": "regles_vol",
+"apercu": "En aéronautique française, période commençant 30 minutes après le coucher du soleil et se "
+},
+"oaci": {
+"categorie": "Réglementation & docs",
+"famille_actuelle": "organismes",
+"apercu": "<em>Organisation de l'Aviation Civile Internationale</em>. Institution spécialisée des Nat"
+},
+"oat": {
+"categorie": "Instruments",
+"famille_actuelle": "instruments_mesure",
+"apercu": "<em>Outside Air Temperature</em> : température de l'air extérieur. Mesurée par une sonde, "
+},
+"obstacle artificiel": {
+"categorie": "Aérodrome & cartes",
+"famille_actuelle": "securite_sol",
+"apercu": "Structure construite par l'homme (antenne, éolienne, ligne à haute tension) représentant u"
+},
+"occlusion": {
+"categorie": "Météo",
+"famille_actuelle": null,
+"apercu": "Front froid qui rattrape le front chaud : les deux systèmes fusionnent. Restes de pluie, p"
+},
+"octas": {
+"categorie": "Météo",
+"famille_actuelle": null,
+"apercu": "Huitièmes de ciel couvert : FEW 1-2 octas, SCT 3-4, BKN 5-7, OVC 8/8. Le plafond, c'est la"
+},
+"off ignition off": {
+"categorie": "Procédures",
+"famille_actuelle": "procedures_sol",
+"apercu": "Commande d'allumage des magnétos placée sur la position d'arrêt complet (OFF). C'est la co"
+},
+"onde de relief": {
+"categorie": "Vent",
+"famille_actuelle": null,
+"apercu": "Ondulation de l'air en aval d'un relief par vent fort et stable, matérialisée par les lent"
+},
+"oreille interne": {
+"categorie": "Sécurité & facteurs humains",
+"famille_actuelle": "physiologie",
+"apercu": "Organe de l'équilibre situé dans le crâne. En l'absence de références visuelles extérieure"
+},
+"ouest": {
+"categorie": "Navigation",
+"famille_actuelle": "points_cardinaux",
+"apercu": "Point cardinal correspondant au relèvement magnétique ou vrai de 270 degrés. C'est la dire"
+},
+"ovc": {
+"categorie": "Météo",
+"famille_actuelle": "couche_nuageuse",
+"apercu": "Code METAR/TAF signifiant <em>Overcast</em> (couvert). Il indique que la totalité du ciel "
+},
+"oxygène": {
+"categorie": "Sécurité & facteurs humains",
+"famille_actuelle": "physiologie",
+"apercu": "Gaz vital dont la pression partielle diminue avec l'altitude. Son manque dans le sang prov"
+},
+"palier": {
+"categorie": "Procédures",
+"famille_actuelle": "phases_vol",
+"apercu": "Phase de vol stabilisée à altitude constante où la portance équilibre la masse de l'appare"
+},
+"palier de croisière": {
+"categorie": "Procédures",
+"famille_actuelle": "phases_vol",
+"apercu": "Palier de longue durée établi après la montée, à l'altitude ou au niveau de vol choisis po"
+},
+"palonnier": {
+"categorie": "Structure & cellule",
+"famille_actuelle": "gouvernes_commandes",
+"apercu": "Commande de vol actionnée par les pieds du pilote, agissant sur la gouverne de direction p"
+},
+"panne moteur": {
+"categorie": "Procédures",
+"famille_actuelle": "situations_urgence",
+"apercu": "Dysfonctionnement partiel ou total du groupe motopropulseur en vol. La priorité absolue es"
+},
+"panne radio": {
+"categorie": "Procédures",
+"famille_actuelle": "situations_urgence",
+"apercu": "Perte des liaisons radioélectriques VHF. Le pilote doit alors afficher le code transpondeu"
+},
+"panne électrique": {
+"categorie": "Procédures",
+"famille_actuelle": "situations_urgence",
+"apercu": "Défaillance de l'alternateur ou court-circuit coupant l'alimentation de bord. La batterie "
+},
+"parking": {
+"categorie": "Aérodrome & cartes",
+"famille_actuelle": "zones_aerodrome",
+"apercu": "Aire de l'aérodrome réservée au stationnement, à l'avitaillement et à la préparation au so"
+},
+"pas d'hélice": {
+"categorie": "Moteur & hélice",
+"famille_actuelle": "helice",
+"apercu": "Distance théorique parcourue vers l'avant par l'hélice en un tour complet. Un petit pas fa"
+},
+"pas variable": {
+"categorie": "Moteur & hélice",
+"famille_actuelle": "helice",
+"apercu": "Dispositif permettant de modifier en vol l'angle de calage des pales de l'hélice pour opti"
+},
+"passager": {
+"categorie": "Réglementation & docs",
+"famille_actuelle": "radio_phraséologie",
+"apercu": "Personne transportée à bord n'exerçant aucune fonction de pilotage. Le commandant de bord "
+},
+"pax": {
+"categorie": "Radio & phraséologie",
+"famille_actuelle": "radio_phraséologie",
+"apercu": "Abréviation aéronautique désignant un passager. Utilisée fréquemment dans les devis de mas"
+},
+"pente": {
+"categorie": "Vitesses & performances",
+"famille_actuelle": "pentes_descente",
+"apercu": "Angle mesurant l'inclinaison de la trajectoire de vol par rapport à l'horizon. Elle s'expr"
+},
+"pente de descente": {
+"categorie": "Vitesses & performances",
+"famille_actuelle": "pentes_descente",
+"apercu": "Trajectoire descendante de l'appareil par rapport à l'horizon, exprimée en pourcentage ou "
+},
+"pente de montée": {
+"categorie": "Vitesses & performances",
+"famille_actuelle": "pentes_descente",
+"apercu": "Rapport entre le gain d'altitude et la distance horizontale parcourue par rapport au sol. "
+},
+"percée verticale": {
+"categorie": "Procédures",
+"famille_actuelle": "procedures_vol",
+"apercu": "Action de descendre à travers une couche nuageuse fragmentée en conservant des références "
+},
+"perte de position": {
+"categorie": "Navigation",
+"famille_actuelle": "navigation_termes",
+"apercu": "Situation où le pilote ne parvient plus à situer précisément sa position géographique sur "
+},
+"phraséologie": {
+"categorie": "Radio & phraséologie",
+"famille_actuelle": "radio_phraséologie",
+"apercu": "Ensemble de termes et d'expressions standardisés utilisés lors des communications radiotél"
+},
+"piqué": {
+"categorie": "Procédures",
+"famille_actuelle": "phases_vol",
+"apercu": "Attitude de vol caractérisée par une assiette fortement négative et une augmentation rapid"
+},
+"piste": {
+"categorie": "Aérodrome & cartes",
+"famille_actuelle": null,
+"apercu": "Bande de terrain ou de revêtement aménagée pour le décollage et l'atterrissage des avions."
+},
+"piste contaminée": {
+"categorie": "Aérodrome & cartes",
+"famille_actuelle": "pistes",
+"apercu": "Piste recouverte sur une partie significative de sa surface par de l'eau stagnante, de la "
+},
+"piste en service": {
+"categorie": "Aérodrome & cartes",
+"famille_actuelle": "pistes",
+"apercu": "Piste active désignée pour les décollages et atterrissages, choisie prioritairement face a"
+},
+"piste mouillée": {
+"categorie": "Aérodrome & cartes",
+"famille_actuelle": "pistes",
+"apercu": "Piste dont la surface est humide ou recouverte d'une fine pellicule d'eau sans stagnation."
+},
+"pitot": {
+"categorie": "Instruments",
+"famille_actuelle": "instruments_pression",
+"apercu": "Tube orienté face au flux d'air qui mesure la pression totale nécessaire au fonctionnement"
+},
+"piège classique": {
+"categorie": "Sécurité & facteurs humains",
+"famille_actuelle": "prise_decision",
+"apercu": "Erreur de jugement récurrente commise par les pilotes, comme l'obstination au but (plan co"
+},
+"plafond": {
+"categorie": "Météo",
+"famille_actuelle": null,
+"apercu": "Hauteur au-dessus du sol de la première couche nuageuse BKN ou OVC (5 octas et plus). C'es"
+},
+"plafond nuageux": {
+"categorie": "Météo",
+"famille_actuelle": "couche_nuageuse",
+"apercu": "Hauteur au-dessus du sol de la base de la plus basse couche de nuages qui couvre plus de l"
+},
+"plan continuation bias": {
+"categorie": "Sécurité & facteurs humains",
+"famille_actuelle": "facteurs_humains",
+"apercu": "Obstination inconsciente à poursuivre le vol prévu malgré des signes clairs de dégradation"
+},
+"plan de charge": {
+"categorie": "Sécurité & facteurs humains",
+"famille_actuelle": "facteurs_humains",
+"apercu": "Répartition et niveau d'activité mentale requis du pilote pour accomplir les différentes t"
+},
+"plan de descente": {
+"categorie": "Aérodrome & cartes",
+"famille_actuelle": "pentes_descente",
+"apercu": "Trajectoire verticale théorique que l'avion doit suivre lors de son approche finale pour a"
+},
+"plan de vol": {
+"categorie": "Réglementation & docs",
+"famille_actuelle": "preparation_vol",
+"apercu": "Document réglementaire décrivant l'itinéraire, l'autonomie et les intentions du pilote. So"
+},
+"plancher": {
+"categorie": "Réglementation & docs",
+"famille_actuelle": "altimetrie_references",
+"apercu": "Altitude ou niveau de vol minimal autorisé dans une zone donnée (ex. plancher d'une classe"
+},
+"plané": {
+"categorie": "Procédures",
+"famille_actuelle": "phases_vol",
+"apercu": "Vol non motorisé stabilisé durant lequel l'avion descend sous l'effet de sa propre masse. "
+},
+"plein gaz": {
+"categorie": "Procédures",
+"famille_actuelle": "phases_vol",
+"apercu": "Position maximale de la manette des gaz fournissant la puissance maximale disponible du mo"
+},
+"pluie": {
+"categorie": "Météo",
+"famille_actuelle": "messages_meteo",
+"apercu": "Précipitation d'eau sous forme liquide. Elle dégrade fortement la visibilité vers l'avant "
+},
+"point d'arrêt": {
+"categorie": "Aérodrome & cartes",
+"famille_actuelle": "points_aerodrome",
+"apercu": "Emplacement matérialisé au sol par une ligne de peinture continue jaune et des panneaux de"
+},
+"point d'attente": {
+"categorie": "Aérodrome & cartes",
+"famille_actuelle": "points_aerodrome",
+"apercu": "Position désignée sur une voie de circulation (taxiway) où un aéronef doit s'arrêter et at"
+},
+"point de decision": {
+"categorie": "Sécurité & facteurs humains",
+"famille_actuelle": "prise_decision",
+"apercu": "Repère géographique, temporel ou lié aux performances à partir duquel le pilote doit oblig"
+},
+"point de non retour": {
+"categorie": "Navigation",
+"famille_actuelle": "prise_decision",
+"apercu": "Limite géographique ou temporelle au-delà de laquelle l'appareil ne dispose plus de la rés"
+},
+"point de report": {
+"categorie": "Navigation",
+"famille_actuelle": "points_navigation",
+"apercu": "Point géographique remarquable identifié au sol et figurant sur les cartes d'approche VAC "
+},
+"point de rosée": {
+"categorie": "Météo",
+"famille_actuelle": null,
+"apercu": "Température à laquelle l'air devient saturé en refroidissant. L'écart température/point de"
+},
+"point fixe": {
+"categorie": "Procédures",
+"famille_actuelle": "points_aerodrome",
+"apercu": "Zone de l'aérodrome où le pilote positionne son avion face au vent pour tester le bon fonc"
+},
+"points de report": {
+"categorie": "Navigation",
+"famille_actuelle": "points_navigation",
+"apercu": "Repères visuels officiels définis sur les cartes de navigation et d'approche. Le signaleme"
+},
+"polaire": {
+"categorie": "Aérodynamique",
+"famille_actuelle": "aerodynamique",
+"apercu": "Courbe représentant les variations du coefficient de portance en fonction du coefficient d"
+},
+"pompe": {
+"categorie": "Météo",
+"famille_actuelle": "mouvements_air",
+"apercu": "Terme familier désignant un courant d'air ascendant vigoureux, d'origine thermique ou dyna"
+},
+"pompe électrique": {
+"categorie": "Moteur & hélice",
+"famille_actuelle": "circuit_carburant",
+"apercu": "Pompe à carburant secondaire actionnée électriquement par le pilote. Elle est activée lors"
+},
+"portance": {
+"categorie": "Aérodynamique",
+"famille_actuelle": "aerodynamique",
+"apercu": "Force aérodynamique perpendiculaire au vent relatif, dirigée vers le haut, générée par l'é"
+},
+"portée visuelle de piste": {
+"categorie": "Météo",
+"famille_actuelle": "conditions_visibilite",
+"apercu": "<em>Runway Visual Range</em> (RVR). Distance jusqu'à laquelle le pilote d'un aéronef placé"
+},
+"posé-décollé": {
+"categorie": "Aérodrome & cartes",
+"famille_actuelle": "procedures_vol",
+"apercu": "Manœuvre d'entraînement combinant un atterrissage complet suivi immédiatement d'un décolla"
+},
+"ppl": {
+"categorie": "Réglementation & docs",
+"famille_actuelle": "licences",
+"apercu": "<em>Private Pilot License</em> : licence de pilote privé permettant d'exercer sans rémunér"
+},
+"premier contact": {
+"categorie": "Radio & phraséologie",
+"famille_actuelle": "radio_phraséologie",
+"apercu": "Premier appel radio adressé à un organisme de contrôle ou d'information de vol. Le pilote "
+},
+"pression": {
+"categorie": "Altimétrie",
+"famille_actuelle": "references_pression",
+"apercu": "Force exercée par l'atmosphère par unité de surface, exprimée en hectopascals (hPa). Elle "
+},
+"pression d'huile": {
+"categorie": "Moteur & hélice",
+"famille_actuelle": "parametres_moteur",
+"apercu": "Paramètre moteur vital indiquant la force de circulation du lubrifiant dans le bloc moteur"
+},
+"pression standard": {
+"categorie": "Altimétrie",
+"famille_actuelle": "references_pression",
+"apercu": "Pression atmosphérique de référence au niveau de la mer dans l'atmosphère standard (ISA), "
+},
+"priorité": {
+"categorie": "Réglementation & docs",
+"famille_actuelle": "regles_vol",
+"apercu": "Ensemble de règles d'évitement en vol dictant quel aéronef doit modifier sa trajectoire pa"
+},
+"prob": {
+"categorie": "Météo",
+"famille_actuelle": "messages_meteo",
+"apercu": "Indicateur de probabilité utilisé dans les messages de prévisions TAF (suivi de 30 ou 40 p"
+},
+"procedure d'attente": {
+"categorie": "Procédures",
+"famille_actuelle": "phases_vol",
+"apercu": "Trajectoire calibrée effectuée au-dessus d'un point géographique fixe, à une altitude donn"
+},
+"profondeur": {
+"categorie": "Structure & cellule",
+"famille_actuelle": "gouvernes_commandes",
+"apercu": "Gouverne de direction primaire articulée à l'arrière de l'empennage horizontal de l'appare"
+},
+"prolongement d'arret": {
+"categorie": "Aérodrome & cartes",
+"famille_actuelle": "distances_declarees",
+"apercu": "Zone située au-delà de l'extrémité de la piste de décollage, préparée de manière à pouvoir"
+},
+"prop": {
+"categorie": "Moteur & hélice",
+"famille_actuelle": "helice",
+"apercu": "Terme abrégé issu de l'anglais <em>propeller</em> pour désigner l'hélice de l'avion. En fr"
+},
+"prorogation": {
+"categorie": "Réglementation & docs",
+"famille_actuelle": "licences",
+"apercu": "Action de prolonger la validité d'une qualification de classe (comme la SEP) ou d'un certi"
+},
+"pré-lâcher": {
+"categorie": "Procédures",
+"famille_actuelle": "formation_pilote",
+"apercu": "Phase d'apprentissage avancée précédant immédiatement le premier vol solo de l'élève pilot"
+},
+"psi": {
+"categorie": "Unités",
+"famille_actuelle": null,
+"apercu": "<em>Pounds per Square Inch</em> : unité anglo-saxonne de pression (livres par pouce carré)"
+},
+"pump": {
+"categorie": "Moteur & hélice",
+"famille_actuelle": null,
+"apercu": "<em>Pump</em> : pompe de gavage ou d'alimentation en carburant. La pompe électrique (fuel "
+},
+"purge": {
+"categorie": "Procédures",
+"famille_actuelle": null,
+"apercu": "Action d'extraire une petite quantité de carburant par le point le plus bas d'un réservoir"
+},
+"qcm": {
+"categorie": "Réglementation & docs",
+"famille_actuelle": null,
+"apercu": "Questionnaire à Choix Multiples : format de l'examen théorique du brevet de pilote privé ("
+},
+"qdm": {
+"categorie": "Navigation",
+"famille_actuelle": null,
+"apercu": "Cap magnétique à suivre par l'aéronef sans vent pour rejoindre directement la station au s"
+},
+"qdr": {
+"categorie": "Navigation",
+"famille_actuelle": null,
+"apercu": "Relèvement magnétique de l'aéronef mesuré par une station au sol. Il représente la route m"
+},
+"rabattant": {
+"categorie": "Vent",
+"famille_actuelle": null,
+"apercu": "Courant d'air vertical descendant, intense et soudain, se formant en aval d'un relief ou s"
+},
+"rabattant sous le vent": {
+"categorie": "Vent",
+"famille_actuelle": null,
+"apercu": "Mouvement d'air descendant et turbulent localisé sur le versant abrité d'un relief franchi"
+},
+"radiale": {
+"categorie": "Navigation",
+"famille_actuelle": null,
+"apercu": "Axe de navigation magnétique orienté vers l'extérieur (éloignement) depuis une station VOR"
+},
+"radio": {
+"categorie": "Radio & phraséologie",
+"famille_actuelle": null,
+"apercu": "Équipement émetteur-récepteur VHF de bord opérant dans la bande de fréquences 118 - 137 MH"
+},
+"radiocompas": {
+"categorie": "Instruments",
+"famille_actuelle": "instruments",
+"apercu": "Instrument de radionavigation (ADF) qui indique par une aiguille le gisement d'une balise "
+}
+}

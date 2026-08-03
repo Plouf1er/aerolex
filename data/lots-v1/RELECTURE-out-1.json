@@ -1,0 +1,1081 @@
+{
+"lot": 1,
+"termes": {
+"AAL": {
+"definition": "Above Aerodrome Level: au-dessus du niveau de l'aérodrome. Indique une hauteur et non une altitude. Par exemple, un plafond à 1500 ft AAL signifie 1500 ft au-dessus de la référence de l'aérodrome.",
+"categorie": "Altimétrie",
+"variantes": [
+"above aerodrome level",
+"AAL"
+],
+"synonymes": [],
+"xrefs": [
+"altitude",
+"hauteur",
+"QFE",
+"QNH"
+],
+"modifie": true,
+"raison": "suppression des balises HTML + xrefs et variantes complétées"
+},
+"AIP": {
+"definition": "Aeronautical Information Publication: la documentation aéronautique officielle d'un pays, publiée par cycles AIRAC de 28 jours. Les cartes VAC en sont l'extrait le plus utilisé par le pilote en vol VFR.",
+"categorie": "Réglementation & docs",
+"variantes": [
+"Aeronautical Information Publication",
+"AIP"
+],
+"synonymes": [],
+"xrefs": [
+"AIRAC",
+"VAC",
+"VFR"
+],
+"modifie": true,
+"raison": "suppression des balises HTML + xrefs et variantes complétées"
+},
+"AIRAC": {
+"definition": "Aeronautical Information Regulation And Control: système de mise à jour des données aéronautiques officielles selon un cycle de 28 jours. Une carte à jour correspond au cycle AIRAC en vigueur: vérifiez sa date d'effet.",
+"categorie": "Réglementation & docs",
+"variantes": [
+"Aeronautical Information Regulation And Control",
+"AIRAC"
+],
+"synonymes": [],
+"xrefs": [
+"AIP",
+"VAC"
+],
+"modifie": true,
+"raison": "condensée de 50 à 34 mots, suppression des balises HTML + xrefs et variantes complétées"
+},
+"AMSL": {
+"definition": "Above Mean Sea Level: hauteur au-dessus du niveau moyen de la mer. Désigne l'altitude, valeur lue directement sur l'altimètre lorsque celui-ci est calé au QNH.",
+"categorie": "Altimétrie",
+"variantes": [
+"above mean sea level",
+"AMSL"
+],
+"synonymes": [],
+"xrefs": [
+"QNH",
+"altitude",
+"AAL"
+],
+"modifie": true,
+"raison": "suppression des balises HTML + xrefs et variantes complétées"
+},
+"ASDA": {
+"definition": "Accelerate-Stop Distance Available: distance accélération-arrêt utilisable. Longueur disponible pour décoller puis s'arrêter en cas d'interruption. Égale à la TORA augmentée du prolongement d'arrêt s'il existe.",
+"categorie": "Aérodrome & cartes",
+"variantes": [
+"Accelerate-Stop Distance Available",
+"ASDA"
+],
+"synonymes": [],
+"xrefs": [
+"TORA",
+"TODA",
+"LDA",
+"piste"
+],
+"modifie": true,
+"raison": "condensée de 58 à 28 mots, suppression des balises HTML + variantes complétées"
+},
+"ATIS": {
+"definition": "Automatic Terminal Information Service: diffusion continue d'informations météorologiques et opérationnelles d'un aérodrome (QNH, piste en service, vent). Le pilote l'écoute et note sa lettre d'identification avant le premier contact radio.",
+"categorie": "Aérodrome & cartes",
+"variantes": [
+"Automatic Terminal Information Service",
+"ATIS"
+],
+"synonymes": [],
+"xrefs": [
+"QNH",
+"QFU",
+"METAR"
+],
+"modifie": true,
+"raison": "suppression des balises HTML, condensée de 42 à 32 mots + xrefs et variantes complétées"
+},
+"AUTO": {
+"definition": "Automated observation: mention dans un METAR signalant une observation entièrement automatique, sans intervention humaine. Fiable pour les paramètres physiques (vent, pression), mais limitée pour l'analyse fine des nuages.",
+"categorie": "Météo",
+"variantes": [
+"observation automatique",
+"AUTO"
+],
+"synonymes": [],
+"xrefs": [
+"METAR",
+"SPECI"
+],
+"modifie": true,
+"raison": "suppression des balises HTML + xrefs et variantes complétées"
+},
+"BECMG": {
+"definition": "Becoming: indicateur d'évolution progressive et durable des conditions météo dans un TAF. Le changement s'opère durant la période indiquée et les nouvelles conditions restent acquises après la fin de cette fenêtre.",
+"categorie": "Météo",
+"variantes": [
+"becoming",
+"BECMG"
+],
+"synonymes": [],
+"xrefs": [
+"TAF",
+"TEMPO",
+"METAR"
+],
+"modifie": true,
+"raison": "suppression des balises HTML + xrefs et variantes complétées"
+},
+"CAVOK": {
+"definition": "Ceiling And Visibility OK: visibilité minimale de 10 km, aucun nuage sous 5000 ft ou sous l'altitude de secteur, aucun cumulonimbus ni phénomène significatif. Attention, CAVOK ne garantit pas l'absence de vent fort.",
+"categorie": "Météo",
+"variantes": [
+"Ceiling And Visibility OK",
+"CAVOK"
+],
+"synonymes": [],
+"xrefs": [
+"METAR",
+"TAF",
+"CB"
+],
+"modifie": true,
+"raison": "suppression des balises HTML + xrefs et variantes complétées"
+},
+"CB": {
+"definition": "Cumulonimbus: le seul nuage de grande extension verticale cité nommément dans les messages météo. Extrêmement dangereux, il génère turbulence sévère, givrage, grêle et foudre. À contourner impérativement en vol.",
+"categorie": "Météo",
+"variantes": [
+"cumulonimbus",
+"cumulonimbi",
+"CB"
+],
+"synonymes": [
+"cumulonimbus"
+],
+"xrefs": [
+"TCU",
+"METAR",
+"turbulence",
+"givrage"
+],
+"modifie": true,
+"raison": "suppression des balises HTML + xrefs et variantes complétées"
+},
+"CTR": {
+"definition": "Control Zone: zone de contrôle d'espace aérien contrôlé établie autour d'un aérodrome pour protéger les trajectoires d'arrivée et de départ. Sa pénétration exige un contact radio préalable et une clairance du contrôle.",
+"categorie": "Aérodrome & cartes",
+"variantes": [
+"CTR",
+"zone de contrôle"
+],
+"synonymes": [],
+"xrefs": [
+"TMA",
+"espace contrôlé",
+"clairance"
+],
+"modifie": true,
+"raison": "suppression des balises HTML + xrefs et variantes complétées"
+},
+"GO/NO GO": {
+"definition": "Décision binaire de partir ou de renoncer au vol, fondée sur des critères objectifs et prédéfinis (météo, performances de l'avion, fatigue du pilote). Choisir le NO GO est une décision de commandant de bord responsable.",
+"categorie": "Réglementation & docs",
+"variantes": [
+"GO/NO GO",
+"go/no go",
+"decision de partir"
+],
+"synonymes": [],
+"xrefs": [
+"manuel de vol",
+"commandant de bord",
+"météorologie"
+],
+"modifie": true,
+"raison": "suppression des balises HTML, condensée de 47 à 35 mots + xrefs et variantes complétées"
+},
+"GS": {
+"definition": "Ground Speed: vitesse de l'aéronef par rapport au sol, égale à la vitesse propre (TAS) corrigée du vent. Elle détermine la navigation, le temps de vol et la distance de roulement à l'atterrissage.",
+"categorie": "Vitesses & performances",
+"variantes": [
+"vitesse sol",
+"GS",
+"Ground Speed"
+],
+"synonymes": [],
+"xrefs": [
+"TAS",
+"IAS",
+"vent"
+],
+"modifie": true,
+"raison": "suppression des balises HTML + xrefs et variantes complétées"
+},
+"IAS": {
+"definition": "Indicated Air Speed: vitesse indiquée lue directement sur l'anémomètre (badin). Non corrigée des erreurs de position ou de densité, elle sert de référence constante pour le pilotage (Vs, Vx, Vy, Vfe) et la portance.",
+"categorie": "Vitesses & performances",
+"variantes": [
+"IAS",
+"vitesse indiquée",
+"KIAS",
+"kias"
+],
+"synonymes": [
+"vitesse indiquée",
+"KIAS"
+],
+"xrefs": [
+"TAS",
+"GS",
+"vitesses caractéristiques"
+],
+"modifie": true,
+"raison": "suppression des balises HTML + xrefs complétées"
+},
+"IFR": {
+"definition": "Instrument Flight Rules: règles de vol aux instruments. Régime de vol permettant d'évoluer sans référence visuelle extérieure, où la séparation avec les obstacles et les autres aéronefs est assurée par le contrôle.",
+"categorie": "Réglementation & docs",
+"variantes": [
+"Instrument Flight Rules",
+"IFR",
+"vol aux instruments"
+],
+"synonymes": [],
+"xrefs": [
+"VFR",
+"IMC",
+"VMC"
+],
+"modifie": true,
+"raison": "suppression des balises HTML + xrefs et variantes complétées"
+},
+"IMC": {
+"definition": "Instrument Meteorological Conditions: conditions météorologiques de vol aux instruments, inférieures aux minima définissant les conditions VMC. Y pénétrer sans qualification IFR et avion équipé présente un risque mortel de perte de contrôle.",
+"categorie": "Réglementation & docs",
+"variantes": [
+"Instrument Meteorological Conditions",
+"IMC"
+],
+"synonymes": [],
+"xrefs": [
+"VMC",
+"IFR",
+"VFR"
+],
+"modifie": true,
+"raison": "suppression des balises HTML + xrefs et variantes complétées"
+},
+"ISA": {
+"definition": "International Standard Atmosphere: modèle d'atmosphère théorique de référence (15 °C et 1013,25 hPa au niveau de la mer, décroissance de 2 °C par 1000 ft). Sert de base pour les calculs de performances.",
+"categorie": "Météo",
+"variantes": [
+"International Standard Atmosphere",
+"ISA",
+"atmosphère standard"
+],
+"synonymes": [],
+"xrefs": [
+"altitude-pression",
+"altitude-densité",
+"QNH"
+],
+"modifie": true,
+"raison": "suppression des balises HTML + xrefs et variantes complétées"
+},
+"LDA": {
+"definition": "Landing Distance Available: distance d'atterrissage disponible. Longueur de piste déclarée utilisable pour le roulement d'un avion à l'atterrissage. Elle débute au seuil (éventuellement décalé) et finit à l'extrémité de piste.",
+"categorie": "Aérodrome & cartes",
+"variantes": [
+"Landing Distance Available",
+"LDA"
+],
+"synonymes": [],
+"xrefs": [
+"TORA",
+"TODA",
+"ASDA",
+"seuil de piste",
+"piste"
+],
+"modifie": true,
+"raison": "suppression des balises HTML, condensée de 63 à 31 mots + variantes complétées"
+},
+"METAR": {
+"definition": "METeorological Aerodrome Report: message d'observation météorologique d'aérodrome émis toutes les 30 ou 60 minutes. Il décrit de manière codée le vent au sol, la visibilité, les phénomènes, les nuages, les températures et le calage QNH.",
+"categorie": "Météo",
+"variantes": [
+"METAR",
+"SPECI"
+],
+"synonymes": [],
+"xrefs": [
+"TAF",
+"AUTO",
+"QNH",
+"ATIS"
+],
+"modifie": true,
+"raison": "suppression des balises HTML + xrefs et variantes complétées"
+},
+"NM": {
+"definition": "Nautical Mile: unité de distance en navigation maritime et aérienne, équivalant à 1852 mètres exactement. Sa définition correspond à la longueur d'une minute d'arc de méridien terrestre. Un nœud (kt) vaut un NM par heure.",
+"categorie": "Unités",
+"variantes": [
+"NM",
+"nm",
+"mille marin",
+"milles marins",
+"nautical mile",
+"nautical miles"
+],
+"synonymes": [
+"mille marin"
+],
+"xrefs": [
+"kt",
+"vitesse",
+"navigation"
+],
+"modifie": true,
+"raison": "suppression des balises HTML + xrefs complétées"
+},
+"NOSIG": {
+"definition": "No Significant Change: mention ajoutée à la fin d'un METAR indiquant qu'aucun changement significatif des conditions météorologiques n'est prévu dans les deux heures à venir.",
+"categorie": "Météo",
+"variantes": [
+"NOSIG",
+"no significant change"
+],
+"synonymes": [],
+"xrefs": [
+"METAR",
+"TAF"
+],
+"modifie": true,
+"raison": "suppression des balises HTML + xrefs et variantes complétées"
+},
+"NOTAM": {
+"definition": "Notice to Airmen: avis officiel publié pour informer les pilotes de modifications temporaires ou permanentes d'installations, de services, de procédures ou de dangers sur leur route (zones actives, travaux de piste).",
+"categorie": "Réglementation & docs",
+"variantes": [
+"NOTAM",
+"notam",
+"Notice to Airmen",
+"Notices to Airmen"
+],
+"synonymes": [],
+"xrefs": [
+"AIP",
+"VAC",
+"préparation du vol"
+],
+"modifie": true,
+"raison": "suppression des balises HTML + xrefs et variantes complétées"
+},
+"NSW": {
+"definition": "Nil Significant Weather: abréviation utilisée dans un TAF pour annoncer la fin de tout phénomène météorologique significatif (précipitations, orages) au cours de la période de prévision.",
+"categorie": "Météo",
+"variantes": [
+"NSW",
+"nil significant weather"
+],
+"synonymes": [],
+"xrefs": [
+"TAF",
+"METAR"
+],
+"modifie": true,
+"raison": "suppression des balises HTML + xrefs et variantes complétées"
+},
+"POH": {
+"definition": "Manuel de vol de l'aéronef: document officiel propre à l'exemplaire immatriculé. Il rassemble les limitations (masses, vitesses de référence), les procédures normales et d'urgence, et les tables de performances nécessaires au vol.",
+"categorie": "Réglementation & docs",
+"variantes": [
+"manuel de vol",
+"Pilot's Operating Handbook",
+"manuel de vol"
+],
+"synonymes": [
+"manuel de vol"
+],
+"xrefs": [
+"vitesse de référence",
+"masse et centrage"
+],
+"modifie": true,
+"raison": "vocabulaire imposé corrigé (manuel de vol -> manuel de vol), suppression des balises HTML + xrefs et variantes complétées"
+},
+"PROB30": {
+"definition": "Probability 30 %: abréviation de TAF indiquant une probabilité de 30 % d'apparition de phénomènes météo particuliers. Bien que faible, cette probabilité impose au pilote de prévoir des solutions de déroutement.",
+"categorie": "Météo",
+"variantes": [
+"PROB30",
+"prob30"
+],
+"synonymes": [],
+"xrefs": [
+"TAF",
+"PROB40",
+"TEMPO",
+"BECMG"
+],
+"modifie": true,
+"raison": "suppression des balises HTML + xrefs et variantes complétées"
+},
+"PROB40": {
+"definition": "Probability 40 %: abréviation de TAF indiquant une probabilité de 40 % de survenue d'un phénomène météo. Cette valeur élevée conduit généralement à intégrer pleinement ce risque dans la décision de départ.",
+"categorie": "Météo",
+"variantes": [
+"PROB40",
+"prob40"
+],
+"synonymes": [],
+"xrefs": [
+"TAF",
+"PROB30",
+"GO/NO GO"
+],
+"modifie": true,
+"raison": "suppression des balises HTML + xrefs et variantes complétées"
+},
+"QFE": {
+"definition": "Calage altimétrique représentant la pression atmosphérique mesurée au niveau de référence de l'aérodrome. Calé au QFE, l'altimètre indique une hauteur (0 ft au sol). Principalement utilisé pour le vol de voltige.",
+"categorie": "Altimétrie",
+"variantes": [
+"QFE",
+"calage QFE"
+],
+"synonymes": [],
+"xrefs": [
+"QNH",
+"hauteur",
+"altimètre",
+"QNE"
+],
+"modifie": true,
+"raison": "suppression des balises HTML + xrefs et variantes complétées"
+},
+"QFU": {
+"definition": "Orientation magnétique de l'axe de la piste, exprimée en dizaines de degrés. Par exemple, la piste 25 possède un QFU de 250°. Indispensable pour calculer la composante de vent de face et de vent traversier.",
+"categorie": "Aérodrome & cartes",
+"variantes": [
+"QFU",
+"direction de piste",
+"piste en service"
+],
+"synonymes": [],
+"xrefs": [
+"vent traversier",
+"piste",
+"alignement"
+],
+"modifie": true,
+"raison": "suppression des balises HTML + xrefs et variantes complétées"
+},
+"QNE": {
+"definition": "Altitude-pression indiquée par un altimètre calé sur la pression standard internationale de 1013,25 hPa. Utilisé pour naviguer sous forme de niveaux de vol (FL) au-dessus de l'altitude de transition.",
+"categorie": "Altimétrie",
+"variantes": [
+"QNE",
+"calage standard",
+"1013"
+],
+"synonymes": [],
+"xrefs": [
+"QNH",
+"altitude-pression",
+"niveau de vol",
+"altitude de transition"
+],
+"modifie": true,
+"raison": "suppression des balises HTML + xrefs et variantes complétées"
+},
+"QNH": {
+"definition": "Pression atmosphérique mesurée à la station et ramenée au niveau de la mer en atmosphère standard. Calé au QNH, l'altimètre indique l'altitude (AMSL). Au sol, il doit afficher l'altitude exacte de l'aérodrome.",
+"categorie": "Altimétrie",
+"variantes": [
+"QNH",
+"calage QNH"
+],
+"synonymes": [],
+"xrefs": [
+"AMSL",
+"altitude",
+"QFE",
+"QNE"
+],
+"modifie": true,
+"raison": "suppression des balises HTML + xrefs et variantes complétées"
+},
+"RMK": {
+"definition": "Remark: section optionnelle en fin de METAR ou TAF permettant de transmettre des remarques complémentaires non codées (ex. RMK WIND SHEAR). Elle contient des informations opérationnelles locales d'importance.",
+"categorie": "Météo",
+"variantes": [
+"RMK",
+"remark",
+"remarque"
+],
+"synonymes": [],
+"xrefs": [
+"METAR",
+"TAF"
+],
+"modifie": true,
+"raison": "suppression des balises HTML + xrefs et variantes complétées"
+},
+"SPECI": {
+"definition": "Special report: message d'observation météorologique spéciale émis hors des heures régulières en cas d'évolution brutale ou importante des conditions météo (dépassement de seuils de vent, visibilité ou orages).",
+"categorie": "Météo",
+"variantes": [
+"SPECI",
+"speci"
+],
+"synonymes": [],
+"xrefs": [
+"METAR",
+"TAF",
+"ATIS"
+],
+"modifie": true,
+"raison": "suppression des balises HTML + xrefs et variantes complétées"
+},
+"TAF": {
+"definition": "Terminal Aerodrome Forecast: message de prévision météorologique d'aérodrome, valable de 9 à 30 heures. Il emploie le même code que le METAR mais y intègre des indicateurs d'évolution (BECMG, TEMPO, PROB).",
+"categorie": "Météo",
+"variantes": [
+"TAF",
+"TAF AMD",
+"prévision d'aérodrome"
+],
+"synonymes": [],
+"xrefs": [
+"METAR",
+"BECMG",
+"TEMPO",
+"PROB30"
+],
+"modifie": true,
+"raison": "suppression des balises HTML + xrefs et variantes complétées"
+},
+"TAS": {
+"definition": "True Air Speed: vitesse propre de l'aéronef dans la masse d'air. Elle correspond à la vitesse indiquée (IAS) corrigée de l'altitude et de la température. Elle augmente d'environ 2 % par 1000 ft d'altitude.",
+"categorie": "Vitesses & performances",
+"variantes": [
+"TAS",
+"vitesse propre",
+"True Air Speed"
+],
+"synonymes": [],
+"xrefs": [
+"IAS",
+"GS",
+"altitude-densité"
+],
+"modifie": true,
+"raison": "suppression des balises HTML + xrefs et variantes complétées"
+},
+"TCU": {
+"definition": "Towering Cumulus: cumulus à fort développement vertical (congestus), précurseur du cumulonimbus. Il s'accompagne d'une forte turbulence et d'averses, et doit être évité par le pilote privé.",
+"categorie": "Météo",
+"variantes": [
+"TCU",
+"towering cumulus",
+"cumulus congestus"
+],
+"synonymes": [],
+"xrefs": [
+"CB",
+"METAR",
+"turbulence"
+],
+"modifie": true,
+"raison": "suppression des balises HTML + xrefs et variantes complétées"
+},
+"TEMPO": {
+"definition": "Temporary: indicateur de TAF décrivant des fluctuations temporaires des conditions météorologiques de moins d'une heure à chaque fois, et ne dépassant pas la moitié de la période de validité.",
+"categorie": "Météo",
+"variantes": [
+"TEMPO",
+"tempo",
+"fluctuations temporaires"
+],
+"synonymes": [],
+"xrefs": [
+"TAF",
+"BECMG",
+"PROB30"
+],
+"modifie": true,
+"raison": "suppression des balises HTML + xrefs et variantes complétées"
+},
+"TMA": {
+"definition": "Terminal Control Area: région de contrôle terminale. Espace aérien contrôlé établi au-dessus d'une ou plusieurs CTR d'aérodromes à forte activité. Sa pénétration exige le respect de clairances et de contacts radio.",
+"categorie": "Aérodrome & cartes",
+"variantes": [
+"TMA",
+"Terminal Control Area",
+"région de contrôle terminale"
+],
+"synonymes": [],
+"xrefs": [
+"CTR",
+"espace contrôlé",
+"clairance"
+],
+"modifie": true,
+"raison": "suppression des balises HTML + xrefs et variantes complétées"
+},
+"TODA": {
+"definition": "Take-Off Distance Available: distance de décollage disponible. Longueur de la piste de décollage utilisable (TORA) augmentée du prolongement dégagé s'il existe. Distance clé pour franchir des obstacles.",
+"categorie": "Aérodrome & cartes",
+"variantes": [
+"Take-Off Distance Available",
+"TODA"
+],
+"synonymes": [],
+"xrefs": [
+"TORA",
+"ASDA",
+"LDA",
+"piste"
+],
+"modifie": true,
+"raison": "suppression des balises HTML, condensée de 66 à 29 mots + variantes complétées"
+},
+"TORA": {
+"definition": "Take-Off Run Available: distance de roulement disponible au décollage. Longueur déclarée de piste utilisable pour le roulement au sol d'un avion décollant. Elle est comparée à la distance requise dans le manuel de vol.",
+"categorie": "Aérodrome & cartes",
+"variantes": [
+"Take-Off Run Available",
+"TORA"
+],
+"synonymes": [],
+"xrefs": [
+"TODA",
+"ASDA",
+"LDA",
+"piste"
+],
+"modifie": true,
+"raison": "suppression des balises HTML, condensée de 68 à 31 mots + variantes complétées"
+},
+"VA": {
+"definition": "Vitesse de manœuvre. Vitesse maximale à laquelle on peut appliquer un débattement gouverne complet sans endommager la cellule. Vitesse cible en turbulence, elle diminue quand la masse de l'appareil décroit.",
+"categorie": "Vitesses & performances",
+"variantes": [
+"Va",
+"va",
+"V A",
+"V_A",
+"V-A",
+"vitesse de manœuvre",
+"vitesse de manoeuvre"
+],
+"synonymes": [
+"vitesse de manœuvre"
+],
+"xrefs": [
+"VNO",
+"VNE",
+"vitesses caractéristiques"
+],
+"modifie": true,
+"raison": "suppression des balises HTML, condensée de 56 à 37 mots | corrige: manuel de vol/valeurs avion-specifiques retirees"
+},
+"VAC": {
+"definition": "Visual Approach Chart: carte d'approche et d'atterrissage à vue d'un aérodrome. Elle indique les circuits de piste, les points de report, les fréquences radio et les consignes locales indispensables.",
+"categorie": "Aérodrome & cartes",
+"variantes": [
+"carte VAC",
+"VAC",
+"Visual Approach Chart"
+],
+"synonymes": [],
+"xrefs": [
+"circuit d'aérodrome",
+"AIP",
+"point de report"
+],
+"modifie": true,
+"raison": "suppression des balises HTML + xrefs et variantes complétées"
+},
+"VFE": {
+"definition": "Velocity Flaps Extended: vitesse maximale autorisée avec les volets sortis. La dépasser risque d'endommager la structure.",
+"categorie": "Vitesses & performances",
+"variantes": [
+"Vfe",
+"vfe",
+"V FE",
+"V_FE",
+"V-FE"
+],
+"synonymes": [],
+"xrefs": [
+"VS0",
+"vitesses caractéristiques"
+],
+"modifie": true,
+"raison": "suppression des balises HTML | corrige: manuel de vol/valeurs avion-specifiques retirees"
+},
+"VFR": {
+"definition": "Visual Flight Rules: règles de vol à vue. Régime de vol basé sur le principe voir et éviter. Il exige le maintien permanent de références visuelles extérieures et le respect des minima de visibilité VMC.",
+"categorie": "Réglementation & docs",
+"variantes": [
+"Visual Flight Rules",
+"VFR",
+"vol à vue"
+],
+"synonymes": [],
+"xrefs": [
+"VMC",
+"IFR",
+"IMC"
+],
+"modifie": true,
+"raison": "suppression des balises HTML + xrefs et variantes complétées"
+},
+"VMC": {
+"definition": "Visual Meteorological Conditions: conditions météorologiques de vol à vue. Minima réglementaires de visibilité et d'espacement par rapport aux nuages nécessaires pour voler selon les règles de vol VFR.",
+"categorie": "Réglementation & docs",
+"variantes": [
+"Visual Meteorological Conditions",
+"VMC"
+],
+"synonymes": [],
+"xrefs": [
+"VFR",
+"IMC",
+"IFR"
+],
+"modifie": true,
+"raison": "suppression des balises HTML + xrefs et variantes complétées"
+},
+"VNE": {
+"definition": "Velocity Never Exceed: vitesse à ne jamais dépasser sous peine de dommages structuraux majeurs, repérée par le trait rouge de l'anémomètre. Attention à ne pas s'en approcher en descente.",
+"categorie": "Vitesses & performances",
+"variantes": [
+"Vne",
+"vne",
+"V NE",
+"V_NE",
+"V-NE"
+],
+"synonymes": [],
+"xrefs": [
+"VNO",
+"VA",
+"vitesses caractéristiques"
+],
+"modifie": true,
+"raison": "suppression des balises HTML | corrige: manuel de vol/valeurs avion-specifiques retirees"
+},
+"VNO": {
+"definition": "Maximum Structural Cruising Speed: vitesse maximale d'utilisation normale. Au-delà et jusqu'à la VNE (arc jaune), on ne doit voler qu'en air calme.",
+"categorie": "Vitesses & performances",
+"variantes": [
+"Vno",
+"vno",
+"V NO",
+"V_NO",
+"V-NO"
+],
+"synonymes": [],
+"xrefs": [
+"VNE",
+"VA",
+"vitesses caractéristiques"
+],
+"modifie": true,
+"raison": "suppression des balises HTML | corrige: manuel de vol/valeurs avion-specifiques retirees"
+},
+"VS0": {
+"definition": "Stall Speed in Landing Configuration: vitesse de décrochage en configuration d'atterrissage, volets et train sortis. Sert à calculer la vitesse de référence d'approche.",
+"categorie": "Vitesses & performances",
+"variantes": [
+"Vs0",
+"vs0",
+"V S0",
+"VS₀",
+"V-S0",
+"vso"
+],
+"synonymes": [],
+"xrefs": [
+"VS1",
+"VFE",
+"décrochage",
+"vitesse de décrochage",
+"vitesses caractéristiques"
+],
+"modifie": true,
+"raison": "suppression des balises HTML | corrige: manuel de vol/valeurs avion-specifiques retirees"
+},
+"VS1": {
+"definition": "Stall Speed in Clean Configuration: vitesse de décrochage en configuration lisse, volets rentrés. Elle augmente avec l'inclinaison en virage et la masse.",
+"categorie": "Vitesses & performances",
+"variantes": [
+"Vs1",
+"vs1",
+"V S1",
+"VS₁",
+"V-S1"
+],
+"synonymes": [],
+"xrefs": [
+"VS0",
+"décrochage",
+"vitesse de décrochage",
+"vitesses caractéristiques"
+],
+"modifie": true,
+"raison": "suppression des balises HTML | corrige: manuel de vol/valeurs avion-specifiques retirees"
+},
+"Vref": {
+"definition": "Vitesse de référence à l'atterrissage en finale (généralement égale à 1,3 fois la vitesse de décrochage VS0). Elle est augmentée d'une marge de sécurité ou d'une majoration pour vent en présence de rafales.",
+"categorie": "Vitesses & performances",
+"variantes": [
+"Vref",
+"V-ref",
+"vitesse de référence"
+],
+"synonymes": [],
+"xrefs": [
+"VS0",
+"finale",
+"arrondi",
+"vent traversier"
+],
+"modifie": true,
+"raison": "xrefs et variantes complétées"
+},
+"Vx": {
+"definition": "Vitesse du meilleur angle de montée: permet d'obtenir le plus grand gain d'altitude sur la distance horizontale la plus courte. Utilisée pour le franchissement d'obstacles au décollage.",
+"categorie": "Vitesses & performances",
+"variantes": [
+"VX",
+"vx",
+"V X",
+"meilleur angle de montée"
+],
+"synonymes": [],
+"xrefs": [
+"Vy",
+"vitesses caractéristiques"
+],
+"modifie": true,
+"raison": "suppression des balises HTML | corrige: manuel de vol/valeurs avion-specifiques retirees"
+},
+"Vy": {
+"definition": "Vitesse du meilleur taux de montée: permet d'atteindre une altitude donnée en un minimum de temps. C'est la vitesse recommandée pour la montée normale après envol.",
+"categorie": "Vitesses & performances",
+"variantes": [
+"VY",
+"vy",
+"V Y",
+"meilleur taux de montée"
+],
+"synonymes": [],
+"xrefs": [
+"Vx",
+"vitesses caractéristiques"
+],
+"modifie": true,
+"raison": "suppression des balises HTML | corrige: manuel de vol/valeurs avion-specifiques retirees"
+},
+"alignement": {
+"definition": "Action de placer l'aéronef sur l'axe de piste, prêt au décollage. C'est la phase ultime de vérification que l'axe et l'approche finale sont libres, que le QFU est correct et que les instruments de cap concordent.",
+"categorie": "Aérodrome & cartes",
+"variantes": [
+"alignements",
+"s'aligner",
+"aligné",
+"alignement piste"
+],
+"synonymes": [],
+"xrefs": [
+"QFU",
+"décollage",
+"finale",
+"seuil de piste"
+],
+"modifie": true,
+"raison": "condensée de 66 à 35 mots"
+},
+"altitude de transition": {
+"definition": "Altitude lors de la montée à partir de laquelle le calage de l'altimètre passe de la pression locale QNH au calage standard 1013,25 hPa. En France, elle est de 5000 ft AMSL ou 3000 ft AAL sauf cas spécifiques.",
+"categorie": "Altimétrie",
+"variantes": [
+"altitude de transition",
+"altitudes de transition",
+"TA"
+],
+"synonymes": [],
+"xrefs": [
+"niveau de vol",
+"QNH",
+"QNE",
+"altitude-pression"
+],
+"modifie": true,
+"raison": "xrefs et variantes complétées"
+},
+"altitude-densité": {
+"definition": "Altitude-pression corrigée des variations de température par rapport à l'atmosphère standard. Elle mesure la densité réelle de l'air: un air chaud augmente l'altitude-densité, dégradant la portance et la traction.",
+"categorie": "Altimétrie",
+"variantes": [
+"altitude-densité",
+"altitude densité",
+"density altitude"
+],
+"synonymes": [],
+"xrefs": [
+"altitude-pression",
+"ISA",
+"portance"
+],
+"modifie": true,
+"raison": "xrefs et variantes complétées"
+},
+"altitude-pression": {
+"definition": "Altitude indiquée lorsque l'altimètre est réglé sur le calage standard 1013,25 hPa. Utilisée comme niveau de référence commun en croisière (niveaux de vol) et pour initier le calcul des performances via le manuel de vol.",
+"categorie": "Altimétrie",
+"variantes": [
+"altitude pression",
+"altitudes-pression",
+"pressure altitude"
+],
+"synonymes": [],
+"xrefs": [
+"niveau de vol",
+"altitude-densité",
+"calage standard"
+],
+"modifie": true,
+"raison": "variantes complétées"
+},
+"anticyclone": {
+"definition": "Zone de hautes pressions atmosphériques supérieure à 1013 hPa, caractérisée par un air descendant (subsidence). Il génère des vents faibles, un temps généralement stable mais propice aux brumes matinales et à la chaleur estivale.",
+"categorie": "Météo",
+"variantes": [
+"anticyclone",
+"anticyclones",
+"haute pression"
+],
+"synonymes": [],
+"xrefs": [
+"dépression",
+"brume",
+"altitude-densité"
+],
+"modifie": true,
+"raison": "xrefs et variantes complétées"
+},
+"approche stabilisée": {
+"definition": "Approche finale où l'avion est stabilisé, avant une hauteur minimale définie, sur l'axe de piste, le plan de descente, à la bonne vitesse et configuré pour l'atterrissage. Un écart impose une remise des gaz immédiate.",
+"categorie": "Aérodrome & cartes",
+"variantes": [
+"approche non stabilisée",
+"stabilisée"
+],
+"synonymes": [],
+"xrefs": [
+"remise des gaz",
+"finale"
+],
+"modifie": true,
+"raison": "suppression des balises HTML"
+},
+"arrondi": {
+"definition": "Manœuvre de transition entre la finale et le toucher des roues. Consiste à cabrer progressivement l'appareil tout en réduisant complètement les gaz, afin de réduire le taux de descente et se poser sur le train principal.",
+"categorie": "Aérodrome & cartes",
+"variantes": [
+"arrondis",
+"arrondir",
+"flare"
+],
+"synonymes": [
+"flare"
+],
+"xrefs": [
+"courte finale",
+"roulement",
+"décrabage",
+"remise des gaz"
+],
+"modifie": true,
+"raison": "condensée de 69 à 34 mots"
+},
+"azimut": {
+"definition": "Angle horizontal mesuré en degrés de 000° à 360° depuis le nord dans le sens horaire. Par exemple, 270° correspond à l'ouest. C'est la grandeur de base pour définir les caps, routes et relèvements.",
+"categorie": "Navigation",
+"variantes": [
+"azimuts",
+"azimutal"
+],
+"synonymes": [],
+"xrefs": [
+"cap",
+"route",
+"QFU",
+"vent"
+],
+"modifie": true,
+"raison": "xrefs complétées"
+},
+"bande": {
+"definition": "Surface rectangulaire dégagée entourant la piste. Elle est aménagée pour réduire les risques de dommages corporels et matériels en cas de sortie accidentelle de piste au décollage ou à l'atterrissage.",
+"categorie": "Aérodrome & cartes",
+"variantes": [
+"bande de piste",
+"bandes"
+],
+"synonymes": [],
+"xrefs": [
+"piste",
+"seuil de piste",
+"alignement"
+],
+"modifie": true,
+"raison": "xrefs complétées"
+},
+"brouillard": {
+"definition": "Suspension de très petites gouttelettes d'eau réduisant la visibilité horizontale au sol à moins de 1000 mètres. Phénomène météo hautement critique bloquant l'accès au terrain pour tout vol en régime VFR.",
+"categorie": "Météo",
+"variantes": [
+"brouillard",
+"brouillards",
+"fog"
+],
+"synonymes": [],
+"xrefs": [
+"brume",
+"VFR",
+"VMC",
+"METAR"
+],
+"modifie": true,
+"raison": "suppression des balises HTML + xrefs et variantes complétées"
+},
+"brume": {
+"definition": "Suspension de fines gouttelettes réduisant la visibilité horizontale au sol entre 1000 et 5000 mètres. Souvent matinale, elle s'estompe avec le réchauffement diurne mais peut retarder un départ en vol VFR.",
+"categorie": "Météo",
+"variantes": [
+"brume",
+"brumes",
+"mist"
+],
+"synonymes": [],
+"xrefs": [
+"brouillard",
+"VFR",
+"METAR"
+],
+"modifie": true,
+"raison": "xrefs et variantes complétées"
+}
+}
+}

@@ -1,0 +1,858 @@
+{
+ "lot": 1,
+ "termes": {
+  "Vapp": {
+   "definition": "Vitesse d'approche finale recommandée, calculée en ajoutant des corrections de vent à la vitesse de référence de calcul. Elle garantit les marges de sécurité face au décrochage et aux rafales lors de la finale.",
+   "categorie": "Vitesses & performances",
+   "famille": "vitesses_caracteristiques",
+   "membres_famille": [
+    "Vapp"
+   ],
+   "a_verifier": false
+  },
+  "abaque": {
+   "definition": "Graphique ou tableau à double entrée permettant de déterminer sans calcul une performance, comme la distance de décollage ou de montée. C'est l'outil indispensable du dossier de vol avant de partir.",
+   "categorie": "Vitesses & performances",
+   "famille": null,
+   "membres_famille": [],
+   "a_verifier": false
+  },
+  "abaque de centrage": {
+   "definition": "Représentation graphique permettant de vérifier que le centre de gravité de l'aéronef reste dans les limites avant du constructeur pour toute la durée du vol. Sa lecture est obligatoire lors de la préparation du vol.",
+   "categorie": "Masse & centrage",
+   "famille": null,
+   "membres_famille": [],
+   "a_verifier": false
+  },
+  "action vitale": {
+   "definition": "Procédure d'urgence ou de sécurité critique devant être apprise par cœur par le pilote pour être exécutée sans délai ni consultation de check-list. Une panne moteur après décollage exige une action vitale immédiate.",
+   "categorie": "Procédures",
+   "famille": null,
+   "membres_famille": [],
+   "a_verifier": false
+  },
+  "adf": {
+   "definition": "<em>Automatic Direction Finder</em> : récepteur radio de bord affichant le gisement d'une balise au sol NDB. C'est un instrument d'ancienne génération, mais encore utile pour l'identification ou en secours.",
+   "categorie": "Navigation",
+   "famille": "instruments",
+   "membres_famille": [
+    "altimètre",
+    "anémomètre",
+    "asi",
+    "badin",
+    "bille",
+    "adf"
+   ],
+   "a_verifier": false
+  },
+  "advection": {
+   "definition": "Transport horizontal d'une masse d'air chaud ou froid sous l'effet du vent. L'advection d'air doux et humide sur un sol froid engendre fréquemment des brouillards tenaces.",
+   "categorie": "Météo",
+   "famille": null,
+   "membres_famille": [],
+   "a_verifier": false
+  },
+  "aerocolique": {
+   "definition": "Douleur intestinale aiguë provoquée par la dilatation des gaz digestifs lors de la montée en altitude. C'est un trouble physiologique qui peut rapidement altérer la capacité de décision du pilote.",
+   "categorie": "Sécurité & facteurs humains",
+   "famille": null,
+   "membres_famille": [],
+   "a_verifier": false
+  },
+  "aerofrein": {
+   "definition": "Dispositif mobile augmentant la traînée aérodynamique de l'aéronef sans modifier la portance. Principalement utilisé sur planeur pour accentuer la pente de descente sans prendre de vitesse.",
+   "categorie": "Aérodynamique",
+   "famille": "gouvernes",
+   "membres_famille": [
+    "aileron au vent",
+    "becs",
+    "aerofrein"
+   ],
+   "a_verifier": false
+  },
+  "afis": {
+   "definition": "<em>Aerodrome Flight Information Service</em> : organisme fournissant des services d'information de vol et d'alerte sur un aérodrome non contrôlé. L'agent AFIS ne donne jamais d'autorisation mais fournit des paramètres précieux.",
+   "categorie": "Aérodrome & cartes",
+   "famille": null,
+   "membres_famille": [],
+   "a_verifier": false
+  },
+  "agl": {
+   "definition": "<em>Above Ground Level</em> : au-dessus du niveau du sol. Cette référence verticale indique une hauteur réelle par rapport à la surface terrestre survolée, souvent lue sur un radioaltimètre.",
+   "categorie": "Altimétrie",
+   "famille": "references_verticales",
+   "membres_famille": [
+    "agl",
+    "alt"
+   ],
+   "a_verifier": false
+  },
+  "aile": {
+   "definition": "Voilure principale de l'aéronef destinée à générer la portance nécessaire au vol. Son profil aérodynamique crée une dépression sur l'extrados et une surpression sur l'intrados.",
+   "categorie": "Structure & cellule",
+   "famille": null,
+   "membres_famille": [],
+   "a_verifier": false
+  },
+  "aileron au vent": {
+   "definition": "Action de braquer l'aileron du côté d'où souffle le vent lors du roulage ou de l'atterrissage par vent de travers. Cela évite le soulèvement de l'aile et maintient la trajectoire au sol.",
+   "categorie": "Procédures",
+   "famille": "gouvernes",
+   "membres_famille": [
+    "aileron au vent",
+    "becs",
+    "aerofrein"
+   ],
+   "a_verifier": false
+  },
+  "ailes à plat": {
+   "definition": "Position horizontale de la voilure par rapport à l'horizon, caractérisant une absence d'inclinaison. C'est l'attitude recherchée lors du vol rectiligne en palier ou immédiatement avant de toucher des roues.",
+   "categorie": "Procédures",
+   "famille": null,
+   "membres_famille": [],
+   "a_verifier": false
+  },
+  "alcool": {
+   "definition": "Substance psychotrope strictement réglementée en aéronautique, dont le taux sanguin maximal autorisé est extrêmement bas pour le pilote. Il altère les réflexes, la vision et détruit la conscience du risque.",
+   "categorie": "Sécurité & facteurs humains",
+   "famille": null,
+   "membres_famille": [],
+   "a_verifier": false
+  },
+  "allumage": {
+   "definition": "Système assurant la combustion du mélange air-carburant dans les cylindres du moteur, généralement doublé par deux magnétos indépendantes. La vérification de l'allumage est une étape clé des essais moteurs.",
+   "categorie": "Moteur & hélice",
+   "famille": null,
+   "membres_famille": [],
+   "a_verifier": false
+  },
+  "alphabet aviation": {
+   "definition": "Alphabet phonétique international de l'OACI (Alpha, Bravo, Charlie...) utilisé à la radio pour épeler les immatriculations ou messages ambigus. Il garantit une compréhension parfaite malgré le bruit ambiant.",
+   "categorie": "Radio & phraséologie",
+   "famille": null,
+   "membres_famille": [],
+   "a_verifier": false
+  },
+  "alt": {
+   "definition": "Terme radio ou abréviation pour « altitude » ou commande du transpondeur transmettant l'altitude de l'aéronef au contrôle radar. En mode ALT, le transpondeur envoie le code barométrique QNE.",
+   "categorie": "Radio & phraséologie",
+   "famille": "references_verticales",
+   "membres_famille": [
+    "agl",
+    "alt"
+   ],
+   "a_verifier": false
+  },
+  "alternateur": {
+   "definition": "Équipement entraîné par le moteur produisant l'électricité nécessaire au réseau de bord et rechargeant la batterie. Une panne d'alternateur impose de couper les équipements non vitaux pour économiser l'énergie.",
+   "categorie": "Moteur & hélice",
+   "famille": null,
+   "membres_famille": [],
+   "a_verifier": false
+  },
+  "altimètre": {
+   "definition": "Instrument de bord mesurant la pression atmosphérique statique pour afficher l'altitude ou la hauteur de l'aéronef selon le calage choisi. Un réglage précis du cadran de calage est crucial.",
+   "categorie": "Instruments",
+   "famille": "instruments",
+   "membres_famille": [
+    "altimètre",
+    "anémomètre",
+    "asi",
+    "badin",
+    "bille",
+    "adf"
+   ],
+   "a_verifier": false
+  },
+  "altimétrie": {
+   "definition": "Science et technique de la mesure des altitudes en vol. Elle repose sur la corrélation entre la baisse de pression atmosphérique et l'élévation de l'aéronef dans l'atmosphère.",
+   "categorie": "Altimétrie",
+   "famille": null,
+   "membres_famille": [],
+   "a_verifier": false
+  },
+  "altitude de croisière": {
+   "definition": "Altitude constante choisie pour effectuer la majeure partie du voyage en voyage. Elle doit respecter la règle semi-circulaire pour limiter les risques de collision avec d'autres aéronefs.",
+   "categorie": "Navigation",
+   "famille": "altitudes",
+   "membres_famille": [
+    "altitude de croisière",
+    "altitude de sécurité",
+    "altitude densité",
+    "altitude minimale",
+    "altitude tour de piste"
+   ],
+   "a_verifier": false
+  },
+  "altitude de sécurité": {
+   "definition": "Altitude minimale garantissant un franchissement d'obstacles sûr lors d'un vol sur un segment donné. Elle est calculée en ajoutant une marge de sécurité, souvent 1000 ft, au point le plus haut.",
+   "categorie": "Navigation",
+   "famille": "altitudes",
+   "membres_famille": [
+    "altitude de croisière",
+    "altitude de sécurité",
+    "altitude densité",
+    "altitude minimale",
+    "altitude tour de piste"
+   ],
+   "a_verifier": false
+  },
+  "altitude densité": {
+   "definition": "Altitude-pression corrigée des écarts de température par rapport à l'atmosphère standard. Une température élevée augmente l'altitude densité, ce qui dégrade fortement la portance et les performances de décollage.",
+   "categorie": "Vitesses & performances",
+   "famille": "altitudes",
+   "membres_famille": [
+    "altitude de croisière",
+    "altitude de sécurité",
+    "altitude densité",
+    "altitude minimale",
+    "altitude tour de piste"
+   ],
+   "a_verifier": false
+  },
+  "altitude minimale": {
+   "definition": "Altitude la plus basse autorisée pour le survol d'une zone ou d'une agglomération selon les règles de l'air. Sauf nécessité, elle doit permettre un atterrissage d'urgence en toute sécurité.",
+   "categorie": "Réglementation & docs",
+   "famille": "altitudes",
+   "membres_famille": [
+    "altitude de croisière",
+    "altitude de sécurité",
+    "altitude densité",
+    "altitude minimale",
+    "altitude tour de piste"
+   ],
+   "a_verifier": false
+  },
+  "altitude tour de piste": {
+   "definition": "Altitude réglementaire spécifiée sur la carte d'approche pour effectuer le circuit de piste. Elle est généralement fixée à 1000 ft au-dessus du sol pour les avions légers en VFR.",
+   "categorie": "Aérodrome & cartes",
+   "famille": "altitudes",
+   "membres_famille": [
+    "altitude de croisière",
+    "altitude de sécurité",
+    "altitude densité",
+    "altitude minimale",
+    "altitude tour de piste"
+   ],
+   "a_verifier": false
+  },
+  "altocumulus": {
+   "definition": "Nuage de l'étage moyen se présentant sous forme de bancs ou de galets blancs et gris. Sa présence peut annoncer l'arrivée d'un front ou d'une instabilité orageuse en fin de journée.",
+   "categorie": "Météo",
+   "famille": "nuages",
+   "membres_famille": [
+    "altocumulus",
+    "altostratus",
+    "base des nuages"
+   ],
+   "a_verifier": false
+  },
+  "altostratus": {
+   "definition": "Nuage de l'étage moyen formant une nappe grisâtre ou bleuâtre couvrant totalement ou partiellement le ciel. Il est assez épais pour laisser voir le soleil seulement par transparence, sans jeter d'ombre.",
+   "categorie": "Météo",
+   "famille": "nuages",
+   "membres_famille": [
+    "altocumulus",
+    "altostratus",
+    "base des nuages"
+   ],
+   "a_verifier": false
+  },
+  "amers": {
+   "definition": "Points de repère remarquables au sol (clocher, pont, intersection d'autoroutes) identifiables sur la carte et servant à la navigation à vue. Le choix d'amers contrastés facilite le suivi du cheminement.",
+   "categorie": "Navigation",
+   "famille": null,
+   "membres_famille": [],
+   "a_verifier": false
+  },
+  "angle d'attaque": {
+   "definition": "Angle formé entre la corde de profil de l'aile et la direction du vent relatif. Un angle d'attaque trop élevé provoque le décrochage brutal de l'aéronef, quelle que soit sa vitesse.",
+   "categorie": "Aérodynamique",
+   "famille": null,
+   "membres_famille": [],
+   "a_verifier": false
+  },
+  "angle de dérive": {
+   "definition": "Angle formé entre le cap de l'aéronef (orientation du nez) et sa route réelle au sol. Cette différence est causée par le vent de travers et doit être compensée en vol.",
+   "categorie": "Vent",
+   "famille": null,
+   "membres_famille": [],
+   "a_verifier": false
+  },
+  "anémomètre": {
+   "definition": "Instrument de bord mesurant la vitesse de l'aéronef par rapport à l'air en comparant la pression dynamique et la pression statique. C'est l'un des instruments de pilotage les plus importants.",
+   "categorie": "Instruments",
+   "famille": "instruments",
+   "membres_famille": [
+    "altimètre",
+    "anémomètre",
+    "asi",
+    "badin",
+    "bille",
+    "adf"
+   ],
+   "a_verifier": false
+  },
+  "approche finale": {
+   "definition": "Dernière étape du circuit de piste où l'aéronef est aligné avec l'axe de la piste pour descendre vers le point de toucher des roues. La vitesse et la trajectoire y sont stabilisées.",
+   "categorie": "Procédures",
+   "famille": null,
+   "membres_famille": [],
+   "a_verifier": false
+  },
+  "approche interrompue": {
+   "definition": "Procédure consistant à interrompre l'atterrissage pour remettre les gaz et reprendre de la hauteur. Décidée en cas de mauvaise approche, de rafales ou de piste encombrée, c'est une manœuvre de sécurité.",
+   "categorie": "Procédures",
+   "famille": null,
+   "membres_famille": [],
+   "a_verifier": false
+  },
+  "aquila": {
+   "definition": "Constructeur européen d'avions légers de formation, notamment célèbre pour le modèle biplace Aquila AT01. Cet appareil moderne en composite est couramment utilisé dans les aéroclubs français.",
+   "categorie": "Aérodrome & cartes",
+   "famille": null,
+   "membres_famille": [],
+   "a_verifier": false
+  },
+  "arc blanc": {
+   "definition": "Plage d'utilisation normale des volets sur le cadran de l'anémomètre. La borne inférieure correspond à la vitesse de décrochage configuration atterrissage, et la borne supérieure à la vitesse maximale volets sortis.",
+   "categorie": "Instruments",
+   "famille": "arcs",
+   "membres_famille": [
+    "arc blanc",
+    "arc dme",
+    "arc jaune",
+    "arc vert"
+   ],
+   "a_verifier": false
+  },
+  "arc dme": {
+   "definition": "Trajectoire de vol circulaire maintenue à distance constante d'une station DME au sol. Couramment utilisée en vol de transition, cette manœuvre exige de suivre les indications de distance du récepteur.",
+   "categorie": "Navigation",
+   "famille": "arcs",
+   "membres_famille": [
+    "arc blanc",
+    "arc dme",
+    "arc jaune",
+    "arc vert"
+   ],
+   "a_verifier": false
+  },
+  "arc jaune": {
+   "definition": "Plage de vitesse de précaution sur le cadran de l'anémomètre, située au-dessus de la vitesse maximale en air turbulent. Le pilote ne doit y évoluer qu'en air parfaitement calme et sans brusquer les commandes.",
+   "categorie": "Instruments",
+   "famille": "arcs",
+   "membres_famille": [
+    "arc blanc",
+    "arc dme",
+    "arc jaune",
+    "arc vert"
+   ],
+   "a_verifier": false
+  },
+  "arc vert": {
+   "definition": "Plage de fonctionnement normal de l'aéronef sur le cadran de l'anémomètre. Sa limite inférieure indique la vitesse de décrochage en configuration lisse, et sa limite supérieure représente la vitesse maximale en croisière structurelle.",
+   "categorie": "Instruments",
+   "famille": "arcs",
+   "membres_famille": [
+    "arc blanc",
+    "arc dme",
+    "arc jaune",
+    "arc vert"
+   ],
+   "a_verifier": false
+  },
+  "ascendance": {
+   "definition": "Courant d'air vertical dirigé vers le haut, provoqué par le réchauffement du sol ou le relief. Les ascendances sont recherchées par les vélivoles mais génèrent des turbulences pour le pilote d'avion.",
+   "categorie": "Météo",
+   "famille": null,
+   "membres_famille": [],
+   "a_verifier": false
+  },
+  "ascendance thermique": {
+   "definition": "Bulle ou colonne d'air chaud s'élevant dans l'atmosphère après avoir été chauffée par contact avec un sol chaud. Identifiable par la formation de cumulus, elle offre une source d'énergie naturelle importante.",
+   "categorie": "Météo",
+   "famille": null,
+   "membres_famille": [],
+   "a_verifier": false
+  },
+  "asi": {
+   "definition": "<em>Airspeed Indicator</em> : appellation anglaise fréquente de l'anémomètre de bord. Il traduit la différence de pression captée par le tube Pitot et les prises statiques en vitesse indiquée exprimée en nœuds.",
+   "categorie": "Instruments",
+   "famille": "instruments",
+   "membres_famille": [
+    "altimètre",
+    "anémomètre",
+    "asi",
+    "badin",
+    "bille",
+    "adf"
+   ],
+   "a_verifier": false
+  },
+  "assiette": {
+   "definition": "Angle formé entre l'axe longitudinal de l'aéronef et l'horizon. Elle est contrôlée directement à l'aide de la commande de tangage et est visualisée sur l'horizon artificiel ou par repères visuels extérieurs.",
+   "categorie": "Aérodynamique",
+   "famille": "assiettes",
+   "membres_famille": [
+    "assiette",
+    "assiette de croisière",
+    "assiette de montée",
+    "assiette de reference"
+   ],
+   "a_verifier": false
+  },
+  "assiette de croisière": {
+   "definition": "Assiette de vol stabilisée adoptée par l'aéronef lors du vol en palier à vitesse constante. C'est l'assiette de référence pour naviguer de manière optimale en maintenant l'altitude choisie.",
+   "categorie": "Vitesses & performances",
+   "famille": "assiettes",
+   "membres_famille": [
+    "assiette",
+    "assiette de croisière",
+    "assiette de montée",
+    "assiette de reference"
+   ],
+   "a_verifier": false
+  },
+  "assiette de montée": {
+   "definition": "Assiette cabrée de l'aéronef permettant d'effectuer la montée vers l'altitude de croisière à une vitesse optimale de montée. Elle doit concilier performances ascensionnelles et visibilité vers l'avant.",
+   "categorie": "Vitesses & performances",
+   "famille": "assiettes",
+   "membres_famille": [
+    "assiette",
+    "assiette de croisière",
+    "assiette de montée",
+    "assiette de reference"
+   ],
+   "a_verifier": false
+  },
+  "assiette de reference": {
+   "definition": "Assiette standard prise comme repère visuel fondamental par rapport à l'horizon pour un régime de vol donné. Elle sert de base au pilote pour ajuster l'assiette lors des changements de configuration.",
+   "categorie": "Aérodynamique",
+   "famille": "assiettes",
+   "membres_famille": [
+    "assiette",
+    "assiette de croisière",
+    "assiette de montée",
+    "assiette de reference"
+   ],
+   "a_verifier": false
+  },
+  "atc": {
+   "definition": "<em>Air Traffic Control</em> : le contrôle de la circulation aérienne. Ce service assure la prévention des collisions entre aéronefs au sol et en vol, et accélère le flux du trafic de manière ordonnée.",
+   "categorie": "Radio & phraséologie",
+   "famille": null,
+   "membres_famille": [],
+   "a_verifier": false
+  },
+  "atmosphère standard": {
+   "definition": "Modèle physique simplifié de l'atmosphère terrestre servant de référence internationale (ISA). Elle fixe la température au sol à 15°C, la pression à 1013,25 hPa et le gradient vertical de température à -2°C par 1000 ft.",
+   "categorie": "Météo",
+   "famille": null,
+   "membres_famille": [],
+   "a_verifier": false
+  },
+  "ats": {
+   "definition": "<em>Air Traffic Services</em> : les services de la circulation aérienne. Ils comprennent le service de contrôle, d'information de vol et d'alerte pour assister les pilotes dans la conduite sûre de leur vol.",
+   "categorie": "Réglementation & docs",
+   "famille": null,
+   "membres_famille": [],
+   "a_verifier": false
+  },
+  "atterrissage de précaution": {
+   "definition": "Atterrissage volontaire sur un terrain ou un champ répertorié face à une dégradation météo ou une baisse de carburant. Il s'anticipe tant que l'aéronef reste parfaitement contrôlable.",
+   "categorie": "Procédures",
+   "famille": "atterrissages",
+   "membres_famille": [
+    "atterrissage de précaution",
+    "atterrissage forcé",
+    "atterrissage train rentré"
+   ],
+   "a_verifier": false
+  },
+  "atterrissage forcé": {
+   "definition": "Atterrissage immédiat et inévitable consécutif à une panne majeure (souvent moteur) rendant la poursuite du vol impossible. La priorité absolue est la sauvegarde des vies humaines à bord.",
+   "categorie": "Procédures",
+   "famille": "atterrissages",
+   "membres_famille": [
+    "atterrissage de précaution",
+    "atterrissage forcé",
+    "atterrissage train rentré"
+   ],
+   "a_verifier": false
+  },
+  "atterrissage precaution": {
+   "definition": "Variante orthographique de l'atterrissage de précaution. Atterrissage anticipé décidé par le pilote sur un terrain de fortune ou de dégagement face à une situation devenant incertaine en vol.",
+   "categorie": "Procédures",
+   "famille": "atterrissages",
+   "membres_famille": [
+    "atterrissage de précaution",
+    "atterrissage forcé",
+    "atterrissage train rentré"
+   ],
+   "a_verifier": false
+  },
+  "atterrissage train rentré": {
+   "definition": "Procédure d'urgence exécutée sur un aéronef équipé d'un train d'atterrissage escamotable en cas de dysfonctionnement mécanique ou sur surface meuble pour éviter le capotage.",
+   "categorie": "Procédures",
+   "famille": "atterrissages",
+   "membres_famille": [
+    "atterrissage de précaution",
+    "atterrissage forcé",
+    "atterrissage train rentré"
+   ],
+   "a_verifier": false
+  },
+  "attitude": {
+   "definition": "État d'esprit ou posture mentale du pilote influençant directement ses décisions et son comportement face au risque. L'identification des attitudes dangereuses (comme l'impulsivité) est essentielle en formation.",
+   "categorie": "Sécurité & facteurs humains",
+   "famille": null,
+   "membres_famille": [],
+   "a_verifier": false
+  },
+  "attitude de vol": {
+   "definition": "",
+   "categorie": "Procédures",
+   "famille": null,
+   "membres_famille": [],
+   "a_verifier": true,
+   "doute": "terme ambigu, synonyme d'assiette mais peu utilisé de manière formelle dans l'examen théorique VFR."
+  },
+  "atz": {
+   "definition": "<em>Aerodrome Traffic Zone</em> : zone de circulation d'aérodrome de dimensions définies entourant un terrain pour protéger le trafic local. Sa pénétration exige généralement un contact radio préalable.",
+   "categorie": "Réglementation & docs",
+   "famille": null,
+   "membres_famille": [],
+   "a_verifier": false
+  },
+  "autonomie": {
+   "definition": "Durée maximale pendant laquelle un aéronef peut rester en vol avec la quantité de carburant embarquée. Elle dépend fortement du régime moteur et du calage de la richesse.",
+   "categorie": "Vitesses & performances",
+   "famille": null,
+   "membres_famille": [],
+   "a_verifier": false
+  },
+  "autonomie carburant": {
+   "definition": "Quantité de carburant utilisable exprimée en heures et minutes de vol. Elle intègre obligatoirement la réserve finale réglementaire pour parer aux imprévus de navigation.",
+   "categorie": "Vitesses & performances",
+   "famille": null,
+   "membres_famille": [],
+   "a_verifier": false
+  },
+  "autorisation atterrissage": {
+   "definition": "Clairance délivrée par le contrôleur aérien autorisant le pilote à toucher les roues sur la piste désignée. Elle confirme que la piste est libre et sécurisée.",
+   "categorie": "Radio & phraséologie",
+   "famille": null,
+   "membres_famille": [],
+   "a_verifier": false
+  },
+  "autorotation": {
+   "definition": "État de vol d'un hélicoptère ou autogire où le rotor principal tourne uniquement sous l'action du vent relatif ascendant. C'est la procédure d'urgence obligatoire lors d'une panne de moteur.",
+   "categorie": "Procédures",
+   "famille": null,
+   "membres_famille": [],
+   "a_verifier": false
+  },
+  "averse": {
+   "definition": "Précipitation intense et de courte durée, caractérisée par des débuts et fins brusques. Souvent associée à des nuages convectifs, elle réduit brutalement la visibilité en vol VFR.",
+   "categorie": "Météo",
+   "famille": null,
+   "membres_famille": [],
+   "a_verifier": false
+  },
+  "aviate": {
+   "definition": "Premier pilier de la règle d'or « Aviate, Navigate, Communicate ». Le pilote doit toujours privilégier le pilotage et le contrôle de l'aéronef avant de chercher à se repérer ou à parler à la radio.",
+   "categorie": "Sécurité & facteurs humains",
+   "famille": null,
+   "membres_famille": [],
+   "a_verifier": false
+  },
+  "avitaillement": {
+   "definition": "Action de ravitailler un aéronef en carburant et lubrifiants. Cette opération délicate exige le respect strict des consignes de sécurité, notamment la mise à la masse métallique de l'appareil.",
+   "categorie": "Procédures",
+   "famille": null,
+   "membres_famille": [],
+   "a_verifier": false
+  },
+  "axe de piste": {
+   "definition": "Ligne imaginaire prolongeant le milieu de la piste dans les deux sens. S'aligner avec précision sur cet axe est indispensable lors des phases de décollage et d'approche finale.",
+   "categorie": "Aérodrome & cartes",
+   "famille": null,
+   "membres_famille": [],
+   "a_verifier": false
+  },
+  "aérodrome de dégagement": {
+   "definition": "Terrain de secours prévu lors de la préparation du vol où le pilote peut se dérouter en cas d'impossibilité d'atterrir à destination (météo bouchée, piste fermée).",
+   "categorie": "Procédures",
+   "famille": null,
+   "membres_famille": [],
+   "a_verifier": false
+  },
+  "aérofreinage": {
+   "definition": "Technique consistant à utiliser la traînée aérodynamique de la cellule, en maintenant l'assiette cabrée au roulis après le toucher des roues, pour ralentir l'aéronef avant d'utiliser les freins mécaniques.",
+   "categorie": "Aérodynamique",
+   "famille": null,
+   "membres_famille": [],
+   "a_verifier": false
+  },
+  "badin": {
+   "definition": "Terme argotique aéronautique désignant l'anémomètre de bord, du nom de son inventeur Raoul Badin. Il indique la vitesse de l'aéronef par rapport à l'air en nœuds ou kilomètres par heure.",
+   "categorie": "Instruments",
+   "famille": "instruments",
+   "membres_famille": [
+    "altimètre",
+    "anémomètre",
+    "asi",
+    "badin",
+    "bille",
+    "adf"
+   ],
+   "a_verifier": false
+  },
+  "bande derobee": {
+   "definition": "",
+   "categorie": "Aérodrome & cartes",
+   "famille": null,
+   "membres_famille": [],
+   "a_verifier": true,
+   "doute": "expression non standard en français aéronautique classique VFR ou PPL. Pourrait désigner une piste masquée ou une zone de dégagement, mais nécessite confirmation."
+  },
+  "barotraumatisme": {
+   "definition": "Lésion des tissus de l'oreille moyenne ou des sinus causée par une variation rapide de la pression atmosphérique en descente. Il est recommandé de ne pas voler en cas de rhume.",
+   "categorie": "Sécurité & facteurs humains",
+   "famille": null,
+   "membres_famille": [],
+   "a_verifier": false
+  },
+  "base des nuages": {
+   "definition": "Altitude ou hauteur de la partie inférieure d'un nuage. Sa connaissance est cruciale en vol VFR pour s'assurer de conserver une distance verticale réglementaire avec la couche nuageuse.",
+   "categorie": "Météo",
+   "famille": "nuages",
+   "membres_famille": [
+    "altocumulus",
+    "altostratus",
+    "base des nuages"
+   ],
+   "a_verifier": false
+  },
+  "basses couches": {
+   "definition": "Partie inférieure de l'atmosphère, généralement en dessous de 5000 ft, où se déroule la majorité des vols VFR. C'est la zone la plus sujette aux turbulences et aux brouillards.",
+   "categorie": "Météo",
+   "famille": null,
+   "membres_famille": [],
+   "a_verifier": false
+  },
+  "bat": {
+   "definition": "",
+   "categorie": "divers",
+   "famille": null,
+   "membres_famille": [],
+   "a_verifier": true,
+   "doute": "acronyme ambigu ou mot courant. Pourrait signifier \"bâtiment\" ou une abréviation de batterie, mais sans contexte aéronautique officiel clair dans le programme théorique PPL."
+  },
+  "batterie": {
+   "definition": "Accumulateur d'énergie électrique en courant continu permettant le démarrage du moteur et l'alimentation de secours du réseau de bord en cas de panne d'alternateur.",
+   "categorie": "Moteur & hélice",
+   "famille": null,
+   "membres_famille": [],
+   "a_verifier": false
+  },
+  "becs": {
+   "definition": "Dispositifs hypersustentateurs situés sur le bord d'attaque de l'aile. En se déployant vers l'avant, ils augmentent la portance à forte incidence en retardant le décollement des filets d'air.",
+   "categorie": "Aérodynamique",
+   "famille": "gouvernes",
+   "membres_famille": [
+    "aileron au vent",
+    "becs",
+    "aerofrein"
+   ],
+   "a_verifier": false
+  },
+  "biais de confirmation": {
+   "definition": "Tendance cognitive du pilote à ne sélectionner que les informations confirmant son hypothèse initiale, en ignorant les signaux d'alerte contraires. C'est un facteur d'accident classique en météo marginale.",
+   "categorie": "Sécurité & facteurs humains",
+   "famille": null,
+   "membres_famille": [],
+   "a_verifier": false
+  },
+  "bilan carburant": {
+   "definition": "Calcul rigoureux effectué par le pilote lors de la préparation et du vol pour comparer la consommation réelle aux estimations. Il garantit de toujours disposer des réserves obligatoires.",
+   "categorie": "Procédures",
+   "famille": null,
+   "membres_famille": [],
+   "a_verifier": false
+  },
+  "bille": {
+   "definition": "Indicateur de symétrie de vol matérialisé par une bille libre dans un tube incurvé. Voler « la bille au milieu » indique un vol symétrique sans dérapage ni glissade.",
+   "categorie": "Instruments",
+   "famille": "instruments",
+   "membres_famille": [
+    "altimètre",
+    "anémomètre",
+    "asi",
+    "badin",
+    "bille",
+    "adf"
+   ],
+   "a_verifier": false
+  },
+  "bkn": {
+   "definition": "Code METAR/TAF signifiant « Broken » (très nuageux). Il désigne une couverture nuageuse de 5 à 7 octas, constituant réglementairement un plafond limitant la hauteur de vol des pilotes VFR.",
+   "categorie": "Météo",
+   "famille": null,
+   "membres_famille": [],
+   "a_verifier": false
+  },
+  "br": {
+   "definition": "Code METAR/TAF désignant la brume. Ce phénomène réduit la visibilité horizontale entre 1000 et 5000 mètres en raison de micro-gouttelettes d'eau en suspension.",
+   "categorie": "Météo",
+   "famille": null,
+   "membres_famille": [],
+   "a_verifier": false
+  },
+  "branche": {
+   "definition": "",
+   "categorie": "Procédures",
+   "famille": null,
+   "membres_famille": [],
+   "a_verifier": true,
+   "doute": "mot courant désignant un segment de vol (ex. branche vent arrière) ou de navigation, mais trop polysémique sans qualificatif pour avoir une définition aéronautique unique fiable."
+  },
+  "bras de levier": {
+   "definition": "Distance séparant le centre de gravité d'un élément (passager, bagage, carburant) de la référence de centrage de l'aéronef. Multiplié par la masse, il détermine le moment de force.",
+   "categorie": "Masse & centrage",
+   "famille": null,
+   "membres_famille": [],
+   "a_verifier": false
+  },
+  "brassage": {
+   "definition": "Action manuelle consistant à faire tourner l'hélice à l'arrêt pour lubrifier les cylindres ou évacuer l'huile accumulée. Attention, cette opération doit se faire contact coupé et avec une extrême prudence.",
+   "categorie": "Procédures",
+   "famille": null,
+   "membres_famille": [],
+   "a_verifier": false
+  },
+  "brief": {
+   "definition": "Présentation courte et ciblée exposant un plan d'action immédiat pour une phase de vol imminente. Il permet de synchroniser la conscience situationnelle avant toute manœuvre complexe.",
+   "categorie": "Procédures",
+   "famille": "briefings",
+   "membres_famille": [
+    "briefing",
+    "briefing arrivée",
+    "briefing départ"
+   ],
+   "a_verifier": false
+  },
+  "briefing": {
+   "definition": "Exposé structuré réalisé par le pilote décrivant la stratégie de vol, les menaces identifiées et les actions en cas de panne. C'est un rituel incontournable pour sécuriser chaque phase clé.",
+   "categorie": "Procédures",
+   "famille": "briefings",
+   "membres_famille": [
+    "briefing",
+    "briefing arrivée",
+    "briefing départ"
+   ],
+   "a_verifier": false
+  },
+  "briefing arrivée": {
+   "definition": "Exposé préparatoire avant l'intégration du circuit d'aérodrome, détaillant l'altitude de raccordement, le sens du tour de piste, les particularités VAC et la configuration de l'aéronef pour l'atterrissage.",
+   "categorie": "Procédures",
+   "famille": "briefings",
+   "membres_famille": [
+    "briefing",
+    "briefing arrivée",
+    "briefing départ"
+   ],
+   "a_verifier": false
+  },
+  "briefing départ": {
+   "definition": "Exposé systématique effectué avant d'entrer sur la piste, récapitulant les vitesses de rotation et de montée, la trajectoire de départ et les actions immédiates à mener en cas de panne moteur.",
+   "categorie": "Procédures",
+   "famille": "briefings",
+   "membres_famille": [
+    "briefing",
+    "briefing arrivée",
+    "briefing départ"
+   ],
+   "a_verifier": false
+  },
+  "brise de mer": {
+   "definition": "Vent local soufflant de la mer vers la terre durant la journée. Provoqué par le réchauffement rapide du sol par rapport à l'eau, il peut fortement modifier les conditions d'atterrissage.",
+   "categorie": "Vent",
+   "famille": "brises",
+   "membres_famille": [
+    "brise de mer",
+    "brise de pente",
+    "brise de terre",
+    "brise de vallée"
+   ],
+   "a_verifier": false
+  },
+  "brise de pente": {
+   "definition": "Vent local soufflant le long des reliefs, montant durant la journée sous l'effet du soleil (brise anabatique) et descendant durant la nuit (brise catabatique). Elle exige une vigilance accrue en montagne.",
+   "categorie": "Vent",
+   "famille": "brises",
+   "membres_famille": [
+    "brise de mer",
+    "brise de pente",
+    "brise de terre",
+    "brise de vallée"
+   ],
+   "a_verifier": false
+  },
+  "brise de terre": {
+   "definition": "Vent local nocturne soufflant de la terre refroidie vers la mer plus chaude. Généralement plus faible que la brise de mer, elle s'établit après le coucher du soleil.",
+   "categorie": "Vent",
+   "famille": "brises",
+   "membres_famille": [
+    "brise de mer",
+    "brise de pente",
+    "brise de terre",
+    "brise de vallée"
+   ],
+   "a_verifier": false
+  },
+  "brise de vallée": {
+   "definition": "Vent local soufflant le long de l'axe d'une vallée, montant vers les sommets le jour et descendant vers la plaine la nuit. Il influence la gestion de la dérive et de l'altitude.",
+   "categorie": "Vent",
+   "famille": "brises",
+   "membres_famille": [
+    "brise de mer",
+    "brise de pente",
+    "brise de terre",
+    "brise de vallée"
+   ],
+   "a_verifier": false
+  },
+  "brouillard de rayonnement": {
+   "definition": "Brouillard se formant par nuit claire et vent calme à la suite du refroidissement du sol par rayonnement. Très fréquent à l'automne, il se dissipe généralement après le lever du soleil.",
+   "categorie": "Météo",
+   "famille": null,
+   "membres_famille": [],
+   "a_verifier": false
+  },
+  "cabré": {
+   "definition": "Attitude ou mouvement de l'aéronef caractérisé par une élévation du nez au-dessus de l'horizon, augmentant ainsi l'assiette et généralement l'angle d'attaque. Il est commandé en tirant sur le manche.",
+   "categorie": "Aérodynamique",
+   "famille": null,
+   "membres_famille": [],
+   "a_verifier": false
+  },
+  "calage altimétrique": {
+   "definition": "Valeur de pression barométrique affichée dans la fenêtre de l'altimètre pour mesurer des hauteurs (calage QFE), des altitudes (calage QNH) ou des niveaux de vol (calage standard 1013,25 hPa).",
+   "categorie": "Altimétrie",
+   "famille": "calages_altimetriques",
+   "membres_famille": [
+    "calage altimétrique"
+   ],
+   "a_verifier": false
+  },
+  "calage helice": {
+   "definition": "Angle formé entre la corde de profil de la pale d'hélice et le plan de rotation. Sur hélice à pas variable, il s'ajuste pour optimiser la traction au décollage et en croisière.",
+   "categorie": "Moteur & hélice",
+   "famille": null,
+   "membres_famille": [],
+   "a_verifier": false
+  }
+ }
+}

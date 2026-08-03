@@ -1,0 +1,967 @@
+{
+"AAL": {
+"categorie": "Altimétrie",
+"famille_actuelle": null,
+"apercu": "<em>Above Aerodrome Level</em> : au-dessus du niveau de l'aérodrome. Une hauteur, pas une "
+},
+"AIP": {
+"categorie": "Réglementation & docs",
+"famille_actuelle": null,
+"apercu": "<em>Aeronautical Information Publication</em> : la documentation aéronautique officielle d"
+},
+"AIRAC": {
+"categorie": "Réglementation & docs",
+"famille_actuelle": null,
+"apercu": "<em>Aeronautical Information Regulation And Control</em> — « régulation et contrôle de l'i"
+},
+"AMSL": {
+"categorie": "Altimétrie",
+"famille_actuelle": null,
+"apercu": "<em>Above Mean Sea Level</em> : au-dessus du niveau moyen de la mer. C'est l'<strong>altit"
+},
+"ASDA": {
+"categorie": "Aérodrome & cartes",
+"famille_actuelle": null,
+"apercu": "<em>Accelerate-Stop Distance Available</em> — « distance accélération-arrêt utilisable ». "
+},
+"ATIS": {
+"categorie": "Aérodrome & cartes",
+"famille_actuelle": null,
+"apercu": "<em>Automatic Terminal Information Service</em> — « service automatique d'information de r"
+},
+"AUTO": {
+"categorie": "Météo",
+"famille_actuelle": null,
+"apercu": "<em>AUTOmated observation</em> — « observation automatique ». Mention d'un METAR émis par "
+},
+"BECMG": {
+"categorie": "Météo",
+"famille_actuelle": null,
+"apercu": "<em>Becoming</em> : dans un TAF, évolution durable des conditions, se produisant progressi"
+},
+"CAVOK": {
+"categorie": "Météo",
+"famille_actuelle": null,
+"apercu": "<em>Ceiling And Visibility OK</em> : visibilité ≥ 10 km, aucun nuage sous 5000 ft (ou sous"
+},
+"CB": {
+"categorie": "Météo",
+"famille_actuelle": null,
+"apercu": "<em>CumulonimBus</em> — « cumulonimbus ». Le seul nuage cité nommément dans les METAR tant"
+},
+"CTR": {
+"categorie": "Aérodrome & cartes",
+"famille_actuelle": null,
+"apercu": "<em>Control Traffic Region</em> : zone de contrôle autour d'un aérodrome. À LFPN, tu y vis"
+},
+"GO/NO GO": {
+"categorie": "Réglementation & docs",
+"famille_actuelle": null,
+"apercu": "<em>GO / NO GO decision</em> — « décision de partir ou de renoncer ». Décision binaire et "
+},
+"GS": {
+"categorie": "Vitesses & performances",
+"famille_actuelle": null,
+"apercu": "<em>Ground Speed</em> : vitesse sol, TAS corrigée du vent. C'est elle qui fait tes distanc"
+},
+"IAS": {
+"categorie": "Vitesses & performances",
+"famille_actuelle": null,
+"apercu": "<em>Indicated Air Speed</em> : la vitesse lue au badin. C'est elle qui commande la portanc"
+},
+"IFR": {
+"categorie": "Réglementation & docs",
+"famille_actuelle": null,
+"apercu": "<em>Instrument Flight Rules</em> : vol aux instruments, qui décharge l'évitement visuel su"
+},
+"IMC": {
+"categorie": "Réglementation & docs",
+"famille_actuelle": null,
+"apercu": "<em>Instrument Meteorological Conditions</em> : conditions dans les nuages ou sous les min"
+},
+"ISA": {
+"categorie": "Météo",
+"famille_actuelle": null,
+"apercu": "<em>International Standard Atmosphere</em> — « atmosphère standard internationale » : 1013"
+},
+"LDA": {
+"categorie": "Aérodrome & cartes",
+"famille_actuelle": null,
+"apercu": "<em>Landing Distance Available</em> — « distance d'atterrissage utilisable ». Longueur de "
+},
+"METAR": {
+"categorie": "Météo",
+"famille_actuelle": null,
+"apercu": "<em>METeorological Aerodrome Report</em> — « message d'observation météorologique d'aérodr"
+},
+"NM": {
+"categorie": "Unités",
+"famille_actuelle": null,
+"apercu": "<em>Nautical Mile</em> — mille marin : 1852 m exactement. Unité de distance horizontale en"
+},
+"NOSIG": {
+"categorie": "Météo",
+"famille_actuelle": null,
+"apercu": "<em>No significant change</em> : pas d'évolution significative attendue dans les 2 heures "
+},
+"NOTAM": {
+"categorie": "Réglementation & docs",
+"famille_actuelle": null,
+"apercu": "<em>Notice to Airmen</em> : avis officiel aux navigateurs — travaux, activations de zones,"
+},
+"NSW": {
+"categorie": "Météo",
+"famille_actuelle": null,
+"apercu": "<em>Nil Significant Weather</em> : fin des phénomènes météo significatifs dans une prévisi"
+},
+"POH": {
+"categorie": "Réglementation & docs",
+"famille_actuelle": null,
+"apercu": "<em>Pilot's Operating Handbook</em> : le manuel de vol de l'avion, document officiel de l'"
+},
+"PROB30": {
+"categorie": "Météo",
+"famille_actuelle": null,
+"apercu": "<em>PROBability 30 %</em> — « probabilité de 30 % ». Chance que le phénomène annoncé se pr"
+},
+"PROB40": {
+"categorie": "Météo",
+"famille_actuelle": null,
+"apercu": "<em>PROBability 40 %</em> — « probabilité de 40 % ». Chance que le phénomène se produise. "
+},
+"QFE": {
+"categorie": "Altimétrie",
+"famille_actuelle": null,
+"apercu": "<em>Q-code QFE</em> — « calage altimétrique au niveau du terrain ». Pression réelle régnan"
+},
+"QFU": {
+"categorie": "Aérodrome & cartes",
+"famille_actuelle": null,
+"apercu": "<em>Q-code QFU</em> — « direction magnétique de la piste en service ». Orientation magnéti"
+},
+"QNE": {
+"categorie": "Altimétrie",
+"famille_actuelle": null,
+"apercu": "<em>Q-code QNE</em> — « calage standard 1013,25 hPa ». Ce que lit l'altimètre quand il est"
+},
+"QNH": {
+"categorie": "Altimétrie",
+"famille_actuelle": null,
+"apercu": "<em>Q-code QNH</em> — « calage altimétrique au niveau de la mer ». Pression au niveau de l"
+},
+"RMK": {
+"categorie": "Météo",
+"famille_actuelle": null,
+"apercu": "<em>Remark</em> : commentaire en clair en fin de message (ex. <code>RMK FOEHN</code>). C'e"
+},
+"SPECI": {
+"categorie": "Météo",
+"famille_actuelle": null,
+"apercu": "<em>SPECIal report</em> — « message d'observation spéciale ». METAR spécial émis hors hora"
+},
+"TAF": {
+"categorie": "Météo",
+"famille_actuelle": null,
+"apercu": "<em>Terminal Aerodrome Forecast</em> — « prévision d'aérodrome ». Chiffrée sur 9 à 30 h se"
+},
+"TAS": {
+"categorie": "Vitesses & performances",
+"famille_actuelle": null,
+"apercu": "<em>True Air Speed</em> : ta vitesse réelle dans la masse d'air. IAS corrigée de l'altitud"
+},
+"TCU": {
+"categorie": "Météo",
+"famille_actuelle": null,
+"apercu": "<em>Towering Cumulus</em> : cumulus congestus, petit frère du CB. Turbulence marquée, déve"
+},
+"TEMPO": {
+"categorie": "Météo",
+"famille_actuelle": null,
+"apercu": "<em>TEMPOrary</em> — « fluctuations temporaires ». Dans un TAF, variations <strong>tempora"
+},
+"TMA": {
+"categorie": "Aérodrome & cartes",
+"famille_actuelle": null,
+"apercu": "<em>Terminal Control Area</em> : espace contrôlé au-dessus d'une zone d'aérodromes. Celle "
+},
+"TODA": {
+"categorie": "Aérodrome & cartes",
+"famille_actuelle": null,
+"apercu": "<em>Take-Off Distance Available</em> — « distance de décollage utilisable ». Distance disp"
+},
+"TORA": {
+"categorie": "Aérodrome & cartes",
+"famille_actuelle": null,
+"apercu": "<em>Take-Off Run Available</em> — « distance de roulement au décollage ». Longueur de pist"
+},
+"VA": {
+"categorie": "Vitesses & performances",
+"famille_actuelle": null,
+"apercu": "<em>Velocity of maneuvering</em> — vitesse de manœuvre : <strong>112 KIAS</strong> à masse"
+},
+"VAC": {
+"categorie": "Aérodrome & cartes",
+"famille_actuelle": null,
+"apercu": "<em>Visual Approach Chart</em> : carte d'approche à vue officielle d'un aérodrome (SIA en "
+},
+"VFE": {
+"categorie": "Vitesses & performances",
+"famille_actuelle": null,
+"apercu": "<em>Velocity Flaps Extended</em> — vitesse maximale volets sortis, haut de l'arc blanc : <"
+},
+"VFR": {
+"categorie": "Réglementation & docs",
+"famille_actuelle": null,
+"apercu": "<em>Visual Flight Rules</em> : vol à vue — tu vois, tu évites, tu te repères. Il suppose d"
+},
+"VMC": {
+"categorie": "Réglementation & docs",
+"famille_actuelle": null,
+"apercu": "<em>Visual Meteorological Conditions</em> : minima de visibilité et de distances aux nuage"
+},
+"VNE": {
+"categorie": "Vitesses & performances",
+"famille_actuelle": null,
+"apercu": "<em>Velocity Never Exceed</em> — vitesse à ne jamais dépasser, trait rouge de l'anémomètre"
+},
+"VNO": {
+"categorie": "Vitesses & performances",
+"famille_actuelle": null,
+"apercu": "<em>Velocity Normal Operating</em> — vitesse maximale d'utilisation normale, haut de l'arc"
+},
+"VS0": {
+"categorie": "Vitesses & performances",
+"famille_actuelle": null,
+"apercu": "<em>Velocity Stall landing configuration</em> — vitesse de décrochage en configuration d'a"
+},
+"VS1": {
+"categorie": "Vitesses & performances",
+"famille_actuelle": null,
+"apercu": "<em>Velocity Stall clean configuration</em> — vitesse de décrochage en configuration lisse"
+},
+"Vapp": {
+"categorie": "Vitesses & performances",
+"famille_actuelle": "vitesses_caracteristiques",
+"apercu": "Vitesse d'approche finale recommandée, calculée en ajoutant des corrections de vent à la v"
+},
+"Vref": {
+"categorie": "Vitesses & performances",
+"famille_actuelle": null,
+"apercu": "Vitesse de référence à l'atterrissage, avant majorations. Typiquement 1,3 × Vs0 ; on y ajo"
+},
+"Vx": {
+"categorie": "Vitesses & performances",
+"famille_actuelle": null,
+"apercu": "Vitesse du meilleur <strong>angle</strong> de montée : le plus d'altitude gagnée par mètre"
+},
+"Vy": {
+"categorie": "Vitesses & performances",
+"famille_actuelle": null,
+"apercu": "Vitesse du meilleur <strong>taux</strong> de montée : le plus d'altitude gagnée par minute"
+},
+"abaque": {
+"categorie": "Vitesses & performances",
+"famille_actuelle": null,
+"apercu": "Graphique ou tableau à double entrée permettant de déterminer sans calcul une performance,"
+},
+"abaque de centrage": {
+"categorie": "Masse & centrage",
+"famille_actuelle": null,
+"apercu": "Représentation graphique permettant de vérifier que le centre de gravité de l'aéronef rest"
+},
+"action vitale": {
+"categorie": "Procédures",
+"famille_actuelle": null,
+"apercu": "Procédure d'urgence ou de sécurité critique devant être apprise par cœur par le pilote pou"
+},
+"adf": {
+"categorie": "Navigation",
+"famille_actuelle": "instruments",
+"apercu": "<em>Automatic Direction Finder</em> : récepteur radio de bord affichant le gisement d'une "
+},
+"advection": {
+"categorie": "Météo",
+"famille_actuelle": null,
+"apercu": "Transport horizontal d'une masse d'air chaud ou froid sous l'effet du vent. L'advection d'"
+},
+"aerocolique": {
+"categorie": "Sécurité & facteurs humains",
+"famille_actuelle": null,
+"apercu": "Douleur intestinale aiguë provoquée par la dilatation des gaz digestifs lors de la montée "
+},
+"aerofrein": {
+"categorie": "Aérodynamique",
+"famille_actuelle": "gouvernes",
+"apercu": "Dispositif mobile augmentant la traînée aérodynamique de l'aéronef sans modifier la portan"
+},
+"afis": {
+"categorie": "Aérodrome & cartes",
+"famille_actuelle": null,
+"apercu": "<em>Aerodrome Flight Information Service</em> : organisme fournissant des services d'infor"
+},
+"agl": {
+"categorie": "Altimétrie",
+"famille_actuelle": "references_verticales",
+"apercu": "<em>Above Ground Level</em> : au-dessus du niveau du sol. Cette référence verticale indiqu"
+},
+"aile": {
+"categorie": "Structure & cellule",
+"famille_actuelle": null,
+"apercu": "Voilure principale de l'aéronef destinée à générer la portance nécessaire au vol. Son prof"
+},
+"aileron au vent": {
+"categorie": "Procédures",
+"famille_actuelle": "gouvernes",
+"apercu": "Action de braquer l'aileron du côté d'où souffle le vent lors du roulage ou de l'atterriss"
+},
+"ailes à plat": {
+"categorie": "Procédures",
+"famille_actuelle": null,
+"apercu": "Position horizontale de la voilure par rapport à l'horizon, caractérisant une absence d'in"
+},
+"alcool": {
+"categorie": "Sécurité & facteurs humains",
+"famille_actuelle": null,
+"apercu": "Substance psychotrope strictement réglementée en aéronautique, dont le taux sanguin maxima"
+},
+"alignement": {
+"categorie": "Aérodrome & cartes",
+"famille_actuelle": null,
+"apercu": "Action de placer l'avion sur l'axe de la piste, dans le sens du décollage, avant de mettre"
+},
+"allumage": {
+"categorie": "Moteur & hélice",
+"famille_actuelle": null,
+"apercu": "Système assurant la combustion du mélange air-carburant dans les cylindres du moteur, géné"
+},
+"alphabet aviation": {
+"categorie": "Radio & phraséologie",
+"famille_actuelle": null,
+"apercu": "Alphabet phonétique international de l'OACI (Alpha, Bravo, Charlie...) utilisé à la radio "
+},
+"alt": {
+"categorie": "Radio & phraséologie",
+"famille_actuelle": "references_verticales",
+"apercu": "Terme radio ou abréviation pour « altitude » ou commande du transpondeur transmettant l'al"
+},
+"alternateur": {
+"categorie": "Moteur & hélice",
+"famille_actuelle": null,
+"apercu": "Équipement entraîné par le moteur produisant l'électricité nécessaire au réseau de bord et"
+},
+"altimètre": {
+"categorie": "Instruments",
+"famille_actuelle": "instruments",
+"apercu": "Instrument de bord mesurant la pression atmosphérique statique pour afficher l'altitude ou"
+},
+"altimétrie": {
+"categorie": "Altimétrie",
+"famille_actuelle": null,
+"apercu": "Science et technique de la mesure des altitudes en vol. Elle repose sur la corrélation ent"
+},
+"altitude de croisière": {
+"categorie": "Navigation",
+"famille_actuelle": "altitudes",
+"apercu": "Altitude constante choisie pour effectuer la majeure partie du voyage en voyage. Elle doit"
+},
+"altitude de sécurité": {
+"categorie": "Navigation",
+"famille_actuelle": "altitudes",
+"apercu": "Altitude minimale garantissant un franchissement d'obstacles sûr lors d'un vol sur un segm"
+},
+"altitude de transition": {
+"categorie": "Altimétrie",
+"famille_actuelle": null,
+"apercu": "Altitude au-dessus de laquelle on passe du QNH au calage standard 1013 hPa en montée. En F"
+},
+"altitude densité": {
+"categorie": "Vitesses & performances",
+"famille_actuelle": "altitudes",
+"apercu": "Altitude-pression corrigée des écarts de température par rapport à l'atmosphère standard. "
+},
+"altitude minimale": {
+"categorie": "Réglementation & docs",
+"famille_actuelle": "altitudes",
+"apercu": "Altitude la plus basse autorisée pour le survol d'une zone ou d'une agglomération selon le"
+},
+"altitude tour de piste": {
+"categorie": "Aérodrome & cartes",
+"famille_actuelle": "altitudes",
+"apercu": "Altitude réglementaire spécifiée sur la carte d'approche pour effectuer le circuit de pist"
+},
+"altitude-densité": {
+"categorie": "Altimétrie",
+"famille_actuelle": null,
+"apercu": "Altitude-pression corrigée de la température : l'altitude à laquelle l'air « semble » se t"
+},
+"altitude-pression": {
+"categorie": "Altimétrie",
+"famille_actuelle": null,
+"apercu": "Altitude lue avec un calage à 1013,25 hPa. C'est la référence commune de la croisière (niv"
+},
+"altocumulus": {
+"categorie": "Météo",
+"famille_actuelle": "nuages",
+"apercu": "Nuage de l'étage moyen se présentant sous forme de bancs ou de galets blancs et gris. Sa p"
+},
+"altostratus": {
+"categorie": "Météo",
+"famille_actuelle": "nuages",
+"apercu": "Nuage de l'étage moyen formant une nappe grisâtre ou bleuâtre couvrant totalement ou parti"
+},
+"amers": {
+"categorie": "Navigation",
+"famille_actuelle": null,
+"apercu": "Points de repère remarquables au sol (clocher, pont, intersection d'autoroutes) identifiab"
+},
+"angle d'attaque": {
+"categorie": "Aérodynamique",
+"famille_actuelle": null,
+"apercu": "Angle formé entre la corde de profil de l'aile et la direction du vent relatif. Un angle d"
+},
+"angle de dérive": {
+"categorie": "Vent",
+"famille_actuelle": null,
+"apercu": "Angle formé entre le cap de l'aéronef (orientation du nez) et sa route réelle au sol. Cett"
+},
+"anticyclone": {
+"categorie": "Météo",
+"famille_actuelle": null,
+"apercu": "Zone de haute pression. Vent horaire, air descendant, temps généralement calme et stable —"
+},
+"anémomètre": {
+"categorie": "Instruments",
+"famille_actuelle": "instruments",
+"apercu": "Instrument de bord mesurant la vitesse de l'aéronef par rapport à l'air en comparant la pr"
+},
+"approche finale": {
+"categorie": "Procédures",
+"famille_actuelle": null,
+"apercu": "Dernière étape du circuit de piste où l'aéronef est aligné avec l'axe de la piste pour des"
+},
+"approche interrompue": {
+"categorie": "Procédures",
+"famille_actuelle": null,
+"apercu": "Procédure consistant à interrompre l'atterrissage pour remettre les gaz et reprendre de la"
+},
+"approche stabilisée": {
+"categorie": "Aérodrome & cartes",
+"famille_actuelle": null,
+"apercu": "Approche où l'avion est, avant un seuil convenu, sur l'axe, sur le plan, à la bonne vitess"
+},
+"aquila": {
+"categorie": "Aérodrome & cartes",
+"famille_actuelle": null,
+"apercu": "Constructeur européen d'avions légers de formation, notamment célèbre pour le modèle bipla"
+},
+"arc blanc": {
+"categorie": "Instruments",
+"famille_actuelle": "arcs",
+"apercu": "Plage d'utilisation normale des volets sur le cadran de l'anémomètre. La borne inférieure "
+},
+"arc dme": {
+"categorie": "Navigation",
+"famille_actuelle": "arcs",
+"apercu": "Trajectoire de vol circulaire maintenue à distance constante d'une station DME au sol. Cou"
+},
+"arc jaune": {
+"categorie": "Instruments",
+"famille_actuelle": "arcs",
+"apercu": "Plage de vitesse de précaution sur le cadran de l'anémomètre, située au-dessus de la vites"
+},
+"arc vert": {
+"categorie": "Instruments",
+"famille_actuelle": "arcs",
+"apercu": "Plage de fonctionnement normal de l'aéronef sur le cadran de l'anémomètre. Sa limite infér"
+},
+"arrondi": {
+"categorie": "Aérodrome & cartes",
+"famille_actuelle": null,
+"apercu": "Manœuvre qui met fin à la descente juste avant le toucher : on réduit progressivement le t"
+},
+"ascendance": {
+"categorie": "Météo",
+"famille_actuelle": null,
+"apercu": "Courant d'air vertical dirigé vers le haut, provoqué par le réchauffement du sol ou le rel"
+},
+"ascendance thermique": {
+"categorie": "Météo",
+"famille_actuelle": null,
+"apercu": "Bulle ou colonne d'air chaud s'élevant dans l'atmosphère après avoir été chauffée par cont"
+},
+"asi": {
+"categorie": "Instruments",
+"famille_actuelle": "instruments",
+"apercu": "<em>Airspeed Indicator</em> : appellation anglaise fréquente de l'anémomètre de bord. Il t"
+},
+"assiette": {
+"categorie": "Aérodynamique",
+"famille_actuelle": "assiettes",
+"apercu": "Angle formé entre l'axe longitudinal de l'aéronef et l'horizon. Elle est contrôlée directe"
+},
+"assiette de croisière": {
+"categorie": "Vitesses & performances",
+"famille_actuelle": "assiettes",
+"apercu": "Assiette de vol stabilisée adoptée par l'aéronef lors du vol en palier à vitesse constante"
+},
+"assiette de montée": {
+"categorie": "Vitesses & performances",
+"famille_actuelle": "assiettes",
+"apercu": "Assiette cabrée de l'aéronef permettant d'effectuer la montée vers l'altitude de croisière"
+},
+"assiette de reference": {
+"categorie": "Aérodynamique",
+"famille_actuelle": "assiettes",
+"apercu": "Assiette standard prise comme repère visuel fondamental par rapport à l'horizon pour un ré"
+},
+"atc": {
+"categorie": "Radio & phraséologie",
+"famille_actuelle": null,
+"apercu": "<em>Air Traffic Control</em> : le contrôle de la circulation aérienne. Ce service assure l"
+},
+"atmosphère standard": {
+"categorie": "Météo",
+"famille_actuelle": null,
+"apercu": "Modèle physique simplifié de l'atmosphère terrestre servant de référence internationale (I"
+},
+"ats": {
+"categorie": "Réglementation & docs",
+"famille_actuelle": null,
+"apercu": "<em>Air Traffic Services</em> : les services de la circulation aérienne. Ils comprennent l"
+},
+"atterrissage de précaution": {
+"categorie": "Procédures",
+"famille_actuelle": "atterrissages",
+"apercu": "Atterrissage volontaire sur un terrain ou un champ répertorié face à une dégradation météo"
+},
+"atterrissage forcé": {
+"categorie": "Procédures",
+"famille_actuelle": "atterrissages",
+"apercu": "Atterrissage immédiat et inévitable consécutif à une panne majeure (souvent moteur) rendan"
+},
+"atterrissage precaution": {
+"categorie": "Procédures",
+"famille_actuelle": "atterrissages",
+"apercu": "Variante orthographique de l'atterrissage de précaution. Atterrissage anticipé décidé par "
+},
+"atterrissage train rentré": {
+"categorie": "Procédures",
+"famille_actuelle": "atterrissages",
+"apercu": "Procédure d'urgence exécutée sur un aéronef équipé d'un train d'atterrissage escamotable e"
+},
+"attitude": {
+"categorie": "Sécurité & facteurs humains",
+"famille_actuelle": null,
+"apercu": "État d'esprit ou posture mentale du pilote influençant directement ses décisions et son co"
+},
+"attitude de vol": {
+"categorie": "Aérodynamique",
+"famille_actuelle": null,
+"apercu": "Anglicisme (calque de l'anglais <em>attitude</em>) désignant l'<strong>assiette</strong> o"
+},
+"atz": {
+"categorie": "Réglementation & docs",
+"famille_actuelle": null,
+"apercu": "<em>Aerodrome Traffic Zone</em> : zone de circulation d'aérodrome de dimensions définies e"
+},
+"autonomie": {
+"categorie": "Vitesses & performances",
+"famille_actuelle": null,
+"apercu": "Durée maximale pendant laquelle un aéronef peut rester en vol avec la quantité de carburan"
+},
+"autonomie carburant": {
+"categorie": "Vitesses & performances",
+"famille_actuelle": null,
+"apercu": "Quantité de carburant utilisable exprimée en heures et minutes de vol. Elle intègre obliga"
+},
+"autorisation atterrissage": {
+"categorie": "Radio & phraséologie",
+"famille_actuelle": null,
+"apercu": "Clairance délivrée par le contrôleur aérien autorisant le pilote à toucher les roues sur l"
+},
+"autorotation": {
+"categorie": "Procédures",
+"famille_actuelle": null,
+"apercu": "État de vol d'un hélicoptère ou autogire où le rotor principal tourne uniquement sous l'ac"
+},
+"averse": {
+"categorie": "Météo",
+"famille_actuelle": null,
+"apercu": "Précipitation intense et de courte durée, caractérisée par des débuts et fins brusques. So"
+},
+"aviate": {
+"categorie": "Sécurité & facteurs humains",
+"famille_actuelle": null,
+"apercu": "Premier pilier de la règle d'or « Aviate, Navigate, Communicate ». Le pilote doit toujours"
+},
+"avitaillement": {
+"categorie": "Procédures",
+"famille_actuelle": null,
+"apercu": "Action de ravitailler un aéronef en carburant et lubrifiants. Cette opération délicate exi"
+},
+"axe de piste": {
+"categorie": "Aérodrome & cartes",
+"famille_actuelle": null,
+"apercu": "Ligne imaginaire prolongeant le milieu de la piste dans les deux sens. S'aligner avec préc"
+},
+"azimut": {
+"categorie": "Navigation",
+"famille_actuelle": null,
+"apercu": "Direction horizontale mesurée en degrés depuis le nord, dans le sens des aiguilles d'une m"
+},
+"aérodrome de dégagement": {
+"categorie": "Procédures",
+"famille_actuelle": null,
+"apercu": "Terrain de secours prévu lors de la préparation du vol où le pilote peut se dérouter en ca"
+},
+"aérofreinage": {
+"categorie": "Aérodynamique",
+"famille_actuelle": null,
+"apercu": "Technique consistant à utiliser la traînée aérodynamique de la cellule, en maintenant l'as"
+},
+"badin": {
+"categorie": "Instruments",
+"famille_actuelle": "instruments",
+"apercu": "Terme argotique aéronautique désignant l'anémomètre de bord, du nom de son inventeur Raoul"
+},
+"bande": {
+"categorie": "Aérodrome & cartes",
+"famille_actuelle": null,
+"apercu": "Surface dégagée qui entoure la piste, destinée à limiter les dégâts en cas de sortie. Elle"
+},
+"bande derobee": {
+"categorie": "Aérodrome & cartes",
+"famille_actuelle": null,
+"apercu": "Fiche en construction."
+},
+"barotraumatisme": {
+"categorie": "Sécurité & facteurs humains",
+"famille_actuelle": null,
+"apercu": "Lésion des tissus de l'oreille moyenne ou des sinus causée par une variation rapide de la "
+},
+"base des nuages": {
+"categorie": "Météo",
+"famille_actuelle": "nuages",
+"apercu": "Altitude ou hauteur de la partie inférieure d'un nuage. Sa connaissance est cruciale en vo"
+},
+"basses couches": {
+"categorie": "Météo",
+"famille_actuelle": null,
+"apercu": "Partie inférieure de l'atmosphère, généralement en dessous de 5000 ft, où se déroule la ma"
+},
+"bat": {
+"categorie": "divers",
+"famille_actuelle": null,
+"apercu": "Fiche en construction."
+},
+"batterie": {
+"categorie": "Moteur & hélice",
+"famille_actuelle": null,
+"apercu": "Accumulateur d'énergie électrique en courant continu permettant le démarrage du moteur et "
+},
+"becs": {
+"categorie": "Aérodynamique",
+"famille_actuelle": "gouvernes",
+"apercu": "Dispositifs hypersustentateurs situés sur le bord d'attaque de l'aile. En se déployant ver"
+},
+"biais de confirmation": {
+"categorie": "Sécurité & facteurs humains",
+"famille_actuelle": null,
+"apercu": "Tendance cognitive du pilote à ne sélectionner que les informations confirmant son hypothè"
+},
+"bilan carburant": {
+"categorie": "Procédures",
+"famille_actuelle": null,
+"apercu": "Calcul rigoureux effectué par le pilote lors de la préparation et du vol pour comparer la "
+},
+"bille": {
+"categorie": "Instruments",
+"famille_actuelle": "instruments",
+"apercu": "Indicateur de symétrie de vol matérialisé par une bille libre dans un tube incurvé. Voler "
+},
+"bkn": {
+"categorie": "Météo",
+"famille_actuelle": null,
+"apercu": "Code METAR/TAF signifiant « Broken » (très nuageux). Il désigne une couverture nuageuse de"
+},
+"br": {
+"categorie": "Météo",
+"famille_actuelle": null,
+"apercu": "Code METAR/TAF désignant la brume. Ce phénomène réduit la visibilité horizontale entre 100"
+},
+"branche": {
+"categorie": "Procédures",
+"famille_actuelle": null,
+"apercu": "Fiche en construction."
+},
+"bras de levier": {
+"categorie": "Masse & centrage",
+"famille_actuelle": null,
+"apercu": "Distance séparant le centre de gravité d'un élément (passager, bagage, carburant) de la ré"
+},
+"brassage": {
+"categorie": "Procédures",
+"famille_actuelle": null,
+"apercu": "Action manuelle consistant à faire tourner l'hélice à l'arrêt pour lubrifier les cylindres"
+},
+"brief": {
+"categorie": "Procédures",
+"famille_actuelle": "briefings",
+"apercu": "Présentation courte et ciblée exposant un plan d'action immédiat pour une phase de vol imm"
+},
+"briefing": {
+"categorie": "Procédures",
+"famille_actuelle": "briefings",
+"apercu": "Exposé structuré réalisé par le pilote décrivant la stratégie de vol, les menaces identifi"
+},
+"briefing arrivée": {
+"categorie": "Procédures",
+"famille_actuelle": "briefings",
+"apercu": "Exposé préparatoire avant l'intégration du circuit d'aérodrome, détaillant l'altitude de r"
+},
+"briefing départ": {
+"categorie": "Procédures",
+"famille_actuelle": "briefings",
+"apercu": "Exposé systématique effectué avant d'entrer sur la piste, récapitulant les vitesses de rot"
+},
+"brise de mer": {
+"categorie": "Vent",
+"famille_actuelle": "brises",
+"apercu": "Vent local soufflant de la mer vers la terre durant la journée. Provoqué par le réchauffem"
+},
+"brise de pente": {
+"categorie": "Vent",
+"famille_actuelle": "brises",
+"apercu": "Vent local soufflant le long des reliefs, montant durant la journée sous l'effet du soleil"
+},
+"brise de terre": {
+"categorie": "Vent",
+"famille_actuelle": "brises",
+"apercu": "Vent local nocturne soufflant de la terre refroidie vers la mer plus chaude. Généralement "
+},
+"brise de vallée": {
+"categorie": "Vent",
+"famille_actuelle": "brises",
+"apercu": "Vent local soufflant le long de l'axe d'une vallée, montant vers les sommets le jour et de"
+},
+"brouillard": {
+"categorie": "Météo",
+"famille_actuelle": null,
+"apercu": "Comme la brume mais avec une visibilité <strong>inférieure à 1 km</strong>. Un brouillard "
+},
+"brouillard de rayonnement": {
+"categorie": "Météo",
+"famille_actuelle": null,
+"apercu": "Brouillard se formant par nuit claire et vent calme à la suite du refroidissement du sol p"
+},
+"brume": {
+"categorie": "Météo",
+"famille_actuelle": null,
+"apercu": "Suspension de gouttelettes donnant une visibilité entre 1 et 5 km. Souvent le matin à LFPN"
+},
+"cabré": {
+"categorie": "Aérodynamique",
+"famille_actuelle": null,
+"apercu": "Attitude ou mouvement de l'aéronef caractérisé par une élévation du nez au-dessus de l'hor"
+},
+"calage altimétrique": {
+"categorie": "Altimétrie",
+"famille_actuelle": "calages_altimetriques",
+"apercu": "Valeur de pression barométrique affichée dans la fenêtre de l'altimètre pour mesurer des h"
+},
+"calage helice": {
+"categorie": "Moteur & hélice",
+"famille_actuelle": null,
+"apercu": "Angle formé entre la corde de profil de la pale d'hélice et le plan de rotation. Sur hélic"
+},
+"calage standard": {
+"categorie": "Altimétrie",
+"famille_actuelle": null,
+"apercu": "Calage altimétrique à <strong>1013,25 hPa</strong> (29,92 inHg), utilisé en croisière au-d"
+},
+"calvus": {
+"categorie": "Météo",
+"famille_actuelle": "nuages",
+"apercu": "Espèce de cumulonimbus dont les sommets bourgeonnants commencent à s'aplatir et à perdre l"
+},
+"canal unique": {
+"categorie": "Radio & phraséologie",
+"famille_actuelle": null,
+"apercu": "Fréquence radio commune (généralement 123,5 MHz en France) réservée à l'auto-information s"
+},
+"cap": {
+"categorie": "Navigation",
+"famille_actuelle": "navigation_caps_et_routes",
+"apercu": "Angle entre une direction de référence (nord vrai, magnétique ou compas) et l'axe longitud"
+},
+"cap compas": {
+"categorie": "Navigation",
+"famille_actuelle": "navigation_caps_et_routes",
+"apercu": "Angle mesuré entre le nord du compas de l'aéronef et son axe longitudinal. C'est la valeur"
+},
+"cap magnétique": {
+"categorie": "Navigation",
+"famille_actuelle": null,
+"apercu": "Cap mesuré par rapport au <strong>nord magnétique</strong>, celui vers lequel pointe le co"
+},
+"cap vrai": {
+"categorie": "Navigation",
+"famille_actuelle": null,
+"apercu": "Cap mesuré par rapport au <strong>nord vrai</strong> (géographique), celui des méridiens d"
+},
+"carbu": {
+"categorie": "Moteur & hélice",
+"famille_actuelle": null,
+"apercu": "Terme familier couramment employé par les pilotes pour désigner le carburateur (comme dans"
+},
+"carburant degagement": {
+"categorie": "Réglementation & docs",
+"famille_actuelle": "gestion_carburant",
+"apercu": "Quantité minimale de carburant requise pour voler de la destination prévue jusqu'à un aéro"
+},
+"carburant inutilisable": {
+"categorie": "Masse & centrage",
+"famille_actuelle": "gestion_carburant",
+"apercu": "Quantité de carburant qui ne peut pas être acheminée vers les moteurs dans les attitudes d"
+},
+"carburant utilisable": {
+"categorie": "Masse & centrage",
+"famille_actuelle": "gestion_carburant",
+"apercu": "Quantité totale de carburant contenue dans les réservoirs diminuée du carburant inutilisab"
+},
+"carnet de route": {
+"categorie": "Réglementation & docs",
+"famille_actuelle": null,
+"apercu": "Document officiel obligatoire à bord de l'aéronef, mis à jour après chaque vol. Il consign"
+},
+"carte": {
+"categorie": "Aérodrome & cartes",
+"famille_actuelle": "cartes_aeronautiques",
+"apercu": "Représentation graphique plane d'une partie de la surface terrestre montrant les détails t"
+},
+"carte oaci": {
+"categorie": "Aérodrome & cartes",
+"famille_actuelle": "cartes_aeronautiques",
+"apercu": "Carte aéronautique de navigation visuelle au 1/500 000 ou 1/250 000, éditée selon les norm"
+},
+"carte topographique": {
+"categorie": "Aérodrome & cartes",
+"famille_actuelle": "cartes_aeronautiques",
+"apercu": "Carte axée sur la description précise du relief, de l'hydrographie, des voies de communica"
+},
+"carte vac": {
+"categorie": "Aérodrome & cartes",
+"famille_actuelle": "cartes_aeronautiques",
+"apercu": "<em>Visual Approach Chart</em> : carte d'approche et d'atterrissage à vue propre à chaque "
+},
+"cas": {
+"categorie": "divers",
+"famille_actuelle": null,
+"apercu": "Fiche en construction."
+},
+"castellanus": {
+"categorie": "Météo",
+"famille_actuelle": "nuages",
+"apercu": "Nuage présentant des protubérances en forme de petites tours ou de créneaux, souvent dispo"
+},
+"cellule": {
+"categorie": "Structure & cellule",
+"famille_actuelle": null,
+"apercu": "Ensemble de la structure d'un aéronef comprenant le fuselage, la voilure, l'empennage, les"
+},
+"centrage": {
+"categorie": "Masse & centrage",
+"famille_actuelle": "masse_et_centrage",
+"apercu": "Action consistant à calculer et à positionner le centre de gravité de l'aéronef par rappor"
+},
+"centre de gravité": {
+"categorie": "Masse & centrage",
+"famille_actuelle": "masse_et_centrage",
+"apercu": "Point d'application de la force de gravité s'exerçant sur l'aéronef. Sa position longitudi"
+},
+"certificat médical": {
+"categorie": "Réglementation & docs",
+"famille_actuelle": null,
+"apercu": "Document d'aptitude physique et mentale obligatoire pour qu'un pilote puisse exercer ses p"
+},
+"cg": {
+"categorie": "Masse & centrage",
+"famille_actuelle": "masse_et_centrage",
+"apercu": "Abréviation aéronautique courante pour le <em>centre de gravité</em>. Point d'application "
+},
+"chaine des erreurs": {
+"categorie": "Sécurité & facteurs humains",
+"famille_actuelle": "facteurs_humains",
+"apercu": "Succession logique et temporelle de défaillances mineures, d'omissions ou d'erreurs d'éval"
+},
+"charge de travail": {
+"categorie": "Sécurité & facteurs humains",
+"famille_actuelle": "facteurs_humains",
+"apercu": "Quantité d'activité mentale et physique requise de la part du pilote pour accomplir une tâ"
+},
+"check-list": {
+"categorie": "Procédures",
+"famille_actuelle": "listes_de_verification",
+"apercu": "Liste ordonnée d'actions ou de vérifications à effectuer de manière systématique durant le"
+},
+"check-list atterrissage": {
+"categorie": "Procédures",
+"famille_actuelle": "listes_de_verification",
+"apercu": "Ensemble de vérifications obligatoires effectuées en phase d'approche avant de se poser (g"
+},
+"check-list décollage": {
+"categorie": "Procédures",
+"famille_actuelle": "listes_de_verification",
+"apercu": "Série de contrôles obligatoires exécutés juste avant de s'aligner sur la piste ou au point"
+},
+"checklist": {
+"categorie": "Procédures",
+"famille_actuelle": "listes_de_verification",
+"apercu": "Variante orthographique anglaise courante de « check-list ». Elle désigne le même outil fo"
+},
+"choix de piste": {
+"categorie": "Procédures",
+"famille_actuelle": null,
+"apercu": "Décision prise par le pilote de sélectionner la piste de décollage ou d'atterrissage la pl"
+},
+"choke": {
+"categorie": "Moteur & hélice",
+"famille_actuelle": null,
+"apercu": "Dispositif d'enrichissement manuel du mélange (volet de départ à froid), utilisé sur certa"
+},
+"cht": {
+"categorie": "Moteur & hélice",
+"famille_actuelle": null,
+"apercu": "<em>Cylinder Head Temperature</em> : température de culasse. Paramètre moteur surveillé en"
+},
+"chute de pression": {
+"categorie": "Moteur & hélice",
+"famille_actuelle": null,
+"apercu": "Baisse anormale de la pression (souvent d'huile ou d'essence) lue sur les instruments mote"
+},
+"circuit basse hauteur": {
+"categorie": "Procédures",
+"famille_actuelle": null,
+"apercu": "Tour de piste effectué à une altitude inférieure à celle du circuit standard (généralement"
+},
+"cirrostratus": {
+"categorie": "Météo",
+"famille_actuelle": "nuages",
+"apercu": "Voile nuageux élevé et translucide, composé de cristaux de glace, qui couvre souvent tout "
+},
+"cisaillement": {
+"categorie": "Vent",
+"famille_actuelle": null,
+"apercu": "Changement brutal de direction ou de force du vent sur une courte distance. Signature cock"
+},
+"cisaillement basse couche": {
+"categorie": "Vent",
+"famille_actuelle": "cisaillement_de_vent",
+"apercu": "Cisaillement du vent se produisant à proximité immédiate du sol, souvent lié à des obstacl"
+},
+"cisaillement de vent": {
+"categorie": "Vent",
+"famille_actuelle": "cisaillement_de_vent",
+"apercu": "Changement brusque de la vitesse et/ou de la direction du vent sur une courte distance, ho"
+}
+}

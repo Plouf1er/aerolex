@@ -1,0 +1,82 @@
+{
+  "lot": 8,
+  "termes": {
+    "aileron": {
+      "definition": "Surface mobile articulée sur le bord de fuite de chaque aile, débattant en sens opposé pour commander le roulis. L'action sur les ailerons induit un lacet inverse qu'il convient de corriger au palonnier.",
+      "categorie": "Structure & cellule",
+      "famille": "gouvernes",
+      "membres_famille": [
+        "gouverne de direction",
+        "gouverne de profondeur"
+      ],
+      "a_verifier": false
+    },
+    "gouverne de direction": {
+      "definition": "Surface mobile de l'empennage vertical actionnée au palonnier pour contrôler le lacet (rotation autour de l'axe vertical). Contrairement à une idée reçue, elle ne sert pas à tourner mais à maintenir la symétrie du vol.",
+      "categorie": "Structure & cellule",
+      "famille": "gouvernes",
+      "membres_famille": [
+        "aileron",
+        "gouverne de profondeur"
+      ],
+      "a_verifier": false
+    },
+    "atterrissage": {
+      "definition": "Phase finale du vol consistant à ramener l'aéronef au contact du sol. Elle comprend l'approche finale, l'arrondi (transition progressive vers l'assiette de poser), le toucher des roues et le roulement jusqu'à l'arrêt ou le dégagement.",
+      "categorie": "Procédures",
+      "famille": "phases_vol",
+      "membres_famille": [
+        "palier",
+        "pente de descente",
+        "plané"
+      ],
+      "a_verifier": false
+    },
+    "attitude de vol": {
+      "definition": "Anglicisme (calque de l'anglais <em>attitude</em>) désignant l'<strong>assiette</strong> ou l'inclinaison de l'aéronef. En français aéronautique, on emploie les termes précis d'« assiette » (longitudinale) ou d'« inclinaison » (latérale).",
+      "categorie": "Aérodynamique",
+      "famille": null,
+      "membres_famille": [],
+      "a_verifier": false,
+      "anglicisme": true
+    },
+    "remise de gaz interrompue": {
+      "definition": "",
+      "categorie": "Procédures",
+      "famille": null,
+      "membres_famille": [],
+      "a_verifier": true,
+      "doute": "Terme absent de la phraséologie et des manœuvres standards de la formation PPL. Une remise de gaz commencée doit impérativement être menée à son terme. L'interrompre est une manœuvre critique et non réglementaire. Possible confusion avec un atterrissage interrompu (balked landing)."
+    },
+    "canal unique": {
+      "definition": "Fréquence radio commune (généralement 123,5 MHz en France) réservée à l'auto-information sur les aérodromes non contrôlés dépourvus de fréquence propre. L'usage de ce canal unique impose de mentionner le nom du terrain pour éviter toute confusion.",
+      "categorie": "Radio & phraséologie",
+      "famille": null,
+      "membres_famille": [],
+      "a_verifier": false
+    },
+    "vireur": {
+      "definition": "Appellation familière parfois employée pour désigner l'<strong>indicateur de virage</strong> (bille-aiguille ou coordinateur de virage). Cet instrument gyroscopique fournit le taux de virage (vitesse angulaire) de l'avion et permet de coordonner le vol.",
+      "categorie": "Instruments",
+      "famille": null,
+      "membres_famille": [],
+      "a_verifier": false
+    },
+    "elr": {
+      "definition": "<em>Environmental Lapse Rate</em> : gradient thermique vertical réel de l'atmosphère (taux observé de baisse de température avec l'altitude). Comparé aux gradients adiabatiques sec (DALR) et saturé (SALR), il détermine la stabilité ou l'instabilité de la masse d'air.",
+      "categorie": "Météo",
+      "famille": null,
+      "membres_famille": [],
+      "a_verifier": false,
+      "anglicisme": true
+    },
+    "bande derobee": {
+      "definition": "",
+      "categorie": "Aérodrome & cartes",
+      "famille": null,
+      "membres_famille": [],
+      "a_verifier": true,
+      "doute": "Terme absent de la réglementation et du programme officiel du PPL en France. Il pourrait s'agir d'une confusion avec 'seuil décalé' ou 'bande de piste' (runway strip), ou d'un terme non aéronautique présent par erreur dans le corpus."
+    }
+  }
+}

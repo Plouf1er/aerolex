@@ -1,0 +1,3847 @@
+{
+"°": {
+"d": "Degré d'angle : direction du vent, cap, QFU, θ (angle vent–piste). Un QFU s'écrit en dizaines de degrés (25 = 250°) ; un vent METAR est en degrés vrai",
+"cat": "Unités",
+"fam": null
+},
+"AAL": {
+"d": "<em>Above Aerodrome Level</em> : au-dessus du niveau de l'aérodrome. Une hauteur, pas une altitude — « plafond à 1500 ft AAL » signifie 1500 ft au-des",
+"cat": "Altimétrie",
+"fam": null
+},
+"abaque": {
+"d": "Graphique ou tableau à double entrée permettant de déterminer sans calcul une performance, comme la distance de décollage ou de montée. C'est l'outil ",
+"cat": "Vitesses & performances",
+"fam": null
+},
+"abaque de centrage": {
+"d": "Représentation graphique permettant de vérifier que le centre de gravité de l'aéronef reste dans les limites avant du constructeur pour toute la durée",
+"cat": "Masse & centrage",
+"fam": null
+},
+"action vitale": {
+"d": "Procédure d'urgence ou de sécurité critique devant être apprise par cœur par le pilote pour être exécutée sans délai ni consultation de check-list. Un",
+"cat": "Procédures",
+"fam": null
+},
+"adf": {
+"d": "<em>Automatic Direction Finder</em> : récepteur radio de bord affichant le gisement d'une balise au sol NDB. C'est un instrument d'ancienne génération",
+"cat": "Navigation",
+"fam": "instruments"
+},
+"advection": {
+"d": "Transport horizontal d'une masse d'air chaud ou froid sous l'effet du vent. L'advection d'air doux et humide sur un sol froid engendre fréquemment des",
+"cat": "Météo",
+"fam": null
+},
+"aerocolique": {
+"d": "Douleur intestinale aiguë provoquée par la dilatation des gaz digestifs lors de la montée en altitude. C'est un trouble physiologique qui peut rapidem",
+"cat": "Sécurité & facteurs humains",
+"fam": null
+},
+"aérodrome de dégagement": {
+"d": "Terrain de secours prévu lors de la préparation du vol où le pilote peut se dérouter en cas d'impossibilité d'atterrir à destination (météo bouchée, p",
+"cat": "Procédures",
+"fam": null
+},
+"aerofrein": {
+"d": "Dispositif mobile augmentant la traînée aérodynamique de l'aéronef sans modifier la portance. Principalement utilisé sur planeur pour accentuer la pen",
+"cat": "Aérodynamique",
+"fam": "gouvernes"
+},
+"aérofreinage": {
+"d": "Technique consistant à utiliser la traînée aérodynamique de la cellule, en maintenant l'assiette cabrée au roulis après le toucher des roues, pour ral",
+"cat": "Aérodynamique",
+"fam": null
+},
+"afis": {
+"d": "<em>Aerodrome Flight Information Service</em> : organisme fournissant des services d'information de vol et d'alerte sur un aérodrome non contrôlé. L'a",
+"cat": "Aérodrome & cartes",
+"fam": null
+},
+"agl": {
+"d": "<em>Above Ground Level</em> : au-dessus du niveau du sol. Cette référence verticale indique une hauteur réelle par rapport à la surface terrestre surv",
+"cat": "Altimétrie",
+"fam": "references_verticales"
+},
+"aile": {
+"d": "Voilure principale de l'aéronef destinée à générer la portance nécessaire au vol. Son profil aérodynamique crée une dépression sur l'extrados et une s",
+"cat": "Structure & cellule",
+"fam": null
+},
+"aileron au vent": {
+"d": "Action de braquer l'aileron du côté d'où souffle le vent lors du roulage ou de l'atterrissage par vent de travers. Cela évite le soulèvement de l'aile",
+"cat": "Procédures",
+"fam": "gouvernes"
+},
+"ailes à plat": {
+"d": "Position horizontale de la voilure par rapport à l'horizon, caractérisant une absence d'inclinaison. C'est l'attitude recherchée lors du vol rectilign",
+"cat": "Procédures",
+"fam": null
+},
+"AIP": {
+"d": "<em>Aeronautical Information Publication</em> : la documentation aéronautique officielle d'un pays, publiée par cycles AIRAC de 28 jours. Les VAC en s",
+"cat": "Réglementation & docs",
+"fam": null
+},
+"AIRAC": {
+"d": "<em>Aeronautical Information Regulation And Control</em> — « régulation et contrôle de l'information aéronautique ». Cycle de 28 jours au rythme duque",
+"cat": "Réglementation & docs",
+"fam": null
+},
+"alcool": {
+"d": "Substance psychotrope strictement réglementée en aéronautique, dont le taux sanguin maximal autorisé est extrêmement bas pour le pilote. Il altère les",
+"cat": "Sécurité & facteurs humains",
+"fam": null
+},
+"alignement": {
+"d": "Action de placer l'avion sur l'axe de la piste, dans le sens du décollage, avant de mettre la puissance. C'est le dernier moment où l'on vérifie que l",
+"cat": "Aérodrome & cartes",
+"fam": null
+},
+"allumage": {
+"d": "Système assurant la combustion du mélange air-carburant dans les cylindres du moteur, généralement doublé par deux magnétos indépendantes. La vérifica",
+"cat": "Moteur & hélice",
+"fam": null
+},
+"alphabet aviation": {
+"d": "Alphabet phonétique international de l'OACI (Alpha, Bravo, Charlie...) utilisé à la radio pour épeler les immatriculations ou messages ambigus. Il gar",
+"cat": "Radio & phraséologie",
+"fam": null
+},
+"alt": {
+"d": "Terme radio ou abréviation pour « altitude » ou commande du transpondeur transmettant l'altitude de l'aéronef au contrôle radar. En mode ALT, le trans",
+"cat": "Radio & phraséologie",
+"fam": "references_verticales"
+},
+"alternateur": {
+"d": "Équipement entraîné par le moteur produisant l'électricité nécessaire au réseau de bord et rechargeant la batterie. Une panne d'alternateur impose de ",
+"cat": "Moteur & hélice",
+"fam": null
+},
+"altimètre": {
+"d": "Instrument de bord mesurant la pression atmosphérique statique pour afficher l'altitude ou la hauteur de l'aéronef selon le calage choisi. Un réglage ",
+"cat": "Instruments",
+"fam": "instruments"
+},
+"altimétrie": {
+"d": "Science et technique de la mesure des altitudes en vol. Elle repose sur la corrélation entre la baisse de pression atmosphérique et l'élévation de l'a",
+"cat": "Altimétrie",
+"fam": null
+},
+"altitude de croisière": {
+"d": "Altitude constante choisie pour effectuer la majeure partie du voyage en voyage. Elle doit respecter la règle semi-circulaire pour limiter les risques",
+"cat": "Navigation",
+"fam": "altitudes"
+},
+"altitude de sécurité": {
+"d": "Altitude minimale garantissant un franchissement d'obstacles sûr lors d'un vol sur un segment donné. Elle est calculée en ajoutant une marge de sécuri",
+"cat": "Navigation",
+"fam": "altitudes"
+},
+"altitude de transition": {
+"d": "Altitude au-dessus de laquelle on passe du QNH au calage standard 1013 hPa en montée. En France, généralement 3000 ft AAL sauf indication contraire su",
+"cat": "Altimétrie",
+"fam": null
+},
+"altitude densité": {
+"d": "Altitude-pression corrigée des écarts de température par rapport à l'atmosphère standard. Une température élevée augmente l'altitude densité, ce qui d",
+"cat": "Vitesses & performances",
+"fam": "altitudes"
+},
+"altitude minimale": {
+"d": "Altitude la plus basse autorisée pour le survol d'une zone ou d'une agglomération selon les règles de l'air. Sauf nécessité, elle doit permettre un at",
+"cat": "Réglementation & docs",
+"fam": "altitudes"
+},
+"altitude tour de piste": {
+"d": "Altitude réglementaire spécifiée sur la carte d'approche pour effectuer le circuit de piste. Elle est généralement fixée à 1000 ft au-dessus du sol po",
+"cat": "Aérodrome & cartes",
+"fam": "altitudes"
+},
+"altitude-densité": {
+"d": "Altitude-pression corrigée de la température : l'altitude à laquelle l'air « semble » se trouver pour ton avion. Air chaud = altitude-densité élevée =",
+"cat": "Altimétrie",
+"fam": null
+},
+"altitude-pression": {
+"d": "Altitude lue avec un calage à 1013,25 hPa. C'est la référence commune de la croisière (niveaux de vol) et le point de départ du calcul des performance",
+"cat": "Altimétrie",
+"fam": null
+},
+"altocumulus": {
+"d": "Nuage de l'étage moyen se présentant sous forme de bancs ou de galets blancs et gris. Sa présence peut annoncer l'arrivée d'un front ou d'une instabil",
+"cat": "Météo",
+"fam": "nuages"
+},
+"altostratus": {
+"d": "Nuage de l'étage moyen formant une nappe grisâtre ou bleuâtre couvrant totalement ou partiellement le ciel. Il est assez épais pour laisser voir le so",
+"cat": "Météo",
+"fam": "nuages"
+},
+"amers": {
+"d": "Points de repère remarquables au sol (clocher, pont, intersection d'autoroutes) identifiables sur la carte et servant à la navigation à vue. Le choix ",
+"cat": "Navigation",
+"fam": null
+},
+"AMSL": {
+"d": "<em>Above Mean Sea Level</em> : au-dessus du niveau moyen de la mer. C'est l'<strong>altitude</strong>, celle que lit l'altimètre calé au QNH.",
+"cat": "Altimétrie",
+"fam": null
+},
+"anémomètre": {
+"d": "Instrument de bord mesurant la vitesse de l'aéronef par rapport à l'air en comparant la pression dynamique et la pression statique. C'est l'un des ins",
+"cat": "Instruments",
+"fam": "instruments"
+},
+"angle d'attaque": {
+"d": "Angle formé entre la corde de profil de l'aile et la direction du vent relatif. Un angle d'attaque trop élevé provoque le décrochage brutal de l'aéron",
+"cat": "Aérodynamique",
+"fam": null
+},
+"angle de dérive": {
+"d": "Angle formé entre le cap de l'aéronef (orientation du nez) et sa route réelle au sol. Cette différence est causée par le vent de travers et doit être ",
+"cat": "Vent",
+"fam": null
+},
+"anticyclone": {
+"d": "Zone de haute pression. Vent horaire, air descendant, temps généralement calme et stable — mais attention aux brumes matinales et à l'altitude-densité",
+"cat": "Météo",
+"fam": null
+},
+"approche finale": {
+"d": "Dernière étape du circuit de piste où l'aéronef est aligné avec l'axe de la piste pour descendre vers le point de toucher des roues. La vitesse et la ",
+"cat": "Procédures",
+"fam": null
+},
+"approche interrompue": {
+"d": "Procédure consistant à interrompre l'atterrissage pour remettre les gaz et reprendre de la hauteur. Décidée en cas de mauvaise approche, de rafales ou",
+"cat": "Procédures",
+"fam": null
+},
+"approche stabilisée": {
+"d": "Approche où l'avion est, avant un seuil convenu, sur l'axe, sur le plan, à la bonne vitesse, en configuration d'atterrissage et avec un taux de descen",
+"cat": "Aérodrome & cartes",
+"fam": null
+},
+"aquila": {
+"d": "Constructeur européen d'avions légers de formation, notamment célèbre pour le modèle biplace Aquila AT01. Cet appareil moderne en composite est couram",
+"cat": "Aérodrome & cartes",
+"fam": null
+},
+"arc blanc": {
+"d": "Plage d'utilisation normale des volets sur le cadran de l'anémomètre. La borne inférieure correspond à la vitesse de décrochage configuration atterris",
+"cat": "Instruments",
+"fam": "arcs"
+},
+"arc dme": {
+"d": "Trajectoire de vol circulaire maintenue à distance constante d'une station DME au sol. Couramment utilisée en vol de transition, cette manœuvre exige ",
+"cat": "Navigation",
+"fam": "arcs"
+},
+"arc jaune": {
+"d": "Plage de vitesse de précaution sur le cadran de l'anémomètre, située au-dessus de la vitesse maximale en air turbulent. Le pilote ne doit y évoluer qu",
+"cat": "Instruments",
+"fam": "arcs"
+},
+"arc vert": {
+"d": "Plage de fonctionnement normal de l'aéronef sur le cadran de l'anémomètre. Sa limite inférieure indique la vitesse de décrochage en configuration liss",
+"cat": "Instruments",
+"fam": "arcs"
+},
+"arrondi": {
+"d": "Manœuvre qui met fin à la descente juste avant le toucher : on réduit progressivement le taux de descente en cabrant doucement, pour poser l'avion en ",
+"cat": "Aérodrome & cartes",
+"fam": null
+},
+"ascendance": {
+"d": "Courant d'air vertical dirigé vers le haut, provoqué par le réchauffement du sol ou le relief. Les ascendances sont recherchées par les vélivoles mais",
+"cat": "Météo",
+"fam": null
+},
+"ascendance thermique": {
+"d": "Bulle ou colonne d'air chaud s'élevant dans l'atmosphère après avoir été chauffée par contact avec un sol chaud. Identifiable par la formation de cumu",
+"cat": "Météo",
+"fam": null
+},
+"ASDA": {
+"d": "<em>Accelerate-Stop Distance Available</em> — « distance accélération-arrêt utilisable ». Distance disponible pour accélérer puis s'arrêter : la <stro",
+"cat": "Aérodrome & cartes",
+"fam": null
+},
+"asi": {
+"d": "<em>Airspeed Indicator</em> : appellation anglaise fréquente de l'anémomètre de bord. Il traduit la différence de pression captée par le tube Pitot et",
+"cat": "Instruments",
+"fam": "instruments"
+},
+"assiette": {
+"d": "Angle formé entre l'axe longitudinal de l'aéronef et l'horizon. Elle est contrôlée directement à l'aide de la commande de tangage et est visualisée su",
+"cat": "Aérodynamique",
+"fam": "assiettes"
+},
+"assiette de croisière": {
+"d": "Assiette de vol stabilisée adoptée par l'aéronef lors du vol en palier à vitesse constante. C'est l'assiette de référence pour naviguer de manière opt",
+"cat": "Vitesses & performances",
+"fam": "assiettes"
+},
+"assiette de montée": {
+"d": "Assiette cabrée de l'aéronef permettant d'effectuer la montée vers l'altitude de croisière à une vitesse optimale de montée. Elle doit concilier perfo",
+"cat": "Vitesses & performances",
+"fam": "assiettes"
+},
+"assiette de reference": {
+"d": "Assiette standard prise comme repère visuel fondamental par rapport à l'horizon pour un régime de vol donné. Elle sert de base au pilote pour ajuster ",
+"cat": "Aérodynamique",
+"fam": "assiettes"
+},
+"atc": {
+"d": "<em>Air Traffic Control</em> : le contrôle de la circulation aérienne. Ce service assure la prévention des collisions entre aéronefs au sol et en vol,",
+"cat": "Radio & phraséologie",
+"fam": null
+},
+"ATIS": {
+"d": "<em>Automatic Terminal Information Service</em> — « service automatique d'information de région terminale ». Message automatique et permanent d'inform",
+"cat": "Aérodrome & cartes",
+"fam": null
+},
+"atmosphère standard": {
+"d": "Modèle physique simplifié de l'atmosphère terrestre servant de référence internationale (ISA). Elle fixe la température au sol à 15°C, la pression à 1",
+"cat": "Météo",
+"fam": null
+},
+"ats": {
+"d": "<em>Air Traffic Services</em> : les services de la circulation aérienne. Ils comprennent le service de contrôle, d'information de vol et d'alerte pour",
+"cat": "Réglementation & docs",
+"fam": null
+},
+"atterrissage de précaution": {
+"d": "Atterrissage volontaire sur un terrain ou un champ répertorié face à une dégradation météo ou une baisse de carburant. Il s'anticipe tant que l'aérone",
+"cat": "Procédures",
+"fam": "atterrissages"
+},
+"atterrissage forcé": {
+"d": "Atterrissage immédiat et inévitable consécutif à une panne majeure (souvent moteur) rendant la poursuite du vol impossible. La priorité absolue est la",
+"cat": "Procédures",
+"fam": "atterrissages"
+},
+"atterrissage precaution": {
+"d": "Variante orthographique de l'atterrissage de précaution. Atterrissage anticipé décidé par le pilote sur un terrain de fortune ou de dégagement face à ",
+"cat": "Procédures",
+"fam": "atterrissages"
+},
+"atterrissage train rentré": {
+"d": "Procédure d'urgence exécutée sur un aéronef équipé d'un train d'atterrissage escamotable en cas de dysfonctionnement mécanique ou sur surface meuble p",
+"cat": "Procédures",
+"fam": "atterrissages"
+},
+"attitude": {
+"d": "État d'esprit ou posture mentale du pilote influençant directement ses décisions et son comportement face au risque. L'identification des attitudes da",
+"cat": "Sécurité & facteurs humains",
+"fam": null
+},
+"attitude de vol": {
+"d": "Anglicisme (calque de l'anglais <em>attitude</em>) désignant l'<strong>assiette</strong> ou l'inclinaison de l'aéronef. En français aéronautique, on e",
+"cat": "Aérodynamique",
+"fam": null
+},
+"atz": {
+"d": "<em>Aerodrome Traffic Zone</em> : zone de circulation d'aérodrome de dimensions définies entourant un terrain pour protéger le trafic local. Sa pénétr",
+"cat": "Réglementation & docs",
+"fam": null
+},
+"AUTO": {
+"d": "<em>AUTOmated observation</em> — « observation automatique ». Mention d'un METAR émis par une station automatique, sans intervention humaine. Fiable s",
+"cat": "Météo",
+"fam": null
+},
+"autonomie": {
+"d": "Durée maximale pendant laquelle un aéronef peut rester en vol avec la quantité de carburant embarquée. Elle dépend fortement du régime moteur et du ca",
+"cat": "Vitesses & performances",
+"fam": null
+},
+"autonomie carburant": {
+"d": "Quantité de carburant utilisable exprimée en heures et minutes de vol. Elle intègre obligatoirement la réserve finale réglementaire pour parer aux imp",
+"cat": "Vitesses & performances",
+"fam": null
+},
+"autorisation atterrissage": {
+"d": "Clairance délivrée par le contrôleur aérien autorisant le pilote à toucher les roues sur la piste désignée. Elle confirme que la piste est libre et sé",
+"cat": "Radio & phraséologie",
+"fam": null
+},
+"autorotation": {
+"d": "État de vol d'un hélicoptère ou autogire où le rotor principal tourne uniquement sous l'action du vent relatif ascendant. C'est la procédure d'urgence",
+"cat": "Procédures",
+"fam": null
+},
+"averse": {
+"d": "Précipitation intense et de courte durée, caractérisée par des débuts et fins brusques. Souvent associée à des nuages convectifs, elle réduit brutalem",
+"cat": "Météo",
+"fam": null
+},
+"aviate": {
+"d": "Premier pilier de la règle d'or « Aviate, Navigate, Communicate ». Le pilote doit toujours privilégier le pilotage et le contrôle de l'aéronef avant d",
+"cat": "Sécurité & facteurs humains",
+"fam": null
+},
+"avitaillement": {
+"d": "Action de ravitailler un aéronef en carburant et lubrifiants. Cette opération délicate exige le respect strict des consignes de sécurité, notamment la",
+"cat": "Procédures",
+"fam": null
+},
+"axe de piste": {
+"d": "Ligne imaginaire prolongeant le milieu de la piste dans les deux sens. S'aligner avec précision sur cet axe est indispensable lors des phases de décol",
+"cat": "Aérodrome & cartes",
+"fam": null
+},
+"azimut": {
+"d": "Direction horizontale mesurée en degrés depuis le nord, dans le sens des aiguilles d'une montre. Un azimut de 270° pointe vers l'ouest. C'est la grand",
+"cat": "Navigation",
+"fam": null
+},
+"badin": {
+"d": "Terme argotique aéronautique désignant l'anémomètre de bord, du nom de son inventeur Raoul Badin. Il indique la vitesse de l'aéronef par rapport à l'a",
+"cat": "Instruments",
+"fam": "instruments"
+},
+"bande": {
+"d": "Surface dégagée qui entoure la piste, destinée à limiter les dégâts en cas de sortie. Elle n'est pas une piste : s'y poser ou y rouler n'est pas prévu",
+"cat": "Aérodrome & cartes",
+"fam": null
+},
+"bande derobee": {
+"d": "Fiche en construction.",
+"cat": "Aérodrome & cartes",
+"fam": null
+},
+"barotraumatisme": {
+"d": "Lésion des tissus de l'oreille moyenne ou des sinus causée par une variation rapide de la pression atmosphérique en descente. Il est recommandé de ne ",
+"cat": "Sécurité & facteurs humains",
+"fam": null
+},
+"base des nuages": {
+"d": "Altitude ou hauteur de la partie inférieure d'un nuage. Sa connaissance est cruciale en vol VFR pour s'assurer de conserver une distance verticale rég",
+"cat": "Météo",
+"fam": "nuages"
+},
+"basses couches": {
+"d": "Partie inférieure de l'atmosphère, généralement en dessous de 5000 ft, où se déroule la majorité des vols VFR. C'est la zone la plus sujette aux turbu",
+"cat": "Météo",
+"fam": null
+},
+"bat": {
+"d": "Fiche en construction.",
+"cat": "divers",
+"fam": null
+},
+"batterie": {
+"d": "Accumulateur d'énergie électrique en courant continu permettant le démarrage du moteur et l'alimentation de secours du réseau de bord en cas de panne ",
+"cat": "Moteur & hélice",
+"fam": null
+},
+"BECMG": {
+"d": "<em>Becoming</em> : dans un TAF, évolution durable des conditions, se produisant progressivement dans la fenêtre horaire indiquée. Après la fin de la ",
+"cat": "Météo",
+"fam": null
+},
+"becs": {
+"d": "Dispositifs hypersustentateurs situés sur le bord d'attaque de l'aile. En se déployant vers l'avant, ils augmentent la portance à forte incidence en r",
+"cat": "Aérodynamique",
+"fam": "gouvernes"
+},
+"biais de confirmation": {
+"d": "Tendance cognitive du pilote à ne sélectionner que les informations confirmant son hypothèse initiale, en ignorant les signaux d'alerte contraires. C'",
+"cat": "Sécurité & facteurs humains",
+"fam": null
+},
+"bilan carburant": {
+"d": "Calcul rigoureux effectué par le pilote lors de la préparation et du vol pour comparer la consommation réelle aux estimations. Il garantit de toujours",
+"cat": "Procédures",
+"fam": null
+},
+"bille": {
+"d": "Indicateur de symétrie de vol matérialisé par une bille libre dans un tube incurvé. Voler « la bille au milieu » indique un vol symétrique sans dérapa",
+"cat": "Instruments",
+"fam": "instruments"
+},
+"bkn": {
+"d": "Code METAR/TAF signifiant « Broken » (très nuageux). Il désigne une couverture nuageuse de 5 à 7 octas, constituant réglementairement un plafond limit",
+"cat": "Météo",
+"fam": null
+},
+"br": {
+"d": "Code METAR/TAF désignant la brume. Ce phénomène réduit la visibilité horizontale entre 1000 et 5000 mètres en raison de micro-gouttelettes d'eau en su",
+"cat": "Météo",
+"fam": null
+},
+"branche": {
+"d": "Fiche en construction.",
+"cat": "Procédures",
+"fam": null
+},
+"bras de levier": {
+"d": "Distance séparant le centre de gravité d'un élément (passager, bagage, carburant) de la référence de centrage de l'aéronef. Multiplié par la masse, il",
+"cat": "Masse & centrage",
+"fam": null
+},
+"brassage": {
+"d": "Action manuelle consistant à faire tourner l'hélice à l'arrêt pour lubrifier les cylindres ou évacuer l'huile accumulée. Attention, cette opération do",
+"cat": "Procédures",
+"fam": null
+},
+"brief": {
+"d": "Présentation courte et ciblée exposant un plan d'action immédiat pour une phase de vol imminente. Il permet de synchroniser la conscience situationnel",
+"cat": "Procédures",
+"fam": "briefings"
+},
+"briefing": {
+"d": "Exposé structuré réalisé par le pilote décrivant la stratégie de vol, les menaces identifiées et les actions en cas de panne. C'est un rituel incontou",
+"cat": "Procédures",
+"fam": "briefings"
+},
+"briefing arrivée": {
+"d": "Exposé préparatoire avant l'intégration du circuit d'aérodrome, détaillant l'altitude de raccordement, le sens du tour de piste, les particularités VA",
+"cat": "Procédures",
+"fam": "briefings"
+},
+"briefing départ": {
+"d": "Exposé systématique effectué avant d'entrer sur la piste, récapitulant les vitesses de rotation et de montée, la trajectoire de départ et les actions ",
+"cat": "Procédures",
+"fam": "briefings"
+},
+"brise de mer": {
+"d": "Vent local soufflant de la mer vers la terre durant la journée. Provoqué par le réchauffement rapide du sol par rapport à l'eau, il peut fortement mod",
+"cat": "Vent",
+"fam": "brises"
+},
+"brise de pente": {
+"d": "Vent local soufflant le long des reliefs, montant durant la journée sous l'effet du soleil (brise anabatique) et descendant durant la nuit (brise cata",
+"cat": "Vent",
+"fam": "brises"
+},
+"brise de terre": {
+"d": "Vent local nocturne soufflant de la terre refroidie vers la mer plus chaude. Généralement plus faible que la brise de mer, elle s'établit après le cou",
+"cat": "Vent",
+"fam": "brises"
+},
+"brise de vallée": {
+"d": "Vent local soufflant le long de l'axe d'une vallée, montant vers les sommets le jour et descendant vers la plaine la nuit. Il influence la gestion de ",
+"cat": "Vent",
+"fam": "brises"
+},
+"brouillard": {
+"d": "Comme la brume mais avec une visibilité <strong>inférieure à 1 km</strong>. Un brouillard qui se forme au coucher du soleil sur ton terrain de déroute",
+"cat": "Météo",
+"fam": null
+},
+"brouillard de rayonnement": {
+"d": "Brouillard se formant par nuit claire et vent calme à la suite du refroidissement du sol par rayonnement. Très fréquent à l'automne, il se dissipe gén",
+"cat": "Météo",
+"fam": null
+},
+"brume": {
+"d": "Suspension de gouttelettes donnant une visibilité entre 1 et 5 km. Souvent le matin à LFPN après une nuit claire : elle peut se lever vite… ou pas.",
+"cat": "Météo",
+"fam": null
+},
+"°C": {
+"d": "Degré Celsius : unité de température du METAR (T/Td) et des tables de performances. En ISA, 15 °C au niveau de la mer, −2 °C par 1000 ft.",
+"cat": "Unités",
+"fam": null
+},
+"cabré": {
+"d": "Attitude ou mouvement de l'aéronef caractérisé par une élévation du nez au-dessus de l'horizon, augmentant ainsi l'assiette et généralement l'angle d'",
+"cat": "Aérodynamique",
+"fam": null
+},
+"calage altimétrique": {
+"d": "Valeur de pression barométrique affichée dans la fenêtre de l'altimètre pour mesurer des hauteurs (calage QFE), des altitudes (calage QNH) ou des nive",
+"cat": "Altimétrie",
+"fam": "calages_altimetriques"
+},
+"calage helice": {
+"d": "Angle formé entre la corde de profil de la pale d'hélice et le plan de rotation. Sur hélice à pas variable, il s'ajuste pour optimiser la traction au ",
+"cat": "Moteur & hélice",
+"fam": null
+},
+"calage standard": {
+"d": "Calage altimétrique à <strong>1013,25 hPa</strong> (29,92 inHg), utilisé en croisière au-dessus de l'altitude de transition. Tout le monde est sur la ",
+"cat": "Altimétrie",
+"fam": null
+},
+"calvus": {
+"d": "Espèce de cumulonimbus dont les sommets bourgeonnants commencent à s'aplatir et à perdre leurs contours nets, prenant un aspect vitreux. C'est le stad",
+"cat": "Météo",
+"fam": "nuages"
+},
+"canal unique": {
+"d": "Fréquence radio commune (généralement 123,5 MHz en France) réservée à l'auto-information sur les aérodromes non contrôlés dépourvus de fréquence propr",
+"cat": "Radio & phraséologie",
+"fam": null
+},
+"cap": {
+"d": "Angle entre une direction de référence (nord vrai, magnétique ou compas) et l'axe longitudinal de l'aéronef. C'est la direction vers laquelle pointe l",
+"cat": "Navigation",
+"fam": "navigation_caps_et_routes"
+},
+"cap compas": {
+"d": "Angle mesuré entre le nord du compas de l'aéronef et son axe longitudinal. C'est la valeur lue directement sur l'instrument par le pilote, obtenue en ",
+"cat": "Navigation",
+"fam": "navigation_caps_et_routes"
+},
+"cap magnétique": {
+"d": "Cap mesuré par rapport au <strong>nord magnétique</strong>, celui vers lequel pointe le compas. C'est le cap que tu annonces, que tu tiens et qui se c",
+"cat": "Navigation",
+"fam": null
+},
+"cap vrai": {
+"d": "Cap mesuré par rapport au <strong>nord vrai</strong> (géographique), celui des méridiens de la carte. C'est la direction que l'on trace sur la carte ;",
+"cat": "Navigation",
+"fam": null
+},
+"carbu": {
+"d": "Terme familier couramment employé par les pilotes pour désigner le carburateur (comme dans « réchauffe carbu » pour le réchauffage carburateur). Il fa",
+"cat": "Moteur & hélice",
+"fam": null
+},
+"carburant degagement": {
+"d": "Quantité minimale de carburant requise pour voler de la destination prévue jusqu'à un aérodrome de dégagement en cas d'impossibilité d'atterrir sur le",
+"cat": "Réglementation & docs",
+"fam": "gestion_carburant"
+},
+"carburant inutilisable": {
+"d": "Quantité de carburant qui ne peut pas être acheminée vers les moteurs dans les attitudes de vol normales et autorisées de l'aéronef. Cette quantité mo",
+"cat": "Masse & centrage",
+"fam": "gestion_carburant"
+},
+"carburant utilisable": {
+"d": "Quantité totale de carburant contenue dans les réservoirs diminuée du carburant inutilisable. C'est sur cette seule quantité que le pilote doit se bas",
+"cat": "Masse & centrage",
+"fam": "gestion_carburant"
+},
+"carnet de route": {
+"d": "Document officiel obligatoire à bord de l'aéronef, mis à jour après chaque vol. Il consigne l'identité du commandant de bord, les heures de départ et ",
+"cat": "Réglementation & docs",
+"fam": null
+},
+"carte": {
+"d": "Représentation graphique plane d'une partie de la surface terrestre montrant les détails topographiques et aéronautiques. En vol VFR, la carte papier ",
+"cat": "Aérodrome & cartes",
+"fam": "cartes_aeronautiques"
+},
+"carte oaci": {
+"d": "Carte aéronautique de navigation visuelle au 1/500 000 ou 1/250 000, éditée selon les normes de l'OACI. Elle regroupe la topographie au sol, les obsta",
+"cat": "Aérodrome & cartes",
+"fam": "cartes_aeronautiques"
+},
+"carte topographique": {
+"d": "Carte axée sur la description précise du relief, de l'hydrographie, des voies de communication et des agglomérations. Bien que moins chargée en espace",
+"cat": "Aérodrome & cartes",
+"fam": "cartes_aeronautiques"
+},
+"carte vac": {
+"d": "<em>Visual Approach Chart</em> : carte d'approche et d'atterrissage à vue propre à chaque aérodrome. Elle détaille le tour de piste, les altitudes de ",
+"cat": "Aérodrome & cartes",
+"fam": "cartes_aeronautiques"
+},
+"cas": {
+"d": "Fiche en construction.",
+"cat": "divers",
+"fam": null
+},
+"castellanus": {
+"d": "Nuage présentant des protubérances en forme de petites tours ou de créneaux, souvent disposées en lignes. Sa présence à l'étage moyen (altocumulus cas",
+"cat": "Météo",
+"fam": "nuages"
+},
+"CAVOK": {
+"d": "<em>Ceiling And Visibility OK</em> : visibilité ≥ 10 km, aucun nuage sous 5000 ft (ou sous la plus haute altitude de secteur), pas de CB ni de temps s",
+"cat": "Météo",
+"fam": null
+},
+"CB": {
+"d": "<em>CumulonimBus</em> — « cumulonimbus ». Le seul nuage cité nommément dans les METAR tant il est dangereux — turbulence extrême, givrage sévère, grêl",
+"cat": "Météo",
+"fam": null
+},
+"cellule": {
+"d": "Ensemble de la structure d'un aéronef comprenant le fuselage, la voilure, l'empennage, les trains d'atterrissage et les commandes de vol, à l'exclusio",
+"cat": "Structure & cellule",
+"fam": null
+},
+"centrage": {
+"d": "Action consistant à calculer et à positionner le centre de gravité de l'aéronef par rapport à la corde moyenne aérodynamique de l'aile. Un bon centrag",
+"cat": "Masse & centrage",
+"fam": "masse_et_centrage"
+},
+"centre de gravité": {
+"d": "Point d'application de la force de gravité s'exerçant sur l'aéronef. Sa position longitudinale, qui varie selon l'embarquement des passagers, des baga",
+"cat": "Masse & centrage",
+"fam": "masse_et_centrage"
+},
+"certificat médical": {
+"d": "Document d'aptitude physique et mentale obligatoire pour qu'un pilote puisse exercer ses privilèges de licence (LAPL ou PPL). Délivré par un médecin a",
+"cat": "Réglementation & docs",
+"fam": null
+},
+"cg": {
+"d": "Abréviation aéronautique courante pour le <em>centre de gravité</em>. Point d'application de la résultante des forces de gravité (masse) de l'aéronef,",
+"cat": "Masse & centrage",
+"fam": "masse_et_centrage"
+},
+"chaine des erreurs": {
+"d": "Succession logique et temporelle de défaillances mineures, d'omissions ou d'erreurs d'évaluation qui, accumulées sans être détectées ou corrigées, fin",
+"cat": "Sécurité & facteurs humains",
+"fam": "facteurs_humains"
+},
+"charge de travail": {
+"d": "Quantité d'activité mentale et physique requise de la part du pilote pour accomplir une tâche donnée en vol. Elle augmente considérablement lors des p",
+"cat": "Sécurité & facteurs humains",
+"fam": "facteurs_humains"
+},
+"check-list": {
+"d": "Liste ordonnée d'actions ou de vérifications à effectuer de manière systématique durant les différentes phases du vol. Son utilisation rigoureuse perm",
+"cat": "Procédures",
+"fam": "listes_de_verification"
+},
+"check-list atterrissage": {
+"d": "Ensemble de vérifications obligatoires effectuées en phase d'approche avant de se poser (généralement initiée en étape de vent arrière ou de base). El",
+"cat": "Procédures",
+"fam": "listes_de_verification"
+},
+"check-list décollage": {
+"d": "Série de contrôles obligatoires exécutés juste avant de s'aligner sur la piste ou au point d'arrêt. Elle valide les configurations essentielles de l'a",
+"cat": "Procédures",
+"fam": "listes_de_verification"
+},
+"checklist": {
+"d": "Variante orthographique anglaise courante de « check-list ». Elle désigne le même outil fondamental de sécurité et de procédure, utilisé en cockpit po",
+"cat": "Procédures",
+"fam": "listes_de_verification"
+},
+"choix de piste": {
+"d": "Décision prise par le pilote de sélectionner la piste de décollage ou d'atterrissage la plus adaptée. Ce choix dépend principalement de la direction e",
+"cat": "Procédures",
+"fam": null
+},
+"choke": {
+"d": "Dispositif d'enrichissement manuel du mélange (volet de départ à froid), utilisé sur certains moteurs d'avions légers (comme les moteurs Rotax) pour f",
+"cat": "Moteur & hélice",
+"fam": null
+},
+"cht": {
+"d": "<em>Cylinder Head Temperature</em> : température de culasse. Paramètre moteur surveillé en vol sur les avions refroidis par air. Une CHT excessive ind",
+"cat": "Moteur & hélice",
+"fam": null
+},
+"chute de pression": {
+"d": "Baisse anormale de la pression (souvent d'huile ou d'essence) lue sur les instruments moteur. Une chute rapide de la pression d'huile s'accompagne gén",
+"cat": "Moteur & hélice",
+"fam": null
+},
+"circuit basse hauteur": {
+"d": "Tour de piste effectué à une altitude inférieure à celle du circuit standard (généralement 500 ft de hauteur au lieu de 1000 ft), souvent utilisé pour",
+"cat": "Procédures",
+"fam": null
+},
+"cirrostratus": {
+"d": "Voile nuageux élevé et translucide, composé de cristaux de glace, qui couvre souvent tout le ciel et produit des phénomènes de halo. Il annonce généra",
+"cat": "Météo",
+"fam": "nuages"
+},
+"cisaillement": {
+"d": "Changement brutal de direction ou de force du vent sur une courte distance. Signature cockpit : badin et vario qui bougent ensemble sans toucher aux c",
+"cat": "Vent",
+"fam": null
+},
+"cisaillement basse couche": {
+"d": "Cisaillement du vent se produisant à proximité immédiate du sol, souvent lié à des obstacles topographiques, des inversions thermiques ou des fronts d",
+"cat": "Vent",
+"fam": "cisaillement_de_vent"
+},
+"cisaillement de vent": {
+"d": "Changement brusque de la vitesse et/ou de la direction du vent sur une courte distance, horizontale ou verticale. Redoutable en approche et au décolla",
+"cat": "Vent",
+"fam": "cisaillement_de_vent"
+},
+"clairance": {
+"d": "Autorisation officielle délivrée par le contrôle aérien à un aéronef pour effectuer une action spécifique (pénétrer un espace contrôlé, décoller, atte",
+"cat": "Radio & phraséologie",
+"fam": "radio_communications"
+},
+"clairance de décollage": {
+"d": "Autorisation explicite accordée par le contrôleur de la tour de contrôle permettant au pilote de décoller. Elle ne peut être délivrée que si la piste ",
+"cat": "Radio & phraséologie",
+"fam": "radio_communications"
+},
+"classe": {
+"d": "Qualification rattachée à une licence de pilote autorisant à voler sur un groupe d'aéronefs monomoteurs ou multimoteurs non complexes partageant des c",
+"cat": "Réglementation & docs",
+"fam": null
+},
+"cockpit": {
+"d": "Espace réservé à l'équipage à l'avant ou dans la cabine de l'aéronef, regroupant l'ensemble des instruments de bord, des commandes de vol et des systè",
+"cat": "Structure & cellule",
+"fam": null
+},
+"coefficient de freinage": {
+"d": "Indicateur mesurant la résistance au glissement des roues sur la surface d'une piste (notamment mouillée, enneigée ou verglacée). Communiqué par le co",
+"cat": "Aérodrome & cartes",
+"fam": null
+},
+"collationnement clairance": {
+"d": "Répétition obligatoire par le pilote, mot à mot, des éléments essentiels d'une clairance reçue de l'organisme de contrôle. Ce processus permet au cont",
+"cat": "Radio & phraséologie",
+"fam": "radio_communications"
+},
+"collationner": {
+"d": "Action de répéter à la radio les instructions et clairances clés reçues du contrôleur (altitudes, caps, fréquences, pistes, calages altimétriques). Le",
+"cat": "Radio & phraséologie",
+"fam": "radio_communications"
+},
+"com": {
+"d": "Abréviation ou sélecteur désignant les fonctions et instruments de radiocommunication à bord de l'aéronef (généralement repérés COM1 et COM2). Ils per",
+"cat": "Radio & phraséologie",
+"fam": "radio_communications"
+},
+"commandant de bord": {
+"d": "Pilote responsable de la conduite en toute sécurité et de la direction d'un aéronef pendant le temps de vol. Il détient l'autorité décisionnelle final",
+"cat": "Réglementation & docs",
+"fam": null
+},
+"compas": {
+"d": "Instrument autonome indiquant le cap magnétique de l'avion en utilisant le champ magnétique terrestre. Sujet à de nombreuses erreurs en virage et en a",
+"cat": "Instruments",
+"fam": "compas_et_magnetisme"
+},
+"compensateur": {
+"d": "Petite surface mobile articulée sur le bord de fuite d'une gouverne (généralement de profondeur) permettant d'annuler les efforts physiques sur le man",
+"cat": "Aérodynamique",
+"fam": null
+},
+"composante arrière": {
+"d": "Vent qui te pousse par l'arrière : il allonge fortement le décollage et l'atterrissage. Souvent limité à 5 ou 10 kt selon l'avion — au-delà, on change",
+"cat": "Vent",
+"fam": null
+},
+"composante de face": {
+"d": "Part du vent qui souffle dans l'axe de la piste, face à toi. Référence exacte : <strong>V × cos θ</strong>, où θ est l'écart entre le QFU et la direct",
+"cat": "Vent",
+"fam": null
+},
+"composante de travers": {
+"d": "Part du vent perpendiculaire à la piste. <strong>Méthode PPL enseignée</strong> : règle des tiers par secteurs — 0–30° ≈ 1/3 du vent, 30–60° ≈ 2/3, 60",
+"cat": "Vent",
+"fam": null
+},
+"composite": {
+"d": "Matériau constitué de l'assemblage de plusieurs composants (fibres de verre, de carbone, résines) présentant des propriétés mécaniques supérieures. Tr",
+"cat": "Structure & cellule",
+"fam": null
+},
+"conditions imc": {
+"d": "<em>Instrument Meteorological Conditions</em> : conditions météorologiques de vol aux instruments. Conditions de visibilité et d'espacement par rappor",
+"cat": "Réglementation & docs",
+"fam": "regles_meteo_vol"
+},
+"conditions vmc": {
+"d": "<em>Visual Meteorological Conditions</em> : conditions météorologiques de vol à vue. Seuils réglementaires minimaux de visibilité et de distance par r",
+"cat": "Réglementation & docs",
+"fam": "regles_meteo_vol"
+},
+"configuration": {
+"d": "État des éléments aérodynamiques mobiles ou escamotables d'un aéronef à un instant donné (position des volets, du train d'atterrissage, du compensateu",
+"cat": "Aérodynamique",
+"fam": "limites_et_configurations_de_vol"
+},
+"conflit": {
+"d": "Situation de rapprochement excessif entre deux ou plusieurs aéronefs en vol, risquant de compromettre les séparations réglementaires ou de mener à une",
+"cat": "Sécurité & facteurs humains",
+"fam": null
+},
+"conscience de la situation": {
+"d": "Perception et compréhension continue de l'état de l'aéronef, de sa trajectoire, de l'environnement météorologique, des espaces aériens et des menaces ",
+"cat": "Sécurité & facteurs humains",
+"fam": "facteurs_humains"
+},
+"consommation horaire": {
+"d": "Quantité de carburant consommée par le moteur en une heure de fonctionnement, exprimée en litres ou en gallons par heure. Elle dépend du régime moteur",
+"cat": "Moteur & hélice",
+"fam": "gestion_carburant"
+},
+"constante structurale": {
+"d": "Fiche en construction.",
+"cat": "divers",
+"fam": null
+},
+"contrôle d'aérodrome": {
+"d": "Service de la circulation aérienne assuré par la tour de contrôle pour réguler le trafic sur l'aire de manœuvre de l'aérodrome et dans son circuit de ",
+"cat": "Réglementation & docs",
+"fam": null
+},
+"convection": {
+"d": "Mouvement vertical de l'air provoqué par des différences de température (l'air chaud, plus léger, s'élève). En aéronautique, elle génère des ascendanc",
+"cat": "Météo",
+"fam": "aerologie"
+},
+"convection thermique": {
+"d": "Mouvement ascendant de bulles ou de colonnes d'air réchauffé par le contact avec le sol ensoleillé. Ce phénomène crée des courants thermiques exploita",
+"cat": "Météo",
+"fam": "aerologie"
+},
+"convergence": {
+"d": "Rencontre de deux flux d'air de directions différentes dans une même zone géographique, forçant l'air à s'élever. Ce mouvement ascendant forcé est pro",
+"cat": "Météo",
+"fam": "aerologie"
+},
+"correction de dérive": {
+"d": "Angle qu'il faut ajouter ou retrancher à la route souhaitée pour obtenir le cap à afficher, afin de compenser l'effet du vent de travers. Une correcti",
+"cat": "Navigation",
+"fam": "navigation_caps_et_routes"
+},
+"cos": {
+"d": "Fiche en construction.",
+"cat": "divers",
+"fam": null
+},
+"couche": {
+"d": "Épaisseur continue d'air ou de nuages présentant des caractéristiques physiques homogènes (température, humidité, nébulosité). En météorologie, le pil",
+"cat": "Météo",
+"fam": "couches_atmospheriques"
+},
+"couche d'inversion": {
+"d": "Zone atmosphérique où la température augmente avec l'altitude au lieu de diminuer. Cette couche très stable bloque les mouvements verticaux de l'air, ",
+"cat": "Météo",
+"fam": "couches_atmospheriques"
+},
+"couple gyroscopique": {
+"d": "Effet aérodynamique parasite se produisant lorsque l'axe d'une pièce en rotation rapide (comme l'hélice) est incliné, créant une force perpendiculaire",
+"cat": "Moteur & hélice",
+"fam": "effets_moteur"
+},
+"couple moteur": {
+"d": "Force de rotation exercée par l'arbre moteur sur l'hélice. Par action-réaction, ce couple tend à faire pivoter l'avion en sens inverse (généralement v",
+"cat": "Moteur & hélice",
+"fam": "effets_moteur"
+},
+"courant descendant": {
+"d": "Mouvement vertical de l'air dirigé vers le sol, causé par le refroidissement de l'air ou la retombée de précipitations (notamment sous les nuages d'or",
+"cat": "Météo",
+"fam": "aerologie"
+},
+"courte finale": {
+"d": "Toute dernière partie de la finale, juste avant le seuil de piste. C'est le moment où plus rien ne se corrige en profondeur : la trajectoire, la vites",
+"cat": "Aérodrome & cartes",
+"fam": null
+},
+"crête": {
+"d": "Ligne de sommet d'un relief montagneux ou crête barométrique (axe de hautes pressions prolongeant un anticyclone). Le survol d'une crête montagneuse p",
+"cat": "Météo",
+"fam": null
+},
+"crm": {
+"d": "<em>Crew Resource Management</em> : gestion des ressources de l'équipage. Ensemble de méthodes et de comportements visant à optimiser l'utilisation de",
+"cat": "Sécurité & facteurs humains",
+"fam": "facteurs_humains"
+},
+"CTR": {
+"d": "<em>Control Traffic Region</em> : zone de contrôle autour d'un aérodrome. À LFPN, tu y vis en permanence : pénétrer dedans suppose le contact radio et",
+"cat": "Aérodrome & cartes",
+"fam": null
+},
+"cu": {
+"d": "Abréviation météorologique officielle désignant le cumulus dans les observations METAR et prévisions TAF. Ce nuage de l'étage inférieur, bien que souv",
+"cat": "Météo",
+"fam": "nuages"
+},
+"cumulonimbus": {
+"d": "Nuage d'orage à très grand développement vertical, redouté des pilotes en raison de ses turbulences extrêmes, grêle, givrage sévère et foudre. L'évite",
+"cat": "Météo",
+"fam": "nuages"
+},
+"cumulus": {
+"d": "Nuage de convection à base plate et à sommet bourgeonnant, typique des belles journées d'été. Sa base matérialise le niveau de condensation et le somm",
+"cat": "Météo",
+"fam": "nuages"
+},
+"cumulus congestus": {
+"d": "Cumulus à fort développement vertical, bourgeonnant intensément en forme de chou-fleur. Étape intermédiaire menant au cumulonimbus, il indique une for",
+"cat": "Météo",
+"fam": "nuages"
+},
+"cz max": {
+"d": "Coefficient de portance maximal d'un profil ou d'une aile. Il est atteint à l'incidence de décrochage de l'aéronef, angle critique au-delà duquel la p",
+"cat": "Aérodynamique",
+"fam": null
+},
+"dalr": {
+"d": "<em>Dry Adiabatic Lapse Rate</em> : gradient adiabatique sec. Taux de refroidissement d'une particule d'air sec s'élevant dans l'atmosphère, égal à en",
+"cat": "Météo",
+"fam": null
+},
+"déclinaison magnétique": {
+"d": "Écart angulaire entre le nord vrai et le nord magnétique en un lieu donné, positif vers l'est. En France métropolitaine elle est faible (de l'ordre de",
+"cat": "Navigation",
+"fam": null
+},
+"décollage": {
+"d": "Phase qui mène l'avion de l'arrêt sur la piste à l'envol, en accélérant jusqu'à la vitesse de rotation puis en quittant le sol. Elle enchaîne trois ch",
+"cat": "Aérodrome & cartes",
+"fam": null
+},
+"décrabage": {
+"d": "Manœuvre finale par vent de travers : on approche « en crabe », nez décalé face au vent pour tenir l'axe, puis juste avant le toucher on aligne le nez",
+"cat": "Vent",
+"fam": null
+},
+"décrochage": {
+"d": "Perte brutale de portance quand l'angle d'attaque dépasse l'incidence critique — indépendant de la vitesse proprement dite : on décroche à n'importe q",
+"cat": "Aérodynamique",
+"fam": null
+},
+"décrochage dynamique": {
+"d": "Décrochage provoqué à une vitesse supérieure à la vitesse de décrochage normale sous l'effet d'une ressource brusque ou d'un virage serré augmentant l",
+"cat": "Aérodynamique",
+"fam": "decrochages"
+},
+"décrochage secondaire": {
+"d": "Nouveau décrochage provoqué involontairement par le pilote lors de la phase de récupération d'un premier décrochage, en tirant trop tôt ou trop fort s",
+"cat": "Aérodynamique",
+"fam": "decrochages"
+},
+"degrés vrais": {
+"d": "Unités de mesure d'angle orientées par rapport au Nord géographique (vrai). En navigation, les routes tracées sur la carte sont exprimées en degrés vr",
+"cat": "Navigation",
+"fam": "navigation_caps_et_routes"
+},
+"demi-tour standard": {
+"d": "Manœuvre de virage standardisée exécutée à un taux de 3 degrés par seconde (taux 1), permettant d'effectuer un demi-tour complet de 180 degrés en exac",
+"cat": "Procédures",
+"fam": null
+},
+"dépression": {
+"d": "Zone de basse pression (centre « B » sur les cartes). Vent antihoraire et ascendant dans l'hémisphère nord : temps perturbé, plafonds bas, pluie. Un Q",
+"cat": "Météo",
+"fam": null
+},
+"dérive": {
+"d": "Angle entre l'axe de l'avion et sa trajectoire au sol, créé par le vent de travers. On la compense en mettant le nez au vent : « cap = route + correct",
+"cat": "Navigation",
+"fam": null
+},
+"derive constatee": {
+"d": "Angle mesuré en vol entre l'axe longitudinal de l'aéronef (le cap) et sa trajectoire sol réelle (la route). Contrairement à la dérive estimée lors de ",
+"cat": "Navigation",
+"fam": "navigation_caps_et_routes"
+},
+"dernier virage": {
+"d": "Virage qui fait passer de la base à la finale, alignant l'avion sur l'axe de piste. Il se fait relativement bas et à vitesse réduite, ce qui en fait u",
+"cat": "Aérodrome & cartes",
+"fam": null
+},
+"déroutement": {
+"d": "Action de modifier l'itinéraire prévu en vol pour se diriger vers un autre aérodrome que celui de destination. Décidé pour des raisons de météo défavo",
+"cat": "Procédures",
+"fam": null
+},
+"descente initiale": {
+"d": "Phase de vol marquant la transition entre la croisière et l'approche, durant laquelle le pilote réduit la puissance et adopte une assiette à piquer po",
+"cat": "Procédures",
+"fam": null
+},
+"détresse mayday": {
+"d": "Signal de détresse international radiotéléphonique (« MAYDAY » répété trois fois) indiquant qu'un aéronef et ses occupants sont menacés par un danger ",
+"cat": "Radio & phraséologie",
+"fam": null
+},
+"déviation compas": {
+"d": "Écart angulaire entre le nord magnétique et le nord indiqué par le compas de l'aéronef, provoqué par les champs magnétiques parasites de l'avion (mote",
+"cat": "Instruments",
+"fam": "compas_et_magnetisme"
+},
+"devis de masse": {
+"d": "Calcul préparatoire obligatoire avant chaque vol visant à vérifier que la masse totale de l'aéronef (à vide, avec passagers, bagages et carburant) res",
+"cat": "Masse & centrage",
+"fam": "masse_et_centrage"
+},
+"dgac": {
+"d": "<em>Direction Générale de l'Aviation Civile</em> : autorité administrative française chargée de réglementer, superviser la sécurité aérienne, gérer l'",
+"cat": "Réglementation & docs",
+"fam": "organismes_aviation"
+},
+"diagramme v-n": {
+"d": "Représentation graphique (vitesse en ordonnée, facteur de charge en abscisse) définissant les limites structurales et aérodynamiques d'un aéronef. Il ",
+"cat": "Aérodynamique",
+"fam": "limites_et_configurations_de_vol"
+},
+"distance d'atterrissage": {
+"d": "Distance totale requise pour poser l'aéronef et l'arrêter complètement depuis le passage des 50 ft au-dessus du seuil de piste. Elle dépend de la mass",
+"cat": "Vitesses & performances",
+"fam": "distances_performances"
+},
+"distance de décollage": {
+"d": "Distance totale mesurée depuis le lâcher des freins jusqu'au franchissement d'un obstacle théorique de 50 ft en montée initiale. Cette valeur, capital",
+"cat": "Vitesses & performances",
+"fam": "distances_performances"
+},
+"distance de franchissement": {
+"d": "Distance horizontale nécessaire à un aéronef pour s'élever au-dessus d'un obstacle de hauteur donnée (généralement 50 ft) après le décollage. Ce param",
+"cat": "Vitesses & performances",
+"fam": "distances_performances"
+},
+"distance de roulement": {
+"d": "Distance parcourue au sol par l'aéronef pendant la phase de course au décollage (du lâcher des freins à la rotation) ou lors de la décélération à l'at",
+"cat": "Vitesses & performances",
+"fam": "distances_performances"
+},
+"domaine de vol": {
+"d": "Ensemble des limites de vitesse, de facteur de charge et d'altitude à l'intérieur desquelles un aéronef peut être exploité en toute sécurité. Les fron",
+"cat": "Vitesses & performances",
+"fam": "limites_et_configurations_de_vol"
+},
+"double commande": {
+"d": "Configuration de l'aéronef disposant de deux ensembles de commandes de vol interconnectés (manche, palonnier, manette des gaz). Elle permet à l'instru",
+"cat": "Structure & cellule",
+"fam": null
+},
+"easa": {
+"d": "<em>European Union Aviation Safety Agency</em> : Agence européenne de la sécurité aérienne. Organisme de réglementation à l'échelle européenne qui déf",
+"cat": "Réglementation & docs",
+"fam": "organismes_aviation"
+},
+"east is least": {
+"d": "Moyen mnémotechnique anglais classique pour corriger la déclinaison ou la déviation : « East is Least, West is Best ». Il rappelle qu'une déclinaison ",
+"cat": "Navigation",
+"fam": "compas_et_magnetisme"
+},
+"eet": {
+"d": "<em>Estimated Elapsed Time</em> : durée estimée du vol ou temps de vol prévu pour rallier un point de report ou la destination finale depuis le décoll",
+"cat": "Navigation",
+"fam": null
+},
+"effet de foehn": {
+"d": "Phénomène aérologique se produisant lorsqu'un vent humide franchit un relief. L'air se détend, se refroidit et se condense en montant, puis se comprim",
+"cat": "Météo",
+"fam": "effets_vent_relief"
+},
+"effet de pente": {
+"d": "Mouvement ascendant de l'air provoqué par le vent qui rencontre un relief. Le pilote VFR utilise cette ascendance dynamique en vol de pente, mais doit",
+"cat": "Météo",
+"fam": "effets_vent_relief"
+},
+"effet de site": {
+"d": "Modification locale de la direction et de la vitesse du vent sous l'influence du relief ou d'obstacles artificiels. Il peut provoquer des accélération",
+"cat": "Vent",
+"fam": "effets_vent_relief"
+},
+"effet de sol": {
+"d": "Phénomène aérodynamique augmentant la portance et diminuant la traînée induite lorsqu'un avion vole très près du sol. Il engendre une sensation de flo",
+"cat": "Aérodynamique",
+"fam": null
+},
+"effet gyroscopique": {
+"d": "Force de précession s'exerçant sur l'hélice en rotation lors des changements d'assiette ou de cap. Toute sollicitation sur un axe se traduit par un co",
+"cat": "Aérodynamique",
+"fam": null
+},
+"effet venturi": {
+"d": "Accélération d'un fluide s'accompagnant d'une baisse de pression lorsqu'il traverse un étranglement. Ce principe explique la portance de l'aile, le fo",
+"cat": "Aérodynamique",
+"fam": null
+},
+"effort au manche": {
+"d": "Résistance ressentie par le pilote lors de l'action sur les commandes de vol. Cet effort varie avec la vitesse de l'avion et le centrage ; le compensa",
+"cat": "Aérodynamique",
+"fam": null
+},
+"elr": {
+"d": "<em>Environmental Lapse Rate</em> : gradient thermique vertical réel de l'atmosphère (taux observé de baisse de température avec l'altitude). Comparé ",
+"cat": "Météo",
+"fam": null
+},
+"empennage": {
+"d": "Ensemble des surfaces fixes et mobiles situées à l'arrière du fuselage. Il assure la stabilité de route (dérive verticale) et la stabilité longitudina",
+"cat": "Structure & cellule",
+"fam": null
+},
+"encadrement": {
+"d": "Manièvre de sécurité d'urgence (prise de terrain par encadrement, ou PTE) permettant de poser l'avion moteur coupé. Elle s'effectue en planant au-dess",
+"cat": "Procédures",
+"fam": null
+},
+"énergie cinétique": {
+"d": "Énergie que possède l'avion du fait de sa vitesse. Elle croît avec le <strong>carré</strong> de la vitesse : arriver 10 % trop vite au toucher, c'est ",
+"cat": "Aérodynamique",
+"fam": null
+},
+"engine": {
+"d": "Fiche en construction.",
+"cat": "Moteur & hélice",
+"fam": null
+},
+"espace aérien": {
+"d": "Portion d'atmosphère définie par des limites latérales et verticales, régie par des règles d'accès précises. Il est divisé en classes de A à G, déterm",
+"cat": "Réglementation & docs",
+"fam": "espaces_aeriens"
+},
+"espace contrôlé": {
+"d": "Espace aérien de dimensions définies dans lequel le service de contrôle de la circulation aérienne est assuré. Pour y pénétrer en vol VFR, le pilote d",
+"cat": "Réglementation & docs",
+"fam": "espaces_aeriens"
+},
+"espacement réglementaire": {
+"d": "Distance ou intervalle de temps minimal imposé par le contrôle entre deux aéronefs pour éviter les abordages. En vol VFR, l'espacement visuel incombe ",
+"cat": "Réglementation & docs",
+"fam": null
+},
+"espaces aériens": {
+"d": "Ensemble des volumes d'atmosphère découpés pour organiser la circulation aérienne. Le pilote VFR doit impérativement consulter ses cartes aéronautique",
+"cat": "Réglementation & docs",
+"fam": "espaces_aeriens"
+},
+"essai magnétos": {
+"d": "Vérification moteur obligatoire effectuée au point d'arrêt avant le décollage. Elle consiste à couper alternativement l'une des deux magnétos pour vér",
+"cat": "Procédures",
+"fam": null
+},
+"eta": {
+"d": "<em>Estimated Time of Arrival</em> : heure estimée d'arrivée à destination. Calculée à partir de l'heure de départ et du temps de vol estimé, elle doi",
+"cat": "Navigation",
+"fam": "heures_estimations"
+},
+"étape de base": {
+"d": "Branche du tour de piste perpendiculaire à l'axe de piste, volée entre le vent arrière et la finale. C'est la branche de transition : on y ajuste le p",
+"cat": "Aérodrome & cartes",
+"fam": null
+},
+"état de piste": {
+"d": "Description périodique des conditions physiques de la surface de la piste d'atterrissage (sèche, mouillée, contaminée par de l'eau, de la neige ou du ",
+"cat": "Aérodrome & cartes",
+"fam": null
+},
+"évitement": {
+"d": "Manœuvre rapide effectuée par le pilote pour s'écarter d'une trajectoire de collision détectée visuellement ou signalée par le contrôle aérien. L'évit",
+"cat": "Procédures",
+"fam": null
+},
+"facteur de charge": {
+"d": "Rapport portance / poids : 1 en vol rectiligne stabilisé, 2 en virage à 60°. La vitesse de décrochage augmente avec sa racine carrée — à 60° d'inclina",
+"cat": "Aérodynamique",
+"fam": null
+},
+"facteur humain": {
+"d": "Discipline étudiant l'interaction entre le pilote, sa machine et son environnement. Elle vise à comprendre les limites physiologiques et psychologique",
+"cat": "Sécurité & facteurs humains",
+"fam": "facteurs_humains"
+},
+"facteurs humains": {
+"d": "Limites physiques, cognitives et physiologiques influençant les performances du pilote. Le stress, la fatigue et les biais décisionnels sont des facte",
+"cat": "Sécurité & facteurs humains",
+"fam": "facteurs_humains"
+},
+"fatigue": {
+"d": "État d'épuisement physique ou mental diminuant la vigilance, le temps de réaction et la qualité des décisions du pilote. Elle ne se combat qu'avec un ",
+"cat": "Sécurité & facteurs humains",
+"fam": "facteurs_humains"
+},
+"feu cabine": {
+"d": "Urgence vitale caractérisée par une émanation de fumée ou de flammes dans l'habitacle. Le pilote doit appliquer immédiatement la procédure d'urgence (",
+"cat": "Procédures",
+"fam": "urgences_incendie"
+},
+"feu moteur": {
+"d": "Incendie se déclarant sous le capot moteur en vol. La procédure impose de fermer immédiatement l'arrivée de carburant, de couper le contact, de mettre",
+"cat": "Procédures",
+"fam": "urgences_incendie"
+},
+"few": {
+"d": "Abréviation METAR indiquant une couverture nuageuse faible, comprise entre un et deux octas du ciel. Elle n'entrave pas le vol visuel mais nécessite d",
+"cat": "Météo",
+"fam": null
+},
+"fi": {
+"d": "<em>Flight Instructor</em> : instructeur de vol habilité à former les élèves pilotes. Il dispense la formation théorique et pratique, valide les lâche",
+"cat": "Réglementation & docs",
+"fam": null
+},
+"fiche de pesée": {
+"d": "Document officiel obligatoire propre à chaque aéronef, indiquant sa masse à vide de référence et la position de son centre de gravité associé. Elle se",
+"cat": "Masse & centrage",
+"fam": null
+},
+"finale": {
+"d": "Dernière branche du tour de piste, alignée sur l'axe de piste jusqu'au toucher. C'est là que se joue l'atterrissage : on tient l'axe et le plan, on st",
+"cat": "Aérodrome & cartes",
+"fam": null
+},
+"finale courte": {
+"d": "Dernière partie de la trajectoire d'approche, située juste avant le seuil de piste. Cette position fait l'objet d'un message radio obligatoire et exig",
+"cat": "Radio & phraséologie",
+"fam": null
+},
+"finesse": {
+"d": "Rapport distance parcourue / hauteur perdue moteur coupé. Une finesse de 12, c'est 12 km planés par 1000 m perdu : c'est elle qui décide si ton point ",
+"cat": "Vitesses & performances",
+"fam": null
+},
+"finesse max": {
+"d": "Rapport maximal entre la portance et la traînée, correspondant à la distance franchissable maximale en vol plané sans moteur. Elle s'obtient à une vit",
+"cat": "Vitesses & performances",
+"fam": null
+},
+"fir": {
+"d": "<em>Flight Information Region</em> : région d'information de vol. Espace aérien de grandes dimensions à l'intérieur duquel les services d'information ",
+"cat": "Réglementation & docs",
+"fam": "espaces_aeriens"
+},
+"flaps": {
+"d": "<em>Flaps</em> : anglicisme courant pour désigner les <strong>volets</strong> hypersustentateurs. Ils augmentent la portance à basse vitesse et créent",
+"cat": "Structure & cellule",
+"fam": null
+},
+"foehn": {
+"d": "Vent local chaud et sec soufflant en aval d'un relief montagneux. Provoqué par l'effet de foehn, il s'accompagne d'un ciel limpide sur le versant abri",
+"cat": "Météo",
+"fam": "effets_vent_relief"
+},
+"föhn": {
+"d": "Vent chaud et sec dévalant le versant sous le vent d'un relief. Il annonce l'onde de montagne : rabattants violents, rotor, pression perturbée. Minima",
+"cat": "Vent",
+"fam": null
+},
+"foxtrot": {
+"d": "Lettre F de l'alphabet phonétique international de l'OACI, utilisée en radiotéléphonie. Elle permet d'épeler sans ambiguïté les indicatifs d'appel, le",
+"cat": "Radio & phraséologie",
+"fam": "alphabet_oaci"
+},
+"fpl": {
+"d": "<em>Flight Plan</em> : message officiel détaillant le projet de vol d'un aéronef, déposé auprès des services de la circulation aérienne. Obligatoire p",
+"cat": "Réglementation & docs",
+"fam": null
+},
+"fractus": {
+"d": "Type de nuage déchiqueté par le vent, se présentant sous forme de lambeaux isolés de petite taille (cumulus fractus ou stratus fractus). Ils se trouve",
+"cat": "Météo",
+"fam": null
+},
+"fréquence": {
+"d": "Canal radio désigné en mégahertz permettant les communications entre les pilotes et les stations au sol. Sélectionner la bonne fréquence (tour, gonio,",
+"cat": "Radio & phraséologie",
+"fam": null
+},
+"fromage suisse": {
+"d": "Modèle d'analyse de la sécurité théorisé par James Reason. Chaque plaque représente une barrière défensive et les trous sont les défaillances ; l'acci",
+"cat": "Sécurité & facteurs humains",
+"fam": null
+},
+"front": {
+"d": "Zone de transition et limite de contact entre deux masses d'air de températures et d'humidités différentes. Le passage d'un front engendre généralemen",
+"cat": "Météo",
+"fam": "fronts_meteorologiques"
+},
+"front chaud": {
+"d": "Limite où l'air chaud glisse au-dessus de l'air froid. Dégradation lente et insidieuse : plafond qui descend, pluie continue, visibilité qui pourrit s",
+"cat": "Météo",
+"fam": null
+},
+"front froid": {
+"d": "Limite où l'air froid pousse l'air chaud. Passage net : grains, rafales, bascule du vent, puis amélioration franche. C'est le TEMPO du TAF qu'il faut ",
+"cat": "Météo",
+"fam": null
+},
+"front occlus": {
+"d": "Phénomène météo se produisant lorsqu'un front froid, plus rapide, rattrape un front chaud et rejette l'air chaud en altitude. Il s'accompagne générale",
+"cat": "Météo",
+"fam": "fronts_meteorologiques"
+},
+"ft": {
+"d": "<em>Foot / feet</em> — pied : unité d'altitude et de hauteur en aviation (1 ft = 0,3048 m). Les plafonds METAR, les niveaux de vol et l'altimètre parl",
+"cat": "Unités",
+"fam": null
+},
+"ft aal": {
+"d": "<em>Feet Above Aerodrome Level</em> : pieds au-dessus du niveau de l'aérodrome. Référence de hauteur mesurée par rapport à l'altitude officielle du te",
+"cat": "Altimétrie",
+"fam": "references_verticales"
+},
+"ft agl": {
+"d": "<em>Feet Above Ground Level</em> : pieds au-dessus de la surface du sol. C'est l'expression d'une hauteur, lue indirectement à l'altimètre calé au QFE",
+"cat": "Altimétrie",
+"fam": "references_verticales"
+},
+"ft amsl": {
+"d": "<em>Feet Above Mean Sea Level</em> : pieds au-dessus du niveau moyen de la mer. C'est l'expression d'une altitude, mesurée directement par l'altimètre",
+"cat": "Altimétrie",
+"fam": "references_verticales"
+},
+"ft/min": {
+"d": "Pieds par minute : unité de mesure de la vitesse verticale (taux de montée ou de descente) affichée sur le variomètre. Un taux de descente standard en",
+"cat": "Unités",
+"fam": null
+},
+"fuel pump": {
+"d": "<em>Fuel pump</em> : anglicisme pour désigner la <strong>pompe à carburant</strong> électrique auxiliaire. Elle complète la pompe mécanique entraînée ",
+"cat": "Moteur & hélice",
+"fam": "pompe_carburant"
+},
+"fuel pump on": {
+"d": "Consigne ou action consistant à mettre la <strong>pompe à carburant</strong> électrique en marche. Réalisée lors des actions vitales (décollage, appro",
+"cat": "Procédures",
+"fam": "pompe_carburant"
+},
+"fuselage": {
+"d": "Corps principal de la structure d'un avion, reliant les ailes, l'empennage et le train d'atterrissage. Il abrite la cabine de pilotage, les passagers,",
+"cat": "Structure & cellule",
+"fam": null
+},
+"girouette": {
+"d": "Dispositif qui s'oriente face au vent et en indique la provenance. En aéronautique, tout se dit en « vent venant de » : une girouette pointant vers 27",
+"cat": "Vent",
+"fam": null
+},
+"givrage": {
+"d": "Accumulation de glace sur différentes parties de l'aéronef en vol. Ce phénomène dangereux dégrade les performances aérodynamiques, altère la visibilit",
+"cat": "Météo",
+"fam": "givrage"
+},
+"givrage carburateur": {
+"d": "Formation de glace dans le venturi du carburateur due à la détente de l'air et à l'évaporation de l'essence. Il peut survenir même par température pos",
+"cat": "Moteur & hélice",
+"fam": "givrage"
+},
+"givrage en vol": {
+"d": "Dépôt de glace sur la cellule ou les moteurs lors de la traversée de nuages contenant des gouttelettes d'eau surfondue. Il alourdit l'avion, réduit la",
+"cat": "Météo",
+"fam": "givrage"
+},
+"givrage moteur": {
+"d": "Givrage affectant le carburateur ou le filtre à air d'admission du moteur, provoquant une perte de puissance ou l'arrêt complet. L'activation de l'air",
+"cat": "Moteur & hélice",
+"fam": "givrage"
+},
+"givrage structural": {
+"d": "Dépôt de glace sur les surfaces externes de l'avion (bords d'attaque des ailes, empennages). Il modifie le profil aérodynamique, diminue considérablem",
+"cat": "Météo",
+"fam": "givrage"
+},
+"givre": {
+"d": "Dépôt de glace opaque ou translucide issu de la congélation rapide de gouttelettes d'eau surfondue au contact de la cellule. Il doit être soigneusemen",
+"cat": "Météo",
+"fam": "givrage"
+},
+"gnss": {
+"d": "<em>Global Navigation Satellite System</em> : terme générique désignant les systèmes de navigation par satellites (GPS, Galileo, GLONASS). Il permet a",
+"cat": "Navigation",
+"fam": "navigation_satellitaire"
+},
+"GO/NO GO": {
+"d": "<em>GO / NO GO decision</em> — « décision de partir ou de renoncer ». Décision binaire et assumée, fondée sur des critères écrits (minima, performance",
+"cat": "Réglementation & docs",
+"fam": null
+},
+"golf": {
+"d": "Lettre G de l'alphabet phonétique de l'OACI, utilisée en radiotéléphonie aéronautique. Elle sert à épeler des noms, des indicatifs d'immatriculation d",
+"cat": "Radio & phraséologie",
+"fam": "alphabet_oaci"
+},
+"gouverne": {
+"d": "Surface mobile articulée fixée à l'arrière d'un empennage ou d'une aile. Elle permet au pilote de contrôler l'assiette, l'inclinaison et la direction ",
+"cat": "Structure & cellule",
+"fam": null
+},
+"gps": {
+"d": "<em>Global Positioning System</em> : système américain de radionavigation par satellites. Utilisé en vol comme aide à la navigation visuelle, il ne do",
+"cat": "Navigation",
+"fam": "navigation_satellitaire"
+},
+"gradient de vent": {
+"d": "Variation de la vitesse ou de la direction du vent sur une faible distance verticale ou horizontale. Particulièrement marqué près du sol, il peut prov",
+"cat": "Vent",
+"fam": null
+},
+"gradient thermique": {
+"d": "Taux de variation de la température de l'air avec l'altitude. Dans l'atmosphère standard, il est d'environ moins deux degrés Celsius pour mille pieds ",
+"cat": "Météo",
+"fam": null
+},
+"ground roll": {
+"d": "<em>Ground roll</em> : anglicisme pour désigner la <strong>distance de roulement</strong> au sol, nécessaire pour décoller ou s'arrêter. Cette valeur ",
+"cat": "Vitesses & performances",
+"fam": null
+},
+"GS": {
+"d": "<em>Ground Speed</em> : vitesse sol, TAS corrigée du vent. C'est elle qui fait tes distances de décollage et d'atterrissage — et ton heure d'arrivée.",
+"cat": "Vitesses & performances",
+"fam": null
+},
+"gyroscope": {
+"d": "Instrument rotatif à haute vitesse qui conserve sa direction d'origine dans l'espace grâce à l'effet gyroscopique. C'est le cœur mécanique de l'horizo",
+"cat": "Instruments",
+"fam": null
+},
+"hauteur de sécurité": {
+"d": "Hauteur minimale sous laquelle le pilote ne doit pas descendre, sauf pour les besoins du décollage ou de l'atterrissage. Elle garantit un espacement v",
+"cat": "Réglementation & docs",
+"fam": null
+},
+"hauteur tour de piste": {
+"d": "Hauteur standard à laquelle s'effectue le circuit d'aérodrome, spécifiée sur les cartes d'approche visuelle (VAC). Elle est généralement de mille pied",
+"cat": "Procédures",
+"fam": null
+},
+"hélice": {
+"d": "Dispositif aérodynamique constitué de pales profilées tournant sous l'action du moteur pour générer la traction de l'avion. Elle convertit la puissanc",
+"cat": "Moteur & hélice",
+"fam": null
+},
+"herbe sèche": {
+"d": "Caractéristique de surface de piste non revêtue qui modifie les performances de décollage et d'atterrissage. Une herbe sèche nécessite d'appliquer un ",
+"cat": "Vitesses & performances",
+"fam": null
+},
+"heure d'arrivée": {
+"d": "Instant exact auquel l'avion se pose ou s'immobilise sur le parking de destination. Notée dans le carnet de route, elle sert à clore le plan de vol et",
+"cat": "Navigation",
+"fam": "heures_estimations"
+},
+"heure de départ": {
+"d": "Instant précis où l'aéronef commence à se déplacer par ses propres moyens pour le décollage (heure bloc). C'est le point de départ du calcul de la nav",
+"cat": "Navigation",
+"fam": "heures_estimations"
+},
+"heure estimée": {
+"d": "Heure calculée à laquelle un aéronef devrait survoler un repère de navigation ou atteindre sa destination. Constamment mise à jour en vol en fonction ",
+"cat": "Navigation",
+"fam": "heures_estimations"
+},
+"hippodrome": {
+"d": "Trajectoire de vol normalisée en forme d'ovale, utilisée pour effectuer une attente en vol ou une procédure d'intégration aux instruments. Le pilote y",
+"cat": "Procédures",
+"fam": null
+},
+"holding": {
+"d": "<em>Holding</em> : anglicisme pour désigner une procédure d'<strong>attente</strong> en vol, généralement au-dessus d'un point fixe ou d'une balise ra",
+"cat": "Procédures",
+"fam": null
+},
+"horizon artificiel": {
+"d": "Instrument gyroscopique essentiel affichant l'assiette longitudinal et l'inclinaison de l'avion par rapport à l'horizon. C'est l'instrument de référen",
+"cat": "Instruments",
+"fam": null
+},
+"hotel": {
+"d": "Lettre H de l'alphabet phonétique de l'OACI, prononcée « HÔ-TEL » en radiotéléphonie aéronautique. Elle sert à transmettre de façon claire des indicat",
+"cat": "Radio & phraséologie",
+"fam": "alphabet_oaci"
+},
+"hPa": {
+"d": "Hectopascal : unité de pression atmosphérique du QNH/QFE (1 hPa = 1 mbar). Le calage standard vaut <strong>1013,25 hPa</strong>. Ne pas confondre avec",
+"cat": "Unités",
+"fam": null
+},
+"hyperventilation": {
+"d": "Accélération anormale de la respiration provoquée par le stress, l'anxiété ou l'hypoxie. Elle entraîne une baisse excessive du gaz carbonique dans le ",
+"cat": "Sécurité & facteurs humains",
+"fam": "facteurs_humains"
+},
+"hypoxie": {
+"d": "Insuffisance d'apport en oxygène aux organes et au cerveau, due à la baisse de pression partielle d'oxygène avec l'altitude. Elle altère insidieusemen",
+"cat": "Sécurité & facteurs humains",
+"fam": "facteurs_humains"
+},
+"iac": {
+"d": "<em>Instrument Approach Chart</em> : carte d'approche et d'atterrissage aux instruments. Elle décrit les trajectoires, altitudes minimales et procédur",
+"cat": "Aérodrome & cartes",
+"fam": null
+},
+"IAS": {
+"d": "<em>Indicated Air Speed</em> : la vitesse lue au badin. C'est elle qui commande la portance et les commandes — toutes les vitesses de référence (Vs, V",
+"cat": "Vitesses & performances",
+"fam": null
+},
+"idle": {
+"d": "<em>Idle</em> : anglicisme désignant la position de <strong>ralenti</strong> de la manette des gaz. C'est le régime moteur minimal, utilisé lors du ro",
+"cat": "Moteur & hélice",
+"fam": null
+},
+"IFR": {
+"d": "<em>Instrument Flight Rules</em> : vol aux instruments, qui décharge l'évitement visuel sur la procédure et le contrôle. Exige qualification, avion éq",
+"cat": "Réglementation & docs",
+"fam": null
+},
+"ignition": {
+"d": "<em>Ignition</em> : anglicisme pour l'<strong>allumage</strong> ou le contact moteur. Sur les avions de club, il s'effectue via le sélecteur de magnét",
+"cat": "Moteur & hélice",
+"fam": null
+},
+"illusion somatogyrale": {
+"d": "Fausse sensation de rotation ou d'absence de mouvement provoquée par une mauvaise interprétation des signaux de l'oreille interne. Elle survient lors ",
+"cat": "Sécurité & facteurs humains",
+"fam": "facteurs_humains"
+},
+"ils": {
+"d": "<em>Instrument Landing System</em> : système d'atterrissage aux instruments. Il fournit au pilote des indications de guidage très précises en écart d'",
+"cat": "Instruments",
+"fam": null
+},
+"IMC": {
+"d": "<em>Instrument Meteorological Conditions</em> : conditions dans les nuages ou sous les minima VMC. Sans qualification IFR, y entrer est la première ca",
+"cat": "Réglementation & docs",
+"fam": null
+},
+"imsafe": {
+"d": "Aide-mémoire aéronautique d'auto-évaluation physique et mentale du pilote avant le vol : Maladie (Illness), Médicaments (Medication), Stress, Alcool, ",
+"cat": "Sécurité & facteurs humains",
+"fam": "facteurs_humains"
+},
+"incidence": {
+"d": "Angle formé entre la corde de profil de l'aile et la direction du vent relatif. C'est le paramètre fondamental régissant la portance et la traînée de ",
+"cat": "Aérodynamique",
+"fam": "incidences"
+},
+"incidence critique": {
+"d": "Angle d'incidence limite au-delà duquel les filets d'air se décollent de l'extrados de l'aile, provoquant une chute brutale de la portance : c'est le ",
+"cat": "Aérodynamique",
+"fam": "incidences"
+},
+"inclinaison": {
+"d": "Angle de roulis formé entre l'axe transversal de l'avion et le plan horizontal. Elle est commandée par l'action latérale sur le manche pour incliner l",
+"cat": "Aérodynamique",
+"fam": "inclinaisons"
+},
+"inclinaison standard": {
+"d": "Inclinaison nécessaire pour effectuer un virage au taux standard de trois degrés par seconde, soit un tour complet en deux minutes. Elle dépend de la ",
+"cat": "Instruments",
+"fam": "inclinaisons"
+},
+"indicatif": {
+"d": "Nom ou suite de caractères réglementaire identifiant un aéronef ou une station au sol lors des transmissions radio. L'indicatif d'un avion léger corre",
+"cat": "Radio & phraséologie",
+"fam": null
+},
+"inertie": {
+"d": "Tendance de l'avion à conserver son mouvement : plus il est lourd et rapide, plus il met de temps et de distance à changer d'état. C'est pourquoi une ",
+"cat": "Aérodynamique",
+"fam": null
+},
+"info trafic": {
+"d": "Service de surveillance fourni par le contrôleur ou l'agent d'information AFIS, avertissant le pilote de la présence d'autres aéronefs à proximité. L'",
+"cat": "Radio & phraséologie",
+"fam": "info_trafic"
+},
+"information trafic": {
+"d": "Avis transmis par la radio pour signaler la position et les intentions d'autres appareils pouvant constituer un risque de collision. En vol VFR, recev",
+"cat": "Radio & phraséologie",
+"fam": "info_trafic"
+},
+"instabilité": {
+"d": "Propension d'une masse d'air à favoriser les mouvements verticaux ascendants ou descendants. L'instabilité conduit à la formation de nuages à développ",
+"cat": "Météo",
+"fam": "stabilite_atmospherique"
+},
+"instabilité atmosphérique": {
+"d": "État de l'atmosphère où une parcelle d'air déplacée vers le haut devient plus chaude que son environnement et continue sa montée. Elle favorise les ph",
+"cat": "Météo",
+"fam": "stabilite_atmospherique"
+},
+"instable": {
+"d": "Se dit d'une atmosphère propice aux mouvements convectifs de l'air. Par temps instable, le pilote VFR doit s'attendre à des turbulences thermiques, de",
+"cat": "Météo",
+"fam": "stabilite_atmospherique"
+},
+"instructeur": {
+"d": "Professionnel qualifié de l'enseignement aéronautique qui assure la formation théorique et pratique des élèves pilotes. Il est responsable de la sécur",
+"cat": "Réglementation & docs",
+"fam": null
+},
+"instrument": {
+"d": "Dispositif d'indication ou de mesure monté sur la planche de bord de l'avion. Il fournit au pilote des informations vitales sur les paramètres de vol ",
+"cat": "Instruments",
+"fam": null
+},
+"intégration": {
+"d": "Manière de rejoindre le tour de piste d'un terrain en arrivant de l'extérieur, sans gêner ni surprendre les avions déjà en circuit. Elle suit un chemi",
+"cat": "Aérodrome & cartes",
+"fam": null
+},
+"interception": {
+"d": "Action menée par un aéronef militaire pour identifier et escorter un appareil égaré ou en infraction. Le pilote intercepté doit appliquer strictement ",
+"cat": "Réglementation & docs",
+"fam": null
+},
+"inversion": {
+"d": "Couche où la température augmente avec l'altitude au lieu de diminuer. Couvercle stable : elle piège brume et pollution en dessous, et marque souvent ",
+"cat": "Météo",
+"fam": null
+},
+"inversion de température": {
+"d": "Situation météo anormale où la température augmente avec l'altitude au lieu de diminuer. Elle agit comme un couvercle thermique bloquant l'humidité au",
+"cat": "Météo",
+"fam": "isothermes_temperatures"
+},
+"ISA": {
+"d": "<em>International Standard Atmosphere</em> — « atmosphère standard internationale » : 1013,25 hPa et 15 °C au niveau de la mer, −2 °C par 1000 ft. Réf",
+"cat": "Météo",
+"fam": null
+},
+"iso zero": {
+"d": "Altitude à laquelle la température de l'air atteint zéro degré Celsius dans l'atmosphère libre. C'est une altitude de référence essentielle pour prévo",
+"cat": "Météo",
+"fam": "isothermes_temperatures"
+},
+"isobare": {
+"d": "Ligne d'égale pression sur une carte météo. Des isobares serrées = gradient de pression fort = vent fort. C'est la première chose à regarder sur la ca",
+"cat": "Météo",
+"fam": null
+},
+"isotherme": {
+"d": "Ligne reliant les points d'égale température sur une carte météorologique. L'isotherme zéro degré est particulièrement scrutée par le pilote car elle ",
+"cat": "Météo",
+"fam": "isothermes_temperatures"
+},
+"isotherme zero": {
+"d": "Altitude à laquelle la température de l'air atteint 0°C dans l'atmosphère libre. Crucial pour le pilote VFR afin d'anticiper le risque de givrage en c",
+"cat": "Météo",
+"fam": null
+},
+"kg": {
+"d": "Kilogramme. Unité de masse de référence en aéronautique pour le devis de masse et centrage. Attention, en vol, on estime souvent la consommation en li",
+"cat": "Unités",
+"fam": "unites"
+},
+"kg/l": {
+"d": "Kilogramme par litre. Unité de masse volumique, principalement utilisée pour convertir le volume de carburant (en litres) en masse (en kg). La densité",
+"cat": "Unités",
+"fam": "unites"
+},
+"km": {
+"d": "Kilomètre. Unité de distance utilisée pour la visibilité météorologique (METAR) et parfois sur certaines cartes nationales, bien que le mille nautique",
+"cat": "Unités",
+"fam": "unites"
+},
+"km/h": {
+"d": "Kilomètre par heure. Unité de vitesse utilisée sur de nombreux avions légers d'école de construction française (comme les Robin DR400), alors que les ",
+"cat": "Unités",
+"fam": "unites"
+},
+"kt": {
+"d": "<em>Knot</em> — nœud : 1 mille marin par heure (1 kt = 1 NM/h ≈ 1,852 km/h ≈ 0,514 m/s). Unité unique du vent aéronautique, des tables de performance ",
+"cat": "Unités",
+"fam": null
+},
+"kt de travers": {
+"d": "Composante transversale du vent par rapport à l'axe de piste, exprimée en nœuds. Chaque avion possède une limite démontrée de vent de travers (indiqué",
+"cat": "Vent",
+"fam": null
+},
+"ktas": {
+"d": "<em>Knots True Airspeed</em> : vitesse vraie de l'avion par rapport à l'air, exprimée en nœuds. Elle est utilisée pour le calcul de la navigation et a",
+"cat": "Vitesses & performances",
+"fam": null
+},
+"l/h": {
+"d": "Litres par heure. Unité de débit horaire utilisée pour exprimer la consommation de carburant du moteur. Utile pour calculer l'autonomie en vol, en gar",
+"cat": "Unités",
+"fam": "unites"
+},
+"lacet": {
+"d": "Mouvement de rotation de l'avion autour de son axe vertical, contrôlé par la gouverne de direction à l'aide des palonniers. Un bon contrôle du lacet e",
+"cat": "Aérodynamique",
+"fam": "controle_lacet"
+},
+"lacet adverse": {
+"d": "Phénomène aérodynamique entraînant une rotation de l'avion autour de l'axe vertical dans le sens opposé au roulis lors de l'inclinaison. Il est provoq",
+"cat": "Aérodynamique",
+"fam": "controle_lacet"
+},
+"lâcher": {
+"d": "Étape clé de la formation où l'instructeur autorise l'élève pilote à effectuer son tout premier vol en solo à bord de l'avion. Un moment marquant de r",
+"cat": "Procédures",
+"fam": null
+},
+"largeur de piste": {
+"d": "Dimension transversale de la piste d'atterrissage. Une piste étroite augmente l'impression de hauteur et peut inciter à arrondir trop haut, tandis qu'",
+"cat": "Aérodrome & cartes",
+"fam": "dimensions_piste"
+},
+"LDA": {
+"d": "<em>Landing Distance Available</em> — « distance d'atterrissage utilisable ». Longueur de piste disponible pour l'atterrissage, mesurée depuis le <str",
+"cat": "Aérodrome & cartes",
+"fam": null
+},
+"ldg": {
+"d": "<em>Landing</em> : abréviation aéronautique désignant l'atterrissage ou les équipements associés (comme les phares d'atterrissage ou la configuration ",
+"cat": "Procédures",
+"fam": null
+},
+"lean": {
+"d": "Action d'appauvrir le mélange air-carburant à l'aide de la commande d'étouffoir (manette rouge) pour l'ajuster à l'altitude de vol. Permet de réduire ",
+"cat": "Moteur & hélice",
+"fam": null
+},
+"légal": {
+"d": "Caractère conforme d'un vol par rapport à la réglementation en vigueur (SERA, arrêté d'immatriculation...). Le commandant de bord doit s'assurer de la",
+"cat": "Réglementation & docs",
+"fam": null
+},
+"lenticularis": {
+"d": "Nuage en forme de lentille ou d'amande, caractéristique des ondes orographiques en montagne. Sa présence indique un vent fort en altitude et de fortes",
+"cat": "Météo",
+"fam": "nuages"
+},
+"lfac": {
+"d": "Code OACI de l'aérodrome de Calais-Marck. Situé sur la côte nord de la France, c'est un point de passage fréquent pour les traversées de la Manche ver",
+"cat": "Aérodrome & cartes",
+"fam": "codes_oaci"
+},
+"lfat": {
+"d": "Code OACI de l'aérodrome du Touquet-Côte d'Opale. Terrain côtier très fréquenté par l'aviation générale, soumis à des variations météorologiques rapid",
+"cat": "Aérodrome & cartes",
+"fam": "codes_oaci"
+},
+"lfbd": {
+"d": "Code OACI de l'aéroport de Bordeaux-Mérignac. Plateforme commerciale d'Aquitaine disposant d'infrastructures importantes où les avions légers en VFR d",
+"cat": "Aérodrome & cartes",
+"fam": "codes_oaci"
+},
+"lfbo": {
+"d": "Code OACI de l'aéroport de Toulouse-Blagnac. Grand terrain commercial et industriel (siège d'Airbus) où la gestion de l'intégration VFR exige une radi",
+"cat": "Aérodrome & cartes",
+"fam": "codes_oaci"
+},
+"lfeh": {
+"d": "Code OACI de l'aérodrome d'Aubigny-sur-Nère. Petit terrain d'aviation générale non contrôlé situé dans le Cher, doté d'une piste en herbe, idéal pour ",
+"cat": "Aérodrome & cartes",
+"fam": "codes_oaci"
+},
+"lfen": {
+"d": "Code OACI de l'aérodrome de Tours-Sorigny. Terrain d'aviation générale d'Indre-et-Loire disposant d'une piste en dur, souvent utilisé pour l'école de ",
+"cat": "Aérodrome & cartes",
+"fam": "codes_oaci"
+},
+"lfey": {
+"d": "Code OACI de l'aérodrome de l'Île d'Yeu. Destination côtière prisée en VFR, exigeant une préparation rigoureuse concernant l'emport de gilets de sauve",
+"cat": "Aérodrome & cartes",
+"fam": "codes_oaci"
+},
+"lfjr": {
+"d": "Code OACI de l'aérodrome d'Angers-Marcé. Terrain doté d'une piste en dur et d'une activité d'instruction dynamique, situé à proximité immédiate d'un e",
+"cat": "Aérodrome & cartes",
+"fam": "codes_oaci"
+},
+"lflc": {
+"d": "Code OACI de l'aéroport de Clermont-Ferrand Auvergne. Terrain situé au pied de la chaîne des Puys, soumis à des effets de relief et à des vents rabatt",
+"cat": "Aérodrome & cartes",
+"fam": "codes_oaci"
+},
+"lfll": {
+"d": "Code OACI de l'aéroport de Lyon-Saint-Exupéry. Grande plateforme commerciale de classe A, son espace aérien (CTR/TMA) nécessite l'obtention de clairan",
+"cat": "Aérodrome & cartes",
+"fam": "codes_oaci"
+},
+"lfln": {
+"d": "Code OACI de l'aérodrome de Saint-Yan. Terrain mythique pour la formation aéronautique française en Saône-et-Loire, équipé de multiples pistes en dur ",
+"cat": "Aérodrome & cartes",
+"fam": "codes_oaci"
+},
+"lflx": {
+"d": "Code OACI de l'aérodrome de Limoges-Bellegarde. Plateforme contrôlée du Limousin, accueillant un trafic mixte de lignes commerciales régulières et d'a",
+"cat": "Aérodrome & cartes",
+"fam": "codes_oaci"
+},
+"lfmd": {
+"d": "Code OACI de l'aérodrome de Cannes-Mandelieu. Terrain côtier de la Côte d'Azur à forte activité d'aviation d'affaires et de loisir, encadré par des pr",
+"cat": "Aérodrome & cartes",
+"fam": "codes_oaci"
+},
+"lfml": {
+"d": "Code OACI de l'aéroport de Marseille-Provence. Grande plateforme internationale de la côte méditerranéenne, exigeant une préparation minutieuse des po",
+"cat": "Aérodrome & cartes",
+"fam": "codes_oaci"
+},
+"lfmn": {
+"d": "Code OACI de l'aéroport de Nice-Côte d'Azur. Plateforme majeure bordée par la mer, dont l'accès en vol VFR est soumis à des clairances strictes et des",
+"cat": "Aérodrome & cartes",
+"fam": "codes_oaci"
+},
+"lfmp": {
+"d": "Code OACI de l'aéroport de Perpignan-Rivesaltes. Terrain de la plaine du Roussillon exposé à de très fortes rafales de Tramontane, nécessitant une exc",
+"cat": "Aérodrome & cartes",
+"fam": "codes_oaci"
+},
+"lfmt": {
+"d": "Code OACI de l'aéroport de Montpellier-Méditerranée. Terrain mixte commercial et d'aviation générale, avec une forte activité d'instruction VFR facili",
+"cat": "Aérodrome & cartes",
+"fam": "codes_oaci"
+},
+"lfob": {
+"d": "Code OACI de l'aéroport de Beauvais-Tillé. Plateforme à fort trafic de compagnies low-cost au nord de Paris, où l'intégration VFR demande une attentio",
+"cat": "Aérodrome & cartes",
+"fam": "codes_oaci"
+},
+"lfod": {
+"d": "Code OACI de l'aérodrome de Saumur-Saint-Florent. Terrain de loisir du Maine-et-Loire, doté d'une piste en dur et d'une piste en herbe, parfait pour l",
+"cat": "Aérodrome & cartes",
+"fam": "codes_oaci"
+},
+"lfoe": {
+"d": "Code OACI de la base aérienne militaire d'Évreux-Fauville. Terrain à statut particulier (militaire BA 105), dont le survol ou la pénétration de la zon",
+"cat": "Aérodrome & cartes",
+"fam": "codes_oaci"
+},
+"lfoh": {
+"d": "Code OACI de l'aérodrome du Havre-Octeville. Terrain contrôlé situé en bord de falaise en Normandie, sujet à des vents forts et du cisaillement lors d",
+"cat": "Aérodrome & cartes",
+"fam": "codes_oaci"
+},
+"lfoi": {
+"d": "Code OACI de l'aérodrome d'Abbeville-Buigny. Terrain non contrôlé de la Somme, disposant de pistes en dur et en herbe, souvent utilisé comme terrain d",
+"cat": "Aérodrome & cartes",
+"fam": "codes_oaci"
+},
+"lfoj": {
+"d": "Code OACI de la base aérienne militaire d'Orléans-Bricy. Terrain militaire (BA 123) hébergeant la flotte de transport tactique de l'Armée de l'Air, so",
+"cat": "Aérodrome & cartes",
+"fam": "codes_oaci"
+},
+"lfok": {
+"d": "Code OACI de l'aéroport de Châlons-Vatry. Plateforme dotée d'une très longue piste, principalement dédiée au fret et à l'entraînement aux vols lourds,",
+"cat": "Aérodrome & cartes",
+"fam": "codes_oaci"
+},
+"lfoo": {
+"d": "Code OACI de l'aérodrome des Sables-d'Olonne - Talmont. Terrain de Vendée, très prisé pour l'aviation de loisir et exigeant de surveiller les conditio",
+"cat": "Aérodrome & cartes",
+"fam": "codes_oaci"
+},
+"lfor": {
+"d": "Code OACI de l'aérodrome de Chartres-Métropole. Terrain d'Eure-et-Loir d'aviation générale et de vol à voile, situé à l'extérieur des zones d'Île-de-F",
+"cat": "Aérodrome & cartes",
+"fam": "codes_oaci"
+},
+"lfot": {
+"d": "Code OACI de l'aéroport de Tours-Val de Loire. Terrain contrôlé ouvert à la circulation aérienne publique, servant à la fois au trafic commercial et à",
+"cat": "Aérodrome & cartes",
+"fam": "codes_oaci"
+},
+"lfou": {
+"d": "Code OACI de l'aérodrome de Cholet-Le Pontreau. Terrain non contrôlé du Maine-et-Loire, actif en aviation générale, voltige et aéromodélisme, disposan",
+"cat": "Aérodrome & cartes",
+"fam": "codes_oaci"
+},
+"lfow": {
+"d": "Code OACI de l'aérodrome de Saint-Quentin - Roupy. Terrain non contrôlé de l'Aisne, disposant d'une piste en herbe et orienté vers l'aviation de loisi",
+"cat": "Aérodrome & cartes",
+"fam": "codes_oaci"
+},
+"lfox": {
+"d": "Code OACI de l'aérodrome d'Étampes-Mondésir. Plateforme d'aviation générale très active d'Île-de-France, disposant de quatre pistes et servant de base",
+"cat": "Aérodrome & cartes",
+"fam": "codes_oaci"
+},
+"lfoy": {
+"d": "Code OACI de l'aérodrome du Havre Saint-Romain-de-Colbosc. Petit terrain de Seine-Maritime dédié aux activités d'aviation de loisir, d'ULM et d'aéromo",
+"cat": "Aérodrome & cartes",
+"fam": "codes_oaci"
+},
+"lfoz": {
+"d": "Code OACI de l'aérodrome d'Orléans - Saint-Denis-de-l'Hôtel. Terrain d'aviation générale actif du Loiret, doté d'une piste en dur et souvent utilisé p",
+"cat": "Aérodrome & cartes",
+"fam": "codes_oaci"
+},
+"lfpb": {
+"d": "Code OACI de l'aéroport de Paris-Le Bourget. Plateforme d'aviation d'affaires de renommée mondiale, insérée dans l'espace complexe d'Île-de-France, so",
+"cat": "Aérodrome & cartes",
+"fam": "codes_oaci"
+},
+"lfpg": {
+"d": "Code OACI de l'aéroport de Paris-Charles de Gaulle. Premier aéroport de France, de classe A, interdit aux vols VFR non coordonnés ou n'ayant pas obten",
+"cat": "Aérodrome & cartes",
+"fam": "codes_oaci"
+},
+"lfpk": {
+"d": "Code OACI de l'aérodrome de Coulommiers-Voisins. Terrain d'aviation générale de Seine-et-Marne, doté d'une piste en dur et servant de zone de délestag",
+"cat": "Aérodrome & cartes",
+"fam": "codes_oaci"
+},
+"lfpn": {
+"d": "Code OACI de l'aérodrome de Toussus-le-Noble. L'une des plus grandes plateformes d'aviation générale de la région parisienne, disposant de deux pistes",
+"cat": "Aérodrome & cartes",
+"fam": "codes_oaci"
+},
+"lfpo": {
+"d": "Code OACI de l'aéroport de Paris-Orly. Grand terrain commercial de classe A situé au sud de Paris, inaccessible aux avions légers VFR sauf dérogation ",
+"cat": "Aérodrome & cartes",
+"fam": "codes_oaci"
+},
+"lfpt": {
+"d": "Code OACI de l'aérodrome de Pontoise-Cormeilles-en-Vexin. Plateforme contrôlée du nord-ouest parisien, très fréquentée par les écoles de pilotage pour",
+"cat": "Aérodrome & cartes",
+"fam": "codes_oaci"
+},
+"lfpv": {
+"d": "Code OACI de la base aérienne militaire de Vélizy-Villacoublay. Zone militaire ultra-sécurisée d'Île-de-France, interdite aux aéronefs civils non auto",
+"cat": "Aérodrome & cartes",
+"fam": "codes_oaci"
+},
+"lfqq": {
+"d": "Code OACI de l'aéroport de Lille-Lesquin. Plateforme contrôlée du nord de la France, mixant trafic commercial et aviation générale, nécessitant une éc",
+"cat": "Aérodrome & cartes",
+"fam": "codes_oaci"
+},
+"lfrb": {
+"d": "Code OACI de l'aéroport de Brest-Bretagne. Terrain contrôlé situé à la pointe du Finistère, souvent sujet à des conditions météorologiques de brouilla",
+"cat": "Aérodrome & cartes",
+"fam": "codes_oaci"
+},
+"lfrd": {
+"d": "Code OACI de l'aéroport de Dinard-Pleurtuit-Saint-Malo. Terrain contrôlé de la côte bretonne, doté d'infrastructures complètes pour le trafic VFR et I",
+"cat": "Aérodrome & cartes",
+"fam": "codes_oaci"
+},
+"lfrg": {
+"d": "Code OACI de l'aéroport de Deauville-Normandie. Plateforme contrôlée accueillant un trafic mixte de vols privés et de charters, appréciée des pilotes ",
+"cat": "Aérodrome & cartes",
+"fam": "codes_oaci"
+},
+"lfrn": {
+"d": "Code OACI de l'aéroport de Rennes-Saint-Jacques. Plateforme contrôlée d'Ille-et-Vilaine, conciliant transport régional et aviation générale, idéale po",
+"cat": "Aérodrome & cartes",
+"fam": "codes_oaci"
+},
+"lfrs": {
+"d": "Code OACI de l'aéroport de Nantes-Atlantique. Grand terrain commercial de Loire-Atlantique, nécessitant une attention renforcée lors de la traversée d",
+"cat": "Aérodrome & cartes",
+"fam": "codes_oaci"
+},
+"lfsb": {
+"d": "Code OACI de l'aéroport de Bâle-Mulhouse. Aéroport international unique au statut franco-suisse, exigeant une phraséologie bilingue rigoureuse et une ",
+"cat": "Aérodrome & cartes",
+"fam": "codes_oaci"
+},
+"lfsn": {
+"d": "Code OACI de l'aérodrome de Nancy-Essey. Terrain d'aviation générale de Meurthe-et-Moselle, accueillant les activités de loisirs et d'instruction à pr",
+"cat": "Aérodrome & cartes",
+"fam": "codes_oaci"
+},
+"lfst": {
+"d": "Code OACI de l'aéroport de Strasbourg-Entzheim. Plateforme contrôlée d'Alsace accueillant un trafic mixte, dont les procédures d'arrivée VFR demandent",
+"cat": "Aérodrome & cartes",
+"fam": "codes_oaci"
+},
+"lftw": {
+"d": "Code OACI de l'aéroport de Nîmes-Garons. Terrain mixte civil et militaire, servant également de base aux aéronefs de la Sécurité Civile (bombardiers d",
+"cat": "Aérodrome & cartes",
+"fam": "codes_oaci"
+},
+"lfxu": {
+"d": "Code OACI de l'aérodrome des Mureaux. Terrain historique d'aviation générale d'Yvelines disposant d'une piste en herbe, bordé par la Seine et situé so",
+"cat": "Aérodrome & cartes",
+"fam": "codes_oaci"
+},
+"licence": {
+"d": "Titre aéronautique officiel (ex. PPL, LAPL) délivré par l'autorité de l'aviation civile, certifiant l'aptitude d'un pilote à exercer ses privilèges, à",
+"cat": "Réglementation & docs",
+"fam": null
+},
+"ligne de grain": {
+"d": "Alignement de cellules orageuses actives de grande échelle, s'accompagnant de violentes turbulences, de rafales destructrices et de fortes précipitati",
+"cat": "Météo",
+"fam": null
+},
+"limite arriere": {
+"d": "Limite maximale de recul du centre de gravité autorisée par le manuel de vol. Un centrage trop arrière rend l'avion instable, difficile voire impossib",
+"cat": "Masse & centrage",
+"fam": "limites_de_centrage"
+},
+"limite avant": {
+"d": "Limite maximale d'avancement du centre de gravité autorisée par le manuel de vol. Un centrage trop avant augmente la stabilité mais réduit l'efficacit",
+"cat": "Masse & centrage",
+"fam": "limites_de_centrage"
+},
+"lisse": {
+"d": "Configuration aérodynamique d'un avion lorsque tous les éléments mobiles (volets de courbure, train d'atterrissage rentrant) sont entièrement escamoté",
+"cat": "Aérodynamique",
+"fam": null
+},
+"longeron": {
+"d": "Élément structural longitudinal principal d'une aile ou d'un empennage, conçu pour supporter la majeure partie des forces de flexion et des charges aé",
+"cat": "Structure & cellule",
+"fam": null
+},
+"longue finale": {
+"d": "Partie initiale de la finale, loin du seuil, juste après l'alignement sur l'axe de piste. On y installe l'approche : axe, plan de descente et vitesse ",
+"cat": "Aérodrome & cartes",
+"fam": null
+},
+"longueur de piste": {
+"d": "Distance longitudinale disponible pour le décollage ou l'atterrissage. Elle doit être comparée aux distances calculées dans le manuel de vol, en appli",
+"cat": "Aérodrome & cartes",
+"fam": "dimensions_piste"
+},
+"m/s": {
+"d": "Mètres par seconde. Unité de vitesse verticale principalement utilisée sur les planeurs et les aéronefs d'origine d'Europe de l'Est pour indiquer le t",
+"cat": "Unités",
+"fam": "unites"
+},
+"machmetre": {
+"d": "Instrument de bord indiquant le rapport entre la vitesse propre de l'aéronef et la vitesse du son (nombre de Mach). Rarement présent sur les avions lé",
+"cat": "Instruments",
+"fam": null
+},
+"mag": {
+"d": "Abréviation aéronautique courante pour « magnétique » (ex. cap magnétique, déclinaison magnétique). Essentielle pour différencier les valeurs par rapp",
+"cat": "Navigation",
+"fam": "references_magnetiques"
+},
+"magnétique": {
+"d": "Qualifie une direction, un cap ou une route mesurés par rapport au nord magnétique. Les caps indiqués par le compas et le conservateur de cap sont mag",
+"cat": "Navigation",
+"fam": "references_magnetiques"
+},
+"magnéto": {
+"d": "Générateur de courant autonome entraîné par le moteur pour alimenter les bougies d'allumage d'un cylindre. Indépendant de la batterie de l'avion, ce s",
+"cat": "Moteur & hélice",
+"fam": "magnetos"
+},
+"magnéto droite": {
+"d": "L'un des deux circuits d'allumage magnéto indépendants du moteur, alimentant une bougie par cylindre. Sa sélection isolée lors des essais moteur perme",
+"cat": "Moteur & hélice",
+"fam": "magnetos"
+},
+"magnéto gauche": {
+"d": "L'un des deux circuits d'allumage magnéto indépendants du moteur, complémentaire du circuit droit. Son test lors des vérifications avant décollage gar",
+"cat": "Moteur & hélice",
+"fam": "magnetos"
+},
+"majoration rafale": {
+"d": "Augmentation de la vitesse d'approche recommandée (généralement égale à la moitié de la valeur de la rafale constatée) pour conserver une marge de séc",
+"cat": "Vitesses & performances",
+"fam": null
+},
+"mal de l'air": {
+"d": "Trouble physiologique (cinétose) provoqué par un conflit sensoriel entre la vision et le système vestibulaire de l'oreille interne lors des évolutions",
+"cat": "Sécurité & facteurs humains",
+"fam": null
+},
+"mammatus": {
+"d": "Forme de nuage présentant des protubérances pendantes semblables à des mamelles, se développant souvent à la base d'un cumulonimbus. Sa présence indiq",
+"cat": "Météo",
+"fam": "nuages"
+},
+"manche": {
+"d": "Organe de pilotage primaire permettant au pilote de contrôler l'assiette longitudinale (profondeur) et l'inclinaison latérale (ailerons) de l'aéronef ",
+"cat": "Structure & cellule",
+"fam": "commandes_de_vol"
+},
+"manche à air": {
+"d": "Cône en tissu au bord de piste : il donne le vent <strong>réel au sol, à l'endroit où tu vas te poser</strong>. Gonflée à l'horizontale ≈ 15 kt ou plu",
+"cat": "Aérodrome & cartes",
+"fam": null
+},
+"manette": {
+"d": "Organe de contrôle de la puissance du moteur, permettant au pilote de régler l'admission de carburant (et d'air) pour ajuster la traction nécessaire à",
+"cat": "Moteur & hélice",
+"fam": "commandes_de_vol"
+},
+"manuel de vol": {
+"d": "Document officiel obligatoire à bord, propre à chaque aéronef immatriculé, contenant les limitations, les procédures normales et d'urgence, les perfor",
+"cat": "Réglementation & docs",
+"fam": null
+},
+"marge de decrochage": {
+"d": "Écart entre la vitesse de vol actuelle de l'aéronef et sa vitesse de décrochage dans la configuration donnée. Cette marge doit être maintenue suffisan",
+"cat": "Vitesses & performances",
+"fam": null
+},
+"marge de franchissement": {
+"d": "Hauteur minimale de sécurité calculée ou requise pour franchir les obstacles environnants lors de la montée initiale ou des approches, garantissant un",
+"cat": "Procédures",
+"fam": null
+},
+"masse a vide": {
+"d": "Masse de l'avion comprenant la structure, le moteur, les équipements fixes, les fluides indispensables au fonctionnement et le carburant inutilisable.",
+"cat": "Masse & centrage",
+"fam": "masses"
+},
+"masse du jour": {
+"d": "Masse totale de l'aéronef calculée pour un vol précis, incluant la masse à vide, l'équipage, les passagers, les bagages et le carburant embarqué. Elle",
+"cat": "Masse & centrage",
+"fam": "masses"
+},
+"masse et centrage": {
+"d": "Procédure réglementaire obligatoire avant chaque vol consistant à calculer le poids total de l'appareil et la position de son centre de gravité pour s",
+"cat": "Masse & centrage",
+"fam": null
+},
+"masse maximale": {
+"d": "Limite structurale supérieure de masse de l'appareil fixée par le constructeur et indiquée dans le manuel de vol, au-delà de laquelle l'appareil ne do",
+"cat": "Masse & centrage",
+"fam": "masses"
+},
+"mayday": {
+"d": "Signal de détresse international utilisé en radiotéléphonie pour indiquer qu'un aéronef est menacé d'un danger grave et imminent et qu'il nécessite un",
+"cat": "Radio & phraséologie",
+"fam": null
+},
+"mémoire de travail": {
+"d": "Composante cognitive à capacité limitée qui retient et traite temporairement l'information en vol (ex. mémoriser un code transpondeur ou une fréquence",
+"cat": "Sécurité & facteurs humains",
+"fam": "facteurs_humains"
+},
+"menace": {
+"d": "Événement ou erreur extérieure à l'équipage qui se produit en dehors de l'influence directe du pilote, augmente la complexité du vol et doit être géré",
+"cat": "Sécurité & facteurs humains",
+"fam": "facteurs_humains"
+},
+"METAR": {
+"d": "<em>METeorological Aerodrome Report</em> — « message d'observation météorologique d'aérodrome ». Émis toutes les 30 ou 60 minutes. Codé mais ultra-sta",
+"cat": "Météo",
+"fam": null
+},
+"metar/taf": {
+"d": "Messages météo réglementaires codés pour l'aviation. Le METAR décrit le temps observé à un instant donné sur un aérodrome, tandis que le TAF est une p",
+"cat": "Météo",
+"fam": "messages_meteo"
+},
+"météo du jour": {
+"d": "Analyse indispensable des conditions météorologiques actuelles et prévues (METAR, TAF, TEMSI, WINTEM) effectuée par le pilote avant d'entreprendre le ",
+"cat": "Météo",
+"fam": "preparation_vol"
+},
+"minima": {
+"d": "Seuils réglementaires ou personnels de visibilité, de plafond ou de vent en dessous desquels un vol ou une approche ne doit pas être entrepris ou pour",
+"cat": "Réglementation & docs",
+"fam": "minima_meteo"
+},
+"minima météo": {
+"d": "Valeurs limites réglementaires de visibilité et de distance par rapport aux nuages pour voler en VFR, variant selon la classe d'espace (ex. 1500 m de ",
+"cat": "Réglementation & docs",
+"fam": "minima_meteo"
+},
+"mise en route": {
+"d": "Action de démarrer le moteur après avoir effectué les vérifications pré-vol obligatoires et la check-list dédiée. Sur les terrains contrôlés, elle néc",
+"cat": "Procédures",
+"fam": "procedures_sol"
+},
+"mistral": {
+"d": "Vent régional de secteur nord-ouest à nord, froid et souvent très fort, soufflant dans la vallée du Rhône. Il s'accompagne d'un ciel limpide mais génè",
+"cat": "Météo",
+"fam": "vents_locaux"
+},
+"mm aft datum": {
+"d": "Unité de mesure anglo-saxonne (millimètres en arrière de la référence) exprimant la position du centre de gravité d'un avion par rapport à sa ligne de",
+"cat": "Masse & centrage",
+"fam": "masse_et_centrage"
+},
+"modele threat and error": {
+"d": "<em>Threat and Error Management</em> (TEM). Modèle conceptuel d'analyse de la sécurité visant à identifier et gérer activement les menaces extérieures",
+"cat": "Sécurité & facteurs humains",
+"fam": "facteurs_humains"
+},
+"moment de rappel": {
+"d": "Moment de force aérodynamique ou gravitationnel qui tend à ramener l'avion vers son assiette ou sa trajectoire d'équilibre initiale après une perturba",
+"cat": "Aérodynamique",
+"fam": "masse_et_centrage"
+},
+"monomoteur": {
+"d": "Aéronef équipé d'un seul groupe motopropulseur. C'est la configuration standard pour l'apprentissage du PPL. En cas de panne moteur, la finesse de l'a",
+"cat": "Structure & cellule",
+"fam": "categories_aeronef"
+},
+"monomoteur léger": {
+"d": "Avion monomoteur de masse maximale certifiée au décollage généralement inférieure à 5700 kg, principalement utilisé pour l'école, le voyage VFR ou le ",
+"cat": "Structure & cellule",
+"fam": "categories_aeronef"
+},
+"montée initiale": {
+"d": "Phase de montée dans l'axe de piste qui suit immédiatement le décollage, avant tout virage. On y tient l'axe, la vitesse de montée retenue et la traje",
+"cat": "Aérodrome & cartes",
+"fam": null
+},
+"moulinet": {
+"d": "Rotation de l'hélice entraînée uniquement par le vent relatif lorsque le moteur est coupé ou en panne en plein vol. Elle génère une traînée aérodynami",
+"cat": "Moteur & hélice",
+"fam": "helice"
+},
+"mtom": {
+"d": "<em>Maximum Take-Off Mass</em>. Masse maximale au décollage autorisée par la certification de l'appareil. Elle ne doit jamais être dépassée sous peine",
+"cat": "Masse & centrage",
+"fam": "masses_reglementaires"
+},
+"nav": {
+"d": "Diminutif courant désignant la préparation ou la conduite de la navigation, consistant à suivre une route définie en calculant l'estime, la dérive et ",
+"cat": "Navigation",
+"fam": "navigation_termes"
+},
+"navigabilité": {
+"d": "État technique d'un aéronef conforme à sa définition certifiée et en état de voler en toute sécurité. Elle est attestée par des documents réglementair",
+"cat": "Réglementation & docs",
+"fam": "documents_aeronef"
+},
+"navigation": {
+"d": "Art et science de conduire un aéronef d'un point à un autre en toute sécurité. Elle repose en VFR sur le suivi de l'estime (cap et temps) complété par",
+"cat": "Navigation",
+"fam": "navigation_termes"
+},
+"nearest airfield": {
+"d": "Aérodrome le plus proche accessible en vol. C'est l'option à identifier immédiatement sur GPS ou carte de navigation en cas de situation d'urgence, de",
+"cat": "Procédures",
+"fam": "situations_urgence"
+},
+"nervure": {
+"d": "Élément de structure transversal de l'aile qui donne son profil aérodynamique à la voilure et transmet les efforts aérodynamiques du revêtement vers l",
+"cat": "Structure & cellule",
+"fam": "structure_aile"
+},
+"nimbostratus": {
+"d": "Nuage de grande extension verticale, sombre et d'aspect voilé, souvent associé à des précipitations continues sous forme de pluie ou de neige. Son pla",
+"cat": "Météo",
+"fam": "nuages"
+},
+"niveau de transition": {
+"d": "Premier niveau de vol (FL) utilisable au-dessus de l'altitude de transition. Lors de la montée, c'est la limite où l'on passe d'un calage calé au QNH ",
+"cat": "Altimétrie",
+"fam": "altimetrie_references"
+},
+"niveau de vol": {
+"d": "Altitude-pression exprimée en centaines de pieds, calage 1013,25 hPa : FL45 = 4500 ft altitude-pression. Utilisé en croisière au-dessus de l'altitude ",
+"cat": "Altimétrie",
+"fam": null
+},
+"NM": {
+"d": "<em>Nautical Mile</em> — mille marin : 1852 m exactement. Unité de distance horizontale en navigation aérienne et maritime. 1 kt = 1 NM/h.",
+"cat": "Unités",
+"fam": null
+},
+"no-go": {
+"d": "Décision ferme de ne pas entreprendre ou de ne pas poursuivre un vol en raison de conditions jugées non sécuritaires (météo dégradée, fatigue du pilot",
+"cat": "Sécurité & facteurs humains",
+"fam": "prise_decision"
+},
+"nord": {
+"d": "Direction de référence principale en navigation aéronautique. Elle peut être géographique (nord vrai), magnétique (nord indiqué par le compas corrigé ",
+"cat": "Navigation",
+"fam": "points_cardinaux"
+},
+"nord magnétique": {
+"d": "Direction indiquée par l'aiguille du compas, vers le pôle magnétique — qui ne coïncide pas avec le pôle géographique et se déplace. Les <strong>QFU et",
+"cat": "Navigation",
+"fam": null
+},
+"nord vrai": {
+"d": "Direction du pôle Nord géographique, référence des méridiens de la carte. Le vent des <strong>messages METAR/TAF est donné en degrés vrais</strong> — ",
+"cat": "Navigation",
+"fam": null
+},
+"NOSIG": {
+"d": "<em>No significant change</em> : pas d'évolution significative attendue dans les 2 heures suivant le METAR. Ce n'est pas une promesse, juste l'absence",
+"cat": "Météo",
+"fam": null
+},
+"NOTAM": {
+"d": "<em>Notice to Airmen</em> : avis officiel aux navigateurs — travaux, activations de zones, glissance, feux d'artifice. La lecture des NOTAM fait parti",
+"cat": "Réglementation & docs",
+"fam": null
+},
+"NSW": {
+"d": "<em>Nil Significant Weather</em> : fin des phénomènes météo significatifs dans une prévision TAF (les nuages restants sont sans importance opérationne",
+"cat": "Météo",
+"fam": null
+},
+"nuage": {
+"d": "Amas visible de fines gouttelettes d'eau ou de cristaux de glace en suspension dans l'atmosphère. Pour le pilote VFR, les nuages dictent les condition",
+"cat": "Météo",
+"fam": "nuages"
+},
+"nuage du jour": {
+"d": "Nuage ou type de nébulosité prédominant observé ou prévu lors de la préparation des vols, influençant le choix de l'altitude de croisière et la décisi",
+"cat": "Météo",
+"fam": "nuages"
+},
+"nuit": {
+"d": "En aéronautique française, période commençant 30 minutes après le coucher du soleil et se terminant 30 minutes avant son lever. Le vol de nuit VFR req",
+"cat": "Réglementation & docs",
+"fam": "regles_vol"
+},
+"oaci": {
+"d": "<em>Organisation de l'Aviation Civile Internationale</em>. Institution spécialisée des Nations Unies qui édicte les normes et recommandations réglemen",
+"cat": "Réglementation & docs",
+"fam": "organismes"
+},
+"oat": {
+"d": "<em>Outside Air Temperature</em> : température de l'air extérieur. Mesurée par une sonde, elle est essentielle pour calculer l'altitude-densité, la vi",
+"cat": "Instruments",
+"fam": "instruments_mesure"
+},
+"obstacle artificiel": {
+"d": "Structure construite par l'homme (antenne, éolienne, ligne à haute tension) représentant un danger pour la navigation basse hauteur. Ils sont répertor",
+"cat": "Aérodrome & cartes",
+"fam": "securite_sol"
+},
+"occlusion": {
+"d": "Front froid qui rattrape le front chaud : les deux systèmes fusionnent. Restes de pluie, plafonds bas, traînées — un occlus qui traîne sur l'Île-de-Fr",
+"cat": "Météo",
+"fam": null
+},
+"octas": {
+"d": "Huitièmes de ciel couvert : FEW 1-2 octas, SCT 3-4, BKN 5-7, OVC 8/8. Le plafond, c'est la première couche BKN ou OVC. Une couverture SCT n'est donc j",
+"cat": "Météo",
+"fam": null
+},
+"off ignition off": {
+"d": "Commande d'allumage des magnétos placée sur la position d'arrêt complet (OFF). C'est la configuration de sécurité obligatoire pour manipuler l'hélice ",
+"cat": "Procédures",
+"fam": "procedures_sol"
+},
+"onde de relief": {
+"d": "Ondulation de l'air en aval d'un relief par vent fort et stable, matérialisée par les lenticularis. Ascendances douces côté vent, rabattants et rotor ",
+"cat": "Vent",
+"fam": null
+},
+"oreille interne": {
+"d": "Organe de l'équilibre situé dans le crâne. En l'absence de références visuelles extérieures (vol dans le brouillard), elle peut transmettre des inform",
+"cat": "Sécurité & facteurs humains",
+"fam": "physiologie"
+},
+"ouest": {
+"d": "Point cardinal correspondant au relèvement magnétique ou vrai de 270 degrés. C'est la direction opposée à l'est, face au soleil couchant.",
+"cat": "Navigation",
+"fam": "points_cardinaux"
+},
+"ovc": {
+"d": "Code METAR/TAF signifiant <em>Overcast</em> (couvert). Il indique que la totalité du ciel (8 octas) est masquée par une couche nuageuse continue, inte",
+"cat": "Météo",
+"fam": "couche_nuageuse"
+},
+"oxygène": {
+"d": "Gaz vital dont la pression partielle diminue avec l'altitude. Son manque dans le sang provoque l'hypoxie, altérant les facultés cognitives du pilote d",
+"cat": "Sécurité & facteurs humains",
+"fam": "physiologie"
+},
+"palier": {
+"d": "Phase de vol stabilisée à altitude constante où la portance équilibre la masse de l'appareil et la traction compense la traînée. Sa tenue requiert un ",
+"cat": "Procédures",
+"fam": "phases_vol"
+},
+"palier de croisière": {
+"d": "Palier de longue durée établi après la montée, à l'altitude ou au niveau de vol choisis pour la navigation. C'est la phase idéale pour ajuster la rich",
+"cat": "Procédures",
+"fam": "phases_vol"
+},
+"palonnier": {
+"d": "Commande de vol actionnée par les pieds du pilote, agissant sur la gouverne de direction pour contrôler l'axe de lacet. Au sol, il permet de diriger l",
+"cat": "Structure & cellule",
+"fam": "gouvernes_commandes"
+},
+"panne électrique": {
+"d": "Défaillance de l'alternateur ou court-circuit coupant l'alimentation de bord. La batterie assure une autonomie limitée ; le pilote doit rapidement cou",
+"cat": "Procédures",
+"fam": "situations_urgence"
+},
+"panne moteur": {
+"d": "Dysfonctionnement partiel ou total du groupe motopropulseur en vol. La priorité absolue est alors de maintenir la vitesse de finesse maximale pour cho",
+"cat": "Procédures",
+"fam": "situations_urgence"
+},
+"panne radio": {
+"d": "Perte des liaisons radioélectriques VHF. Le pilote doit alors afficher le code transpondeur 7600, surveiller les signaux lumineux de la tour et suivre",
+"cat": "Procédures",
+"fam": "situations_urgence"
+},
+"parking": {
+"d": "Aire de l'aérodrome réservée au stationnement, à l'avitaillement et à la préparation au sol des aéronefs. Les déplacements y sont lents et exigent une",
+"cat": "Aérodrome & cartes",
+"fam": "zones_aerodrome"
+},
+"pas d'hélice": {
+"d": "Distance théorique parcourue vers l'avant par l'hélice en un tour complet. Un petit pas favorise le décollage et la montée (régime élevé), tandis qu'u",
+"cat": "Moteur & hélice",
+"fam": "helice"
+},
+"pas variable": {
+"d": "Dispositif permettant de modifier en vol l'angle de calage des pales de l'hélice pour optimiser son rendement à toutes les vitesses. Il est généraleme",
+"cat": "Moteur & hélice",
+"fam": "helice"
+},
+"passager": {
+"d": "Personne transportée à bord n'exerçant aucune fonction de pilotage. Le commandant de bord est responsable de sa sécurité, doit effectuer un briefing d",
+"cat": "Réglementation & docs",
+"fam": "radio_phraséologie"
+},
+"pax": {
+"d": "Abréviation aéronautique désignant un passager. Utilisée fréquemment dans les devis de masse et centrage ainsi que dans la préparation opérationnelle ",
+"cat": "Radio & phraséologie",
+"fam": "radio_phraséologie"
+},
+"pente": {
+"d": "Angle mesurant l'inclinaison de la trajectoire de vol par rapport à l'horizon. Elle s'exprime en degrés ou en pourcentage et ne doit pas être confondu",
+"cat": "Vitesses & performances",
+"fam": "pentes_descente"
+},
+"pente de descente": {
+"d": "Trajectoire descendante de l'appareil par rapport à l'horizon, exprimée en pourcentage ou en degrés. Une pente standard d'approche finale VFR est géné",
+"cat": "Vitesses & performances",
+"fam": "pentes_descente"
+},
+"pente de montée": {
+"d": "Rapport entre le gain d'altitude et la distance horizontale parcourue par rapport au sol. Elle dépend de la réserve de traction disponible et permet d",
+"cat": "Vitesses & performances",
+"fam": "pentes_descente"
+},
+"percée verticale": {
+"d": "Action de descendre à travers une couche nuageuse fragmentée en conservant des références visuelles suffisantes avec le sol. C'est une manœuvre délica",
+"cat": "Procédures",
+"fam": "procedures_vol"
+},
+"perte de position": {
+"d": "Situation où le pilote ne parvient plus à situer précisément sa position géographique sur la carte. Il convient alors de conserver son cap, de cherche",
+"cat": "Navigation",
+"fam": "navigation_termes"
+},
+"phraséologie": {
+"d": "Ensemble de termes et d'expressions standardisés utilisés lors des communications radiotéléphoniques. Son emploi strict évite les malentendus avec le ",
+"cat": "Radio & phraséologie",
+"fam": "radio_phraséologie"
+},
+"piège classique": {
+"d": "Erreur de jugement récurrente commise par les pilotes, comme l'obstination au but (plan continuation bias) ou la mauvaise estimation de la météo. Conn",
+"cat": "Sécurité & facteurs humains",
+"fam": "prise_decision"
+},
+"piqué": {
+"d": "Attitude de vol caractérisée par une assiette fortement négative et une augmentation rapide de la vitesse. C'est une manœuvre transitoire exigeant de ",
+"cat": "Procédures",
+"fam": "phases_vol"
+},
+"piste": {
+"d": "Bande de terrain ou de revêtement aménagée pour le décollage et l'atterrissage des avions. Elle porte un numéro — son <strong>QFU</strong> arrondi à l",
+"cat": "Aérodrome & cartes",
+"fam": null
+},
+"piste contaminée": {
+"d": "Piste recouverte sur une partie significative de sa surface par de l'eau stagnante, de la neige fondante ou de la glace. Cela diminue l'adhérence des ",
+"cat": "Aérodrome & cartes",
+"fam": "pistes"
+},
+"piste en service": {
+"d": "Piste active désignée pour les décollages et atterrissages, choisie prioritairement face au vent dominant. Son orientation est indiquée par son numéro",
+"cat": "Aérodrome & cartes",
+"fam": "pistes"
+},
+"piste mouillée": {
+"d": "Piste dont la surface est humide ou recouverte d'une fine pellicule d'eau sans stagnation. Elle augmente les risques d'aquaplaning et nécessite d'adap",
+"cat": "Aérodrome & cartes",
+"fam": "pistes"
+},
+"pitot": {
+"d": "Tube orienté face au flux d'air qui mesure la pression totale nécessaire au fonctionnement de l'anémomètre (badin). Son obstruction totale ou partiell",
+"cat": "Instruments",
+"fam": "instruments_pression"
+},
+"plafond": {
+"d": "Hauteur au-dessus du sol de la première couche nuageuse BKN ou OVC (5 octas et plus). C'est lui qui fixe ta hauteur de circuit et ta marge sous les nu",
+"cat": "Météo",
+"fam": null
+},
+"plafond nuageux": {
+"d": "Hauteur au-dessus du sol de la base de la plus basse couche de nuages qui couvre plus de la moitié du ciel (nébulosité supérieure ou égale à 5 octas, ",
+"cat": "Météo",
+"fam": "couche_nuageuse"
+},
+"plan continuation bias": {
+"d": "Obstination inconsciente à poursuivre le vol prévu malgré des signes clairs de dégradation de la situation (météo, fatigue, carburant). C'est un biais",
+"cat": "Sécurité & facteurs humains",
+"fam": "facteurs_humains"
+},
+"plan de charge": {
+"d": "Répartition et niveau d'activité mentale requis du pilote pour accomplir les différentes tâches de conduite du vol (pilotage, navigation, radio). Il d",
+"cat": "Sécurité & facteurs humains",
+"fam": "facteurs_humains"
+},
+"plan de descente": {
+"d": "Trajectoire verticale théorique que l'avion doit suivre lors de son approche finale pour atterrir en sécurité. Un plan de descente standard est de 3 d",
+"cat": "Aérodrome & cartes",
+"fam": "pentes_descente"
+},
+"plan de vol": {
+"d": "Document réglementaire décrivant l'itinéraire, l'autonomie et les intentions du pilote. Son dépôt est obligatoire pour les vols transfrontaliers, de n",
+"cat": "Réglementation & docs",
+"fam": "preparation_vol"
+},
+"plancher": {
+"d": "Altitude ou niveau de vol minimal autorisé dans une zone donnée (ex. plancher d'une classe d'espace contrôlé). Le pilote doit impérativement voler au-",
+"cat": "Réglementation & docs",
+"fam": "altimetrie_references"
+},
+"plané": {
+"d": "Vol non motorisé stabilisé durant lequel l'avion descend sous l'effet de sa propre masse. La vitesse de plané optimal permet de parcourir la plus gran",
+"cat": "Procédures",
+"fam": "phases_vol"
+},
+"plein gaz": {
+"d": "Position maximale de la manette des gaz fournissant la puissance maximale disponible du moteur. Utilisée systématiquement lors du décollage et de la r",
+"cat": "Procédures",
+"fam": "phases_vol"
+},
+"pluie": {
+"d": "Précipitation d'eau sous forme liquide. Elle dégrade fortement la visibilité vers l'avant à travers le pare-brise de l'avion, peut altérer le profil a",
+"cat": "Météo",
+"fam": "messages_meteo"
+},
+"POH": {
+"d": "<em>Pilot's Operating Handbook</em> : le manuel de vol de l'avion, document officiel de l'<strong>exemplaire immatriculé</strong>. Vitesses, masses, d",
+"cat": "Réglementation & docs",
+"fam": null
+},
+"point d'arrêt": {
+"d": "Emplacement matérialisé au sol par une ligne de peinture continue jaune et des panneaux de signalisation, situé avant de pénétrer sur la piste en serv",
+"cat": "Aérodrome & cartes",
+"fam": "points_aerodrome"
+},
+"point d'attente": {
+"d": "Position désignée sur une voie de circulation (taxiway) où un aéronef doit s'arrêter et attendre l'autorisation du contrôle avant de poursuivre son dé",
+"cat": "Aérodrome & cartes",
+"fam": "points_aerodrome"
+},
+"point de decision": {
+"d": "Repère géographique, temporel ou lié aux performances à partir duquel le pilote doit obligatoirement valider une option de vol ou appliquer une altern",
+"cat": "Sécurité & facteurs humains",
+"fam": "prise_decision"
+},
+"point de non retour": {
+"d": "Limite géographique ou temporelle au-delà de laquelle l'appareil ne dispose plus de la réserve de carburant nécessaire pour faire demi-tour vers son a",
+"cat": "Navigation",
+"fam": "prise_decision"
+},
+"point de report": {
+"d": "Point géographique remarquable identifié au sol et figurant sur les cartes d'approche VAC (ex. échangeur d'autoroute, château d'eau), utilisé par le p",
+"cat": "Navigation",
+"fam": "points_navigation"
+},
+"point de rosée": {
+"d": "Température à laquelle l'air devient saturé en refroidissant. L'écart température/point de rosée te donne la base des cumulus (≈ 400 ft par degré d'éc",
+"cat": "Météo",
+"fam": null
+},
+"point fixe": {
+"d": "Zone de l'aérodrome où le pilote positionne son avion face au vent pour tester le bon fonctionnement des allumages (magnétos) et du réchauffage carbur",
+"cat": "Procédures",
+"fam": "points_aerodrome"
+},
+"points de report": {
+"d": "Repères visuels officiels définis sur les cartes de navigation et d'approche. Le signalement radio au passage de ces points permet d'assurer l'espacem",
+"cat": "Navigation",
+"fam": "points_navigation"
+},
+"polaire": {
+"d": "Courbe représentant les variations du coefficient de portance en fonction du coefficient de traînée pour différents angles d'incidence. Elle permet de",
+"cat": "Aérodynamique",
+"fam": "aerodynamique"
+},
+"pompe": {
+"d": "Terme familier désignant un courant d'air ascendant vigoureux, d'origine thermique ou dynamique. Très recherchée par les vélivoles, elle provoque une ",
+"cat": "Météo",
+"fam": "mouvements_air"
+},
+"pompe électrique": {
+"d": "Pompe à carburant secondaire actionnée électriquement par le pilote. Elle est activée lors des phases critiques (décollage, approche, changement de ré",
+"cat": "Moteur & hélice",
+"fam": "circuit_carburant"
+},
+"portance": {
+"d": "Force aérodynamique perpendiculaire au vent relatif, dirigée vers le haut, générée par l'écoulement de l'air autour de l'aile. En vol rectiligne stabi",
+"cat": "Aérodynamique",
+"fam": "aerodynamique"
+},
+"portée visuelle de piste": {
+"d": "<em>Runway Visual Range</em> (RVR). Distance jusqu'à laquelle le pilote d'un aéronef placé sur l'axe de la piste peut voir les marquages ou les feux d",
+"cat": "Météo",
+"fam": "conditions_visibilite"
+},
+"posé-décollé": {
+"d": "Manœuvre d'entraînement combinant un atterrissage complet suivi immédiatement d'un décollage sans s'arrêter sur la piste. Le pilote doit rapidement re",
+"cat": "Aérodrome & cartes",
+"fam": "procedures_vol"
+},
+"ppl": {
+"d": "<em>Private Pilot License</em> : licence de pilote privé permettant d'exercer sans rémunération les fonctions de commandant de bord sur des avions de ",
+"cat": "Réglementation & docs",
+"fam": "licences"
+},
+"pré-lâcher": {
+"d": "Phase d'apprentissage avancée précédant immédiatement le premier vol solo de l'élève pilote. L'instructeur valide la régularité et la sécurité des tou",
+"cat": "Procédures",
+"fam": "formation_pilote"
+},
+"premier contact": {
+"d": "Premier appel radio adressé à un organisme de contrôle ou d'information de vol. Le pilote doit énoncer son indicatif complet, sa provenance, sa positi",
+"cat": "Radio & phraséologie",
+"fam": "radio_phraséologie"
+},
+"pression": {
+"d": "Force exercée par l'atmosphère par unité de surface, exprimée en hectopascals (hPa). Elle diminue d'environ 1 hPa tous les 28 pieds en basse couche, p",
+"cat": "Altimétrie",
+"fam": "references_pression"
+},
+"pression d'huile": {
+"d": "Paramètre moteur vital indiquant la force de circulation du lubrifiant dans le bloc moteur. Une chute brutale de cette pression signale une fuite ou u",
+"cat": "Moteur & hélice",
+"fam": "parametres_moteur"
+},
+"pression standard": {
+"d": "Pression atmosphérique de référence au niveau de la mer dans l'atmosphère standard (ISA), égale à 1013,25 hPa. Ce calage est affiché à l'altimètre pou",
+"cat": "Altimétrie",
+"fam": "references_pression"
+},
+"priorité": {
+"d": "Ensemble de règles d'évitement en vol dictant quel aéronef doit modifier sa trajectoire par rapport à un autre (ex. priorité aux planeurs sur les avio",
+"cat": "Réglementation & docs",
+"fam": "regles_vol"
+},
+"prob": {
+"d": "Indicateur de probabilité utilisé dans les messages de prévisions TAF (suivi de 30 ou 40 pour exprimer un pourcentage) annonçant le risque de survenue",
+"cat": "Météo",
+"fam": "messages_meteo"
+},
+"PROB30": {
+"d": "<em>PROBability 30 %</em> — « probabilité de 30 % ». Chance que le phénomène annoncé se produise dans la fenêtre du TAF. À 30 %, tu ne planifies pas d",
+"cat": "Météo",
+"fam": null
+},
+"PROB40": {
+"d": "<em>PROBability 40 %</em> — « probabilité de 40 % ». Chance que le phénomène se produise. À partir de 40 %, considère le phénomène comme quasiment cer",
+"cat": "Météo",
+"fam": null
+},
+"procedure d'attente": {
+"d": "Trajectoire calibrée effectuée au-dessus d'un point géographique fixe, à une altitude donnée, permettant de retarder le vol en toute sécurité sur ordr",
+"cat": "Procédures",
+"fam": "phases_vol"
+},
+"profondeur": {
+"d": "Gouverne de direction primaire articulée à l'arrière de l'empennage horizontal de l'appareil. Actionnée d'avant en arrière par le manche, elle fait pi",
+"cat": "Structure & cellule",
+"fam": "gouvernes_commandes"
+},
+"prolongement d'arret": {
+"d": "Zone située au-delà de l'extrémité de la piste de décollage, préparée de manière à pouvoir supporter le freinage d'un avion devant interrompre son déc",
+"cat": "Aérodrome & cartes",
+"fam": "distances_declarees"
+},
+"prop": {
+"d": "Terme abrégé issu de l'anglais <em>propeller</em> pour désigner l'hélice de l'avion. En français aéronautique, on lui préfère le terme officiel d'héli",
+"cat": "Moteur & hélice",
+"fam": "helice"
+},
+"prorogation": {
+"d": "Action de prolonger la validité d'une qualification de classe (comme la SEP) ou d'un certificat médical avant son expiration. Elle s'effectue générale",
+"cat": "Réglementation & docs",
+"fam": "licences"
+},
+"psi": {
+"d": "<em>Pounds per Square Inch</em> : unité anglo-saxonne de pression (livres par pouce carré). Elle est couramment utilisée en aviation de loisir pour vé",
+"cat": "Unités",
+"fam": null
+},
+"pump": {
+"d": "<em>Pump</em> : pompe de gavage ou d'alimentation en carburant. La pompe électrique (fuel pump) est activée par précaution lors des phases critiques, ",
+"cat": "Moteur & hélice",
+"fam": null
+},
+"purge": {
+"d": "Action d'extraire une petite quantité de carburant par le point le plus bas d'un réservoir ou du filtre principal. Elle sert à détecter et éliminer l'",
+"cat": "Procédures",
+"fam": null
+},
+"qcm": {
+"d": "Questionnaire à Choix Multiples : format de l'examen théorique du brevet de pilote privé (PPL). Chaque épreuve comprend des questions à choix unique, ",
+"cat": "Réglementation & docs",
+"fam": null
+},
+"qdm": {
+"d": "Cap magnétique à suivre par l'aéronef sans vent pour rejoindre directement la station au sol. Il correspond au relèvement magnétique direct de la stat",
+"cat": "Navigation",
+"fam": null
+},
+"qdr": {
+"d": "Relèvement magnétique de l'aéronef mesuré par une station au sol. Il représente la route magnétique à suivre pour s'éloigner de la station sans vent e",
+"cat": "Navigation",
+"fam": null
+},
+"QFE": {
+"d": "<em>Q-code QFE</em> — « calage altimétrique au niveau du terrain ». Pression réelle régnant sur l'aérodrome. Calé au QFE, l'altimètre indique la <stro",
+"cat": "Altimétrie",
+"fam": null
+},
+"QFU": {
+"d": "<em>Q-code QFU</em> — « direction magnétique de la piste en service ». Orientation magnétique de l'axe de piste, exprimée en dizaines de degrés : pist",
+"cat": "Aérodrome & cartes",
+"fam": null
+},
+"QNE": {
+"d": "<em>Q-code QNE</em> — « calage standard 1013,25 hPa ». Ce que lit l'altimètre quand il est calé au standard <strong>1013,25 hPa</strong> : l'altitude-",
+"cat": "Altimétrie",
+"fam": null
+},
+"QNH": {
+"d": "<em>Q-code QNH</em> — « calage altimétrique au niveau de la mer ». Pression au niveau de la mer ramenée de la station, calculée selon l'atmosphère sta",
+"cat": "Altimétrie",
+"fam": null
+},
+"rabattant": {
+"d": "Courant d'air vertical descendant, intense et soudain, se formant en aval d'un relief ou sous des nuages convectifs. Un rabattant peut gravement détér",
+"cat": "Vent",
+"fam": null
+},
+"rabattant sous le vent": {
+"d": "Mouvement d'air descendant et turbulent localisé sur le versant abrité d'un relief franchi par un vent fort. C'est un piège redoutable pour les avions",
+"cat": "Vent",
+"fam": null
+},
+"radiale": {
+"d": "Axe de navigation magnétique orienté vers l'extérieur (éloignement) depuis une station VOR. Il existe 360 radiales (de 000° à 359°) permettant de se s",
+"cat": "Navigation",
+"fam": null
+},
+"radio": {
+"d": "Équipement émetteur-récepteur VHF de bord opérant dans la bande de fréquences 118 - 137 MHz. C'est l'outil indispensable pour communiquer avec les org",
+"cat": "Radio & phraséologie",
+"fam": null
+},
+"radiocompas": {
+"d": "Instrument de radionavigation (ADF) qui indique par une aiguille le gisement d'une balise au sol NDB. L'aiguille pointe continuellement vers la statio",
+"cat": "Instruments",
+"fam": "instruments"
+},
+"rafale": {
+"d": "Renforcement brutal et bref du vent. Dans un METAR, <code>14G24KT</code> = moyen 14 kt, rafales 24 kt : l'écart de 10 kt signe une journée turbulente ",
+"cat": "Vent",
+"fam": null
+},
+"rayon": {
+"d": "Distance horizontale mesurant la courbure de la trajectoire d'un aéronef en virage. Ce rayon dépend uniquement de la vitesse propre de l'avion (TAS) e",
+"cat": "Aérodynamique",
+"fam": null
+},
+"read-back": {
+"d": "Collationnement en phraséologie radio. Action pour le pilote de répéter obligatoirement les instructions clés du contrôleur (piste, calage, altitude) ",
+"cat": "Radio & phraséologie",
+"fam": null
+},
+"recalage en route": {
+"d": "Action périodique de réaligner le conservateur de cap gyroscopique sur l'indication du compas magnétique lors d'un vol rectiligne stabilisé en palier.",
+"cat": "Procédures",
+"fam": null
+},
+"réchauffage carburateur": {
+"d": "Dispositif permettant d'envoyer de l'air chaud prélevé autour de l'échappement vers l'admission du moteur pour faire fondre ou prévenir la formation d",
+"cat": "Moteur & hélice",
+"fam": null
+},
+"récupération de décrochage": {
+"d": "Action de pilotage immédiate visant à rétablir le vol normal après un décrochage. La priorité est de pousser sur le manche pour réduire l'angle d'inci",
+"cat": "Procédures",
+"fam": null
+},
+"red lines": {
+"d": "Traits ou repères rouges tracés sur les cadrans des instruments de bord (anémomètre, compte-tours, températures). Ils matérialisent les limites absolu",
+"cat": "Instruments",
+"fam": null
+},
+"réducteur": {
+"d": "Dispositif mécanique d'engrenages intercalé entre le vilebrequin du moteur et l'arbre de l'hélice. Il permet de faire tourner le moteur à un régime él",
+"cat": "Moteur & hélice",
+"fam": null
+},
+"régime hélice": {
+"d": "Vitesse de rotation de l'hélice, exprimée en tours par minute (RPM). Sur un avion à hélice à calage fixe, elle correspond directement au régime moteur",
+"cat": "Moteur & hélice",
+"fam": null
+},
+"régime moteur": {
+"d": "Vitesse de rotation du vilebrequin du moteur, mesurée en tours par minute (RPM) par le tachymètre. Le pilote l'ajuste à l'aide de la manette des gaz p",
+"cat": "Moteur & hélice",
+"fam": null
+},
+"regime venturi": {
+"d": "Phénomène aérodynamique d'aspiration et de baisse de pression créé par le passage de l'air dans un rétrécissement (effet Venturi). Ce principe est exp",
+"cat": "Aérodynamique",
+"fam": null
+},
+"région terminale": {
+"d": "Espace aérien contrôlé (généralement une TMA) établi à la confluence de plusieurs routes aériennes autour d'un ou plusieurs aérodromes importants. Les",
+"cat": "Aérodrome & cartes",
+"fam": null
+},
+"règle d'or": {
+"d": "Principe fondamental de sécurité en vol, résumé par l'adage « piloter, naviguer, communiquer ». En toute situation, et particulièrement en cas d'urgen",
+"cat": "Sécurité & facteurs humains",
+"fam": null
+},
+"règles de l'air": {
+"d": "Ensemble des dispositions réglementaires nationales et internationales régissant la conduite des aéronefs en vol et au sol. Elles définissent notammen",
+"cat": "Réglementation & docs",
+"fam": null
+},
+"relief environnant": {
+"d": "Obstacles naturels et collines présents autour d'un aérodrome ou le long d'une route. L'étude du relief est primordiale lors de la préparation du vol ",
+"cat": "Aérodrome & cartes",
+"fam": null
+},
+"remise de gaz interrompue": {
+"d": "Fiche en construction.",
+"cat": "Procédures",
+"fam": null
+},
+"remise des gaz": {
+"d": "Décision d'interrompre l'atterrissage : plein gaz, on remonte, on refait un tour. Ce n'est <strong>ni un échec ni une faute</strong> — c'est la manœuv",
+"cat": "Aérodrome & cartes",
+"fam": null
+},
+"report": {
+"d": "Transmission radio obligatoire ou recommandée par laquelle le pilote signale sa position géographique au-dessus d'un point remarquable défini sur la c",
+"cat": "Radio & phraséologie",
+"fam": null
+},
+"réserve de carburant": {
+"d": "Quantité de carburant embarquée en plus de la consommation estimée pour le trajet prévu. Elle comprend réglementairement la réserve pour déroutement v",
+"cat": "Réglementation & docs",
+"fam": null
+},
+"reserve finale": {
+"d": "Quantité minimale de carburant devant obligatoirement rester à bord à la coupure du moteur. En vol VFR de jour, cette marge réglementaire correspond à",
+"cat": "Réglementation & docs",
+"fam": null
+},
+"réserve réglementaire": {
+"d": "Marge minimale obligatoire de carburant devant être emportée au départ de chaque vol pour faire face aux imprévus (vent défavorable, attente). En VFR,",
+"cat": "Réglementation & docs",
+"fam": null
+},
+"richesse": {
+"d": "Rapport entre la masse d'essence et la masse d'air admises dans les cylindres du moteur. Le pilote l'ajuste en vol à l'aide de la commande de mélange ",
+"cat": "Moteur & hélice",
+"fam": null
+},
+"richesse mélange": {
+"d": "Dosage air-carburant introduit dans le moteur. En altitude, la diminution de la densité de l'air enrichit naturellement le mélange ; le pilote doit do",
+"cat": "Moteur & hélice",
+"fam": null
+},
+"RMK": {
+"d": "<em>Remark</em> : commentaire en clair en fin de message (ex. <code>RMK FOEHN</code>). C'est souvent là que se cache l'information qui tue, en toutes ",
+"cat": "Météo",
+"fam": null
+},
+"rmz": {
+"d": "<em>Radio Mandatory Zone</em> : zone à contact radio obligatoire. L'entrée dans cet espace aérien impose d'établir une communication bilatérale avec l",
+"cat": "Aérodrome & cartes",
+"fam": null
+},
+"roger": {
+"d": "Mot de phraséologie aéronautique internationale signifiant « bien reçu » ou « j'ai compris votre message ». Attention, ce terme ne constitue en aucun ",
+"cat": "Radio & phraséologie",
+"fam": null
+},
+"rose des vents": {
+"d": "Cercle gradué de 0 à 360° servant à lire une direction. En aéronautique, 360 = nord, 090 = est, 180 = sud, 270 = ouest, et une direction de vent se li",
+"cat": "Navigation",
+"fam": null
+},
+"rotor": {
+"d": "Tourbillon d'air violent à axe horizontal se formant sous le vent d'un relief, souvent associé à des ondes orographiques. C'est une zone d'extrême tur",
+"cat": "Météo",
+"fam": null
+},
+"roue": {
+"d": "Élément du train d'atterrissage comprenant la jante, le pneu et le système de freinage. Sur avion léger, la roue est soumise à de fortes contraintes l",
+"cat": "Structure & cellule",
+"fam": null
+},
+"roulage": {
+"d": "Déplacement de l'avion au sol par ses propres moyens, entre le parking et la piste. Par vent fort, on braque le manche pour empêcher le vent de soulev",
+"cat": "Aérodrome & cartes",
+"fam": null
+},
+"roulage au sol": {
+"d": "Déplacement de l'aéronef sur l'aérodrome par ses propres moyens, hors décollage et atterrissage. Le roulage s'effectue à vitesse modérée, la trajectoi",
+"cat": "Procédures",
+"fam": null
+},
+"roulement": {
+"d": "Partie d'un décollage ou d'un atterrissage où l'avion roule sur la piste, roues au sol, en accélération ou en décélération. Au décollage il dure jusqu",
+"cat": "Aérodrome & cartes",
+"fam": null
+},
+"roulette": {
+"d": "Petite roue orientable ou folle située à l'arrière d'un avion à train classique (roulette de queue). Elle permet de diriger l'aéronef au sol lors du r",
+"cat": "Structure & cellule",
+"fam": null
+},
+"roulis": {
+"d": "Mouvement de rotation de l'aéronef autour de son axe longitudinal. Commandé par le braquage différentiel des ailerons lors du déplacement latéral du m",
+"cat": "Aérodynamique",
+"fam": null
+},
+"route": {
+"d": "Angle formé entre le nord (vrai ou magnétique) et la trajectoire réelle suivie par l'aéronef par rapport au sol. La route diffère du cap d'une valeur ",
+"cat": "Navigation",
+"fam": null
+},
+"rpm": {
+"d": "<em>Revolutions Per Minute</em> : tours par minute. Unité mesurant le régime de rotation du moteur ou de l'hélice, lue sur le tachymètre pour ajuster ",
+"cat": "Unités",
+"fam": null
+},
+"rugosité": {
+"d": "État de surface de la piste d'atterrissage influençant l'adhérence des pneumatiques et la distance de freinage. Une rugosité altérée (piste humide, he",
+"cat": "Aérodrome & cartes",
+"fam": null
+},
+"saturation": {
+"d": "État d'une masse d'air contenant la quantité maximale de vapeur d'eau possible pour sa température (humidité relative de 100 %). Au-delà de ce point d",
+"cat": "Météo",
+"fam": null
+},
+"say again": {
+"d": "Expression anglaise de phraséologie radio signifiant « répétez ». Elle est utilisée par le pilote ou le contrôleur pour demander la répétition d'un me",
+"cat": "Radio & phraséologie",
+"fam": null
+},
+"sct": {
+"d": "Code METAR ou TAF (abréviation de Scattered) signifiant « nuages épars ». Il caractérise une couverture nuageuse couvrant entre 3 et 4 octas du ciel à",
+"cat": "Météo",
+"fam": null
+},
+"secteur variable": {
+"d": "Vent dont la direction oscille, noté <strong>240V300</strong> dans un METAR (varie de 240° à 300°). Piège classique : on calcule le travers sur la dir",
+"cat": "Vent",
+"fam": null
+},
+"sélecteur carburant": {
+"d": "Robinet de commande permettant au pilote de choisir le réservoir alimentant le moteur (gauche, droit, les deux si équipé, ou coupure). Sa manipulation",
+"cat": "Moteur & hélice",
+"fam": null
+},
+"sens du tour de piste": {
+"d": "Orientation des virages à effectuer dans le circuit de piste d'un aérodrome (à gauche par défaut, ou à droite si spécifié par la carte VAC). Ce sens u",
+"cat": "Aérodrome & cartes",
+"fam": null
+},
+"sep": {
+"d": "<em>Single Engine Piston</em> : qualification de classe autorisant à piloter des aéronefs monomoteurs à pistons. Valable deux ans, elle s'obtient lors",
+"cat": "Réglementation & docs",
+"fam": null
+},
+"séparation": {
+"d": "Distance minimale verticale ou horizontale maintenue entre deux aéronefs pour éviter les collisions. En espace aérien contrôlé, le contrôleur assure c",
+"cat": "Réglementation & docs",
+"fam": null
+},
+"service d'information": {
+"d": "Service d'information de vol (SIV) fourni aux aéronefs pour assurer la sécurité et l'efficacité des vols. Il délivre des renseignements météo, des avi",
+"cat": "Radio & phraséologie",
+"fam": null
+},
+"seuil de piste": {
+"d": "Début de la partie de piste utilisable à l'atterrissage, matérialisé par des bandes blanches parallèles (« zébras »). Le numéro peint juste après le s",
+"cat": "Aérodrome & cartes",
+"fam": null
+},
+"shra": {
+"d": "Code météo abrégé utilisé dans les METAR et TAF pour désigner des averses de pluie (<em>Shower Rain</em>). Ce phénomène convectif s'accompagne souvent",
+"cat": "Météo",
+"fam": null
+},
+"sigma": {
+"d": "Fiche en construction.",
+"cat": "divers",
+"fam": null
+},
+"sigmet": {
+"d": "Message d'avertissement météorologique de portée opérationnelle signalant l'apparition réelle ou prévue de phénomènes météorologiques en route particu",
+"cat": "Météo",
+"fam": null
+},
+"signaux": {
+"d": "Ensemble de repères visuels disposés au sol sur l'aire de signaux d'un aérodrome (comme le té d'atterrissage ou la croix blanche). Ils transmettent au",
+"cat": "Aérodrome & cartes",
+"fam": null
+},
+"signaux lumineux": {
+"d": "Signaux de détresse ou d'instruction émis depuis la tour de contrôle à l'aide d'un projecteur à faisceau dirigé (pistolet Aldis). Ils permettent de co",
+"cat": "Radio & phraséologie",
+"fam": null
+},
+"silence radio": {
+"d": "Interruption temporaire des transmissions sur une fréquence aéronautique lors d'une situation d'urgence ou de détresse (décrétée par l'expression « im",
+"cat": "Radio & phraséologie",
+"fam": null
+},
+"sillage": {
+"d": "Zone de turbulence et d'air perturbé générée derrière un aéronef en mouvement (turbulence de sillage), principalement due aux tourvillons marginaux en",
+"cat": "Aérodynamique",
+"fam": null
+},
+"sin": {
+"d": "Fiche en construction.",
+"cat": "divers",
+"fam": null
+},
+"siv": {
+"d": "Secteur d'Information de Vol ou Service d'Information de Vol. Organisme de contrôle au sol assurant l'assistance et l'information des vols VFR en espa",
+"cat": "Radio & phraséologie",
+"fam": null
+},
+"solo": {
+"d": "Vol effectué par un élève-pilote seul à bord, sous la responsabilité de son instructeur resté au sol. C'est une étape clé de la formation PPL, exigean",
+"cat": "Réglementation & docs",
+"fam": null
+},
+"souffle hélicoïdal": {
+"d": "Flux d'air rejeté en spirale par la rotation de l'hélice autour du fuselage. Ce souffle vient frapper la dérive verticale par la gauche (pour un moteu",
+"cat": "Aérodynamique",
+"fam": null
+},
+"SPECI": {
+"d": "<em>SPECIal report</em> — « message d'observation spéciale ». METAR spécial émis hors horaire quand un critère franchit un seuil (visibilité, vent, or",
+"cat": "Météo",
+"fam": null
+},
+"squawk": {
+"d": "Expression radio et terme désignant l'action d'afficher un code numérique à quatre chiffres sur le transpondeur de l'aéronef. Ce code permet au contrô",
+"cat": "Radio & phraséologie",
+"fam": null
+},
+"stabiliser": {
+"d": "Établir et maintenir des paramètres de vol constants (vitesse, assiette, pente, configuration) lors d'une phase de vol. Une approche finale doit être ",
+"cat": "Procédures",
+"fam": null
+},
+"stabilité atmosphérique": {
+"d": "Propriété de l'atmosphère s'opposant aux mouvements verticaux de l'air. Une masse d'air stable limite la formation de nuages à développement vertical ",
+"cat": "Météo",
+"fam": null
+},
+"stabilité statique": {
+"d": "Tendance initiale d'un aéronef à revenir vers son état d'équilibre d'origine lorsqu'il en a été écarté par une perturbation ou une action sur les comm",
+"cat": "Aérodynamique",
+"fam": null
+},
+"stable": {
+"d": "Caractère d'un aéronef ou d'une masse d'air qui tend à conserver son état d'équilibre ou à y retourner après une perturbation. En phraséologie, l'expr",
+"cat": "Aérodynamique",
+"fam": null
+},
+"stall": {
+"d": "Terme aéronautique anglais désignant le décrochage. Il se produit lorsque l'angle d'incidence de l'aile dépasse une valeur critique, provoquant une pe",
+"cat": "Aérodynamique",
+"fam": null
+},
+"stall warning": {
+"d": "Avertisseur de décrochage. Dispositif de sécurité (sonore, lumineux ou mécanique) qui s'active à une vitesse légèrement supérieure à la vitesse de déc",
+"cat": "Instruments",
+"fam": null
+},
+"station": {
+"d": "Fiche en construction.",
+"cat": "divers",
+"fam": null
+},
+"stratocumulus": {
+"d": "Nuage bas formant un banc, une couche ou une nappe grise et blanchâtre, présentant des parties sombres. Appartenant à la famille des nuages bas, il en",
+"cat": "Météo",
+"fam": "nuages"
+},
+"stratus": {
+"d": "Nuage bas très uniforme, de couleur grise, pouvant toucher le sol sous forme de brouillard. C'est le nuage dont la base est la plus basse ; il pose un",
+"cat": "Météo",
+"fam": "nuages"
+},
+"stress": {
+"d": "État de tension physiologique et psychologique provoqué par des situations perçues comme difficiles ou dangereuses en vol. Gérer son stress est essent",
+"cat": "Sécurité & facteurs humains",
+"fam": null
+},
+"structure": {
+"d": "Fiche en construction.",
+"cat": "divers",
+"fam": null
+},
+"sud": {
+"d": "Point cardinal correspondant à la direction géographique ou magnétique opposée au nord (cap 180°). En navigation, il sert de repère fondamental pour s",
+"cat": "Navigation",
+"fam": null
+},
+"sup aip": {
+"d": "Supplément à la Publication d'Information Aéronautique. Document temporaire officiel diffusé par le SIA regroupant des informations opérationnelles de",
+"cat": "Réglementation & docs",
+"fam": null
+},
+"surface de piste": {
+"d": "Revêtement de la piste de décollage ou d'atterrissage, pouvant être dur (enrobé, béton) ou souple (herbe, terre battue). La nature et l'état de la sur",
+"cat": "Aérodrome & cartes",
+"fam": null
+},
+"t/o": {
+"d": "<em>Take-Off</em> : décollage. Phase de vol critique consistant à accélérer l'aéronef au sol jusqu'à sa vitesse de rotation pour lui permettre de s'él",
+"cat": "Procédures",
+"fam": null
+},
+"tableau de déviation": {
+"d": "Fiche placée à proximité immédiate du compas magnétique indiquant la correction angulaire à appliquer pour compenser les perturbations magnétiques pro",
+"cat": "Instruments",
+"fam": null
+},
+"tache aveugle": {
+"d": "Zone de la rétine dépourvue de récepteurs visuels à l'endroit où le nerf optique quitte l'œil. En vol, le pilote doit balayer visuellement le ciel de ",
+"cat": "Sécurité & facteurs humains",
+"fam": null
+},
+"tachymetre": {
+"d": "Instrument de bord affichant la vitesse de rotation du moteur en tours par minute (RPM). C'est le principal indicateur pour régler la puissance du mot",
+"cat": "Instruments",
+"fam": "instruments"
+},
+"TAF": {
+"d": "<em>Terminal Aerodrome Forecast</em> — « prévision d'aérodrome ». Chiffrée sur 9 à 30 h selon la taille du terrain. Se décode comme un METAR, avec en ",
+"cat": "Météo",
+"fam": null
+},
+"tangage": {
+"d": "Mouvement de rotation de l'aéronef autour de son axe transversal (passant d'une aile à l'autre). Commandé par le déplacement d'avant en arrière du man",
+"cat": "Aérodynamique",
+"fam": null
+},
+"tango": {
+"d": "Lettre T dans l'alphabet phonétique international de l'OACI, utilisé en radiotéléphonie aéronautique pour épeler les immatriculations des aéronefs, le",
+"cat": "Radio & phraséologie",
+"fam": null
+},
+"TAS": {
+"d": "<em>True Air Speed</em> : ta vitesse réelle dans la masse d'air. IAS corrigée de l'altitude-densité : plus tu montes, plus la TAS dépasse l'IAS (≈ +2 ",
+"cat": "Vitesses & performances",
+"fam": null
+},
+"taux de chute": {
+"d": "Vitesse verticale de descente d'un aéronef sans puissance motrice (planeur ou avion moteur coupé), généralement exprimée en mètres par seconde ou en p",
+"cat": "Vitesses & performances",
+"fam": null
+},
+"taux de descente": {
+"d": "Vitesse verticale de perte d'altitude d'un aéronef lors d'une descente volontaire, exprimée en pieds par minute (ft/min). Ce taux est lu directement s",
+"cat": "Vitesses & performances",
+"fam": null
+},
+"taux de montée": {
+"d": "Vitesse verticale de gain d'altitude d'un aéronef lors d'une montée, mesurée en pieds par minute (ft/min) au variomètre. Il dépend directement de l'ex",
+"cat": "Vitesses & performances",
+"fam": null
+},
+"tcds": {
+"d": "<em>Type Certificate Data Sheet</em> : fiche de données de certificat de type. Document technique officiel émis par l'autorité de certification (EASA)",
+"cat": "Réglementation & docs",
+"fam": null
+},
+"TCU": {
+"d": "<em>Towering Cumulus</em> : cumulus congestus, petit frère du CB. Turbulence marquée, développement possible en CB dans l'après-midi : il mérite la mê",
+"cat": "Météo",
+"fam": null
+},
+"tem": {
+"d": "<em>Threat and Error Management</em> : gestion des menaces et des erreurs. Modèle de sécurité et de facteurs humains visant à identifier de manière pr",
+"cat": "Sécurité & facteurs humains",
+"fam": null
+},
+"température culasse": {
+"d": "Indicateur de température de la partie supérieure des cylindres (CHT). Sa surveillance constante en montée prolongée ou par forte chaleur est essentie",
+"cat": "Moteur & hélice",
+"fam": null
+},
+"température d'huile": {
+"d": "Indicateur thermique capital du groupe motopropulseur. Une température d'huile anormalement élevée, couplée à une baisse de pression d'huile, signale ",
+"cat": "Moteur & hélice",
+"fam": null
+},
+"température standard": {
+"d": "Température théorique de l'atmosphère standard (ISA) au niveau de la mer, définie réglementairement à +15 °C. Elle décroît de manière standard de 2 °C",
+"cat": "Altimétrie",
+"fam": null
+},
+"TEMPO": {
+"d": "<em>TEMPOrary</em> — « fluctuations temporaires ». Dans un TAF, variations <strong>temporaires</strong> (moins d'une heure chacune, et au total moins ",
+"cat": "Météo",
+"fam": null
+},
+"temps de reaction": {
+"d": "Délai s'écoulant entre la perception d'un événement imprévu en vol (alarme, trafic conflictuel) et le déclenchement de l'action corrective par le pilo",
+"cat": "Sécurité & facteurs humains",
+"fam": null
+},
+"temps estimé": {
+"d": "Durée calculée à l'avance pour effectuer une branche de navigation ou l'ensemble d'un vol, basée sur la vitesse sol estimée. En route, le pilote compa",
+"cat": "Navigation",
+"fam": null
+},
+"temsi": {
+"d": "Carte de TEMps SIgnificatif. Carte météorologique graphique officielle publiée par Météo-France décrivant les phénomènes significatifs (orages, givrag",
+"cat": "Météo",
+"fam": null
+},
+"terrain de dégagement": {
+"d": "Aérodrome de déroutement prévu lors de la préparation du vol où le pilote peut atterrir en toute sécurité si l'accès au terrain de destination princip",
+"cat": "Procédures",
+"fam": null
+},
+"throttle": {
+"d": "Terme d'usage courant pour désigner la manette des gaz. Elle contrôle l'ouverture du papillon des gaz pour ajuster le débit du mélange air-carburant a",
+"cat": "Moteur & hélice",
+"fam": "commandes_de_vol"
+},
+"TMA": {
+"d": "<em>Terminal Control Area</em> : espace contrôlé au-dessus d'une zone d'aérodromes. Celle de Paris plafonne bas autour de LFPN : une verticale mal gér",
+"cat": "Aérodrome & cartes",
+"fam": null
+},
+"tma paris": {
+"d": "Région de contrôle terminale gérant le trafic dense de la région parisienne. Elle est découpée en plusieurs secteurs de classes d'espace différentes, ",
+"cat": "Aérodrome & cartes",
+"fam": null
+},
+"tmz": {
+"d": "<em>Transponder Mandatory Zone</em> : zone de transpondeur obligatoire. Espace aérien dans lequel l'emport et le fonctionnement d'un transpondeur en m",
+"cat": "Réglementation & docs",
+"fam": null
+},
+"tod": {
+"d": "<em>Top Of Descent</em> : point de début de descente théorique calculé lors de la navigation pour rejoindre l'altitude du circuit de piste. Il permet ",
+"cat": "Navigation",
+"fam": null
+},
+"TODA": {
+"d": "<em>Take-Off Distance Available</em> — « distance de décollage utilisable ». Distance disponible pour le décollage : la <strong>TORA</strong> augmenté",
+"cat": "Aérodrome & cartes",
+"fam": null
+},
+"TORA": {
+"d": "<em>Take-Off Run Available</em> — « distance de roulement au décollage ». Longueur de piste revêtue disponible pour le roulement au décollage, du débu",
+"cat": "Aérodrome & cartes",
+"fam": null
+},
+"totalisateur": {
+"d": "Compteur horaire mesurant le temps de fonctionnement du moteur de l'aéronef, généralement activé par la pression d'huile ou l'alternateur. Il sert de ",
+"cat": "Instruments",
+"fam": "instruments"
+},
+"touché": {
+"d": "Atterrissage suivi immédiatement d'un redécollage sans arrêt complet de l'appareil sur la piste. Cette manœuvre est très pratiquée lors de l'entraînem",
+"cat": "Procédures",
+"fam": "atterrissages"
+},
+"tour de contrôle": {
+"d": "Organisme de contrôle local assurant la régulation du trafic aérien sur un aérodrome et dans sa zone de contrôle associée (CTR). Le contrôleur y déliv",
+"cat": "Aérodrome & cartes",
+"fam": null
+},
+"tour de piste": {
+"d": "Circuit rectangulaire volé autour de la piste pour s'y présenter à l'atterrissage ou enchaîner des touchés. Il enchaîne cinq branches : décollage, ven",
+"cat": "Aérodrome & cartes",
+"fam": null
+},
+"tour de piste basse hauteur": {
+"d": "Circuit de piste effectué à une hauteur inférieure à celle du tour de piste standard, généralement pour s'entraîner à la panne moteur ou en conditions",
+"cat": "Procédures",
+"fam": null
+},
+"traction": {
+"d": "Force aérodynamique dirigée vers l'avant, générée par la rotation de l'hélice entraînée par le moteur. Elle s'oppose à la traînée de l'aéronef pour pe",
+"cat": "Aérodynamique",
+"fam": null
+},
+"trafic": {
+"d": "Ensemble des aéronefs évoluant en vol ou au sol sur un aérodrome ou dans une zone donnée. Le pilote doit assurer sa propre surveillance visuelle pour ",
+"cat": "Procédures",
+"fam": null
+},
+"traînée": {
+"d": "Force aérodynamique de résistance à l'avancement, parallèle à la trajectoire et opposée au mouvement de l'aéronef. Générée par le déplacement dans l'a",
+"cat": "Aérodynamique",
+"fam": null
+},
+"traînée induite": {
+"d": "Partie de la traînée totale liée directement à la génération de la portance par l'aile. Elle augmente lorsque la vitesse diminue et que l'angle d'inci",
+"cat": "Aérodynamique",
+"fam": null
+},
+"traînée parasite": {
+"d": "Partie de la traînée totale non liée à la portance, regroupant la traînée de frottement, de forme et d'interaction de la cellule. Elle augmente propor",
+"cat": "Aérodynamique",
+"fam": null
+},
+"trait rouge": {
+"d": "Repère visuel placé sur le cadran d'un instrument de bord ou d'un indicateur moteur. Il indique une limite maximale absolue de fonctionnement à ne jam",
+"cat": "Instruments",
+"fam": null
+},
+"trajectoire": {
+"d": "Ligne décrite par le centre de gravité d'un aéronef dans l'espace au cours de son mouvement. Elle résulte de la combinaison de la vitesse propre de l'",
+"cat": "Aérodynamique",
+"fam": null
+},
+"tramontane": {
+"d": "Vent de secteur nord-ouest soufflant de manière violente et turbulente sur le golfe du Lion et la plaine du Roussillon. Redoutable pour les vols de lo",
+"cat": "Vent",
+"fam": null
+},
+"transpondeur": {
+"d": "Émetteur-récepteur embarqué répondant aux interrogations des radars secondaires au sol. Il permet aux contrôleurs aériens d'identifier l'aéronef sur l",
+"cat": "Instruments",
+"fam": "instruments"
+},
+"transpondeur 7500": {
+"d": "Code transpondeur international d'urgence indiquant une intervention illicite à bord (détournement). Son affichage discret permet d'alerter les servic",
+"cat": "Procédures",
+"fam": "codes_transpondeur"
+},
+"transpondeur 7600": {
+"d": "Code transpondeur international indiquant une panne totale ou partielle des radiocommunications. Le pilote doit l'afficher pour signaler sa situation ",
+"cat": "Procédures",
+"fam": "codes_transpondeur"
+},
+"transpondeur 7700": {
+"d": "Code transpondeur international de détresse absolue, signalant une situation d'urgence critique ou de détresse à bord. Il déclenche une alerte immédia",
+"cat": "Procédures",
+"fam": "codes_transpondeur"
+},
+"transpondeur mode c": {
+"d": "Mode de fonctionnement du transpondeur transmettant automatiquement l'altitude-pression de l'aéronef (calée sur 1013,25 hPa) en plus de son code d'ide",
+"cat": "Instruments",
+"fam": "instruments"
+},
+"triangle des vitesses": {
+"d": "Représentation graphique des trois vecteurs de vitesse : le vecteur vitesse propre (vitesse air), le vecteur vent, et leur résultante, le vecteur vite",
+"cat": "Navigation",
+"fam": null
+},
+"trim": {
+"d": "Dispositif aérodynamique (compensateur) permettant de relâcher l'effort physique du pilote sur le manche en annulant la force exercée sur la gouverne ",
+"cat": "Structure & cellule",
+"fam": "gouvernes"
+},
+"tropopause": {
+"d": "Limite de transition thermique entre la troposphère et la stratosphère, située à une altitude moyenne de onze kilomètres en France. Elle marque la fin",
+"cat": "Météo",
+"fam": null
+},
+"troposphere": {
+"d": "Couche la plus basse de l'atmosphère terrestre, s'étendant du sol jusqu'à la tropopause. C'est dans cette zone que se produisent la quasi-totalité des",
+"cat": "Météo",
+"fam": null
+},
+"trou noir": {
+"d": "Illusion sensorielle nocturne survenant lors d'une approche sur une piste éclairée entourée d'un sol totalement sombre. En l'absence de repères visuel",
+"cat": "Sécurité & facteurs humains",
+"fam": null
+},
+"turbulence": {
+"d": "Mouvement désordonné de l'air caractérisé par des variations rapides de la direction et de la vitesse du vent. Elle provoque des secousses, fatigue la",
+"cat": "Météo",
+"fam": null
+},
+"turbulence de sillage": {
+"d": "Turbulence générée par les tourbillons marginaux à l'extrémité des ailes de tout aéronef en vol, particulièrement intense derrière les avions lourds. ",
+"cat": "Vent",
+"fam": null
+},
+"turbulence en air clair": {
+"d": "Turbulence sévère se produisant à haute altitude en dehors de tout nuage convectif visible, souvent liée à la proximité d'un courant-jet. Invisible et",
+"cat": "Météo",
+"fam": null
+},
+"turbulence mécanique": {
+"d": "Turbulence basse couche provoquée par le frottement du vent sur les obstacles au sol (arbres, bâtiments, reliefs). Elle s'intensifie avec la force du ",
+"cat": "Vent",
+"fam": null
+},
+"uir": {
+"d": "<em>Upper Flight Information Region</em> : région supérieure d'information de vol. Espace aérien contrôlé gérant la circulation aérienne dans la tranc",
+"cat": "Réglementation & docs",
+"fam": null
+},
+"urgence pan pan": {
+"d": "Signal de radiotéléphonie répété trois fois (PAN PAN, PAN PAN, PAN PAN) pour indiquer une situation urgente concernant la sécurité d'un aéronef ou d'u",
+"cat": "Radio & phraséologie",
+"fam": null
+},
+"utc": {
+"d": "<em>Coordinated Universal Time</em> : Temps Universel Coordonné. C'est l'échelle de temps de référence internationale en aéronautique, utilisée pour l",
+"cat": "Unités",
+"fam": "unites"
+},
+"VA": {
+"d": "<em>Velocity of maneuvering</em> — vitesse de manœuvre : <strong>112 KIAS</strong> à masse maximale sur l'Aquila AT01-100A. En dessous, une commande b",
+"cat": "Vitesses & performances",
+"fam": null
+},
+"VAC": {
+"d": "<em>Visual Approach Chart</em> : carte d'approche à vue officielle d'un aérodrome (SIA en France). Pistes, circuits, points de report, fréquences, dan",
+"cat": "Aérodrome & cartes",
+"fam": null
+},
+"Vapp": {
+"d": "Vitesse d'approche finale recommandée, calculée en ajoutant des corrections de vent à la vitesse de référence de calcul. Elle garantit les marges de s",
+"cat": "Vitesses & performances",
+"fam": "vitesses_caracteristiques"
+},
+"variometre": {
+"d": "Instrument de bord mesurant la vitesse verticale de l'aéronef à partir des variations de la pression statique. Indiquant une montée ou une descente en",
+"cat": "Instruments",
+"fam": "instruments"
+},
+"vent anabatique": {
+"d": "Vent local ascendant soufflant le long d'une pente réchauffée par le soleil durant la journée. Il peut générer des ascendances exploitables mais aussi",
+"cat": "Vent",
+"fam": "brises"
+},
+"vent arrière": {
+"d": "Branche du tour de piste parallèle à la piste, parcourue en sens inverse du sens d'atterrissage. C'est la branche où l'on prépare l'atterrissage : act",
+"cat": "Aérodrome & cartes",
+"fam": null
+},
+"vent arriere de securite": {
+"d": "Phase d'un circuit de piste de détresse effectuée plus près de la piste que l'étape vent arrière standard, à hauteur réduite. Elle permet de garder la",
+"cat": "Procédures",
+"fam": null
+},
+"vent catabatique": {
+"d": "Vent local gravitaire et froid descendant une pente montagneuse durant la nuit ou sur des glaciers. Ce vent peut être soudain, violent et générer de f",
+"cat": "Vent",
+"fam": "brises"
+},
+"vent de face": {
+"d": "Vent qui vient de l'avant, dans l'axe de la piste. Il est favorable : il réduit la vitesse par rapport au sol, donc raccourcit le décollage comme l'at",
+"cat": "Vent",
+"fam": null
+},
+"vent de travers démontré": {
+"d": "Vitesse maximale du vent perpendiculaire à la piste avec laquelle l'aéronef a été certifié lors des essais en vol. Il ne s'agit pas d'une limite struc",
+"cat": "Vent",
+"fam": null
+},
+"vent effectif": {
+"d": "Composante du vent parallèle à l'axe de la trajectoire de l'aéronef. Un vent effectif de face réduit la vitesse sol et raccourcit la distance de décol",
+"cat": "Vent",
+"fam": null
+},
+"vent estimé": {
+"d": "Valeur de la force et de la direction du vent anticipée lors de la préparation de la navigation, généralement issue des prévisions météo. Elle sert à ",
+"cat": "Vent",
+"fam": null
+},
+"vent fort": {
+"d": "Conditions de vent de surface d'intensité élevée qui compliquent le pilotage, augmentent la dérive et augmentent les risques de perte de contrôle au s",
+"cat": "Vent",
+"fam": null
+},
+"vent gradient": {
+"d": "Variation du vent avec la hauteur près du sol : il faiblit et tourne en descendant vers la piste. En courte finale, la perte de composante de face fai",
+"cat": "Vent",
+"fam": null
+},
+"vent réel": {
+"d": "Vent mesuré ou subi à une altitude et une position données à un instant précis. Il diffère souvent du vent prévu et influence directement la vitesse s",
+"cat": "Vent",
+"fam": null
+},
+"vent traversier": {
+"d": "Branche du tour de piste volée perpendiculairement à l'axe de piste, juste après le décollage et la montée initiale, pour rejoindre le vent arrière. C",
+"cat": "Aérodrome & cartes",
+"fam": null
+},
+"verification vitale": {
+"d": "Action ou contrôle de sécurité hautement prioritaire devant être exécuté scrupuleusement à des étapes clés du vol. La vérification de la libre course ",
+"cat": "Procédures",
+"fam": null
+},
+"verticale terrain": {
+"d": "Passage à l'aplomb de l'aérodrome, au-dessus de la hauteur du tour de piste, pour observer le terrain avant de s'y intégrer. On y lit la manche à air,",
+"cat": "Aérodrome & cartes",
+"fam": null
+},
+"VFE": {
+"d": "<em>Velocity Flaps Extended</em> — vitesse maximale volets sortis, haut de l'arc blanc : <strong>90 KIAS</strong> sur l'Aquila AT01-100A. La dépasser ",
+"cat": "Vitesses & performances",
+"fam": null
+},
+"VFR": {
+"d": "<em>Visual Flight Rules</em> : vol à vue — tu vois, tu évites, tu te repères. Il suppose des conditions VMC respectées et la vue du sol (ou des référe",
+"cat": "Réglementation & docs",
+"fam": null
+},
+"victor": {
+"d": "Code phonétique international de l'alphabet OACI correspondant à la lettre V. Il est utilisé dans toutes les communications radio pour épeler les imma",
+"cat": "Radio & phraséologie",
+"fam": null
+},
+"virage": {
+"d": "Manœuvre permettant de modifier le cap de l'aéronef en l'inclinant du côté où l'on veut tourner. En virage stabilisé, la portance doit augmenter pour ",
+"cat": "Aérodynamique",
+"fam": null
+},
+"virage horizontal stabilisé": {
+"d": "Virage effectué à altitude et vitesse constantes. L'assiette et l'inclinaison sont maintenues de sorte que la composante verticale de la portance équi",
+"cat": "Aérodynamique",
+"fam": null
+},
+"virage standard": {
+"d": "Virage effectué à un taux constant de trois degrés par seconde, permettant de réaliser un demi-tour en une minute et un tour complet en deux minutes. ",
+"cat": "Procédures",
+"fam": null
+},
+"vireur": {
+"d": "Appellation familière parfois employée pour désigner l'<strong>indicateur de virage</strong> (bille-aiguille ou coordinateur de virage). Cet instrumen",
+"cat": "Instruments",
+"fam": null
+},
+"visibilité": {
+"d": "Distance à laquelle tu distingues les repères au sol. En France, le VFR en vol contrôlé exige classiquement 5 km (moins dans certains espaces) : sous ",
+"cat": "Météo",
+"fam": null
+},
+"visibilité horizontale": {
+"d": "Plus grande distance à laquelle un observateur peut voir et identifier un objet proéminent situé près du sol. C'est un paramètre critique pour la déli",
+"cat": "Météo",
+"fam": null
+},
+"visibilité verticale": {
+"d": "Distance maximale sur laquelle un pilote peut voir le sol verticalement depuis son appareil, particulièrement utilisée lorsque le ciel est obscurci pa",
+"cat": "Météo",
+"fam": null
+},
+"vision nocturne": {
+"d": "Capacité d'adaptation physiologique de l'œil humain à l'obscurité, nécessitant environ trente minutes d'obscurité pour être optimale. Elle est altérée",
+"cat": "Sécurité & facteurs humains",
+"fam": null
+},
+"visite prévol": {
+"d": "Inspection visuelle et tactile approfondie effectuée par le pilote autour de l'aéronef avant d'entreprendre le vol. Elle permet de s'assurer de l'inté",
+"cat": "Procédures",
+"fam": null
+},
+"vitesse air": {
+"d": "Vitesse relative de l'aéronef par rapport à la masse d'air qui l'entoure. Indiquée par l'anémomètre, elle est fondamentale pour l'aérodynamique et la ",
+"cat": "Vitesses & performances",
+"fam": "vitesses_caracteristiques"
+},
+"vitesse corrigee": {
+"d": "Vitesse indiquée lue sur l'anémomètre corrigée des erreurs de position et d'antenne de la prise de pression statique et du tube de Pitot. Elle est spé",
+"cat": "Vitesses & performances",
+"fam": "vitesses_caracteristiques"
+},
+"vitesse d'approche": {
+"d": "Vitesse à maintenir stabilisée lors de la phase finale d'approche pour garantir une marge de sécurité suffisante par rapport au décrochage tout en lim",
+"cat": "Vitesses & performances",
+"fam": "vitesses_caracteristiques"
+},
+"vitesse d'envol": {
+"d": "Vitesse à laquelle l'aéronef quitte effectivement le sol lors de la phase de décollage après la rotation. Elle doit être supérieure à la vitesse de dé",
+"cat": "Vitesses & performances",
+"fam": "vitesses_caracteristiques"
+},
+"vitesse de croisière": {
+"d": "Vitesse stabilisée recommandée pour le vol en palier, offrant le meilleur compromis entre la consommation de carburant, l'usure du moteur et la distan",
+"cat": "Vitesses & performances",
+"fam": "vitesses_caracteristiques"
+},
+"vitesse de décrochage": {
+"d": "Vitesse minimale à laquelle l'aile porte encore, dans une configuration donnée : en dessous, l'incidence nécessaire dépasse l'incidence critique et la",
+"cat": "Vitesses & performances",
+"fam": null
+},
+"vitesse de rotation": {
+"d": "Vitesse à laquelle le pilote commence à cabrer doucement l'aéronef lors du décollage pour augmenter l'incidence des ailes et permettre l'envol. Elle e",
+"cat": "Vitesses & performances",
+"fam": "vitesses_caracteristiques"
+},
+"vitesse de sécurité": {
+"d": "Vitesse minimale garantissant le contrôle directionnel et des performances de montée acceptables en cas de situation critique, notamment après le déco",
+"cat": "Vitesses & performances",
+"fam": "vitesses_caracteristiques"
+},
+"vitesse propre": {
+"d": "Vitesse de l'aéronef par rapport à l'air environnant non perturbé. Également appelée vitesse vraie, elle s'obtient en corrigeant la vitesse indiquée d",
+"cat": "Vitesses & performances",
+"fam": "vitesses_caracteristiques"
+},
+"vitesse sol": {
+"d": "Vitesse de déplacement de l'aéronef par rapport à la surface terrestre, notée Gs. Résultat vectoriel de la vitesse propre et du vent, elle est utilisé",
+"cat": "Vitesses & performances",
+"fam": "vitesses_caracteristiques"
+},
+"vitesse vraie": {
+"d": "Synonyme de vitesse propre. Elle représente la vitesse réelle de l'aéronef dans la masse d'air, essentielle pour la navigation à moyenne et haute alti",
+"cat": "Vitesses & performances",
+"fam": "vitesses_caracteristiques"
+},
+"vitesses caractéristiques": {
+"d": "Famille des vitesses repères d'un avion, notées <strong>V</strong> suivi d'un indice, et lues sur l'anémométre en KIAS (vitesse indiquée). Sur l'Aquil",
+"cat": "Vitesses & performances",
+"fam": null
+},
+"vle": {
+"d": "Vitesse maximale autorisée avec le train d'atterrissage sorti. Elle ne doit jamais être dépassée sous peine d'endommager les trappes ou les mécanismes",
+"cat": "Vitesses & performances",
+"fam": "vitesses_caracteristiques"
+},
+"VMC": {
+"d": "<em>Visual Meteorological Conditions</em> : minima de visibilité et de distances aux nuages exigés pour voler VFR, selon la classe d'espace et l'altit",
+"cat": "Réglementation & docs",
+"fam": null
+},
+"VNE": {
+"d": "<em>Velocity Never Exceed</em> — vitesse à ne jamais dépasser, trait rouge de l'anémomètre : <strong>165 KIAS</strong> sur l'Aquila AT01-100A. Au-delà",
+"cat": "Vitesses & performances",
+"fam": null
+},
+"VNO": {
+"d": "<em>Velocity Normal Operating</em> — vitesse maximale d'utilisation normale, haut de l'arc vert : <strong>130 KIAS</strong> sur l'Aquila AT01-100A. En",
+"cat": "Vitesses & performances",
+"fam": null
+},
+"vol à vue": {
+"d": "Régime de vol (Vfr) basé sur le principe « voir et être vu ». Le pilote assure lui-même l'évitement des obstacles et des autres aéronefs grâce à des r",
+"cat": "Réglementation & docs",
+"fam": null
+},
+"vol aux instruments": {
+"d": "Régime de vol (Ifr) dans lequel le pilotage et le suivi de la trajectoire se font uniquement par référence aux instruments de bord, les conditions mét",
+"cat": "Procédures",
+"fam": null
+},
+"vol de nuit": {
+"d": "Vol effectué entre la fin du crépuscule civil et le début de l'aube civile, soumis à des règles spécifiques d'emport d'équipement, de qualification du",
+"cat": "Réglementation & docs",
+"fam": null
+},
+"vol lent": {
+"d": "Exercice de pilotage consistant à faire évoluer l'aéronef à une vitesse très proche de sa vitesse de décrochage. Il permet de se familiariser avec l'i",
+"cat": "Procédures",
+"fam": null
+},
+"volets": {
+"d": "Gouvernes secondaires ou dispositifs hypersustentateurs situés au bord de fuite des ailes. Leur sortie augmente la portance et la traînée, permettant ",
+"cat": "Structure & cellule",
+"fam": "gouvernes"
+},
+"volets rentrés": {
+"d": "Configuration de vol propre, où les volets de courbure sont complètement intégrés au profil de l'aile. C'est la configuration optimale pour réduire la",
+"cat": "Structure & cellule",
+"fam": "gouvernes"
+},
+"volets sortis": {
+"d": "Configuration hypersustentée augmentant artificiellement la courbure de l'aile. Elle permet de générer une portance accrue à basse vitesse, idéale pou",
+"cat": "Structure & cellule",
+"fam": "gouvernes"
+},
+"volets up": {
+"d": "Expression synonyme de volets rentrés, couramment employée par le pilote ou l'équipage pour désigner l'absence de braquage des volets de courbure aprè",
+"cat": "Structure & cellule",
+"fam": "gouvernes"
+},
+"volt": {
+"d": "Unité de mesure de la tension électrique (différence de potentiel) dans le circuit électrique de l'aéronef. Les générateurs et batteries des avions lé",
+"cat": "Unités",
+"fam": "unites"
+},
+"vor": {
+"d": "<em>Vhf Omnidirectional Range</em> : radiopoint d'alignement omnidirectionnel Vhf. Instrument de radionavigation permettant de déterminer un relèvemen",
+"cat": "Instruments",
+"fam": "instruments"
+},
+"vr": {
+"d": "Vitesse de rotation à laquelle le pilote sollicite la commande de profondeur au décollage pour cabrer l'appareil et provoquer l'envol. Elle est indiqu",
+"cat": "Vitesses & performances",
+"fam": "vitesses_caracteristiques"
+},
+"vrb": {
+"d": "Abréviation météo officielle désignant un vent de direction variable (Variable) dans un message METAR ou TAF. Elle est utilisée lorsque la direction v",
+"cat": "Météo",
+"fam": null
+},
+"Vref": {
+"d": "Vitesse de référence à l'atterrissage, avant majorations. Typiquement 1,3 × Vs0 ; on y ajoute la majoration pour rafales selon la consigne de l'école.",
+"cat": "Vitesses & performances",
+"fam": null
+},
+"vitesse": {
+"d": "Grandeur mesurant le déplacement de l'aéronef par rapport à un repère donné en fonction du temps, généralement exprimée en nœuds en aviation. On disti",
+"cat": "Vitesses & performances",
+"fam": "vitesses_caracteristiques"
+},
+"vrille": {
+"d": "Mouvement de descente incontrôlé ou provoqué de l'aéronef caractérisé par une trajectoire hélicoïdale verticale stable, combinant une rotation rapide ",
+"cat": "Aérodynamique",
+"fam": null
+},
+"vrille à plat": {
+"d": "Vrille caractérisée par une assiette de piqué extrêmement faible. Très difficile, voire impossible à récupérer sur un aéronef léger, elle empêche l'ac",
+"cat": "Aérodynamique",
+"fam": null
+},
+"VS0": {
+"d": "<em>Velocity Stall landing configuration</em> — vitesse de décrochage en configuration d'atterrissage (volets sortis), bas de l'arc blanc : <strong>39",
+"cat": "Vitesses & performances",
+"fam": null
+},
+"VS1": {
+"d": "<em>Velocity Stall clean configuration</em> — vitesse de décrochage en configuration lisse (volets rentrés), bas de l'arc vert : <strong>49 KIAS</stro",
+"cat": "Vitesses & performances",
+"fam": null
+},
+"Vx": {
+"d": "Vitesse du meilleur <strong>angle</strong> de montée : le plus d'altitude gagnée par mètre parcouru au sol. C'est la vitesse du franchissement d'obsta",
+"cat": "Vitesses & performances",
+"fam": null
+},
+"Vy": {
+"d": "Vitesse du meilleur <strong>taux</strong> de montée : le plus d'altitude gagnée par minute. C'est la montée normale, une fois les obstacles dégagés. S",
+"cat": "Vitesses & performances",
+"fam": null
+},
+"wca": {
+"d": "<em>Wind Correction Angle</em> : angle de correction de dérive. Angle à appliquer au cap de l'aéronef pour contrer l'effet de dérive du vent et ainsi ",
+"cat": "Navigation",
+"fam": null
+},
+"wintem": {
+"d": "Carte de prévisions météorologiques aéronautiques indiquant la force et la direction du vent ainsi que la température de l'air à différentes altitudes",
+"cat": "Météo",
+"fam": null
+},
+"zone dangereuse": {
+"d": "Espace aérien de dimensions définies à l'intérieur duquel des activités dangereuses pour le vol des aéronefs peuvent se dérouler pendant des périodes ",
+"cat": "Aérodrome & cartes",
+"fam": "zones_aeriennes"
+},
+"zone de contrôle": {
+"d": "Espace aérien contrôlé s'étendant verticalement depuis la surface du sol jusqu'à une limite supérieure spécifiée, entourant un aérodrome contrôlé. Not",
+"cat": "Aérodrome & cartes",
+"fam": "zones_aeriennes"
+},
+"zone interdite": {
+"d": "Espace aérien de dimensions définies au-dessus du territoire national à l'intérieur duquel le vol des aéronefs est interdit de manière permanente ou t",
+"cat": "Aérodrome & cartes",
+"fam": "zones_aeriennes"
+},
+"zone stabilisée": {
+"d": "Portion de l'approche finale dans laquelle tous les paramètres clés du vol (vitesse, assiette, puissance moteur, plan de descente) doivent être consta",
+"cat": "Procédures",
+"fam": null
+},
+"θ": {
+"d": "Écart angulaire entre l'axe de piste (QFU) et la direction d'où vient le vent. C'est l'angle qui commande tout. En briefing PPL on place θ dans un sec",
+"cat": "Vent",
+"fam": null
+}
+}

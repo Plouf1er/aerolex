@@ -1,0 +1,1923 @@
+{
+  "lot": 3,
+  "termes": {
+    "lfbd": {
+      "categorie": "Aérodrome & cartes",
+      "famille": null,
+      "membres_famille": [],
+      "colonnes_tableau": [],
+      "schema": false
+    },
+    "lfbo": {
+      "categorie": "Aérodrome & cartes",
+      "famille": null,
+      "membres_famille": [],
+      "colonnes_tableau": [],
+      "schema": false
+    },
+    "lfeh": {
+      "categorie": "Aérodrome & cartes",
+      "famille": null,
+      "membres_famille": [],
+      "colonnes_tableau": [],
+      "schema": false
+    },
+    "lfen": {
+      "categorie": "Aérodrome & cartes",
+      "famille": null,
+      "membres_famille": [],
+      "colonnes_tableau": [],
+      "schema": false
+    },
+    "lfey": {
+      "categorie": "Aérodrome & cartes",
+      "famille": null,
+      "membres_famille": [],
+      "colonnes_tableau": [],
+      "schema": false
+    },
+    "lfjr": {
+      "categorie": "Aérodrome & cartes",
+      "famille": null,
+      "membres_famille": [],
+      "colonnes_tableau": [],
+      "schema": false
+    },
+    "lflc": {
+      "categorie": "Aérodrome & cartes",
+      "famille": null,
+      "membres_famille": [],
+      "colonnes_tableau": [],
+      "schema": false
+    },
+    "lfll": {
+      "categorie": "Aérodrome & cartes",
+      "famille": null,
+      "membres_famille": [],
+      "colonnes_tableau": [],
+      "schema": false
+    },
+    "lfln": {
+      "categorie": "Aérodrome & cartes",
+      "famille": null,
+      "membres_famille": [],
+      "colonnes_tableau": [],
+      "schema": false
+    },
+    "lflx": {
+      "categorie": "Aérodrome & cartes",
+      "famille": null,
+      "membres_famille": [],
+      "colonnes_tableau": [],
+      "schema": false
+    },
+    "lfmd": {
+      "categorie": "Aérodrome & cartes",
+      "famille": null,
+      "membres_famille": [],
+      "colonnes_tableau": [],
+      "schema": false
+    },
+    "lfml": {
+      "categorie": "Aérodrome & cartes",
+      "famille": null,
+      "membres_famille": [],
+      "colonnes_tableau": [],
+      "schema": false
+    },
+    "lfmn": {
+      "categorie": "Aérodrome & cartes",
+      "famille": null,
+      "membres_famille": [],
+      "colonnes_tableau": [],
+      "schema": false
+    },
+    "lfmp": {
+      "categorie": "Aérodrome & cartes",
+      "famille": null,
+      "membres_famille": [],
+      "colonnes_tableau": [],
+      "schema": false
+    },
+    "lfmt": {
+      "categorie": "Aérodrome & cartes",
+      "famille": null,
+      "membres_famille": [],
+      "colonnes_tableau": [],
+      "schema": false
+    },
+    "lfob": {
+      "categorie": "Aérodrome & cartes",
+      "famille": null,
+      "membres_famille": [],
+      "colonnes_tableau": [],
+      "schema": false
+    },
+    "lfod": {
+      "categorie": "Aérodrome & cartes",
+      "famille": null,
+      "membres_famille": [],
+      "colonnes_tableau": [],
+      "schema": false
+    },
+    "lfoe": {
+      "categorie": "Aérodrome & cartes",
+      "famille": null,
+      "membres_famille": [],
+      "colonnes_tableau": [],
+      "schema": false
+    },
+    "lfoh": {
+      "categorie": "Aérodrome & cartes",
+      "famille": null,
+      "membres_famille": [],
+      "colonnes_tableau": [],
+      "schema": false
+    },
+    "lfoi": {
+      "categorie": "Aérodrome & cartes",
+      "famille": null,
+      "membres_famille": [],
+      "colonnes_tableau": [],
+      "schema": false
+    },
+    "lfoj": {
+      "categorie": "Aérodrome & cartes",
+      "famille": null,
+      "membres_famille": [],
+      "colonnes_tableau": [],
+      "schema": false
+    },
+    "lfok": {
+      "categorie": "Aérodrome & cartes",
+      "famille": null,
+      "membres_famille": [],
+      "colonnes_tableau": [],
+      "schema": false
+    },
+    "lfoo": {
+      "categorie": "Aérodrome & cartes",
+      "famille": null,
+      "membres_famille": [],
+      "colonnes_tableau": [],
+      "schema": false
+    },
+    "lfor": {
+      "categorie": "Aérodrome & cartes",
+      "famille": null,
+      "membres_famille": [],
+      "colonnes_tableau": [],
+      "schema": false
+    },
+    "lfot": {
+      "categorie": "Aérodrome & cartes",
+      "famille": null,
+      "membres_famille": [],
+      "colonnes_tableau": [],
+      "schema": false
+    },
+    "lfou": {
+      "categorie": "Aérodrome & cartes",
+      "famille": null,
+      "membres_famille": [],
+      "colonnes_tableau": [],
+      "schema": false
+    },
+    "lfow": {
+      "categorie": "Aérodrome & cartes",
+      "famille": null,
+      "membres_famille": [],
+      "colonnes_tableau": [],
+      "schema": false
+    },
+    "lfox": {
+      "categorie": "Aérodrome & cartes",
+      "famille": null,
+      "membres_famille": [],
+      "colonnes_tableau": [],
+      "schema": false
+    },
+    "lfoy": {
+      "categorie": "Aérodrome & cartes",
+      "famille": null,
+      "membres_famille": [],
+      "colonnes_tableau": [],
+      "schema": false
+    },
+    "lfoz": {
+      "categorie": "Aérodrome & cartes",
+      "famille": null,
+      "membres_famille": [],
+      "colonnes_tableau": [],
+      "schema": false
+    },
+    "lfpb": {
+      "categorie": "Aérodrome & cartes",
+      "famille": null,
+      "membres_famille": [],
+      "colonnes_tableau": [],
+      "schema": false
+    },
+    "lfpg": {
+      "categorie": "Aérodrome & cartes",
+      "famille": null,
+      "membres_famille": [],
+      "colonnes_tableau": [],
+      "schema": false
+    },
+    "lfpk": {
+      "categorie": "Aérodrome & cartes",
+      "famille": null,
+      "membres_famille": [],
+      "colonnes_tableau": [],
+      "schema": false
+    },
+    "lfpn": {
+      "categorie": "Aérodrome & cartes",
+      "famille": null,
+      "membres_famille": [],
+      "colonnes_tableau": [],
+      "schema": false
+    },
+    "lfpo": {
+      "categorie": "Aérodrome & cartes",
+      "famille": null,
+      "membres_famille": [],
+      "colonnes_tableau": [],
+      "schema": false
+    },
+    "lfpt": {
+      "categorie": "Aérodrome & cartes",
+      "famille": null,
+      "membres_famille": [],
+      "colonnes_tableau": [],
+      "schema": false
+    },
+    "lfpv": {
+      "categorie": "Aérodrome & cartes",
+      "famille": null,
+      "membres_famille": [],
+      "colonnes_tableau": [],
+      "schema": false
+    },
+    "lfqq": {
+      "categorie": "Aérodrome & cartes",
+      "famille": null,
+      "membres_famille": [],
+      "colonnes_tableau": [],
+      "schema": false
+    },
+    "lfrb": {
+      "categorie": "Aérodrome & cartes",
+      "famille": null,
+      "membres_famille": [],
+      "colonnes_tableau": [],
+      "schema": false
+    },
+    "lfrd": {
+      "categorie": "Aérodrome & cartes",
+      "famille": null,
+      "membres_famille": [],
+      "colonnes_tableau": [],
+      "schema": false
+    },
+    "lfrg": {
+      "categorie": "Aérodrome & cartes",
+      "famille": null,
+      "membres_famille": [],
+      "colonnes_tableau": [],
+      "schema": false
+    },
+    "lfrn": {
+      "categorie": "Aérodrome & cartes",
+      "famille": null,
+      "membres_famille": [],
+      "colonnes_tableau": [],
+      "schema": false
+    },
+    "lfrs": {
+      "categorie": "Aérodrome & cartes",
+      "famille": null,
+      "membres_famille": [],
+      "colonnes_tableau": [],
+      "schema": false
+    },
+    "lfsb": {
+      "categorie": "Aérodrome & cartes",
+      "famille": null,
+      "membres_famille": [],
+      "colonnes_tableau": [],
+      "schema": false
+    },
+    "lfsn": {
+      "categorie": "Aérodrome & cartes",
+      "famille": null,
+      "membres_famille": [],
+      "colonnes_tableau": [],
+      "schema": false
+    },
+    "lfst": {
+      "categorie": "Aérodrome & cartes",
+      "famille": null,
+      "membres_famille": [],
+      "colonnes_tableau": [],
+      "schema": false
+    },
+    "lftw": {
+      "categorie": "Aérodrome & cartes",
+      "famille": null,
+      "membres_famille": [],
+      "colonnes_tableau": [],
+      "schema": false
+    },
+    "lfxu": {
+      "categorie": "Aérodrome & cartes",
+      "famille": null,
+      "membres_famille": [],
+      "colonnes_tableau": [],
+      "schema": false
+    },
+    "licence": {
+      "categorie": "Réglementation & docs",
+      "famille": null,
+      "membres_famille": [],
+      "colonnes_tableau": [],
+      "schema": false
+    },
+    "ligne de grain": {
+      "categorie": "Météo",
+      "famille": null,
+      "membres_famille": [],
+      "colonnes_tableau": [],
+      "schema": false
+    },
+    "limite arriere": {
+      "categorie": "Masse & centrage",
+      "famille": "limites_de_centrage",
+      "membres_famille": [
+        "limite avant"
+      ],
+      "colonnes_tableau": [
+        "Limite",
+        "Position",
+        "Comportement de l'avion",
+        "Risques associés"
+      ],
+      "schema": true
+    },
+    "limite avant": {
+      "categorie": "Masse & centrage",
+      "famille": "limites_de_centrage",
+      "membres_famille": [
+        "limite arriere"
+      ],
+      "colonnes_tableau": [
+        "Limite",
+        "Position",
+        "Comportement de l'avion",
+        "Risques associés"
+      ],
+      "schema": true
+    },
+    "lisse": {
+      "categorie": "Aérodynamique",
+      "famille": null,
+      "membres_famille": [],
+      "colonnes_tableau": [],
+      "schema": false
+    },
+    "longeron": {
+      "categorie": "Structure & cellule",
+      "famille": null,
+      "membres_famille": [],
+      "colonnes_tableau": [],
+      "schema": false
+    },
+    "longue finale": {
+      "categorie": "Aérodrome & cartes",
+      "famille": "circuit_aerodrome",
+      "membres_famille": [
+        "montée initiale"
+      ],
+      "colonnes_tableau": [
+        "Étape",
+        "Position",
+        "Vitesse/Configuration",
+        "Rôle principal"
+      ],
+      "schema": true
+    },
+    "longueur de piste": {
+      "categorie": "Aérodrome & cartes",
+      "famille": null,
+      "membres_famille": [],
+      "colonnes_tableau": [],
+      "schema": false
+    },
+    "lâcher": {
+      "categorie": "Procédures",
+      "famille": null,
+      "membres_famille": [],
+      "colonnes_tableau": [],
+      "schema": false
+    },
+    "légal": {
+      "categorie": "Réglementation & docs",
+      "famille": null,
+      "membres_famille": [],
+      "colonnes_tableau": [],
+      "schema": false
+    },
+    "m/s": {
+      "categorie": "Unités",
+      "famille": "unites",
+      "membres_famille": [
+        "psi"
+      ],
+      "colonnes_tableau": [
+        "Unité",
+        "Symbole",
+        "Grandeur mesurée",
+        "Équivalent SI / US"
+      ],
+      "schema": false
+    },
+    "machmetre": {
+      "categorie": "Instruments",
+      "famille": "instruments",
+      "membres_famille": [
+        "oat",
+        "radiocompas"
+      ],
+      "colonnes_tableau": [
+        "Instrument",
+        "Grandeur mesurée",
+        "Principe de fonctionnement",
+        "Limites/Erreurs"
+      ],
+      "schema": true
+    },
+    "mag": {
+      "categorie": "Navigation",
+      "famille": "references_magnetiques",
+      "membres_famille": [
+        "magnétique",
+        "nord magnétique",
+        "nord vrai"
+      ],
+      "colonnes_tableau": [
+        "Référence",
+        "Définition",
+        "Ligne de foi",
+        "Différence par rapport au vrai"
+      ],
+      "schema": true
+    },
+    "magnétique": {
+      "categorie": "Navigation",
+      "famille": "references_magnetiques",
+      "membres_famille": [
+        "mag",
+        "nord magnétique",
+        "nord vrai"
+      ],
+      "colonnes_tableau": [
+        "Référence",
+        "Définition",
+        "Ligne de foi",
+        "Différence par rapport au vrai"
+      ],
+      "schema": true
+    },
+    "magnéto": {
+      "categorie": "Moteur & hélice",
+      "famille": "magnetos",
+      "membres_famille": [
+        "magnéto droite",
+        "magnéto gauche"
+      ],
+      "colonnes_tableau": [
+        "Composant",
+        "Rôle",
+        "Fonctionnement",
+        "Procédure de test"
+      ],
+      "schema": true
+    },
+    "magnéto droite": {
+      "categorie": "Moteur & hélice",
+      "famille": "magnetos",
+      "membres_famille": [
+        "magnéto",
+        "magnéto gauche"
+      ],
+      "colonnes_tableau": [
+        "Composant",
+        "Rôle",
+        "Fonctionnement",
+        "Procédure de test"
+      ],
+      "schema": true
+    },
+    "magnéto gauche": {
+      "categorie": "Moteur & hélice",
+      "famille": "magnetos",
+      "membres_famille": [
+        "magnéto",
+        "magnéto droite"
+      ],
+      "colonnes_tableau": [
+        "Composant",
+        "Rôle",
+        "Fonctionnement",
+        "Procédure de test"
+      ],
+      "schema": true
+    },
+    "majoration rafale": {
+      "categorie": "Vitesses & performances",
+      "famille": null,
+      "membres_famille": [],
+      "colonnes_tableau": [],
+      "schema": false
+    },
+    "mal de l'air": {
+      "categorie": "Sécurité & facteurs humains",
+      "famille": "facteurs_humains",
+      "membres_famille": [
+        "menace",
+        "modele threat and error",
+        "mémoire de travail",
+        "no-go",
+        "oreille interne",
+        "oxygène",
+        "piège classique",
+        "plan continuation bias",
+        "plan de charge",
+        "point de decision"
+      ],
+      "colonnes_tableau": [
+        "Concept",
+        "Type de limitation",
+        "Impact en vol",
+        "Atténuation"
+      ],
+      "schema": true
+    },
+    "mammatus": {
+      "categorie": "Météo",
+      "famille": "nuages",
+      "membres_famille": [
+        "nimbostratus",
+        "nuage",
+        "nuage du jour",
+        "octas",
+        "ovc",
+        "plafond",
+        "plafond nuageux"
+      ],
+      "colonnes_tableau": [
+        "Concept/Nuage",
+        "Description",
+        "Altitude type",
+        "Risques associés"
+      ],
+      "schema": true
+    },
+    "manche": {
+      "categorie": "Structure & cellule",
+      "famille": "commandes_de_vol",
+      "membres_famille": [
+        "manette",
+        "palonnier"
+      ],
+      "colonnes_tableau": [
+        "Commande",
+        "Action pilote",
+        "Axe de contrôle",
+        "Effet secondaire"
+      ],
+      "schema": true
+    },
+    "manche à air": {
+      "categorie": "Aérodrome & cartes",
+      "famille": null,
+      "membres_famille": [],
+      "colonnes_tableau": [],
+      "schema": false
+    },
+    "manette": {
+      "categorie": "Moteur & hélice",
+      "famille": "commandes_de_vol",
+      "membres_famille": [
+        "manche",
+        "palonnier"
+      ],
+      "colonnes_tableau": [
+        "Commande",
+        "Action pilote",
+        "Axe de contrôle",
+        "Effet secondaire"
+      ],
+      "schema": true
+    },
+    "manuel de vol": {
+      "categorie": "Réglementation & docs",
+      "famille": "documents_bord",
+      "membres_famille": [
+        "navigabilité"
+      ],
+      "colonnes_tableau": [
+        "Document",
+        "Rôle",
+        "Durée de validité",
+        "Obligation de présence"
+      ],
+      "schema": false
+    },
+    "marge de decrochage": {
+      "categorie": "Vitesses & performances",
+      "famille": null,
+      "membres_famille": [],
+      "colonnes_tableau": [],
+      "schema": false
+    },
+    "marge de franchissement": {
+      "categorie": "Procédures",
+      "famille": null,
+      "membres_famille": [],
+      "colonnes_tableau": [],
+      "schema": false
+    },
+    "masse a vide": {
+      "categorie": "Masse & centrage",
+      "famille": "masses",
+      "membres_famille": [
+        "masse du jour",
+        "masse maximale",
+        "mtom"
+      ],
+      "colonnes_tableau": [
+        "Type de masse",
+        "Définition",
+        "Impact performance",
+        "Limites"
+      ],
+      "schema": false
+    },
+    "masse du jour": {
+      "categorie": "Masse & centrage",
+      "famille": "masses",
+      "membres_famille": [
+        "masse a vide",
+        "masse maximale",
+        "mtom"
+      ],
+      "colonnes_tableau": [
+        "Type de masse",
+        "Définition",
+        "Impact performance",
+        "Limites"
+      ],
+      "schema": false
+    },
+    "masse et centrage": {
+      "categorie": "Masse & centrage",
+      "famille": null,
+      "membres_famille": [],
+      "colonnes_tableau": [],
+      "schema": false
+    },
+    "masse maximale": {
+      "categorie": "Masse & centrage",
+      "famille": "masses",
+      "membres_famille": [
+        "masse a vide",
+        "masse du jour",
+        "mtom"
+      ],
+      "colonnes_tableau": [
+        "Type de masse",
+        "Définition",
+        "Impact performance",
+        "Limites"
+      ],
+      "schema": false
+    },
+    "mayday": {
+      "categorie": "Radio & phraséologie",
+      "famille": null,
+      "membres_famille": [],
+      "colonnes_tableau": [],
+      "schema": false
+    },
+    "menace": {
+      "categorie": "Sécurité & facteurs humains",
+      "famille": "facteurs_humains",
+      "membres_famille": [
+        "mal de l'air",
+        "modele threat and error",
+        "mémoire de travail",
+        "no-go",
+        "oreille interne",
+        "oxygène",
+        "piège classique",
+        "plan continuation bias",
+        "plan de charge",
+        "point de decision"
+      ],
+      "colonnes_tableau": [
+        "Concept",
+        "Type de limitation",
+        "Impact en vol",
+        "Atténuation"
+      ],
+      "schema": true
+    },
+    "metar/taf": {
+      "categorie": "Météo",
+      "famille": null,
+      "membres_famille": [],
+      "colonnes_tableau": [],
+      "schema": false
+    },
+    "minima": {
+      "categorie": "Réglementation & docs",
+      "famille": null,
+      "membres_famille": [],
+      "colonnes_tableau": [],
+      "schema": false
+    },
+    "minima météo": {
+      "categorie": "Réglementation & docs",
+      "famille": null,
+      "membres_famille": [],
+      "colonnes_tableau": [],
+      "schema": false
+    },
+    "mise en route": {
+      "categorie": "Procédures",
+      "famille": null,
+      "membres_famille": [],
+      "colonnes_tableau": [],
+      "schema": false
+    },
+    "mistral": {
+      "categorie": "Vent",
+      "famille": null,
+      "membres_famille": [],
+      "colonnes_tableau": [],
+      "schema": false
+    },
+    "mm aft datum": {
+      "categorie": "Masse & centrage",
+      "famille": null,
+      "membres_famille": [],
+      "colonnes_tableau": [],
+      "schema": false
+    },
+    "modele threat and error": {
+      "categorie": "Sécurité & facteurs humains",
+      "famille": "facteurs_humains",
+      "membres_famille": [
+        "mal de l'air",
+        "menace",
+        "mémoire de travail",
+        "no-go",
+        "oreille interne",
+        "oxygène",
+        "piège classique",
+        "plan continuation bias",
+        "plan de charge",
+        "point de decision"
+      ],
+      "colonnes_tableau": [
+        "Concept",
+        "Type de limitation",
+        "Impact en vol",
+        "Atténuation"
+      ],
+      "schema": true
+    },
+    "moment de rappel": {
+      "categorie": "Aérodynamique",
+      "famille": null,
+      "membres_famille": [],
+      "colonnes_tableau": [],
+      "schema": false
+    },
+    "monomoteur": {
+      "categorie": "Structure & cellule",
+      "famille": null,
+      "membres_famille": [],
+      "colonnes_tableau": [],
+      "schema": false
+    },
+    "monomoteur léger": {
+      "categorie": "Structure & cellule",
+      "famille": null,
+      "membres_famille": [],
+      "colonnes_tableau": [],
+      "schema": false
+    },
+    "montée initiale": {
+      "categorie": "Aérodrome & cartes",
+      "famille": "circuit_aerodrome",
+      "membres_famille": [
+        "longue finale"
+      ],
+      "colonnes_tableau": [
+        "Étape",
+        "Position",
+        "Vitesse/Configuration",
+        "Rôle principal"
+      ],
+      "schema": true
+    },
+    "moulinet": {
+      "categorie": "Moteur & hélice",
+      "famille": "helice",
+      "membres_famille": [
+        "pas d'hélice",
+        "pas variable",
+        "prop"
+      ],
+      "colonnes_tableau": [
+        "Terme",
+        "Définition",
+        "Effet mécanique",
+        "Utilisation"
+      ],
+      "schema": true
+    },
+    "mtom": {
+      "categorie": "Masse & centrage",
+      "famille": "masses",
+      "membres_famille": [
+        "masse a vide",
+        "masse du jour",
+        "masse maximale"
+      ],
+      "colonnes_tableau": [
+        "Type de masse",
+        "Définition",
+        "Impact performance",
+        "Limites"
+      ],
+      "schema": false
+    },
+    "mémoire de travail": {
+      "categorie": "Sécurité & facteurs humains",
+      "famille": "facteurs_humains",
+      "membres_famille": [
+        "mal de l'air",
+        "menace",
+        "modele threat and error",
+        "no-go",
+        "oreille interne",
+        "oxygène",
+        "piège classique",
+        "plan continuation bias",
+        "plan de charge",
+        "point de decision"
+      ],
+      "colonnes_tableau": [
+        "Concept",
+        "Type de limitation",
+        "Impact en vol",
+        "Atténuation"
+      ],
+      "schema": true
+    },
+    "météo du jour": {
+      "categorie": "Météo",
+      "famille": null,
+      "membres_famille": [],
+      "colonnes_tableau": [],
+      "schema": false
+    },
+    "nav": {
+      "categorie": "Navigation",
+      "famille": null,
+      "membres_famille": [],
+      "colonnes_tableau": [],
+      "schema": false
+    },
+    "navigabilité": {
+      "categorie": "Réglementation & docs",
+      "famille": "documents_bord",
+      "membres_famille": [
+        "manuel de vol"
+      ],
+      "colonnes_tableau": [
+        "Document",
+        "Rôle",
+        "Durée de validité",
+        "Obligation de présence"
+      ],
+      "schema": false
+    },
+    "navigation": {
+      "categorie": "Navigation",
+      "famille": null,
+      "membres_famille": [],
+      "colonnes_tableau": [],
+      "schema": false
+    },
+    "nearest airfield": {
+      "categorie": "Procédures",
+      "famille": null,
+      "membres_famille": [],
+      "colonnes_tableau": [],
+      "schema": false
+    },
+    "nervure": {
+      "categorie": "Structure & cellule",
+      "famille": null,
+      "membres_famille": [],
+      "colonnes_tableau": [],
+      "schema": false
+    },
+    "nimbostratus": {
+      "categorie": "Météo",
+      "famille": "nuages",
+      "membres_famille": [
+        "mammatus",
+        "nuage",
+        "nuage du jour",
+        "octas",
+        "ovc",
+        "plafond",
+        "plafond nuageux"
+      ],
+      "colonnes_tableau": [
+        "Concept/Nuage",
+        "Description",
+        "Altitude type",
+        "Risques associés"
+      ],
+      "schema": true
+    },
+    "niveau de transition": {
+      "categorie": "Altimétrie",
+      "famille": null,
+      "membres_famille": [],
+      "colonnes_tableau": [],
+      "schema": false
+    },
+    "niveau de vol": {
+      "categorie": "Altimétrie",
+      "famille": null,
+      "membres_famille": [],
+      "colonnes_tableau": [],
+      "schema": false
+    },
+    "no-go": {
+      "categorie": "Sécurité & facteurs humains",
+      "famille": "facteurs_humains",
+      "membres_famille": [
+        "mal de l'air",
+        "menace",
+        "modele threat and error",
+        "mémoire de travail",
+        "oreille interne",
+        "oxygène",
+        "piège classique",
+        "plan continuation bias",
+        "plan de charge",
+        "point de decision"
+      ],
+      "colonnes_tableau": [
+        "Concept",
+        "Type de limitation",
+        "Impact en vol",
+        "Atténuation"
+      ],
+      "schema": true
+    },
+    "nord": {
+      "categorie": "Navigation",
+      "famille": null,
+      "membres_famille": [],
+      "colonnes_tableau": [],
+      "schema": false
+    },
+    "nord magnétique": {
+      "categorie": "Navigation",
+      "famille": "references_magnetiques",
+      "membres_famille": [
+        "mag",
+        "magnétique",
+        "nord vrai"
+      ],
+      "colonnes_tableau": [
+        "Référence",
+        "Définition",
+        "Ligne de foi",
+        "Différence par rapport au vrai"
+      ],
+      "schema": true
+    },
+    "nord vrai": {
+      "categorie": "Navigation",
+      "famille": "references_magnetiques",
+      "membres_famille": [
+        "mag",
+        "magnétique",
+        "nord magnétique"
+      ],
+      "colonnes_tableau": [
+        "Référence",
+        "Définition",
+        "Ligne de foi",
+        "Différence par rapport au vrai"
+      ],
+      "schema": true
+    },
+    "nuage": {
+      "categorie": "Météo",
+      "famille": "nuages",
+      "membres_famille": [
+        "mammatus",
+        "nimbostratus",
+        "nuage du jour",
+        "octas",
+        "ovc",
+        "plafond",
+        "plafond nuageux"
+      ],
+      "colonnes_tableau": [
+        "Concept/Nuage",
+        "Description",
+        "Altitude type",
+        "Risques associés"
+      ],
+      "schema": true
+    },
+    "nuage du jour": {
+      "categorie": "Météo",
+      "famille": "nuages",
+      "membres_famille": [
+        "mammatus",
+        "nimbostratus",
+        "nuage",
+        "octas",
+        "ovc",
+        "plafond",
+        "plafond nuageux"
+      ],
+      "colonnes_tableau": [
+        "Concept/Nuage",
+        "Description",
+        "Altitude type",
+        "Risques associés"
+      ],
+      "schema": true
+    },
+    "nuit": {
+      "categorie": "Réglementation & docs",
+      "famille": null,
+      "membres_famille": [],
+      "colonnes_tableau": [],
+      "schema": false
+    },
+    "oaci": {
+      "categorie": "Réglementation & docs",
+      "famille": null,
+      "membres_famille": [],
+      "colonnes_tableau": [],
+      "schema": false
+    },
+    "oat": {
+      "categorie": "Instruments",
+      "famille": "instruments",
+      "membres_famille": [
+        "machmetre",
+        "radiocompas"
+      ],
+      "colonnes_tableau": [
+        "Instrument",
+        "Grandeur mesurée",
+        "Principe de fonctionnement",
+        "Limites/Erreurs"
+      ],
+      "schema": true
+    },
+    "obstacle artificiel": {
+      "categorie": "Aérodrome & cartes",
+      "famille": null,
+      "membres_famille": [],
+      "colonnes_tableau": [],
+      "schema": false
+    },
+    "occlusion": {
+      "categorie": "Météo",
+      "famille": "fronts_meteorologiques",
+      "membres_famille": [],
+      "colonnes_tableau": [
+        "Type de front",
+        "Description physique",
+        "Phénomènes associés",
+        "Évolution pression/vent"
+      ],
+      "schema": true
+    },
+    "octas": {
+      "categorie": "Météo",
+      "famille": "nuages",
+      "membres_famille": [
+        "mammatus",
+        "nimbostratus",
+        "nuage",
+        "nuage du jour",
+        "ovc",
+        "plafond",
+        "plafond nuageux"
+      ],
+      "colonnes_tableau": [
+        "Concept/Nuage",
+        "Description",
+        "Altitude type",
+        "Risques associés"
+      ],
+      "schema": true
+    },
+    "off ignition off": {
+      "categorie": "Procédures",
+      "famille": null,
+      "membres_famille": [],
+      "colonnes_tableau": [],
+      "schema": false
+    },
+    "onde de relief": {
+      "categorie": "Vent",
+      "famille": null,
+      "membres_famille": [],
+      "colonnes_tableau": [],
+      "schema": false
+    },
+    "oreille interne": {
+      "categorie": "Sécurité & facteurs humains",
+      "famille": "facteurs_humains",
+      "membres_famille": [
+        "mal de l'air",
+        "menace",
+        "modele threat and error",
+        "mémoire de travail",
+        "no-go",
+        "oxygène",
+        "piège classique",
+        "plan continuation bias",
+        "plan de charge",
+        "point de decision"
+      ],
+      "colonnes_tableau": [
+        "Concept",
+        "Type de limitation",
+        "Impact en vol",
+        "Atténuation"
+      ],
+      "schema": true
+    },
+    "ouest": {
+      "categorie": "Navigation",
+      "famille": null,
+      "membres_famille": [],
+      "colonnes_tableau": [],
+      "schema": false
+    },
+    "ovc": {
+      "categorie": "Météo",
+      "famille": "nuages",
+      "membres_famille": [
+        "mammatus",
+        "nimbostratus",
+        "nuage",
+        "nuage du jour",
+        "octas",
+        "plafond",
+        "plafond nuageux"
+      ],
+      "colonnes_tableau": [
+        "Concept/Nuage",
+        "Description",
+        "Altitude type",
+        "Risques associés"
+      ],
+      "schema": true
+    },
+    "oxygène": {
+      "categorie": "Sécurité & facteurs humains",
+      "famille": "facteurs_humains",
+      "membres_famille": [
+        "mal de l'air",
+        "menace",
+        "modele threat and error",
+        "mémoire de travail",
+        "no-go",
+        "oreille interne",
+        "piège classique",
+        "plan continuation bias",
+        "plan de charge",
+        "point de decision"
+      ],
+      "colonnes_tableau": [
+        "Concept",
+        "Type de limitation",
+        "Impact en vol",
+        "Atténuation"
+      ],
+      "schema": true
+    },
+    "palier": {
+      "categorie": "Procédures",
+      "famille": "phases_vol",
+      "membres_famille": [
+        "palier de croisière",
+        "piqué",
+        "plané"
+      ],
+      "colonnes_tableau": [
+        "Phase de vol",
+        "Définition",
+        "Configuration avion",
+        "Paramètres types"
+      ],
+      "schema": true
+    },
+    "palier de croisière": {
+      "categorie": "Procédures",
+      "famille": "phases_vol",
+      "membres_famille": [
+        "palier",
+        "piqué",
+        "plané"
+      ],
+      "colonnes_tableau": [
+        "Phase de vol",
+        "Définition",
+        "Configuration avion",
+        "Paramètres types"
+      ],
+      "schema": true
+    },
+    "palonnier": {
+      "categorie": "Structure & cellule",
+      "famille": "commandes_de_vol",
+      "membres_famille": [
+        "manche",
+        "manette"
+      ],
+      "colonnes_tableau": [
+        "Commande",
+        "Action pilote",
+        "Axe de contrôle",
+        "Effet secondaire"
+      ],
+      "schema": true
+    },
+    "panne moteur": {
+      "categorie": "Procédures",
+      "famille": "pannes_moteur",
+      "membres_famille": [],
+      "colonnes_tableau": [
+        "Type de panne",
+        "Symptômes",
+        "Actions immédiates",
+        "Actions de sauvegarde"
+      ],
+      "schema": false
+    },
+    "panne radio": {
+      "categorie": "Procédures",
+      "famille": null,
+      "membres_famille": [],
+      "colonnes_tableau": [],
+      "schema": false
+    },
+    "panne électrique": {
+      "categorie": "Procédures",
+      "famille": null,
+      "membres_famille": [],
+      "colonnes_tableau": [],
+      "schema": false
+    },
+    "parking": {
+      "categorie": "Aérodrome & cartes",
+      "famille": null,
+      "membres_famille": [],
+      "colonnes_tableau": [],
+      "schema": false
+    },
+    "pas d'hélice": {
+      "categorie": "Moteur & hélice",
+      "famille": "helice",
+      "membres_famille": [
+        "moulinet",
+        "pas variable",
+        "prop"
+      ],
+      "colonnes_tableau": [
+        "Terme",
+        "Définition",
+        "Effet mécanique",
+        "Utilisation"
+      ],
+      "schema": true
+    },
+    "pas variable": {
+      "categorie": "Moteur & hélice",
+      "famille": "helice",
+      "membres_famille": [
+        "moulinet",
+        "pas d'hélice",
+        "prop"
+      ],
+      "colonnes_tableau": [
+        "Terme",
+        "Définition",
+        "Effet mécanique",
+        "Utilisation"
+      ],
+      "schema": true
+    },
+    "passager": {
+      "categorie": "Réglementation & docs",
+      "famille": null,
+      "membres_famille": [],
+      "colonnes_tableau": [],
+      "schema": false
+    },
+    "pax": {
+      "categorie": "Radio & phraséologie",
+      "famille": null,
+      "membres_famille": [],
+      "colonnes_tableau": [],
+      "schema": false
+    },
+    "pente": {
+      "categorie": "Vitesses & performances",
+      "famille": null,
+      "membres_famille": [],
+      "colonnes_tableau": [],
+      "schema": false
+    },
+    "pente de descente": {
+      "categorie": "Vitesses & performances",
+      "famille": null,
+      "membres_famille": [],
+      "colonnes_tableau": [],
+      "schema": false
+    },
+    "pente de montée": {
+      "categorie": "Vitesses & performances",
+      "famille": null,
+      "membres_famille": [],
+      "colonnes_tableau": [],
+      "schema": false
+    },
+    "percée verticale": {
+      "categorie": "Procédures",
+      "famille": null,
+      "membres_famille": [],
+      "colonnes_tableau": [],
+      "schema": false
+    },
+    "perte de position": {
+      "categorie": "Navigation",
+      "famille": null,
+      "membres_famille": [],
+      "colonnes_tableau": [],
+      "schema": false
+    },
+    "phraséologie": {
+      "categorie": "Radio & phraséologie",
+      "famille": null,
+      "membres_famille": [],
+      "colonnes_tableau": [],
+      "schema": false
+    },
+    "piqué": {
+      "categorie": "Procédures",
+      "famille": "phases_vol",
+      "membres_famille": [
+        "palier",
+        "palier de croisière",
+        "plané"
+      ],
+      "colonnes_tableau": [
+        "Phase de vol",
+        "Définition",
+        "Configuration avion",
+        "Paramètres types"
+      ],
+      "schema": true
+    },
+    "piste": {
+      "categorie": "Aérodrome & cartes",
+      "famille": null,
+      "membres_famille": [],
+      "colonnes_tableau": [],
+      "schema": false
+    },
+    "piste contaminée": {
+      "categorie": "Aérodrome & cartes",
+      "famille": null,
+      "membres_famille": [],
+      "colonnes_tableau": [],
+      "schema": false
+    },
+    "piste en service": {
+      "categorie": "Aérodrome & cartes",
+      "famille": null,
+      "membres_famille": [],
+      "colonnes_tableau": [],
+      "schema": false
+    },
+    "piste mouillée": {
+      "categorie": "Aérodrome & cartes",
+      "famille": null,
+      "membres_famille": [],
+      "colonnes_tableau": [],
+      "schema": false
+    },
+    "pitot": {
+      "categorie": "Instruments",
+      "famille": null,
+      "membres_famille": [],
+      "colonnes_tableau": [],
+      "schema": false
+    },
+    "piège classique": {
+      "categorie": "Sécurité & facteurs humains",
+      "famille": "facteurs_humains",
+      "membres_famille": [
+        "mal de l'air",
+        "menace",
+        "modele threat and error",
+        "mémoire de travail",
+        "no-go",
+        "oreille interne",
+        "oxygène",
+        "plan continuation bias",
+        "plan de charge",
+        "point de decision"
+      ],
+      "colonnes_tableau": [
+        "Concept",
+        "Type de limitation",
+        "Impact en vol",
+        "Atténuation"
+      ],
+      "schema": true
+    },
+    "plafond": {
+      "categorie": "Météo",
+      "famille": "nuages",
+      "membres_famille": [
+        "mammatus",
+        "nimbostratus",
+        "nuage",
+        "nuage du jour",
+        "octas",
+        "ovc",
+        "plafond nuageux"
+      ],
+      "colonnes_tableau": [
+        "Concept/Nuage",
+        "Description",
+        "Altitude type",
+        "Risques associés"
+      ],
+      "schema": true
+    },
+    "plafond nuageux": {
+      "categorie": "Météo",
+      "famille": "nuages",
+      "membres_famille": [
+        "mammatus",
+        "nimbostratus",
+        "nuage",
+        "nuage du jour",
+        "octas",
+        "ovc",
+        "plafond"
+      ],
+      "colonnes_tableau": [
+        "Concept/Nuage",
+        "Description",
+        "Altitude type",
+        "Risques associés"
+      ],
+      "schema": true
+    },
+    "plan continuation bias": {
+      "categorie": "Sécurité & facteurs humains",
+      "famille": "facteurs_humains",
+      "membres_famille": [
+        "mal de l'air",
+        "menace",
+        "modele threat and error",
+        "mémoire de travail",
+        "no-go",
+        "oreille interne",
+        "oxygène",
+        "piège classique",
+        "plan de charge",
+        "point de decision"
+      ],
+      "colonnes_tableau": [
+        "Concept",
+        "Type de limitation",
+        "Impact en vol",
+        "Atténuation"
+      ],
+      "schema": true
+    },
+    "plan de charge": {
+      "categorie": "Sécurité & facteurs humains",
+      "famille": "facteurs_humains",
+      "membres_famille": [
+        "mal de l'air",
+        "menace",
+        "modele threat and error",
+        "mémoire de travail",
+        "no-go",
+        "oreille interne",
+        "oxygène",
+        "piège classique",
+        "plan continuation bias",
+        "point de decision"
+      ],
+      "colonnes_tableau": [
+        "Concept",
+        "Type de limitation",
+        "Impact en vol",
+        "Atténuation"
+      ],
+      "schema": true
+    },
+    "plan de descente": {
+      "categorie": "Aérodrome & cartes",
+      "famille": null,
+      "membres_famille": [],
+      "colonnes_tableau": [],
+      "schema": false
+    },
+    "plan de vol": {
+      "categorie": "Réglementation & docs",
+      "famille": null,
+      "membres_famille": [],
+      "colonnes_tableau": [],
+      "schema": false
+    },
+    "plancher": {
+      "categorie": "Altimétrie",
+      "famille": null,
+      "membres_famille": [],
+      "colonnes_tableau": [],
+      "schema": false
+    },
+    "plané": {
+      "categorie": "Procédures",
+      "famille": "phases_vol",
+      "membres_famille": [
+        "palier",
+        "palier de croisière",
+        "piqué"
+      ],
+      "colonnes_tableau": [
+        "Phase de vol",
+        "Définition",
+        "Configuration avion",
+        "Paramètres types"
+      ],
+      "schema": true
+    },
+    "plein gaz": {
+      "categorie": "Procédures",
+      "famille": null,
+      "membres_famille": [],
+      "colonnes_tableau": [],
+      "schema": false
+    },
+    "pluie": {
+      "categorie": "Météo",
+      "famille": null,
+      "membres_famille": [],
+      "colonnes_tableau": [],
+      "schema": false
+    },
+    "point d'arrêt": {
+      "categorie": "Aérodrome & cartes",
+      "famille": null,
+      "membres_famille": [],
+      "colonnes_tableau": [],
+      "schema": false
+    },
+    "point d'attente": {
+      "categorie": "Aérodrome & cartes",
+      "famille": null,
+      "membres_famille": [],
+      "colonnes_tableau": [],
+      "schema": false
+    },
+    "point de decision": {
+      "categorie": "Sécurité & facteurs humains",
+      "famille": "facteurs_humains",
+      "membres_famille": [
+        "mal de l'air",
+        "menace",
+        "modele threat and error",
+        "mémoire de travail",
+        "no-go",
+        "oreille interne",
+        "oxygène",
+        "piège classique",
+        "plan continuation bias",
+        "plan de charge"
+      ],
+      "colonnes_tableau": [
+        "Concept",
+        "Type de limitation",
+        "Impact en vol",
+        "Atténuation"
+      ],
+      "schema": true
+    },
+    "point de non retour": {
+      "categorie": "Navigation",
+      "famille": null,
+      "membres_famille": [],
+      "colonnes_tableau": [],
+      "schema": false
+    },
+    "point de report": {
+      "categorie": "Navigation",
+      "famille": null,
+      "membres_famille": [],
+      "colonnes_tableau": [],
+      "schema": false
+    },
+    "point de rosée": {
+      "categorie": "Météo",
+      "famille": null,
+      "membres_famille": [],
+      "colonnes_tableau": [],
+      "schema": false
+    },
+    "point fixe": {
+      "categorie": "Procédures",
+      "famille": null,
+      "membres_famille": [],
+      "colonnes_tableau": [],
+      "schema": false
+    },
+    "points de report": {
+      "categorie": "Navigation",
+      "famille": null,
+      "membres_famille": [],
+      "colonnes_tableau": [],
+      "schema": false
+    },
+    "polaire": {
+      "categorie": "Aérodynamique",
+      "famille": null,
+      "membres_famille": [],
+      "colonnes_tableau": [],
+      "schema": false
+    },
+    "pompe": {
+      "categorie": "Vent",
+      "famille": null,
+      "membres_famille": [],
+      "colonnes_tableau": [],
+      "schema": false
+    },
+    "pompe électrique": {
+      "categorie": "Moteur & hélice",
+      "famille": null,
+      "membres_famille": [],
+      "colonnes_tableau": [],
+      "schema": false
+    },
+    "portance": {
+      "categorie": "Aérodynamique",
+      "famille": null,
+      "membres_famille": [],
+      "colonnes_tableau": [],
+      "schema": false
+    },
+    "portée visuelle de piste": {
+      "categorie": "Météo",
+      "famille": null,
+      "membres_famille": [],
+      "colonnes_tableau": [],
+      "schema": false
+    },
+    "posé-décollé": {
+      "categorie": "Aérodrome & cartes",
+      "famille": null,
+      "membres_famille": [],
+      "colonnes_tableau": [],
+      "schema": false
+    },
+    "ppl": {
+      "categorie": "Réglementation & docs",
+      "famille": null,
+      "membres_famille": [],
+      "colonnes_tableau": [],
+      "schema": false
+    },
+    "premier contact": {
+      "categorie": "Radio & phraséologie",
+      "famille": null,
+      "membres_famille": [],
+      "colonnes_tableau": [],
+      "schema": false
+    },
+    "pression": {
+      "categorie": "Altimétrie",
+      "famille": null,
+      "membres_famille": [],
+      "colonnes_tableau": [],
+      "schema": false
+    },
+    "pression d'huile": {
+      "categorie": "Moteur & hélice",
+      "famille": null,
+      "membres_famille": [],
+      "colonnes_tableau": [],
+      "schema": false
+    },
+    "pression standard": {
+      "categorie": "Altimétrie",
+      "famille": null,
+      "membres_famille": [],
+      "colonnes_tableau": [],
+      "schema": false
+    },
+    "priorité": {
+      "categorie": "Réglementation & docs",
+      "famille": null,
+      "membres_famille": [],
+      "colonnes_tableau": [],
+      "schema": false
+    },
+    "prob": {
+      "categorie": "Météo",
+      "famille": null,
+      "membres_famille": [],
+      "colonnes_tableau": [],
+      "schema": false
+    },
+    "procedure d'attente": {
+      "categorie": "Procédures",
+      "famille": null,
+      "membres_famille": [],
+      "colonnes_tableau": [],
+      "schema": false
+    },
+    "profondeur": {
+      "categorie": "Structure & cellule",
+      "famille": "gouvernes",
+      "membres_famille": [],
+      "colonnes_tableau": [
+        "Gouverne",
+        "Emplacement",
+        "Axe de rotation",
+        "Mouvement engendré"
+      ],
+      "schema": true
+    },
+    "prolongement d'arret": {
+      "categorie": "Aérodrome & cartes",
+      "famille": null,
+      "membres_famille": [],
+      "colonnes_tableau": [],
+      "schema": false
+    },
+    "prop": {
+      "categorie": "Moteur & hélice",
+      "famille": "helice",
+      "membres_famille": [
+        "moulinet",
+        "pas d'hélice",
+        "pas variable"
+      ],
+      "colonnes_tableau": [
+        "Terme",
+        "Définition",
+        "Effet mécanique",
+        "Utilisation"
+      ],
+      "schema": true
+    },
+    "prorogation": {
+      "categorie": "Réglementation & docs",
+      "famille": null,
+      "membres_famille": [],
+      "colonnes_tableau": [],
+      "schema": false
+    },
+    "pré-lâcher": {
+      "categorie": "Procédures",
+      "famille": null,
+      "membres_famille": [],
+      "colonnes_tableau": [],
+      "schema": false
+    },
+    "psi": {
+      "categorie": "Unités",
+      "famille": "unites",
+      "membres_famille": [
+        "m/s"
+      ],
+      "colonnes_tableau": [
+        "Unité",
+        "Symbole",
+        "Grandeur mesurée",
+        "Équivalent SI / US"
+      ],
+      "schema": false
+    },
+    "pump": {
+      "categorie": "Moteur & hélice",
+      "famille": null,
+      "membres_famille": [],
+      "colonnes_tableau": [],
+      "schema": false
+    },
+    "purge": {
+      "categorie": "Procédures",
+      "famille": null,
+      "membres_famille": [],
+      "colonnes_tableau": [],
+      "schema": false
+    },
+    "qcm": {
+      "categorie": "Réglementation & docs",
+      "famille": null,
+      "membres_famille": [],
+      "colonnes_tableau": [],
+      "schema": false
+    },
+    "qdm": {
+      "categorie": "Navigation",
+      "famille": null,
+      "membres_famille": [],
+      "colonnes_tableau": [],
+      "schema": false
+    },
+    "qdr": {
+      "categorie": "Navigation",
+      "famille": null,
+      "membres_famille": [],
+      "colonnes_tableau": [],
+      "schema": false
+    },
+    "rabattant": {
+      "categorie": "Vent",
+      "famille": null,
+      "membres_famille": [],
+      "colonnes_tableau": [],
+      "schema": false
+    },
+    "rabattant sous le vent": {
+      "categorie": "Vent",
+      "famille": null,
+      "membres_famille": [],
+      "colonnes_tableau": [],
+      "schema": false
+    },
+    "radiale": {
+      "categorie": "Navigation",
+      "famille": null,
+      "membres_famille": [],
+      "colonnes_tableau": [],
+      "schema": false
+    },
+    "radio": {
+      "categorie": "Radio & phraséologie",
+      "famille": null,
+      "membres_famille": [],
+      "colonnes_tableau": [],
+      "schema": false
+    },
+    "radiocompas": {
+      "categorie": "Instruments",
+      "famille": "instruments",
+      "membres_famille": [
+        "machmetre",
+        "oat"
+      ],
+      "colonnes_tableau": [
+        "Instrument",
+        "Grandeur mesurée",
+        "Principe de fonctionnement",
+        "Limites/Erreurs"
+      ],
+      "schema": true
+    }
+  }
+}

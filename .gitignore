@@ -13,3 +13,7 @@ logs/
 *credential*
 *.pem
 *.key
+
+# backups locaux
+data/*.BACKUP-*
+backups/

@@ -1,0 +1,1253 @@
+{
+"lot": 2,
+"termes": {
+"calage standard": {
+"definition": "Calage altimétrique à 1013,25 hPa (29,92 inHg), utilisé en croisière au-dessus de l'altitude de transition. Tout le monde utilise la même référence pour garantir la séparation verticale.",
+"categorie": "Altimétrie",
+"variantes": [
+"calage 1013",
+"1013 hPa",
+"QNE"
+],
+"synonymes": [
+"QNE"
+],
+"xrefs": [
+"altitude de transition",
+"hPa",
+"altitude-pression",
+"QNH"
+],
+"modifie": true,
+"raison": "retrait HTML + ajout xrefs"
+},
+"cap magnétique": {
+"definition": "Cap mesuré par rapport au nord magnétique vers lequel pointe le compas. C'est le cap annoncé et tenu par le pilote, comparé au QFU. Il s'obtient à partir du cap vrai corrigé de la déclinaison.",
+"categorie": "Navigation",
+"variantes": [
+"caps magnétiques",
+"route magnétique",
+"Cm",
+"magnetic heading"
+],
+"synonymes": [
+"Cm"
+],
+"xrefs": [
+"cap vrai",
+"nord magnétique",
+"déclinaison magnétique",
+"QFU"
+],
+"modifie": true,
+"raison": "retrait HTML + condesee de 52 a 37 mots"
+},
+"cap vrai": {
+"definition": "Cap mesuré par rapport au nord vrai (géographique), tracé sur la carte le long des méridiens. On le convertit en cap magnétique via la déclinaison magnétique avant de voler au compas.",
+"categorie": "Navigation",
+"variantes": [
+"caps vrais",
+"route vraie",
+"Cv",
+"cap géographique",
+"true heading"
+],
+"synonymes": [
+"Cv"
+],
+"xrefs": [
+"cap magnétique",
+"nord vrai",
+"déclinaison magnétique"
+],
+"modifie": true,
+"raison": "retrait HTML + condesee de 42 a 31 mots"
+},
+"cisaillement": {
+"definition": "Changement brutal de direction ou de force du vent sur une courte distance. Signature cockpit: badin et vario qui bougent ensemble sans toucher aux commandes. Non maîtrisé = remise des gaz.",
+"categorie": "Vent",
+"variantes": [
+"cisaillements",
+"cisaillement du vent",
+"windshear"
+],
+"synonymes": [
+"windshear"
+],
+"xrefs": [
+"remise des gaz",
+"rafale",
+"vent traversier"
+],
+"modifie": true,
+"raison": "ajout xrefs + variantes"
+},
+"composante arrière": {
+"definition": "Vent qui te pousse par l'arrière: il allonge fortement le décollage et l'atterrissage. Souvent limité à 5 ou 10 kt selon l'avion — au-delà, on change de piste. Une composante de face négative est une composante arrière.",
+"categorie": "Vent",
+"variantes": [
+"composantes arrière",
+"tailwind"
+],
+"synonymes": [
+"tailwind"
+],
+"xrefs": [
+"composante de face",
+"vent arrière"
+],
+"modifie": false,
+"raison": "conforme"
+},
+"composante de face": {
+"definition": "Part du vent qui souffle dans l'axe de la piste, face à l'avion (V × cos θ, où θ est l'écart au QFU). Elle raccourcit la distance de décollage et d'atterrissage.",
+"categorie": "Vent",
+"variantes": [
+"composantes de face",
+"vent debout",
+"headwind"
+],
+"synonymes": [
+"vent debout",
+"headwind"
+],
+"xrefs": [
+"composante de travers",
+"composante arrière",
+"vent de face",
+"θ"
+],
+"modifie": true,
+"raison": "retrait HTML + condesee de 63 a 34 mots"
+},
+"composante de travers": {
+"definition": "Part du vent perpendiculaire à la piste (V × sin θ, où θ est l'écart au QFU). Estimée au tiers par secteurs, elle se compare à la limite démontrée de l'avion calculée sur les rafales.",
+"categorie": "Vent",
+"variantes": [
+"vent de travers",
+"composantes de travers",
+"crosswind"
+],
+"synonymes": [
+"vent de travers",
+"crosswind"
+],
+"xrefs": [
+"composante de face",
+"décrabage",
+"vent traversier",
+"θ"
+],
+"modifie": true,
+"raison": "retrait HTML + condesee de 80 a 42 mots"
+},
+"courte finale": {
+"definition": "Dernière partie de la finale juste avant le seuil de piste. L'approche doit y être stabilisée (axe, plan, vitesse, configuration). C'est le dernier moment sûr pour décider d'une éventuelle remise des gaz.",
+"categorie": "Aérodrome & cartes",
+"variantes": [
+"courtes finales",
+"short final"
+],
+"synonymes": [
+"short final"
+],
+"xrefs": [
+"finale",
+"arrondi",
+"remise des gaz",
+"seuil de piste",
+"approche stabilisée"
+],
+"modifie": true,
+"raison": "condesee de 83 a 35 mots"
+},
+"dernier virage": {
+"definition": "Virage entre l'étape de base et la finale pour s'aligner sur l'axe de piste. Effectué bas et à vitesse réduite, il exige une surveillance stricte de l'inclinaison et de l'incidence pour éviter le décrochage.",
+"categorie": "Aérodrome & cartes",
+"variantes": [
+"derniers virages",
+"virage de base en finale",
+"dernier virage base-finale"
+],
+"synonymes": [
+"virage de base en finale"
+],
+"xrefs": [
+"étape de base",
+"finale",
+"décrochage",
+"remise des gaz"
+],
+"modifie": true,
+"raison": "condesee de 79 a 39 mots"
+},
+"déclinaison magnétique": {
+"definition": "Écart angulaire entre le nord vrai et le nord magnétique en un lieu donné, lu sur les cartes VAC. Elle permet de convertir le cap vrai (carte) en cap magnétique (compas) ou le vent vrai en QFU.",
+"categorie": "Navigation",
+"variantes": [
+"déclinaison",
+"déclinaisons",
+"declinaison",
+"variation magnétique",
+"déclinaisons magnétiques"
+],
+"synonymes": [
+"déclinaison",
+"variation magnétique"
+],
+"xrefs": [
+"nord vrai",
+"nord magnétique",
+"cap vrai",
+"cap magnétique"
+],
+"modifie": true,
+"raison": "retrait HTML + condesee de 74 a 37 mots"
+},
+"décollage": {
+"definition": "Phase menant l'avion du roulement sur piste à l'envol (accélération, rotation, montée initiale). Ses distances de roulement et de passage des obstacles dépendent de la masse, du vent et de l'altitude-densité.",
+"categorie": "Aérodrome & cartes",
+"variantes": [
+"décollages",
+"décoller"
+],
+"synonymes": null,
+"xrefs": [
+"roulement",
+"montée initiale",
+"altitude-densité",
+"composante de face",
+"tour de piste"
+],
+"modifie": true,
+"raison": "condesee de 81 a 35 mots"
+},
+"décrabage": {
+"definition": "Manœuvre finale par vent de travers: on approche en crabe pour tenir l'axe, puis juste avant le toucher, on réaligne le nez de l'avion au palonnier en contrant la dérive aux ailerons pour protéger le train.",
+"categorie": "Vent",
+"variantes": [
+"décraber",
+"décrabé",
+"crabe",
+"décrabages"
+],
+"synonymes": null,
+"xrefs": [
+"composante de travers",
+"vent de travers",
+"palonnier",
+"dérive"
+],
+"modifie": true,
+"raison": "retrait HTML + condesee de 59 a 38 mots"
+},
+"décrochage": {
+"definition": "Perte brutale de portance quand l'angle d'attaque dépasse l'incidence critique — indépendant de la vitesse proprement dite: on décroche à n'importe quelle vitesse si on tire trop.",
+"categorie": "Aérodynamique",
+"variantes": [
+"décrochages",
+"décrocher",
+"incidence critique",
+"stall"
+],
+"synonymes": [
+"stall"
+],
+"xrefs": [
+"facteur de charge",
+"vitesse de décrochage",
+"remise des gaz"
+],
+"modifie": true,
+"raison": "ajout xrefs + variantes"
+},
+"dépression": {
+"definition": "Zone de basse pression (centre « B » sur les cartes). Vent antihoraire et ascendant dans l'hémisphère nord: temps perturbé, plafonds bas, pluie. Un QNH qui chute de 10 hPa, ça se voit sur ton altimètre.",
+"categorie": "Météo",
+"variantes": [
+"dépressions",
+"basse pression",
+"zone dépressionnaire"
+],
+"synonymes": [
+"basse pression",
+"zone dépressionnaire"
+],
+"xrefs": [
+"isobare",
+"hPa",
+"plafond",
+"front froid"
+],
+"modifie": true,
+"raison": "ajout xrefs + variantes"
+},
+"dérive": {
+"definition": "Angle entre l'axe de l'avion et sa trajectoire au sol, créé par le vent de travers. On la compense en mettant le nez au vent: « cap = route + correction de dérive ».",
+"categorie": "Navigation",
+"variantes": [
+"dérives",
+"angle de dérive",
+"drift"
+],
+"synonymes": [
+"angle de dérive"
+],
+"xrefs": [
+"vent de travers",
+"cap magnétique",
+"décrabage",
+"route magnétique"
+],
+"modifie": true,
+"raison": "ajout xrefs + variantes"
+},
+"facteur de charge": {
+"definition": "Rapport portance / masse: 1 en vol rectiligne stabilisé, 2 en virage à 60°. La vitesse de décrochage augmente avec sa racine carrée — à 60° d'inclinaison, Vs monte de 41 %.",
+"categorie": "Aérodynamique",
+"variantes": [
+"facteurs de charge",
+"facteur de charge g",
+"facteur g",
+"load factor"
+],
+"synonymes": [
+"load factor"
+],
+"xrefs": [
+"décrochage",
+"vitesse de décrochage",
+"assiette"
+],
+"modifie": true,
+"raison": "ajout xrefs + variantes"
+},
+"finale": {
+"definition": "Dernière branche du tour de piste, alignée sur l'axe. Elle exige de stabiliser la vitesse et le plan de descente, de gérant le vent de travers et de décider d'une remise des gaz si nécessaire.",
+"categorie": "Aérodrome & cartes",
+"variantes": [
+"final",
+"finales",
+"final approach"
+],
+"synonymes": [
+"final"
+],
+"xrefs": [
+"tour de piste",
+"décrabage",
+"remise des gaz",
+"courte finale",
+"longue finale",
+"arrondi"
+],
+"modifie": true,
+"raison": "condesee de 65 a 37 mots"
+},
+"finesse": {
+"definition": "Rapport distance parcourue / hauteur perdue moteur coupé. Une finesse de 12, c'est 12 km planés par 1000 m perdu: c'est elle qui décide si ton point d'aboutissement est atteignable.",
+"categorie": "Vitesses & performances",
+"variantes": [
+"finesses",
+"finesse max",
+"glide ratio"
+],
+"synonymes": [
+"glide ratio"
+],
+"xrefs": [
+"vitesse de décrochage",
+"vol plané",
+"pente de descente"
+],
+"modifie": true,
+"raison": "ajout xrefs + variantes"
+},
+"front chaud": {
+"definition": "Limite où l'air chaud glisse au-dessus de l'air froid. Dégradation lente et insidieuse: plafond qui descend, pluie continue, visibilité qui pourrit sur des centaines de kilomètres.",
+"categorie": "Météo",
+"variantes": [
+"fronts chauds",
+"warm front"
+],
+"synonymes": [
+"warm front"
+],
+"xrefs": [
+"front froid",
+"occlusion",
+"plafond",
+"visibilité"
+],
+"modifie": true,
+"raison": "ajout xrefs + variantes"
+},
+"front froid": {
+"definition": "Limite où l'air froid pousse l'air chaud. Passage net: grains, rafales, bascule du vent, puis amélioration franche. C'est le TEMPO du TAF qu'il faut lire avec attention.",
+"categorie": "Météo",
+"variantes": [
+"fronts froids",
+"cold front"
+],
+"synonymes": [
+"cold front"
+],
+"xrefs": [
+"front chaud",
+"occlusion",
+"plafond",
+"rafale"
+],
+"modifie": true,
+"raison": "ajout xrefs + variantes"
+},
+"ft": {
+"definition": "Foot / feet — pied: unité d'altitude et de hauteur en aviation (1 ft = 0,3048 m). Les hauteurs, altitudes et niveaux de vol parlent en pieds, pas en mètres.",
+"categorie": "Unités",
+"variantes": [
+"FT",
+"pied",
+"pieds",
+"feet",
+"foot"
+],
+"synonymes": [
+"pied"
+],
+"xrefs": [
+"niveau de vol",
+"hPa",
+"plafond"
+],
+"modifie": true,
+"raison": "retrait HTML + condesee de 34 a 29 mots"
+},
+"föhn": {
+"definition": "Vent chaud et sec dévalant le versant sous le vent d'un relief. Il annonce l'onde de montagne: rabattants violents, rotor, pression perturbée. Minima VFR respectés ne veut pas dire GO.",
+"categorie": "Vent",
+"variantes": [
+"foehn",
+"effet de föhn",
+"foehn wind"
+],
+"synonymes": [
+"foehn"
+],
+"xrefs": [
+"onde de relief",
+"rafale",
+"vent traversier"
+],
+"modifie": true,
+"raison": "ajout xrefs + variantes"
+},
+"girouette": {
+"definition": "Dispositif s'orientant face au vent pour indiquer sa provenance. En aviation, le vent est défini par son origine (ex. 270° pour un vent d'ouest). Un avion au sol tend à s'aligner face au vent.",
+"categorie": "Vent",
+"variantes": [
+"girouettes",
+"effet girouette"
+],
+"synonymes": null,
+"xrefs": [
+"manche à air",
+"rose des vents",
+"vent de face"
+],
+"modifie": true,
+"raison": "condesee de 50 a 37 mots"
+},
+"hPa": {
+"definition": "Hectopascal: unité de pression atmosphérique du QNH/QFE (1 hPa = 1 mbar). Le calage standard vaut 1013,25 hPa. Ne pas confondre avec l'inHg (pouces de mercure, usage US).",
+"categorie": "Unités",
+"variantes": [
+"HPA",
+"hectopascal",
+"hectopascals",
+"mbar",
+"hectopascals hPa"
+],
+"synonymes": [
+"hectopascal",
+"millibar"
+],
+"xrefs": [
+"calage standard",
+"QNH",
+"dépression",
+"ft"
+],
+"modifie": true,
+"raison": "retrait HTML + condesee de 31 a 30 mots"
+},
+"inertie": {
+"definition": "Tendance de l'avion à conserver son mouvement: plus il est lourd et rapide, plus il met de temps et de distance à changer d'état. C'est pourquoi une correction tardive en finale par vent de travers ne « rattrape » pas instantanément la trajectoire.",
+"categorie": "Aérodynamique",
+"variantes": [
+"inertiel",
+"inertielle",
+"inerties"
+],
+"synonymes": null,
+"xrefs": [
+"énergie cinétique",
+"décrabage",
+"vent traversier"
+],
+"modifie": true,
+"raison": "ajout xrefs + variantes"
+},
+"intégration": {
+"definition": "Manière de rejoindre un tour de piste depuis l'extérieur en suivant la carte VAC (points d'entrée, hauteur, sens). L'objectif est d'être prévisible en annonçant ses intentions à la radio.",
+"categorie": "Aérodrome & cartes",
+"variantes": [
+"intégrations",
+"s'intégrer",
+"intégration au tour de piste",
+"intégration verticale"
+],
+"synonymes": null,
+"xrefs": [
+"tour de piste",
+"verticale terrain",
+"VAC",
+"vent arrière"
+],
+"modifie": true,
+"raison": "retrait HTML + condesee de 77 a 33 mots"
+},
+"inversion": {
+"definition": "Couche où la température augmente avec l'altitude au lieu de diminuer. Couvercle stable: elle piège brume et pollution en dessous, et marque souvent le haut de la couche turbulente.",
+"categorie": "Météo",
+"variantes": [
+"inversions",
+"inversion de température",
+"couche d'inversion"
+],
+"synonymes": [
+"inversion de température"
+],
+"xrefs": [
+"plafond",
+"visibilité",
+"isobare"
+],
+"modifie": true,
+"raison": "ajout xrefs + variantes"
+},
+"isobare": {
+"definition": "Ligne d'égale pression sur une carte météo. Des isobares serrées = gradient de pression fort = vent fort. C'est la première chose à regarder sur la carte du jour.",
+"categorie": "Météo",
+"variantes": [
+"isobares",
+"ligne isobare"
+],
+"synonymes": [
+"ligne isobare"
+],
+"xrefs": [
+"vent",
+"dépression",
+"calage standard"
+],
+"modifie": true,
+"raison": "ajout xrefs + variantes"
+},
+"kt": {
+"definition": "Knot — nœud: unité de vitesse de l'air et du vent (1 kt = 1,852 km/h). Utilisée pour l'anémomètre, les performances et l'ATIS. Convertir 15 kt en 15 km/h sous-estime le vent d'un facteur ~2.",
+"categorie": "Unités",
+"variantes": [
+"KT",
+"kts",
+"KTS",
+"nœud",
+"nœuds",
+"noeud",
+"noeuds",
+"knot",
+"knots"
+],
+"synonymes": [
+"nœud",
+"knot"
+],
+"xrefs": [
+"vitesses caractéristiques",
+"vent",
+"rafale"
+],
+"modifie": true,
+"raison": "retrait HTML + condesee de 53 a 41 mots"
+},
+"longue finale": {
+"definition": "Première partie de la finale, éloignée du seuil, débutant dès l'alignement sur l'axe. On y stabilise l'axe, la vitesse et le plan de descente, puis on l'annonce à la radio.",
+"categorie": "Aérodrome & cartes",
+"variantes": [
+"longues finales",
+"long final"
+],
+"synonymes": [
+"long final"
+],
+"xrefs": [
+"finale",
+"courte finale",
+"intégration",
+"alignement"
+],
+"modifie": true,
+"raison": "condesee de 71 a 34 mots"
+},
+"manche à air": {
+"definition": "Cône en tissu au bord de piste indiquant le vent réel au sol. Gonflée à l'horizontale, elle indique au moins 15 kt (molle ≈ 5 kt). Elle prime sur tout METAR.",
+"categorie": "Aérodrome & cartes",
+"variantes": [
+"manches à air",
+"biroute",
+"wind indicator"
+],
+"synonymes": [
+"biroute",
+"wind indicator"
+],
+"xrefs": [
+"vent traversier",
+"piste",
+"girouette"
+],
+"modifie": true,
+"raison": "retrait HTML + condesee de 46 a 31 mots"
+},
+"montée initiale": {
+"definition": "Phase de montée rectiligne qui suit le décollage. On y tient l'axe de piste et la vitesse (Vy), tout en surveillant les options d'atterrissage d'urgence en cas de panne.",
+"categorie": "Aérodrome & cartes",
+"variantes": [
+"montées initiales",
+"montée initiale dans l'axe",
+"initial climb"
+],
+"synonymes": [
+"initial climb"
+],
+"xrefs": [
+"décollage",
+"vent traversier",
+"tour de piste",
+"Vy"
+],
+"modifie": true,
+"raison": "condesee de 69 a 32 mots"
+},
+"niveau de vol": {
+"definition": "Altitude-pression exprimée en centaines de pieds, calage 1013,25 hPa: FL45 = 4500 ft altitude-pression. Utilisé en croisière au-dessus de l'altitude de transition.",
+"categorie": "Altimétrie",
+"variantes": [
+"niveaux de vol",
+"FL",
+"flight level"
+],
+"synonymes": [
+"FL"
+],
+"xrefs": [
+"altitude-pression",
+"calage standard",
+"altitude de transition"
+],
+"modifie": false,
+"raison": "conforme"
+},
+"nord magnétique": {
+"definition": "Direction vers le pôle magnétique indiquée par le compas. Les caps et les QFU sont magnétiques, tandis que le vent du METAR est vrai; mélanger les deux fausse le calcul du vent de travers.",
+"categorie": "Navigation",
+"variantes": [
+"Nord magnétique",
+"nord Magnétique",
+"pole nord magnétique",
+"magnetic north"
+],
+"synonymes": [
+"magnetic north"
+],
+"xrefs": [
+"nord vrai",
+"déclinaison magnétique",
+"QFU",
+"cap magnétique"
+],
+"modifie": true,
+"raison": "retrait HTML + condesee de 44 a 34 mots"
+},
+"nord vrai": {
+"definition": "Direction du pôle Nord géographique, référence des méridiens de la carte. Le vent des messages METAR/TAF est donné en degrés vrais, contrairement au vent de la tour de contrôle, qui est magnétique.",
+"categorie": "Navigation",
+"variantes": [
+"Nord vrai",
+"nord géographique",
+"nord Vrai",
+"pole nord géographique",
+"true north"
+],
+"synonymes": [
+"nord géographique",
+"true north"
+],
+"xrefs": [
+"nord magnétique",
+"déclinaison magnétique",
+"cap vrai"
+],
+"modifie": true,
+"raison": "retrait HTML + condesee de 34 a 33 mots"
+},
+"occlusion": {
+"definition": "Front froid qui rattrape le front chaud: les deux systèmes fusionnent. Restes de pluie, plafonds bas, traînées — un occlus qui traîne sur l'Île-de-France peut pourrir toute une journée.",
+"categorie": "Météo",
+"variantes": [
+"occlusions",
+"front occlus"
+],
+"synonymes": [
+"front occlus"
+],
+"xrefs": [
+"front chaud",
+"front froid",
+"plafond",
+"visibilité"
+],
+"modifie": true,
+"raison": "ajout xrefs + variantes"
+},
+"octas": {
+"definition": "Huitièmes de ciel couvert: FEW 1-2 octas, SCT 3-4, BKN 5-7, OVC 8/8. Le plafond, c'est la première couche BKN ou OVC. Une couverture SCT n'est donc jamais un plafond.",
+"categorie": "Météo",
+"variantes": [
+"oktas",
+"okta",
+"octa"
+],
+"synonymes": [
+"okta"
+],
+"xrefs": [
+"plafond",
+"visibilité",
+"METAR"
+],
+"modifie": true,
+"raison": "ajout xrefs + variantes"
+},
+"onde de relief": {
+"definition": "Ondulation de l'air en aval d'un relief par vent fort et stable, matérialisée par les lenticularis. Ascendances douces côté vent, rabattants et rotor côté sous le vent: marge verticale obligatoire.",
+"categorie": "Vent",
+"variantes": [
+"ondes de relief",
+"onde de montagne",
+"mountain wave"
+],
+"synonymes": [
+"onde de montagne",
+"mountain wave"
+],
+"xrefs": [
+"föhn",
+"rafale",
+"vent traversier",
+"rotor"
+],
+"modifie": true,
+"raison": "ajout xrefs + variantes"
+},
+"piste": {
+"definition": "Bande aménagée pour le décollage et l'atterrissage, désignée par son QFU arrondi à la dizaine de degrés (ex. piste 07 et 25). Elle s'utilise face au vent pour réduire la vitesse sol au décollage et à l'atterrissage.",
+"categorie": "Aérodrome & cartes",
+"variantes": [
+"pistes",
+"runway"
+],
+"synonymes": [
+"runway"
+],
+"xrefs": [
+"QFU",
+"seuil de piste",
+"tour de piste",
+"vent de face",
+"composante de travers"
+],
+"modifie": true,
+"raison": "retrait HTML + condesee de 82 a 40 mots"
+},
+"plafond": {
+"definition": "Hauteur au-dessus du sol de la première couche nuageuse BKN ou OVC (5 octas et plus). C'est lui qui fixe ta hauteur de circuit et ta marge sous les nuages.",
+"categorie": "Météo",
+"variantes": [
+"plafonds",
+"ceiling"
+],
+"synonymes": [
+"ceiling"
+],
+"xrefs": [
+"octas",
+"visibilité",
+"tour de piste",
+"VFR"
+],
+"modifie": true,
+"raison": "ajout xrefs + variantes"
+},
+"point de rosée": {
+"definition": "Température à laquelle l'air devient saturé en refroidissant. L'écart température/point de rosée te donne la base des cumulus (≈ 400 ft par degré d'écart) et annonce brume ou brouillard quand il se resserre.",
+"categorie": "Météo",
+"variantes": [
+"points de rosée",
+"point de rosee",
+"dew point"
+],
+"synonymes": [
+"dew point"
+],
+"xrefs": [
+"visibilité",
+"plafond",
+"température",
+"brouillard"
+],
+"modifie": true,
+"raison": "ajout xrefs + variantes"
+},
+"rafale": {
+"definition": "Renforcement brutal et bref du vent. Dans un METAR, 14G24KT = moyen 14 kt, rafales 24 kt: l'écart de 10 kt signe une journée turbulente et majore la vitesse d'approche.",
+"categorie": "Vent",
+"variantes": [
+"rafales",
+"gust"
+],
+"synonymes": [
+"gust"
+],
+"xrefs": [
+"vent traversier",
+"cisaillement",
+"vent gradient"
+],
+"modifie": true,
+"raison": "retrait HTML + condesee de 33 a 31 mots"
+},
+"remise des gaz": {
+"definition": "Manœuvre de sécurité consistant à interrompre l'atterrissage en appliquant la pleine puissance pour reprendre de l'altitude. Décidée sans hésitation dès que l'approche n'est pas stabilisée, elle n'est jamais un échec.",
+"categorie": "Aérodrome & cartes",
+"variantes": [
+"remises des gaz",
+"remise de gaz",
+"remises de gaz",
+"remettre les gaz",
+"remis les gaz",
+"go around",
+"go-around",
+"goaround"
+],
+"synonymes": [
+"go around",
+"go-around"
+],
+"xrefs": [
+"finale",
+"courte finale",
+"tour de piste",
+"approche stabilisée"
+],
+"modifie": true,
+"raison": "retrait HTML + condesee de 53 a 35 mots"
+},
+"rose des vents": {
+"definition": "Cercle gradué de 0 à 360° servant à lire une direction. En aéronautique, 360 = nord, 090 = est, 180 = sud, 270 = ouest, et une direction de vent se lit toujours comme la provenance.",
+"categorie": "Navigation",
+"variantes": [
+"roses des vents",
+"compas rose"
+],
+"synonymes": null,
+"xrefs": [
+"cap magnétique",
+"QFU",
+"vent"
+],
+"modifie": true,
+"raison": "ajout xrefs + variantes"
+},
+"roulage": {
+"definition": "Déplacement de l'avion au sol par ses propres moyens, entre le parking et la piste. Par vent fort, on braque le manche pour empêcher le vent de soulever une aile — c'est là que beaucoup d'incidents au sol se produisent.",
+"categorie": "Aérodrome & cartes",
+"variantes": [
+"rouler",
+"taxi",
+"taxiway",
+"taxiing"
+],
+"synonymes": [
+"taxi"
+],
+"xrefs": [
+"piste",
+"vent traversier",
+"manche à air",
+"roulement"
+],
+"modifie": true,
+"raison": "ajout xrefs + variantes"
+},
+"roulement": {
+"definition": "Phase au sol d'un décollage (accélération jusqu'à l'envol) ou d'un atterrissage (toucher jusqu'à l'arrêt). Il consomme la longueur de piste et dépend directement du vent et de l'état de surface.",
+"categorie": "Aérodrome & cartes",
+"variantes": [
+"rouements",
+"roulements",
+"roulement au décollage",
+"roulement à l'atterrissage"
+],
+"synonymes": null,
+"xrefs": [
+"décollage",
+"roulage",
+"composante arrière",
+"arrondi"
+],
+"modifie": true,
+"raison": "retrait HTML + condesee de 91 a 37 mots"
+},
+"secteur variable": {
+"definition": "Vent dont la direction oscille (ex. 240V300 dans un METAR). Le calcul du vent de travers doit prendre en compte l'extrême du secteur et les rafales, pas seulement la moyenne.",
+"categorie": "Vent",
+"variantes": [
+"secteurs variables",
+"vent variable",
+"variable"
+],
+"synonymes": [
+"vent variable"
+],
+"xrefs": [
+"composante de travers",
+"rafale",
+"vent"
+],
+"modifie": true,
+"raison": "retrait HTML + condesee de 48 a 31 mots"
+},
+"seuil de piste": {
+"definition": "Début de la partie de piste utilisable à l'atterrissage, matérialisé par de larges bandes blanches parallèles (peigne). Le numéro peint indique le QFU arrondi à la dizaine de degrés.",
+"categorie": "Aérodrome & cartes",
+"variantes": [
+"seuil",
+"seuils",
+"seuils de piste",
+"seuil décalé",
+"runway threshold"
+],
+"synonymes": [
+"seuil"
+],
+"xrefs": [
+"QFU",
+"piste",
+"courte finale",
+"toucher"
+],
+"modifie": true,
+"raison": "retrait HTML + condesee de 44 a 30 mots"
+},
+"tour de piste": {
+"definition": "Circuit rectangulaire autour de la piste pour préparer l'atterrissage. Ses cinq branches sont: montée initiale, vent traversier, vent arrière, étape de base et finale. Hauteur et sens sont définis par la VAC.",
+"categorie": "Aérodrome & cartes",
+"variantes": [
+"tours de piste",
+"circuit d'aérodrome",
+"circuit de piste",
+"traffic pattern"
+],
+"synonymes": [
+"circuit d'aérodrome"
+],
+"xrefs": [
+"vent arrière",
+"étape de base",
+"finale",
+"remise des gaz"
+],
+"modifie": true,
+"raison": "retrait HTML + condesee de 49 a 33 mots"
+},
+"vent arrière": {
+"definition": "Branche du tour de piste parallèle à la piste, en sens inverse de l'atterrissage. On y effectue la préparation machine, l'annonce radio et l'espacement visuel avec les autres aéronefs.",
+"categorie": "Aérodrome & cartes",
+"variantes": [
+"branche vent arrière",
+"vent-arrière",
+"downwind",
+"downwind leg"
+],
+"synonymes": [
+"downwind"
+],
+"xrefs": [
+"tour de piste",
+"étape de base",
+"composante arrière"
+],
+"modifie": true,
+"raison": "retrait HTML + condesee de 102 a 32 mots"
+},
+"vent de face": {
+"definition": "Vent soufflant de l'avant dans l'axe de la piste. Il est favorable car il réduit la vitesse sol, raccourcissant le décollage et l'atterrissage. On l'évalue par sa composante de face.",
+"categorie": "Vent",
+"variantes": [
+"vents de face",
+"de face",
+"face au vent",
+"headwind"
+],
+"synonymes": [
+"headwind"
+],
+"xrefs": [
+"composante de face",
+"composante arrière",
+"composante de travers",
+"QFU"
+],
+"modifie": true,
+"raison": "retrait HTML + condesee de 74 a 34 mots"
+},
+"vent gradient": {
+"definition": "Variation du vent avec la hauteur près du sol: il faiblit et tourne en descendant vers la piste. En courte finale, la perte de composante de face fait fondre le badin — d'où la majoration pour rafales.",
+"categorie": "Vent",
+"variantes": [
+"gradient de vent",
+"wind gradient"
+],
+"synonymes": [
+"gradient de vent"
+],
+"xrefs": [
+"vent de face",
+"courte finale",
+"remise des gaz"
+],
+"modifie": true,
+"raison": "ajout xrefs + variantes"
+},
+"vent traversier": {
+"definition": "Branche du tour de piste perpendiculaire à la piste, après la montée initiale. Très courte, on y termine la montée et surveille le trafic avant le virage en vent arrière.",
+"categorie": "Aérodrome & cartes",
+"variantes": [
+"branche vent traversier",
+"crosswind leg",
+"traversier"
+],
+"synonymes": [
+"crosswind leg"
+],
+"xrefs": [
+"tour de piste",
+"montée initiale",
+"vent arrière",
+"composante de travers"
+],
+"modifie": true,
+"raison": "retrait HTML + condesee de 84 a 30 mots"
+},
+"verticale terrain": {
+"definition": "Passage au-dessus du circuit de piste pour observer les installations (manche à air, piste active, trafic). C'est l'intégration standard en l'absence d'information radio ou sur terrain inconnu.",
+"categorie": "Aérodrome & cartes",
+"variantes": [
+"verticale du terrain",
+"verticale de terrain",
+"verticale",
+"overhead join"
+],
+"synonymes": [
+"overhead join"
+],
+"xrefs": [
+"intégration",
+"tour de piste",
+"manche à air",
+"VAC"
+],
+"modifie": true,
+"raison": "condesee de 82 a 32 mots"
+},
+"visibilité": {
+"definition": "Distance à laquelle tu distingues les repères au sol. En France, le VFR en vol contrôlé exige classiquement 5 km (moins dans certains espaces): sous les minima, c'est NO GO, sans discussion.",
+"categorie": "Météo",
+"variantes": [
+"visibilités",
+"visibility"
+],
+"synonymes": [
+"visibility"
+],
+"xrefs": [
+"plafond",
+"front chaud",
+"inversion",
+"VFR"
+],
+"modifie": true,
+"raison": "ajout xrefs + variantes"
+},
+"vitesse de décrochage": {
+"definition": "Vitesse minimale d'envol ou de sustentation. Elle varie selon la configuration (VS0 en configuration d'atterrissage, VS1 en lisse) et augmente directement avec la masse et le facteur de charge.",
+"categorie": "Vitesses & performances",
+"variantes": [
+"Vs",
+"VS",
+"vs",
+"V S",
+"vitesses de décrochage",
+"vitesse de decrochage",
+"stall speed"
+],
+"synonymes": [
+"Vs"
+],
+"xrefs": [
+"VS0",
+"VS1",
+"décrochage",
+"facteur de charge",
+"vitesses caractéristiques"
+],
+"modifie": true,
+"raison": "retrait HTML + condesee de 71 a 31 mots"
+},
+"vitesses caractéristiques": {
+"definition": "Vitesses repères d'un avion lues sur l'anémomètre. Seul le manuel de vol de l'appareil fait foi.",
+"categorie": "Vitesses & performances",
+"variantes": [
+"famille des vitesses",
+"vitesses caractéristique",
+"les V",
+"vitesses repères",
+"V-speeds"
+],
+"synonymes": [
+"V-speeds"
+],
+"xrefs": [
+"VNE",
+"VNO",
+"VA",
+"VFE",
+"VS0",
+"VS1",
+"IAS",
+"manuel de vol"
+],
+"modifie": true,
+"raison": "retrait HTML + condesee de 58 a 36 mots"
+},
+"°": {
+"definition": "Degré d'angle: direction du vent, cap, QFU, θ (angle vent–piste). Un QFU s'écrit en dizaines de degrés (25 = 250°); un vent METAR est en degrés vrais sur 360.",
+"categorie": "Unités",
+"variantes": [
+"degré",
+"degrés",
+"deg"
+],
+"synonymes": [
+"degré"
+],
+"xrefs": [
+"rose des vents",
+"cap magnétique",
+"QFU",
+"θ"
+],
+"modifie": true,
+"raison": "ajout xrefs + variantes"
+},
+"°C": {
+"definition": "Degré Celsius: unité de température du METAR (T/Td) et des tables de performances. En ISA, 15 °C au niveau de la mer, −2 °C par 1000 ft.",
+"categorie": "Unités",
+"variantes": [
+"° C",
+"deg C",
+"degrés Celsius",
+"degré Celsius"
+],
+"synonymes": null,
+"xrefs": [
+"point de rosée",
+"altitude-densité",
+"température",
+"ISA"
+],
+"modifie": true,
+"raison": "ajout xrefs + variantes"
+},
+"énergie cinétique": {
+"definition": "Énergie liée à la vitesse de l'avion, croissant avec son carré. Arriver 10 % trop vite au toucher représente 20 % d'énergie supplémentaire à dissiper, ce qui rallonge nettement la distance d'arrêt.",
+"categorie": "Aérodynamique",
+"variantes": [
+"énergie cinétiques",
+"kinetic energy"
+],
+"synonymes": [
+"kinetic energy"
+],
+"xrefs": [
+"inertie",
+"roulement",
+"vitesse de décrochage"
+],
+"modifie": true,
+"raison": "retrait HTML + condesee de 43 a 33 mots"
+},
+"étape de base": {
+"definition": "Branche du tour de piste perpendiculaire à la piste, entre le vent arrière et la finale. On y prépare l'avion (volets, vitesse) et descend vers le dernier virage.",
+"categorie": "Aérodrome & cartes",
+"variantes": [
+"base",
+"branche de base",
+"étapes de base",
+"étape base",
+"base leg"
+],
+"synonymes": [
+"base",
+"branche de base"
+],
+"xrefs": [
+"tour de piste",
+"finale",
+"dernier virage",
+"vent arrière"
+],
+"modifie": true,
+"raison": "condesee de 67 a 29 mots"
+},
+"θ": {
+"definition": "Écart angulaire entre l'axe de la piste (QFU) et la provenance du vent. Utilisé pour évaluer mentalement la composante de face (V × cos θ) et de travers (V × sin θ).",
+"categorie": "Vent",
+"variantes": [
+"theta",
+"angle vent-piste",
+"écart angulaire",
+"angle theta"
+],
+"synonymes": [
+"angle vent–piste"
+],
+"xrefs": [
+"composante de face",
+"composante de travers"
+],
+"modifie": true,
+"raison": "condesee de 67 a 31 mots"
+}
+}
+}

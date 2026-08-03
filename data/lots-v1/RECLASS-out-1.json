@@ -1,0 +1,2515 @@
+{
+  "lot": 1,
+  "termes": {
+    "AAL": {
+      "categorie": "Altimétrie",
+      "famille": "references_verticales",
+      "membres_famille": [
+        "AMSL",
+        "agl",
+        "alt"
+      ],
+      "colonnes_tableau": [
+        "Référence verticale",
+        "Définition",
+        "Indication instrumentale"
+      ],
+      "schema": false
+    },
+    "AIP": {
+      "categorie": "Réglementation & docs",
+      "famille": null,
+      "membres_famille": [],
+      "colonnes_tableau": [],
+      "schema": false
+    },
+    "AIRAC": {
+      "categorie": "Réglementation & docs",
+      "famille": null,
+      "membres_famille": [],
+      "colonnes_tableau": [],
+      "schema": false
+    },
+    "AMSL": {
+      "categorie": "Altimétrie",
+      "famille": "references_verticales",
+      "membres_famille": [
+        "AAL",
+        "agl",
+        "alt"
+      ],
+      "colonnes_tableau": [
+        "Référence verticale",
+        "Définition",
+        "Indication instrumentale"
+      ],
+      "schema": false
+    },
+    "ASDA": {
+      "categorie": "Aérodrome & cartes",
+      "famille": "dimensions_piste",
+      "membres_famille": [
+        "LDA",
+        "TODA",
+        "TORA"
+      ],
+      "colonnes_tableau": [
+        "Sigle",
+        "Nom complet",
+        "Signification pour le pilote"
+      ],
+      "schema": true
+    },
+    "ATIS": {
+      "categorie": "Aérodrome & cartes",
+      "famille": null,
+      "membres_famille": [],
+      "colonnes_tableau": [],
+      "schema": false
+    },
+    "AUTO": {
+      "categorie": "Météo",
+      "famille": "messages_meteo",
+      "membres_famille": [
+        "BECMG",
+        "CAVOK",
+        "METAR",
+        "NOSIG",
+        "NSW",
+        "PROB30",
+        "PROB40",
+        "RMK",
+        "SPECI",
+        "TAF",
+        "TEMPO"
+      ],
+      "colonnes_tableau": [
+        "Code",
+        "Signification",
+        "Exemple d'utilisation"
+      ],
+      "schema": false
+    },
+    "BECMG": {
+      "categorie": "Météo",
+      "famille": "messages_meteo",
+      "membres_famille": [
+        "AUTO",
+        "CAVOK",
+        "METAR",
+        "NOSIG",
+        "NSW",
+        "PROB30",
+        "PROB40",
+        "RMK",
+        "SPECI",
+        "TAF",
+        "TEMPO"
+      ],
+      "colonnes_tableau": [
+        "Code",
+        "Signification",
+        "Exemple d'utilisation"
+      ],
+      "schema": false
+    },
+    "CAVOK": {
+      "categorie": "Météo",
+      "famille": "messages_meteo",
+      "membres_famille": [
+        "AUTO",
+        "BECMG",
+        "METAR",
+        "NOSIG",
+        "NSW",
+        "PROB30",
+        "PROB40",
+        "RMK",
+        "SPECI",
+        "TAF",
+        "TEMPO"
+      ],
+      "colonnes_tableau": [
+        "Code",
+        "Signification",
+        "Exemple d'utilisation"
+      ],
+      "schema": false
+    },
+    "CB": {
+      "categorie": "Météo",
+      "famille": "nuages",
+      "membres_famille": [
+        "TCU",
+        "altocumulus",
+        "altostratus",
+        "base des nuages",
+        "calvus",
+        "castellanus",
+        "cirrostratus"
+      ],
+      "colonnes_tableau": [
+        "Genre / Espèce",
+        "Altitude moyenne",
+        "Risques associés (turbulence, givrage)"
+      ],
+      "schema": true
+    },
+    "CTR": {
+      "categorie": "Aérodrome & cartes",
+      "famille": "espaces_aeriens",
+      "membres_famille": [
+        "TMA",
+        "atz"
+      ],
+      "colonnes_tableau": [
+        "Type d'espace",
+        "Réglementation",
+        "Services rendus"
+      ],
+      "schema": false
+    },
+    "GO/NO GO": {
+      "categorie": "Réglementation & docs",
+      "famille": null,
+      "membres_famille": [],
+      "colonnes_tableau": [],
+      "schema": false
+    },
+    "GS": {
+      "categorie": "Vitesses & performances",
+      "famille": "mesures_vitesse",
+      "membres_famille": [
+        "IAS",
+        "TAS",
+        "cas"
+      ],
+      "colonnes_tableau": [
+        "Type de vitesse",
+        "Signification",
+        "Correction appliquée"
+      ],
+      "schema": false
+    },
+    "IAS": {
+      "categorie": "Vitesses & performances",
+      "famille": "mesures_vitesse",
+      "membres_famille": [
+        "GS",
+        "TAS",
+        "cas"
+      ],
+      "colonnes_tableau": [
+        "Type de vitesse",
+        "Signification",
+        "Correction appliquée"
+      ],
+      "schema": false
+    },
+    "IFR": {
+      "categorie": "Réglementation & docs",
+      "famille": null,
+      "membres_famille": [],
+      "colonnes_tableau": [],
+      "schema": false
+    },
+    "IMC": {
+      "categorie": "Réglementation & docs",
+      "famille": null,
+      "membres_famille": [],
+      "colonnes_tableau": [],
+      "schema": false
+    },
+    "ISA": {
+      "categorie": "Météo",
+      "famille": null,
+      "membres_famille": [],
+      "colonnes_tableau": [],
+      "schema": false
+    },
+    "LDA": {
+      "categorie": "Aérodrome & cartes",
+      "famille": "dimensions_piste",
+      "membres_famille": [
+        "ASDA",
+        "TODA",
+        "TORA"
+      ],
+      "colonnes_tableau": [
+        "Sigle",
+        "Nom complet",
+        "Signification pour le pilote"
+      ],
+      "schema": true
+    },
+    "METAR": {
+      "categorie": "Météo",
+      "famille": "messages_meteo",
+      "membres_famille": [
+        "AUTO",
+        "BECMG",
+        "CAVOK",
+        "NOSIG",
+        "NSW",
+        "PROB30",
+        "PROB40",
+        "RMK",
+        "SPECI",
+        "TAF",
+        "TEMPO"
+      ],
+      "colonnes_tableau": [
+        "Code",
+        "Signification",
+        "Exemple d'utilisation"
+      ],
+      "schema": false
+    },
+    "NM": {
+      "categorie": "Unités",
+      "famille": null,
+      "membres_famille": [],
+      "colonnes_tableau": [],
+      "schema": false
+    },
+    "NOSIG": {
+      "categorie": "Météo",
+      "famille": "messages_meteo",
+      "membres_famille": [
+        "AUTO",
+        "BECMG",
+        "CAVOK",
+        "METAR",
+        "NSW",
+        "PROB30",
+        "PROB40",
+        "RMK",
+        "SPECI",
+        "TAF",
+        "TEMPO"
+      ],
+      "colonnes_tableau": [
+        "Code",
+        "Signification",
+        "Exemple d'utilisation"
+      ],
+      "schema": false
+    },
+    "NOTAM": {
+      "categorie": "Réglementation & docs",
+      "famille": null,
+      "membres_famille": [],
+      "colonnes_tableau": [],
+      "schema": false
+    },
+    "NSW": {
+      "categorie": "Météo",
+      "famille": "messages_meteo",
+      "membres_famille": [
+        "AUTO",
+        "BECMG",
+        "CAVOK",
+        "METAR",
+        "NOSIG",
+        "PROB30",
+        "PROB40",
+        "RMK",
+        "SPECI",
+        "TAF",
+        "TEMPO"
+      ],
+      "colonnes_tableau": [
+        "Code",
+        "Signification",
+        "Exemple d'utilisation"
+      ],
+      "schema": false
+    },
+    "POH": {
+      "categorie": "Réglementation & docs",
+      "famille": "documents_bord",
+      "membres_famille": [
+        "carnet de route"
+      ],
+      "colonnes_tableau": [
+        "Document",
+        "Description",
+        "Obligation réglementaire"
+      ],
+      "schema": false
+    },
+    "PROB30": {
+      "categorie": "Météo",
+      "famille": "messages_meteo",
+      "membres_famille": [
+        "AUTO",
+        "BECMG",
+        "CAVOK",
+        "METAR",
+        "NOSIG",
+        "NSW",
+        "PROB40",
+        "RMK",
+        "SPECI",
+        "TAF",
+        "TEMPO"
+      ],
+      "colonnes_tableau": [
+        "Code",
+        "Signification",
+        "Exemple d'utilisation"
+      ],
+      "schema": false
+    },
+    "PROB40": {
+      "categorie": "Météo",
+      "famille": "messages_meteo",
+      "membres_famille": [
+        "AUTO",
+        "BECMG",
+        "CAVOK",
+        "METAR",
+        "NOSIG",
+        "NSW",
+        "PROB30",
+        "RMK",
+        "SPECI",
+        "TAF",
+        "TEMPO"
+      ],
+      "colonnes_tableau": [
+        "Code",
+        "Signification",
+        "Exemple d'utilisation"
+      ],
+      "schema": false
+    },
+    "QFE": {
+      "categorie": "Altimétrie",
+      "famille": "calages_altimetriques",
+      "membres_famille": [
+        "QNE",
+        "QNH",
+        "calage altimétrique",
+        "calage standard"
+      ],
+      "colonnes_tableau": [
+        "Calage barométrique",
+        "Pression de référence",
+        "Indication de l'altimètre"
+      ],
+      "schema": true
+    },
+    "QFU": {
+      "categorie": "Aérodrome & cartes",
+      "famille": null,
+      "membres_famille": [],
+      "colonnes_tableau": [],
+      "schema": false
+    },
+    "QNE": {
+      "categorie": "Altimétrie",
+      "famille": "calages_altimetriques",
+      "membres_famille": [
+        "QFE",
+        "QNH",
+        "calage altimétrique",
+        "calage standard"
+      ],
+      "colonnes_tableau": [
+        "Calage barométrique",
+        "Pression de référence",
+        "Indication de l'altimètre"
+      ],
+      "schema": true
+    },
+    "QNH": {
+      "categorie": "Altimétrie",
+      "famille": "calages_altimetriques",
+      "membres_famille": [
+        "QFE",
+        "QNE",
+        "calage altimétrique",
+        "calage standard"
+      ],
+      "colonnes_tableau": [
+        "Calage barométrique",
+        "Pression de référence",
+        "Indication de l'altimètre"
+      ],
+      "schema": true
+    },
+    "RMK": {
+      "categorie": "Météo",
+      "famille": "messages_meteo",
+      "membres_famille": [
+        "AUTO",
+        "BECMG",
+        "CAVOK",
+        "METAR",
+        "NOSIG",
+        "NSW",
+        "PROB30",
+        "PROB40",
+        "SPECI",
+        "TAF",
+        "TEMPO"
+      ],
+      "colonnes_tableau": [
+        "Code",
+        "Signification",
+        "Exemple d'utilisation"
+      ],
+      "schema": false
+    },
+    "SPECI": {
+      "categorie": "Météo",
+      "famille": "messages_meteo",
+      "membres_famille": [
+        "AUTO",
+        "BECMG",
+        "CAVOK",
+        "METAR",
+        "NOSIG",
+        "NSW",
+        "PROB30",
+        "PROB40",
+        "RMK",
+        "TAF",
+        "TEMPO"
+      ],
+      "colonnes_tableau": [
+        "Code",
+        "Signification",
+        "Exemple d'utilisation"
+      ],
+      "schema": false
+    },
+    "TAF": {
+      "categorie": "Météo",
+      "famille": "messages_meteo",
+      "membres_famille": [
+        "AUTO",
+        "BECMG",
+        "CAVOK",
+        "METAR",
+        "NOSIG",
+        "NSW",
+        "PROB30",
+        "PROB40",
+        "RMK",
+        "SPECI",
+        "TEMPO"
+      ],
+      "colonnes_tableau": [
+        "Code",
+        "Signification",
+        "Exemple d'utilisation"
+      ],
+      "schema": false
+    },
+    "TAS": {
+      "categorie": "Vitesses & performances",
+      "famille": "mesures_vitesse",
+      "membres_famille": [
+        "GS",
+        "IAS",
+        "cas"
+      ],
+      "colonnes_tableau": [
+        "Type de vitesse",
+        "Signification",
+        "Correction appliquée"
+      ],
+      "schema": false
+    },
+    "TCU": {
+      "categorie": "Météo",
+      "famille": "nuages",
+      "membres_famille": [
+        "CB",
+        "altocumulus",
+        "altostratus",
+        "base des nuages",
+        "calvus",
+        "castellanus",
+        "cirrostratus"
+      ],
+      "colonnes_tableau": [
+        "Genre / Espèce",
+        "Altitude moyenne",
+        "Risques associés (turbulence, givrage)"
+      ],
+      "schema": true
+    },
+    "TEMPO": {
+      "categorie": "Météo",
+      "famille": "messages_meteo",
+      "membres_famille": [
+        "AUTO",
+        "BECMG",
+        "CAVOK",
+        "METAR",
+        "NOSIG",
+        "NSW",
+        "PROB30",
+        "PROB40",
+        "RMK",
+        "SPECI",
+        "TAF"
+      ],
+      "colonnes_tableau": [
+        "Code",
+        "Signification",
+        "Exemple d'utilisation"
+      ],
+      "schema": false
+    },
+    "TMA": {
+      "categorie": "Aérodrome & cartes",
+      "famille": "espaces_aeriens",
+      "membres_famille": [
+        "CTR",
+        "atz"
+      ],
+      "colonnes_tableau": [
+        "Type d'espace",
+        "Réglementation",
+        "Services rendus"
+      ],
+      "schema": false
+    },
+    "TODA": {
+      "categorie": "Aérodrome & cartes",
+      "famille": "dimensions_piste",
+      "membres_famille": [
+        "ASDA",
+        "LDA",
+        "TORA"
+      ],
+      "colonnes_tableau": [
+        "Sigle",
+        "Nom complet",
+        "Signification pour le pilote"
+      ],
+      "schema": true
+    },
+    "TORA": {
+      "categorie": "Aérodrome & cartes",
+      "famille": "dimensions_piste",
+      "membres_famille": [
+        "ASDA",
+        "LDA",
+        "TODA"
+      ],
+      "colonnes_tableau": [
+        "Sigle",
+        "Nom complet",
+        "Signification pour le pilote"
+      ],
+      "schema": true
+    },
+    "VA": {
+      "categorie": "Vitesses & performances",
+      "famille": "vitesses_caracteristiques",
+      "membres_famille": [
+        "VFE",
+        "VNE",
+        "VNO",
+        "VS0",
+        "VS1",
+        "Vapp",
+        "Vref",
+        "Vx",
+        "Vy"
+      ],
+      "colonnes_tableau": [
+        "Symbole",
+        "Signification",
+        "Repère anémomètre"
+      ],
+      "schema": false
+    },
+    "VAC": {
+      "categorie": "Aérodrome & cartes",
+      "famille": "cartes_aeronautiques",
+      "membres_famille": [
+        "carte",
+        "carte oaci",
+        "carte topographique",
+        "carte vac"
+      ],
+      "colonnes_tableau": [
+        "Type de carte",
+        "Échelle",
+        "Usage principal"
+      ],
+      "schema": true
+    },
+    "VFE": {
+      "categorie": "Vitesses & performances",
+      "famille": "vitesses_caracteristiques",
+      "membres_famille": [
+        "VA",
+        "VNE",
+        "VNO",
+        "VS0",
+        "VS1",
+        "Vapp",
+        "Vref",
+        "Vx",
+        "Vy"
+      ],
+      "colonnes_tableau": [
+        "Symbole",
+        "Signification",
+        "Repère anémomètre"
+      ],
+      "schema": false
+    },
+    "VFR": {
+      "categorie": "Réglementation & docs",
+      "famille": null,
+      "membres_famille": [],
+      "colonnes_tableau": [],
+      "schema": false
+    },
+    "VMC": {
+      "categorie": "Réglementation & docs",
+      "famille": null,
+      "membres_famille": [],
+      "colonnes_tableau": [],
+      "schema": false
+    },
+    "VNE": {
+      "categorie": "Vitesses & performances",
+      "famille": "vitesses_caracteristiques",
+      "membres_famille": [
+        "VA",
+        "VFE",
+        "VNO",
+        "VS0",
+        "VS1",
+        "Vapp",
+        "Vref",
+        "Vx",
+        "Vy"
+      ],
+      "colonnes_tableau": [
+        "Symbole",
+        "Signification",
+        "Repère anémomètre"
+      ],
+      "schema": false
+    },
+    "VNO": {
+      "categorie": "Vitesses & performances",
+      "famille": "vitesses_caracteristiques",
+      "membres_famille": [
+        "VA",
+        "VFE",
+        "VNE",
+        "VS0",
+        "VS1",
+        "Vapp",
+        "Vref",
+        "Vx",
+        "Vy"
+      ],
+      "colonnes_tableau": [
+        "Symbole",
+        "Signification",
+        "Repère anémomètre"
+      ],
+      "schema": false
+    },
+    "VS0": {
+      "categorie": "Vitesses & performances",
+      "famille": "vitesses_caracteristiques",
+      "membres_famille": [
+        "VA",
+        "VFE",
+        "VNE",
+        "VNO",
+        "VS1",
+        "Vapp",
+        "Vref",
+        "Vx",
+        "Vy"
+      ],
+      "colonnes_tableau": [
+        "Symbole",
+        "Signification",
+        "Repère anémomètre"
+      ],
+      "schema": false
+    },
+    "VS1": {
+      "categorie": "Vitesses & performances",
+      "famille": "vitesses_caracteristiques",
+      "membres_famille": [
+        "VA",
+        "VFE",
+        "VNE",
+        "VNO",
+        "VS0",
+        "Vapp",
+        "Vref",
+        "Vx",
+        "Vy"
+      ],
+      "colonnes_tableau": [
+        "Symbole",
+        "Signification",
+        "Repère anémomètre"
+      ],
+      "schema": false
+    },
+    "Vapp": {
+      "categorie": "Vitesses & performances",
+      "famille": "vitesses_caracteristiques",
+      "membres_famille": [
+        "VA",
+        "VFE",
+        "VNE",
+        "VNO",
+        "VS0",
+        "VS1",
+        "Vref",
+        "Vx",
+        "Vy"
+      ],
+      "colonnes_tableau": [
+        "Symbole",
+        "Signification",
+        "Repère anémomètre"
+      ],
+      "schema": false
+    },
+    "Vref": {
+      "categorie": "Vitesses & performances",
+      "famille": "vitesses_caracteristiques",
+      "membres_famille": [
+        "VA",
+        "VFE",
+        "VNE",
+        "VNO",
+        "VS0",
+        "VS1",
+        "Vapp",
+        "Vx",
+        "Vy"
+      ],
+      "colonnes_tableau": [
+        "Symbole",
+        "Signification",
+        "Repère anémomètre"
+      ],
+      "schema": false
+    },
+    "Vx": {
+      "categorie": "Vitesses & performances",
+      "famille": "vitesses_caracteristiques",
+      "membres_famille": [
+        "VA",
+        "VFE",
+        "VNE",
+        "VNO",
+        "VS0",
+        "VS1",
+        "Vapp",
+        "Vref",
+        "Vy"
+      ],
+      "colonnes_tableau": [
+        "Symbole",
+        "Signification",
+        "Repère anémomètre"
+      ],
+      "schema": false
+    },
+    "Vy": {
+      "categorie": "Vitesses & performances",
+      "famille": "vitesses_caracteristiques",
+      "membres_famille": [
+        "VA",
+        "VFE",
+        "VNE",
+        "VNO",
+        "VS0",
+        "VS1",
+        "Vapp",
+        "Vref",
+        "Vx"
+      ],
+      "colonnes_tableau": [
+        "Symbole",
+        "Signification",
+        "Repère anémomètre"
+      ],
+      "schema": false
+    },
+    "abaque": {
+      "categorie": "Vitesses & performances",
+      "famille": null,
+      "membres_famille": [],
+      "colonnes_tableau": [],
+      "schema": false
+    },
+    "abaque de centrage": {
+      "categorie": "Masse & centrage",
+      "famille": "limites_de_centrage",
+      "membres_famille": [
+        "centrage",
+        "centre de gravité",
+        "cg"
+      ],
+      "colonnes_tableau": [],
+      "schema": false
+    },
+    "action vitale": {
+      "categorie": "Procédures",
+      "famille": null,
+      "membres_famille": [],
+      "colonnes_tableau": [],
+      "schema": false
+    },
+    "adf": {
+      "categorie": "Navigation",
+      "famille": "instruments",
+      "membres_famille": [
+        "altimètre",
+        "anémomètre",
+        "asi",
+        "badin",
+        "bille"
+      ],
+      "colonnes_tableau": [
+        "Instrument",
+        "Principe de mesure",
+        "Utilisation en vol"
+      ],
+      "schema": false
+    },
+    "advection": {
+      "categorie": "Météo",
+      "famille": null,
+      "membres_famille": [],
+      "colonnes_tableau": [],
+      "schema": false
+    },
+    "aerocolique": {
+      "categorie": "Sécurité & facteurs humains",
+      "famille": "facteurs_humains",
+      "membres_famille": [
+        "alcool",
+        "barotraumatisme",
+        "biais de confirmation",
+        "chaine des erreurs",
+        "charge de travail"
+      ],
+      "colonnes_tableau": [
+        "Facteur humain",
+        "Description",
+        "Risques et prévention"
+      ],
+      "schema": false
+    },
+    "aerofrein": {
+      "categorie": "Aérodynamique",
+      "famille": "gouvernes",
+      "membres_famille": [
+        "aileron au vent",
+        "becs"
+      ],
+      "colonnes_tableau": [
+        "Gouverne",
+        "Axe contrôlé",
+        "Mouvement associé"
+      ],
+      "schema": true
+    },
+    "afis": {
+      "categorie": "Aérodrome & cartes",
+      "famille": null,
+      "membres_famille": [],
+      "colonnes_tableau": [],
+      "schema": false
+    },
+    "agl": {
+      "categorie": "Altimétrie",
+      "famille": "references_verticales",
+      "membres_famille": [
+        "AAL",
+        "AMSL",
+        "alt"
+      ],
+      "colonnes_tableau": [
+        "Référence verticale",
+        "Définition",
+        "Indication instrumentale"
+      ],
+      "schema": false
+    },
+    "aile": {
+      "categorie": "Structure & cellule",
+      "famille": null,
+      "membres_famille": [],
+      "colonnes_tableau": [],
+      "schema": false
+    },
+    "aileron au vent": {
+      "categorie": "Procédures",
+      "famille": "gouvernes",
+      "membres_famille": [
+        "aerofrein",
+        "becs"
+      ],
+      "colonnes_tableau": [
+        "Gouverne",
+        "Axe contrôlé",
+        "Mouvement associé"
+      ],
+      "schema": true
+    },
+    "ailes à plat": {
+      "categorie": "Procédures",
+      "famille": null,
+      "membres_famille": [],
+      "colonnes_tableau": [],
+      "schema": false
+    },
+    "alcool": {
+      "categorie": "Sécurité & facteurs humains",
+      "famille": "facteurs_humains",
+      "membres_famille": [
+        "aerocolique",
+        "barotraumatisme",
+        "biais de confirmation",
+        "chaine des erreurs",
+        "charge de travail"
+      ],
+      "colonnes_tableau": [
+        "Facteur humain",
+        "Description",
+        "Risques et prévention"
+      ],
+      "schema": false
+    },
+    "alignement": {
+      "categorie": "Aérodrome & cartes",
+      "famille": null,
+      "membres_famille": [],
+      "colonnes_tableau": [],
+      "schema": false
+    },
+    "allumage": {
+      "categorie": "Moteur & hélice",
+      "famille": null,
+      "membres_famille": [],
+      "colonnes_tableau": [],
+      "schema": false
+    },
+    "alphabet aviation": {
+      "categorie": "Radio & phraséologie",
+      "famille": null,
+      "membres_famille": [],
+      "colonnes_tableau": [],
+      "schema": false
+    },
+    "alt": {
+      "categorie": "Radio & phraséologie",
+      "famille": "references_verticales",
+      "membres_famille": [
+        "AAL",
+        "AMSL",
+        "agl"
+      ],
+      "colonnes_tableau": [
+        "Référence verticale",
+        "Définition",
+        "Indication instrumentale"
+      ],
+      "schema": false
+    },
+    "alternateur": {
+      "categorie": "Moteur & hélice",
+      "famille": null,
+      "membres_famille": [],
+      "colonnes_tableau": [],
+      "schema": false
+    },
+    "altimètre": {
+      "categorie": "Instruments",
+      "famille": "instruments",
+      "membres_famille": [
+        "adf",
+        "anémomètre",
+        "asi",
+        "badin",
+        "bille"
+      ],
+      "colonnes_tableau": [
+        "Instrument",
+        "Principe de mesure",
+        "Utilisation en vol"
+      ],
+      "schema": false
+    },
+    "altimétrie": {
+      "categorie": "Altimétrie",
+      "famille": null,
+      "membres_famille": [],
+      "colonnes_tableau": [],
+      "schema": false
+    },
+    "altitude de croisière": {
+      "categorie": "Navigation",
+      "famille": "altitudes",
+      "membres_famille": [
+        "altitude de sécurité",
+        "altitude de transition",
+        "altitude densité",
+        "altitude minimale",
+        "altitude tour de piste",
+        "altitude-densité",
+        "altitude-pression"
+      ],
+      "colonnes_tableau": [
+        "Type d'altitude",
+        "Référence de pression",
+        "Usage principal"
+      ],
+      "schema": false
+    },
+    "altitude de sécurité": {
+      "categorie": "Navigation",
+      "famille": "altitudes",
+      "membres_famille": [
+        "altitude de croisière",
+        "altitude de transition",
+        "altitude densité",
+        "altitude minimale",
+        "altitude tour de piste",
+        "altitude-densité",
+        "altitude-pression"
+      ],
+      "colonnes_tableau": [
+        "Type d'altitude",
+        "Référence de pression",
+        "Usage principal"
+      ],
+      "schema": false
+    },
+    "altitude de transition": {
+      "categorie": "Altimétrie",
+      "famille": "altitudes",
+      "membres_famille": [
+        "altitude de croisière",
+        "altitude de sécurité",
+        "altitude densité",
+        "altitude minimale",
+        "altitude tour de piste",
+        "altitude-densité",
+        "altitude-pression"
+      ],
+      "colonnes_tableau": [
+        "Type d'altitude",
+        "Référence de pression",
+        "Usage principal"
+      ],
+      "schema": false
+    },
+    "altitude densité": {
+      "categorie": "Vitesses & performances",
+      "famille": "altitudes",
+      "membres_famille": [
+        "altitude de croisière",
+        "altitude de sécurité",
+        "altitude de transition",
+        "altitude minimale",
+        "altitude tour de piste",
+        "altitude-densité",
+        "altitude-pression"
+      ],
+      "colonnes_tableau": [
+        "Type d'altitude",
+        "Référence de pression",
+        "Usage principal"
+      ],
+      "schema": false
+    },
+    "altitude minimale": {
+      "categorie": "Réglementation & docs",
+      "famille": "altitudes",
+      "membres_famille": [
+        "altitude de croisière",
+        "altitude de sécurité",
+        "altitude de transition",
+        "altitude densité",
+        "altitude tour de piste",
+        "altitude-densité",
+        "altitude-pression"
+      ],
+      "colonnes_tableau": [
+        "Type d'altitude",
+        "Référence de pression",
+        "Usage principal"
+      ],
+      "schema": false
+    },
+    "altitude tour de piste": {
+      "categorie": "Aérodrome & cartes",
+      "famille": "altitudes",
+      "membres_famille": [
+        "altitude de croisière",
+        "altitude de sécurité",
+        "altitude de transition",
+        "altitude densité",
+        "altitude minimale",
+        "altitude-densité",
+        "altitude-pression"
+      ],
+      "colonnes_tableau": [
+        "Type d'altitude",
+        "Référence de pression",
+        "Usage principal"
+      ],
+      "schema": false
+    },
+    "altitude-densité": {
+      "categorie": "Altimétrie",
+      "famille": "altitudes",
+      "membres_famille": [
+        "altitude de croisière",
+        "altitude de sécurité",
+        "altitude de transition",
+        "altitude densité",
+        "altitude minimale",
+        "altitude tour de piste",
+        "altitude-pression"
+      ],
+      "colonnes_tableau": [
+        "Type d'altitude",
+        "Référence de pression",
+        "Usage principal"
+      ],
+      "schema": false
+    },
+    "altitude-pression": {
+      "categorie": "Altimétrie",
+      "famille": "altitudes",
+      "membres_famille": [
+        "altitude de croisière",
+        "altitude de sécurité",
+        "altitude de transition",
+        "altitude densité",
+        "altitude minimale",
+        "altitude tour de piste",
+        "altitude-densité"
+      ],
+      "colonnes_tableau": [
+        "Type d'altitude",
+        "Référence de pression",
+        "Usage principal"
+      ],
+      "schema": false
+    },
+    "altocumulus": {
+      "categorie": "Météo",
+      "famille": "nuages",
+      "membres_famille": [
+        "CB",
+        "TCU",
+        "altostratus",
+        "base des nuages",
+        "calvus",
+        "castellanus",
+        "cirrostratus"
+      ],
+      "colonnes_tableau": [
+        "Genre / Espèce",
+        "Altitude moyenne",
+        "Risques associés (turbulence, givrage)"
+      ],
+      "schema": true
+    },
+    "altostratus": {
+      "categorie": "Météo",
+      "famille": "nuages",
+      "membres_famille": [
+        "CB",
+        "TCU",
+        "altocumulus",
+        "base des nuages",
+        "calvus",
+        "castellanus",
+        "cirrostratus"
+      ],
+      "colonnes_tableau": [
+        "Genre / Espèce",
+        "Altitude moyenne",
+        "Risques associés (turbulence, givrage)"
+      ],
+      "schema": true
+    },
+    "amers": {
+      "categorie": "Navigation",
+      "famille": null,
+      "membres_famille": [],
+      "colonnes_tableau": [],
+      "schema": false
+    },
+    "angle d'attaque": {
+      "categorie": "Aérodynamique",
+      "famille": null,
+      "membres_famille": [],
+      "colonnes_tableau": [],
+      "schema": false
+    },
+    "angle de dérive": {
+      "categorie": "Vent",
+      "famille": null,
+      "membres_famille": [],
+      "colonnes_tableau": [],
+      "schema": false
+    },
+    "anticyclone": {
+      "categorie": "Météo",
+      "famille": null,
+      "membres_famille": [],
+      "colonnes_tableau": [],
+      "schema": false
+    },
+    "anémomètre": {
+      "categorie": "Instruments",
+      "famille": "instruments",
+      "membres_famille": [
+        "adf",
+        "altimètre",
+        "asi",
+        "badin",
+        "bille"
+      ],
+      "colonnes_tableau": [
+        "Instrument",
+        "Principe de mesure",
+        "Utilisation en vol"
+      ],
+      "schema": false
+    },
+    "approche finale": {
+      "categorie": "Procédures",
+      "famille": null,
+      "membres_famille": [],
+      "colonnes_tableau": [],
+      "schema": false
+    },
+    "approche interrompue": {
+      "categorie": "Procédures",
+      "famille": null,
+      "membres_famille": [],
+      "colonnes_tableau": [],
+      "schema": false
+    },
+    "approche stabilisée": {
+      "categorie": "Aérodrome & cartes",
+      "famille": null,
+      "membres_famille": [],
+      "colonnes_tableau": [],
+      "schema": false
+    },
+    "aquila": {
+      "categorie": "Aérodrome & cartes",
+      "famille": null,
+      "membres_famille": [],
+      "colonnes_tableau": [],
+      "schema": false
+    },
+    "arc blanc": {
+      "categorie": "Instruments",
+      "famille": "arcs_anemometre",
+      "membres_famille": [
+        "arc jaune",
+        "arc vert"
+      ],
+      "colonnes_tableau": [
+        "Couleur de l'arc",
+        "Signification",
+        "Vitesses limites"
+      ],
+      "schema": true
+    },
+    "arc dme": {
+      "categorie": "Navigation",
+      "famille": null,
+      "membres_famille": [],
+      "colonnes_tableau": [],
+      "schema": false
+    },
+    "arc jaune": {
+      "categorie": "Instruments",
+      "famille": "arcs_anemometre",
+      "membres_famille": [
+        "arc blanc",
+        "arc vert"
+      ],
+      "colonnes_tableau": [
+        "Couleur de l'arc",
+        "Signification",
+        "Vitesses limites"
+      ],
+      "schema": true
+    },
+    "arc vert": {
+      "categorie": "Instruments",
+      "famille": "arcs_anemometre",
+      "membres_famille": [
+        "arc blanc",
+        "arc jaune"
+      ],
+      "colonnes_tableau": [
+        "Couleur de l'arc",
+        "Signification",
+        "Vitesses limites"
+      ],
+      "schema": true
+    },
+    "arrondi": {
+      "categorie": "Aérodrome & cartes",
+      "famille": null,
+      "membres_famille": [],
+      "colonnes_tableau": [],
+      "schema": false
+    },
+    "ascendance": {
+      "categorie": "Météo",
+      "famille": null,
+      "membres_famille": [],
+      "colonnes_tableau": [],
+      "schema": false
+    },
+    "ascendance thermique": {
+      "categorie": "Météo",
+      "famille": null,
+      "membres_famille": [],
+      "colonnes_tableau": [],
+      "schema": false
+    },
+    "asi": {
+      "categorie": "Instruments",
+      "famille": "instruments",
+      "membres_famille": [
+        "adf",
+        "altimètre",
+        "anémomètre",
+        "badin",
+        "bille"
+      ],
+      "colonnes_tableau": [
+        "Instrument",
+        "Principe de mesure",
+        "Utilisation en vol"
+      ],
+      "schema": false
+    },
+    "assiette": {
+      "categorie": "Aérodynamique",
+      "famille": "assiettes",
+      "membres_famille": [
+        "assiette de croisière",
+        "assiette de montée",
+        "assiette de reference"
+      ],
+      "colonnes_tableau": [
+        "Assiette",
+        "Position visuelle",
+        "Effet aérodynamique"
+      ],
+      "schema": true
+    },
+    "assiette de croisière": {
+      "categorie": "Vitesses & performances",
+      "famille": "assiettes",
+      "membres_famille": [
+        "assiette",
+        "assiette de montée",
+        "assiette de reference"
+      ],
+      "colonnes_tableau": [
+        "Assiette",
+        "Position visuelle",
+        "Effet aérodynamique"
+      ],
+      "schema": true
+    },
+    "assiette de montée": {
+      "categorie": "Vitesses & performances",
+      "famille": "assiettes",
+      "membres_famille": [
+        "assiette",
+        "assiette de croisière",
+        "assiette de reference"
+      ],
+      "colonnes_tableau": [
+        "Assiette",
+        "Position visuelle",
+        "Effet aérodynamique"
+      ],
+      "schema": true
+    },
+    "assiette de reference": {
+      "categorie": "Aérodynamique",
+      "famille": "assiettes",
+      "membres_famille": [
+        "assiette",
+        "assiette de croisière",
+        "assiette de montée"
+      ],
+      "colonnes_tableau": [
+        "Assiette",
+        "Position visuelle",
+        "Effet aérodynamique"
+      ],
+      "schema": true
+    },
+    "atc": {
+      "categorie": "Radio & phraséologie",
+      "famille": null,
+      "membres_famille": [],
+      "colonnes_tableau": [],
+      "schema": false
+    },
+    "atmosphère standard": {
+      "categorie": "Météo",
+      "famille": null,
+      "membres_famille": [],
+      "colonnes_tableau": [],
+      "schema": false
+    },
+    "ats": {
+      "categorie": "Réglementation & docs",
+      "famille": null,
+      "membres_famille": [],
+      "colonnes_tableau": [],
+      "schema": false
+    },
+    "atterrissage de précaution": {
+      "categorie": "Procédures",
+      "famille": "atterrissages",
+      "membres_famille": [
+        "atterrissage forcé",
+        "atterrissage precaution",
+        "atterrissage train rentré"
+      ],
+      "colonnes_tableau": [
+        "Type d'atterrissage",
+        "Conditions d'application",
+        "Procédure clé"
+      ],
+      "schema": false
+    },
+    "atterrissage forcé": {
+      "categorie": "Procédures",
+      "famille": "atterrissages",
+      "membres_famille": [
+        "atterrissage de précaution",
+        "atterrissage precaution",
+        "atterrissage train rentré"
+      ],
+      "colonnes_tableau": [
+        "Type d'atterrissage",
+        "Conditions d'application",
+        "Procédure clé"
+      ],
+      "schema": false
+    },
+    "atterrissage precaution": {
+      "categorie": "Procédures",
+      "famille": "atterrissages",
+      "membres_famille": [
+        "atterrissage de précaution",
+        "atterrissage forcé",
+        "atterrissage train rentré"
+      ],
+      "colonnes_tableau": [
+        "Type d'atterrissage",
+        "Conditions d'application",
+        "Procédure clé"
+      ],
+      "schema": false
+    },
+    "atterrissage train rentré": {
+      "categorie": "Procédures",
+      "famille": "atterrissages",
+      "membres_famille": [
+        "atterrissage de précaution",
+        "atterrissage forcé",
+        "atterrissage precaution"
+      ],
+      "colonnes_tableau": [
+        "Type d'atterrissage",
+        "Conditions d'application",
+        "Procédure clé"
+      ],
+      "schema": false
+    },
+    "attitude": {
+      "categorie": "Sécurité & facteurs humains",
+      "famille": null,
+      "membres_famille": [],
+      "colonnes_tableau": [],
+      "schema": false
+    },
+    "attitude de vol": {
+      "categorie": "Aérodynamique",
+      "famille": null,
+      "membres_famille": [],
+      "colonnes_tableau": [],
+      "schema": false
+    },
+    "atz": {
+      "categorie": "Réglementation & docs",
+      "famille": "espaces_aeriens",
+      "membres_famille": [
+        "CTR",
+        "TMA"
+      ],
+      "colonnes_tableau": [
+        "Type d'espace",
+        "Réglementation",
+        "Services rendus"
+      ],
+      "schema": false
+    },
+    "autonomie": {
+      "categorie": "Vitesses & performances",
+      "famille": null,
+      "membres_famille": [],
+      "colonnes_tableau": [],
+      "schema": false
+    },
+    "autonomie carburant": {
+      "categorie": "Vitesses & performances",
+      "famille": null,
+      "membres_famille": [],
+      "colonnes_tableau": [],
+      "schema": false
+    },
+    "autorisation atterrissage": {
+      "categorie": "Radio & phraséologie",
+      "famille": null,
+      "membres_famille": [],
+      "colonnes_tableau": [],
+      "schema": false
+    },
+    "autorotation": {
+      "categorie": "Procédures",
+      "famille": null,
+      "membres_famille": [],
+      "colonnes_tableau": [],
+      "schema": false
+    },
+    "averse": {
+      "categorie": "Météo",
+      "famille": null,
+      "membres_famille": [],
+      "colonnes_tableau": [],
+      "schema": false
+    },
+    "aviate": {
+      "categorie": "Sécurité & facteurs humains",
+      "famille": null,
+      "membres_famille": [],
+      "colonnes_tableau": [],
+      "schema": false
+    },
+    "avitaillement": {
+      "categorie": "Procédures",
+      "famille": null,
+      "membres_famille": [],
+      "colonnes_tableau": [],
+      "schema": false
+    },
+    "axe de piste": {
+      "categorie": "Aérodrome & cartes",
+      "famille": null,
+      "membres_famille": [],
+      "colonnes_tableau": [],
+      "schema": false
+    },
+    "azimut": {
+      "categorie": "Navigation",
+      "famille": null,
+      "membres_famille": [],
+      "colonnes_tableau": [],
+      "schema": false
+    },
+    "aérodrome de dégagement": {
+      "categorie": "Procédures",
+      "famille": null,
+      "membres_famille": [],
+      "colonnes_tableau": [],
+      "schema": false
+    },
+    "aérofreinage": {
+      "categorie": "Aérodynamique",
+      "famille": null,
+      "membres_famille": [],
+      "colonnes_tableau": [],
+      "schema": false
+    },
+    "badin": {
+      "categorie": "Instruments",
+      "famille": "instruments",
+      "membres_famille": [
+        "adf",
+        "altimètre",
+        "anémomètre",
+        "asi",
+        "bille"
+      ],
+      "colonnes_tableau": [
+        "Instrument",
+        "Principe de mesure",
+        "Utilisation en vol"
+      ],
+      "schema": false
+    },
+    "bande": {
+      "categorie": "Aérodrome & cartes",
+      "famille": null,
+      "membres_famille": [],
+      "colonnes_tableau": [],
+      "schema": false
+    },
+    "bande derobee": {
+      "categorie": "Aérodrome & cartes",
+      "famille": null,
+      "membres_famille": [],
+      "colonnes_tableau": [],
+      "schema": false
+    },
+    "barotraumatisme": {
+      "categorie": "Sécurité & facteurs humains",
+      "famille": "facteurs_humains",
+      "membres_famille": [
+        "aerocolique",
+        "alcool",
+        "biais de confirmation",
+        "chaine des erreurs",
+        "charge de travail"
+      ],
+      "colonnes_tableau": [
+        "Facteur humain",
+        "Description",
+        "Risques et prévention"
+      ],
+      "schema": false
+    },
+    "base des nuages": {
+      "categorie": "Météo",
+      "famille": "nuages",
+      "membres_famille": [
+        "CB",
+        "TCU",
+        "altocumulus",
+        "altostratus",
+        "calvus",
+        "castellanus",
+        "cirrostratus"
+      ],
+      "colonnes_tableau": [
+        "Genre / Espèce",
+        "Altitude moyenne",
+        "Risques associés (turbulence, givrage)"
+      ],
+      "schema": true
+    },
+    "basses couches": {
+      "categorie": "Météo",
+      "famille": null,
+      "membres_famille": [],
+      "colonnes_tableau": [],
+      "schema": false
+    },
+    "bat": {
+      "categorie": "Moteur & hélice",
+      "famille": null,
+      "membres_famille": [],
+      "colonnes_tableau": [],
+      "schema": false
+    },
+    "batterie": {
+      "categorie": "Moteur & hélice",
+      "famille": null,
+      "membres_famille": [],
+      "colonnes_tableau": [],
+      "schema": false
+    },
+    "becs": {
+      "categorie": "Aérodynamique",
+      "famille": "gouvernes",
+      "membres_famille": [
+        "aerofrein",
+        "aileron au vent"
+      ],
+      "colonnes_tableau": [
+        "Gouverne",
+        "Axe contrôlé",
+        "Mouvement associé"
+      ],
+      "schema": true
+    },
+    "biais de confirmation": {
+      "categorie": "Sécurité & facteurs humains",
+      "famille": "facteurs_humains",
+      "membres_famille": [
+        "aerocolique",
+        "alcool",
+        "barotraumatisme",
+        "chaine des erreurs",
+        "charge de travail"
+      ],
+      "colonnes_tableau": [
+        "Facteur humain",
+        "Description",
+        "Risques et prévention"
+      ],
+      "schema": false
+    },
+    "bilan carburant": {
+      "categorie": "Procédures",
+      "famille": null,
+      "membres_famille": [],
+      "colonnes_tableau": [],
+      "schema": false
+    },
+    "bille": {
+      "categorie": "Instruments",
+      "famille": "instruments",
+      "membres_famille": [
+        "adf",
+        "altimètre",
+        "anémomètre",
+        "asi",
+        "badin"
+      ],
+      "colonnes_tableau": [
+        "Instrument",
+        "Principe de mesure",
+        "Utilisation en vol"
+      ],
+      "schema": false
+    },
+    "bkn": {
+      "categorie": "Météo",
+      "famille": null,
+      "membres_famille": [],
+      "colonnes_tableau": [],
+      "schema": false
+    },
+    "br": {
+      "categorie": "Météo",
+      "famille": null,
+      "membres_famille": [],
+      "colonnes_tableau": [],
+      "schema": false
+    },
+    "branche": {
+      "categorie": "Procédures",
+      "famille": null,
+      "membres_famille": [],
+      "colonnes_tableau": [],
+      "schema": false
+    },
+    "bras de levier": {
+      "categorie": "Masse & centrage",
+      "famille": "masses",
+      "membres_famille": [
+        "carburant inutilisable",
+        "carburant utilisable"
+      ],
+      "colonnes_tableau": [
+        "Terme",
+        "Définition",
+        "Impact masse et centrage"
+      ],
+      "schema": false
+    },
+    "brassage": {
+      "categorie": "Procédures",
+      "famille": null,
+      "membres_famille": [],
+      "colonnes_tableau": [],
+      "schema": false
+    },
+    "brief": {
+      "categorie": "Procédures",
+      "famille": "briefings",
+      "membres_famille": [
+        "briefing",
+        "briefing arrivée",
+        "briefing départ"
+      ],
+      "colonnes_tableau": [
+        "Type de briefing",
+        "Moment clé",
+        "Contenu principal"
+      ],
+      "schema": false
+    },
+    "briefing": {
+      "categorie": "Procédures",
+      "famille": "briefings",
+      "membres_famille": [
+        "brief",
+        "briefing arrivée",
+        "briefing départ"
+      ],
+      "colonnes_tableau": [
+        "Type de briefing",
+        "Moment clé",
+        "Contenu principal"
+      ],
+      "schema": false
+    },
+    "briefing arrivée": {
+      "categorie": "Procédures",
+      "famille": "briefings",
+      "membres_famille": [
+        "brief",
+        "briefing",
+        "briefing départ"
+      ],
+      "colonnes_tableau": [
+        "Type de briefing",
+        "Moment clé",
+        "Contenu principal"
+      ],
+      "schema": false
+    },
+    "briefing départ": {
+      "categorie": "Procédures",
+      "famille": "briefings",
+      "membres_famille": [
+        "brief",
+        "briefing",
+        "briefing arrivée"
+      ],
+      "colonnes_tableau": [
+        "Type de briefing",
+        "Moment clé",
+        "Contenu principal"
+      ],
+      "schema": false
+    },
+    "brise de mer": {
+      "categorie": "Vent",
+      "famille": "brises",
+      "membres_famille": [
+        "brise de pente",
+        "brise de terre",
+        "brise de vallée"
+      ],
+      "colonnes_tableau": [
+        "Type de brise",
+        "Mécanisme physique",
+        "Effet aérologique"
+      ],
+      "schema": true
+    },
+    "brise de pente": {
+      "categorie": "Vent",
+      "famille": "brises",
+      "membres_famille": [
+        "brise de mer",
+        "brise de terre",
+        "brise de vallée"
+      ],
+      "colonnes_tableau": [
+        "Type de brise",
+        "Mécanisme physique",
+        "Effet aérologique"
+      ],
+      "schema": true
+    },
+    "brise de terre": {
+      "categorie": "Vent",
+      "famille": "brises",
+      "membres_famille": [
+        "brise de mer",
+        "brise de pente",
+        "brise de vallée"
+      ],
+      "colonnes_tableau": [
+        "Type de brise",
+        "Mécanisme physique",
+        "Effet aérologique"
+      ],
+      "schema": true
+    },
+    "brise de vallée": {
+      "categorie": "Vent",
+      "famille": "brises",
+      "membres_famille": [
+        "brise de mer",
+        "brise de pente",
+        "brise de terre"
+      ],
+      "colonnes_tableau": [
+        "Type de brise",
+        "Mécanisme physique",
+        "Effet aérologique"
+      ],
+      "schema": true
+    },
+    "brouillard": {
+      "categorie": "Météo",
+      "famille": null,
+      "membres_famille": [],
+      "colonnes_tableau": [],
+      "schema": false
+    },
+    "brouillard de rayonnement": {
+      "categorie": "Météo",
+      "famille": null,
+      "membres_famille": [],
+      "colonnes_tableau": [],
+      "schema": false
+    },
+    "brume": {
+      "categorie": "Météo",
+      "famille": null,
+      "membres_famille": [],
+      "colonnes_tableau": [],
+      "schema": false
+    },
+    "cabré": {
+      "categorie": "Aérodynamique",
+      "famille": null,
+      "membres_famille": [],
+      "colonnes_tableau": [],
+      "schema": false
+    },
+    "calage altimétrique": {
+      "categorie": "Altimétrie",
+      "famille": "calages_altimetriques",
+      "membres_famille": [
+        "QFE",
+        "QNE",
+        "QNH",
+        "calage standard"
+      ],
+      "colonnes_tableau": [
+        "Calage barométrique",
+        "Pression de référence",
+        "Indication de l'altimètre"
+      ],
+      "schema": true
+    },
+    "calage helice": {
+      "categorie": "Moteur & hélice",
+      "famille": "helice",
+      "membres_famille": [],
+      "colonnes_tableau": [
+        "Composant",
+        "Définition",
+        "Rôle dans la traction"
+      ],
+      "schema": true
+    },
+    "calage standard": {
+      "categorie": "Altimétrie",
+      "famille": "calages_altimetriques",
+      "membres_famille": [
+        "QFE",
+        "QNE",
+        "QNH",
+        "calage altimétrique"
+      ],
+      "colonnes_tableau": [
+        "Calage barométrique",
+        "Pression de référence",
+        "Indication de l'altimètre"
+      ],
+      "schema": true
+    },
+    "calvus": {
+      "categorie": "Météo",
+      "famille": "nuages",
+      "membres_famille": [
+        "CB",
+        "TCU",
+        "altocumulus",
+        "altostratus",
+        "base des nuages",
+        "castellanus",
+        "cirrostratus"
+      ],
+      "colonnes_tableau": [
+        "Genre / Espèce",
+        "Altitude moyenne",
+        "Risques associés (turbulence, givrage)"
+      ],
+      "schema": true
+    },
+    "canal unique": {
+      "categorie": "Radio & phraséologie",
+      "famille": null,
+      "membres_famille": [],
+      "colonnes_tableau": [],
+      "schema": false
+    },
+    "cap": {
+      "categorie": "Navigation",
+      "famille": "navigation_caps_et_routes",
+      "membres_famille": [
+        "cap compas",
+        "cap magnétique",
+        "cap vrai"
+      ],
+      "colonnes_tableau": [
+        "Type de cap",
+        "Référence",
+        "Formule de correction / Passage"
+      ],
+      "schema": false
+    },
+    "cap compas": {
+      "categorie": "Navigation",
+      "famille": "navigation_caps_et_routes",
+      "membres_famille": [
+        "cap",
+        "cap magnétique",
+        "cap vrai"
+      ],
+      "colonnes_tableau": [
+        "Type de cap",
+        "Référence",
+        "Formule de correction / Passage"
+      ],
+      "schema": false
+    },
+    "cap magnétique": {
+      "categorie": "Navigation",
+      "famille": "navigation_caps_et_routes",
+      "membres_famille": [
+        "cap",
+        "cap compas",
+        "cap vrai"
+      ],
+      "colonnes_tableau": [
+        "Type de cap",
+        "Référence",
+        "Formule de correction / Passage"
+      ],
+      "schema": false
+    },
+    "cap vrai": {
+      "categorie": "Navigation",
+      "famille": "navigation_caps_et_routes",
+      "membres_famille": [
+        "cap",
+        "cap compas",
+        "cap magnétique"
+      ],
+      "colonnes_tableau": [
+        "Type de cap",
+        "Référence",
+        "Formule de correction / Passage"
+      ],
+      "schema": false
+    },
+    "carbu": {
+      "categorie": "Moteur & hélice",
+      "famille": null,
+      "membres_famille": [],
+      "colonnes_tableau": [],
+      "schema": false
+    },
+    "carburant degagement": {
+      "categorie": "Réglementation & docs",
+      "famille": null,
+      "membres_famille": [],
+      "colonnes_tableau": [],
+      "schema": false
+    },
+    "carburant inutilisable": {
+      "categorie": "Masse & centrage",
+      "famille": "masses",
+      "membres_famille": [
+        "bras de levier",
+        "carburant utilisable"
+      ],
+      "colonnes_tableau": [
+        "Terme",
+        "Définition",
+        "Impact masse et centrage"
+      ],
+      "schema": false
+    },
+    "carburant utilisable": {
+      "categorie": "Masse & centrage",
+      "famille": "masses",
+      "membres_famille": [
+        "bras de levier",
+        "carburant inutilisable"
+      ],
+      "colonnes_tableau": [
+        "Terme",
+        "Définition",
+        "Impact masse et centrage"
+      ],
+      "schema": false
+    },
+    "carnet de route": {
+      "categorie": "Réglementation & docs",
+      "famille": "documents_bord",
+      "membres_famille": [
+        "POH"
+      ],
+      "colonnes_tableau": [
+        "Document",
+        "Description",
+        "Obligation réglementaire"
+      ],
+      "schema": false
+    },
+    "carte": {
+      "categorie": "Aérodrome & cartes",
+      "famille": "cartes_aeronautiques",
+      "membres_famille": [
+        "VAC",
+        "carte oaci",
+        "carte topographique",
+        "carte vac"
+      ],
+      "colonnes_tableau": [
+        "Type de carte",
+        "Échelle",
+        "Usage principal"
+      ],
+      "schema": true
+    },
+    "carte oaci": {
+      "categorie": "Aérodrome & cartes",
+      "famille": "cartes_aeronautiques",
+      "membres_famille": [
+        "VAC",
+        "carte",
+        "carte topographique",
+        "carte vac"
+      ],
+      "colonnes_tableau": [
+        "Type de carte",
+        "Échelle",
+        "Usage principal"
+      ],
+      "schema": true
+    },
+    "carte topographique": {
+      "categorie": "Aérodrome & cartes",
+      "famille": "cartes_aeronautiques",
+      "membres_famille": [
+        "VAC",
+        "carte",
+        "carte oaci",
+        "carte vac"
+      ],
+      "colonnes_tableau": [
+        "Type de carte",
+        "Échelle",
+        "Usage principal"
+      ],
+      "schema": true
+    },
+    "carte vac": {
+      "categorie": "Aérodrome & cartes",
+      "famille": "cartes_aeronautiques",
+      "membres_famille": [
+        "VAC",
+        "carte",
+        "carte oaci",
+        "carte topographique"
+      ],
+      "colonnes_tableau": [
+        "Type de carte",
+        "Échelle",
+        "Usage principal"
+      ],
+      "schema": true
+    },
+    "cas": {
+      "categorie": "Vitesses & performances",
+      "famille": "mesures_vitesse",
+      "membres_famille": [
+        "GS",
+        "IAS",
+        "TAS"
+      ],
+      "colonnes_tableau": [
+        "Type de vitesse",
+        "Signification",
+        "Correction appliquée"
+      ],
+      "schema": false
+    },
+    "castellanus": {
+      "categorie": "Météo",
+      "famille": "nuages",
+      "membres_famille": [
+        "CB",
+        "TCU",
+        "altocumulus",
+        "altostratus",
+        "base des nuages",
+        "calvus",
+        "cirrostratus"
+      ],
+      "colonnes_tableau": [
+        "Genre / Espèce",
+        "Altitude moyenne",
+        "Risques associés (turbulence, givrage)"
+      ],
+      "schema": true
+    },
+    "cellule": {
+      "categorie": "Structure & cellule",
+      "famille": null,
+      "membres_famille": [],
+      "colonnes_tableau": [],
+      "schema": false
+    },
+    "centrage": {
+      "categorie": "Masse & centrage",
+      "famille": "limites_de_centrage",
+      "membres_famille": [
+        "abaque de centrage",
+        "centre de gravité",
+        "cg"
+      ],
+      "colonnes_tableau": [],
+      "schema": false
+    },
+    "centre de gravité": {
+      "categorie": "Masse & centrage",
+      "famille": "limites_de_centrage",
+      "membres_famille": [
+        "abaque de centrage",
+        "centrage",
+        "cg"
+      ],
+      "colonnes_tableau": [],
+      "schema": false
+    },
+    "certificat médical": {
+      "categorie": "Réglementation & docs",
+      "famille": null,
+      "membres_famille": [],
+      "colonnes_tableau": [],
+      "schema": false
+    },
+    "cg": {
+      "categorie": "Masse & centrage",
+      "famille": "limites_de_centrage",
+      "membres_famille": [
+        "abaque de centrage",
+        "centrage",
+        "centre de gravité"
+      ],
+      "colonnes_tableau": [],
+      "schema": false
+    },
+    "chaine des erreurs": {
+      "categorie": "Sécurité & facteurs humains",
+      "famille": "facteurs_humains",
+      "membres_famille": [
+        "aerocolique",
+        "alcool",
+        "barotraumatisme",
+        "biais de confirmation",
+        "charge de travail"
+      ],
+      "colonnes_tableau": [
+        "Facteur humain",
+        "Description",
+        "Risques et prévention"
+      ],
+      "schema": false
+    },
+    "charge de travail": {
+      "categorie": "Sécurité & facteurs humains",
+      "famille": "facteurs_humains",
+      "membres_famille": [
+        "aerocolique",
+        "alcool",
+        "barotraumatisme",
+        "biais de confirmation",
+        "chaine des erreurs"
+      ],
+      "colonnes_tableau": [
+        "Facteur humain",
+        "Description",
+        "Risques et prévention"
+      ],
+      "schema": false
+    },
+    "check-list": {
+      "categorie": "Procédures",
+      "famille": "listes_de_verification",
+      "membres_famille": [
+        "check-list atterrissage",
+        "check-list décollage",
+        "checklist"
+      ],
+      "colonnes_tableau": [
+        "Nom de la check-list",
+        "Phase d'exécution",
+        "Objectif principal"
+      ],
+      "schema": false
+    },
+    "check-list atterrissage": {
+      "categorie": "Procédures",
+      "famille": "listes_de_verification",
+      "membres_famille": [
+        "check-list",
+        "check-list décollage",
+        "checklist"
+      ],
+      "colonnes_tableau": [
+        "Nom de la check-list",
+        "Phase d'exécution",
+        "Objectif principal"
+      ],
+      "schema": false
+    },
+    "check-list décollage": {
+      "categorie": "Procédures",
+      "famille": "listes_de_verification",
+      "membres_famille": [
+        "check-list",
+        "check-list atterrissage",
+        "checklist"
+      ],
+      "colonnes_tableau": [
+        "Nom de la check-list",
+        "Phase d'exécution",
+        "Objectif principal"
+      ],
+      "schema": false
+    },
+    "checklist": {
+      "categorie": "Procédures",
+      "famille": "listes_de_verification",
+      "membres_famille": [
+        "check-list",
+        "check-list atterrissage",
+        "check-list décollage"
+      ],
+      "colonnes_tableau": [
+        "Nom de la check-list",
+        "Phase d'exécution",
+        "Objectif principal"
+      ],
+      "schema": false
+    },
+    "choix de piste": {
+      "categorie": "Procédures",
+      "famille": null,
+      "membres_famille": [],
+      "colonnes_tableau": [],
+      "schema": false
+    },
+    "choke": {
+      "categorie": "Moteur & hélice",
+      "famille": null,
+      "membres_famille": [],
+      "colonnes_tableau": [],
+      "schema": false
+    },
+    "cht": {
+      "categorie": "Moteur & hélice",
+      "famille": null,
+      "membres_famille": [],
+      "colonnes_tableau": [],
+      "schema": false
+    },
+    "chute de pression": {
+      "categorie": "Moteur & hélice",
+      "famille": "pannes_moteur",
+      "membres_famille": [],
+      "colonnes_tableau": [],
+      "schema": false
+    },
+    "circuit basse hauteur": {
+      "categorie": "Procédures",
+      "famille": null,
+      "membres_famille": [],
+      "colonnes_tableau": [],
+      "schema": false
+    },
+    "cirrostratus": {
+      "categorie": "Météo",
+      "famille": "nuages",
+      "membres_famille": [
+        "CB",
+        "TCU",
+        "altocumulus",
+        "altostratus",
+        "base des nuages",
+        "calvus",
+        "castellanus"
+      ],
+      "colonnes_tableau": [
+        "Genre / Espèce",
+        "Altitude moyenne",
+        "Risques associés (turbulence, givrage)"
+      ],
+      "schema": true
+    },
+    "cisaillement": {
+      "categorie": "Vent",
+      "famille": "cisaillement",
+      "membres_famille": [
+        "cisaillement basse couche",
+        "cisaillement de vent"
+      ],
+      "colonnes_tableau": [
+        "Type de cisaillement",
+        "Description",
+        "Dangers et réactions"
+      ],
+      "schema": true
+    },
+    "cisaillement basse couche": {
+      "categorie": "Vent",
+      "famille": "cisaillement",
+      "membres_famille": [
+        "cisaillement",
+        "cisaillement de vent"
+      ],
+      "colonnes_tableau": [
+        "Type de cisaillement",
+        "Description",
+        "Dangers et réactions"
+      ],
+      "schema": true
+    },
+    "cisaillement de vent": {
+      "categorie": "Vent",
+      "famille": "cisaillement",
+      "membres_famille": [
+        "cisaillement",
+        "cisaillement basse couche"
+      ],
+      "colonnes_tableau": [
+        "Type de cisaillement",
+        "Description",
+        "Dangers et réactions"
+      ],
+      "schema": true
+    }
+  }
+}

@@ -1,0 +1,769 @@
+AAL	Altimétrie	
+AIP	Réglementation & docs	
+AIRAC	Réglementation & docs	
+AMSL	Altimétrie	
+ASDA	Aérodrome & cartes	
+ATIS	Aérodrome & cartes	
+AUTO	Météo	
+BECMG	Météo	
+CAVOK	Météo	
+CB	Météo	
+CTR	Aérodrome & cartes	
+GO/NO GO	Réglementation & docs	
+GS	Vitesses & performances	
+IAS	Vitesses & performances	
+IFR	Réglementation & docs	
+IMC	Réglementation & docs	
+ISA	Météo	
+LDA	Aérodrome & cartes	
+METAR	Météo	
+NM	Unités	
+NOSIG	Météo	
+NOTAM	Réglementation & docs	
+NSW	Météo	
+POH	Réglementation & docs	
+PROB30	Météo	
+PROB40	Météo	
+QFE	Altimétrie	
+QFU	Aérodrome & cartes	
+QNE	Altimétrie	
+QNH	Altimétrie	
+RMK	Météo	
+SPECI	Météo	
+TAF	Météo	
+TAS	Vitesses & performances	
+TCU	Météo	
+TEMPO	Météo	
+TMA	Aérodrome & cartes	
+TODA	Aérodrome & cartes	
+TORA	Aérodrome & cartes	
+VA	Vitesses & performances	
+VAC	Aérodrome & cartes	
+VFE	Vitesses & performances	
+VFR	Réglementation & docs	
+VMC	Réglementation & docs	
+VNE	Vitesses & performances	
+VNO	Vitesses & performances	
+VS0	Vitesses & performances	
+VS1	Vitesses & performances	
+Vapp	Vitesses & performances	vitesses_caracteristiques
+Vref	Vitesses & performances	
+Vx	Vitesses & performances	
+Vy	Vitesses & performances	
+abaque	Vitesses & performances	
+abaque de centrage	Masse & centrage	
+action vitale	Procédures	
+adf	Navigation	instruments
+advection	Météo	
+aerocolique	Sécurité & facteurs humains	
+aerofrein	Aérodynamique	gouvernes
+afis	Aérodrome & cartes	
+agl	Altimétrie	references_verticales
+aile	Structure & cellule	
+aileron au vent	Procédures	gouvernes
+ailes à plat	Procédures	
+alcool	Sécurité & facteurs humains	
+alignement	Aérodrome & cartes	
+allumage	Moteur & hélice	
+alphabet aviation	Radio & phraséologie	
+alt	Radio & phraséologie	references_verticales
+alternateur	Moteur & hélice	
+altimètre	Instruments	instruments
+altimétrie	Altimétrie	
+altitude de croisière	Navigation	altitudes
+altitude de sécurité	Navigation	altitudes
+altitude de transition	Altimétrie	
+altitude densité	Vitesses & performances	altitudes
+altitude minimale	Réglementation & docs	altitudes
+altitude tour de piste	Aérodrome & cartes	altitudes
+altitude-densité	Altimétrie	
+altitude-pression	Altimétrie	
+altocumulus	Météo	nuages
+altostratus	Météo	nuages
+amers	Navigation	
+angle d'attaque	Aérodynamique	
+angle de dérive	Vent	
+anticyclone	Météo	
+anémomètre	Instruments	instruments
+approche finale	Procédures	
+approche interrompue	Procédures	
+approche stabilisée	Aérodrome & cartes	
+aquila	Aérodrome & cartes	
+arc blanc	Instruments	arcs
+arc dme	Navigation	arcs
+arc jaune	Instruments	arcs
+arc vert	Instruments	arcs
+arrondi	Aérodrome & cartes	
+ascendance	Météo	
+ascendance thermique	Météo	
+asi	Instruments	instruments
+assiette	Aérodynamique	assiettes
+assiette de croisière	Vitesses & performances	assiettes
+assiette de montée	Vitesses & performances	assiettes
+assiette de reference	Aérodynamique	assiettes
+atc	Radio & phraséologie	
+atmosphère standard	Météo	
+ats	Réglementation & docs	
+atterrissage de précaution	Procédures	atterrissages
+atterrissage forcé	Procédures	atterrissages
+atterrissage precaution	Procédures	atterrissages
+atterrissage train rentré	Procédures	atterrissages
+attitude	Sécurité & facteurs humains	
+attitude de vol	Aérodynamique	
+atz	Réglementation & docs	
+autonomie	Vitesses & performances	
+autonomie carburant	Vitesses & performances	
+autorisation atterrissage	Radio & phraséologie	
+autorotation	Procédures	
+averse	Météo	
+aviate	Sécurité & facteurs humains	
+avitaillement	Procédures	
+axe de piste	Aérodrome & cartes	
+azimut	Navigation	
+aérodrome de dégagement	Procédures	
+aérofreinage	Aérodynamique	
+badin	Instruments	instruments
+bande	Aérodrome & cartes	
+bande derobee	Aérodrome & cartes	
+barotraumatisme	Sécurité & facteurs humains	
+base des nuages	Météo	nuages
+basses couches	Météo	
+bat	divers	
+batterie	Moteur & hélice	
+becs	Aérodynamique	gouvernes
+biais de confirmation	Sécurité & facteurs humains	
+bilan carburant	Procédures	
+bille	Instruments	instruments
+bkn	Météo	
+br	Météo	
+branche	Procédures	
+bras de levier	Masse & centrage	
+brassage	Procédures	
+brief	Procédures	briefings
+briefing	Procédures	briefings
+briefing arrivée	Procédures	briefings
+briefing départ	Procédures	briefings
+brise de mer	Vent	brises
+brise de pente	Vent	brises
+brise de terre	Vent	brises
+brise de vallée	Vent	brises
+brouillard	Météo	
+brouillard de rayonnement	Météo	
+brume	Météo	
+cabré	Aérodynamique	
+calage altimétrique	Altimétrie	calages_altimetriques
+calage helice	Moteur & hélice	
+calage standard	Altimétrie	
+calvus	Météo	nuages
+canal unique	Radio & phraséologie	
+cap	Navigation	navigation_caps_et_routes
+cap compas	Navigation	navigation_caps_et_routes
+cap magnétique	Navigation	
+cap vrai	Navigation	
+carbu	Moteur & hélice	
+carburant degagement	Réglementation & docs	gestion_carburant
+carburant inutilisable	Masse & centrage	gestion_carburant
+carburant utilisable	Masse & centrage	gestion_carburant
+carnet de route	Réglementation & docs	
+carte	Aérodrome & cartes	cartes_aeronautiques
+carte oaci	Aérodrome & cartes	cartes_aeronautiques
+carte topographique	Aérodrome & cartes	cartes_aeronautiques
+carte vac	Aérodrome & cartes	cartes_aeronautiques
+cas	divers	
+castellanus	Météo	nuages
+cellule	Structure & cellule	
+centrage	Masse & centrage	masse_et_centrage
+centre de gravité	Masse & centrage	masse_et_centrage
+certificat médical	Réglementation & docs	
+cg	Masse & centrage	masse_et_centrage
+chaine des erreurs	Sécurité & facteurs humains	facteurs_humains
+charge de travail	Sécurité & facteurs humains	facteurs_humains
+check-list	Procédures	listes_de_verification
+check-list atterrissage	Procédures	listes_de_verification
+check-list décollage	Procédures	listes_de_verification
+checklist	Procédures	listes_de_verification
+choix de piste	Procédures	
+choke	Moteur & hélice	
+cht	Moteur & hélice	
+chute de pression	Moteur & hélice	
+circuit basse hauteur	Procédures	
+cirrostratus	Météo	nuages
+cisaillement	Vent	
+cisaillement basse couche	Vent	cisaillement_de_vent
+cisaillement de vent	Vent	cisaillement_de_vent
+clairance	Radio & phraséologie	radio_communications
+clairance de décollage	Radio & phraséologie	radio_communications
+classe	Réglementation & docs	
+cockpit	Structure & cellule	
+coefficient de freinage	Aérodrome & cartes	
+collationnement clairance	Radio & phraséologie	radio_communications
+collationner	Radio & phraséologie	radio_communications
+com	Radio & phraséologie	radio_communications
+commandant de bord	Réglementation & docs	
+compas	Instruments	compas_et_magnetisme
+compensateur	Aérodynamique	
+composante arrière	Vent	
+composante de face	Vent	
+composante de travers	Vent	
+composite	Structure & cellule	
+conditions imc	Réglementation & docs	regles_meteo_vol
+conditions vmc	Réglementation & docs	regles_meteo_vol
+configuration	Aérodynamique	limites_et_configurations_de_vol
+conflit	Sécurité & facteurs humains	
+conscience de la situation	Sécurité & facteurs humains	facteurs_humains
+consommation horaire	Moteur & hélice	gestion_carburant
+constante structurale	divers	
+contrôle d'aérodrome	Réglementation & docs	
+convection	Météo	aerologie
+convection thermique	Météo	aerologie
+convergence	Météo	aerologie
+correction de dérive	Navigation	navigation_caps_et_routes
+cos	divers	
+couche	Météo	couches_atmospheriques
+couche d'inversion	Météo	couches_atmospheriques
+couple gyroscopique	Moteur & hélice	effets_moteur
+couple moteur	Moteur & hélice	effets_moteur
+courant descendant	Météo	aerologie
+courte finale	Aérodrome & cartes	
+crm	Sécurité & facteurs humains	facteurs_humains
+crête	Météo	
+cu	Météo	nuages
+cumulonimbus	Météo	nuages
+cumulus	Météo	nuages
+cumulus congestus	Météo	nuages
+cz max	Aérodynamique	
+dalr	Météo	
+degrés vrais	Navigation	navigation_caps_et_routes
+demi-tour standard	Procédures	
+derive constatee	Navigation	navigation_caps_et_routes
+dernier virage	Aérodrome & cartes	
+descente initiale	Procédures	
+devis de masse	Masse & centrage	masse_et_centrage
+dgac	Réglementation & docs	organismes_aviation
+diagramme v-n	Aérodynamique	limites_et_configurations_de_vol
+distance d'atterrissage	Vitesses & performances	distances_performances
+distance de décollage	Vitesses & performances	distances_performances
+distance de franchissement	Vitesses & performances	distances_performances
+distance de roulement	Vitesses & performances	distances_performances
+domaine de vol	Vitesses & performances	limites_et_configurations_de_vol
+double commande	Structure & cellule	
+déclinaison magnétique	Navigation	
+décollage	Aérodrome & cartes	
+décrabage	Vent	
+décrochage	Aérodynamique	
+décrochage dynamique	Aérodynamique	decrochages
+décrochage secondaire	Aérodynamique	decrochages
+dépression	Météo	
+dérive	Navigation	
+déroutement	Procédures	
+détresse mayday	Radio & phraséologie	
+déviation compas	Instruments	compas_et_magnetisme
+easa	Réglementation & docs	organismes_aviation
+east is least	Navigation	compas_et_magnetisme
+eet	Navigation	
+effet de foehn	Météo	effets_vent_relief
+effet de pente	Météo	effets_vent_relief
+effet de site	Vent	effets_vent_relief
+effet de sol	Aérodynamique	
+effet gyroscopique	Aérodynamique	
+effet venturi	Aérodynamique	
+effort au manche	Aérodynamique	
+elr	Météo	
+empennage	Structure & cellule	
+encadrement	Procédures	
+engine	Moteur & hélice	
+espace aérien	Réglementation & docs	espaces_aeriens
+espace contrôlé	Réglementation & docs	espaces_aeriens
+espacement réglementaire	Réglementation & docs	
+espaces aériens	Réglementation & docs	espaces_aeriens
+essai magnétos	Procédures	
+eta	Navigation	heures_estimations
+facteur de charge	Aérodynamique	
+facteur humain	Sécurité & facteurs humains	facteurs_humains
+facteurs humains	Sécurité & facteurs humains	facteurs_humains
+fatigue	Sécurité & facteurs humains	facteurs_humains
+feu cabine	Procédures	urgences_incendie
+feu moteur	Procédures	urgences_incendie
+few	Météo	
+fi	Réglementation & docs	
+fiche de pesée	Masse & centrage	
+finale	Aérodrome & cartes	
+finale courte	Radio & phraséologie	
+finesse	Vitesses & performances	
+finesse max	Vitesses & performances	
+fir	Réglementation & docs	espaces_aeriens
+flaps	Structure & cellule	
+foehn	Météo	effets_vent_relief
+foxtrot	Radio & phraséologie	alphabet_oaci
+fpl	Réglementation & docs	
+fractus	Météo	
+fromage suisse	Sécurité & facteurs humains	
+front	Météo	fronts_meteorologiques
+front chaud	Météo	
+front froid	Météo	
+front occlus	Météo	fronts_meteorologiques
+fréquence	Radio & phraséologie	
+ft	Unités	
+ft aal	Altimétrie	references_verticales
+ft agl	Altimétrie	references_verticales
+ft amsl	Altimétrie	references_verticales
+ft/min	Unités	
+fuel pump	Moteur & hélice	pompe_carburant
+fuel pump on	Procédures	pompe_carburant
+fuselage	Structure & cellule	
+föhn	Vent	
+girouette	Vent	
+givrage	Météo	givrage
+givrage carburateur	Moteur & hélice	givrage
+givrage en vol	Météo	givrage
+givrage moteur	Moteur & hélice	givrage
+givrage structural	Météo	givrage
+givre	Météo	givrage
+gnss	Navigation	navigation_satellitaire
+golf	Radio & phraséologie	alphabet_oaci
+gouverne	Structure & cellule	
+gps	Navigation	navigation_satellitaire
+gradient de vent	Vent	
+gradient thermique	Météo	
+ground roll	Vitesses & performances	
+gyroscope	Instruments	
+hPa	Unités	
+hauteur de sécurité	Réglementation & docs	
+hauteur tour de piste	Procédures	
+herbe sèche	Vitesses & performances	
+heure d'arrivée	Navigation	heures_estimations
+heure de départ	Navigation	heures_estimations
+heure estimée	Navigation	heures_estimations
+hippodrome	Procédures	
+holding	Procédures	
+horizon artificiel	Instruments	
+hotel	Radio & phraséologie	alphabet_oaci
+hyperventilation	Sécurité & facteurs humains	facteurs_humains
+hypoxie	Sécurité & facteurs humains	facteurs_humains
+hélice	Moteur & hélice	
+iac	Aérodrome & cartes	
+idle	Moteur & hélice	
+ignition	Moteur & hélice	
+illusion somatogyrale	Sécurité & facteurs humains	facteurs_humains
+ils	Instruments	
+imsafe	Sécurité & facteurs humains	facteurs_humains
+incidence	Aérodynamique	incidences
+incidence critique	Aérodynamique	incidences
+inclinaison	Aérodynamique	inclinaisons
+inclinaison standard	Instruments	inclinaisons
+indicatif	Radio & phraséologie	
+inertie	Aérodynamique	
+info trafic	Radio & phraséologie	info_trafic
+information trafic	Radio & phraséologie	info_trafic
+instabilité	Météo	stabilite_atmospherique
+instabilité atmosphérique	Météo	stabilite_atmospherique
+instable	Météo	stabilite_atmospherique
+instructeur	Réglementation & docs	
+instrument	Instruments	
+interception	Réglementation & docs	
+intégration	Aérodrome & cartes	
+inversion	Météo	
+inversion de température	Météo	isothermes_temperatures
+iso zero	Météo	isothermes_temperatures
+isobare	Météo	
+isotherme	Météo	isothermes_temperatures
+isotherme zero	Météo	
+kg	Unités	unites
+kg/l	Unités	unites
+km	Unités	unites
+km/h	Unités	unites
+kt	Unités	
+kt de travers	Vent	
+ktas	Vitesses & performances	
+l/h	Unités	unites
+lacet	Aérodynamique	controle_lacet
+lacet adverse	Aérodynamique	controle_lacet
+largeur de piste	Aérodrome & cartes	dimensions_piste
+ldg	Procédures	
+lean	Moteur & hélice	
+lenticularis	Météo	nuages
+lfac	Aérodrome & cartes	codes_oaci
+lfat	Aérodrome & cartes	codes_oaci
+lfbd	Aérodrome & cartes	codes_oaci
+lfbo	Aérodrome & cartes	codes_oaci
+lfeh	Aérodrome & cartes	codes_oaci
+lfen	Aérodrome & cartes	codes_oaci
+lfey	Aérodrome & cartes	codes_oaci
+lfjr	Aérodrome & cartes	codes_oaci
+lflc	Aérodrome & cartes	codes_oaci
+lfll	Aérodrome & cartes	codes_oaci
+lfln	Aérodrome & cartes	codes_oaci
+lflx	Aérodrome & cartes	codes_oaci
+lfmd	Aérodrome & cartes	codes_oaci
+lfml	Aérodrome & cartes	codes_oaci
+lfmn	Aérodrome & cartes	codes_oaci
+lfmp	Aérodrome & cartes	codes_oaci
+lfmt	Aérodrome & cartes	codes_oaci
+lfob	Aérodrome & cartes	codes_oaci
+lfod	Aérodrome & cartes	codes_oaci
+lfoe	Aérodrome & cartes	codes_oaci
+lfoh	Aérodrome & cartes	codes_oaci
+lfoi	Aérodrome & cartes	codes_oaci
+lfoj	Aérodrome & cartes	codes_oaci
+lfok	Aérodrome & cartes	codes_oaci
+lfoo	Aérodrome & cartes	codes_oaci
+lfor	Aérodrome & cartes	codes_oaci
+lfot	Aérodrome & cartes	codes_oaci
+lfou	Aérodrome & cartes	codes_oaci
+lfow	Aérodrome & cartes	codes_oaci
+lfox	Aérodrome & cartes	codes_oaci
+lfoy	Aérodrome & cartes	codes_oaci
+lfoz	Aérodrome & cartes	codes_oaci
+lfpb	Aérodrome & cartes	codes_oaci
+lfpg	Aérodrome & cartes	codes_oaci
+lfpk	Aérodrome & cartes	codes_oaci
+lfpn	Aérodrome & cartes	codes_oaci
+lfpo	Aérodrome & cartes	codes_oaci
+lfpt	Aérodrome & cartes	codes_oaci
+lfpv	Aérodrome & cartes	codes_oaci
+lfqq	Aérodrome & cartes	codes_oaci
+lfrb	Aérodrome & cartes	codes_oaci
+lfrd	Aérodrome & cartes	codes_oaci
+lfrg	Aérodrome & cartes	codes_oaci
+lfrn	Aérodrome & cartes	codes_oaci
+lfrs	Aérodrome & cartes	codes_oaci
+lfsb	Aérodrome & cartes	codes_oaci
+lfsn	Aérodrome & cartes	codes_oaci
+lfst	Aérodrome & cartes	codes_oaci
+lftw	Aérodrome & cartes	codes_oaci
+lfxu	Aérodrome & cartes	codes_oaci
+licence	Réglementation & docs	
+ligne de grain	Météo	
+limite arriere	Masse & centrage	limites_de_centrage
+limite avant	Masse & centrage	limites_de_centrage
+lisse	Aérodynamique	
+longeron	Structure & cellule	
+longue finale	Aérodrome & cartes	
+longueur de piste	Aérodrome & cartes	dimensions_piste
+lâcher	Procédures	
+légal	Réglementation & docs	
+m/s	Unités	unites
+machmetre	Instruments	
+mag	Navigation	references_magnetiques
+magnétique	Navigation	references_magnetiques
+magnéto	Moteur & hélice	magnetos
+magnéto droite	Moteur & hélice	magnetos
+magnéto gauche	Moteur & hélice	magnetos
+majoration rafale	Vitesses & performances	
+mal de l'air	Sécurité & facteurs humains	
+mammatus	Météo	nuages
+manche	Structure & cellule	commandes_de_vol
+manche à air	Aérodrome & cartes	
+manette	Moteur & hélice	commandes_de_vol
+manuel de vol	Réglementation & docs	
+marge de decrochage	Vitesses & performances	
+marge de franchissement	Procédures	
+masse a vide	Masse & centrage	masses
+masse du jour	Masse & centrage	masses
+masse et centrage	Masse & centrage	
+masse maximale	Masse & centrage	masses
+mayday	Radio & phraséologie	
+menace	Sécurité & facteurs humains	facteurs_humains
+metar/taf	Météo	messages_meteo
+minima	Réglementation & docs	minima_meteo
+minima météo	Réglementation & docs	minima_meteo
+mise en route	Procédures	procedures_sol
+mistral	Météo	vents_locaux
+mm aft datum	Masse & centrage	masse_et_centrage
+modele threat and error	Sécurité & facteurs humains	facteurs_humains
+moment de rappel	Aérodynamique	masse_et_centrage
+monomoteur	Structure & cellule	categories_aeronef
+monomoteur léger	Structure & cellule	categories_aeronef
+montée initiale	Aérodrome & cartes	
+moulinet	Moteur & hélice	helice
+mtom	Masse & centrage	masses_reglementaires
+mémoire de travail	Sécurité & facteurs humains	facteurs_humains
+météo du jour	Météo	preparation_vol
+nav	Navigation	navigation_termes
+navigabilité	Réglementation & docs	documents_aeronef
+navigation	Navigation	navigation_termes
+nearest airfield	Procédures	situations_urgence
+nervure	Structure & cellule	structure_aile
+nimbostratus	Météo	nuages
+niveau de transition	Altimétrie	altimetrie_references
+niveau de vol	Altimétrie	
+no-go	Sécurité & facteurs humains	prise_decision
+nord	Navigation	points_cardinaux
+nord magnétique	Navigation	
+nord vrai	Navigation	
+nuage	Météo	nuages
+nuage du jour	Météo	nuages
+nuit	Réglementation & docs	regles_vol
+oaci	Réglementation & docs	organismes
+oat	Instruments	instruments_mesure
+obstacle artificiel	Aérodrome & cartes	securite_sol
+occlusion	Météo	
+octas	Météo	
+off ignition off	Procédures	procedures_sol
+onde de relief	Vent	
+oreille interne	Sécurité & facteurs humains	physiologie
+ouest	Navigation	points_cardinaux
+ovc	Météo	couche_nuageuse
+oxygène	Sécurité & facteurs humains	physiologie
+palier	Procédures	phases_vol
+palier de croisière	Procédures	phases_vol
+palonnier	Structure & cellule	gouvernes_commandes
+panne moteur	Procédures	situations_urgence
+panne radio	Procédures	situations_urgence
+panne électrique	Procédures	situations_urgence
+parking	Aérodrome & cartes	zones_aerodrome
+pas d'hélice	Moteur & hélice	helice
+pas variable	Moteur & hélice	helice
+passager	Réglementation & docs	radio_phraséologie
+pax	Radio & phraséologie	radio_phraséologie
+pente	Vitesses & performances	pentes_descente
+pente de descente	Vitesses & performances	pentes_descente
+pente de montée	Vitesses & performances	pentes_descente
+percée verticale	Procédures	procedures_vol
+perte de position	Navigation	navigation_termes
+phraséologie	Radio & phraséologie	radio_phraséologie
+piqué	Procédures	phases_vol
+piste	Aérodrome & cartes	
+piste contaminée	Aérodrome & cartes	pistes
+piste en service	Aérodrome & cartes	pistes
+piste mouillée	Aérodrome & cartes	pistes
+pitot	Instruments	instruments_pression
+piège classique	Sécurité & facteurs humains	prise_decision
+plafond	Météo	
+plafond nuageux	Météo	couche_nuageuse
+plan continuation bias	Sécurité & facteurs humains	facteurs_humains
+plan de charge	Sécurité & facteurs humains	facteurs_humains
+plan de descente	Aérodrome & cartes	pentes_descente
+plan de vol	Réglementation & docs	preparation_vol
+plancher	Réglementation & docs	altimetrie_references
+plané	Procédures	phases_vol
+plein gaz	Procédures	phases_vol
+pluie	Météo	messages_meteo
+point d'arrêt	Aérodrome & cartes	points_aerodrome
+point d'attente	Aérodrome & cartes	points_aerodrome
+point de decision	Sécurité & facteurs humains	prise_decision
+point de non retour	Navigation	prise_decision
+point de report	Navigation	points_navigation
+point de rosée	Météo	
+point fixe	Procédures	points_aerodrome
+points de report	Navigation	points_navigation
+polaire	Aérodynamique	aerodynamique
+pompe	Météo	mouvements_air
+pompe électrique	Moteur & hélice	circuit_carburant
+portance	Aérodynamique	aerodynamique
+portée visuelle de piste	Météo	conditions_visibilite
+posé-décollé	Aérodrome & cartes	procedures_vol
+ppl	Réglementation & docs	licences
+premier contact	Radio & phraséologie	radio_phraséologie
+pression	Altimétrie	references_pression
+pression d'huile	Moteur & hélice	parametres_moteur
+pression standard	Altimétrie	references_pression
+priorité	Réglementation & docs	regles_vol
+prob	Météo	messages_meteo
+procedure d'attente	Procédures	phases_vol
+profondeur	Structure & cellule	gouvernes_commandes
+prolongement d'arret	Aérodrome & cartes	distances_declarees
+prop	Moteur & hélice	helice
+prorogation	Réglementation & docs	licences
+pré-lâcher	Procédures	formation_pilote
+psi	Unités	
+pump	Moteur & hélice	
+purge	Procédures	
+qcm	Réglementation & docs	
+qdm	Navigation	
+qdr	Navigation	
+rabattant	Vent	
+rabattant sous le vent	Vent	
+radiale	Navigation	
+radio	Radio & phraséologie	
+radiocompas	Instruments	instruments
+rafale	Vent	
+rayon	Aérodynamique	
+read-back	Radio & phraséologie	
+recalage en route	Procédures	
+red lines	Instruments	
+regime venturi	Aérodynamique	
+relief environnant	Aérodrome & cartes	
+remise de gaz interrompue	Procédures	
+remise des gaz	Aérodrome & cartes	
+report	Radio & phraséologie	
+reserve finale	Réglementation & docs	
+richesse	Moteur & hélice	
+richesse mélange	Moteur & hélice	
+rmz	Aérodrome & cartes	
+roger	Radio & phraséologie	
+rose des vents	Navigation	
+rotor	Météo	
+roue	Structure & cellule	
+roulage	Aérodrome & cartes	
+roulage au sol	Procédures	
+roulement	Aérodrome & cartes	
+roulette	Structure & cellule	
+roulis	Aérodynamique	
+route	Navigation	
+rpm	Unités	
+rugosité	Aérodrome & cartes	
+règle d'or	Sécurité & facteurs humains	
+règles de l'air	Réglementation & docs	
+réchauffage carburateur	Moteur & hélice	
+récupération de décrochage	Procédures	
+réducteur	Moteur & hélice	
+régime hélice	Moteur & hélice	
+régime moteur	Moteur & hélice	
+région terminale	Aérodrome & cartes	
+réserve de carburant	Réglementation & docs	
+réserve réglementaire	Réglementation & docs	
+saturation	Météo	
+say again	Radio & phraséologie	
+sct	Météo	
+secteur variable	Vent	
+sens du tour de piste	Aérodrome & cartes	
+sep	Réglementation & docs	
+service d'information	Radio & phraséologie	
+seuil de piste	Aérodrome & cartes	
+shra	Météo	
+sigma	divers	
+sigmet	Météo	
+signaux	Aérodrome & cartes	
+signaux lumineux	Radio & phraséologie	
+silence radio	Radio & phraséologie	
+sillage	Aérodynamique	
+sin	divers	
+siv	Radio & phraséologie	
+solo	Réglementation & docs	
+souffle hélicoïdal	Aérodynamique	
+squawk	Radio & phraséologie	
+stabiliser	Procédures	
+stabilité atmosphérique	Météo	
+stabilité statique	Aérodynamique	
+stable	Aérodynamique	
+stall	Aérodynamique	
+stall warning	Instruments	
+station	divers	
+stratocumulus	Météo	nuages
+stratus	Météo	nuages
+stress	Sécurité & facteurs humains	
+structure	divers	
+sud	Navigation	
+sup aip	Réglementation & docs	
+surface de piste	Aérodrome & cartes	
+sélecteur carburant	Moteur & hélice	
+séparation	Réglementation & docs	
+t/o	Procédures	
+tableau de déviation	Instruments	
+tache aveugle	Sécurité & facteurs humains	
+tachymetre	Instruments	instruments
+tangage	Aérodynamique	
+tango	Radio & phraséologie	
+taux de chute	Vitesses & performances	
+taux de descente	Vitesses & performances	
+taux de montée	Vitesses & performances	
+tcds	Réglementation & docs	
+tem	Sécurité & facteurs humains	
+temps de reaction	Sécurité & facteurs humains	
+temps estimé	Navigation	
+température culasse	Moteur & hélice	
+température d'huile	Moteur & hélice	
+température standard	Altimétrie	
+temsi	Météo	
+terrain de dégagement	Procédures	
+throttle	Moteur & hélice	commandes_de_vol
+tma paris	Aérodrome & cartes	
+tmz	Réglementation & docs	
+tod	Navigation	
+totalisateur	Instruments	instruments
+touché	Procédures	atterrissages
+tour de contrôle	Aérodrome & cartes	
+tour de piste	Aérodrome & cartes	
+tour de piste basse hauteur	Procédures	
+traction	Aérodynamique	
+trafic	Procédures	
+trait rouge	Instruments	
+trajectoire	Aérodynamique	
+tramontane	Vent	
+transpondeur	Instruments	instruments
+transpondeur 7500	Procédures	codes_transpondeur
+transpondeur 7600	Procédures	codes_transpondeur
+transpondeur 7700	Procédures	codes_transpondeur
+transpondeur mode c	Instruments	instruments
+traînée	Aérodynamique	
+traînée induite	Aérodynamique	
+traînée parasite	Aérodynamique	
+triangle des vitesses	Navigation	
+trim	Structure & cellule	gouvernes
+tropopause	Météo	
+troposphere	Météo	
+trou noir	Sécurité & facteurs humains	
+turbulence	Météo	
+turbulence de sillage	Vent	
+turbulence en air clair	Météo	
+turbulence mécanique	Vent	
+uir	Réglementation & docs	
+urgence pan pan	Radio & phraséologie	
+utc	Unités	unites
+variometre	Instruments	instruments
+vent anabatique	Vent	brises
+vent arriere de securite	Procédures	
+vent arrière	Aérodrome & cartes	
+vent catabatique	Vent	brises
+vent de face	Vent	
+vent de travers démontré	Vent	
+vent effectif	Vent	
+vent estimé	Vent	
+vent fort	Vent	
+vent gradient	Vent	
+vent réel	Vent	
+vent traversier	Aérodrome & cartes	
+verification vitale	Procédures	
+verticale terrain	Aérodrome & cartes	
+victor	Radio & phraséologie	
+virage	Aérodynamique	
+virage horizontal stabilisé	Aérodynamique	
+virage standard	Procédures	
+vireur	Instruments	
+visibilité	Météo	
+visibilité horizontale	Météo	
+visibilité verticale	Météo	
+vision nocturne	Sécurité & facteurs humains	
+visite prévol	Procédures	
+vitesse	Vitesses & performances	vitesses_caracteristiques
+vitesse air	Vitesses & performances	vitesses_caracteristiques
+vitesse corrigee	Vitesses & performances	vitesses_caracteristiques
+vitesse d'approche	Vitesses & performances	vitesses_caracteristiques
+vitesse d'envol	Vitesses & performances	vitesses_caracteristiques
+vitesse de croisière	Vitesses & performances	vitesses_caracteristiques
+vitesse de décrochage	Vitesses & performances	
+vitesse de rotation	Vitesses & performances	vitesses_caracteristiques
+vitesse de sécurité	Vitesses & performances	vitesses_caracteristiques
+vitesse propre	Vitesses & performances	vitesses_caracteristiques
+vitesse sol	Vitesses & performances	vitesses_caracteristiques
+vitesse vraie	Vitesses & performances	vitesses_caracteristiques
+vitesses caractéristiques	Vitesses & performances	
+vle	Vitesses & performances	vitesses_caracteristiques
+vol aux instruments	Procédures	
+vol de nuit	Réglementation & docs	
+vol lent	Procédures	
+vol à vue	Réglementation & docs	
+volets	Structure & cellule	gouvernes
+volets rentrés	Structure & cellule	gouvernes
+volets sortis	Structure & cellule	gouvernes
+volets up	Structure & cellule	gouvernes
+volt	Unités	unites
+vor	Instruments	instruments
+vr	Vitesses & performances	vitesses_caracteristiques
+vrb	Météo	
+vrille	Aérodynamique	
+vrille à plat	Aérodynamique	
+wca	Navigation	
+wintem	Météo	
+zone dangereuse	Aérodrome & cartes	zones_aeriennes
+zone de contrôle	Aérodrome & cartes	zones_aeriennes
+zone interdite	Aérodrome & cartes	zones_aeriennes
+zone stabilisée	Procédures	
+°	Unités	
+°C	Unités	
+énergie cinétique	Aérodynamique	
+étape de base	Aérodrome & cartes	
+état de piste	Aérodrome & cartes	
+évitement	Procédures	
+θ	Vent	

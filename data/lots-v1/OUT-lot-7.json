@@ -1,0 +1,893 @@
+{
+ "lot": 7,
+ "termes": {
+  "terrain de dégagement": {
+   "definition": "Aérodrome de déroutement prévu lors de la préparation du vol où le pilote peut atterrir en toute sécurité si l'accès au terrain de destination principale devient impossible en raison de la météo ou d'une panne.",
+   "categorie": "Procédures",
+   "famille": null,
+   "membres_famille": [],
+   "a_verifier": false
+  },
+  "throttle": {
+   "definition": "Terme d'usage courant pour désigner la manette des gaz. Elle contrôle l'ouverture du papillon des gaz pour ajuster le débit du mélange air-carburant admis dans le moteur et ainsi réguler sa puissance.",
+   "categorie": "Moteur & hélice",
+   "famille": "commandes_de_vol",
+   "membres_famille": [
+    "throttle"
+   ],
+   "a_verifier": false
+  },
+  "tma paris": {
+   "definition": "Région de contrôle terminale gérant le trafic dense de la région parisienne. Elle est découpée en plusieurs secteurs de classes d'espace différentes, nécessitant obligatoirement un contact radio et une clairance pour y pénétrer.",
+   "categorie": "Aérodrome & cartes",
+   "famille": null,
+   "membres_famille": [],
+   "a_verifier": false
+  },
+  "tmz": {
+   "definition": "<em>Transponder Mandatory Zone</em> : zone de transpondeur obligatoire. Espace aérien dans lequel l'emport et le fonctionnement d'un transpondeur en mode C ou S sont requis pour assurer la sécurité et la détection radar du trafic.",
+   "categorie": "Réglementation & docs",
+   "famille": null,
+   "membres_famille": [],
+   "a_verifier": false
+  },
+  "tod": {
+   "definition": "<em>Top Of Descent</em> : point de début de descente théorique calculé lors de la navigation pour rejoindre l'altitude du circuit de piste. Il permet d'anticiper un taux de descente confortable pour les passagers.",
+   "categorie": "Navigation",
+   "famille": null,
+   "membres_famille": [],
+   "a_verifier": false
+  },
+  "totalisateur": {
+   "definition": "Compteur horaire mesurant le temps de fonctionnement du moteur de l'aéronef, généralement activé par la pression d'huile ou l'alternateur. Il sert de référence pour le carnet de route et la maintenance périodique.",
+   "categorie": "Instruments",
+   "famille": "instruments",
+   "membres_famille": [
+    "totalisateur",
+    "transpondeur",
+    "transpondeur mode c",
+    "variometre",
+    "vor"
+   ],
+   "a_verifier": false
+  },
+  "touché": {
+   "definition": "Atterrissage suivi immédiatement d'un redécollage sans arrêt complet de l'appareil sur la piste. Cette manœuvre est très pratiquée lors de l'entraînement au tour de piste pour optimiser le temps d'instruction.",
+   "categorie": "Procédures",
+   "famille": "atterrissages",
+   "membres_famille": [
+    "touché"
+   ],
+   "a_verifier": false
+  },
+  "tour de contrôle": {
+   "definition": "Organisme de contrôle local assurant la régulation du trafic aérien sur un aérodrome et dans sa zone de contrôle associée (CTR). Le contrôleur y délivre des clairances d'atterrissage, de décollage et de roulage.",
+   "categorie": "Aérodrome & cartes",
+   "famille": null,
+   "membres_famille": [],
+   "a_verifier": false
+  },
+  "tour de piste basse hauteur": {
+   "definition": "Circuit de piste effectué à une hauteur inférieure à celle du tour de piste standard, généralement pour s'entraîner à la panne moteur ou en conditions météorologiques dégradées de plafond bas.",
+   "categorie": "Procédures",
+   "famille": null,
+   "membres_famille": [],
+   "a_verifier": false
+  },
+  "traction": {
+   "definition": "Force aérodynamique dirigée vers l'avant, générée par la rotation de l'hélice entraînée par le moteur. Elle s'oppose à la traînée de l'aéronef pour permettre sa mise en mouvement et son maintien en vol.",
+   "categorie": "Aérodynamique",
+   "famille": null,
+   "membres_famille": [],
+   "a_verifier": false
+  },
+  "trafic": {
+   "definition": "Ensemble des aéronefs évoluant en vol ou au sol sur un aérodrome ou dans une zone donnée. Le pilote doit assurer sa propre surveillance visuelle pour éviter toute collision avec d'autres trafics.",
+   "categorie": "Procédures",
+   "famille": null,
+   "membres_famille": [],
+   "a_verifier": false
+  },
+  "trait rouge": {
+   "definition": "Repère visuel placé sur le cadran d'un instrument de bord ou d'un indicateur moteur. Il indique une limite maximale absolue de fonctionnement à ne jamais dépasser sous peine d'endommager gravement la structure ou le moteur.",
+   "categorie": "Instruments",
+   "famille": null,
+   "membres_famille": [],
+   "a_verifier": false
+  },
+  "trajectoire": {
+   "definition": "Ligne décrite par le centre de gravité d'un aéronef dans l'espace au cours de son mouvement. Elle résulte de la combinaison de la vitesse propre de l'appareil et de la vitesse du vent.",
+   "categorie": "Aérodynamique",
+   "famille": null,
+   "membres_famille": [],
+   "a_verifier": false
+  },
+  "tramontane": {
+   "definition": "Vent de secteur nord-ouest soufflant de manière violente et turbulente sur le golfe du Lion et la plaine du Roussillon. Redoutable pour les vols de loisir, elle exige une grande vigilance lors des atterrissages.",
+   "categorie": "Vent",
+   "famille": null,
+   "membres_famille": [],
+   "a_verifier": false
+  },
+  "transpondeur": {
+   "definition": "Émetteur-récepteur embarqué répondant aux interrogations des radars secondaires au sol. Il permet aux contrôleurs aériens d'identifier l'aéronef sur leur écran et de connaître sa position ainsi que son altitude.",
+   "categorie": "Instruments",
+   "famille": "instruments",
+   "membres_famille": [
+    "totalisateur",
+    "transpondeur",
+    "transpondeur mode c",
+    "variometre",
+    "vor"
+   ],
+   "a_verifier": false
+  },
+  "transpondeur 7500": {
+   "definition": "Code transpondeur international d'urgence indiquant une intervention illicite à bord (détournement). Son affichage discret permet d'alerter les services de la circulation aérienne et de la défense aérienne sans communication radio.",
+   "categorie": "Procédures",
+   "famille": "codes_transpondeur",
+   "membres_famille": [
+    "transpondeur 7500",
+    "transpondeur 7600",
+    "transpondeur 7700"
+   ],
+   "a_verifier": false
+  },
+  "transpondeur 7600": {
+   "definition": "Code transpondeur international indiquant une panne totale ou partielle des radiocommunications. Le pilote doit l'afficher pour signaler sa situation aux contrôleurs et poursuivre son vol selon les procédures de panne radio.",
+   "categorie": "Procédures",
+   "famille": "codes_transpondeur",
+   "membres_famille": [
+    "transpondeur 7500",
+    "transpondeur 7600",
+    "transpondeur 7700"
+   ],
+   "a_verifier": false
+  },
+  "transpondeur 7700": {
+   "definition": "Code transpondeur international de détresse absolue, signalant une situation d'urgence critique ou de détresse à bord. Il déclenche une alerte immédiate auprès de tous les centres de contrôle radar environnants.",
+   "categorie": "Procédures",
+   "famille": "codes_transpondeur",
+   "membres_famille": [
+    "transpondeur 7500",
+    "transpondeur 7600",
+    "transpondeur 7700"
+   ],
+   "a_verifier": false
+  },
+  "transpondeur mode c": {
+   "definition": "Mode de fonctionnement du transpondeur transmettant automatiquement l'altitude-pression de l'aéronef (calée sur 1013,25 hPa) en plus de son code d'identification. Il permet au contrôle d'assurer l'espacement vertical.",
+   "categorie": "Instruments",
+   "famille": "instruments",
+   "membres_famille": [
+    "totalisateur",
+    "transpondeur",
+    "transpondeur mode c",
+    "variometre",
+    "vor"
+   ],
+   "a_verifier": false
+  },
+  "traînée": {
+   "definition": "Force aérodynamique de résistance à l'avancement, parallèle à la trajectoire et opposée au mouvement de l'aéronef. Générée par le déplacement dans l'air, elle doit être compensée par la traction du moteur.",
+   "categorie": "Aérodynamique",
+   "famille": null,
+   "membres_famille": [],
+   "a_verifier": false
+  },
+  "traînée induite": {
+   "definition": "Partie de la traînée totale liée directement à la génération de la portance par l'aile. Elle augmente lorsque la vitesse diminue et que l'angle d'incidence augmente, notamment à basse vitesse.",
+   "categorie": "Aérodynamique",
+   "famille": null,
+   "membres_famille": [],
+   "a_verifier": false
+  },
+  "traînée parasite": {
+   "definition": "Partie de la traînée totale non liée à la portance, regroupant la traînée de frottement, de forme et d'interaction de la cellule. Elle augmente proportionnellement au carré de la vitesse de l'aéronef.",
+   "categorie": "Aérodynamique",
+   "famille": null,
+   "membres_famille": [],
+   "a_verifier": false
+  },
+  "triangle des vitesses": {
+   "definition": "Représentation graphique des trois vecteurs de vitesse : le vecteur vitesse propre (vitesse air), le vecteur vent, et leur résultante, le vecteur vitesse sol (trajectoire réelle). Il permet de calculer la dérive.",
+   "categorie": "Navigation",
+   "famille": null,
+   "membres_famille": [],
+   "a_verifier": false
+  },
+  "trim": {
+   "definition": "Dispositif aérodynamique (compensateur) permettant de relâcher l'effort physique du pilote sur le manche en annulant la force exercée sur la gouverne de profondeur pour maintenir l'assiette choisie.",
+   "categorie": "Structure & cellule",
+   "famille": "gouvernes",
+   "membres_famille": [
+    "trim",
+    "volets",
+    "volets rentrés",
+    "volets sortis",
+    "volets up"
+   ],
+   "a_verifier": false
+  },
+  "tropopause": {
+   "definition": "Limite de transition thermique entre la troposphère et la stratosphère, située à une altitude moyenne de onze kilomètres en France. Elle marque la fin de la décroissance de la température avec l'altitude.",
+   "categorie": "Météo",
+   "famille": null,
+   "membres_famille": [],
+   "a_verifier": false
+  },
+  "troposphere": {
+   "definition": "Couche la plus basse de l'atmosphère terrestre, s'étendant du sol jusqu'à la tropopause. C'est dans cette zone que se produisent la quasi-totalité des phénomènes météorologiques intéressant le pilote VFR.",
+   "categorie": "Météo",
+   "famille": null,
+   "membres_famille": [],
+   "a_verifier": false
+  },
+  "trou noir": {
+   "definition": "Illusion sensorielle nocturne survenant lors d'une approche sur une piste éclairée entourée d'un sol totalement sombre. En l'absence de repères visuels au sol, le pilote tend à surévaluer sa hauteur et à descendre trop bas.",
+   "categorie": "Sécurité & facteurs humains",
+   "famille": null,
+   "membres_famille": [],
+   "a_verifier": false
+  },
+  "turbulence": {
+   "definition": "Mouvement désordonné de l'air caractérisé par des variations rapides de la direction et de la vitesse du vent. Elle provoque des secousses, fatigue la cellule et nécessite une adaptation de la vitesse de pilotage.",
+   "categorie": "Météo",
+   "famille": null,
+   "membres_famille": [],
+   "a_verifier": false
+  },
+  "turbulence de sillage": {
+   "definition": "Turbulence générée par les tourbillons marginaux à l'extrémité des ailes de tout aéronef en vol, particulièrement intense derrière les avions lourds. Elle exige de respecter des espacements de sécurité lors des décollages.",
+   "categorie": "Vent",
+   "famille": null,
+   "membres_famille": [],
+   "a_verifier": false
+  },
+  "turbulence en air clair": {
+   "definition": "Turbulence sévère se produisant à haute altitude en dehors de tout nuage convectif visible, souvent liée à la proximité d'un courant-jet. Invisible et soudaine, elle est principalement redoutée en aviation de ligne.",
+   "categorie": "Météo",
+   "famille": null,
+   "membres_famille": [],
+   "a_verifier": false
+  },
+  "turbulence mécanique": {
+   "definition": "Turbulence basse couche provoquée par le frottement du vent sur les obstacles au sol (arbres, bâtiments, reliefs). Elle s'intensifie avec la force du vent et perturbe la stabilité de l'aéronef lors de l'approche.",
+   "categorie": "Vent",
+   "famille": null,
+   "membres_famille": [],
+   "a_verifier": false
+  },
+  "uir": {
+   "definition": "<em>Upper Flight Information Region</em> : région supérieure d'information de vol. Espace aérien contrôlé gérant la circulation aérienne dans la tranche supérieure, généralement au-dessus du niveau de vol 195 (FL195).",
+   "categorie": "Réglementation & docs",
+   "famille": null,
+   "membres_famille": [],
+   "a_verifier": false
+  },
+  "urgence pan pan": {
+   "definition": "Signal de radiotéléphonie répété trois fois (PAN PAN, PAN PAN, PAN PAN) pour indiquer une situation urgente concernant la sécurité d'un aéronef ou d'une personne à bord, sans gravité immédiate.",
+   "categorie": "Radio & phraséologie",
+   "famille": null,
+   "membres_famille": [],
+   "a_verifier": false
+  },
+  "utc": {
+   "definition": "<em>Coordinated Universal Time</em> : Temps Universel Coordonné. C'est l'échelle de temps de référence internationale en aéronautique, utilisée pour les plans de vol, les messages météo (METAR, TAF) et le carnet de route.",
+   "categorie": "Unités",
+   "famille": "unites",
+   "membres_famille": [
+    "volt",
+    "utc"
+   ],
+   "a_verifier": false
+  },
+  "variometre": {
+   "definition": "Instrument de bord mesurant la vitesse verticale de l'aéronef à partir des variations de la pression statique. Indiquant une montée ou une descente en pieds par minute, il aide à stabiliser les trajectoires.",
+   "categorie": "Instruments",
+   "famille": "instruments",
+   "membres_famille": [
+    "totalisateur",
+    "transpondeur",
+    "transpondeur mode c",
+    "variometre",
+    "vor"
+   ],
+   "a_verifier": false
+  },
+  "vent anabatique": {
+   "definition": "Vent local ascendant soufflant le long d'une pente réchauffée par le soleil durant la journée. Il peut générer des ascendances exploitables mais aussi des turbulences au sommet du relief.",
+   "categorie": "Vent",
+   "famille": "brises",
+   "membres_famille": [
+    "vent anabatique",
+    "vent catabatique"
+   ],
+   "a_verifier": false
+  },
+  "vent arriere de securite": {
+   "definition": "Phase d'un circuit de piste de détresse effectuée plus près de la piste que l'étape vent arrière standard, à hauteur réduite. Elle permet de garder la piste à portée de plané en cas de panne.",
+   "categorie": "Procédures",
+   "famille": null,
+   "membres_famille": [],
+   "a_verifier": false
+  },
+  "vent catabatique": {
+   "definition": "Vent local gravitaire et froid descendant une pente montagneuse durant la nuit ou sur des glaciers. Ce vent peut être soudain, violent et générer de fortes turbulences dans les vallées.",
+   "categorie": "Vent",
+   "famille": "brises",
+   "membres_famille": [
+    "vent anabatique",
+    "vent catabatique"
+   ],
+   "a_verifier": false
+  },
+  "vent de travers démontré": {
+   "definition": "Vitesse maximale du vent perpendiculaire à la piste avec laquelle l'aéronef a été certifié lors des essais en vol. Il ne s'agit pas d'une limite structurale, mais d'une valeur limite de sécurité pour le pilote.",
+   "categorie": "Vent",
+   "famille": null,
+   "membres_famille": [],
+   "a_verifier": false
+  },
+  "vent effectif": {
+   "definition": "Composante du vent parallèle à l'axe de la trajectoire de l'aéronef. Un vent effectif de face réduit la vitesse sol et raccourcit la distance de décollage, tandis qu'un vent arrière produit l'effet inverse.",
+   "categorie": "Vent",
+   "famille": null,
+   "membres_famille": [],
+   "a_verifier": false
+  },
+  "vent estimé": {
+   "definition": "Valeur de la force et de la direction du vent anticipée lors de la préparation de la navigation, généralement issue des prévisions météo. Elle sert à calculer le cap magnétique et le temps de vol estimé.",
+   "categorie": "Vent",
+   "famille": null,
+   "membres_famille": [],
+   "a_verifier": false
+  },
+  "vent fort": {
+   "definition": "Conditions de vent de surface d'intensité élevée qui compliquent le pilotage, augmentent la dérive et augmentent les risques de perte de contrôle au sol ou en approche. Il nécessite des corrections appropriées.",
+   "categorie": "Vent",
+   "famille": null,
+   "membres_famille": [],
+   "a_verifier": false
+  },
+  "vent réel": {
+   "definition": "Vent mesuré ou subi à une altitude et une position données à un instant précis. Il diffère souvent du vent prévu et influence directement la vitesse sol et la trajectoire de l'aéronef.",
+   "categorie": "Vent",
+   "famille": null,
+   "membres_famille": [],
+   "a_verifier": false
+  },
+  "verification vitale": {
+   "definition": "Action ou contrôle de sécurité hautement prioritaire devant être exécuté scrupuleusement à des étapes clés du vol. La vérification de la libre course des commandes de vol avant décollage en est un exemple type.",
+   "categorie": "Procédures",
+   "famille": null,
+   "membres_famille": [],
+   "a_verifier": false
+  },
+  "victor": {
+   "definition": "Code phonétique international de l'alphabet OACI correspondant à la lettre V. Il est utilisé dans toutes les communications radio pour épeler les immatriculations ou d'autres indicatifs clairs sans risque d'erreur de transmission.",
+   "categorie": "Radio & phraséologie",
+   "famille": null,
+   "membres_famille": [],
+   "a_verifier": false
+  },
+  "virage": {
+   "definition": "Manœuvre permettant de modifier le cap de l'aéronef en l'inclinant du côté où l'on veut tourner. En virage stabilisé, la portance doit augmenter pour compenser l'effet combiné de la masse et de la force centrifuge.",
+   "categorie": "Aérodynamique",
+   "famille": null,
+   "membres_famille": [],
+   "a_verifier": false
+  },
+  "virage horizontal stabilisé": {
+   "definition": "Virage effectué à altitude et vitesse constantes. L'assiette et l'inclinaison sont maintenues de sorte que la composante verticale de la portance équilibre exactement la masse de l'aéronef.",
+   "categorie": "Aérodynamique",
+   "famille": null,
+   "membres_famille": [],
+   "a_verifier": false
+  },
+  "virage standard": {
+   "definition": "Virage effectué à un taux constant de trois degrés par seconde, permettant de réaliser un demi-tour en une minute et un tour complet en deux minutes. Il est indiqué par le vireur.",
+   "categorie": "Procédures",
+   "famille": null,
+   "membres_famille": [],
+   "a_verifier": false
+  },
+  "vireur": {
+   "definition": "",
+   "categorie": "divers",
+   "famille": null,
+   "membres_famille": [],
+   "a_verifier": true,
+   "doute": "Terme très inhabituel et ambigu en formation VFR/PPL, pouvant désigner un vireur de moteur/turbomachine ou d'hélice en maintenance, ou être une mauvaise traduction de turn coordinator."
+  },
+  "visibilité horizontale": {
+   "definition": "Plus grande distance à laquelle un observateur peut voir et identifier un objet proéminent situé près du sol. C'est un paramètre critique pour la délivrance des clairances de vol à vue.",
+   "categorie": "Météo",
+   "famille": null,
+   "membres_famille": [],
+   "a_verifier": false
+  },
+  "visibilité verticale": {
+   "definition": "Distance maximale sur laquelle un pilote peut voir le sol verticalement depuis son appareil, particulièrement utilisée lorsque le ciel est obscurci par du brouillard, de la neige ou de la poussière sans plafond défini.",
+   "categorie": "Météo",
+   "famille": null,
+   "membres_famille": [],
+   "a_verifier": false
+  },
+  "vision nocturne": {
+   "definition": "Capacité d'adaptation physiologique de l'œil humain à l'obscurité, nécessitant environ trente minutes d'obscurité pour être optimale. Elle est altérée instantanément par toute lumière vive, d'où l'usage d'éclairages rouges de faible intensité en cabine.",
+   "categorie": "Sécurité & facteurs humains",
+   "famille": null,
+   "membres_famille": [],
+   "a_verifier": false
+  },
+  "visite prévol": {
+   "definition": "Inspection visuelle et tactile approfondie effectuée par le pilote autour de l'aéronef avant d'entreprendre le vol. Elle permet de s'assurer de l'intégrité de la structure, des gouvernes, des niveaux et de l'absence d'anomalies.",
+   "categorie": "Procédures",
+   "famille": null,
+   "membres_famille": [],
+   "a_verifier": false
+  },
+  "vitesse": {
+   "definition": "Grandeur mesurant le déplacement de l'aéronef par rapport à un repère donné en fonction du temps, généralement exprimée en nœuds en aviation. On distingue principalement la vitesse par rapport à l'air et la vitesse sol.",
+   "categorie": "Vitesses & performances",
+   "famille": "vitesses_caracteristiques",
+   "membres_famille": [
+    "vitesse",
+    "vitesse air",
+    "vitesse corrigee",
+    "vitesse d'approche",
+    "vitesse d'envol",
+    "vitesse de croisière",
+    "vitesse de rotation",
+    "vitesse de sécurité",
+    "vitesse propre",
+    "vitesse sol",
+    "vitesse vraie",
+    "vle",
+    "vr"
+   ],
+   "a_verifier": false
+  },
+  "vitesse air": {
+   "definition": "Vitesse relative de l'aéronef par rapport à la masse d'air qui l'entoure. Indiquée par l'anémomètre, elle est fondamentale pour l'aérodynamique et la sécurité du vol, indépendamment du déplacement réel par rapport au sol.",
+   "categorie": "Vitesses & performances",
+   "famille": "vitesses_caracteristiques",
+   "membres_famille": [
+    "vitesse",
+    "vitesse air",
+    "vitesse corrigee",
+    "vitesse d'approche",
+    "vitesse d'envol",
+    "vitesse de croisière",
+    "vitesse de rotation",
+    "vitesse de sécurité",
+    "vitesse propre",
+    "vitesse sol",
+    "vitesse vraie",
+    "vle",
+    "vr"
+   ],
+   "a_verifier": false
+  },
+  "vitesse corrigee": {
+   "definition": "Vitesse indiquée lue sur l'anémomètre corrigée des erreurs de position et d'antenne de la prise de pression statique et du tube de Pitot. Elle est spécifiée dans le manuel de vol pour les calculs de performances.",
+   "categorie": "Vitesses & performances",
+   "famille": "vitesses_caracteristiques",
+   "membres_famille": [
+    "vitesse",
+    "vitesse air",
+    "vitesse corrigee",
+    "vitesse d'approche",
+    "vitesse d'envol",
+    "vitesse de croisière",
+    "vitesse de rotation",
+    "vitesse de sécurité",
+    "vitesse propre",
+    "vitesse sol",
+    "vitesse vraie",
+    "vle",
+    "vr"
+   ],
+   "a_verifier": false
+  },
+  "vitesse d'approche": {
+   "definition": "Vitesse à maintenir stabilisée lors de la phase finale d'approche pour garantir une marge de sécurité suffisante par rapport au décrochage tout en limitant la distance d'atterrissage. Elle varie selon la configuration des volets.",
+   "categorie": "Vitesses & performances",
+   "famille": "vitesses_caracteristiques",
+   "membres_famille": [
+    "vitesse",
+    "vitesse air",
+    "vitesse corrigee",
+    "vitesse d'approche",
+    "vitesse d'envol",
+    "vitesse de croisière",
+    "vitesse de rotation",
+    "vitesse de sécurité",
+    "vitesse propre",
+    "vitesse sol",
+    "vitesse vraie",
+    "vle",
+    "vr"
+   ],
+   "a_verifier": false
+  },
+  "vitesse d'envol": {
+   "definition": "Vitesse à laquelle l'aéronef quitte effectivement le sol lors de la phase de décollage après la rotation. Elle doit être supérieure à la vitesse de décrochage pour assurer une pente de montée initiale sécurisée.",
+   "categorie": "Vitesses & performances",
+   "famille": "vitesses_caracteristiques",
+   "membres_famille": [
+    "vitesse",
+    "vitesse air",
+    "vitesse corrigee",
+    "vitesse d'approche",
+    "vitesse d'envol",
+    "vitesse de croisière",
+    "vitesse de rotation",
+    "vitesse de sécurité",
+    "vitesse propre",
+    "vitesse sol",
+    "vitesse vraie",
+    "vle",
+    "vr"
+   ],
+   "a_verifier": false
+  },
+  "vitesse de croisière": {
+   "definition": "Vitesse stabilisée recommandée pour le vol en palier, offrant le meilleur compromis entre la consommation de carburant, l'usure du moteur et la distance franchie. Elle est détaillée dans le manuel de vol.",
+   "categorie": "Vitesses & performances",
+   "famille": "vitesses_caracteristiques",
+   "membres_famille": [
+    "vitesse",
+    "vitesse air",
+    "vitesse corrigee",
+    "vitesse d'approche",
+    "vitesse d'envol",
+    "vitesse de croisière",
+    "vitesse de rotation",
+    "vitesse de sécurité",
+    "vitesse propre",
+    "vitesse sol",
+    "vitesse vraie",
+    "vle",
+    "vr"
+   ],
+   "a_verifier": false
+  },
+  "vitesse de rotation": {
+   "definition": "Vitesse à laquelle le pilote commence à cabrer doucement l'aéronef lors du décollage pour augmenter l'incidence des ailes et permettre l'envol. Elle est notée Vr et figure dans le manuel de vol.",
+   "categorie": "Vitesses & performances",
+   "famille": "vitesses_caracteristiques",
+   "membres_famille": [
+    "vitesse",
+    "vitesse air",
+    "vitesse corrigee",
+    "vitesse d'approche",
+    "vitesse d'envol",
+    "vitesse de croisière",
+    "vitesse de rotation",
+    "vitesse de sécurité",
+    "vitesse propre",
+    "vitesse sol",
+    "vitesse vraie",
+    "vle",
+    "vr"
+   ],
+   "a_verifier": false
+  },
+  "vitesse de sécurité": {
+   "definition": "Vitesse minimale garantissant le contrôle directionnel et des performances de montée acceptables en cas de situation critique, notamment après le décollage ou en configuration de vol asymétrique.",
+   "categorie": "Vitesses & performances",
+   "famille": "vitesses_caracteristiques",
+   "membres_famille": [
+    "vitesse",
+    "vitesse air",
+    "vitesse corrigee",
+    "vitesse d'approche",
+    "vitesse d'envol",
+    "vitesse de croisière",
+    "vitesse de rotation",
+    "vitesse de sécurité",
+    "vitesse propre",
+    "vitesse sol",
+    "vitesse vraie",
+    "vle",
+    "vr"
+   ],
+   "a_verifier": false
+  },
+  "vitesse propre": {
+   "definition": "Vitesse de l'aéronef par rapport à l'air environnant non perturbé. Également appelée vitesse vraie, elle s'obtient en corrigeant la vitesse indiquée des erreurs de densité de l'air dues à l'altitude et à la température.",
+   "categorie": "Vitesses & performances",
+   "famille": "vitesses_caracteristiques",
+   "membres_famille": [
+    "vitesse",
+    "vitesse air",
+    "vitesse corrigee",
+    "vitesse d'approche",
+    "vitesse d'envol",
+    "vitesse de croisière",
+    "vitesse de rotation",
+    "vitesse de sécurité",
+    "vitesse propre",
+    "vitesse sol",
+    "vitesse vraie",
+    "vle",
+    "vr"
+   ],
+   "a_verifier": false
+  },
+  "vitesse sol": {
+   "definition": "Vitesse de déplacement de l'aéronef par rapport à la surface terrestre, notée Gs. Résultat vectoriel de la vitesse propre et du vent, elle est utilisée pour estimer l'heure d'arrivée et la consommation de carburant.",
+   "categorie": "Vitesses & performances",
+   "famille": "vitesses_caracteristiques",
+   "membres_famille": [
+    "vitesse",
+    "vitesse air",
+    "vitesse corrigee",
+    "vitesse d'approche",
+    "vitesse d'envol",
+    "vitesse de croisière",
+    "vitesse de rotation",
+    "vitesse de sécurité",
+    "vitesse propre",
+    "vitesse sol",
+    "vitesse vraie",
+    "vle",
+    "vr"
+   ],
+   "a_verifier": false
+  },
+  "vitesse vraie": {
+   "definition": "Synonyme de vitesse propre. Elle représente la vitesse réelle de l'aéronef dans la masse d'air, essentielle pour la navigation à moyenne et haute altitude où la densité de l'air diminue sensiblement.",
+   "categorie": "Vitesses & performances",
+   "famille": "vitesses_caracteristiques",
+   "membres_famille": [
+    "vitesse",
+    "vitesse air",
+    "vitesse corrigee",
+    "vitesse d'approche",
+    "vitesse d'envol",
+    "vitesse de croisière",
+    "vitesse de rotation",
+    "vitesse de sécurité",
+    "vitesse propre",
+    "vitesse sol",
+    "vitesse vraie",
+    "vle",
+    "vr"
+   ],
+   "a_verifier": false
+  },
+  "vle": {
+   "definition": "Vitesse maximale autorisée avec le train d'atterrissage sorti. Elle ne doit jamais être dépassée sous peine d'endommager les trappes ou les mécanismes de verrouillage du train d'atterrissage de l'aéronef.",
+   "categorie": "Vitesses & performances",
+   "famille": "vitesses_caracteristiques",
+   "membres_famille": [
+    "vitesse",
+    "vitesse air",
+    "vitesse corrigee",
+    "vitesse d'approche",
+    "vitesse d'envol",
+    "vitesse de croisière",
+    "vitesse de rotation",
+    "vitesse de sécurité",
+    "vitesse propre",
+    "vitesse sol",
+    "vitesse vraie",
+    "vle",
+    "vr"
+   ],
+   "a_verifier": false
+  },
+  "vol aux instruments": {
+   "definition": "Régime de vol (Ifr) dans lequel le pilotage et le suivi de la trajectoire se font uniquement par référence aux instruments de bord, les conditions météo ne permettant pas le vol à vue.",
+   "categorie": "Procédures",
+   "famille": null,
+   "membres_famille": [],
+   "a_verifier": false
+  },
+  "vol de nuit": {
+   "definition": "Vol effectué entre la fin du crépuscule civil et le début de l'aube civile, soumis à des règles spécifiques d'emport d'équipement, de qualification du pilote et de balisage lumineux des aérodromes.",
+   "categorie": "Réglementation & docs",
+   "famille": null,
+   "membres_famille": [],
+   "a_verifier": false
+  },
+  "vol lent": {
+   "definition": "Exercice de pilotage consistant à faire évoluer l'aéronef à une vitesse très proche de sa vitesse de décrochage. Il permet de se familiariser avec l'inefficacité progressive des commandes de vol et l'augmentation de l'incidence.",
+   "categorie": "Procédures",
+   "famille": null,
+   "membres_famille": [],
+   "a_verifier": false
+  },
+  "vol à vue": {
+   "definition": "Régime de vol (Vfr) basé sur le principe « voir et être vu ». Le pilote assure lui-même l'évitement des obstacles et des autres aéronefs grâce à des références visuelles extérieures continues.",
+   "categorie": "Réglementation & docs",
+   "famille": null,
+   "membres_famille": [],
+   "a_verifier": false
+  },
+  "volets": {
+   "definition": "Gouvernes secondaires ou dispositifs hypersustentateurs situés au bord de fuite des ailes. Leur sortie augmente la portance et la traînée, permettant de réduire la vitesse d'approche et de raccourcir l'atterrissage.",
+   "categorie": "Structure & cellule",
+   "famille": "gouvernes",
+   "membres_famille": [
+    "volets",
+    "volets rentrés",
+    "volets sortis",
+    "volets up"
+   ],
+   "a_verifier": false
+  },
+  "volets rentrés": {
+   "definition": "Configuration de vol propre, où les volets de courbure sont complètement intégrés au profil de l'aile. C'est la configuration optimale pour réduire la traînée en vol de croisière et optimiser la vitesse.",
+   "categorie": "Structure & cellule",
+   "famille": "gouvernes",
+   "membres_famille": [
+    "volets",
+    "volets rentrés",
+    "volets sortis",
+    "volets up"
+   ],
+   "a_verifier": false
+  },
+  "volets sortis": {
+   "definition": "Configuration hypersustentée augmentant artificiellement la courbure de l'aile. Elle permet de générer une portance accrue à basse vitesse, idéale pour sécuriser la finale tout en accentuant la pente de descente grâce à la traînée.",
+   "categorie": "Structure & cellule",
+   "famille": "gouvernes",
+   "membres_famille": [
+    "volets",
+    "volets rentrés",
+    "volets sortis",
+    "volets up"
+   ],
+   "a_verifier": false
+  },
+  "volets up": {
+   "definition": "Expression synonyme de volets rentrés, couramment employée par le pilote ou l'équipage pour désigner l'absence de braquage des volets de courbure après la phase de décollage ou lors de la croisière.",
+   "categorie": "Structure & cellule",
+   "famille": "gouvernes",
+   "membres_famille": [
+    "volets",
+    "volets rentrés",
+    "volets sortis",
+    "volets up"
+   ],
+   "a_verifier": false
+  },
+  "volt": {
+   "definition": "Unité de mesure de la tension électrique (différence de potentiel) dans le circuit électrique de l'aéronef. Les générateurs et batteries des avions légers fonctionnent généralement sous douze ou vingt-quatre volts.",
+   "categorie": "Unités",
+   "famille": "unites",
+   "membres_famille": [
+    "volt",
+    "utc"
+   ],
+   "a_verifier": false
+  },
+  "vor": {
+   "definition": "<em>Vhf Omnidirectional Range</em> : radiopoint d'alignement omnidirectionnel Vhf. Instrument de radionavigation permettant de déterminer un relèvement par rapport à une station au sol fixe en sélectionnant une direction.",
+   "categorie": "Instruments",
+   "famille": "instruments",
+   "membres_famille": [
+    "totalisateur",
+    "transpondeur",
+    "transpondeur mode c",
+    "variometre",
+    "vor"
+   ],
+   "a_verifier": false
+  },
+  "vr": {
+   "definition": "Vitesse de rotation à laquelle le pilote sollicite la commande de profondeur au décollage pour cabrer l'appareil et provoquer l'envol. Elle est indiquée dans le manuel de vol du constructeur.",
+   "categorie": "Vitesses & performances",
+   "famille": "vitesses_caracteristiques",
+   "membres_famille": [
+    "vitesse",
+    "vitesse air",
+    "vitesse corrigee",
+    "vitesse d'approche",
+    "vitesse d'envol",
+    "vitesse de croisière",
+    "vitesse de rotation",
+    "vitesse de sécurité",
+    "vitesse propre",
+    "vitesse sol",
+    "vitesse vraie",
+    "vle",
+    "vr"
+   ],
+   "a_verifier": false
+  },
+  "vrb": {
+   "definition": "Abréviation météo officielle désignant un vent de direction variable (Variable) dans un message METAR ou TAF. Elle est utilisée lorsque la direction varie de manière importante ou que la vitesse est faible.",
+   "categorie": "Météo",
+   "famille": null,
+   "membres_famille": [],
+   "a_verifier": false
+  },
+  "vrille": {
+   "definition": "Mouvement de descente incontrôlé ou provoqué de l'aéronef caractérisé par une trajectoire hélicoïdale verticale stable, combinant une rotation rapide autour des trois axes et un décrochage asymétrique des ailes.",
+   "categorie": "Aérodynamique",
+   "famille": null,
+   "membres_famille": [],
+   "a_verifier": false
+  },
+  "vrille à plat": {
+   "definition": "Vrille caractérisée par une assiette de piqué extrêmement faible. Très difficile, voire impossible à récupérer sur un aéronef léger, elle empêche l'action efficace de la gouverne de profondeur.",
+   "categorie": "Aérodynamique",
+   "famille": null,
+   "membres_famille": [],
+   "a_verifier": false
+  },
+  "wca": {
+   "definition": "<em>Wind Correction Angle</em> : angle de correction de dérive. Angle à appliquer au cap de l'aéronef pour contrer l'effet de dérive du vent et ainsi suivre la route magnétique prévue.",
+   "categorie": "Navigation",
+   "famille": null,
+   "membres_famille": [],
+   "a_verifier": false
+  },
+  "wintem": {
+   "definition": "Carte de prévisions météorologiques aéronautiques indiquant la force et la direction du vent ainsi que la température de l'air à différentes altitudes et instants. Elle est essentielle pour préparer le devis carburant.",
+   "categorie": "Météo",
+   "famille": null,
+   "membres_famille": [],
+   "a_verifier": false
+  },
+  "zone dangereuse": {
+   "definition": "Espace aérien de dimensions définies à l'intérieur duquel des activités dangereuses pour le vol des aéronefs peuvent se dérouler pendant des périodes spécifiées, identifié par la lettre D sur les cartes.",
+   "categorie": "Aérodrome & cartes",
+   "famille": "zones_aeriennes",
+   "membres_famille": [
+    "zone dangereuse",
+    "zone de contrôle",
+    "zone interdite"
+   ],
+   "a_verifier": false
+  },
+  "zone de contrôle": {
+   "definition": "Espace aérien contrôlé s'étendant verticalement depuis la surface du sol jusqu'à une limite supérieure spécifiée, entourant un aérodrome contrôlé. Notée CTR, elle protège les trajectoires de départ et d'approche.",
+   "categorie": "Aérodrome & cartes",
+   "famille": "zones_aeriennes",
+   "membres_famille": [
+    "zone dangereuse",
+    "zone de contrôle",
+    "zone interdite"
+   ],
+   "a_verifier": false
+  },
+  "zone interdite": {
+   "definition": "Espace aérien de dimensions définies au-dessus du territoire national à l'intérieur duquel le vol des aéronefs est interdit de manière permanente ou temporaire pour des raisons de sécurité, identifié par la lettre P.",
+   "categorie": "Aérodrome & cartes",
+   "famille": "zones_aeriennes",
+   "membres_famille": [
+    "zone dangereuse",
+    "zone de contrôle",
+    "zone interdite"
+   ],
+   "a_verifier": false
+  },
+  "zone stabilisée": {
+   "definition": "Portion de l'approche finale dans laquelle tous les paramètres clés du vol (vitesse, assiette, puissance moteur, plan de descente) doivent être constants et conformes aux critères de sécurité définis dans le manuel de vol.",
+   "categorie": "Procédures",
+   "famille": null,
+   "membres_famille": [],
+   "a_verifier": false
+  },
+  "état de piste": {
+   "definition": "Description périodique des conditions physiques de la surface de la piste d'atterrissage (sèche, mouillée, contaminée par de l'eau, de la neige ou du verglas). Il influence directement les calculs de distance de freinage.",
+   "categorie": "Aérodrome & cartes",
+   "famille": null,
+   "membres_famille": [],
+   "a_verifier": false
+  },
+  "évitement": {
+   "definition": "Manœuvre rapide effectuée par le pilote pour s'écarter d'une trajectoire de collision détectée visuellement ou signalée par le contrôle aérien. L'évitement d'autres aéronefs est de la responsabilité du pilote en vol à vue.",
+   "categorie": "Procédures",
+   "famille": null,
+   "membres_famille": [],
+   "a_verifier": false
+  }
+ }
+}

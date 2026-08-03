@@ -1,0 +1,596 @@
+{
+"AAL": {
+"definition": "<em>Above Aerodrome Level</em> : au-dessus du niveau de l'aérodrome. Une hauteur, pas une altitude — « plafond à 1500 ft AAL » signifie 1500 ft au-dessus du terrain.",
+"categorie": "Altimétrie",
+"variantes": null,
+"synonymes": null,
+"xrefs": null
+},
+"AIP": {
+"definition": "<em>Aeronautical Information Publication</em> : la documentation aéronautique officielle d'un pays, publiée par cycles AIRAC de 28 jours. Les VAC en sont l'extrait le plus utilisé par le pilote VFR.",
+"categorie": "Réglementation & docs",
+"variantes": null,
+"synonymes": null,
+"xrefs": null
+},
+"AIRAC": {
+"definition": "<em>Aeronautical Information Regulation And Control</em> — « régulation et contrôle de l'information aéronautique ». Cycle de 28 jours au rythme duquel les données aéronautiques officielles sont mises à jour. Une carte « à jour » = un cycle AIRAC en vigueur : vérifie la date d'effet, pas celle du téléchargement.",
+"categorie": "Réglementation & docs",
+"variantes": null,
+"synonymes": null,
+"xrefs": null
+},
+"AMSL": {
+"definition": "<em>Above Mean Sea Level</em> : au-dessus du niveau moyen de la mer. C'est l'<strong>altitude</strong>, celle que lit l'altimètre calé au QNH.",
+"categorie": "Altimétrie",
+"variantes": null,
+"synonymes": null,
+"xrefs": null
+},
+"ASDA": {
+"definition": "<em>Accelerate-Stop Distance Available</em> — « distance accélération-arrêt utilisable ». Distance disponible pour accélérer puis s'arrêter : la <strong>TORA</strong> augmentée du prolongement d'arrêt quand il existe. Le prolongement d'arrêt est une surface aménagée capable de supporter l'avion en cas de décollage interrompu, sans être utilisable pour le décollage normal. C'est la distance de référence si tu interromps ton décollage.",
+"categorie": "Aérodrome & cartes",
+"variantes": null,
+"synonymes": null,
+"xrefs": [
+"TORA",
+"TODA",
+"LDA",
+"piste"
+]
+},
+"ATIS": {
+"definition": "<em>Automatic Terminal Information Service</em> — « service automatique d'information de région terminale ». Message automatique et permanent d'information d'aérodrome : QNH, QFU en service, vent, état de piste. On l'écoute et on le note <strong>avant</strong> le premier contact radio, lettre d'information comprise.",
+"categorie": "Aérodrome & cartes",
+"variantes": null,
+"synonymes": null,
+"xrefs": null
+},
+"AUTO": {
+"definition": "<em>AUTOmated observation</em> — « observation automatique ». Mention d'un METAR émis par une station automatique, sans intervention humaine. Fiable sur les paramètres mesurables, plus aveugle sur les nuages lointains et certains phénomènes.",
+"categorie": "Météo",
+"variantes": null,
+"synonymes": null,
+"xrefs": null
+},
+"BECMG": {
+"definition": "<em>Becoming</em> : dans un TAF, évolution durable des conditions, se produisant progressivement dans la fenêtre horaire indiquée. Après la fin de la fenêtre, la nouvelle condition est acquise.",
+"categorie": "Météo",
+"variantes": null,
+"synonymes": null,
+"xrefs": null
+},
+"CAVOK": {
+"definition": "<em>Ceiling And Visibility OK</em> : visibilité ≥ 10 km, aucun nuage sous 5000 ft (ou sous la plus haute altitude de secteur), pas de CB ni de temps significatif. Attention : CAVOK ne dit rien du vent ni de la turbulence.",
+"categorie": "Météo",
+"variantes": null,
+"synonymes": null,
+"xrefs": null
+},
+"CB": {
+"definition": "<em>CumulonimBus</em> — « cumulonimbus ». Le seul nuage cité nommément dans les METAR tant il est dangereux — turbulence extrême, givrage sévère, grêle, foudre, cisaillement. On contourne, on ne traverse jamais.",
+"categorie": "Météo",
+"variantes": null,
+"synonymes": null,
+"xrefs": null
+},
+"CTR": {
+"definition": "<em>Control Traffic Region</em> : zone de contrôle autour d'un aérodrome. À LFPN, tu y vis en permanence : pénétrer dedans suppose le contact radio et l'autorisation.",
+"categorie": "Aérodrome & cartes",
+"variantes": null,
+"synonymes": null,
+"xrefs": null
+},
+"GO/NO GO": {
+"definition": "<em>GO / NO GO decision</em> — « décision de partir ou de renoncer ». Décision binaire et assumée, fondée sur des critères écrits (minima, performances, état de fatigue) — jamais sur l'envie ou le rendez-vous. « NO GO » est une décision de commandant, pas un échec.",
+"categorie": "Réglementation & docs",
+"variantes": null,
+"synonymes": null,
+"xrefs": null
+},
+"GS": {
+"definition": "<em>Ground Speed</em> : vitesse sol, TAS corrigée du vent. C'est elle qui fait tes distances de décollage et d'atterrissage — et ton heure d'arrivée.",
+"categorie": "Vitesses & performances",
+"variantes": null,
+"synonymes": null,
+"xrefs": null
+},
+"IAS": {
+"definition": "<em>Indicated Air Speed</em> : la vitesse lue au badin. C'est elle qui commande la portance et les commandes — toutes les vitesses de référence (Vs, Vx, Vy…) sont en IAS. Notée <strong>KIAS</strong> quand elle est exprimée en nœuds.",
+"categorie": "Vitesses & performances",
+"variantes": [
+"KIAS",
+"kias",
+"vitesse indiquée"
+],
+"synonymes": [
+"vitesse indiquée",
+"KIAS"
+],
+"xrefs": null
+},
+"IFR": {
+"definition": "<em>Instrument Flight Rules</em> : vol aux instruments, qui décharge l'évitement visuel sur la procédure et le contrôle. Exige qualification, avion équipé et plan de vol.",
+"categorie": "Réglementation & docs",
+"variantes": null,
+"synonymes": null,
+"xrefs": null
+},
+"IMC": {
+"definition": "<em>Instrument Meteorological Conditions</em> : conditions dans les nuages ou sous les minima VMC. Sans qualification IFR, y entrer est la première cause d'accident mortel du pilote privé.",
+"categorie": "Réglementation & docs",
+"variantes": null,
+"synonymes": null,
+"xrefs": null
+},
+"ISA": {
+"definition": "<em>International Standard Atmosphere</em> — « atmosphère standard internationale » : 1013,25 hPa et 15 °C au niveau de la mer, −2 °C par 1000 ft. Référence de tous les calculs d'écart — ton altimètre et tes tables de performances parlent ISA.",
+"categorie": "Météo",
+"variantes": null,
+"synonymes": null,
+"xrefs": null
+},
+"LDA": {
+"definition": "<em>Landing Distance Available</em> — « distance d'atterrissage utilisable ». Longueur de piste disponible pour l'atterrissage, mesurée depuis le <strong>seuil</strong> jusqu'à l'extrémité de la piste. Quand le seuil est décalé, la LDA est plus courte que la TORA : la partie située avant le seuil reste utilisable au décollage mais pas à l'atterrissage. On la compare à sa distance d'atterrissage, marge de sécurité comprise.",
+"categorie": "Aérodrome & cartes",
+"variantes": null,
+"synonymes": null,
+"xrefs": [
+"TORA",
+"TODA",
+"ASDA",
+"seuil de piste",
+"piste"
+]
+},
+"METAR": {
+"definition": "<em>METeorological Aerodrome Report</em> — « message d'observation météorologique d'aérodrome ». Émis toutes les 30 ou 60 minutes. Codé mais ultra-standardisé : vent, visibilité, phénomènes, nuages, température/point de rosée, QNH, tendance.",
+"categorie": "Météo",
+"variantes": null,
+"synonymes": null,
+"xrefs": null
+},
+"NM": {
+"definition": "<em>Nautical Mile</em> — mille marin : 1852 m exactement. Unité de distance horizontale en navigation aérienne et maritime. 1 kt = 1 NM/h.",
+"categorie": "Unités",
+"variantes": [
+"nm",
+"mille marin",
+"milles marins",
+"nautical mile",
+"nautical miles"
+],
+"synonymes": [
+"mille marin"
+],
+"xrefs": null
+},
+"NOSIG": {
+"definition": "<em>No significant change</em> : pas d'évolution significative attendue dans les 2 heures suivant le METAR. Ce n'est pas une promesse, juste l'absence de changement prévu par l'observateur.",
+"categorie": "Météo",
+"variantes": null,
+"synonymes": null,
+"xrefs": null
+},
+"NOTAM": {
+"definition": "<em>Notice to Airmen</em> : avis officiel aux navigateurs — travaux, activations de zones, glissance, feux d'artifice. La lecture des NOTAM fait partie de la préparation, même pour un tour de piste.",
+"categorie": "Réglementation & docs",
+"variantes": null,
+"synonymes": null,
+"xrefs": null
+},
+"NSW": {
+"definition": "<em>Nil Significant Weather</em> : fin des phénomènes météo significatifs dans une prévision TAF (les nuages restants sont sans importance opérationnelle).",
+"categorie": "Météo",
+"variantes": null,
+"synonymes": null,
+"xrefs": null
+},
+"POH": {
+"definition": "<em>Pilot's Operating Handbook</em> : le manuel de vol de l'avion, document officiel de l'<strong>exemplaire immatriculé</strong>. Vitesses, masses, distances : seules ses valeurs font foi pour ton vol.",
+"categorie": "Réglementation & docs",
+"variantes": null,
+"synonymes": null,
+"xrefs": null
+},
+"PROB30": {
+"definition": "<em>PROBability 30 %</em> — « probabilité de 30 % ». Chance que le phénomène annoncé se produise dans la fenêtre du TAF. À 30 %, tu ne planifies pas dessus mais tu gardes une porte de sortie.",
+"categorie": "Météo",
+"variantes": null,
+"synonymes": null,
+"xrefs": null
+},
+"PROB40": {
+"definition": "<em>PROBability 40 %</em> — « probabilité de 40 % ». Chance que le phénomène se produise. À partir de 40 %, considère le phénomène comme quasiment certain dans ta décision GO/NO GO.",
+"categorie": "Météo",
+"variantes": null,
+"synonymes": null,
+"xrefs": null
+},
+"QFE": {
+"definition": "<em>Q-code QFE</em> — « calage altimétrique au niveau du terrain ». Pression réelle régnant sur l'aérodrome. Calé au QFE, l'altimètre indique la <strong>hauteur</strong> au-dessus du terrain (0 ft au sol). Peu utilisé en France, courant au Royaume-Uni.",
+"categorie": "Altimétrie",
+"variantes": null,
+"synonymes": null,
+"xrefs": null
+},
+"QFU": {
+"definition": "<em>Q-code QFU</em> — « direction magnétique de la piste en service ». Orientation magnétique de l'axe de piste, exprimée en dizaines de degrés : piste 25 = axe 250° magnétique. C'est la référence de tous tes calculs de composantes de vent.",
+"categorie": "Aérodrome & cartes",
+"variantes": null,
+"synonymes": null,
+"xrefs": null
+},
+"QNE": {
+"definition": "<em>Q-code QNE</em> — « calage standard 1013,25 hPa ». Ce que lit l'altimètre quand il est calé au standard <strong>1013,25 hPa</strong> : l'altitude-pression. En croisière au-dessus de l'altitude de transition, on parle alors en niveaux de vol (FL).",
+"categorie": "Altimétrie",
+"variantes": null,
+"synonymes": null,
+"xrefs": null
+},
+"QNH": {
+"definition": "<em>Q-code QNH</em> — « calage altimétrique au niveau de la mer ». Pression au niveau de la mer ramenée de la station, calculée selon l'atmosphère standard. Calé au QNH, ton altimètre indique l'<strong>altitude</strong> (AMSL) ; au sol sur le terrain, il doit afficher l'altitude de l'aérodrome.",
+"categorie": "Altimétrie",
+"variantes": null,
+"synonymes": null,
+"xrefs": null
+},
+"RMK": {
+"definition": "<em>Remark</em> : commentaire en clair en fin de message (ex. <code>RMK FOEHN</code>). C'est souvent là que se cache l'information qui tue, en toutes lettres.",
+"categorie": "Météo",
+"variantes": null,
+"synonymes": null,
+"xrefs": null
+},
+"SPECI": {
+"definition": "<em>SPECIal report</em> — « message d'observation spéciale ». METAR spécial émis hors horaire quand un critère franchit un seuil (visibilité, vent, orage…). Un SPECI défavorable entre deux METAR calmes, ça se lit avant de partir.",
+"categorie": "Météo",
+"variantes": null,
+"synonymes": null,
+"xrefs": null
+},
+"TAF": {
+"definition": "<em>Terminal Aerodrome Forecast</em> — « prévision d'aérodrome ». Chiffrée sur 9 à 30 h selon la taille du terrain. Se décode comme un METAR, avec en plus les évolutions BECMG, TEMPO et les probabilités PROB.",
+"categorie": "Météo",
+"variantes": null,
+"synonymes": null,
+"xrefs": null
+},
+"TAS": {
+"definition": "<em>True Air Speed</em> : ta vitesse réelle dans la masse d'air. IAS corrigée de l'altitude-densité : plus tu montes, plus la TAS dépasse l'IAS (≈ +2 % par 1000 ft).",
+"categorie": "Vitesses & performances",
+"variantes": null,
+"synonymes": null,
+"xrefs": null
+},
+"TCU": {
+"definition": "<em>Towering Cumulus</em> : cumulus congestus, petit frère du CB. Turbulence marquée, développement possible en CB dans l'après-midi : il mérite la même méfiance que le respect qu'on lui doit.",
+"categorie": "Météo",
+"variantes": null,
+"synonymes": null,
+"xrefs": null
+},
+"TEMPO": {
+"definition": "<em>TEMPOrary</em> — « fluctuations temporaires ». Dans un TAF, variations <strong>temporaires</strong> (moins d'une heure chacune, et au total moins de la moitié de la période). C'est là que se cachent les grains du dîner de 18 h.",
+"categorie": "Météo",
+"variantes": null,
+"synonymes": null,
+"xrefs": null
+},
+"TMA": {
+"definition": "<em>Terminal Control Area</em> : espace contrôlé au-dessus d'une zone d'aérodromes. Celle de Paris plafonne bas autour de LFPN : une verticale mal gérée, et tu chatouilles les couloirs d'Orly.",
+"categorie": "Aérodrome & cartes",
+"variantes": null,
+"synonymes": null,
+"xrefs": null
+},
+"TODA": {
+"definition": "<em>Take-Off Distance Available</em> — « distance de décollage utilisable ». Distance disponible pour le décollage : la <strong>TORA</strong> augmentée du prolongement dégagé quand le terrain en publie un. Le prolongement dégagé est un espace libre d'obstacles au-delà de la piste, que l'avion peut survoler en montée initiale mais où il ne roule pas. C'est la distance qui compte pour franchir un obstacle en bout de piste.",
+"categorie": "Aérodrome & cartes",
+"variantes": null,
+"synonymes": null,
+"xrefs": [
+"TORA",
+"ASDA",
+"LDA",
+"piste"
+]
+},
+"TORA": {
+"definition": "<em>Take-Off Run Available</em> — « distance de roulement au décollage ». Longueur de piste revêtue disponible pour le roulement au décollage, du début de la piste jusqu'à son extrémité. C'est la distance sur laquelle l'avion peut accélérer roues au sol. On la compare à la distance de roulement donnée par le manuel de vol, corrigée de la température, de l'altitude, de la pente et de l'état de surface.",
+"categorie": "Aérodrome & cartes",
+"variantes": null,
+"synonymes": null,
+"xrefs": [
+"TODA",
+"ASDA",
+"LDA",
+"piste"
+]
+},
+"VA": {
+"definition": "<em>Velocity of maneuvering</em> — vitesse de manœuvre : <strong>112 KIAS</strong> à masse maximale sur l'Aquila AT01-100A. En dessous, une commande brutale fait décrocher l'aile <strong>avant</strong> que la structure ne subisse un facteur de charge destructeur ; au-dessus, elle peut casser la structure directement. C'est la vitesse à adopter en turbulence. Elle <strong>diminue quand la masse diminue</strong>.",
+"categorie": "Vitesses & performances",
+"variantes": [
+"Va",
+"va",
+"V A",
+"V_A",
+"V-A",
+"vitesse de manœuvre",
+"vitesse de manoeuvre"
+],
+"synonymes": [
+"vitesse de manœuvre"
+],
+"xrefs": [
+"VNO",
+"VNE",
+"vitesses caractéristiques"
+]
+},
+"VAC": {
+"definition": "<em>Visual Approach Chart</em> : carte d'approche à vue officielle d'un aérodrome (SIA en France). Pistes, circuits, points de report, fréquences, dangers : elle se relit avant chaque vol, même sur ton terrain.",
+"categorie": "Aérodrome & cartes",
+"variantes": null,
+"synonymes": null,
+"xrefs": null
+},
+"VFE": {
+"definition": "<em>Velocity Flaps Extended</em> — vitesse maximale volets sortis, haut de l'arc blanc : <strong>90 KIAS</strong> sur l'Aquila AT01-100A. La dépasser volets sortis peut endommager les volets et leurs commandes.",
+"categorie": "Vitesses & performances",
+"variantes": [
+"Vfe",
+"vfe",
+"V FE",
+"V_FE",
+"V-FE"
+],
+"synonymes": null,
+"xrefs": [
+"VS0",
+"vitesses caractéristiques"
+]
+},
+"VFR": {
+"definition": "<em>Visual Flight Rules</em> : vol à vue — tu vois, tu évites, tu te repères. Il suppose des conditions VMC respectées et la vue du sol (ou des références) en permanence.",
+"categorie": "Réglementation & docs",
+"variantes": null,
+"synonymes": null,
+"xrefs": null
+},
+"VMC": {
+"definition": "<em>Visual Meteorological Conditions</em> : minima de visibilité et de distances aux nuages exigés pour voler VFR, selon la classe d'espace et l'altitude. En dessous, c'est de l'IMC — interdit sans qualif IFR.",
+"categorie": "Réglementation & docs",
+"variantes": null,
+"synonymes": null,
+"xrefs": null
+},
+"VNE": {
+"definition": "<em>Velocity Never Exceed</em> — vitesse à ne jamais dépasser, trait rouge de l'anémomètre : <strong>165 KIAS</strong> sur l'Aquila AT01-100A. Au-delà, risque de rupture structurale ou de flottement. Elle se rapproche vite en descente moteur affiché.",
+"categorie": "Vitesses & performances",
+"variantes": [
+"Vne",
+"vne",
+"V NE",
+"V_NE",
+"V-NE"
+],
+"synonymes": null,
+"xrefs": [
+"VNO",
+"VA",
+"vitesses caractéristiques"
+]
+},
+"VNO": {
+"definition": "<em>Velocity Normal Operating</em> — vitesse maximale d'utilisation normale, haut de l'arc vert : <strong>130 KIAS</strong> sur l'Aquila AT01-100A. Entre VNO et VNE (arc jaune), on ne vole qu'en air calme et avec douceur.",
+"categorie": "Vitesses & performances",
+"variantes": [
+"Vno",
+"vno",
+"V NO",
+"V_NO",
+"V-NO"
+],
+"synonymes": null,
+"xrefs": [
+"VNE",
+"VA",
+"vitesses caractéristiques"
+]
+},
+"VS0": {
+"definition": "<em>Velocity Stall landing configuration</em> — vitesse de décrochage en configuration d'atterrissage (volets sortis), bas de l'arc blanc : <strong>39 KIAS</strong> sur l'Aquila AT01-100A. Base de calcul de la vitesse d'approche, traditionnellement de l'ordre de 1,3 × VS0.",
+"categorie": "Vitesses & performances",
+"variantes": [
+"Vs0",
+"vs0",
+"V S0",
+"VS₀",
+"V-S0",
+"vso"
+],
+"synonymes": null,
+"xrefs": [
+"VS1",
+"VFE",
+"décrochage",
+"vitesse de décrochage",
+"vitesses caractéristiques"
+]
+},
+"VS1": {
+"definition": "<em>Velocity Stall clean configuration</em> — vitesse de décrochage en configuration lisse (volets rentrés), bas de l'arc vert : <strong>49 KIAS</strong> sur l'Aquila AT01-100A. Elle augmente avec la masse et en virage incliné.",
+"categorie": "Vitesses & performances",
+"variantes": [
+"Vs1",
+"vs1",
+"V S1",
+"VS₁",
+"V-S1"
+],
+"synonymes": null,
+"xrefs": [
+"VS0",
+"décrochage",
+"vitesse de décrochage",
+"vitesses caractéristiques"
+]
+},
+"Vref": {
+"definition": "Vitesse de référence à l'atterrissage, avant majorations. Typiquement 1,3 × Vs0 ; on y ajoute la majoration pour rafales selon la consigne de l'école.",
+"categorie": "Vitesses & performances",
+"variantes": null,
+"synonymes": null,
+"xrefs": null
+},
+"Vx": {
+"definition": "Vitesse du meilleur <strong>angle</strong> de montée : le plus d'altitude gagnée par mètre parcouru au sol. C'est la vitesse du franchissement d'obstacle, tenue seulement le temps de le passer. Sur l'AT01-100A : <strong>52 KIAS</strong> (manuel de vol).",
+"categorie": "Vitesses & performances",
+"variantes": [
+"VX",
+"vx",
+"V X",
+"meilleur angle de montée"
+],
+"synonymes": null,
+"xrefs": [
+"Vy",
+"vitesses caractéristiques"
+]
+},
+"Vy": {
+"definition": "Vitesse du meilleur <strong>taux</strong> de montée : le plus d'altitude gagnée par minute. C'est la montée normale, une fois les obstacles dégagés. Sur l'AT01-100A : <strong>65 KIAS</strong> (manuel de vol).",
+"categorie": "Vitesses & performances",
+"variantes": [
+"VY",
+"vy",
+"V Y",
+"meilleur taux de montée"
+],
+"synonymes": null,
+"xrefs": [
+"Vx",
+"vitesses caractéristiques"
+]
+},
+"alignement": {
+"definition": "Action de placer l'avion sur l'axe de la piste, dans le sens du décollage, avant de mettre la puissance. C'est le dernier moment où l'on vérifie que la piste et l'approche sont libres, que la piste est la bonne, et que les instruments sont cohérents avec le cap attendu. Le terme désigne aussi, en vol, le fait de se mettre dans l'axe de piste en finale.",
+"categorie": "Aérodrome & cartes",
+"variantes": [
+"alignements",
+"s'aligner",
+"aligné",
+"alignement piste"
+],
+"synonymes": null,
+"xrefs": [
+"QFU",
+"décollage",
+"finale",
+"seuil de piste"
+]
+},
+"altitude de transition": {
+"definition": "Altitude au-dessus de laquelle on passe du QNH au calage standard 1013 hPa en montée. En France, généralement 3000 ft AAL sauf indication contraire sur les cartes.",
+"categorie": "Altimétrie",
+"variantes": null,
+"synonymes": null,
+"xrefs": null
+},
+"altitude-densité": {
+"definition": "Altitude-pression corrigée de la température : l'altitude à laquelle l'air « semble » se trouver pour ton avion. Air chaud = altitude-densité élevée = performances dégradées (distances allongées, montée médiocre).",
+"categorie": "Altimétrie",
+"variantes": null,
+"synonymes": null,
+"xrefs": null
+},
+"altitude-pression": {
+"definition": "Altitude lue avec un calage à 1013,25 hPa. C'est la référence commune de la croisière (niveaux de vol) et le point de départ du calcul des performances : c'est elle qu'on entre dans les abaques du manuel de vol.",
+"categorie": "Altimétrie",
+"variantes": [
+"altitude pression",
+"altitudes-pression",
+"pressure altitude"
+],
+"synonymes": null,
+"xrefs": [
+"niveau de vol",
+"altitude-densité",
+"calage standard"
+]
+},
+"anticyclone": {
+"definition": "Zone de haute pression. Vent horaire, air descendant, temps généralement calme et stable — mais attention aux brumes matinales et à l'altitude-densité l'été.",
+"categorie": "Météo",
+"variantes": null,
+"synonymes": null,
+"xrefs": null
+},
+"approche stabilisée": {
+"definition": "Approche où l'avion est, avant un seuil convenu, sur l'axe, sur le plan, à la bonne vitesse, en configuration d'atterrissage et avec un taux de descente maîtrisé. Si l'un des critères manque, la réponse est la <strong>remise des gaz</strong>.",
+"categorie": "Aérodrome & cartes",
+"variantes": [
+"approche non stabilisée",
+"stabilisée"
+],
+"synonymes": null,
+"xrefs": [
+"remise des gaz",
+"finale"
+]
+},
+"arrondi": {
+"definition": "Manœuvre qui met fin à la descente juste avant le toucher : on réduit progressivement le taux de descente en cabrant doucement, pour poser l'avion en douceur sur le train principal plutôt que de l'enfoncer dans la piste. Trop haut, l'avion retombe ; trop tard, il touche encore en descente. Elle se fait au regard porté loin devant, pas sur les instruments, et s'accompagne de la réduction des gaz.",
+"categorie": "Aérodrome & cartes",
+"variantes": [
+"arrondis",
+"arrondir",
+"flare"
+],
+"synonymes": [
+"flare"
+],
+"xrefs": [
+"courte finale",
+"roulement",
+"décrabage",
+"remise des gaz"
+]
+},
+"azimut": {
+"definition": "Direction horizontale mesurée en degrés depuis le nord, dans le sens des aiguilles d'une montre. Un azimut de 270° pointe vers l'ouest. C'est la grandeur commune au cap, à la route, au QFU et à la direction du vent.",
+"categorie": "Navigation",
+"variantes": [
+"azimuts",
+"azimutal"
+],
+"synonymes": null,
+"xrefs": null
+},
+"bande": {
+"definition": "Surface dégagée qui entoure la piste, destinée à limiter les dégâts en cas de sortie. Elle n'est pas une piste : s'y poser ou y rouler n'est pas prévu.",
+"categorie": "Aérodrome & cartes",
+"variantes": [
+"bande de piste",
+"bandes"
+],
+"synonymes": null,
+"xrefs": null
+},
+"brouillard": {
+"definition": "Comme la brume mais avec une visibilité <strong>inférieure à 1 km</strong>. Un brouillard qui se forme au coucher du soleil sur ton terrain de déroutement, c'est un problème à traiter avant de décoller.",
+"categorie": "Météo",
+"variantes": null,
+"synonymes": null,
+"xrefs": null
+},
+"brume": {
+"definition": "Suspension de gouttelettes donnant une visibilité entre 1 et 5 km. Souvent le matin à LFPN après une nuit claire : elle peut se lever vite… ou pas.",
+"categorie": "Météo",
+"variantes": null,
+"synonymes": null,
+"xrefs": null
+}
+}

@@ -1,0 +1,855 @@
+{
+  "lot": 3,
+  "termes": {
+    "effet de foehn": {
+      "definition": "Phénomène aérologique se produisant lorsqu'un vent humide franchit un relief. L'air se détend, se refroidit et se condense en montant, puis se comprime et se réchauffe rapidement en descendant sur l'autre versant, devenant chaud et sec.",
+      "categorie": "Météo",
+      "famille": "effets_vent_relief",
+      "membres_famille": [
+        "effet de pente",
+        "effet de site",
+        "foehn"
+      ],
+      "a_verifier": false
+    },
+    "effet de pente": {
+      "definition": "Mouvement ascendant de l'air provoqué par le vent qui rencontre un relief. Le pilote VFR utilise cette ascendance dynamique en vol de pente, mais doit redouter les fortes turbulences et descendances du côté sous le vent.",
+      "categorie": "Météo",
+      "famille": "effets_vent_relief",
+      "membres_famille": [
+        "effet de foehn",
+        "effet de site",
+        "foehn"
+      ],
+      "a_verifier": false
+    },
+    "effet de site": {
+      "definition": "Modification locale de la direction et de la vitesse du vent sous l'influence du relief ou d'obstacles artificiels. Il peut provoquer des accélérations brutales (effet Venturi) ou des turbulences sévères en finale.",
+      "categorie": "Vent",
+      "famille": "effets_vent_relief",
+      "membres_famille": [
+        "effet de foehn",
+        "effet de pente",
+        "foehn"
+      ],
+      "a_verifier": false
+    },
+    "effet de sol": {
+      "definition": "Phénomène aérodynamique augmentant la portance et diminuant la traînée induite lorsqu'un avion vole très près du sol. Il engendre une sensation de flottement à l'arrondi et peut provoquer un décollage prématuré en second régime.",
+      "categorie": "Aérodynamique",
+      "famille": null,
+      "membres_famille": [],
+      "a_verifier": false
+    },
+    "effet gyroscopique": {
+      "definition": "Force de précession s'exerçant sur l'hélice en rotation lors des changements d'assiette ou de cap. Toute sollicitation sur un axe se traduit par un couple décalé de quatre-vingt-dix degrés dans le sens de rotation.",
+      "categorie": "Aérodynamique",
+      "famille": null,
+      "membres_famille": [],
+      "a_verifier": false
+    },
+    "effet venturi": {
+      "definition": "Accélération d'un fluide s'accompagnant d'une baisse de pression lorsqu'il traverse un étranglement. Ce principe explique la portance de l'aile, le fonctionnement du carburateur (générateur de givrage) et les accélérations du vent entre deux collines.",
+      "categorie": "Aérodynamique",
+      "famille": null,
+      "membres_famille": [],
+      "a_verifier": false
+    },
+    "effort au manche": {
+      "definition": "Résistance ressentie par le pilote lors de l'action sur les commandes de vol. Cet effort varie avec la vitesse de l'avion et le centrage ; le compensateur permet de l'annuler pour soulager le pilote.",
+      "categorie": "Aérodynamique",
+      "famille": null,
+      "membres_famille": [],
+      "a_verifier": false
+    },
+    "elr": {
+      "definition": "",
+      "categorie": "Météo",
+      "famille": null,
+      "membres_famille": [],
+      "a_verifier": true,
+      "doute": "Acronyme très ambigu en français (Extra Long Range, Environmental Lapse Rate, etc.) et peu usité sous cette forme au PPL."
+    },
+    "empennage": {
+      "definition": "Ensemble des surfaces fixes et mobiles situées à l'arrière du fuselage. Il assure la stabilité de route (dérive verticale) et la stabilité longitudinale (plan horizontal), tout en supportant les gouvernes de direction et de profondeur.",
+      "categorie": "Structure & cellule",
+      "famille": null,
+      "membres_famille": [],
+      "a_verifier": false
+    },
+    "encadrement": {
+      "definition": "Manièvre de sécurité d'urgence (prise de terrain par encadrement, ou PTE) permettant de poser l'avion moteur coupé. Elle s'effectue en planant au-dessus d'une piste entre un point d'entrée clé haute et un point clé basse.",
+      "categorie": "Procédures",
+      "famille": null,
+      "membres_famille": [],
+      "a_verifier": false
+    },
+    "engine": {
+      "definition": "",
+      "categorie": "Moteur & hélice",
+      "famille": null,
+      "membres_famille": [],
+      "a_verifier": true,
+      "doute": "Anglicisme à éviter en français, utiliser moteur."
+    },
+    "espace aérien": {
+      "definition": "Portion d'atmosphère définie par des limites latérales et verticales, régie par des règles d'accès précises. Il est divisé en classes de A à G, déterminant les services de contrôle et les conditions de vol VFR.",
+      "categorie": "Réglementation & docs",
+      "famille": "espaces_aeriens",
+      "membres_famille": [
+        "espace contrôlé",
+        "espaces aériens",
+        "fir"
+      ],
+      "a_verifier": false
+    },
+    "espace contrôlé": {
+      "definition": "Espace aérien de dimensions définies dans lequel le service de contrôle de la circulation aérienne est assuré. Pour y pénétrer en vol VFR, le pilote doit généralement obtenir une clairance et maintenir le contact radio.",
+      "categorie": "Réglementation & docs",
+      "famille": "espaces_aeriens",
+      "membres_famille": [
+        "espace aérien",
+        "espaces aériens",
+        "fir"
+      ],
+      "a_verifier": false
+    },
+    "espacement réglementaire": {
+      "definition": "Distance ou intervalle de temps minimal imposé par le contrôle entre deux aéronefs pour éviter les abordages. En vol VFR, l'espacement visuel incombe principalement au pilote, tandis que le contrôleur assure l'information de trafic.",
+      "categorie": "Réglementation & docs",
+      "famille": null,
+      "membres_famille": [],
+      "a_verifier": false
+    },
+    "espaces aériens": {
+      "definition": "Ensemble des volumes d'atmosphère découpés pour organiser la circulation aérienne. Le pilote VFR doit impérativement consulter ses cartes aéronautiques pour identifier les zones contrôlées, restreintes ou interdites présentes sur son trajet.",
+      "categorie": "Réglementation & docs",
+      "famille": "espaces_aeriens",
+      "membres_famille": [
+        "espace aérien",
+        "espace contrôlé",
+        "fir"
+      ],
+      "a_verifier": false
+    },
+    "essai magnétos": {
+      "definition": "Vérification moteur obligatoire effectuée au point d'arrêt avant le décollage. Elle consiste à couper alternativement l'une des deux magnétos pour vérifier la chute de régime admissible et s'assurer du bon fonctionnement du double allumage.",
+      "categorie": "Procédures",
+      "famille": null,
+      "membres_famille": [],
+      "a_verifier": false
+    },
+    "eta": {
+      "definition": "<em>Estimated Time of Arrival</em> : heure estimée d'arrivée à destination. Calculée à partir de l'heure de départ et du temps de vol estimé, elle doit être réévaluée en vol selon le vent réel.",
+      "categorie": "Navigation",
+      "famille": "heures_estimations",
+      "membres_famille": [
+        "heure d'arrivée",
+        "heure de départ",
+        "heure estimée"
+      ],
+      "a_verifier": false
+    },
+    "facteur humain": {
+      "definition": "Discipline étudiant l'interaction entre le pilote, sa machine et son environnement. Elle vise à comprendre les limites physiologiques et psychologiques de l'homme pour réduire le risque d'erreur de décision en vol.",
+      "categorie": "Sécurité & facteurs humains",
+      "famille": "facteurs_humains",
+      "membres_famille": [
+        "facteurs humains",
+        "fatigue",
+        "hyperventilation",
+        "hypoxie",
+        "illusion somatogyrale",
+        "imsafe"
+      ],
+      "a_verifier": false
+    },
+    "facteurs humains": {
+      "definition": "Limites physiques, cognitives et physiologiques influençant les performances du pilote. Le stress, la fatigue et les biais décisionnels sont des facteurs clés analysés pour améliorer la sécurité des vols et la gestion des menaces.",
+      "categorie": "Sécurité & facteurs humains",
+      "famille": "facteurs_humains",
+      "membres_famille": [
+        "facteur humain",
+        "fatigue",
+        "hyperventilation",
+        "hypoxie",
+        "illusion somatogyrale",
+        "imsafe"
+      ],
+      "a_verifier": false
+    },
+    "fatigue": {
+      "definition": "État d'épuisement physique ou mental diminuant la vigilance, le temps de réaction et la qualité des décisions du pilote. Elle ne se combat qu'avec un sommeil réparateur et doit inciter à annuler un vol.",
+      "categorie": "Sécurité & facteurs humains",
+      "famille": "facteurs_humains",
+      "membres_famille": [
+        "facteur humain",
+        "facteurs humains",
+        "hyperventilation",
+        "hypoxie",
+        "illusion somatogyrale",
+        "imsafe"
+      ],
+      "a_verifier": false
+    },
+    "feu cabine": {
+      "definition": "Urgence vitale caractérisée par une émanation de fumée ou de flammes dans l'habitacle. Le pilote doit appliquer immédiatement la procédure d'urgence (coupe-circuit, ventilation adaptée, utilisation de l'extincteur) et entreprendre une descente d'urgence pour atterrir.",
+      "categorie": "Procédures",
+      "famille": "urgences_incendie",
+      "membres_famille": [
+        "feu moteur"
+      ],
+      "a_verifier": false
+    },
+    "feu moteur": {
+      "definition": "Incendie se déclarant sous le capot moteur en vol. La procédure impose de fermer immédiatement l'arrivée de carburant, de couper le contact, de mettre plein gaz pour vider le carburateur, puis d'effectuer une descente d'urgence.",
+      "categorie": "Procédures",
+      "famille": "urgences_incendie",
+      "membres_famille": [
+        "feu cabine"
+      ],
+      "a_verifier": false
+    },
+    "few": {
+      "definition": "Abréviation METAR indiquant une couverture nuageuse faible, comprise entre un et deux octas du ciel. Elle n'entrave pas le vol visuel mais nécessite de surveiller l'évolution de la base des nuages.",
+      "categorie": "Météo",
+      "famille": null,
+      "membres_famille": [],
+      "a_verifier": false
+    },
+    "fi": {
+      "definition": "<em>Flight Instructor</em> : instructeur de vol habilité à former les élèves pilotes. Il dispense la formation théorique et pratique, valide les lâchers en vol solo et assure les renouvellements de licence.",
+      "categorie": "Réglementation & docs",
+      "famille": null,
+      "membres_famille": [],
+      "a_verifier": false
+    },
+    "fiche de pesée": {
+      "definition": "Document officiel obligatoire propre à chaque aéronef, indiquant sa masse à vide de référence et la position de son centre de gravité associé. Elle sert de base indispensable au calcul de masse et centrage avant chaque vol.",
+      "categorie": "Masse & centrage",
+      "famille": null,
+      "membres_famille": [],
+      "a_verifier": false
+    },
+    "finale courte": {
+      "definition": "Dernière partie de la trajectoire d'approche, située juste avant le seuil de piste. Cette position fait l'objet d'un message radio obligatoire et exige une concentration maximale pour stabiliser la vitesse et l'arrondi.",
+      "categorie": "Radio & phraséologie",
+      "famille": null,
+      "membres_famille": [],
+      "a_verifier": false
+    },
+    "finesse max": {
+      "definition": "Rapport maximal entre la portance et la traînée, correspondant à la distance franchissable maximale en vol plané sans moteur. Elle s'obtient à une vitesse précise, essentielle à connaître pour gérer une panne moteur.",
+      "categorie": "Vitesses & performances",
+      "famille": null,
+      "membres_famille": [],
+      "a_verifier": false
+    },
+    "fir": {
+      "definition": "<em>Flight Information Region</em> : région d'information de vol. Espace aérien de grandes dimensions à l'intérieur duquel les services d'information de vol et d'alerte sont assurés par un centre de contrôle de zone.",
+      "categorie": "Réglementation & docs",
+      "famille": "espaces_aeriens",
+      "membres_famille": [
+        "espace aérien",
+        "espace contrôlé",
+        "espaces aériens"
+      ],
+      "a_verifier": false
+    },
+    "flaps": {
+      "definition": "<em>Flaps</em> : anglicisme courant pour désigner les <strong>volets</strong> hypersustentateurs. Ils augmentent la portance à basse vitesse et créent de la traînée, permettant de raccourcir la distance d'atterrissage et d'accentuer la pente de descente.",
+      "categorie": "Structure & cellule",
+      "famille": null,
+      "membres_famille": [],
+      "a_verifier": false
+    },
+    "foehn": {
+      "definition": "Vent local chaud et sec soufflant en aval d'un relief montagneux. Provoqué par l'effet de foehn, il s'accompagne d'un ciel limpide sur le versant abrité mais engendre de violents rotors et de fortes turbulences.",
+      "categorie": "Météo",
+      "famille": "effets_vent_relief",
+      "membres_famille": [
+        "effet de foehn",
+        "effet de pente",
+        "effet de site"
+      ],
+      "a_verifier": false
+    },
+    "foxtrot": {
+      "definition": "Lettre F de l'alphabet phonétique international de l'OACI, utilisée en radiotéléphonie. Elle permet d'épeler sans ambiguïté les indicatifs d'appel, les points de report ou les immatriculations des aéronefs.",
+      "categorie": "Radio & phraséologie",
+      "famille": "alphabet_oaci",
+      "membres_famille": [
+        "golf",
+        "hotel"
+      ],
+      "a_verifier": false
+    },
+    "fpl": {
+      "definition": "<em>Flight Plan</em> : message officiel détaillant le projet de vol d'un aéronef, déposé auprès des services de la circulation aérienne. Obligatoire pour les vols franchissant les frontières, de nuit, ou au-dessus de zones hostiles.",
+      "categorie": "Réglementation & docs",
+      "famille": null,
+      "membres_famille": [],
+      "a_verifier": false
+    },
+    "fractus": {
+      "definition": "Type de nuage déchiqueté par le vent, se présentant sous forme de lambeaux isolés de petite taille (cumulus fractus ou stratus fractus). Ils se trouvent souvent sous la base de nuages plus importants et humides.",
+      "categorie": "Météo",
+      "famille": null,
+      "membres_famille": [],
+      "a_verifier": false
+    },
+    "fromage suisse": {
+      "definition": "Modèle d'analyse de la sécurité théorisé par James Reason. Chaque plaque représente une barrière défensive et les trous sont les défaillances ; l'accident survient uniquement lorsque les trous de chaque plaque s'alignent parfaitement.",
+      "categorie": "Sécurité & facteurs humains",
+      "famille": null,
+      "membres_famille": [],
+      "a_verifier": false
+    },
+    "front": {
+      "definition": "Zone de transition et limite de contact entre deux masses d'air de températures et d'humidités différentes. Le passage d'un front engendre généralement des perturbations météorologiques importantes (nuages, précipitations, changements de vent).",
+      "categorie": "Météo",
+      "famille": "fronts_meteorologiques",
+      "membres_famille": [
+        "front occlus"
+      ],
+      "a_verifier": false
+    },
+    "front occlus": {
+      "definition": "Phénomène météo se produisant lorsqu'un front froid, plus rapide, rattrape un front chaud et rejette l'air chaud en altitude. Il s'accompagne généralement de précipitations continues et de nuages bas persistants.",
+      "categorie": "Météo",
+      "famille": "fronts_meteorologiques",
+      "membres_famille": [
+        "front"
+      ],
+      "a_verifier": false
+    },
+    "fréquence": {
+      "definition": "Canal radio désigné en mégahertz permettant les communications entre les pilotes et les stations au sol. Sélectionner la bonne fréquence (tour, gonio, information) est indispensable pour s'intégrer en sécurité dans un espace aérien.",
+      "categorie": "Radio & phraséologie",
+      "famille": null,
+      "membres_famille": [],
+      "a_verifier": false
+    },
+    "ft aal": {
+      "definition": "<em>Feet Above Aerodrome Level</em> : pieds au-dessus du niveau de l'aérodrome. Référence de hauteur mesurée par rapport à l'altitude officielle du terrain, très utilisée pour définir la hauteur du tour de piste.",
+      "categorie": "Altimétrie",
+      "famille": "references_verticales",
+      "membres_famille": [
+        "ft agl",
+        "ft amsl"
+      ],
+      "a_verifier": false
+    },
+    "ft agl": {
+      "definition": "<em>Feet Above Ground Level</em> : pieds au-dessus de la surface du sol. C'est l'expression d'une hauteur, lue indirectement à l'altimètre calé au QFE, cruciale pour respecter les hauteurs minimales de survol réglementaires.",
+      "categorie": "Altimétrie",
+      "famille": "references_verticales",
+      "membres_famille": [
+        "ft aal",
+        "ft amsl"
+      ],
+      "a_verifier": false
+    },
+    "ft amsl": {
+      "definition": "<em>Feet Above Mean Sea Level</em> : pieds au-dessus du niveau moyen de la mer. C'est l'expression d'une altitude, mesurée directement par l'altimètre calé au QNH, utilisée pour la navigation et l'évitement d'obstacles.",
+      "categorie": "Altimétrie",
+      "famille": "references_verticales",
+      "membres_famille": [
+        "ft aal",
+        "ft agl"
+      ],
+      "a_verifier": false
+    },
+    "ft/min": {
+      "definition": "Pieds par minute : unité de mesure de la vitesse verticale (taux de montée ou de descente) affichée sur le variomètre. Un taux de descente standard en approche se situe généralement autour de 500 ft/min.",
+      "categorie": "Unités",
+      "famille": null,
+      "membres_famille": [],
+      "a_verifier": false
+    },
+    "fuel pump": {
+      "definition": "<em>Fuel pump</em> : anglicisme pour désigner la <strong>pompe à carburant</strong> électrique auxiliaire. Elle complète la pompe mécanique entraînée par le moteur et s'active manuellement pour sécuriser l'alimentation en carburant dans les phases critiques.",
+      "categorie": "Moteur & hélice",
+      "famille": "pompe_carburant",
+      "membres_famille": [
+        "fuel pump on"
+      ],
+      "a_verifier": false
+    },
+    "fuel pump on": {
+      "definition": "Consigne ou action consistant à mettre la <strong>pompe à carburant</strong> électrique en marche. Réalisée lors des actions vitales (décollage, approche), elle prévient les coupures moteur en cas de défaillance de la pompe principale.",
+      "categorie": "Procédures",
+      "famille": "pompe_carburant",
+      "membres_famille": [
+        "fuel pump"
+      ],
+      "a_verifier": false
+    },
+    "fuselage": {
+      "definition": "Corps principal de la structure d'un avion, reliant les ailes, l'empennage et le train d'atterrissage. Il abrite la cabine de pilotage, les passagers, les bagages et parfois le groupe motopropulseur.",
+      "categorie": "Structure & cellule",
+      "famille": null,
+      "membres_famille": [],
+      "a_verifier": false
+    },
+    "givrage": {
+      "definition": "Accumulation de glace sur différentes parties de l'aéronef en vol. Ce phénomène dangereux dégrade les performances aérodynamiques, altère la visibilité et peut étouffer le moteur si des mesures correctives ne sont pas prises.",
+      "categorie": "Météo",
+      "famille": "givrage",
+      "membres_famille": [
+        "givrage carburateur",
+        "givrage en vol",
+        "givrage moteur",
+        "givrage structural",
+        "givre"
+      ],
+      "a_verifier": false
+    },
+    "givrage carburateur": {
+      "definition": "Formation de glace dans le venturi du carburateur due à la détente de l'air et à l'évaporation de l'essence. Il peut survenir même par température positive en présence d'humidité, et nécessite l'utilisation de la réchauffe carburateur.",
+      "categorie": "Moteur & hélice",
+      "famille": "givrage",
+      "membres_famille": [
+        "givrage",
+        "givrage en vol",
+        "givrage moteur",
+        "givrage structural",
+        "givre"
+      ],
+      "a_verifier": false
+    },
+    "givrage en vol": {
+      "definition": "Dépôt de glace sur la cellule ou les moteurs lors de la traversée de nuages contenant des gouttelettes d'eau surfondue. Il alourdit l'avion, réduit la portance et peut survenir rapidement sans équipement de dégivrage.",
+      "categorie": "Météo",
+      "famille": "givrage",
+      "membres_famille": [
+        "givrage",
+        "givrage carburateur",
+        "givrage moteur",
+        "givrage structural",
+        "givre"
+      ],
+      "a_verifier": false
+    },
+    "givrage moteur": {
+      "definition": "Givrage affectant le carburateur ou le filtre à air d'admission du moteur, provoquant une perte de puissance ou l'arrêt complet. L'activation de l'air chaud (réchauffe carburateur) permet de faire fondre la glace accumulée.",
+      "categorie": "Moteur & hélice",
+      "famille": "givrage",
+      "membres_famille": [
+        "givrage",
+        "givrage carburateur",
+        "givrage en vol",
+        "givrage structural",
+        "givre"
+      ],
+      "a_verifier": false
+    },
+    "givrage structural": {
+      "definition": "Dépôt de glace sur les surfaces externes de l'avion (bords d'attaque des ailes, empennages). Il modifie le profil aérodynamique, diminue considérablement la portance, augmente la vitesse de décrochage et accroît la traînée.",
+      "categorie": "Météo",
+      "famille": "givrage",
+      "membres_famille": [
+        "givrage",
+        "givrage carburateur",
+        "givrage en vol",
+        "givrage moteur",
+        "givre"
+      ],
+      "a_verifier": false
+    },
+    "givre": {
+      "definition": "Dépôt de glace opaque ou translucide issu de la congélation rapide de gouttelettes d'eau surfondue au contact de la cellule. Il doit être soigneusement éliminé avant le décollage lors de la visite prévol.",
+      "categorie": "Météo",
+      "famille": "givrage",
+      "membres_famille": [
+        "givrage",
+        "givrage carburateur",
+        "givrage en vol",
+        "givrage moteur",
+        "givrage structural"
+      ],
+      "a_verifier": false
+    },
+    "gnss": {
+      "definition": "<em>Global Navigation Satellite System</em> : terme générique désignant les systèmes de navigation par satellites (GPS, Galileo, GLONASS). Il permet au pilote de déterminer sa position géographique exacte et de suivre sa route.",
+      "categorie": "Navigation",
+      "famille": "navigation_satellitaire",
+      "membres_famille": [
+        "gps"
+      ],
+      "a_verifier": false
+    },
+    "golf": {
+      "definition": "Lettre G de l'alphabet phonétique de l'OACI, utilisée en radiotéléphonie aéronautique. Elle sert à épeler des noms, des indicatifs d'immatriculation d'aéronefs ou des points de report sans risque de mauvaise transmission radio.",
+      "categorie": "Radio & phraséologie",
+      "famille": "alphabet_oaci",
+      "membres_famille": [
+        "foxtrot",
+        "hotel"
+      ],
+      "a_verifier": false
+    },
+    "gouverne": {
+      "definition": "Surface mobile articulée fixée à l'arrière d'un empennage ou d'une aile. Elle permet au pilote de contrôler l'assiette, l'inclinaison et la direction de l'avion en modifiant l'écoulement de l'air aérodynamique.",
+      "categorie": "Structure & cellule",
+      "famille": null,
+      "membres_famille": [],
+      "a_verifier": false
+    },
+    "gps": {
+      "definition": "<em>Global Positioning System</em> : système américain de radionavigation par satellites. Utilisé en vol comme aide à la navigation visuelle, il ne doit jamais remplacer l'estime et l'observation visuelle extérieure.",
+      "categorie": "Navigation",
+      "famille": "navigation_satellitaire",
+      "membres_famille": [
+        "gnss"
+      ],
+      "a_verifier": false
+    },
+    "gradient de vent": {
+      "definition": "Variation de la vitesse ou de la direction du vent sur une faible distance verticale ou horizontale. Particulièrement marqué près du sol, il peut provoquer de brusques variations de vitesse air lors de l'approche.",
+      "categorie": "Vent",
+      "famille": null,
+      "membres_famille": [],
+      "a_verifier": false
+    },
+    "gradient thermique": {
+      "definition": "Taux de variation de la température de l'air avec l'altitude. Dans l'atmosphère standard, il est d'environ moins deux degrés Celsius pour mille pieds de montée, une donnée clé pour prévoir la stabilité de l'air.",
+      "categorie": "Météo",
+      "famille": null,
+      "membres_famille": [],
+      "a_verifier": false
+    },
+    "ground roll": {
+      "definition": "<em>Ground roll</em> : anglicisme pour désigner la <strong>distance de roulement</strong> au sol, nécessaire pour décoller ou s'arrêter. Cette valeur est calculée à partir des abaques du manuel de vol selon l'altitude et la température.",
+      "categorie": "Vitesses & performances",
+      "famille": null,
+      "membres_famille": [],
+      "a_verifier": false
+    },
+    "gyroscope": {
+      "definition": "Instrument rotatif à haute vitesse qui conserve sa direction d'origine dans l'espace grâce à l'effet gyroscopique. C'est le cœur mécanique de l'horizon artificiel, du conservateur de cap et de l'indicateur de virage.",
+      "categorie": "Instruments",
+      "famille": null,
+      "membres_famille": [],
+      "a_verifier": false
+    },
+    "hauteur de sécurité": {
+      "definition": "Hauteur minimale sous laquelle le pilote ne doit pas descendre, sauf pour les besoins du décollage ou de l'atterrissage. Elle garantit un espacement vertical suffisant avec le sol et les obstacles environnants.",
+      "categorie": "Réglementation & docs",
+      "famille": null,
+      "membres_famille": [],
+      "a_verifier": false
+    },
+    "hauteur tour de piste": {
+      "definition": "Hauteur standard à laquelle s'effectue le circuit d'aérodrome, spécifiée sur les cartes d'approche visuelle (VAC). Elle est généralement de mille pieds au-dessus du sol pour concilier sécurité des vols et réduction du bruit.",
+      "categorie": "Procédures",
+      "famille": null,
+      "membres_famille": [],
+      "a_verifier": false
+    },
+    "herbe sèche": {
+      "definition": "Caractéristique de surface de piste non revêtue qui modifie les performances de décollage et d'atterrissage. Une herbe sèche nécessite d'appliquer un coefficient multiplicateur (généralement 1,2) à la distance de roulage calculée sur piste dure.",
+      "categorie": "Vitesses & performances",
+      "famille": null,
+      "membres_famille": [],
+      "a_verifier": false
+    },
+    "heure d'arrivée": {
+      "definition": "Instant exact auquel l'avion se pose ou s'immobilise sur le parking de destination. Notée dans le carnet de route, elle sert à clore le plan de vol et à comptabiliser les heures de vol réelles.",
+      "categorie": "Navigation",
+      "famille": "heures_estimations",
+      "membres_famille": [
+        "eta",
+        "heure de départ",
+        "heure estimée"
+      ],
+      "a_verifier": false
+    },
+    "heure de départ": {
+      "definition": "Instant précis où l'aéronef commence à se déplacer par ses propres moyens pour le décollage (heure bloc). C'est le point de départ du calcul de la navigation et de la gestion de l'autonomie en carburant.",
+      "categorie": "Navigation",
+      "famille": "heures_estimations",
+      "membres_famille": [
+        "eta",
+        "heure d'arrivée",
+        "heure estimée"
+      ],
+      "a_verifier": false
+    },
+    "heure estimée": {
+      "definition": "Heure calculée à laquelle un aéronef devrait survoler un repère de navigation ou atteindre sa destination. Constamment mise à jour en vol en fonction du vent réel, elle permet d'assurer un suivi de navigation précis.",
+      "categorie": "Navigation",
+      "famille": "heures_estimations",
+      "membres_famille": [
+        "eta",
+        "heure d'arrivée",
+        "heure de départ"
+      ],
+      "a_verifier": false
+    },
+    "hippodrome": {
+      "definition": "Trajectoire de vol normalisée en forme d'ovale, utilisée pour effectuer une attente en vol ou une procédure d'intégration aux instruments. Le pilote y effectue des virages réguliers et des branches rectilignes minutées.",
+      "categorie": "Procédures",
+      "famille": null,
+      "membres_famille": [],
+      "a_verifier": false
+    },
+    "holding": {
+      "definition": "<em>Holding</em> : anglicisme pour désigner une procédure d'<strong>attente</strong> en vol, généralement au-dessus d'un point fixe ou d'une balise radio. Bien que fréquent en IFR, le pilote VFR doit connaître les points d'attente sol.",
+      "categorie": "Procédures",
+      "famille": null,
+      "membres_famille": [],
+      "a_verifier": false
+    },
+    "horizon artificiel": {
+      "definition": "Instrument gyroscopique essentiel affichant l'assiette longitudinal et l'inclinaison de l'avion par rapport à l'horizon. C'est l'instrument de référence absolue pour le vol sans visibilité extérieure ou pour confirmer ses références visuelles.",
+      "categorie": "Instruments",
+      "famille": null,
+      "membres_famille": [],
+      "a_verifier": false
+    },
+    "hotel": {
+      "definition": "Lettre H de l'alphabet phonétique de l'OACI, prononcée « HÔ-TEL » en radiotéléphonie aéronautique. Elle sert à transmettre de façon claire des indicatifs, des immatriculations d'avions ou des codes météorologiques.",
+      "categorie": "Radio & phraséologie",
+      "famille": "alphabet_oaci",
+      "membres_famille": [
+        "foxtrot",
+        "golf"
+      ],
+      "a_verifier": false
+    },
+    "hyperventilation": {
+      "definition": "Accélération anormale de la respiration provoquée par le stress, l'anxiété ou l'hypoxie. Elle entraîne une baisse excessive du gaz carbonique dans le sang, provoquant des vertiges et des picotements qui nuisent au pilotage.",
+      "categorie": "Sécurité & facteurs humains",
+      "famille": "facteurs_humains",
+      "membres_famille": [
+        "facteur humain",
+        "facteurs humains",
+        "fatigue",
+        "hypoxie",
+        "illusion somatogyrale",
+        "imsafe"
+      ],
+      "a_verifier": false
+    },
+    "hypoxie": {
+      "definition": "Insuffisance d'apport en oxygène aux organes et au cerveau, due à la baisse de pression partielle d'oxygène avec l'altitude. Elle altère insidieusement le jugement, la vision des couleurs et la coordination des mouvements.",
+      "categorie": "Sécurité & facteurs humains",
+      "famille": "facteurs_humains",
+      "membres_famille": [
+        "facteur humain",
+        "facteurs humains",
+        "fatigue",
+        "hyperventilation",
+        "illusion somatogyrale",
+        "imsafe"
+      ],
+      "a_verifier": false
+    },
+    "hélice": {
+      "definition": "Dispositif aérodynamique constitué de pales profilées tournant sous l'action du moteur pour générer la traction de l'avion. Elle convertit la puissance de rotation du moteur en force de propulsion vers l'avant.",
+      "categorie": "Moteur & hélice",
+      "famille": null,
+      "membres_famille": [],
+      "a_verifier": false
+    },
+    "iac": {
+      "definition": "<em>Instrument Approach Chart</em> : carte d'approche et d'atterrissage aux instruments. Elle décrit les trajectoires, altitudes minimales et procédures de guidage requises pour atterrir par faible visibilité ou plafond bas.",
+      "categorie": "Aérodrome & cartes",
+      "famille": null,
+      "membres_famille": [],
+      "a_verifier": false
+    },
+    "idle": {
+      "definition": "<em>Idle</em> : anglicisme désignant la position de <strong>ralenti</strong> de la manette des gaz. C'est le régime moteur minimal, utilisé lors du roulage, avant le décollage pour tester les magnétos, ou durant l'arrondi.",
+      "categorie": "Moteur & hélice",
+      "famille": null,
+      "membres_famille": [],
+      "a_verifier": false
+    },
+    "ignition": {
+      "definition": "<em>Ignition</em> : anglicisme pour l'<strong>allumage</strong> ou le contact moteur. Sur les avions de club, il s'effectue via le sélecteur de magnétos sur la position « BOTH » pour activer les deux bougies par cylindre.",
+      "categorie": "Moteur & hélice",
+      "famille": null,
+      "membres_famille": [],
+      "a_verifier": false
+    },
+    "illusion somatogyrale": {
+      "definition": "Fausse sensation de rotation ou d'absence de mouvement provoquée par une mauvaise interprétation des signaux de l'oreille interne. Elle survient lors de virages prolongés à taux constant sans référence visuelle extérieure.",
+      "categorie": "Sécurité & facteurs humains",
+      "famille": "facteurs_humains",
+      "membres_famille": [
+        "facteur humain",
+        "facteurs humains",
+        "fatigue",
+        "hyperventilation",
+        "hypoxie",
+        "imsafe"
+      ],
+      "a_verifier": false
+    },
+    "ils": {
+      "definition": "<em>Instrument Landing System</em> : système d'atterrissage aux instruments. Il fournit au pilote des indications de guidage très précises en écart d'alignement de piste (Localizer) et de plan de descente (Glide Path) en approche finale.",
+      "categorie": "Instruments",
+      "famille": null,
+      "membres_famille": [],
+      "a_verifier": false
+    },
+    "imsafe": {
+      "definition": "Aide-mémoire aéronautique d'auto-évaluation physique et mentale du pilote avant le vol : Maladie (Illness), Médicaments (Medication), Stress, Alcool, Fatigue, Émotion. Si une seule lettre pose problème, le vol doit être annulé.",
+      "categorie": "Sécurité & facteurs humains",
+      "famille": "facteurs_humains",
+      "membres_famille": [
+        "facteur humain",
+        "facteurs humains",
+        "fatigue",
+        "hyperventilation",
+        "hypoxie",
+        "illusion somatogyrale"
+      ],
+      "a_verifier": false
+    },
+    "incidence": {
+      "definition": "Angle formé entre la corde de profil de l'aile et la direction du vent relatif. C'est le paramètre fondamental régissant la portance et la traînée de l'avion, indépendamment de son assiette.",
+      "categorie": "Aérodynamique",
+      "famille": "incidences",
+      "membres_famille": [
+        "incidence critique"
+      ],
+      "a_verifier": false
+    },
+    "incidence critique": {
+      "definition": "Angle d'incidence limite au-delà duquel les filets d'air se décollent de l'extrados de l'aile, provoquant une chute brutale de la portance : c'est le <strong>décrochage</strong>. Sa valeur angulaire est constante pour un profil donné.",
+      "categorie": "Aérodynamique",
+      "famille": "incidences",
+      "membres_famille": [
+        "incidence"
+      ],
+      "a_verifier": false
+    },
+    "inclinaison": {
+      "definition": "Angle de roulis formé entre l'axe transversal de l'avion et le plan horizontal. Elle est commandée par l'action latérale sur le manche pour incliner la portance et ainsi entamer un virage coordonné.",
+      "categorie": "Aérodynamique",
+      "famille": "inclinaisons",
+      "membres_famille": [
+        "inclinaison standard"
+      ],
+      "a_verifier": false
+    },
+    "inclinaison standard": {
+      "definition": "Inclinaison nécessaire pour effectuer un virage au taux standard de trois degrés par seconde, soit un tour complet en deux minutes. Elle dépend de la vitesse de l'avion et est indiquée sur le coordinateur de virage.",
+      "categorie": "Instruments",
+      "famille": "inclinaisons",
+      "membres_famille": [
+        "inclinaison"
+      ],
+      "a_verifier": false
+    },
+    "indicatif": {
+      "definition": "Nom ou suite de caractères réglementaire identifiant un aéronef ou une station au sol lors des transmissions radio. L'indicatif d'un avion léger correspond généralement à son immatriculation (ex. Fox-G-A-B-C).",
+      "categorie": "Radio & phraséologie",
+      "famille": null,
+      "membres_famille": [],
+      "a_verifier": false
+    },
+    "info trafic": {
+      "definition": "Service de surveillance fourni par le contrôleur ou l'agent d'information AFIS, avertissant le pilote de la présence d'autres aéronefs à proximité. L'info trafic aide le pilote à assurer sa propre prévention des collisions visuelle.",
+      "categorie": "Radio & phraséologie",
+      "famille": "info_trafic",
+      "membres_famille": [
+        "information trafic"
+      ],
+      "a_verifier": false
+    },
+    "information trafic": {
+      "definition": "Avis transmis par la radio pour signaler la position et les intentions d'autres appareils pouvant constituer un risque de collision. En vol VFR, recevoir cette information n'exempte jamais le pilote de regarder dehors.",
+      "categorie": "Radio & phraséologie",
+      "famille": "info_trafic",
+      "membres_famille": [
+        "info trafic"
+      ],
+      "a_verifier": false
+    },
+    "instabilité": {
+      "definition": "Propension d'une masse d'air à favoriser les mouvements verticaux ascendants ou descendants. L'instabilité conduit à la formation de nuages à développement vertical (cumulus), d'orages et à des turbulences en vol.",
+      "categorie": "Météo",
+      "famille": "stabilite_atmospherique",
+      "membres_famille": [
+        "instabilité atmosphérique",
+        "instable"
+      ],
+      "a_verifier": false
+    },
+    "instabilité atmosphérique": {
+      "definition": "État de l'atmosphère où une parcelle d'air déplacée vers le haut devient plus chaude que son environnement et continue sa montée. Elle favorise les phénomènes convectifs, la turbulence et les averses.",
+      "categorie": "Météo",
+      "famille": "stabilite_atmospherique",
+      "membres_famille": [
+        "instabilité",
+        "instable"
+      ],
+      "a_verifier": false
+    },
+    "instable": {
+      "definition": "Se dit d'une atmosphère propice aux mouvements convectifs de l'air. Par temps instable, le pilote VFR doit s'attendre à des turbulences thermiques, des nuages cumuliformes et un risque d'orages locaux.",
+      "categorie": "Météo",
+      "famille": "stabilite_atmospherique",
+      "membres_famille": [
+        "instabilité",
+        "instabilité atmosphérique"
+      ],
+      "a_verifier": false
+    },
+    "instructeur": {
+      "definition": "Professionnel qualifié de l'enseignement aéronautique qui assure la formation théorique et pratique des élèves pilotes. Il est responsable de la sécurité lors des vols en double commande et valide l'autorisation solo.",
+      "categorie": "Réglementation & docs",
+      "famille": null,
+      "membres_famille": [],
+      "a_verifier": false
+    },
+    "instrument": {
+      "definition": "Dispositif d'indication ou de mesure monté sur la planche de bord de l'avion. Il fournit au pilote des informations vitales sur les paramètres de vol (altimètre, anémomètre) ou sur l'état du moteur.",
+      "categorie": "Instruments",
+      "famille": null,
+      "membres_famille": [],
+      "a_verifier": false
+    },
+    "interception": {
+      "definition": "Action menée par un aéronef militaire pour identifier et escorter un appareil égaré ou en infraction. Le pilote intercepté doit appliquer strictement les consignes visuelles réglementaires et se brancher sur la fréquence de détresse.",
+      "categorie": "Réglementation & docs",
+      "famille": null,
+      "membres_famille": [],
+      "a_verifier": false
+    },
+    "inversion de température": {
+      "definition": "Situation météo anormale où la température augmente avec l'altitude au lieu de diminuer. Elle agit comme un couvercle thermique bloquant l'humidité au sol, favorisant les brumes ou brouillards persistants et des conditions calmes.",
+      "categorie": "Météo",
+      "famille": "isothermes_temperatures",
+      "membres_famille": [
+        "iso zero",
+        "isotherme"
+      ],
+      "a_verifier": false
+    },
+    "iso zero": {
+      "definition": "Altitude à laquelle la température de l'air atteint zéro degré Celsius dans l'atmosphère libre. C'est une altitude de référence essentielle pour prévoir le risque de givrage en vol lors de la traversée de nuages.",
+      "categorie": "Météo",
+      "famille": "isothermes_temperatures",
+      "membres_famille": [
+        "inversion de température",
+        "isotherme"
+      ],
+      "a_verifier": false
+    },
+    "isotherme": {
+      "definition": "Ligne reliant les points d'égale température sur une carte météorologique. L'isotherme zéro degré est particulièrement scrutée par le pilote car elle marque la limite thermique du risque de givrage de la cellule.",
+      "categorie": "Météo",
+      "famille": "isothermes_temperatures",
+      "membres_famille": [
+        "inversion de température",
+        "iso zero"
+      ],
+      "a_verifier": false
+    }
+  }
+}
