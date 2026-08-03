@@ -81,7 +81,7 @@
         "espacement 25 kHz"
       ],
       "xrefs": [
-        "121,5 MHz",
+        "fréquence de détresse",
         "canal 8,33 kHz",
         "hz"
       ],
@@ -539,7 +539,7 @@
       "xrefs": [
         "minute d'arc",
         "tours/minute",
-        "ETD",
+        "plan de vol",
         "estime"
       ],
       "domaine": "nav-radio"
@@ -1214,7 +1214,7 @@
       "xrefs": [
         "plan de vol déposé",
         "autorisation",
-        "EOBT"
+        "plan de vol"
       ],
       "domaine": "regl-proc"
     },

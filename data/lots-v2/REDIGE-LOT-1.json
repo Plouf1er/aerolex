@@ -334,7 +334,7 @@
       ],
       "xrefs": [
         "traînée totale",
-        "vitesse"
+        "poids"
       ],
       "domaine": "aero-perfs"
     },
@@ -346,7 +346,6 @@
         "polaires des vitesses"
       ],
       "xrefs": [
-        "vitesse",
         "traînée totale",
         "portance"
       ],
