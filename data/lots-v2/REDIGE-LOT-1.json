@@ -334,7 +334,7 @@
       ],
       "xrefs": [
         "traînée totale",
-        "poids"
+        "vitesse propre"
       ],
       "domaine": "aero-perfs"
     },
@@ -347,7 +347,8 @@
       ],
       "xrefs": [
         "traînée totale",
-        "portance"
+        "portance",
+        "vitesse propre"
       ],
       "domaine": "aero-perfs"
     },

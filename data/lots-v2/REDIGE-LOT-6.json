@@ -386,7 +386,7 @@
         "100LL"
       ],
       "xrefs": [
-        "carburant 100ll",
+        "100ll",
         "ul91"
       ],
       "domaine": "regl-proc"
@@ -413,7 +413,7 @@
       ],
       "xrefs": [
         "carburant 100ll",
-        "essence auto"
+        "100ll"
       ],
       "domaine": "regl-proc"
     },

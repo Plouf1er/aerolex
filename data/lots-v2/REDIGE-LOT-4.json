@@ -401,7 +401,7 @@
       ],
       "xrefs": [
         "code 7700",
-        "fréquence de détresse"
+        "121,5 mhz"
       ],
       "domaine": "nav-radio"
     },
@@ -753,7 +753,7 @@
         "heure de mise en route"
       ],
       "xrefs": [
-        "plan de vol",
+        "etd",
         "plan de vol déposé"
       ],
       "domaine": "nav-radio"
@@ -766,7 +766,7 @@
         "heure de départ estimée"
       ],
       "xrefs": [
-        "plan de vol",
+        "eobt",
         "plan de vol déposé"
       ],
       "domaine": "nav-radio"
@@ -971,7 +971,7 @@
         "couches de transition"
       ],
       "xrefs": [
-        "niveau de transition",
+        "tl",
         "1013,25 hpa"
       ],
       "domaine": "nav-radio"

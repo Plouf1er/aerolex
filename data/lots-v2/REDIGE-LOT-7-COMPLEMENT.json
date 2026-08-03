@@ -1,0 +1,198 @@
+{
+  "lot": "7-complement",
+  "fiches": [
+    {
+      "terme": "portance",
+      "definition": "Force aérodynamique perpendiculaire à l'écoulement du vent relatif, dirigée vers le haut, qui s'exerce sur la voilure d'un aéronef. Elle est générée par la différence de pression entre l'extrados et l'intrados.",
+      "variantes": [
+        "portance aérodynamique",
+        "force de portance"
+      ],
+      "xrefs": [
+        "extrados",
+        "intrados",
+        "traînée"
+      ],
+      "domaine": "aero-perfs"
+    },
+    {
+      "terme": "décrochage",
+      "definition": "Perte brutale de portance due à un angle d'incidence trop élevé, provoquant le décollement des filets d'air sur l'extrados de l'aile et entraînant une chute rapide de l'altitude de l'aéronef.",
+      "variantes": [
+        "décrochage aérodynamique",
+        "décrochages"
+      ],
+      "xrefs": [
+        "portance",
+        "angle d'incidence",
+        "avertisseur de décrochage"
+      ],
+      "domaine": "aero-perfs"
+    },
+    {
+      "terme": "aile",
+      "definition": "Surface portante principale d'un aéronef conçue pour générer la portance nécessaire au vol sustenté. Sa structure aérodynamique comprend généralement un bord d'attaque, un bord de fuite, un extrados et un intrados.",
+      "variantes": [
+        "ailes",
+        "voilure"
+      ],
+      "xrefs": [
+        "portance",
+        "profil",
+        "extrados"
+      ],
+      "domaine": "aero-perfs"
+    },
+    {
+      "terme": "traînée",
+      "definition": "Force aérodynamique de résistance qui s'oppose au mouvement d'un aéronef dans l'air. Parallèle à l'écoulement, elle doit être compensée par la poussée du moteur pour maintenir une vitesse de vol constante.",
+      "variantes": [
+        "traînées",
+        "traînée aérodynamique"
+      ],
+      "xrefs": [
+        "portance",
+        "poussée",
+        "traînée de forme"
+      ],
+      "domaine": "aero-perfs"
+    },
+    {
+      "terme": "vitesse propre",
+      "definition": "Vitesse réelle d'un aéronef par rapport à la masse d'air environnante. Elle est calculée en corrigeant la vitesse conventionnelle des variations de température et de densité de l'air liées à l'altitude.",
+      "variantes": [
+        "TAS",
+        "True Airspeed",
+        "vitesse vraie",
+        "vitesse propre"
+      ],
+      "xrefs": [
+        "vitesse conventionnelle",
+        "vent relatif",
+        "VG"
+      ],
+      "domaine": "aero-perfs"
+    },
+    {
+      "terme": "tube de pitot",
+      "definition": "Capteur aérodynamique saillant placé face au vent relatif pour mesurer la pression totale de l'écoulement. Cette pression, combinée à la pression statique, permet de déterminer la vitesse conventionnelle affichée à bord.",
+      "variantes": [
+        "tube de Pitot",
+        "Pitot",
+        "antenne de Pitot",
+        "sonde Pitot",
+        "sonde de Pitot"
+      ],
+      "xrefs": [
+        "pression dynamique",
+        "vitesse conventionnelle",
+        "prise pitot"
+      ],
+      "domaine": "aero-perfs"
+    },
+    {
+      "terme": "prise pitot",
+      "definition": "Orifice d'admission d'air dynamique situé à l'extrémité du tube de Pitot ou directement sur le fuselage. Elle capte l'énergie cinétique de l'écoulement pour mesurer la pression totale nécessaire au calcul de la vitesse.",
+      "variantes": [
+        "prise Pitot",
+        "prises pitot",
+        "prises Pitot"
+      ],
+      "xrefs": [
+        "tube de pitot",
+        "pression dynamique",
+        "blocage Pitot"
+      ],
+      "domaine": "aero-perfs"
+    },
+    {
+      "terme": "réchauffage pitot",
+      "definition": "Système de protection thermique électrique chauffant l'antenne pour prévenir l'accumulation de glace ou de givre clair. Il évite le blocage de la prise de pression dynamique et maintient les indications de vitesse.",
+      "variantes": [
+        "réchauffage Pitot",
+        "réchauffage du pitot",
+        "réchauffage du Pitot"
+      ],
+      "xrefs": [
+        "tube de pitot",
+        "système antigivrage",
+        "givrage clair"
+      ],
+      "domaine": "aero-perfs"
+    },
+    {
+      "terme": "ndb",
+      "definition": "Station de radio-navigation au sol émettant des ondes omnidirectionnelles moyennes ou basses fréquences. Elle permet aux instruments de bord d'indiquer la direction de la balise par rapport à l'axe de l'aéronef.",
+      "variantes": [
+        "NDB",
+        "Non-Directional Beacon",
+        "radiopoint de repère non directionnel"
+      ],
+      "xrefs": [
+        "QTE",
+        "QUJ",
+        "DME"
+      ],
+      "domaine": "nav-radio"
+    },
+    {
+      "terme": "rnav",
+      "definition": "Méthode de navigation permettant la trajectoire de vol sur n'importe quel itinéraire souhaité, sans l'obligation de survoler des installations au sol. Elle s'appuie sur des systèmes de positionnement embarqués ou satellitaires.",
+      "variantes": [
+        "RNAV",
+        "Area Navigation",
+        "navigation de surface"
+      ],
+      "xrefs": [
+        "DME",
+        "cheminement"
+      ],
+      "domaine": "nav-radio"
+    },
+    {
+      "terme": "carburant 100ll",
+      "definition": "Essence aéronautique à haut indice d'octane colorée en bleu, contenant une faible teneur en plomb tétraéthyle. Elle est couramment utilisée par les moteurs à pistons d'aviation générale à forte puissance.",
+      "variantes": [
+        "100LL",
+        "carburant 100LL",
+        "essence 100LL",
+        "Avgas 100LL"
+      ],
+      "xrefs": [
+        "consommation spécifique de carburant",
+        "ul91"
+      ],
+      "domaine": "aero-perfs"
+    },
+    {
+      "terme": "ul91",
+      "definition": "Essence aéronautique sans plomb conçue spécifiquement pour les moteurs d'aviation légère sensibles à l'encrassement. Elle offre une alternative écologique à l'essence plombée tout en préservant l'intégrité des circuits carburant.",
+      "variantes": [
+        "UL91",
+        "carburant UL91",
+        "essence UL91",
+        "Avgas UL91"
+      ],
+      "xrefs": [
+        "carburant 100ll",
+        "pompe mécanique",
+        "épuisement de carburant"
+      ],
+      "domaine": "aero-perfs"
+    },
+    {
+      "terme": "mode s",
+      "definition": "Mode de fonctionnement du transpondeur assurant une transmission bidirectionnelle de données avec les stations de contrôle au sol. Chaque aéronef équipé reçoit une adresse unique permettant une identification et un suivi sélectifs précis.",
+      "variantes": [
+        "Mode S",
+        "transpondeur mode S"
+      ],
+      "xrefs": [
+        "transpondeur en mode standby",
+        "code 7500",
+        "7000 (VFR)"
+      ],
+      "domaine": "nav-radio"
+    }
+  ]
+}
