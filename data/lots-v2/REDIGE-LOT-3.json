@@ -1,0 +1,1228 @@
+{
+  "lot": 3,
+  "fiches": [
+    {
+      "terme": "altitude minimale de sécurité",
+      "definition": "Altitude la plus basse à utiliser en vol pour garantir un espacement vertical suffisant avec le relief et les obstacles environnants. Elle est publiée sur les cartes aéronautiques pour chaque secteur de vol.",
+      "variantes": [
+        "AMS",
+        "altitudes minimales de sécurité"
+      ],
+      "xrefs": [
+        "altitude",
+        "relief",
+        "obstacle",
+        "MSA"
+      ],
+      "domaine": "aerodrome"
+    },
+    {
+      "terme": "MSA",
+      "definition": "Altitude minimale de sécurité publiée pour un secteur donné, généralement dans un rayon de vingt-cinq milles nautiques autour d'un aérodrome. Elle garantit une marge de franchissement des obstacles d'au moins mille pieds.",
+      "variantes": [
+        "Minimum Sector Altitude",
+        "altitude minimale de secteur"
+      ],
+      "xrefs": [
+        "altitude minimale de sécurité",
+        "aérodrome contrôlé",
+        "obstacle"
+      ],
+      "domaine": "aerodrome"
+    },
+    {
+      "terme": "obstacle",
+      "definition": "Tout objet fixe ou mobile, temporaire ou permanent, dont la hauteur dépasse une surface définie destinée à protéger les aéronefs en vol. Les obstacles majeurs sont répertoriés sur les cartes aéronautiques.",
+      "variantes": [
+        "obstacles",
+        "obstacle artificiel"
+      ],
+      "xrefs": [
+        "altitude minimale de sécurité",
+        "relief",
+        "ligne à haute tension"
+      ],
+      "domaine": "aerodrome"
+    },
+    {
+      "terme": "ligne à haute tension",
+      "definition": "Infrastructure de transport d'électricité suspendue constituant un obstacle majeur pour la navigation à basse hauteur. Sa présence à proximité d'un aérodrome exige une vigilance accrue et des trajectoires d'évitement adaptées.",
+      "variantes": [
+        "lignes à haute tension",
+        "ligne électrique"
+      ],
+      "xrefs": [
+        "obstacle",
+        "aérodrome non contrôlé",
+        "hauteur de survol"
+      ],
+      "domaine": "aerodrome"
+    },
+    {
+      "terme": "TWR",
+      "definition": "Organisme de contrôle assurant le service de contrôle d'aérodrome au bénéfice des aéronefs évoluant dans la circulation d'aérodrome. La tour gère les mouvements au sol et les décollages ou atterrissages.",
+      "variantes": [
+        "tour de contrôle",
+        "TWR CONTROL"
+      ],
+      "xrefs": [
+        "aérodrome contrôlé",
+        "APP",
+        "ACC"
+      ],
+      "domaine": "aerodrome"
+    },
+    {
+      "terme": "APP",
+      "definition": "Organisme de contrôle assurant le service de contrôle d'approche pour les vols arrivant ou partant d'un ou plusieurs aérodromes. Il gère les trajectoires de départ et d'arrivée dans l'espace aérien contrôlé.",
+      "variantes": [
+        "contrôle d'approche",
+        "approche"
+      ],
+      "xrefs": [
+        "aérodrome contrôlé",
+        "TWR",
+        "ACC"
+      ],
+      "domaine": "aerodrome"
+    },
+    {
+      "terme": "ACC",
+      "definition": "Organisme assurant le service de contrôle de la circulation aérienne aux vols contrôlés dans les régions de contrôle sous sa juridiction. Il gère principalement les phases de vol en croisière.",
+      "variantes": [
+        "centre de contrôle de région",
+        "centre de contrôle"
+      ],
+      "xrefs": [
+        "aérodrome contrôlé",
+        "TWR",
+        "APP"
+      ],
+      "domaine": "aerodrome"
+    },
+    {
+      "terme": "auto-information",
+      "definition": "Procédure de radiotéléphonie par laquelle les pilotes transmettent leurs intentions et leur position sur une fréquence commune sans l'intervention d'un contrôleur. Elle est obligatoire sur les aérodromes non contrôlés.",
+      "variantes": [
+        "auto-informations",
+        "fréquence d'auto-information"
+      ],
+      "xrefs": [
+        "aérodrome non contrôlé",
+        "agent AFIS",
+        "essai radio"
+      ],
+      "domaine": "aerodrome"
+    },
+    {
+      "terme": "agent AFIS",
+      "definition": "Professionnel au sol fournissant des informations de trafic et de météo aux pilotes sur un aérodrome non contrôlé. Cet agent ne délivre pas d'autorisations mais conseille les aéronefs en circulation.",
+      "variantes": [
+        "agents AFIS",
+        "AFIS"
+      ],
+      "xrefs": [
+        "aérodrome non contrôlé",
+        "auto-information",
+        "TWR"
+      ],
+      "domaine": "aerodrome"
+    },
+    {
+      "terme": "aérodrome contrôlé",
+      "definition": "Aérodrome sur lequel le service de contrôle de la circulation aérienne est assuré au bénéfice de la circulation d'aérodrome. Les pilotes doivent obligatoirement obtenir des autorisations radio pour évoluer.",
+      "variantes": [
+        "aérodromes contrôlés",
+        "terrain contrôlé"
+      ],
+      "xrefs": [
+        "TWR",
+        "APP",
+        "aérodrome non contrôlé"
+      ],
+      "domaine": "aerodrome"
+    },
+    {
+      "terme": "aérodrome non contrôlé",
+      "definition": "Aérodrome dépourvu d'organisme de contrôle du trafic aérien. Les pilotes y appliquent les règles de l'auto-information et de l'intégration standard pour assurer leur propre sécurité et l'espacement visuel.",
+      "variantes": [
+        "aérodromes non contrôlés",
+        "terrain non contrôlé"
+      ],
+      "xrefs": [
+        "auto-information",
+        "agent AFIS",
+        "aérodrome contrôlé"
+      ],
+      "domaine": "aerodrome"
+    },
+    {
+      "terme": "service d'alerte",
+      "definition": "Service fourni par les organismes de contrôle ou d'information pour alerter les centres de coordination de sauvetage lorsque la sécurité d'un aéronef est compromise ou en cas de disparition.",
+      "variantes": [
+        "ALERTE",
+        "services d'alerte"
+      ],
+      "xrefs": [
+        "SAR",
+        "INCERFA",
+        "ALERFA",
+        "DETRESFA"
+      ],
+      "domaine": "aerodrome"
+    },
+    {
+      "terme": "RFFS",
+      "definition": "Service de sauvetage et de lutte contre l'incendie des aéronefs sur un aérodrome. Ce dispositif d'urgence dispose de véhicules spécialisés et de personnels formés pour intervenir rapidement lors d'accidents.",
+      "variantes": [
+        "Rescue and Firefighting Services"
+      ],
+      "xrefs": [
+        "aérodrome contrôlé",
+        "SSLIA"
+      ],
+      "domaine": "aerodrome"
+    },
+    {
+      "terme": "SSLIA",
+      "definition": "Service de sauvetage et de lutte contre l'incendie des aéronefs, équivalent francophone du RFFS. Sa catégorie détermine le niveau de protection incendie minimal requis selon les dimensions de l'aérodrome.",
+      "variantes": [
+        "services de sauvetage et de lutte contre l'incendie des aéronefs"
+      ],
+      "xrefs": [
+        "aérodrome contrôlé",
+        "RFFS"
+      ],
+      "domaine": "aerodrome"
+    },
+    {
+      "terme": "point de compte rendu",
+      "definition": "Repère géographique précis au-dessus duquel un aéronef doit signaler sa position à l'organisme de contrôle aérien. Ces points facilitent l'intégration et la gestion des trajectoires d'approche.",
+      "variantes": [
+        "points de compte rendu",
+        "point de report"
+      ],
+      "xrefs": [
+        "point d'entrée",
+        "point de sortie",
+        "aérodrome contrôlé"
+      ],
+      "domaine": "aerodrome"
+    },
+    {
+      "terme": "point d'entrée",
+      "definition": "Repère géographique publié sur les cartes d'approche, matérialisant la limite de l'espace aérien d'un aérodrome. Le pilote doit y signaler sa présence avant de s'intégrer dans le circuit.",
+      "variantes": [
+        "points d'entrée",
+        "secteur d'entrée"
+      ],
+      "xrefs": [
+        "point de compte rendu",
+        "point de sortie",
+        "aérodrome contrôlé"
+      ],
+      "domaine": "aerodrome"
+    },
+    {
+      "terme": "point de sortie",
+      "definition": "Point géographique spécifique par lequel un aéronef quitte l'espace aérien contrôlé ou la circulation d'un aérodrome. Il est annoncé à l'organisme de contrôle pour clore la phase locale du vol.",
+      "variantes": [
+        "points de sortie",
+        "secteur de sortie"
+      ],
+      "xrefs": [
+        "point de compte rendu",
+        "point d'entrée",
+        "aérodrome contrôlé"
+      ],
+      "domaine": "aerodrome"
+    },
+    {
+      "terme": "dégagement de piste",
+      "definition": "Action de libérer la piste d'atterrissage en empruntant une voie de circulation après le toucher des roues. Un dégagement rapide est crucial pour maintenir la fluidité du trafic d'aérodrome.",
+      "variantes": [
+        "dégagements de piste",
+        "libérer la piste"
+      ],
+      "xrefs": [
+        "aérodrome contrôlé",
+        "TWR",
+        "feux de bord de piste"
+      ],
+      "domaine": "aerodrome"
+    },
+    {
+      "terme": "stratosphère",
+      "definition": "Couche de l'atmosphère terrestre située immédiatement au-dessus de la troposphère. Caractérisée par une température stable puis croissante avec l'altitude, elle est quasiment exempte de nuages et de perturbations météo.",
+      "variantes": [
+        "stratosphérique"
+      ],
+      "xrefs": [
+        "altitude",
+        "isothermie",
+        "étage supérieur"
+      ],
+      "domaine": "meteo"
+    },
+    {
+      "terme": "gradient adiabatique sec",
+      "definition": "Taux de refroidissement d'une parcelle d'air non saturée s'élevant verticalement de manière adiabatique dans l'atmosphère. Cette variation de température est constante et s'établit à un degré par cent mètres.",
+      "variantes": [
+        "DAL",
+        "gradient de l'adiabatique sèche"
+      ],
+      "xrefs": [
+        "adiabatique",
+        "gradient adiabatique saturé",
+        "salr"
+      ],
+      "domaine": "meteo"
+    },
+    {
+      "terme": "gradient adiabatique saturé",
+      "definition": "Taux de refroidissement d'une parcelle d'air saturée d'humidité s'élevant verticalement. Ce gradient est inférieur au gradient sec en raison de la libération de chaleur latente lors de la condensation.",
+      "variantes": [
+        "SALR",
+        "gradient de l'adiabatique saturée"
+      ],
+      "xrefs": [
+        "adiabatique",
+        "gradient adiabatique sec",
+        "chaleur latente",
+        "salr"
+      ],
+      "domaine": "meteo"
+    },
+    {
+      "terme": "isothermie",
+      "definition": "État d'une couche atmosphérique dans laquelle la température reste constante avec l'altitude. Cette absence de variation thermique verticale bloque les mouvements ascendants et favorise la stabilité de l'air.",
+      "variantes": [
+        "couche isotherme",
+        "isothermes"
+      ],
+      "xrefs": [
+        "stratosphère",
+        "altitude",
+        "stabilité dynamique"
+      ],
+      "domaine": "meteo"
+    },
+    {
+      "terme": "pression atmosphérique",
+      "definition": "Force exercée par le poids de l'air sur une unité de surface. Sa mesure au niveau de la mer sert de référence pour le calage altimétrique et la navigation.",
+      "variantes": [
+        "pression",
+        "pressions atmosphériques"
+      ],
+      "xrefs": [
+        "1013,25 hPa",
+        "altitude",
+        "surface isobare"
+      ],
+      "domaine": "meteo"
+    },
+    {
+      "terme": "humidité relative",
+      "definition": "Rapport exprimé en pourcentage entre la quantité d'eau contenue dans l'air et la capacité maximale de rétention à la même température. Sa saturation provoque la condensation et le brouillard.",
+      "variantes": [
+        "taux d'humidité",
+        "humidité de l'air"
+      ],
+      "xrefs": [
+        "brouillard d'advection",
+        "brouillard d'évaporation",
+        "pluie surfondue"
+      ],
+      "domaine": "meteo"
+    },
+    {
+      "terme": "surfusion",
+      "definition": "État d'une gouttelette d'eau qui reste liquide à une température inférieure au point de congélation. L'impact de cette eau surfondue avec la structure d'un aéronef provoque un givrage instantané.",
+      "variantes": [
+        "surfondu",
+        "eau surfondue"
+      ],
+      "xrefs": [
+        "pluie surfondue",
+        "givre blanc",
+        "givrage clair",
+        "givrage mixte"
+      ],
+      "domaine": "meteo"
+    },
+    {
+      "terme": "chaleur latente",
+      "definition": "Quantité d'énergie thermique absorbée ou libérée par une substance lors de son changement d'état physique. En météo, la condensation de la vapeur d'eau libère une forte chaleur réchauffant l'air.",
+      "variantes": [
+        "chaleurs latentes",
+        "chaleur latente de condensation"
+      ],
+      "xrefs": [
+        "gradient adiabatique saturé",
+        "salr",
+        "humidité relative"
+      ],
+      "domaine": "meteo"
+    },
+    {
+      "terme": "surface isobare",
+      "definition": "Surface géométrique imaginaire en tout point de laquelle la pression atmosphérique est identique. Sa hauteur varie selon la température globale et influence directement la lecture altimétrique des aéronefs.",
+      "variantes": [
+        "surfaces isobares",
+        "isobare"
+      ],
+      "xrefs": [
+        "pression atmosphérique",
+        "altitude",
+        "carte isobarique",
+        "isallobare"
+      ],
+      "domaine": "meteo"
+    },
+    {
+      "terme": "marais barométrique",
+      "definition": "Zone de faible relief de pression atmosphérique où les isobares sont rares et espacées. Cette situation météo se caractérise par des vents calmes et un risque de brume ou d'averses.",
+      "variantes": [
+        "marais barométriques"
+      ],
+      "xrefs": [
+        "pression atmosphérique",
+        "surface isobare",
+        "brume sèche"
+      ],
+      "domaine": "meteo"
+    },
+    {
+      "terme": "cirrus",
+      "definition": "Nuage élevé de l'étage supérieur formé uniquement de cristaux de glace. Il présente un aspect filamenteux et transparent qui n'atténue pas la lumière du soleil mais annonce souvent un front.",
+      "variantes": [
+        "Ci"
+      ],
+      "xrefs": [
+        "étage supérieur",
+        "front polaire"
+      ],
+      "domaine": "meteo"
+    },
+    {
+      "terme": "cirrocumulus",
+      "definition": "Nuage de l'étage supérieur composé de cristaux de glace, formant de petites taches blanches sans ombres propres. Son aspect moutonné indique des ondulations ou de la turbulence en haute altitude.",
+      "variantes": [
+        "Cc"
+      ],
+      "xrefs": [
+        "étage supérieur",
+        "cirrus",
+        "altitude"
+      ],
+      "domaine": "meteo"
+    },
+    {
+      "terme": "humilis",
+      "definition": "Espèce de cumulus de faible développement vertical, caractéristique d'un temps calme et stable. Ce nuage de beau temps ne présente aucun risque de turbulence pour les vols de loisir.",
+      "variantes": [
+        "cumulus humilis"
+      ],
+      "xrefs": [
+        "étage inférieur",
+        "mediocris",
+        "congestus"
+      ],
+      "domaine": "meteo"
+    },
+    {
+      "terme": "mediocris",
+      "definition": "Espèce de cumulus de développement vertical modéré, dont le sommet présente de légères protubérances. Il témoigne d'une instabilité locale de l'air mais ne génère pas de précipitations notables.",
+      "variantes": [
+        "cumulus mediocris"
+      ],
+      "xrefs": [
+        "étage inférieur",
+        "humilis",
+        "congestus"
+      ],
+      "domaine": "meteo"
+    },
+    {
+      "terme": "congestus",
+      "definition": "Cumulus de grande dimension à fort développement vertical, annonciateur d'une transition vers un cumulonimbus. Il génère de fortes turbulences et des averses de pluie ou de grésil.",
+      "variantes": [
+        "cumulus congestus",
+        "congestus volumineux"
+      ],
+      "xrefs": [
+        "étage inférieur",
+        "humilis",
+        "mediocris",
+        "ts"
+      ],
+      "domaine": "meteo"
+    },
+    {
+      "terme": "capillatus",
+      "definition": "Variété de cumulonimbus dont la partie supérieure présente une structure plumeuse, fibreuse ou en forme d'enclume. Ce nuage indique un orage violent accompagné de turbulences extrêmes et de grêle.",
+      "variantes": [
+        "cumulonimbus capillatus"
+      ],
+      "xrefs": [
+        "ts",
+        "grêle",
+        "rafale descendante"
+      ],
+      "domaine": "meteo"
+    },
+    {
+      "terme": "virga",
+      "definition": "Traînée de précipitation qui s'échappe de la base d'un nuage mais s'évapore entièrement avant d'atteindre le sol. Elle signale une zone de forte turbulence et de cisaillement du vent.",
+      "variantes": [
+        "virgas"
+      ],
+      "xrefs": [
+        "congestus",
+        "brume sèche",
+        "pluie surfondue"
+      ],
+      "domaine": "meteo"
+    },
+    {
+      "terme": "bruine",
+      "definition": "Précipitations très fines et serrées, composées de minuscules gouttelettes d'eau tombant lentement d'un nuage bas. Elle réduit fortement la visibilité au sol et peut provoquer des conditions de givrage.",
+      "variantes": [
+        "bruines"
+      ],
+      "xrefs": [
+        "dz",
+        "brouillard d'advection",
+        "visibilité météo"
+      ],
+      "domaine": "meteo"
+    },
+    {
+      "terme": "grêle",
+      "definition": "Précipitations constituées de morceaux de glace arrondis ou irréguliers, générées au sein de violents orages. Son impact en vol peut gravement endommager la cellule et les verrières des aéronefs.",
+      "variantes": [
+        "grêlons"
+      ],
+      "xrefs": [
+        "gr",
+        "ts",
+        "capillatus"
+      ],
+      "domaine": "meteo"
+    },
+    {
+      "terme": "grésil",
+      "definition": "Précipitation de grains de glace translucides et durs, de forme sphérique ou irrégulière. Il se forme lors de la congélation rapide de gouttes de pluie traversant une couche d'air froid.",
+      "variantes": [
+        "grains de grésil"
+      ],
+      "xrefs": [
+        "ts",
+        "congestus",
+        "pluie surfondue"
+      ],
+      "domaine": "meteo"
+    },
+    {
+      "terme": "neige",
+      "definition": "Précipitation solide composée de cristaux de glace ramifiés en flocons. Elle réduit la visibilité météo, altère les performances aérodynamiques et nécessite un traitement de dégivrage complet au sol avant le décollage.",
+      "variantes": [
+        "flocons de neige"
+      ],
+      "xrefs": [
+        "sn",
+        "visibilité météo",
+        "dégivrage"
+      ],
+      "domaine": "meteo"
+    },
+    {
+      "terme": "pluie surfondue",
+      "definition": "Pluie restant à l'état liquide malgré une température négative. Au contact de la structure d'un avion, elle gèle instantanément, formant une couche de glace transparente extrêmement dangereuse appelée givrage clair.",
+      "variantes": [
+        "pluies surfondues"
+      ],
+      "xrefs": [
+        "surfusion",
+        "givrage clair",
+        "antigivrage"
+      ],
+      "domaine": "meteo"
+    },
+    {
+      "terme": "brouillard d'advection",
+      "definition": "Phénomène de réduction de la visibilité provoqué par le déplacement d'une masse d'air chaud et humide au-dessus d'une surface plus froide. Il est généralement tenace et couvre de vastes zones.",
+      "variantes": [
+        "brouillards d'advection"
+      ],
+      "xrefs": [
+        "fg",
+        "visibilité météo",
+        "humidité relative"
+      ],
+      "domaine": "meteo"
+    },
+    {
+      "terme": "brouillard d'évaporation",
+      "definition": "Brouillard se formant lorsque de l'air froid se déplace sur une surface d'eau chaude, saturant l'air par évaporation. Il apparaît fréquemment au-dessus des lacs et des fleuves à l'automne.",
+      "variantes": [
+        "brouillards d'évaporation"
+      ],
+      "xrefs": [
+        "fg",
+        "visibilité météo",
+        "humidité relative"
+      ],
+      "domaine": "meteo"
+    },
+    {
+      "terme": "brume sèche",
+      "definition": "Suspension dans l'atmosphère de particules solides microscopiques (poussière, sable ou fumée) qui réduisent la visibilité. Contrairement à la brume humide, elle n'est pas liée à la présence de gouttelettes d'eau.",
+      "variantes": [
+        "brumes sèches"
+      ],
+      "xrefs": [
+        "visibilité météo",
+        "marais barométrique"
+      ],
+      "domaine": "meteo"
+    },
+    {
+      "terme": "front stationnaire",
+      "definition": "Zone de transition entre deux masses d'air de températures différentes présentant peu ou pas de mouvement. Il génère des conditions météorologiques médiocres et persistantes, avec des pluies continues et des nuages bas.",
+      "variantes": [
+        "fronts stationnaires"
+      ],
+      "xrefs": [
+        "front polaire",
+        "secteur chaud",
+        "traîne"
+      ],
+      "domaine": "meteo"
+    },
+    {
+      "terme": "front polaire",
+      "definition": "Zone de rencontre permanente entre l'air polaire froid et l'air tropical chaud de moyenne latitude. Il est le siège de la genèse des perturbations atmosphériques majeures affectant les trajectoires de vol.",
+      "variantes": [
+        "fronts polaires"
+      ],
+      "xrefs": [
+        "front stationnaire",
+        "carte isobarique"
+      ],
+      "domaine": "meteo"
+    },
+    {
+      "terme": "dorsale",
+      "definition": "Prolongement d'un anticyclone formant une zone de haute pression non fermée. Elle est synonyme de conditions météorologiques stables, de vents faibles, de ciel clair et d'un temps généralement favorable au vol.",
+      "variantes": [
+        "dorsale anticyclonique",
+        "dorsales"
+      ],
+      "xrefs": [
+        "pression atmosphérique",
+        "isothermie",
+        "thalweg"
+      ],
+      "domaine": "meteo"
+    },
+    {
+      "terme": "thalweg",
+      "definition": "Prolongement d'une dépression formant un axe de basse pression non fermé. Cette structure est généralement associée à une instabilité de l'air, à des nuages actifs et à des précipitations importantes.",
+      "variantes": [
+        "talweg",
+        "thalwegs"
+      ],
+      "xrefs": [
+        "pression atmosphérique",
+        "dorsale",
+        "col barométrique"
+      ],
+      "domaine": "meteo"
+    },
+    {
+      "terme": "col barométrique",
+      "definition": "Région de la carte de pression située entre deux anticyclones et deux dépressions disposés en croix. Les vents y sont généralement faibles et variables, propices à la formation de brouillards.",
+      "variantes": [
+        "cols barométriques"
+      ],
+      "xrefs": [
+        "pression atmosphérique",
+        "thalweg",
+        "dorsale",
+        "fg"
+      ],
+      "domaine": "meteo"
+    },
+    {
+      "terme": "secteur chaud",
+      "definition": "Zone d'une perturbation située entre le front chaud antérieur et le front froid postérieur. Le temps y est souvent humide avec des nuages stratiformes et une visibilité parfois réduite par la brume.",
+      "variantes": [
+        "secteurs chauds"
+      ],
+      "xrefs": [
+        "front polaire",
+        "front stationnaire",
+        "traîne"
+      ],
+      "domaine": "meteo"
+    },
+    {
+      "terme": "traîne",
+      "definition": "Zone de temps instable située à l'arrière d'un front froid. Elle se caractérise par des cumulus bourgeonnants, des averses de pluie ou de grésil et d'importantes turbulences thermiques locales.",
+      "variantes": [
+        "ciel de traîne",
+        "traînes"
+      ],
+      "xrefs": [
+        "congestus",
+        "ts",
+        "turbulence thermique"
+      ],
+      "domaine": "meteo"
+    },
+    {
+      "terme": "subsidence",
+      "definition": "Mouvement de descente lente d'une masse d'air sur une large étendue, typique des zones de haute pression. Ce tassement réchauffe l'air par compression et dissipe les nuages, garantissant la stabilité.",
+      "variantes": [
+        "subsidences",
+        "courant de subsidence"
+      ],
+      "xrefs": [
+        "pression atmosphérique",
+        "isothermie",
+        "compression"
+      ],
+      "domaine": "meteo"
+    },
+    {
+      "terme": "thermique",
+      "definition": "Courant d'air ascendant provoqué par le réchauffement du sol par le soleil. Très recherché par les vélivoles, il engendre des turbulences thermiques et la formation de cumulus à son sommet.",
+      "variantes": [
+        "courant thermique",
+        "thermiques"
+      ],
+      "xrefs": [
+        "humilis",
+        "turbulence thermique",
+        "stabilité latérale"
+      ],
+      "domaine": "meteo"
+    },
+    {
+      "terme": "adiabatique",
+      "definition": "Transformation thermodynamique d'une masse d'air s'effectuant sans échange de chaleur avec le milieu environnant. Sa température varie uniquement sous l'effet de la variation de pression liée aux changements d'altitude.",
+      "variantes": [
+        "adiabatiques"
+      ],
+      "xrefs": [
+        "gradient adiabatique sec",
+        "gradient adiabatique saturé",
+        "salr"
+      ],
+      "domaine": "meteo"
+    },
+    {
+      "terme": "force de Coriolis",
+      "definition": "Force d'inertie liée à la rotation de la Terre, déviant la trajectoire des vents vers la droite dans l'hémisphère nord. Elle est responsable de la circulation cyclonique autour des dépressions.",
+      "variantes": [
+        "effet de Coriolis",
+        "accélération de Coriolis"
+      ],
+      "xrefs": [
+        "vent géostrophique",
+        "pression atmosphérique"
+      ],
+      "domaine": "meteo"
+    },
+    {
+      "terme": "vent géostrophique",
+      "definition": "Vent théorique résultant de l'équilibre exact entre la force du gradient de pression et la force de Coriolis. Il souffle parallèlement aux isobares rectilignes en haute altitude, hors frottement sol.",
+      "variantes": [
+        "vents géostrophiques"
+      ],
+      "xrefs": [
+        "force de Coriolis",
+        "pression atmosphérique",
+        "surface isobare"
+      ],
+      "domaine": "meteo"
+    },
+    {
+      "terme": "brise de montagne",
+      "definition": "Vent local soufflant le long des pentes montagneuses. Le jour, l'air réchauffé monte (brise de vallée), tandis que la nuit, l'air refroidi descend vers les vallées.",
+      "variantes": [
+        "brises de montagne",
+        "vent de pente"
+      ],
+      "xrefs": [
+        "thermique",
+        "vent géostrophique",
+        "relief"
+      ],
+      "domaine": "meteo"
+    },
+    {
+      "terme": "onde orographique",
+      "definition": "Oscillation de l'écoulement de l'air sous le vent d'un relief montagneux lorsque l'atmosphère est stable. Ce phénomène génère de violents rotors au sol et d'importants courants ascendants exploitables.",
+      "variantes": [
+        "ondes orographiques",
+        "onde de relief"
+      ],
+      "xrefs": [
+        "relief",
+        "isothermie",
+        "turbulence thermique"
+      ],
+      "domaine": "meteo"
+    },
+    {
+      "terme": "rafale descendante",
+      "definition": "Courant d'air descendant violent et localisé se développant sous un orage. En atteignant le sol, il s'éparpille radialement, créant de violents cisaillements de vent dangereux lors des phases d'approche.",
+      "variantes": [
+        "rafales descendantes",
+        "courant descendant"
+      ],
+      "xrefs": [
+        "ts",
+        "microburst",
+        "capillatus"
+      ],
+      "domaine": "meteo"
+    },
+    {
+      "terme": "microburst",
+      "definition": "Rafale descendante de petite taille mais d'une intensité extrême, d'un d'un diamètre inférieur à quatre kilomètres. Ses effets de cisaillement du vent représentent un danger critique pour les aéronefs en phase d'atterrissage.",
+      "variantes": [
+        "microbursts",
+        "micro-rafale"
+      ],
+      "xrefs": [
+        "rafale descendante",
+        "ts",
+        "aérodrome contrôlé"
+      ],
+      "domaine": "meteo"
+    },
+    {
+      "terme": "givre blanc",
+      "definition": "Dépôt de glace d'aspect cristallin et opaque se formant par sublimation directe de la vapeur d'eau sur la cellule. Moins dangereux que le givre clair, il doit néanmoins être éliminé avant le décollage.",
+      "variantes": [
+        "givres blancs",
+        "gelée blanche"
+      ],
+      "xrefs": [
+        "dégivrage",
+        "antigivrage",
+        "surfusion"
+      ],
+      "domaine": "meteo"
+    },
+    {
+      "terme": "givrage clair",
+      "definition": "Glace dure, dense et transparente se formant sur le profil d'un avion par la congélation lente de grosses gouttes d'eau surfondues. Ce type de givrage dégrade rapidement la portance.",
+      "variantes": [
+        "givre clair",
+        "givrage transparent"
+      ],
+      "xrefs": [
+        "surfusion",
+        "pluie surfondue",
+        "coefficient de portance",
+        "profil"
+      ],
+      "domaine": "meteo"
+    },
+    {
+      "terme": "givrage mixte",
+      "definition": "Accumulation de glace composée d'un mélange de givre blanc et de givre clair. Elle présente un aspect irrégulier qui perturbe l'écoulement de l'air, réduisant la portance et augmentant la traînée.",
+      "variantes": [
+        "givrage opaque",
+        "givre mixte"
+      ],
+      "xrefs": [
+        "givrage clair",
+        "givre blanc",
+        "coefficient de portance"
+      ],
+      "domaine": "meteo"
+    },
+    {
+      "terme": "dégivrage",
+      "definition": "Action d'éliminer la glace ou le givre accumulés sur les surfaces d'un aéronef. Cette opération de sécurité indispensable s'effectue au sol à l'aide de fluides chauffés ou en vol par des boudins pneumatiques.",
+      "variantes": [
+        "dégivrages",
+        "système de dégivrage"
+      ],
+      "xrefs": [
+        "antigivrage",
+        "givre blanc",
+        "givrage clair"
+      ],
+      "domaine": "meteo"
+    },
+    {
+      "terme": "antigivrage",
+      "definition": "Traitement ou dispositif préventif empêchant la formation ou l'adhérence de glace sur les surfaces critiques d'un avion. Il utilise des fluides protecteurs, des résistances électriques ou de l'air chaud moteur.",
+      "variantes": [
+        "antigivrages",
+        "système antigivrage"
+      ],
+      "xrefs": [
+        "dégivrage",
+        "givre blanc",
+        "givrage clair"
+      ],
+      "domaine": "meteo"
+    },
+    {
+      "terme": "cat",
+      "definition": "Turbulence en air clair se produisant à haute altitude en l'absence de nuages. Souvent liée à la proximité d'un courant-jet, elle est invisible et difficilement détectable par les radars embarqués.",
+      "variantes": [
+        "Clear Air Turbulence",
+        "turbulence en air clair"
+      ],
+      "xrefs": [
+        "altitude",
+        "étage supérieur"
+      ],
+      "domaine": "meteo"
+    },
+    {
+      "terme": "turbulence thermique",
+      "definition": "Instabilité de l'air provoquée par des courants ascendants et descendants dus au réchauffement inégal du sol par le soleil. Elle engendre des secousses inconfortables pour les vols à basse altitude.",
+      "variantes": [
+        "turbulences thermiques"
+      ],
+      "xrefs": [
+        "thermique",
+        "humilis",
+        "onde orographique"
+      ],
+      "domaine": "meteo"
+    },
+    {
+      "terme": "visibilité météo",
+      "definition": "Distance maximale à laquelle un observateur peut voir et identifier un objet remarquable au sol. Sa mesure est cruciale pour déterminer la possibilité d'effectuer un vol selon les règles de vol à vue.",
+      "variantes": [
+        "visibilité",
+        "visibilité horizontale"
+      ],
+      "xrefs": [
+        "conditions de vol à vue",
+        "rvr",
+        "brouillard d'advection"
+      ],
+      "domaine": "meteo"
+    },
+    {
+      "terme": "rvr",
+      "definition": "Distance sur laquelle un pilote au commande d'un aéronef peut voir les marques de piste ou les feux de balisage. Cette mesure instrumentale est essentielle lors des approches de précision.",
+      "variantes": [
+        "portée visuelle de piste",
+        "RVR"
+      ],
+      "xrefs": [
+        "visibilité météo",
+        "feux de bord de piste",
+        "aérodrome contrôlé"
+      ],
+      "domaine": "meteo"
+    },
+    {
+      "terme": "airmet",
+      "definition": "Message d'information météo destiné à signaler l'apparition ou la prévision de phénomènes météorologiques en route spécifiés, pouvant affecter la sécurité des vols à basse altitude.",
+      "variantes": [
+        "messages AIRMET",
+        "AIRMET"
+      ],
+      "xrefs": [
+        "gamet",
+        "volmet",
+        "visibilité météo"
+      ],
+      "domaine": "meteo"
+    },
+    {
+      "terme": "gamet",
+      "definition": "Prévision de zone en langage clair abrégé pour les vols à basse altitude dans une région d'information de vol donnée. Il décrit les phénomènes météo significatifs et la situation générale.",
+      "variantes": [
+        "bulletins GAMET",
+        "GAMET"
+      ],
+      "xrefs": [
+        "airmet",
+        "volmet",
+        "secteur d'information de vol"
+      ],
+      "domaine": "meteo"
+    },
+    {
+      "terme": "volmet",
+      "definition": "Transmission radio continue de bulletins météorologiques réguliers d'aérodromes destinés aux aéronefs en vol. Ces messages fournissent les dernières observations de trafic et les prévisions réactualisées.",
+      "variantes": [
+        "émissions VOLMET",
+        "VOLMET"
+      ],
+      "xrefs": [
+        "airmet",
+        "gamet",
+        "aérodrome contrôlé"
+      ],
+      "domaine": "meteo"
+    },
+    {
+      "terme": "carte isobarique",
+      "definition": "Carte météo représentant la répartition géographique de la pression atmosphérique par le tracé de lignes d'égale pression. Elle permet d'identifier les dépressions, anticyclones, dorsales et thalwegs.",
+      "variantes": [
+        "cartes isobariques",
+        "carte de pression"
+      ],
+      "xrefs": [
+        "surface isobare",
+        "dorsale",
+        "thalweg",
+        "isallobare"
+      ],
+      "domaine": "meteo"
+    },
+    {
+      "terme": "coupe verticale",
+      "definition": "Représentation graphique en deux dimensions de l'état de l'atmosphère le long d'une trajectoire donnée. Elle montre l'évolution de la nébulosité, du vent et de la température selon l'altitude.",
+      "variantes": [
+        "coupes verticales",
+        "profil vertical"
+      ],
+      "xrefs": [
+        "altitude",
+        "carte isobarique",
+        "front polaire"
+      ],
+      "domaine": "meteo"
+    },
+    {
+      "terme": "ra",
+      "definition": "Abréviation météo officielle de la pluie, utilisée dans les messages d'observation de type METAR ou SPECI. Elle désigne des précipitations d'eau liquide tombant de nuages généralement stables ou cumuliformes.",
+      "variantes": [
+        "rain",
+        "pluie"
+      ],
+      "xrefs": [
+        "sh",
+        "ts",
+        "dz"
+      ],
+      "domaine": "meteo"
+    },
+    {
+      "terme": "sn",
+      "definition": "Abréviation aéronautique désignant la neige dans les messages d'observation et de prévision météorologiques. Ce phénomène nécessite une vigilance accrue en raison de la perte de visibilité associée.",
+      "variantes": [
+        "snow",
+        "neige"
+      ],
+      "xrefs": [
+        "neige",
+        "visibilité météo",
+        "dégivrage"
+      ],
+      "domaine": "meteo"
+    },
+    {
+      "terme": "ts",
+      "definition": "Code météorologique international signalant la présence d'un orage dans les messages aéronautiques. Il est synonyme de fortes turbulences, de cisaillement du vent et de risques de givrage sévère en vol.",
+      "variantes": [
+        "thunderstorm",
+        "orage"
+      ],
+      "xrefs": [
+        "capillatus",
+        "rafale descendante",
+        "grêle",
+        "microburst"
+      ],
+      "domaine": "meteo"
+    },
+    {
+      "terme": "fg",
+      "definition": "Abréviation réglementaire désignant un brouillard réduisant la visibilité horizontale à moins de mille mètres. Ce phénomène interdit généralement l'atterrissage ou le décollage d'aéronefs opérant selon les règles du vol à vue.",
+      "variantes": [
+        "fog",
+        "brouillard"
+      ],
+      "xrefs": [
+        "visibilité météo",
+        "brouillard d'advection",
+        "brouillard d'évaporation"
+      ],
+      "domaine": "meteo"
+    },
+    {
+      "terme": "dz",
+      "definition": "Code officiel utilisé dans les observations météorologiques de type METAR pour désigner la bruine. Ce météore est composé de gouttelettes très petites et denses réduisant la visibilité horizontale.",
+      "variantes": [
+        "drizzle",
+        "bruine"
+      ],
+      "xrefs": [
+        "bruine",
+        "visibilité météo",
+        "fg"
+      ],
+      "domaine": "meteo"
+    },
+    {
+      "terme": "gr",
+      "definition": "Abréviation météo désignant la grêle dans les messages réglementaires. Ce phénomène indique une instabilité atmosphérique extrême et est associé à la présence de cumulonimbus de forte intensité.",
+      "variantes": [
+        "hail",
+        "grêle"
+      ],
+      "xrefs": [
+        "grêle",
+        "ts",
+        "capillatus"
+      ],
+      "domaine": "meteo"
+    },
+    {
+      "terme": "sh",
+      "definition": "Code utilisé dans les rapports météorologiques aéronautiques pour signaler des averses. Ces précipitations de courte durée mais d'intensité variable se caractérisent par un début et une fin brusques.",
+      "variantes": [
+        "showers",
+        "averse"
+      ],
+      "xrefs": [
+        "ra",
+        "congestus",
+        "traîne"
+      ],
+      "domaine": "meteo"
+    },
+    {
+      "terme": "projection",
+      "definition": "Méthode géométrique permettant de représenter la surface courbe de la Terre sur une carte plane. En navigation, elle détermine le tracé des routes géodésiques et la distorsion des distances.",
+      "variantes": [
+        "projections",
+        "projection cartographique"
+      ],
+      "xrefs": [
+        "courbe de niveau",
+        "relief",
+        "altitude"
+      ],
+      "domaine": "aerodrome"
+    },
+    {
+      "terme": "courbe de niveau",
+      "definition": "Ligne tracée sur une carte reliant tous les points situés à une même altitude au-dessus du niveau de la mer. Elle permet aux pilotes de visualiser la topographie du relief.",
+      "variantes": [
+        "courbes de niveau",
+        "isohypse"
+      ],
+      "xrefs": [
+        "altitude",
+        "relief",
+        "projection"
+      ],
+      "domaine": "aerodrome"
+    },
+    {
+      "terme": "relief",
+      "definition": "Configuration physique de la surface terrestre présentant des irrégularités d'altitude. Sa présence impose de respecter scrupuleusement les hauteurs minimales de survol publiées pour éviter tout impact sans perte de contrôle.",
+      "variantes": [
+        "reliefs",
+        "montagne"
+      ],
+      "xrefs": [
+        "altitude minimale de sécurité",
+        "courbe de niveau",
+        "hauteurs minimales de survol"
+      ],
+      "domaine": "aerodrome"
+    },
+    {
+      "terme": "salr",
+      "definition": "Acronyme anglais désignant le taux de refroidissement de l'air saturé en ascension. Sa valeur variable dépend de la température de la masse d'air et de la libération de chaleur latente.",
+      "variantes": [
+        "Saturated Adiabatic Lapse Rate",
+        "gradient adiabatique saturé"
+      ],
+      "xrefs": [
+        "gradient adiabatique saturé",
+        "chaleur latente",
+        "adiabatique"
+      ],
+      "domaine": "meteo"
+    },
+    {
+      "terme": "étage supérieur",
+      "definition": "Région la plus élevée de la troposphère où se forment les nuages fins composés de cristaux de glace. Ses températures extrêmement basses favorisent l'apparition de givrage et de turbulences en altitude.",
+      "variantes": [
+        "étages supérieurs",
+        "nuages de l'étage supérieur"
+      ],
+      "xrefs": [
+        "cirrus",
+        "cirrocumulus",
+        "isothermie"
+      ],
+      "domaine": "meteo"
+    },
+    {
+      "terme": "étage moyen",
+      "definition": "Zone intermédiaire de la troposphère située au-dessus de l'étage inférieur. Elle abrite des nuages généralement composés de gouttelettes d'eau liquide surfondue, créant un risque important de givrage lors du survol.",
+      "variantes": [
+        "étages moyens",
+        "nuages de l'étage moyen"
+      ],
+      "xrefs": [
+        "étage supérieur",
+        "étage inférieur",
+        "surfusion"
+      ],
+      "domaine": "meteo"
+    },
+    {
+      "terme": "étage inférieur",
+      "definition": "Zone de la troposphère la plus proche du sol où les nuages sont majoritairement constitués de gouttelettes d'eau liquide. Elle regroupe les cumulus de beau temps et les stratus bas perturbant l'approche.",
+      "variantes": [
+        "étages inférieurs",
+        "nuages de l'étage inférieur"
+      ],
+      "xrefs": [
+        "étage moyen",
+        "humilis",
+        "mediocris"
+      ],
+      "domaine": "meteo"
+    },
+    {
+      "terme": "hydrométéore",
+      "definition": "Phénomène atmosphérique constitué d'un ensemble de particules d'eau, sous forme liquide ou solide, en suspension ou en précipitation. Il englobe la pluie, la neige, la bruine ainsi que le brouillard.",
+      "variantes": [
+        "hydrométéores"
+      ],
+      "xrefs": [
+        "ra",
+        "sn",
+        "fg",
+        "dz"
+      ],
+      "domaine": "meteo"
+    },
+    {
+      "terme": "isallobare",
+      "definition": "Ligne reliant les points d'une carte météorologique où la variation de la pression atmosphérique a été identique pendant un intervalle de temps donné. Elle signale le déplacement des fronts.",
+      "variantes": [
+        "isallobares"
+      ],
+      "xrefs": [
+        "surface isobare",
+        "pression atmosphérique",
+        "carte isobarique"
+      ],
+      "domaine": "meteo"
+    }
+  ]
+}
