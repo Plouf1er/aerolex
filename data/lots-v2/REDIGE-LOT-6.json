@@ -1,0 +1,1149 @@
+{
+  "lot": 6,
+  "fiches": [
+    {
+      "terme": "vent arrière basse hauteur",
+      "definition": "Phase d'intégration abrégée dans la circulation d'aérodrome, effectuée à une hauteur inférieure à celle publiée. Elle impose une attention accrue aux paramètres de vol et au relief environnant.",
+      "variantes": [
+        "étape de vent arrière basse hauteur",
+        "vent arrière basse altitude"
+      ],
+      "xrefs": [
+        "hauteur",
+        "dégagement"
+      ],
+      "domaine": "regl-proc"
+    },
+    {
+      "terme": "procédure de mise en route",
+      "definition": "Ensemble d'actions ordonnées, guidées par une check-list, visant à démarrer le groupe motopropulseur en toute sécurité. Elle permet de vérifier le bon fonctionnement initial des systèmes associés.",
+      "variantes": [
+        "mise en route du moteur",
+        "procédure de démarrage"
+      ],
+      "xrefs": [
+        "arrêt moteur",
+        "circuit électrique"
+      ],
+      "domaine": "regl-proc"
+    },
+    {
+      "terme": "dégagement",
+      "definition": "Action d'évacuer rapidement la piste d'atterrissage après le toucher des roues pour libérer l'espace. Cette manœuvre est essentielle pour maintenir la fluidité et la sécurité de la circulation d'aérodrome.",
+      "variantes": [
+        "dégagement de la piste",
+        "dégager la piste"
+      ],
+      "xrefs": [
+        "dégagement de piste",
+        "évacuation"
+      ],
+      "domaine": "regl-proc"
+    },
+    {
+      "terme": "arrêt moteur",
+      "definition": "Phase finale d'utilisation d'un aéronef consistant à couper le moteur selon une check-list rigoureuse. Elle sécurise l'appareil au sol en isolant les circuits de carburant et d'allumage.",
+      "variantes": [
+        "coupure moteur",
+        "procédure d'arrêt moteur"
+      ],
+      "xrefs": [
+        "procédure de mise en route",
+        "circuit carburant"
+      ],
+      "domaine": "regl-proc"
+    },
+    {
+      "terme": "moteur à 4 temps",
+      "definition": "Moteur à combustion interne dont le fonctionnement repose sur un cycle à quatre phases distinctes. Il nécessite deux rotations complètes du vilebrequin pour produire un temps moteur utile.",
+      "variantes": [
+        "moteur à quatre temps",
+        "moteur alternatif à quatre temps"
+      ],
+      "xrefs": [
+        "cycle à 4 temps",
+        "refroidissement"
+      ],
+      "domaine": "regl-proc"
+    },
+    {
+      "terme": "admission",
+      "definition": "Premier temps du cycle à quatre temps d'un moteur à pistons, durant lequel le mélange d'air et de carburant pénètre dans le cylindre par la soupape ouverte.",
+      "variantes": [
+        "temps d'admission",
+        "admission du mélange"
+      ],
+      "xrefs": [
+        "compression",
+        "moteur à 4 temps"
+      ],
+      "domaine": "regl-proc"
+    },
+    {
+      "terme": "compression",
+      "definition": "Deuxième phase du cycle d'un moteur alternatif, au cours de laquelle le piston remonte pour comprimer le mélange inflammable. Cette action augmente la température et favorise l'explosion.",
+      "variantes": [
+        "temps de compression",
+        "taux de compression"
+      ],
+      "xrefs": [
+        "admission",
+        "détente"
+      ],
+      "domaine": "regl-proc"
+    },
+    {
+      "terme": "détente",
+      "definition": "Troisième temps d'un cycle de moteur à pistons, consécutif à l'allumage, où la combustion repousse violemment le piston vers le bas. C'est le seul temps moteur producteur d'énergie.",
+      "variantes": [
+        "temps de détente",
+        "combustion-détente"
+      ],
+      "xrefs": [
+        "compression",
+        "échappement"
+      ],
+      "domaine": "regl-proc"
+    },
+    {
+      "terme": "échappement",
+      "definition": "Dernier temps du cycle d'un moteur à combustion interne, durant lequel le piston remonte pour évacuer les gaz brûlés vers l'extérieur à travers la soupape ouverte.",
+      "variantes": [
+        "temps d'échappement",
+        "échappement des gaz"
+      ],
+      "xrefs": [
+        "détente",
+        "moteur à 4 temps"
+      ],
+      "domaine": "regl-proc"
+    },
+    {
+      "terme": "bougie",
+      "definition": "Dispositif électrique produisant l'étincelle nécessaire à l'inflammation du mélange dans la chambre de combustion d'un cylindre. Sa fiabilité est assurée par un système d'allumage doublé.",
+      "variantes": [
+        "bougies d'allumage",
+        "bougie d'allumage"
+      ],
+      "xrefs": [
+        "circuit électrique",
+        "encrassement des bougies"
+      ],
+      "domaine": "regl-proc"
+    },
+    {
+      "terme": "carburateur",
+      "definition": "Organe mécanique assurant le dosage et le mélange de l'air et du carburant admis dans le moteur. Il est particulièrement exposé au givrage en présence d'humidité atmosphérique.",
+      "variantes": [
+        "système de carburation",
+        "carburateurs"
+      ],
+      "xrefs": [
+        "circuit carburant",
+        "mixture"
+      ],
+      "domaine": "regl-proc"
+    },
+    {
+      "terme": "injection",
+      "definition": "Système d'alimentation en carburant qui pulvérise l'essence directement dans les cylindres ou les conduits d'admission. Il offre une meilleure répartition du mélange et évite le givrage carburateur.",
+      "variantes": [
+        "système d'injection",
+        "injection directe"
+      ],
+      "xrefs": [
+        "circuit carburant",
+        "mixture"
+      ],
+      "domaine": "regl-proc"
+    },
+    {
+      "terme": "mixture",
+      "definition": "Proportion en masse d'air et de carburant constituant le mélange admis dans les cylindres. Le pilote règle ce dosage en vol pour optimiser la combustion selon l'altitude.",
+      "variantes": [
+        "dosage de mixture",
+        "richesse du mélange"
+      ],
+      "xrefs": [
+        "correcteur d'altitude",
+        "carburateur"
+      ],
+      "domaine": "regl-proc"
+    },
+    {
+      "terme": "correcteur d'altitude",
+      "definition": "Dispositif manuel ou automatique permettant d'appauvrir le mélange air-carburant à mesure que l'aéronef s'élève. Il évite l'enrichissement excessif du mélange dû à la baisse de densité atmosphérique.",
+      "variantes": [
+        "commande de mixture",
+        "altimétrique correcteur"
+      ],
+      "xrefs": [
+        "mixture",
+        "effet de l'altitude"
+      ],
+      "domaine": "regl-proc"
+    },
+    {
+      "terme": "papillon des gaz",
+      "definition": "Volet mobile situé dans le conduit d'admission, commandé par la manette des gaz pour réguler la quantité de mélange admise. Il détermine ainsi la puissance fournie par le moteur.",
+      "variantes": [
+        "commande des gaz",
+        "volet des gaz"
+      ],
+      "xrefs": [
+        "pression d'admission",
+        "ralenti"
+      ],
+      "domaine": "regl-proc"
+    },
+    {
+      "terme": "ralenti",
+      "definition": "Régime de rotation minimal stable d'un moteur lorsque la commande des gaz est totalement réduite. Il permet de maintenir le moteur en fonctionnement sans fournir de poussée significative.",
+      "variantes": [
+        "régime de ralenti",
+        "vitesse de ralenti"
+      ],
+      "xrefs": [
+        "papillon des gaz",
+        "régime"
+      ],
+      "domaine": "regl-proc"
+    },
+    {
+      "terme": "pression d'admission",
+      "definition": "Pression absolue mesurée dans le collecteur d'admission d'un moteur, en aval du papillon des gaz. Elle indique la charge du moteur sur les appareils équipés d'une hélice à pas variable.",
+      "variantes": [
+        "pression d'alimentation",
+        "pression d'admission moteur"
+      ],
+      "xrefs": [
+        "papillon des gaz",
+        "hélice à pas variable"
+      ],
+      "domaine": "regl-proc"
+    },
+    {
+      "terme": "EGT",
+      "definition": "Température des gaz d'échappement mesurée en sortie de cylindre. Cette indication essentielle permet au pilote d'ajuster finement la mixture pour optimiser la consommation ou préserver le moteur.",
+      "variantes": [
+        "Exhaust Gas Temperature",
+        "température des gaz d'échappement"
+      ],
+      "xrefs": [
+        "mixture",
+        "échappement"
+      ],
+      "domaine": "regl-proc"
+    },
+    {
+      "terme": "cliquetis",
+      "definition": "Combustion anormale caractérisée par des explosions locales très rapides et bruyantes dans la chambre de combustion. Ce phénomène destructeur est souvent lié à un carburant inadapté.",
+      "variantes": [
+        "cliquetis moteur",
+        "phénomène de cliquetis"
+      ],
+      "xrefs": [
+        "détonation",
+        "auto-allumage"
+      ],
+      "domaine": "regl-proc"
+    },
+    {
+      "terme": "détonation",
+      "definition": "Combustion instantanée et incontrôlée de la charge gazeuse, produisant une onde de choc thermique et mécanique dans le cylindre. Elle peut rapidement endommager le piston et les soupapes.",
+      "variantes": [
+        "détonation moteur",
+        "phénomène de détonation"
+      ],
+      "xrefs": [
+        "cliquetis",
+        "auto-allumage"
+      ],
+      "domaine": "regl-proc"
+    },
+    {
+      "terme": "auto-allumage",
+      "definition": "Inflammation prématurée du mélange air-carburant provoquée par des points chauds dans le cylindre avant le déclenchement de l'étincelle de la bougie. Ce phénomène perturbe gravement le cycle moteur.",
+      "variantes": [
+        "pré-allumage",
+        "auto-allumage moteur"
+      ],
+      "xrefs": [
+        "bougie",
+        "cliquetis"
+      ],
+      "domaine": "regl-proc"
+    },
+    {
+      "terme": "encrassement des bougies",
+      "definition": "Accumulation de dépôts de carbone ou de plomb sur les électrodes d'une bougie d'allumage. Ce phénomène altère la qualité de l'étincelle et se détecte lors des essais moteur.",
+      "variantes": [
+        "encrassement bougie",
+        "bougies encrassées"
+      ],
+      "xrefs": [
+        "bougie",
+        "essais moteur"
+      ],
+      "domaine": "regl-proc"
+    },
+    {
+      "terme": "hélice à pas fixe",
+      "definition": "Hélice dont l'angle de calage des pales ne peut pas être modifié en vol. Sa conception représente un compromis fixe entre les performances au décollage et en croisière.",
+      "variantes": [
+        "hélice pas fixe",
+        "hélices à pas fixe"
+      ],
+      "xrefs": [
+        "hélice à pas variable",
+        "calage d'hélice"
+      ],
+      "domaine": "regl-proc"
+    },
+    {
+      "terme": "hélice à pas variable",
+      "definition": "Hélice permettant de modifier l'angle de calage des pales en vol pour optimiser le rendement. Elle se comporte comme une boîte de vitesses pour s'adapter à chaque phase.",
+      "variantes": [
+        "hélice pas variable",
+        "hélice à calage variable"
+      ],
+      "xrefs": [
+        "hélice à pas fixe",
+        "calage d'hélice"
+      ],
+      "domaine": "regl-proc"
+    },
+    {
+      "terme": "calage d'hélice",
+      "definition": "Angle formé par la corde de profil de la pale d'une hélice avec son plan de rotation. Cet angle détermine le rendement aérodynamique de l'hélice selon la vitesse de vol.",
+      "variantes": [
+        "angle de calage de l'hélice",
+        "calage des pales"
+      ],
+      "xrefs": [
+        "hélice à pas fixe",
+        "hélice à pas variable"
+      ],
+      "domaine": "regl-proc"
+    },
+    {
+      "terme": "mise en moulinet",
+      "definition": "Rotation d'une hélice entraînée uniquement par la vitesse du vent relatif lorsque le moteur est arrêté en vol. Ce phénomène engendre une traînée aérodynamique importante pour l'aéronef.",
+      "variantes": [
+        "moulinet de l'hélice",
+        "hélice en moulinet"
+      ],
+      "xrefs": [
+        "arrêt moteur",
+        "hélice à pas fixe"
+      ],
+      "domaine": "regl-proc"
+    },
+    {
+      "terme": "effet de couple",
+      "definition": "Force de réaction aérodynamique et gyroscopique qui tend à faire dévier l'aéronef de sa trajectoire lors des variations de puissance moteur. Il nécessite une correction rapide au palonnier.",
+      "variantes": [
+        "couple de l'hélice",
+        "effets de couple"
+      ],
+      "xrefs": [
+        "moteur à 4 temps",
+        "erreur"
+      ],
+      "domaine": "regl-proc"
+    },
+    {
+      "terme": "circuit carburant",
+      "definition": "Ensemble des conduites, réservoirs, filtres et pompes assurant le stockage et l'acheminement sécurisé du carburant vers le système de carburation. Son intégrité est vitale pour la sécurité du vol.",
+      "variantes": [
+        "système carburant",
+        "circuits carburant"
+      ],
+      "xrefs": [
+        "réservoir",
+        "filtre"
+      ],
+      "domaine": "regl-proc"
+    },
+    {
+      "terme": "pompe mécanique",
+      "definition": "Dispositif d'alimentation entraîné directement par le moteur pour transférer le carburant sous pression vers le doseur ou le carburateur. Elle est généralement doublée d'une pompe électrique de secours.",
+      "variantes": [
+        "pompe à carburant mécanique",
+        "pompe moteur mécanique"
+      ],
+      "xrefs": [
+        "circuit carburant",
+        "carburateur"
+      ],
+      "domaine": "regl-proc"
+    },
+    {
+      "terme": "carburant 100LL",
+      "definition": "Essence aéronautique standard à faible teneur en plomb, colorée en bleu, utilisée pour les moteurs à pistons d'aviation générale. Sa composition offre une excellente résistance à la détonation.",
+      "variantes": [
+        "essence 100LL",
+        "100LL"
+      ],
+      "xrefs": [
+        "100ll",
+        "ul91"
+      ],
+      "domaine": "regl-proc"
+    },
+    {
+      "terme": "100LL",
+      "definition": "Désignation abrégée de l'essence aéronautique de couleur bleue contenant une faible quantité de plomb tétraéthyle. Ce carburant est conçu pour prévenir le cliquetis dans les moteurs alternatifs performants.",
+      "variantes": [
+        "carburant 100LL",
+        "essence 100LL"
+      ],
+      "xrefs": [
+        "carburant 100ll",
+        "cliquetis"
+      ],
+      "domaine": "regl-proc"
+    },
+    {
+      "terme": "UL91",
+      "definition": "Essence aéronautique sans plomb, de couleur claire, spécialement formulée pour les moteurs d'aviation légère compatibles. Son utilisation permet de réduire l'impact environnemental par rapport à la 100LL.",
+      "variantes": [
+        "essence UL91",
+        "carburant UL91"
+      ],
+      "xrefs": [
+        "carburant 100ll",
+        "100ll"
+      ],
+      "domaine": "regl-proc"
+    },
+    {
+      "terme": "essence auto",
+      "definition": "Carburant routier sans plomb parfois autorisé sous strictes conditions techniques dans certains moteurs d'aéronefs légers. Son utilisation exige une certification spécifique pour éviter le risque de bouchon de vapeur.",
+      "variantes": [
+        "essence automobile",
+        "carburant auto"
+      ],
+      "xrefs": [
+        "mogas",
+        "carburant 100ll"
+      ],
+      "domaine": "regl-proc"
+    },
+    {
+      "terme": "mogas",
+      "definition": "Terme international désignant l'essence automobile de qualité routière approuvée pour une utilisation aéronautique sur certains types d'aéronefs légers. Elle constitue une alternative économique aux carburants plombés traditionnels.",
+      "variantes": [
+        "essence auto",
+        "Motor Gasoline"
+      ],
+      "xrefs": [
+        "essence auto",
+        "carburant 100ll"
+      ],
+      "domaine": "regl-proc"
+    },
+    {
+      "terme": "panne sèche",
+      "definition": "Arrêt complet du fonctionnement des moteurs provoqué par l'épuisement total du carburant à bord. Cet événement critique résulte le plus souvent d'une mauvaise planification ou d'une gestion défaillante.",
+      "variantes": [
+        "épuisement de carburant",
+        "panne d'essence"
+      ],
+      "xrefs": [
+        "circuit carburant",
+        "arrêt moteur"
+      ],
+      "domaine": "regl-proc"
+    },
+    {
+      "terme": "alimentation croisée",
+      "definition": "Système de plomberie permettant d'alimenter un moteur à partir d'un réservoir situé du côté opposé. Cette fonction est essentielle pour rééquilibrer les masses de carburant entre les ailes.",
+      "variantes": [
+        "alimentation carburant croisée",
+        "crossfeed"
+      ],
+      "xrefs": [
+        "crossfeed",
+        "réservoir"
+      ],
+      "domaine": "regl-proc"
+    },
+    {
+      "terme": "crossfeed",
+      "definition": "Dispositif d'alimentation croisée permettant d'acheminer le carburant d'un réservoir vers le moteur opposé. Cette procédure de gestion du carburant assure l'équilibrage latéral de l'aéronef en cas d'asymétrie.",
+      "variantes": [
+        "alimentation croisée",
+        "vanne crossfeed"
+      ],
+      "xrefs": [
+        "alimentation croisée",
+        "réservoir"
+      ],
+      "domaine": "regl-proc"
+    },
+    {
+      "terme": "circuit électrique",
+      "definition": "Réseau de distribution d'énergie comprenant la batterie, l'alternateur, les câblages et les protections de bord. Il alimente les instruments de navigation, les feux et les systèmes de communication.",
+      "variantes": [
+        "réseau électrique",
+        "système électrique"
+      ],
+      "xrefs": [
+        "disjoncteur",
+        "fusible"
+      ],
+      "domaine": "regl-proc"
+    },
+    {
+      "terme": "disjoncteur",
+      "definition": "Dispositif de protection réarmable qui coupe automatiquement le courant électrique en cas de surcharge ou de court-circuit. Il protège les câblages de bord contre les risques d'incendie électrique.",
+      "variantes": [
+        "breaker",
+        "circuit breaker"
+      ],
+      "xrefs": [
+        "circuit électrique",
+        "fusible"
+      ],
+      "domaine": "regl-proc"
+    },
+    {
+      "terme": "fusible",
+      "definition": "Organe de sécurité électrique non réarmable conçu pour fondre et ouvrir le circuit en cas d'intensité excessive. Son remplacement en vol nécessite la disponibilité d'un rechange de calibre identique.",
+      "variantes": [
+        "fusibles",
+        "coupe-circuit fusible"
+      ],
+      "xrefs": [
+        "circuit électrique",
+        "disjoncteur"
+      ],
+      "domaine": "regl-proc"
+    },
+    {
+      "terme": "master switch",
+      "definition": "Interrupteur principal permettant de connecter ou d'isoler l'ensemble des sources d'énergie électrique de bord. Son activation est indispensable avant d'entamer la procédure de mise en route.",
+      "variantes": [
+        "contacteur général",
+        "commutateur principal"
+      ],
+      "xrefs": [
+        "circuit électrique",
+        "procédure de mise en route"
+      ],
+      "domaine": "regl-proc"
+    },
+    {
+      "terme": "ampèremètre",
+      "definition": "Instrument de bord affichant l'intensité du courant électrique entrant ou sortant de la batterie. Il permet de surveiller la charge de l'alternateur et de détecter rapidement une panne électrique.",
+      "variantes": [
+        "ampèremètre de bord",
+        "indicateur de charge"
+      ],
+      "xrefs": [
+        "circuit électrique",
+        "erreur"
+      ],
+      "domaine": "regl-proc"
+    },
+    {
+      "terme": "mal des transports",
+      "definition": "Trouble physiologique passager provoqué par un conflit sensoriel entre la perception visuelle et les récepteurs de l'équilibre. En vol, il nuit à la situation awareness du pilote.",
+      "variantes": [
+        "cinétose",
+        "naupathie"
+      ],
+      "xrefs": [
+        "illusions sensorielles",
+        "situation awareness"
+      ],
+      "domaine": "regl-proc"
+    },
+    {
+      "terme": "otite barotraumatique",
+      "definition": "Lésion de l'oreille moyenne causée par une différence de pression brutale entre l'air ambiant et la caisse du tympan. Elle survient principalement lors de descentes rapides avec un rhume.",
+      "variantes": [
+        "barotraumatisme de l'oreille",
+        "otite moyenne barotraumatique"
+      ],
+      "xrefs": [
+        "effets de l'altitude",
+        "aérosinusite"
+      ],
+      "domaine": "regl-proc"
+    },
+    {
+      "terme": "aérosinusite",
+      "definition": "Inflammation douloureuse des sinus provoquée par des variations rapides de la pression atmosphérique en cours de vol. Ce phénomène est accentué par la congestion des voies respiratoires supérieures.",
+      "variantes": [
+        "sinusite barotraumatique",
+        "barotraumatisme des sinus"
+      ],
+      "xrefs": [
+        "effets de l'altitude",
+        "otite barotraumatique"
+      ],
+      "domaine": "regl-proc"
+    },
+    {
+      "terme": "effets de l'altitude",
+      "definition": "Conséquences physiologiques sur l'organisme liées à la baisse de la pression barométrique et de la densité de l'air. Elles peuvent altérer les performances cognitives et physiques du pilote.",
+      "variantes": [
+        "effets de l'altitude sur l'homme",
+        "effet de l'altitude"
+      ],
+      "xrefs": [
+        "hypothermie",
+        "otite barotraumatique"
+      ],
+      "domaine": "regl-proc"
+    },
+    {
+      "terme": "illusions sensorielles",
+      "definition": "Perceptions erronées de l'attitude ou des mouvements de l'aéronef par les organes sensoriels du pilote. Elles représentent un risque majeur de perte de contrôle en conditions de visibilité réduite.",
+      "variantes": [
+        "illusion sensorielle",
+        "illusions spatiales"
+      ],
+      "xrefs": [
+        "illusion sensorielle",
+        "désorientation spatiale"
+      ],
+      "domaine": "regl-proc"
+    },
+    {
+      "terme": "illusion sensorielle",
+      "definition": "Faute d'interprétation des signaux sensoriels induisant le pilote en erreur sur la trajectoire réelle de l'appareil. Elle se combat par une confiance absolue dans les indications des instruments de vol.",
+      "variantes": [
+        "illusions sensorielles",
+        "illusion de pilotage"
+      ],
+      "xrefs": [
+        "illusions sensorielles",
+        "désorientation spatiale"
+      ],
+      "domaine": "regl-proc"
+    },
+    {
+      "terme": "désorientation spatiale",
+      "definition": "Incapacité temporaire du pilote à percevoir correctement l'attitude, l'altitude ou le mouvement de son aéronef par rapport à la surface terrestre. Elle découle souvent d'une illusion sensorielle non identifiée.",
+      "variantes": [
+        "perte de repères spatiaux",
+        "désorientation en vol"
+      ],
+      "xrefs": [
+        "illusions sensorielles",
+        "illusion sensorielle"
+      ],
+      "domaine": "regl-proc"
+    },
+    {
+      "terme": "illusion somatogravique",
+      "definition": "Sensation erronée d'assiette à cabrer ou à piquer provoquée par des accélérations ou décélérations linéaires importantes. Elle se produit souvent lors de la phase de montée initiale sans repères visuels.",
+      "variantes": [
+        "illusion somato-gravique",
+        "fausse sensation d'assiette"
+      ],
+      "xrefs": [
+        "illusions sensorielles",
+        "désorientation spatiale"
+      ],
+      "domaine": "regl-proc"
+    },
+    {
+      "terme": "fausse horizon",
+      "definition": "Repère visuel trompeur incitant le pilote à aligner l'appareil sur une référence inclinée comme des nuages en pente ou des lumières au sol. Il peut provoquer des inclinaisons indésirables.",
+      "variantes": [
+        "faux horizon",
+        "fausses références visuelles"
+      ],
+      "xrefs": [
+        "faux horizon",
+        "illusions sensorielles"
+      ],
+      "domaine": "regl-proc"
+    },
+    {
+      "terme": "faux horizon",
+      "definition": "Illusion d'optique où des éléments naturels ou artificiels inclinés sont interprétés à tort comme la ligne d'horizon réelle. Le pilote doit alors se référer rigoureusement à l'horizon artificiel de bord.",
+      "variantes": [
+        "fausse horizon",
+        "illusion d'horizon"
+      ],
+      "xrefs": [
+        "fausse horizon",
+        "illusions sensorielles"
+      ],
+      "domaine": "regl-proc"
+    },
+    {
+      "terme": "effet de trou noir",
+      "definition": "Illusion d'optique nocturne survenant lors d'une approche au-dessus d'une zone totalement sombre vers une piste éclairée. Elle perturbe l'évaluation de la hauteur et favorise une trajectoire trop basse.",
+      "variantes": [
+        "trou noir",
+        "illusion de trou noir"
+      ],
+      "xrefs": [
+        "illusions sensorielles",
+        "hauteur"
+      ],
+      "domaine": "regl-proc"
+    },
+    {
+      "terme": "rythme circadien",
+      "definition": "Horloge biologique interne de vingt-quatre heures régulant les phases de veille et de sommeil de l'organisme. Sa perturbation fatigue le pilote et dégrade sa vigilance durant le vol.",
+      "variantes": [
+        "cycle circadien",
+        "horloge biologique"
+      ],
+      "xrefs": [
+        "situation awareness",
+        "erreur"
+      ],
+      "domaine": "regl-proc"
+    },
+    {
+      "terme": "situation awareness",
+      "definition": "Perception et compréhension continue de l'état de l'aéronef, de son environnement et des menaces potentielles en temps réel. Elle est indispensable pour anticiper et prendre des décisions adaptées.",
+      "variantes": [
+        "conscience de la situation",
+        "conscience de situation"
+      ],
+      "xrefs": [
+        "prise de décision",
+        "erreur"
+      ],
+      "domaine": "regl-proc"
+    },
+    {
+      "terme": "violation",
+      "definition": "Écart délibéré par rapport aux règles de l'air, aux procédures d'exploitation ou aux limites de l'aéronef. Contrairement à l'erreur involontaire, elle résulte d'un choix conscient du pilote.",
+      "variantes": [
+        "violations de règles",
+        "non-respect des procédures"
+      ],
+      "xrefs": [
+        "erreur",
+        "prise de décision"
+      ],
+      "domaine": "regl-proc"
+    },
+    {
+      "terme": "complaisance",
+      "definition": "État d'esprit caractérisé par un relâchement de la vigilance et une acceptation injustifiée des risques sous l'effet de l'habitude. Elle conduit à négliger les vérifications systématiques.",
+      "variantes": [
+        "complaisance professionnelle",
+        "relâchement de l'attention"
+      ],
+      "xrefs": [
+        "erreur",
+        "excès de confiance"
+      ],
+      "domaine": "regl-proc"
+    },
+    {
+      "terme": "excès de confiance",
+      "definition": "Surestimations des capacités personnelles ou des performances réelles de l'aéronef face aux difficultés du vol. Ce biais cognitif majeur incite à prendre des décisions irrationnelles ou dangereuses.",
+      "variantes": [
+        "excès de confiance en soi",
+        "surconfiance"
+      ],
+      "xrefs": [
+        "complaisance",
+        "prise de décision"
+      ],
+      "domaine": "regl-proc"
+    },
+    {
+      "terme": "pression temporelle",
+      "definition": "Sentiment d'urgence incitant le pilote à accélérer ses actions et ses analyses au détriment de la sécurité. Elle favorise l'oubli de check-lists et dégrade la qualité des décisions.",
+      "variantes": [
+        "manque de temps",
+        "stress temporel"
+      ],
+      "xrefs": [
+        "prise de décision",
+        "situation awareness"
+      ],
+      "domaine": "regl-proc"
+    },
+    {
+      "terme": "get-there-itis",
+      "definition": "Biais psychologique poussant le pilote à poursuivre obstinément le vol vers sa destination en ignorant l'aggravation des conditions de vol. C'est un facteur contributif majeur d'accidents.",
+      "variantes": [
+        "syndrome de la destination",
+        "obsession de l'arrivée"
+      ],
+      "xrefs": [
+        "prise de décision",
+        "erreur"
+      ],
+      "domaine": "regl-proc"
+    },
+    {
+      "terme": "chaîne des causes",
+      "definition": "Succession d'erreurs, de défaillances et d'événements mineurs qui, combinés entre eux, aboutissent finalement à un accident. La rupture d'un seul maillon permet souvent d'éviter la catastrophe.",
+      "variantes": [
+        "chaîne causale",
+        "combinaison de facteurs"
+      ],
+      "xrefs": [
+        "chaîne causale",
+        "modèle de Reason"
+      ],
+      "domaine": "regl-proc"
+    },
+    {
+      "terme": "chaîne causale",
+      "definition": "Enchaînement chronologique d'incidents, de décisions erronées ou de pannes techniques menant inéluctablement à un événement grave. L'analyse systémique vise à identifier et rompre ce processus.",
+      "variantes": [
+        "chaîne des causes",
+        "processus causal"
+      ],
+      "xrefs": [
+        "chaîne des causes",
+        "modèle de Reason"
+      ],
+      "domaine": "regl-proc"
+    },
+    {
+      "terme": "modèle SHELL",
+      "definition": "Cadre d'analyse ergonomique décrivant les interactions entre l'élément humain central et les autres composants : logiciel, matériel, environnement et autres personnes. Il aide à comprendre l'origine des erreurs.",
+      "variantes": [
+        "concept SHELL",
+        "grille SHELL"
+      ],
+      "xrefs": [
+        "erreur",
+        "situation awareness"
+      ],
+      "domaine": "regl-proc"
+    },
+    {
+      "terme": "modèle de Reason",
+      "definition": "Théorie systémique expliquant la survenue d'accidents par la superposition de défaillances actives de l'équipage et de faiblesses latentes de l'organisation à travers several barrières défensives.",
+      "variantes": [
+        "modèle du fromage suisse",
+        "théorie de Reason"
+      ],
+      "xrefs": [
+        "plaques de Reason",
+        "erreur"
+      ],
+      "domaine": "regl-proc"
+    },
+    {
+      "terme": "plaques de Reason",
+      "definition": "Représentation visuelle des barrières de sécurité d'un système, dont les trous symbolisent les failles latentes ou actives. L'accident survient lorsque les ouvertures s'alignent temporairement.",
+      "variantes": [
+        "plaques du fromage suisse",
+        "barrières de Reason"
+      ],
+      "xrefs": [
+        "modèle de Reason",
+        "erreur"
+      ],
+      "domaine": "regl-proc"
+    },
+    {
+      "terme": "DODAR",
+      "definition": "Méthode structurée de prise de décision en vol comprenant cinq étapes ordonnées : diagnostic, options, décision, attribution des tâches et réévaluation. Elle sécurise la gestion des pannes.",
+      "variantes": [
+        "méthode DODAR",
+        "protocole DODAR"
+      ],
+      "xrefs": [
+        "prise de décision",
+        "situation awareness"
+      ],
+      "domaine": "regl-proc"
+    },
+    {
+      "terme": "prise de décision",
+      "definition": "Processus cognitif continu permettant au pilote de choisir une action parmi plusieurs options pour faire face à une situation donnée. Elle dépend fortement de sa situation awareness.",
+      "variantes": [
+        "processus décisionnel",
+        "décision en vol"
+      ],
+      "xrefs": [
+        "situation awareness",
+        "DODAR"
+      ],
+      "domaine": "regl-proc"
+    },
+    {
+      "terme": "médicaments",
+      "definition": "Substances thérapeutiques dont l'absorption peut altérer la vigilance, les réflexes ou la perception sensorielle du pilote. L'automédication est proscrite sans un avis médical spécialisé.",
+      "variantes": [
+        "médicament",
+        "automédication"
+      ],
+      "xrefs": [
+        "effets de l'altitude",
+        "erreur"
+      ],
+      "domaine": "regl-proc"
+    },
+    {
+      "terme": "don du sang",
+      "definition": "Prélèvement sanguin entraînant une baisse temporaire du volume d'oxygène transporté par le sang. Le pilote doit respecter un délai minimal d'interdiction de vol après ce geste.",
+      "variantes": [
+        "dons du sang",
+        "prélèvement de sang"
+      ],
+      "xrefs": [
+        "effets de l'altitude",
+        "erreur"
+      ],
+      "domaine": "regl-proc"
+    },
+    {
+      "terme": "plongée sous-marine",
+      "definition": "Activité sportive provoquant la dissolution d'azote dans les tissus corporels sous l'effet de la pression. Un vol trop précoce après la plongée expose au risque d'accident de décompression.",
+      "variantes": [
+        "plongée",
+        "plongée bouteille"
+      ],
+      "xrefs": [
+        "effets de l'altitude",
+        "erreur"
+      ],
+      "domaine": "regl-proc"
+    },
+    {
+      "terme": "monoxyde de carbone",
+      "definition": "Gaz toxique incolore et inodore issu d'une mauvaise combustion pouvant s'infiltrer en cabine en cas de fissure du silencieux d'échappement. Il provoque de graves maux de tête et l'asphyxie.",
+      "variantes": [
+        "CO",
+        "intoxication au monoxyde de carbone"
+      ],
+      "xrefs": [
+        "échappement",
+        "erreur"
+      ],
+      "domaine": "regl-proc"
+    },
+    {
+      "terme": "déshydratation",
+      "definition": "Perte excessive d'eau de l'organisme, favorisée par la chaleur, l'altitude et la climatisation en cabine. Elle altère rapidement la concentration, l'attention et augmente la fatigue du pilote.",
+      "variantes": [
+        "manque d'eau",
+        "déshydratation du pilote"
+      ],
+      "xrefs": [
+        "effets de l'altitude",
+        "erreur"
+      ],
+      "domaine": "regl-proc"
+    },
+    {
+      "terme": "hypoglycémie",
+      "definition": "Baisse de la concentration de glucose dans le sang en dessous du seuil physiologique. Elle altère le jugement, la coordination motrice et nécessite une alimentation préventive avant de voler.",
+      "variantes": [
+        "crise d'hypoglycémie",
+        "manque de sucre"
+      ],
+      "xrefs": [
+        "erreur",
+        "médicaments"
+      ],
+      "domaine": "regl-proc"
+    },
+    {
+      "terme": "hypothermie",
+      "definition": "Abaissement dangereux de la température corporelle centrale en dessous de trente-cinq degrés Celsius. En vol, elle résulte d'une cabine mal chauffée et nuit gravement aux capacités d'analyse du pilote.",
+      "variantes": [
+        "froid intense",
+        "refroidissement corporel"
+      ],
+      "xrefs": [
+        "effets de l'altitude",
+        "refroidissement"
+      ],
+      "domaine": "regl-proc"
+    },
+    {
+      "terme": "extincteur",
+      "definition": "Équipement de sécurité portatif obligatoire à bord pour éteindre un départ de feu en cabine ou sur le moteur. Son utilisation en espace clos requiert des précautions de ventilation.",
+      "variantes": [
+        "extincteur de bord",
+        "extincteurs"
+      ],
+      "xrefs": [
+        "évacuation",
+        "erreur"
+      ],
+      "domaine": "regl-proc"
+    },
+    {
+      "terme": "gilet de sauvetage",
+      "definition": "Équipement individuel de flottabilité obligatoire pour les vols au-dessus de l'eau au-delà de la distance de plané. Il ne doit être gonflé qu'après l'évacuation de l'aéronef.",
+      "variantes": [
+        "gilets de sauvetage",
+        "brassière de sauvetage"
+      ],
+      "xrefs": [
+        "vol au-dessus de l'eau",
+        "évacuation"
+      ],
+      "domaine": "regl-proc"
+    },
+    {
+      "terme": "évacuation",
+      "definition": "Action d'abandonner rapidement l'aéronef au sol après un atterrissage d'urgence ou un amerrissage. Cette procédure critique obéit à des consignes strictes pour éviter les blessures graves.",
+      "variantes": [
+        "évacuation d'urgence",
+        "évacuer l'appareil"
+      ],
+      "xrefs": [
+        "gilet de sauvetage",
+        "extincteur"
+      ],
+      "domaine": "regl-proc"
+    },
+    {
+      "terme": "cycle à 4 temps",
+      "definition": "Succession chronologique de quatre phases de fonctionnement d'un moteur à combustion : admission, compression, détente et échappement. Ce processus permet de transformer l'énergie chimique du carburant en travail mécanique.",
+      "variantes": [
+        "cycle à quatre temps",
+        "cycle de Beau de Rochas"
+      ],
+      "xrefs": [
+        "moteur à 4 temps",
+        "admission"
+      ],
+      "domaine": "regl-proc"
+    },
+    {
+      "terme": "refroidissement",
+      "definition": "Système évacuant l'excédent thermique produit par la combustion et les frottements moteur. L'aviation légère utilise principalement l'air par circulation directe ou un circuit de liquide caloporteur.",
+      "variantes": [
+        "système de refroidissement",
+        "refroidissement moteur"
+      ],
+      "xrefs": [
+        "moteur à 4 temps",
+        "échappement"
+      ],
+      "domaine": "regl-proc"
+    },
+    {
+      "terme": "régime",
+      "definition": "Vitesse de rotation de l'arbre moteur exprimée en tours par minute. Le pilote contrôle ce paramètre à l'aide de la manette des gaz pour ajuster la puissance développée.",
+      "variantes": [
+        "régime moteur",
+        "régimes"
+      ],
+      "xrefs": [
+        "tours/minute",
+        "papillon des gaz"
+      ],
+      "domaine": "regl-proc"
+    },
+    {
+      "terme": "tours/minute",
+      "definition": "Unité de mesure désignant la vitesse de rotation instantanée du vilebrequin ou de l'hélice d'un aéronef. Cette valeur s'affiche sur le tachymètre de bord pour surveiller le régime.",
+      "variantes": [
+        "RPM",
+        "tours par minute"
+      ],
+      "xrefs": [
+        "régime",
+        "hélice à pas fixe"
+      ],
+      "domaine": "regl-proc"
+    },
+    {
+      "terme": "réservoir",
+      "definition": "Conteneur conçu pour stocker le carburant nécessaire au vol de manière sécurisée. Sa vidange systématique avant le vol permet d'éliminer l'eau de condensation résiduelle.",
+      "variantes": [
+        "réservoir de carburant",
+        "réservoirs"
+      ],
+      "xrefs": [
+        "circuit carburant",
+        "jauge"
+      ],
+      "domaine": "regl-proc"
+    },
+    {
+      "terme": "jauge",
+      "definition": "Instrument ou dispositif de mesure fournissant une indication sur la quantité de fluide restante, particulièrement le carburant ou l'huile de lubrification. Sa précision au sol doit toujours être confirmée visuellement.",
+      "variantes": [
+        "jauge de carburant",
+        "jauge d'essence"
+      ],
+      "xrefs": [
+        "réservoir",
+        "circuit carburant"
+      ],
+      "domaine": "regl-proc"
+    },
+    {
+      "terme": "filtre",
+      "definition": "Élément de protection retenant les impuretés en suspension dans un fluide comme l'essence, l'huile ou l'air d'admission. Son colmatage peut restreindre le débit et provoquer des pannes.",
+      "variantes": [
+        "filtres",
+        "élément filtrant"
+      ],
+      "xrefs": [
+        "circuit carburant",
+        "moteur à 4 temps"
+      ],
+      "domaine": "regl-proc"
+    },
+    {
+      "terme": "erreur",
+      "definition": "Action ou omission involontaire de l'équipage de conduite réduisant les marges de sécurité. Gérée correctement à l'aide de procédures adaptées, elle ne conduit pas à un accident.",
+      "variantes": [
+        "erreur humaine",
+        "erreurs"
+      ],
+      "xrefs": [
+        "violation",
+        "situation awareness"
+      ],
+      "domaine": "regl-proc"
+    },
+    {
+      "terme": "ceinture",
+      "definition": "Dispositif individuel de retenue maintenant le passager ou le pilote sur son siège durant le vol. Son verrouillage est obligatoire pour toutes les phases critiques au sol et en vol.",
+      "variantes": [
+        "ceinture de sécurité",
+        "ceintures"
+      ],
+      "xrefs": [
+        "harnais",
+        "évacuation"
+      ],
+      "domaine": "regl-proc"
+    },
+    {
+      "terme": "harnais",
+      "definition": "Système de retenue multipoints maintenant fermement le haut du corps du pilote en cas de fortes décélérations ou de turbulences. Il offre une protection supérieure à celle d'une simple ceinture.",
+      "variantes": [
+        "harnais de sécurité",
+        "harnais d'épaule"
+      ],
+      "xrefs": [
+        "ceinture",
+        "évacuation"
+      ],
+      "domaine": "regl-proc"
+    },
+    {
+      "terme": "cycle",
+      "definition": "Série complète de phases successives et répétitives caractérisant le fonctionnement d'un système thermique ou mécanique. L'aviation légère utilise majoritairement le cycle à quatre temps.",
+      "variantes": [
+        "cycles",
+        "cycle moteur"
+      ],
+      "xrefs": [
+        "cycle à 4 temps",
+        "moteur à 4 temps"
+      ],
+      "domaine": "regl-proc"
+    }
+  ]
+}

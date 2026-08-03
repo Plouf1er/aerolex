@@ -1,0 +1,1129 @@
+{
+  "lot": 4,
+  "fiches": [
+    {
+      "terme": "fz",
+      "definition": "Sigle météorologique désignant un phénomène se congelant au contact du sol ou d'un aéronef. Les gouttelettes d'eau en surfusion gèlent instantanément, entraînant un givrage rapide de la structure.",
+      "variantes": [
+        "FZ",
+        "congelant",
+        "se congelant"
+      ],
+      "xrefs": [
+        "surfusion",
+        "givrage clair"
+      ],
+      "domaine": "meteo"
+    },
+    {
+      "terme": "vc",
+      "definition": "Abréviation utilisée dans les messages météorologiques pour situer un phénomène au voisinage d'un aérodrome. Il désigne des perturbations observées dans un rayon de huit à seize kilomètres autour de la station.",
+      "variantes": [
+        "VC",
+        "vicinity",
+        "au voisinage"
+      ],
+      "xrefs": [
+        "aérodrome non contrôlé",
+        "aérodrome contrôlé"
+      ],
+      "domaine": "meteo"
+    },
+    {
+      "terme": "hz",
+      "definition": "Sigle météorologique caractérisant une brume sèche réduisant la visibilité horizontale. Ce phénomène est causé par la suspension dans l'atmosphère de particules microscopiques de poussière, de sel ou de fumée.",
+      "variantes": [
+        "HZ",
+        "haze",
+        "brume sèche"
+      ],
+      "xrefs": [
+        "brume sèche",
+        "visibilité météo"
+      ],
+      "domaine": "meteo"
+    },
+    {
+      "terme": "fu",
+      "definition": "Code aéronautique international désignant la présence de fumée en suspension dans l'atmosphère. Ce phénomène réduit la visibilité horizontale et peut être associé à des feux de forêt ou des zones industrielles.",
+      "variantes": [
+        "FU",
+        "fumée",
+        "smoke"
+      ],
+      "xrefs": [
+        "visibilité météo",
+        "brume sèche"
+      ],
+      "domaine": "meteo"
+    },
+    {
+      "terme": "sq",
+      "definition": "Abréviation météorologique désignant un grain, caractérisé par une augmentation soudaine et temporaire de la vitesse du vent d'au moins seize nœuds, atteignant une valeur supérieure à vingt-deux nœuds.",
+      "variantes": [
+        "SQ",
+        "squall",
+        "grain"
+      ],
+      "xrefs": [
+        "rafale descendante",
+        "front de rafales"
+      ],
+      "domaine": "meteo"
+    },
+    {
+      "terme": "po",
+      "definition": "Code d'observation météo indiquant des tourbillons de poussière ou de sable bien développés au niveau du sol. Ce phénomène se produit généralement par temps chaud sous un ciel dégagé.",
+      "variantes": [
+        "PO",
+        "dust devils",
+        "tourbillons de poussière"
+      ],
+      "xrefs": [
+        "turbulence thermique",
+        "thermique"
+      ],
+      "domaine": "meteo"
+    },
+    {
+      "terme": "fc",
+      "definition": "Sigle aéronautique signalant un nuage en entonnoir, également appelé tuba. Ce phénomène de rotation sous un cumulonimbus indique des conditions de forte instabilité atmosphérique pouvant évoluer en tornade.",
+      "variantes": [
+        "FC",
+        "funnel cloud",
+        "tuba"
+      ],
+      "xrefs": [
+        "tornade",
+        "trombe"
+      ],
+      "domaine": "meteo"
+    },
+    {
+      "terme": "ds",
+      "definition": "Abréviation réglementaire désignant une tempête de poussière. Ce phénomène de vent fort soulève de grandes quantités de terre ou de particules, réduisant la visibilité horizontale sous la valeur réglementaire de mille mètres.",
+      "variantes": [
+        "DS",
+        "duststorm",
+        "tempête de poussière"
+      ],
+      "xrefs": [
+        "visibilité minimale",
+        "visibilité météo"
+      ],
+      "domaine": "meteo"
+    },
+    {
+      "terme": "ss",
+      "definition": "Code météo identifiant une tempête de sable. Les vents violents soulèvent des grains de sable au-dessus du sol, ce qui altère gravement la visibilité horizontale et présente un risque important de colmatage du moteur.",
+      "variantes": [
+        "SS",
+        "sandstorm",
+        "tempête de sable"
+      ],
+      "xrefs": [
+        "visibilité minimale",
+        "filtre"
+      ],
+      "domaine": "meteo"
+    },
+    {
+      "terme": "orage",
+      "definition": "Perturbation atmosphérique violente d'origine convective, associée à des décharges électriques. Ce phénomène engendre de violentes rafales, des averses intenses, de la grêle et représente un danger critique pour les vols VFR.",
+      "variantes": [
+        "orages",
+        "phénomène orageux"
+      ],
+      "xrefs": [
+        "orage multicellulaire",
+        "orage supercellulaire"
+      ],
+      "domaine": "meteo"
+    },
+    {
+      "terme": "cellule orageuse",
+      "definition": "Unité convective élémentaire composée d'un puissant courant ascendant et descendant d'air humide. Son cycle d'évolution, de la phase de cumulus à celle de dissipation, dure généralement moins d'une heure.",
+      "variantes": [
+        "cellules orageuses",
+        "cellule convective"
+      ],
+      "xrefs": [
+        "orage",
+        "capillatus"
+      ],
+      "domaine": "meteo"
+    },
+    {
+      "terme": "orage multicellulaire",
+      "definition": "Système convectif complexe composé d'un groupe de cellules orageuses à différents stades de maturité. Les cellules vieillissantes s'affaiblissent tandis que de nouvelles se développent continuellement en avant de la perturbation.",
+      "variantes": [
+        "orages multicellulaires",
+        "système multicellulaire"
+      ],
+      "xrefs": [
+        "orage",
+        "cellule orageuse"
+      ],
+      "domaine": "meteo"
+    },
+    {
+      "terme": "orage supercellulaire",
+      "definition": "Orage d'une extrême violence caractérisé par un unique courant ascendant géant en rotation stable. Ce phénomène engendre régulièrement des vents destructeurs, des grêlons géants et de redoutables tornades.",
+      "variantes": [
+        "orages supercellulaires",
+        "supercellule"
+      ],
+      "xrefs": [
+        "orage",
+        "tornade"
+      ],
+      "domaine": "meteo"
+    },
+    {
+      "terme": "tornade",
+      "definition": "Tourbillon d'air extrêmement violent, de faible diamètre vertical, se propageant sous un cumulonimbus jusqu'au sol. Elle provoque d'immenses ravages et engendre des cisaillements de vent mortels pour les aéronefs.",
+      "variantes": [
+        "tornades"
+      ],
+      "xrefs": [
+        "orage supercellulaire",
+        "trombe"
+      ],
+      "domaine": "meteo"
+    },
+    {
+      "terme": "trombe",
+      "definition": "Colonne d'air en rotation rapide se développant au-dessus d'une surface aquatique ou terrestre. Moins intense qu'une tornade, elle présente néanmoins un danger majeur pour la navigation à basse hauteur.",
+      "variantes": [
+        "trombes",
+        "trombe marine"
+      ],
+      "xrefs": [
+        "tornade",
+        "hauteur de survol"
+      ],
+      "domaine": "meteo"
+    },
+    {
+      "terme": "front de rafales",
+      "definition": "Limite de propagation de l'air froid rejeté par un orage, qui s'étale violemment au niveau du sol. Il se caractérise par une hausse barométrique soudaine, une baisse de température et des rafales violentes.",
+      "variantes": [
+        "fronts de rafales"
+      ],
+      "xrefs": [
+        "orage",
+        "rafale descendante"
+      ],
+      "domaine": "meteo"
+    },
+    {
+      "terme": "1000 ft agglomération",
+      "definition": "Hauteur réglementaire minimale imposée en vol pour le survol de petites agglomérations ou de rassemblements de personnes. Cette consigne protège les tiers au sol et assure une marge en cas de panne.",
+      "variantes": [
+        "hauteur de 1000 ft",
+        "survol de 1000 ft"
+      ],
+      "xrefs": [
+        "500 ft",
+        "hauteur de survol"
+      ],
+      "domaine": "nav-radio"
+    },
+    {
+      "terme": "1013,25 hPa",
+      "definition": "Valeur de référence de la pression atmosphérique standard au niveau de la mer en atmosphère type. Elle sert de calage altimétrique universel pour voler aux niveaux de vol au-dessus de la surface de transition.",
+      "variantes": [
+        "1013,25 hectopascals",
+        "calage standard"
+      ],
+      "xrefs": [
+        "altitude",
+        "couche de transition"
+      ],
+      "domaine": "nav-radio"
+    },
+    {
+      "terme": "500 ft",
+      "definition": "Hauteur minimale réglementaire de survol imposée à tout aéronef en vol VFR en dehors des zones peuplées. Cette règle de sécurité ne s'applique pas lors des phases d'atterrissage ou de décollage.",
+      "variantes": [
+        "500 pieds",
+        "hauteur de 500 pieds"
+      ],
+      "xrefs": [
+        "1000 ft agglomération",
+        "hauteur de survol"
+      ],
+      "domaine": "nav-radio"
+    },
+    {
+      "terme": "MEF",
+      "definition": "Altitude du point le plus élevé du relief ou des obstacles artificiels, augmentée d'une marge de sécurité, dans chaque quadrilatère de la carte. Elle guide le pilote dans sa préparation de vol.",
+      "variantes": [
+        "Maximum Elevation Figure",
+        "mef"
+      ],
+      "xrefs": [
+        "altitude minimale de sécurité",
+        "obstacle"
+      ],
+      "domaine": "nav-radio"
+    },
+    {
+      "terme": "TL",
+      "definition": "Niveau de vol le plus bas disponible au-dessus de l'altitude de transition. Il marque la limite supérieure de la couche de transition où les pilotes adoptent le calage altimétrique standard.",
+      "variantes": [
+        "Transition Level",
+        "niveau de transition"
+      ],
+      "xrefs": [
+        "couche de transition",
+        "1013,25 hpa"
+      ],
+      "domaine": "nav-radio"
+    },
+    {
+      "terme": "altitude",
+      "definition": "Distance verticale séparant un niveau, un point ou un aéronef du niveau moyen de la mer. En vol, elle est mesurée à l'aide d'un altimètre calé sur la pression QNH locale.",
+      "variantes": [
+        "altitudes"
+      ],
+      "xrefs": [
+        "altitude vraie",
+        "hauteur"
+      ],
+      "domaine": "nav-radio"
+    },
+    {
+      "terme": "altitude vraie",
+      "definition": "Hauteur réelle d'un aéronef par rapport au niveau de la mer. Obtenue en corrigeant l'altitude indiquée des écarts de température et de pression par rapport à l'atmosphère standard.",
+      "variantes": [
+        "altitudes vraies"
+      ],
+      "xrefs": [
+        "altitude",
+        "effet température sur l'altimètre"
+      ],
+      "domaine": "nav-radio"
+    },
+    {
+      "terme": "du chaud vers le froid, gare aux dégâts",
+      "definition": "Formule mnémotechnique avertissant le pilote que s'il traverse une masse d'air plus froide sans modifier son calage, l'altitude réelle de l'aéronef sera inférieure à celle indiquée par l'altimètre.",
+      "variantes": [
+        "du chaud au froid",
+        "gare aux dégâts"
+      ],
+      "xrefs": [
+        "effet température sur l'altimètre",
+        "erreur altimétrique"
+      ],
+      "domaine": "nav-radio"
+    },
+    {
+      "terme": "effet température sur l'altimètre",
+      "definition": "Phénomène modifiant la mesure altimétrique lorsque l'atmosphère réelle s'écarte de l'atmosphère standard. L'air froid contracte les tranches d'air, ce qui surestime l'altitude indiquée par rapport à l'altitude réelle.",
+      "variantes": [
+        "effet de la température sur l'altimètre"
+      ],
+      "xrefs": [
+        "erreur altimétrique",
+        "du chaud vers le froid, gare aux dégâts"
+      ],
+      "domaine": "nav-radio"
+    },
+    {
+      "terme": "erreur altimétrique",
+      "definition": "Écart entre la valeur affichée par l'altimètre et la position verticale réelle de l'aéronef. Elle résulte principalement de variations thermiques, de pressions locales non corrigées ou de frottements instrumentaux.",
+      "variantes": [
+        "erreurs altimétriques"
+      ],
+      "xrefs": [
+        "effet température sur l'altimètre",
+        "altitude vraie"
+      ],
+      "domaine": "nav-radio"
+    },
+    {
+      "terme": "hauteur",
+      "definition": "Distance verticale mesurée entre un aéronef et une surface de référence choisie, généralement le sol ou l'aérodrome. Elle est indiquée par un altimètre calé sur la pression QFE locale.",
+      "variantes": [
+        "hauteurs"
+      ],
+      "xrefs": [
+        "altitude",
+        "hauteur de survol"
+      ],
+      "domaine": "nav-radio"
+    },
+    {
+      "terme": "hauteur de survol",
+      "definition": "Distance verticale mesurée entre l'aéronef et les obstacles ou le relief directement situés en dessous. Elle doit être supérieure aux hauteurs minimales imposées par la réglementation pour la sécurité du vol.",
+      "variantes": [
+        "hauteurs de survol"
+      ],
+      "xrefs": [
+        "hauteur",
+        "500 ft"
+      ],
+      "domaine": "nav-radio"
+    },
+    {
+      "terme": "7000 (VFR)",
+      "definition": "Code d'identification secondaire standard affiché sur le transpondeur en vol à vue. Sauf instruction contraire du contrôle aérien, il permet aux radars d'identifier instantanément le vol comme VFR.",
+      "variantes": [
+        "code 7000",
+        "7000"
+      ],
+      "xrefs": [
+        "mode a",
+        "mode c"
+      ],
+      "domaine": "nav-radio"
+    },
+    {
+      "terme": "DME",
+      "definition": "Système de radionavigation mesurant le temps de propagation d'ondes ultra-hautes fréquences pour déterminer la distance oblique séparant l'aéronef d'une balise au sol, exprimée en milles nautiques.",
+      "variantes": [
+        "Distance Measuring Equipment",
+        "dme"
+      ],
+      "xrefs": [
+        "mille nautique",
+        "ndb"
+      ],
+      "domaine": "nav-radio"
+    },
+    {
+      "terme": "ELT",
+      "definition": "Radiobalise de détresse automatique embarquée émettant sur les fréquences de secours en cas de décélération violente. Cet équipement autonome facilite la localisation rapide de l'épave par les services de recherche.",
+      "variantes": [
+        "Emergency Locator Transmitter",
+        "balise de détresse"
+      ],
+      "xrefs": [
+        "code 7700",
+        "121,5 mhz"
+      ],
+      "domaine": "nav-radio"
+    },
+    {
+      "terme": "NDB",
+      "definition": "Radiobalise au sol émettant des ondes omnidirectionnelles dans les bandes de basses et moyennes fréquences. Elle permet au chercheur de cap à bord de déterminer le gisement de la station.",
+      "variantes": [
+        "Non-Directional Beacon",
+        "radiopoint de repère non directionnel"
+      ],
+      "xrefs": [
+        "gisement",
+        "dme"
+      ],
+      "domaine": "nav-radio"
+    },
+    {
+      "terme": "alternat",
+      "definition": "Bouton de commande d'émission radio situé sur le manche ou le volant de commande. En l'activant, le pilote passe en mode d'émission, interrompant la réception sur la fréquence active.",
+      "variantes": [
+        "alternats",
+        "poussoir d'émission"
+      ],
+      "xrefs": [
+        "blocage micro",
+        "essai radio"
+      ],
+      "domaine": "nav-radio"
+    },
+    {
+      "terme": "blocage Pitot",
+      "definition": "Obstruction accidentelle de l'orifice d'entrée d'air dynamique de la sonde Pitot. Ce dysfonctionnement fige l'anémomètre ou provoque des indications de vitesse erronées lors des variations d'altitude de l'aéronef.",
+      "variantes": [
+        "obstruction Pitot",
+        "blocage du tube de Pitot"
+      ],
+      "xrefs": [
+        "prise dynamique",
+        "tube de pitot"
+      ],
+      "domaine": "nav-radio"
+    },
+    {
+      "terme": "blocage statique",
+      "definition": "Obstruction des prises de pression atmosphérique ambiante. Ce problème immobilise l'aiguille de l'altimètre et celle du variomètre, tout en faussant gravement l'indication de vitesse de l'anémomètre en vol.",
+      "variantes": [
+        "obstruction de la prise statique"
+      ],
+      "xrefs": [
+        "prise statique",
+        "erreur altimétrique"
+      ],
+      "domaine": "nav-radio"
+    },
+    {
+      "terme": "code 7500",
+      "definition": "Code d'identification secondaire standardisé à afficher sur le transpondeur en cas d'intervention illicite ou de détournement à bord. Il alerte discrètement les contrôleurs au sol sans éveiller de soupçon.",
+      "variantes": [
+        "7500"
+      ],
+      "xrefs": [
+        "mode a",
+        "code 7600"
+      ],
+      "domaine": "nav-radio"
+    },
+    {
+      "terme": "code 7600",
+      "definition": "Code transpondeur international indiquant une panne complète ou partielle des systèmes de radiocommunication. Il signale aux contrôleurs aériens que l'aéronef poursuit son vol sans possibilité de liaison vocale.",
+      "variantes": [
+        "7600"
+      ],
+      "xrefs": [
+        "mode a",
+        "code 7700"
+      ],
+      "domaine": "nav-radio"
+    },
+    {
+      "terme": "code 7700",
+      "definition": "Code transpondeur universel signalant une détresse à bord de l'aéronef. Il déclenche une alerte visuelle prioritaire sur les écrans radar des contrôleurs aériens pour mobiliser immédiatement l'assistance nécessaire.",
+      "variantes": [
+        "7700"
+      ],
+      "xrefs": [
+        "mode a",
+        "code 7600"
+      ],
+      "domaine": "nav-radio"
+    },
+    {
+      "terme": "compas magnétique",
+      "definition": "Instrument de bord autonome indiquant le cap magnétique de l'aéronef grâce à un équipage mobile aimanté. Il est sensible aux erreurs de virage, d'accélération et aux perturbations magnétiques internes.",
+      "variantes": [
+        "compas",
+        "boussole"
+      ],
+      "xrefs": [
+        "nord compas",
+        "conservateur de cap"
+      ],
+      "domaine": "nav-radio"
+    },
+    {
+      "terme": "conservateur de cap",
+      "definition": "Instrument gyroscopique affichant le cap de l'aéronef de manière stable sans subir les oscillations du compas magnétique. Son axe de rotation horizontal doit être recalé régulièrement en vol rectiligne.",
+      "variantes": [
+        "directionnel",
+        "conservateurs de cap"
+      ],
+      "xrefs": [
+        "compas magnétique",
+        "recalage"
+      ],
+      "domaine": "nav-radio"
+    },
+    {
+      "terme": "coordinateur de virage",
+      "definition": "Instrument de bord gyroscopique affichant le taux de roulis et le taux de virage de l'aéronef. Sa bille centrale indique la qualité de la symétrie du vol en virage.",
+      "variantes": [
+        "coordonnateur de virage",
+        "coordonnateurs de virage"
+      ],
+      "xrefs": [
+        "indicateur de virage",
+        "tenue de cap"
+      ],
+      "domaine": "nav-radio"
+    },
+    {
+      "terme": "directionnel",
+      "definition": "Terme d'usage courant désignant le conservateur de cap gyroscopique. Il offre une référence de direction stable au pilote lors des manœuvres, s'affranchissant de la sensibilité magnétique du compas de bord.",
+      "variantes": [
+        "directionnels",
+        "gyro directionnel"
+      ],
+      "xrefs": [
+        "conservateur de cap",
+        "recalage"
+      ],
+      "domaine": "nav-radio"
+    },
+    {
+      "terme": "erreurs gyroscopiques",
+      "definition": "Écarts de mesure affectant les instruments gyroscopiques, causés par la friction mécanique, la dérive ou la précession. Ces erreurs imposent un recalage régulier des appareils sur des références physiques magnétiques.",
+      "variantes": [
+        "erreur gyroscopique",
+        "dérive gyroscopique"
+      ],
+      "xrefs": [
+        "précession",
+        "recalage"
+      ],
+      "domaine": "nav-radio"
+    },
+    {
+      "terme": "indicateur de virage",
+      "definition": "Instrument gyroscopique mesurant uniquement le taux de virage de l'aéronef autour de son axe de lacet. Complété par une bille, il aide le pilote à maintenir un vol coordonné.",
+      "variantes": [
+        "indicateurs de virage",
+        "aiguille-bille"
+      ],
+      "xrefs": [
+        "coordinateur de virage",
+        "tenue de cap"
+      ],
+      "domaine": "nav-radio"
+    },
+    {
+      "terme": "mode A",
+      "definition": "Mode de fonctionnement du transpondeur répondant aux interrogations radar du contrôle sol en transmettant exclusivement le code d'identification à quatre chiffres sélectionné par le pilote dans le poste.",
+      "variantes": [
+        "Mode A",
+        "transpondeur mode A"
+      ],
+      "xrefs": [
+        "7000 (vfr)",
+        "mode c"
+      ],
+      "domaine": "nav-radio"
+    },
+    {
+      "terme": "mode C",
+      "definition": "Mode du transpondeur transmettant au radar du contrôle au sol l'altitude-pression de l'aéronef (calée sur l'isobare standard) en complément du code d'identification à quatre chiffres du mode A.",
+      "variantes": [
+        "Mode C",
+        "transpondeur mode C"
+      ],
+      "xrefs": [
+        "1013,25 hpa",
+        "mode s"
+      ],
+      "domaine": "nav-radio"
+    },
+    {
+      "terme": "mode S",
+      "definition": "Technologie moderne de transpondeur transmettant des données de vol détaillées et un identifiant unique à vingt-quatre bits pour chaque aéronef. Elle améliore la précision radar et réduit l'encombrement des fréquences.",
+      "variantes": [
+        "Mode S",
+        "transpondeur mode S"
+      ],
+      "xrefs": [
+        "mode c",
+        "mode a"
+      ],
+      "domaine": "nav-radio"
+    },
+    {
+      "terme": "prise Pitot",
+      "definition": "Sonde externe orientée parallèlement à l'écoulement de l'air, captant la pression totale liée à la vitesse de l'aéronef. Sa mesure est indispensable au fonctionnement correct de l'indicateur d'anémométrie.",
+      "variantes": [
+        "prises Pitot",
+        "sonde Pitot"
+      ],
+      "xrefs": [
+        "prise dynamique",
+        "tube de pitot"
+      ],
+      "domaine": "nav-radio"
+    },
+    {
+      "terme": "prise dynamique",
+      "definition": "Orifice de mesure dirigé vers le flux d'air relatif permettant de capter la pression totale de déplacement. Elle alimente directement l'indicateur de vitesse pour calculer la vitesse conventionnelle.",
+      "variantes": [
+        "prises dynamiques",
+        "capteur dynamique"
+      ],
+      "xrefs": [
+        "prise pitot",
+        "vitesse conventionnelle"
+      ],
+      "domaine": "nav-radio"
+    },
+    {
+      "terme": "prise statique",
+      "definition": "Orifice de mesure placé latéralement sur le fuselage pour capter la pression de l'air calme ambiant. Elle alimente l'altimètre, l'anémomètre et le variomètre pour leurs calculs de hauteur et vitesse.",
+      "variantes": [
+        "prises statiques"
+      ],
+      "xrefs": [
+        "prise pitot",
+        "erreur altimétrique"
+      ],
+      "domaine": "nav-radio"
+    },
+    {
+      "terme": "précession",
+      "definition": "Mouvement de rotation de l'axe d'un gyroscope sous l'effet d'une force externe perpendiculaire. En vol, ce phénomène physique engendre une dérive lente et progressive des instruments de cap.",
+      "variantes": [
+        "précessions",
+        "précession gyroscopique"
+      ],
+      "xrefs": [
+        "précession gyroscopique",
+        "erreurs gyroscopiques"
+      ],
+      "domaine": "nav-radio"
+    },
+    {
+      "terme": "réchauffage Pitot",
+      "definition": "Dispositif électrique chauffant la sonde de pression dynamique afin d'empêcher la formation de givre ou de glace. Il garantit la fiabilité des indications de vitesse en conditions humides.",
+      "variantes": [
+        "réchauffage du Pitot",
+        "Pitot heat"
+      ],
+      "xrefs": [
+        "tube de pitot",
+        "givrage clair"
+      ],
+      "domaine": "nav-radio"
+    },
+    {
+      "terme": "tube de Pitot",
+      "definition": "Instrument profilé installé sur la cellule d'un aéronef pour mesurer la pression totale du flux d'air relatif. Son obstruction en conditions de givrage fausse immédiatement l'affichage de la vitesse.",
+      "variantes": [
+        "tubes de Pitot"
+      ],
+      "xrefs": [
+        "prise dynamique",
+        "réchauffage pitot"
+      ],
+      "domaine": "nav-radio"
+    },
+    {
+      "terme": "base de temps",
+      "definition": "Méthode de calcul en navigation aérienne permettant d'estimer l'heure de passage au-dessus des repères successifs en associant la distance franchie, la vitesse propre et le facteur de base.",
+      "variantes": [
+        "bases de temps"
+      ],
+      "xrefs": [
+        "facteur de base",
+        "estime"
+      ],
+      "domaine": "nav-radio"
+    },
+    {
+      "terme": "facteur de base",
+      "definition": "Coefficient de calcul égal à soixante divisé par la vitesse propre de l'aéronef. Ce nombre permet au pilote de convertir rapidement des distances géographiques en minutes de vol estimées.",
+      "variantes": [
+        "facteurs de base"
+      ],
+      "xrefs": [
+        "base de temps",
+        "règle du 1 en 60"
+      ],
+      "domaine": "nav-radio"
+    },
+    {
+      "terme": "gisement",
+      "definition": "Angle horizontal mesuré dans le sens des aiguilles d'une montre entre l'axe longitudinal de l'aéronef et la direction d'une station de radionavigation ou d'un repère terrestre identifiable.",
+      "variantes": [
+        "gisements"
+      ],
+      "xrefs": [
+        "relèvement",
+        "ndb"
+      ],
+      "domaine": "nav-radio"
+    },
+    {
+      "terme": "relèvement",
+      "definition": "Angle horizontal mesuré entre une direction de référence géographique et la droite reliant l'aéronef à une station de radionavigation au sol ou un repère visuel remarquable du paysage.",
+      "variantes": [
+        "relèvements"
+      ],
+      "xrefs": [
+        "gisement",
+        "ndb"
+      ],
+      "domaine": "nav-radio"
+    },
+    {
+      "terme": "route sol",
+      "definition": "Trajectoire effective d'un aéronef par rapport à la surface terrestre. Elle correspond au cap suivi par l'appareil corrigé de l'effet de dérive causé par le vent pendant le vol.",
+      "variantes": [
+        "routes sol"
+      ],
+      "xrefs": [
+        "estime",
+        "effet du vent"
+      ],
+      "domaine": "nav-radio"
+    },
+    {
+      "terme": "EOBT",
+      "definition": "Heure estimée de début de mouvement d'un aéronef quittant son poste de stationnement. Cette information réglementaire du plan de vol sert à coordonner les créneaux de décollage du trafic.",
+      "variantes": [
+        "Estimated Off-Block Time",
+        "heure de mise en route"
+      ],
+      "xrefs": [
+        "etd",
+        "plan de vol déposé"
+      ],
+      "domaine": "nav-radio"
+    },
+    {
+      "terme": "ETD",
+      "definition": "Heure de départ estimée calculée en ajoutant le temps de roulage prévu à l'heure de début de mouvement de l'aéronef. Elle est indispensable pour la gestion des trajectoires aériennes.",
+      "variantes": [
+        "Estimated Time of Departure",
+        "heure de départ estimée"
+      ],
+      "xrefs": [
+        "eobt",
+        "plan de vol déposé"
+      ],
+      "domaine": "nav-radio"
+    },
+    {
+      "terme": "cheminement",
+      "definition": "Méthode de navigation à vue consistant à suivre au sol des repères visuels continus et rectilignes caractéristiques pour guider l'aéronef en toute sécurité jusqu'à sa destination finale.",
+      "variantes": [
+        "cheminements"
+      ],
+      "xrefs": [
+        "navigation à vue",
+        "repère caractéristique"
+      ],
+      "domaine": "nav-radio"
+    },
+    {
+      "terme": "estime",
+      "definition": "Technique de navigation permettant de déterminer la position d'un aéronef en projetant son cap, sa vitesse propre et l'effet du vent depuis une position géographique de départ connue.",
+      "variantes": [
+        "navigation à l'estime"
+      ],
+      "xrefs": [
+        "dead reckoning",
+        "dernier point connu"
+      ],
+      "domaine": "nav-radio"
+    },
+    {
+      "terme": "journal de navigation",
+      "definition": "Document structuré préparé au sol et complété en vol par le pilote pour consigner les caps, altitudes, fréquences radio, temps de passage estimés et quantités de carburant restantes.",
+      "variantes": [
+        "journaux de navigation"
+      ],
+      "xrefs": [
+        "log de navigation",
+        "base de temps"
+      ],
+      "domaine": "nav-radio"
+    },
+    {
+      "terme": "log de navigation",
+      "definition": "Tableau de marche détaillé utilisé pour la conduite du vol. Il permet d'effectuer un suivi rigoureux de la route et du temps de vol afin d'assurer la sécurité du voyage.",
+      "variantes": [
+        "logs de navigation"
+      ],
+      "xrefs": [
+        "journal de navigation",
+        "estime"
+      ],
+      "domaine": "nav-radio"
+    },
+    {
+      "terme": "navigation à vue",
+      "definition": "Méthode élémentaire de pilotage consistant à diriger son aéronef en comparant visuellement les repères caractéristiques du terrain survolé avec les informations géographiques dessinées sur la carte de vol.",
+      "variantes": [
+        "navigations à vue"
+      ],
+      "xrefs": [
+        "cheminement",
+        "repère caractéristique"
+      ],
+      "domaine": "nav-radio"
+    },
+    {
+      "terme": "point tournant",
+      "definition": "Repère géographique remarquable choisi lors de la préparation de la navigation pour marquer une modification de la route de vol ou un point de contrôle intermédiaire de l'estime.",
+      "variantes": [
+        "points tournants"
+      ],
+      "xrefs": [
+        "repère caractéristique",
+        "estime"
+      ],
+      "domaine": "nav-radio"
+    },
+    {
+      "terme": "recalage",
+      "definition": "Action d'ajuster l'indication d'un instrument de bord gyroscopique sur une référence magnétique stable. Cette procédure s'effectue périodiquement en vol rectiligne et uniforme pour éliminer les dérives mécaniques.",
+      "variantes": [
+        "recalages"
+      ],
+      "xrefs": [
+        "conservateur de cap",
+        "compas magnétique"
+      ],
+      "domaine": "nav-radio"
+    },
+    {
+      "terme": "repère caractéristique",
+      "definition": "Obstacle ou élément géographique remarquable et facilement repérable depuis les airs, sélectionné lors de la préparation du vol pour confirmer périodiquement la position de l'aéronef en cours de navigation.",
+      "variantes": [
+        "repères caractéristiques"
+      ],
+      "xrefs": [
+        "point tournant",
+        "navigation à vue"
+      ],
+      "domaine": "nav-radio"
+    },
+    {
+      "terme": "temps sans vent",
+      "definition": "Durée de vol théorique calculée pour parcourir une distance donnée à la vitesse propre de l'aéronef, sans tenir compte de la dérive ou des effets d'accélération dus au vent.",
+      "variantes": [
+        "temps de vol sans vent"
+      ],
+      "xrefs": [
+        "facteur de base",
+        "base de temps"
+      ],
+      "domaine": "nav-radio"
+    },
+    {
+      "terme": "coordonnées géographiques",
+      "definition": "Système de valeurs d'angle mesurant la latitude et la longitude pour situer précisément tout point sur la sphère terrestre. Elles servent de base aux récepteurs de navigation moderne.",
+      "variantes": [
+        "coordonnée géographique"
+      ],
+      "xrefs": [
+        "latitude",
+        "longitude"
+      ],
+      "domaine": "nav-radio"
+    },
+    {
+      "terme": "courbe de déviation",
+      "definition": "Tableau d'étalonnage fixé dans l'habitacle affichant les corrections angulaires à apporter au cap lu sur le compas magnétique pour compenser les perturbations électromagnétiques internes de l'aéronef.",
+      "variantes": [
+        "courbes de déviation"
+      ],
+      "xrefs": [
+        "compas magnétique",
+        "nord compas"
+      ],
+      "domaine": "nav-radio"
+    },
+    {
+      "terme": "latitude",
+      "definition": "Position angulaire d'un point de la surface terrestre mesurée vers le nord ou le sud par rapport au plan équatorial, variant de zéro à quatre-vingt-dix degrés.",
+      "variantes": [
+        "latitudes"
+      ],
+      "xrefs": [
+        "coordonnées géographiques",
+        "longitude"
+      ],
+      "domaine": "nav-radio"
+    },
+    {
+      "terme": "longitude",
+      "definition": "Coordonnée angulaire mesurant l'écart d'un point à l'est ou à l'ouest par rapport au méridien d'origine de Greenwich, variant de zéro à cent quatre-vingts degrés.",
+      "variantes": [
+        "longitudes"
+      ],
+      "xrefs": [
+        "coordonnées géographiques",
+        "latitude"
+      ],
+      "domaine": "nav-radio"
+    },
+    {
+      "terme": "méridien",
+      "definition": "Arc reliant les deux pôles géographiques terrestres et coupant perpendiculairement l'équateur. Les méridiens servent de référence pour déterminer la coordonnée géographique de longitude d'un aéronef.",
+      "variantes": [
+        "méridiens"
+      ],
+      "xrefs": [
+        "équateur",
+        "longitude"
+      ],
+      "domaine": "nav-radio"
+    },
+    {
+      "terme": "nord compas",
+      "definition": "Direction indiquée par l'équipage mobile du compas magnétique de l'aéronef. Elle est influencée par la déclinaison magnétique locale et la déviation due aux équipements métalliques de bord.",
+      "variantes": [
+        "nord-compas"
+      ],
+      "xrefs": [
+        "compas magnétique",
+        "courbe de déviation"
+      ],
+      "domaine": "nav-radio"
+    },
+    {
+      "terme": "MORA",
+      "definition": "Altitude minimale hors route garantissant un espacement vertical suffisant de mille ou deux mille pieds au-dessus des obstacles et reliefs présents dans une grille géographique définie sur la carte.",
+      "variantes": [
+        "Minimum Off-Route Altitude",
+        "mora"
+      ],
+      "xrefs": [
+        "altitude minimale de sécurité",
+        "obstacle"
+      ],
+      "domaine": "nav-radio"
+    },
+    {
+      "terme": "couche de transition",
+      "definition": "Espace aérien séparant l'altitude de transition et le niveau de transition. Lors du franchissement de cette zone, le pilote modifie le calage de son altimètre selon le sens du vol.",
+      "variantes": [
+        "couches de transition"
+      ],
+      "xrefs": [
+        "tl",
+        "1013,25 hpa"
+      ],
+      "domaine": "nav-radio"
+    },
+    {
+      "terme": "RNAV",
+      "definition": "Méthode moderne de navigation de surface permettant à un aéronef de suivre n'importe quelle trajectoire définie par des repères géographiques sans nécessité de survoler physiquement des balises terrestres.",
+      "variantes": [
+        "Area Navigation",
+        "navigation de surface"
+      ],
+      "xrefs": [
+        "rnav",
+        "dme"
+      ],
+      "domaine": "nav-radio"
+    },
+    {
+      "terme": "marqueur",
+      "definition": "Balise radioélectrique directive émettant verticalement sur soixante-quinze mégahertz pour signaler de façon sonore et visuelle à l'équipage le passage de repères clés lors d'une approche d'atterrissage.",
+      "variantes": [
+        "marqueurs",
+        "radiobalise marqueur"
+      ],
+      "xrefs": [
+        "indicateur de pente d'approche",
+        "aérodrome contrôlé"
+      ],
+      "domaine": "nav-radio"
+    },
+    {
+      "terme": "QTE",
+      "definition": "Code Q représentant le relèvement vrai d'un aéronef mesuré par une station radiogoniométrique au sol. Il permet d'aider le pilote à situer sa trajectoire réelle par rapport au sol.",
+      "variantes": [
+        "qte"
+      ],
+      "xrefs": [
+        "quj",
+        "relèvement"
+      ],
+      "domaine": "nav-radio"
+    },
+    {
+      "terme": "QUJ",
+      "definition": "Code Q de radionavigation indiquant la route vraie que doit suivre l'aéronef, sans vent, pour rejoindre directement la station au sol émettrice. Elle facilite la recherche de cap.",
+      "variantes": [
+        "quj"
+      ],
+      "xrefs": [
+        "qte",
+        "route sol"
+      ],
+      "domaine": "nav-radio"
+    },
+    {
+      "terme": "règle du 1 en 60",
+      "definition": "Règle de calcul mental stipulant qu'un déviation latérale d'un mille nautique après soixante milles parcourus correspond à un écart angulaire de route d'environ un degré par rapport au tracé prévu.",
+      "variantes": [
+        "règle de 1 en 60",
+        "méthode du 1 en 60"
+      ],
+      "xrefs": [
+        "mille nautique",
+        "estime"
+      ],
+      "domaine": "nav-radio"
+    },
+    {
+      "terme": "dead reckoning",
+      "definition": "Terme aéronautique anglais désignant la navigation à l'estime. Cette technique consiste à estimer la position présente et future en combinant la vitesse propre, le cap et le temps écoulé.",
+      "variantes": [
+        "dead-reckoning"
+      ],
+      "xrefs": [
+        "estime",
+        "log de navigation"
+      ],
+      "domaine": "nav-radio"
+    },
+    {
+      "terme": "dernier point connu",
+      "definition": "Dernière position géographique précise déterminée avec certitude par repérage visuel ou radionavigation. Elle sert de référence de recalage pour entamer ou poursuivre une phase de navigation à l'estime.",
+      "variantes": [
+        "dernière position connue"
+      ],
+      "xrefs": [
+        "estime",
+        "recalage"
+      ],
+      "domaine": "nav-radio"
+    },
+    {
+      "terme": "grand cercle",
+      "definition": "Cercle tracé à la surface de la sphère terrestre dont le plan passe par le centre de la Terre. Il représente géométriquement la distance de survol la plus courte entre deux points.",
+      "variantes": [
+        "grands cercles"
+      ],
+      "xrefs": [
+        "orthodromie",
+        "loxodromie"
+      ],
+      "domaine": "nav-radio"
+    },
+    {
+      "terme": "inclinaison magnétique",
+      "definition": "Angle formé par l'orientation du champ magnétique terrestre avec le plan horizontal local. Cette inclinaison croissante vers les pôles perturbe gravement les indications de direction du compas de bord.",
+      "variantes": [
+        "inclinaisons magnétiques"
+      ],
+      "xrefs": [
+        "compas magnétique",
+        "nord compas"
+      ],
+      "domaine": "nav-radio"
+    },
+    {
+      "terme": "loxodromie",
+      "definition": "Trajectoire coupant tous les méridiens terrestres sous un angle constant. Facile à suivre car elle maintient un cap constant, elle s'avère toutefois plus longue que la route orthodromique directe.",
+      "variantes": [
+        "loxodromies",
+        "route loxodromique"
+      ],
+      "xrefs": [
+        "orthodromie",
+        "grand cercle"
+      ],
+      "domaine": "nav-radio"
+    },
+    {
+      "terme": "minute d'arc",
+      "definition": "Unité angulaire valant un soixantième de degré de latitude géographique. Le long d'un méridien, une minute d'arc terrestre correspond précisément à la longueur normalisée d'un mille nautique.",
+      "variantes": [
+        "minutes d'arc"
+      ],
+      "xrefs": [
+        "mille nautique",
+        "méridien"
+      ],
+      "domaine": "nav-radio"
+    },
+    {
+      "terme": "orthodromie",
+      "definition": "Distance ou route la plus courte joignant deux points de la sphère terrestre, matérialisée par un arc de grand cercle. Son tracé exige un changement permanent de cap en vol.",
+      "variantes": [
+        "orthodromies",
+        "route orthodromique"
+      ],
+      "xrefs": [
+        "loxodromie",
+        "grand cercle"
+      ],
+      "domaine": "nav-radio"
+    }
+  ]
+}

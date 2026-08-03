@@ -1,0 +1,1226 @@
+{
+  "lot": 2,
+  "fiches": [
+    {
+      "terme": "masse et bras de levier",
+      "definition": "Méthode de calcul algébrique permettant de déterminer la position du centre de gravité en multipliant la masse de chaque élément embarqué par sa distance au plan de référence.",
+      "variantes": [
+        "méthode du bras de levier",
+        "masse et bras"
+      ],
+      "xrefs": [
+        "limites de centrage",
+        "moment"
+      ],
+      "domaine": "aero-perfs"
+    },
+    {
+      "terme": "moment",
+      "definition": "Produit d'une masse par son bras de levier, représentant la force de rotation exercée autour de la référence de centrage. La somme des moments permet de localiser le centre de gravité.",
+      "variantes": [
+        "moment de centrage",
+        "moments"
+      ],
+      "xrefs": [
+        "masse et bras de levier",
+        "limites de centrage"
+      ],
+      "domaine": "aero-perfs"
+    },
+    {
+      "terme": "limites de centrage",
+      "definition": "Bornes avant et arrière définies par le constructeur à l'intérieur desquelles le centre de gravité doit obligatoirement se situer pour garantir la stabilité longitudinale et la maniabilité de l'aéronef.",
+      "variantes": [
+        "plage de centrage",
+        "limite de centrage"
+      ],
+      "xrefs": [
+        "enveloppe de centrage",
+        "centrage avant",
+        "centrage arrière"
+      ],
+      "domaine": "aero-perfs"
+    },
+    {
+      "terme": "enveloppe de centrage",
+      "definition": "Diagramme tracé dans le manuel de vol représentant les limites autorisées de la position du centre de gravité en fonction de la masse totale de l'appareil pour un vol en toute sécurité.",
+      "variantes": [
+        "graphe de centrage",
+        "enveloppes de centrage"
+      ],
+      "xrefs": [
+        "limites de centrage",
+        "diagramme de manœuvre"
+      ],
+      "domaine": "aero-perfs"
+    },
+    {
+      "terme": "centrage avant",
+      "definition": "Position du centre de gravité située près de la limite avant autorisée. Il augmente la stabilité longitudinale et la vitesse de décrochage, mais réduit l'efficacité de la gouverne de profondeur à l'atterrissage.",
+      "variantes": [
+        "limite avant de centrage",
+        "centrages avant"
+      ],
+      "xrefs": [
+        "limites de centrage",
+        "centrage arrière"
+      ],
+      "domaine": "aero-perfs"
+    },
+    {
+      "terme": "centrage arrière",
+      "definition": "Position du centre de gravité située près de la limite arrière réglementaire. Il réduit la stabilité longitudinale, rend l'appareil difficile à contrôler en tangage et complique grandement la récupération après décrochage.",
+      "variantes": [
+        "limite arrière de centrage",
+        "centrages arrière"
+      ],
+      "xrefs": [
+        "limites de centrage",
+        "centrage avant"
+      ],
+      "domaine": "aero-perfs"
+    },
+    {
+      "terme": "diagramme de manœuvre",
+      "definition": "Représentation graphique associant la vitesse de l'aéronef au facteur de charge. Il définit l'enveloppe de vol sécurisée, incluant la vitesse de manœuvre et les facteurs de charge limites admissibles par la structure.",
+      "variantes": [
+        "diagramme en V-n",
+        "diagrammes de manœuvre"
+      ],
+      "xrefs": [
+        "facteur de charge limite",
+        "facteur de charge ultime"
+      ],
+      "domaine": "aero-perfs"
+    },
+    {
+      "terme": "facteur de charge limite",
+      "definition": "Valeur maximale de l'accélération verticale qu'une structure d'aéronef peut supporter en vol sans subir de déformations permanentes. Cette limite varie selon la catégorie d'homologation de l'appareil.",
+      "variantes": [
+        "facteur de charge de calcul",
+        "facteurs de charge limites"
+      ],
+      "xrefs": [
+        "facteur de charge ultime",
+        "diagramme de manœuvre",
+        "catégorie normale"
+      ],
+      "domaine": "aero-perfs"
+    },
+    {
+      "terme": "facteur de charge ultime",
+      "definition": "Coefficient de charge maximal obtenu en multipliant le facteur de charge limite par un coefficient de sécurité. Au-delà, la rupture structurale de la cellule est immédiate et inévitable.",
+      "variantes": [
+        "charge ultime",
+        "facteurs de charge ultimes"
+      ],
+      "xrefs": [
+        "facteur de charge limite",
+        "diagramme de manœuvre"
+      ],
+      "domaine": "aero-perfs"
+    },
+    {
+      "terme": "catégorie normale",
+      "definition": "Classification de certification des aéronefs interdisant la voltige et limitant les facteurs de charge admissibles. Elle est destinée au transport de passagers et aux vols de voyage standard sous régime VFR.",
+      "variantes": [
+        "catégories normales",
+        "homologation normale"
+      ],
+      "xrefs": [
+        "catégorie utilitaire",
+        "catégorie voltige",
+        "facteur de charge limite"
+      ],
+      "domaine": "aero-perfs"
+    },
+    {
+      "terme": "revêtement travaillant",
+      "definition": "Technique de construction aéronautique où la peau métallique ou composite participe directement à la reprise des efforts de torsion et de flexion subis par le fuselage ou par la voilure.",
+      "variantes": [
+        "revêtements travaillants",
+        "structure à revêtement travaillant"
+      ],
+      "xrefs": [
+        "fuselage semi-monocoque",
+        "fuselage monocoque"
+      ],
+      "domaine": "aero-perfs"
+    },
+    {
+      "terme": "fuselage semi-monocoque",
+      "definition": "Structure de fuselage moderne combinant un revêtement travaillant et des renforts internes longitudinaux et transversaux. Cette conception offre une excellente résistance mécanique pour un poids structural optimal en aviation générale.",
+      "variantes": [
+        "semi-monocoque",
+        "fuselages semi-monocoques"
+      ],
+      "xrefs": [
+        "fuselage monocoque",
+        "revêtement travaillant",
+        "fuselage treillis"
+      ],
+      "domaine": "aero-perfs"
+    },
+    {
+      "terme": "train classique",
+      "definition": "Configuration d'atterrisseur comprenant deux roues principales sous la voilure et une roulette ou un patin à l'arrière. Elle exige une technique de pilotage rigoureuse lors du roulage par vent de travers.",
+      "variantes": [
+        "trains classiques",
+        "atterrisseur classique"
+      ],
+      "xrefs": [
+        "train tricycle",
+        "atterrisseur",
+        "amortisseur"
+      ],
+      "domaine": "aero-perfs"
+    },
+    {
+      "terme": "train tricycle",
+      "definition": "Configuration d'atterrisseur moderne dotée de deux roues principales à l'arrière et d'une roulette de nez orientable. Elle facilite grandement le roulage, la tenue de l'axe au décollage et la visibilité vers l'avant.",
+      "variantes": [
+        "trains tricycles",
+        "atterrisseur tricycle"
+      ],
+      "xrefs": [
+        "train classique",
+        "atterrisseur",
+        "amortisseur"
+      ],
+      "domaine": "aero-perfs"
+    },
+    {
+      "terme": "amortisseur",
+      "definition": "Dispositif mécanique ou oléopneumatique intégré au train d'atterrissage conçu pour absorber l'énergie cinétique de l'impact lors du toucher des roues et amortir les oscillations lors des phases de roulage.",
+      "variantes": [
+        "amortisseurs",
+        "jambe d'amortisseur"
+      ],
+      "xrefs": [
+        "atterrisseur",
+        "train tricycle",
+        "train classique"
+      ],
+      "domaine": "aero-perfs"
+    },
+    {
+      "terme": "stopway",
+      "definition": "Zone rectangulaire aménagée à l'extrémité de la piste de décollage, capable de supporter un aéronef interrompant son décollage sans subir de dommages structurels majeurs. Elle correspond au prolongement d'arrêt disponible.",
+      "variantes": [
+        "prolongement d'arrêt",
+        "stopways"
+      ],
+      "xrefs": [
+        "prolongement dégagé",
+        "clearway",
+        "distance accélération-arrêt"
+      ],
+      "domaine": "aerodrome"
+    },
+    {
+      "terme": "prolongement dégagé",
+      "definition": "Zone rectangulaire au sol ou au-dessus de l'eau, située sous le contrôle de l'autorité compétente, choisie comme aire appropriée sur laquelle un aéronef peut exécuter sa montée initiale après décollage.",
+      "variantes": [
+        "prolongements dégagés"
+      ],
+      "xrefs": [
+        "clearway",
+        "stopway",
+        "distance franchissement 50 ft"
+      ],
+      "domaine": "aerodrome"
+    },
+    {
+      "terme": "clearway",
+      "definition": "Terme international désignant une aire rectangulaire dégagée d'obstacles à l'extrémité d'une piste, au-dessus de laquelle un aéronef peut effectuer une partie de sa montée initiale jusqu'à une hauteur de sécurité.",
+      "variantes": [
+        "clearways"
+      ],
+      "xrefs": [
+        "prolongement dégagé",
+        "stopway",
+        "obstacle"
+      ],
+      "domaine": "aerodrome"
+    },
+    {
+      "terme": "aire de trafic",
+      "definition": "Partie d'un aérodrome destinée à l'embarquement des passagers, au chargement des bagages, à l'avitaillement en carburant, au stationnement et à l'entretien de premier niveau des aéronefs légers ou commerciaux.",
+      "variantes": [
+        "aire de stationnement",
+        "aires de trafic"
+      ],
+      "xrefs": [
+        "aire de manœuvre",
+        "aire de mouvement",
+        "aérodrome contrôlé"
+      ],
+      "domaine": "aerodrome"
+    },
+    {
+      "terme": "aire de manœuvre",
+      "definition": "Partie de l'aérodrome à utiliser pour le décollage, l'atterrissage et le roulage des aéronefs, à l'exclusion des aires de trafic. Son accès est réglementé et soumis à clairance de la tour.",
+      "variantes": [
+        "aires de manœuvre"
+      ],
+      "xrefs": [
+        "aire de mouvement",
+        "aire de trafic",
+        "aérodrome contrôlé"
+      ],
+      "domaine": "aerodrome"
+    },
+    {
+      "terme": "aire de mouvement",
+      "definition": "Ensemble de la surface d'un aérodrome comprenant l'aire de manœuvre et les aires de trafic, destinée au mouvement général des aéronefs au sol, que ce soit pour le roulage ou le stationnement.",
+      "variantes": [
+        "aires de mouvement"
+      ],
+      "xrefs": [
+        "aire de manœuvre",
+        "aire de trafic",
+        "aérodrome contrôlé"
+      ],
+      "domaine": "aerodrome"
+    },
+    {
+      "terme": "numéro de piste",
+      "definition": "Chiffres peints sur le revêtement représentant l'orientation magnétique de l'axe de piste, arrondi à la dizaine de degrés la plus proche. Deux chiffres indiquent l'orientation géographique pour les pilotes en approche.",
+      "variantes": [
+        "numéros de piste",
+        "désignation de piste"
+      ],
+      "xrefs": [
+        "feux de seuil",
+        "zone de toucher des roues"
+      ],
+      "domaine": "aerodrome"
+    },
+    {
+      "terme": "feux de seuil",
+      "definition": "Ligne de feux verts unidirectionnels disposés perpendiculairement à l'axe de la piste, marquant le début de la surface utilisable pour l'atterrissage lors d'une approche de nuit ou par faible visibilité.",
+      "variantes": [
+        "feux de seuil de piste"
+      ],
+      "xrefs": [
+        "feux d'extrémité",
+        "feux de bord de piste",
+        "numéro de piste"
+      ],
+      "domaine": "aerodrome"
+    },
+    {
+      "terme": "feux d'extrémité",
+      "definition": "Dispositif lumineux composé de feux rouges unidirectionnels marquant la fin physique de la piste d'atterrissage. Ils avertissent le pilote de la limite ultime de roulage disponible avant la fin du revêtement.",
+      "variantes": [
+        "feux d'extrémité de piste"
+      ],
+      "xrefs": [
+        "feux de seuil",
+        "feux de bord de piste",
+        "numéro de piste"
+      ],
+      "domaine": "aerodrome"
+    },
+    {
+      "terme": "feux de bord de piste",
+      "definition": "Feux blancs disposés le long des bords de la piste d'atterrissage, permettant de délimiter latéralement l'aire de roulement lors des opérations nocturnes ou dans des conditions de visibilité dégradée.",
+      "variantes": [
+        "feux de bord"
+      ],
+      "xrefs": [
+        "feux d'axe",
+        "feux de seuil",
+        "feux d'extrémité"
+      ],
+      "domaine": "aerodrome"
+    },
+    {
+      "terme": "feux d'axe",
+      "definition": "Feux encastrés dans le revêtement le long de l'axe de la piste, facilitant le maintien de la trajectoire rectiligne au décollage et à l'atterrissage par mauvaise visibilité ou de nuit.",
+      "variantes": [
+        "feux d'axe de piste"
+      ],
+      "xrefs": [
+        "feux de bord de piste",
+        "feux de seuil",
+        "feux d'extrémité"
+      ],
+      "domaine": "aerodrome"
+    },
+    {
+      "terme": "PAPI",
+      "definition": "Système lumineux d'aide à l'atterrissage composé de quatre boîtiers alignés sur le côté de la piste, indiquant au pilote si son inclinaison d'approche suit la trajectoire de descente standard.",
+      "variantes": [
+        "papi",
+        "Precision Approach Path Indicator"
+      ],
+      "xrefs": [
+        "VASIS",
+        "indicateur de pente d'approche",
+        "T-VASIS"
+      ],
+      "domaine": "aerodrome"
+    },
+    {
+      "terme": "VASIS",
+      "definition": "Dispositif visuel d'indicateur de pente composé de barres de feux rouges et blancs disposées en deux échelons, fournissant un guidage visuel de descente lors de l'approche finale vers la piste.",
+      "variantes": [
+        "vasis",
+        "Visual Approach Slope Indicator"
+      ],
+      "xrefs": [
+        "PAPI",
+        "indicateur de pente d'approche",
+        "T-VASIS"
+      ],
+      "domaine": "aerodrome"
+    },
+    {
+      "terme": "indicateur de pente d'approche",
+      "definition": "Système d'aide visuelle au sol projetant des faisceaux lumineux de différentes couleurs pour guider le pilote sur une trajectoire de descente correcte et sécurisée vers la zone de toucher des roues.",
+      "variantes": [
+        "indicateurs de pente d'approche",
+        "aide visuelle à la descente"
+      ],
+      "xrefs": [
+        "PAPI",
+        "VASIS",
+        "T-VASIS"
+      ],
+      "domaine": "aerodrome"
+    },
+    {
+      "terme": "balisage de taxiway",
+      "definition": "Ensemble de feux bleus délimitant les bords des voies de circulation au sol, parfois complété par des feux d'axe verts, pour guider les aéronefs entre la piste et l'aire de trafic.",
+      "variantes": [
+        "balisage de voie de circulation"
+      ],
+      "xrefs": [
+        "aire de trafic",
+        "balisage basse intensité",
+        "balisage haute intensité"
+      ],
+      "domaine": "aerodrome"
+    },
+    {
+      "terme": "feux d'obstacle",
+      "definition": "Feux de balisage rouges, fixes ou à éclats, installés sur les structures élevées telles que les pylônes ou les bâtiments pour avertir les pilotes en vol de nuit de leur présence.",
+      "variantes": [
+        "balisage d'obstacle",
+        "feux d'obstacles"
+      ],
+      "xrefs": [
+        "obstacle",
+        "hauteur de survol",
+        "feux à éclats"
+      ],
+      "domaine": "aerodrome"
+    },
+    {
+      "terme": "télécommande du balisage",
+      "definition": "Système permettant à un pilote d'activer ou de régler l'intensité lumineuse du balisage d'un aérodrome à distance depuis son aéronef, en utilisant des impulsions sur la fréquence radio de l'aérodrome.",
+      "variantes": [
+        "activation radio du balisage"
+      ],
+      "xrefs": [
+        "PCL",
+        "balisage basse intensité",
+        "aérodrome non contrôlé"
+      ],
+      "domaine": "aerodrome"
+    },
+    {
+      "terme": "PCL",
+      "definition": "Dispositif de commande radioélectrique permettant aux pilotes d'activer eux-mêmes le balisage lumineux de l'aérodrome de nuit en émettant un nombre précis de pressions sur le bouton d'alternat radio.",
+      "variantes": [
+        "pcl",
+        "Pilot Controlled Lighting"
+      ],
+      "xrefs": [
+        "télécommande du balisage",
+        "alternat",
+        "aérodrome non contrôlé"
+      ],
+      "domaine": "aerodrome"
+    },
+    {
+      "terme": "croix blanche",
+      "definition": "Signal visuel au sol de grande dimension disposé à plat sur la piste ou l'aire de trafic, indiquant de manière explicite aux pilotes que la surface est temporairement ou définitivement interdite.",
+      "variantes": [
+        "croix blanches",
+        "marque d'interdiction"
+      ],
+      "xrefs": [
+        "signaux visuels au sol",
+        "panneau de signalisation",
+        "damier"
+      ],
+      "domaine": "aerodrome"
+    },
+    {
+      "terme": "signaux visuels au sol",
+      "definition": "Marques de couleur, panneaux ou symboles disposés dans l'aire de mouvement d'un aérodrome, fournissant des indications critiques aux pilotes pour le roulage, le stationnement ou les procédures d'atterrissage.",
+      "variantes": [
+        "balisage diurne au sol"
+      ],
+      "xrefs": [
+        "croix blanche",
+        "damier",
+        "panneau de signalisation"
+      ],
+      "domaine": "aerodrome"
+    },
+    {
+      "terme": "signaux lumineux de la tour",
+      "definition": "Faisceaux colorés projetés par la tour de contrôle à l'aide d'un projecteur à main vers un aéronef en vol ou au sol, afin de lui transmettre des instructions de sécurité prioritaires.",
+      "variantes": [
+        "feux à éclats de la tour",
+        "signaux lumineux"
+      ],
+      "xrefs": [
+        "pistolet à signaux",
+        "aérodrome contrôlé",
+        "essai radio"
+      ],
+      "domaine": "aerodrome"
+    },
+    {
+      "terme": "pistolet à signaux",
+      "definition": "Projecteur optique portatif utilisé par les contrôleurs pour émettre des signaux lumineux dirigés de couleur rouge, verte ou blanche vers un aéronef en panne radio ou sans système de communication opérationnel.",
+      "variantes": [
+        "pistolet Aldis",
+        "projecteur de signaux"
+      ],
+      "xrefs": [
+        "signaux lumineux de la tour",
+        "aérodrome contrôlé",
+        "essai radio"
+      ],
+      "domaine": "aerodrome"
+    },
+    {
+      "terme": "classe A",
+      "definition": "Espace aérien contrôlé entièrement réservé aux vols sous régime IFR, dans lequel le vol VFR est strictement interdit, sauf dérogation exceptionnelle accordée par l'autorité nationale de l'aviation civile.",
+      "variantes": [
+        "classe a",
+        "espace de classe A"
+      ],
+      "xrefs": [
+        "espace non contrôlé",
+        "conditions de vol à vue",
+        "VFR spécial"
+      ],
+      "domaine": "aerodrome"
+    },
+    {
+      "terme": "classe B",
+      "definition": "Espace aérien contrôlé dans lequel tous les vols, IFR et VFR, sont admis, soumis au service de contrôle d'aérodrome, et bénéficient d'une séparation mutuelle assurée par les contrôleurs aériens.",
+      "variantes": [
+        "classe b",
+        "espace de classe B"
+      ],
+      "xrefs": [
+        "espace non contrôlé",
+        "conditions de vol à vue",
+        "VFR spécial"
+      ],
+      "domaine": "aerodrome"
+    },
+    {
+      "terme": "classe C",
+      "definition": "Espace aérien contrôlé où les vols VFR et IFR sont admis. Les vols IFR sont séparés des autres vols, tandis que les vols VFR reçoivent une information de trafic concernant les autres VFR.",
+      "variantes": [
+        "classe c",
+        "espace de classe C"
+      ],
+      "xrefs": [
+        "information de trafic",
+        "conditions de vol à vue",
+        "espace non contrôlé"
+      ],
+      "domaine": "aerodrome"
+    },
+    {
+      "terme": "classe D",
+      "definition": "Espace aérien contrôlé de transit ou d'approche dans lequel tous les vols sont admis. Les pilotes en VFR reçoivent des informations de trafic et doivent impérativement obtenir une clairance d'entrée.",
+      "variantes": [
+        "classe d",
+        "espace de classe D"
+      ],
+      "xrefs": [
+        "information de trafic",
+        "conditions de vol à vue",
+        "aérodrome contrôlé"
+      ],
+      "domaine": "aerodrome"
+    },
+    {
+      "terme": "classe E",
+      "definition": "Espace aérien contrôlé où seuls les vols IFR reçoivent un service de contrôle continu. Les vols VFR y sont admis librement sans clairance, mais restent soumis aux règles de visibilité minimales.",
+      "variantes": [
+        "classe e",
+        "espace de classe E"
+      ],
+      "xrefs": [
+        "conditions de vol à vue",
+        "visibilité minimale",
+        "espace non contrôlé"
+      ],
+      "domaine": "aerodrome"
+    },
+    {
+      "terme": "classe F",
+      "definition": "Espace aérien de transition où un service consultatif de contrôle de la circulation aérienne et un service d'information de vol sont fournis aux aéronefs sous plan de vol IFR et VFR.",
+      "variantes": [
+        "classe f",
+        "espace de classe F"
+      ],
+      "xrefs": [
+        "secteur d'information de vol",
+        "espace non contrôlé",
+        "VFR spécial"
+      ],
+      "domaine": "aerodrome"
+    },
+    {
+      "terme": "classe G",
+      "definition": "Espace aérien non contrôlé dans lequel les vols IFR et VFR sont admis sans clairance radio. Les pilotes y assurent eux-mêmes leur sécurité selon le principe de voir et éviter.",
+      "variantes": [
+        "classe g",
+        "espace de classe G"
+      ],
+      "xrefs": [
+        "espace non contrôlé",
+        "règle « voir et éviter »",
+        "conditions de vol à vue"
+      ],
+      "domaine": "aerodrome"
+    },
+    {
+      "terme": "CTA",
+      "definition": "Région de contrôle d'un espace aérien contrôlé s'étendant vers le haut à partir d'une limite spécifiée au-dessus de la surface terrestre, protégeant les trajectoires de transit des aéronefs de voyage.",
+      "variantes": [
+        "cta",
+        "Control Area",
+        "région de contrôle"
+      ],
+      "xrefs": [
+        "voie aérienne",
+        "AWY",
+        "espace non contrôlé"
+      ],
+      "domaine": "aerodrome"
+    },
+    {
+      "terme": "AWY",
+      "definition": "Voie aérienne désignée, prenant la forme d'un couloir de contrôle à l'intérieur duquel les aéronefs en transit bénéficient de services de guidage radar ou de navigation sur des routes fixes.",
+      "variantes": [
+        "awy",
+        "Airway"
+      ],
+      "xrefs": [
+        "voie aérienne",
+        "CTA",
+        "espace non contrôlé"
+      ],
+      "domaine": "aerodrome"
+    },
+    {
+      "terme": "voie aérienne",
+      "definition": "Couloir aérien contrôlé reliant des points de report spécifiques, établi pour canaliser et sécuriser le trafic des aéronefs en voyage, généralement délimité en largeur et s'étendant sur plusieurs niveaux de vol.",
+      "variantes": [
+        "voies aériennes",
+        "couloir aérien"
+      ],
+      "xrefs": [
+        "AWY",
+        "CTA",
+        "niveau de croisière"
+      ],
+      "domaine": "aerodrome"
+    },
+    {
+      "terme": "zone P",
+      "definition": "Espace aérien de dimension définie au-dessus du territoire national dans lequel le vol des aéronefs est interdit de manière permanente pour des raisons de sécurité militaire ou de protection nationale.",
+      "variantes": [
+        "zone interdite",
+        "Prohibited Area"
+      ],
+      "xrefs": [
+        "zone R",
+        "zone D",
+        "complément aux cartes"
+      ],
+      "domaine": "aerodrome"
+    },
+    {
+      "terme": "zone R",
+      "definition": "Espace aérien réglementé dans lequel le vol d'aéronefs est soumis à des conditions spécifiques de pénétration ou d'horaires d'activité, nécessitant généralement un contact radio obligatoire pour le pilote en transit.",
+      "variantes": [
+        "zone réglementée",
+        "Restricted Area"
+      ],
+      "xrefs": [
+        "zone P",
+        "zone D",
+        "secteur d'information de vol"
+      ],
+      "domaine": "aerodrome"
+    },
+    {
+      "terme": "zone D",
+      "definition": "Espace aérien de dimension définie à l'intérieur duquel peuvent se dérouler des activités dangereuses pour le vol des aéronefs, telles que des tirs militaires ou des entraînements de voltige intense.",
+      "variantes": [
+        "zone dangereuse",
+        "Danger Area"
+      ],
+      "xrefs": [
+        "zone P",
+        "zone R",
+        "complément aux cartes"
+      ],
+      "domaine": "aerodrome"
+    },
+    {
+      "terme": "secteur d'information de vol",
+      "definition": "Espace aérien de dimensions définies à l'intérieur duquel un service d'information de vol et un service d'alerte sont assurés aux équipages afin de maintenir la sécurité de la navigation aérienne générale.",
+      "variantes": [
+        "SIV",
+        "secteurs d'information de vol"
+      ],
+      "xrefs": [
+        "espace non contrôlé",
+        "service d'alerte",
+        "SIA"
+      ],
+      "domaine": "aerodrome"
+    },
+    {
+      "terme": "espace non contrôlé",
+      "definition": "Partie de l'espace aérien dans laquelle aucun service de contrôle de la circulation aérienne n'est fourni. Les pilotes y naviguent sous leur propre responsabilité, en appliquant les règles d'évitement visuel.",
+      "variantes": [
+        "espaces non contrôlés",
+        "espace aérien de classe G"
+      ],
+      "xrefs": [
+        "classe G",
+        "secteur d'information de vol",
+        "règle « voir et éviter »"
+      ],
+      "domaine": "aerodrome"
+    },
+    {
+      "terme": "VFR spécial",
+      "definition": "Vol à vue autorisé par le contrôle de la circulation aérienne à l'intérieur d'une zone de contrôle, dans des conditions météorologiques inférieures aux conditions de vol à vue standard.",
+      "variantes": [
+        "vfr spécial",
+        "clairance VFR spécial"
+      ],
+      "xrefs": [
+        "conditions de vol à vue",
+        "visibilité météo",
+        "aérodrome contrôlé"
+      ],
+      "domaine": "aerodrome"
+    },
+    {
+      "terme": "carte OACI 1/500 000",
+      "definition": "Carte aéronautique de référence pour la navigation à vue à basse altitude, affichant des détails topographiques précis, les zones de relief et la structure complexe des espaces aériens réglementés nationaux.",
+      "variantes": [
+        "carte de navigation OACI",
+        "carte 500k"
+      ],
+      "xrefs": [
+        "navigation à vue",
+        "échelle",
+        "complément aux cartes"
+      ],
+      "domaine": "aerodrome"
+    },
+    {
+      "terme": "SIA",
+      "definition": "Organisme officiel chargé de publier l'information aéronautique nécessaire à la sécurité, à la régularité et à l'efficacité de la navigation aérienne, incluant les cartes d'aérodrome et les messages d'alerte.",
+      "variantes": [
+        "sia",
+        "Service de l'Information Aéronautique"
+      ],
+      "xrefs": [
+        "AIC",
+        "complément aux cartes",
+        "AD"
+      ],
+      "domaine": "aerodrome"
+    },
+    {
+      "terme": "AIC",
+      "definition": "Publication officielle du SIA diffusant des informations d'ordre administratif, technique ou réglementaire qui ne justifient pas la publication immédiate d'un NOTAM ou d'une modification permanente de l'AIP.",
+      "variantes": [
+        "aic",
+        "Circulaire d'Information Aéronautique"
+      ],
+      "xrefs": [
+        "SIA",
+        "complément aux cartes",
+        "AD"
+      ],
+      "domaine": "aerodrome"
+    },
+    {
+      "terme": "index",
+      "definition": "Valeur numérique de référence calculée lors du devis de masse en divisant le moment total de l'aéronef par une constante de réduction, facilitant l'intégration rapide dans l'enveloppe de centrage.",
+      "variantes": [
+        "index de centrage",
+        "indices"
+      ],
+      "xrefs": [
+        "moment",
+        "masse et bras de levier",
+        "enveloppe de centrage"
+      ],
+      "domaine": "aero-perfs"
+    },
+    {
+      "terme": "masse sans carburant",
+      "definition": "Masse totale théorique de l'aéronef comprenant sa structure, les passagers et les bagages embarqués, mais excluant tout carburant utilisable. Elle sert à vérifier la résistance des jonctions voilure-fuselage.",
+      "variantes": [
+        "MZFW",
+        "Zero Fuel Weight"
+      ],
+      "xrefs": [
+        "masse maximale au décollage",
+        "masse et bras de levier"
+      ],
+      "domaine": "aero-perfs"
+    },
+    {
+      "terme": "catégorie utilitaire",
+      "definition": "Classification de certification des aéronefs autorisant des manœuvres de vol plus exigeantes qu'en catégorie normale, comme les virages serrés, sous réserve de respecter des limites structurales de charge plus restrictives.",
+      "variantes": [
+        "catégories utilitaires",
+        "homologation utilitaire"
+      ],
+      "xrefs": [
+        "catégorie normale",
+        "catégorie voltige",
+        "facteur de charge limite"
+      ],
+      "domaine": "aero-perfs"
+    },
+    {
+      "terme": "catégorie voltige",
+      "definition": "Classification réglementaire de certification de la cellule d'un aéronef l'autorisant à effectuer des manœuvres acrobatiques extrêmes sans limitation de factor de charge autre que les limites structurales très élevées constructeur.",
+      "variantes": [
+        "catégories voltiges",
+        "homologation voltige"
+      ],
+      "xrefs": [
+        "catégorie normale",
+        "catégorie utilitaire",
+        "facteur de charge limite"
+      ],
+      "domaine": "aero-perfs"
+    },
+    {
+      "terme": "fuselage treillis",
+      "definition": "Type de structure de cellule aéronautique constituée de tubes métalliques assemblés et soudés en forme de triangles rigides, généralement recouverte de toile ou de panneaux légers non structurels.",
+      "variantes": [
+        "fuselages treillis",
+        "structure en treillis"
+      ],
+      "xrefs": [
+        "fuselage semi-monocoque",
+        "fuselage monocoque"
+      ],
+      "domaine": "aero-perfs"
+    },
+    {
+      "terme": "fuselage monocoque",
+      "definition": "Concept architectural de cellule où l'ensemble des efforts mécaniques de torsion, flexion et compression est entièrement supporté par la paroi extérieure de l'aéronef, sans renfort interne longitudinal de type lisse.",
+      "variantes": [
+        "fuselages monocoques",
+        "structure monocoque"
+      ],
+      "xrefs": [
+        "fuselage semi-monocoque",
+        "revêtement travaillant",
+        "fuselage treillis"
+      ],
+      "domaine": "aero-perfs"
+    },
+    {
+      "terme": "atterrisseur",
+      "definition": "Organe mécanique structural d'un aéronef assurant les fonctions indispensables d'absorption des chocs de l'atterrissage, de freinage efficace et de guidage au sol de l'appareil lors du roulage.",
+      "variantes": [
+        "atterrisseurs",
+        "train d'atterrissage"
+      ],
+      "xrefs": [
+        "train classique",
+        "train tricycle",
+        "amortisseur"
+      ],
+      "domaine": "aero-perfs"
+    },
+    {
+      "terme": "aire de sécurité d'extrémité",
+      "definition": "Zone de protection entourant le prolongement d'arrêt et de décollage, destinée à réduire les risques de dommages structurels majeurs à un aéronef effectuant un atterrissage trop court ou un dépassement de piste accidentel.",
+      "variantes": [
+        "aire de sécurité d'extrémité de piste"
+      ],
+      "xrefs": [
+        "RESA",
+        "stopway",
+        "prolongement dégagé"
+      ],
+      "domaine": "aerodrome"
+    },
+    {
+      "terme": "RESA",
+      "definition": "Terme aéronautique international désignant l'aire de sécurité d'extrémité de piste conçue pour minimiser la gravité des accidents de sortie de piste lors de phases d'atterrissage ou de décollage interrompu.",
+      "variantes": [
+        "resa",
+        "Runway End Safety Area"
+      ],
+      "xrefs": [
+        "aire de sécurité d'extrémité",
+        "stopway",
+        "clearway"
+      ],
+      "domaine": "aerodrome"
+    },
+    {
+      "terme": "raquette de retournement",
+      "definition": "Surface de raccordement de forme circulaire ou élargie située à l'extrémité d'une piste étroite, permettant aux aéronefs d'effectuer un demi-tour complet à 180 degrés en toute sécurité pour s'aligner.",
+      "variantes": [
+        "raquettes de retournement",
+        "raquette d'extrémité"
+      ],
+      "xrefs": [
+        "bretelle",
+        "dégagement de piste",
+        "numéro de piste"
+      ],
+      "domaine": "aerodrome"
+    },
+    {
+      "terme": "bretelle",
+      "definition": "Voie de raccordement reliant la piste d'atterrissage à la voie de circulation ou à l'aire de trafic, permettant le dégagement rapide des aéronefs après le toucher des roues.",
+      "variantes": [
+        "bretelles",
+        "voie de sortie"
+      ],
+      "xrefs": [
+        "dégagement de piste",
+        "balisage de taxiway",
+        "raquette de retournement"
+      ],
+      "domaine": "aerodrome"
+    },
+    {
+      "terme": "résistance de piste",
+      "definition": "Capacité portante structurelle du revêtement d'une piste à supporter le poids répété d'aéronefs en mouvement sans subir d'affaissement, exprimée de manière normalisée selon une classification technique internationale.",
+      "variantes": [
+        "résistances de piste",
+        "portance de piste"
+      ],
+      "xrefs": [
+        "PCN",
+        "surface revêtue",
+        "nature de surface"
+      ],
+      "domaine": "aerodrome"
+    },
+    {
+      "terme": "PCN",
+      "definition": "Code standardisé international indiquant la résistance structurelle d'une piste revêtue, permettant de vérifier la compatibilité avec le poids de l'aéronef pour éviter d'endommager la structure au sol.",
+      "variantes": [
+        "pcn",
+        "Pavement Classification Number"
+      ],
+      "xrefs": [
+        "résistance de piste",
+        "nature de surface",
+        "surface revêtue"
+      ],
+      "domaine": "aerodrome"
+    },
+    {
+      "terme": "point cible",
+      "definition": "Repère visuel peint sur la piste d'un aérodrome servant de point de visée optimal pour le pilote effectuant son approche finale, indiquant le début idéal de la zone de toucher des roues.",
+      "variantes": [
+        "points cibles",
+        "point de visée"
+      ],
+      "xrefs": [
+        "zone de toucher des roues",
+        "marques de guidage",
+        "numéro de piste"
+      ],
+      "domaine": "aerodrome"
+    },
+    {
+      "terme": "zone de toucher des roues",
+      "definition": "Partie de la piste située immédiatement après le seuil, spécialement renforcée et balisée par de larges marques rectangulaires blanches, où les aéronefs effectuent leur premier contact physique lors de l'atterrissage.",
+      "variantes": [
+        "zone de toucher",
+        "aires de toucher"
+      ],
+      "xrefs": [
+        "point cible",
+        "feux de seuil",
+        "marques de guidage"
+      ],
+      "domaine": "aerodrome"
+    },
+    {
+      "terme": "marques de guidage",
+      "definition": "Lignes de couleur peintes sur le revêtement des voies de circulation, des pistes et des aires de trafic, destinées à guider le pilote pour maintenir le train principal de l'aéronef sur l'axe sécurisé.",
+      "variantes": [
+        "marquage au sol",
+        "marques de guidage au sol"
+      ],
+      "xrefs": [
+        "point d'attente intermédiaire",
+        "balisage de taxiway",
+        "point cible"
+      ],
+      "domaine": "aerodrome"
+    },
+    {
+      "terme": "point d'attente intermédiaire",
+      "definition": "Emplacement matérialisé sur une voie de circulation secondaire où un aéronef au sol doit s'arrêter et attendre des instructions du contrôle ou vérifier la liberté d'accès avant de poursuivre son roulage.",
+      "variantes": [
+        "points d'attente intermédiaires"
+      ],
+      "xrefs": [
+        "barre d'arrêt",
+        "HOLD SHORT",
+        "marques de guidage"
+      ],
+      "domaine": "aerodrome"
+    },
+    {
+      "terme": "barre d'arrêt",
+      "definition": "Ligne transversale de feux rouges encastrés dans le revêtement d'un taxiway, indiquant l'interdiction absolue de franchir sans clairance explicite du contrôle d'aérodrome, protégeant l'accès direct aux pistes de décollage.",
+      "variantes": [
+        "barres d'arrêt"
+      ],
+      "xrefs": [
+        "point d'attente intermédiaire",
+        "balisage de taxiway",
+        "aérodrome contrôlé"
+      ],
+      "domaine": "aerodrome"
+    },
+    {
+      "terme": "feux à éclats",
+      "definition": "Dispositif lumineux produisant des flashs à haute intensité, utilisé sur le balisage d'approche, le seuil de piste ou les pylônes pour attirer l'attention des pilotes et améliorer l'identification de nuit.",
+      "variantes": [
+        "feux à éclats blancs",
+        "flashs lumineux"
+      ],
+      "xrefs": [
+        "balisage haute intensité",
+        "feux d'obstacle",
+        "phare d'aérodrome"
+      ],
+      "domaine": "aerodrome"
+    },
+    {
+      "terme": "T-VASIS",
+      "definition": "Indicateur visuel de pente d'approche en forme de T composé de several boîtiers de feux, fournissant des indications d'écarts de hauteur précis par rapport au plan de descente standard lors de l'approche finale.",
+      "variantes": [
+        "t-vasis",
+        "T-Visual Approach Slope Indicator"
+      ],
+      "xrefs": [
+        "VASIS",
+        "PAPI",
+        "indicateur de pente d'approche"
+      ],
+      "domaine": "aerodrome"
+    },
+    {
+      "terme": "phare d'aérodrome",
+      "definition": "Projecteur rotatif puissant installé en hauteur sur l'aérodrome, émettant des signaux lumineux visibles à grande distance pour guider visuellement les aéronefs de nuit vers la plateforme.",
+      "variantes": [
+        "phares d'aérodrome"
+      ],
+      "xrefs": [
+        "balisage basse intensité",
+        "feux à éclats",
+        "plateforme"
+      ],
+      "domaine": "aerodrome"
+    },
+    {
+      "terme": "balisage basse intensité",
+      "definition": "Système de feux de faible puissance utilisé de nuit par temps clair sur les aérodromes de taille modeste, suffisant pour assurer l'identification visuelle de la piste d'atterrissage par le pilote en approche.",
+      "variantes": [
+        "balisage LIL",
+        "basse intensité"
+      ],
+      "xrefs": [
+        "balisage haute intensité",
+        "feux de bord de piste",
+        "phare d'aérodrome"
+      ],
+      "domaine": "aerodrome"
+    },
+    {
+      "terme": "balisage haute intensité",
+      "definition": "Système de feux de forte puissance réglable, installé sur les pistes d'aérodromes importants, permettant de guider les pilotes lors des approches finales de nuit ou par des conditions météorologiques de mauvaise visibilité.",
+      "variantes": [
+        "balisage HI",
+        "haute intensité"
+      ],
+      "xrefs": [
+        "balisage basse intensité",
+        "feux à éclats",
+        "feux d'axe"
+      ],
+      "domaine": "aerodrome"
+    },
+    {
+      "terme": "damier",
+      "definition": "Marquage diurne constitué de grands carrés peints alternativement de deux couleurs contrastées, disposé sur les obstacles élevés ou les véhicules de piste afin d'optimiser leur visibilité pour les aéronefs.",
+      "variantes": [
+        "damiers",
+        "marquage en damier"
+      ],
+      "xrefs": [
+        "croix blanche",
+        "obstacle",
+        "signaux visuels au sol"
+      ],
+      "domaine": "aerodrome"
+    },
+    {
+      "terme": "panneau de signalisation",
+      "definition": "Panneau rigide éclairé ou rétro-réfléchissant implanté au bord des voies de circulation, transmettant des consignes de direction, d'emplacement ou d'obligation de roulage critiques pour les pilotes au sol.",
+      "variantes": [
+        "panneaux de signalisation",
+        "panneau de taxiway"
+      ],
+      "xrefs": [
+        "marques de guidage",
+        "point d'attente intermédiaire",
+        "barre d'arrêt"
+      ],
+      "domaine": "aerodrome"
+    },
+    {
+      "terme": "zone de ségrégation",
+      "definition": "Secteur délimité au sol sur un aérodrome permettant d'isoler temporairement un aéronef présentant un danger de sécurité immédiat, comme une menace d'attentat ou des matières dangereuses instables à bord.",
+      "variantes": [
+        "zones de ségrégation",
+        "aire d'isolement"
+      ],
+      "xrefs": [
+        "aire de trafic",
+        "aérodrome contrôlé",
+        "dégagement de piste"
+      ],
+      "domaine": "aerodrome"
+    },
+    {
+      "terme": "AD",
+      "definition": "Abréviation réglementaire internationale pour deésigner un aérodrome. Elle est largement employée sur les cartes de navigation, les NOTAM et l'ensemble de la documentation d'information aéronautique officielle.",
+      "variantes": [
+        "ad",
+        "Aerodrome"
+      ],
+      "xrefs": [
+        "SIA",
+        "carte OACI 1/500 000",
+        "aérodrome contrôlé"
+      ],
+      "domaine": "aerodrome"
+    },
+    {
+      "terme": "complément aux cartes",
+      "definition": "Document d'information aéronautique national imprimé et publié périodiquement par le SIA, fournissant des données opérationnelles et administratives détaillées indispensables concernant l'ensemble des aérodromes du territoire.",
+      "variantes": [
+        "complément d'information cartes",
+        "cartes complémentaires"
+      ],
+      "xrefs": [
+        "SIA",
+        "carte OACI 1/500 000",
+        "AD"
+      ],
+      "domaine": "aerodrome"
+    },
+    {
+      "terme": "échelle",
+      "definition": "Rapport mathématique constant entre la distance mesurée sur une carte aéronautique de navigation et la distance réelle correspondante à la surface terrestre, essentiel pour l'évaluation correcte des distances en vol.",
+      "variantes": [
+        "échelles",
+        "échelle cartographique"
+      ],
+      "xrefs": [
+        "carte OACI 1/500 000",
+        "grand cercle",
+        "estime"
+      ],
+      "domaine": "aerodrome"
+    },
+    {
+      "terme": "plateforme",
+      "definition": "Terme usuel désignant l'ensemble des infrastructures aéronautiques au sol d'un aérodrome, comprenant les pistes, les aires de trafic, les voies de circulation et les installations d'accueil destinées aux aéronefs légers.",
+      "variantes": [
+        "plateformes",
+        "plate-forme"
+      ],
+      "xrefs": [
+        "AD",
+        "aire de mouvement",
+        "aérodrome contrôlé"
+      ],
+      "domaine": "aerodrome"
+    },
+    {
+      "terme": "nature de surface",
+      "definition": "Description technique du type de matériau constituant la surface de roulement d'une piste d'aérodrome, influençant de manière importante les distances réelles d'atterrissage et de décollage calculées par le pilote.",
+      "variantes": [
+        "natures de surface",
+        "revêtement de piste"
+      ],
+      "xrefs": [
+        "résistance de piste",
+        "surface revêtue",
+        "surface en gazon"
+      ],
+      "domaine": "aerodrome"
+    },
+    {
+      "terme": "surface revêtue",
+      "definition": "Piste d'aérodrome construite en asphalte, en béton ou en macadam, offrant une excellente résistance au roulage et minimisant l'impact des conditions de pluie sur le freinage de l'aéronef.",
+      "variantes": [
+        "surfaces revêtues",
+        "piste en dur"
+      ],
+      "xrefs": [
+        "nature de surface",
+        "résistance de piste",
+        "surface en gazon"
+      ],
+      "domaine": "aerodrome"
+    },
+    {
+      "terme": "surface en gazon",
+      "definition": "Piste d'aérodrome constituée d'herbe compactée non revêtue. Elle augmente la traînée de roulement au décollage et exige du pilote un calcul minutieux des distances d'atterrissage selon l'humidité du sol.",
+      "variantes": [
+        "surfaces en gazon",
+        "piste en herbe"
+      ],
+      "xrefs": [
+        "nature de surface",
+        "surface revêtue",
+        "effet de l'état de surface"
+      ],
+      "domaine": "aerodrome"
+    }
+  ]
+}

@@ -1,0 +1,1236 @@
+{
+  "lot": 5,
+  "fiches": [
+    {
+      "terme": "parallèle",
+      "definition": "Ligne imaginaire reliant tous les points de même latitude sur la surface de la Terre, perpendiculaire aux méridiens et servant de base aux coordonnées géographiques en navigation.",
+      "variantes": [
+        "parallèles"
+      ],
+      "xrefs": [
+        "latitude",
+        "longitude",
+        "méridien",
+        "loxodromie"
+      ],
+      "domaine": "nav-radio"
+    },
+    {
+      "terme": "projection Lambert",
+      "definition": "Projection cartographique conique conforme utilisée pour les cartes aéronautiques à moyenne latitude. Elle conserve les angles et les formes locales avec une distorsion minimale des distances.",
+      "variantes": [
+        "projection conique conforme"
+      ],
+      "xrefs": [
+        "projection",
+        "projection Mercator",
+        "loxodromie",
+        "orthodromie"
+      ],
+      "domaine": "nav-radio"
+    },
+    {
+      "terme": "projection Mercator",
+      "definition": "Projection cartographique cylindrique conforme où les méridiens et parallèles sont représentés par des droites perpendiculaires permettant de tracer des routes loxodromiques en ligne droite sur la carte.",
+      "variantes": [
+        "projection cylindrique Mercator",
+        "Mercator"
+      ],
+      "xrefs": [
+        "projection",
+        "projection Lambert",
+        "loxodromie",
+        "orthodromie"
+      ],
+      "domaine": "nav-radio"
+    },
+    {
+      "terme": "équateur",
+      "definition": "Grand cercle imaginaire perpendiculaire à l'axe de rotation terrestre qui sépare les hémisphères nord et sud et définit la latitude zéro en navigation aérienne.",
+      "variantes": [
+        "équateur terrestre"
+      ],
+      "xrefs": [
+        "latitude",
+        "longitude",
+        "grand cercle",
+        "coordonnées géographiques"
+      ],
+      "domaine": "nav-radio"
+    },
+    {
+      "terme": "121,5 MHz",
+      "definition": "Fréquence de radiocommunication aéronautique internationale réservée aux situations de détresse et d'urgence permettant aux pilotes d'émettre des appels de secours et de recevoir de l'assistance.",
+      "variantes": [
+        "fréquence de détresse",
+        "121.5 MHz"
+      ],
+      "xrefs": [
+        "ELT",
+        "PAN PAN",
+        "DETRESFA",
+        "SAR"
+      ],
+      "domaine": "nav-radio"
+    },
+    {
+      "terme": "25 kHz",
+      "definition": "Intervalle de fréquence de vingt-cinq kilohertz séparant les canaux VHF en radiocommunications aéronautiques afin d'optimiser l'utilisation du spectre pour les échanges entre pilotes et contrôleurs.",
+      "variantes": [
+        "25 kilohertz",
+        "espacement 25 kHz"
+      ],
+      "xrefs": [
+        "121,5 MHz",
+        "canal 8,33 kHz",
+        "hz"
+      ],
+      "domaine": "nav-radio"
+    },
+    {
+      "terme": "AFFIRM",
+      "definition": "Terme standardisé de la phraséologie aéronautique indiquant une réponse affirmative à une question ou une autorisation émise par un organisme de la circulation aérienne.",
+      "variantes": [
+        "Affirmatif"
+      ],
+      "xrefs": [
+        "NEGATIVE",
+        "WILCO",
+        "STANDBY",
+        "CLEARED"
+      ],
+      "domaine": "nav-radio"
+    },
+    {
+      "terme": "CLEARED",
+      "definition": "Désigne l'autorisation accordée par le contrôle aérien à un aéronef pour réaliser une action précise telle que le décollage, l'atterrissage ou un changement de cap.",
+      "variantes": [
+        "CLEARED TO",
+        "CLEARED FOR"
+      ],
+      "xrefs": [
+        "autorisation",
+        "AFFIRM",
+        "WILCO",
+        "HOLD SHORT"
+      ],
+      "domaine": "nav-radio"
+    },
+    {
+      "terme": "HOLD SHORT",
+      "definition": "Instruction de phraséologie utilisée en radiotéléphonie aéronautique pour ordonner à un aéronef de s'arrêter avant une piste ou une voie de circulation sans la traverser ni y pénétrer.",
+      "variantes": [
+        "hold short of",
+        "HOLD-SHORT"
+      ],
+      "xrefs": [
+        "LINE UP",
+        "TWR",
+        "CLEARED",
+        "autorisation"
+      ],
+      "domaine": "nav-radio"
+    },
+    {
+      "terme": "LINE UP",
+      "definition": "Instruction de la tour de contrôle autorisant un aéronef à s'engager sur la piste et à s'aligner pour le décollage sans toutefois autoriser le décollage lui-même.",
+      "variantes": [
+        "line-up"
+      ],
+      "xrefs": [
+        "TWR",
+        "autorisation",
+        "HOLD SHORT",
+        "CLEARED"
+      ],
+      "domaine": "nav-radio"
+    },
+    {
+      "terme": "NEGATIVE",
+      "definition": "En radiotéléphonie aéronautique, NEGATIVE signifie non ou refus et sert à répondre négativement à une question ou à une demande formulée par un organisme de la circulation aérienne.",
+      "variantes": [
+        "négatif"
+      ],
+      "xrefs": [
+        "AFFIRM",
+        "WILCO",
+        "STANDBY",
+        "CLEARED"
+      ],
+      "domaine": "nav-radio"
+    },
+    {
+      "terme": "PAN PAN",
+      "definition": "En phraséologie aéronautique le signal PAN PAN annonce une urgence à bord d'un aéronef qui requiert une aide rapide mais ne met pas en péril la vie des occupants de manière imminente.",
+      "variantes": [
+        "pan-pan",
+        "PAN-PAN"
+      ],
+      "xrefs": [
+        "DETRESFA",
+        "INCERFA",
+        "message d'urgence",
+        "phases d'urgence"
+      ],
+      "domaine": "nav-radio"
+    },
+    {
+      "terme": "STANDBY",
+      "definition": "En phraséologie aéronautique le terme standby indique à l'interlocuteur qu'il doit patienter et ne pas transmettre jusqu'à ce qu'une nouvelle communication soit établie par le contrôleur.",
+      "variantes": [
+        "stand by"
+      ],
+      "xrefs": [
+        "WILCO",
+        "AFFIRM",
+        "NEGATIVE",
+        "autorisation"
+      ],
+      "domaine": "nav-radio"
+    },
+    {
+      "terme": "WILCO",
+      "definition": "En phraséologie aéronautique, WILCO est le terme standard employé par le pilote pour indiquer qu'il a bien reçu et compris l'instruction transmise par le contrôleur et qu'il s'engage à la respecter.",
+      "variantes": [
+        "will comply"
+      ],
+      "xrefs": [
+        "AFFIRM",
+        "STANDBY",
+        "CLEARED"
+      ],
+      "domaine": "nav-radio"
+    },
+    {
+      "terme": "accusé de réception",
+      "definition": "Réponse standardisée émise par un pilote ou un contrôleur pour confirmer la bonne réception et la compréhension d'un message radio transmis en phraséologie aéronautique.",
+      "variantes": [
+        "accusés de réception",
+        "Roger"
+      ],
+      "xrefs": [
+        "WILCO",
+        "AFFIRM",
+        "STANDBY"
+      ],
+      "domaine": "nav-radio"
+    },
+    {
+      "terme": "alphabet OACI",
+      "definition": "Alphabet phonétique standardisé par l'OACI pour épeler les lettres lors des communications radio afin d'éviter les confusions dues aux similarités sonores entre les lettres.",
+      "variantes": [
+        "alphabet phonétique",
+        "alphabet radio OACI"
+      ],
+      "xrefs": [
+        "chiffres en phraséologie",
+        "essai radio",
+        "lisibilité 1 à 5"
+      ],
+      "domaine": "nav-radio"
+    },
+    {
+      "terme": "autorisation",
+      "definition": "Instruction ou permission émise par un organisme ATC autorisant un aéronef à exécuter une procédure ou un mouvement donné dans le respect des conditions de sécurité.",
+      "variantes": [
+        "clearance"
+      ],
+      "xrefs": [
+        "CLEARED",
+        "TWR",
+        "APP",
+        "HOLD SHORT"
+      ],
+      "domaine": "nav-radio"
+    },
+    {
+      "terme": "blocage micro",
+      "definition": "Incident radio dans lequel le poussoir de transmission reste enfoncé, bloquant ainsi la fréquence et empêchant les communications des autres usagers de l'espace aérien.",
+      "variantes": [
+        "micro bloqué",
+        "PTT bloqué"
+      ],
+      "xrefs": [
+        "essai radio",
+        "autorisation",
+        "message d'urgence",
+        "STANDBY"
+      ],
+      "domaine": "nav-radio"
+    },
+    {
+      "terme": "canal 8,33 kHz",
+      "definition": "Espacement de canal radio VHF en aviation qui divise l'intervalle traditionnel de 25 kHz en trois canaux distincts afin d'accroître la capacité du spectre fréquentiel.",
+      "variantes": [
+        "8,33 kHz"
+      ],
+      "xrefs": [
+        "25 kHz",
+        "hz"
+      ],
+      "domaine": "nav-radio"
+    },
+    {
+      "terme": "chiffres en phraséologie",
+      "definition": "Procédure de prononciation des nombres en radiotéléphonie aéronautique où chaque chiffre est énoncé séparément pour garantir une compréhension précise lors des échanges avec les services de la circulation aérienne.",
+      "variantes": [
+        "prononciation des chiffres",
+        "chiffres radiophoniques"
+      ],
+      "xrefs": [
+        "alphabet OACI",
+        "lisibilité 1 à 5",
+        "WILCO"
+      ],
+      "domaine": "nav-radio"
+    },
+    {
+      "terme": "détresse",
+      "definition": "État d'urgence critique dans lequel un aéronef requiert une aide immédiate en raison d'un danger grave et imminent pour sa sécurité ou celle de ses occupants.",
+      "variantes": [
+        "phase de détresse"
+      ],
+      "xrefs": [
+        "INCERFA",
+        "ALERFA",
+        "PAN PAN",
+        "service d'alerte"
+      ],
+      "domaine": "nav-radio"
+    },
+    {
+      "terme": "essai radio",
+      "definition": "Transmission effectuée par un pilote pour vérifier le bon fonctionnement de son équipement radio et la qualité de la réception par la station au sol avant le décollage.",
+      "variantes": [
+        "vérification radio"
+      ],
+      "xrefs": [
+        "AD",
+        "essais moteur",
+        "TWR",
+        "agent AFIS"
+      ],
+      "domaine": "nav-radio"
+    },
+    {
+      "terme": "information de trafic",
+      "definition": "Information transmise par un service de contrôle ou d'information de vol concernant les aéronefs évoluant dans la même zone pour prévenir les risques de collision.",
+      "variantes": [
+        "informations de trafic"
+      ],
+      "xrefs": [
+        "auto-information",
+        "secteur d'information de vol",
+        "aire de trafic"
+      ],
+      "domaine": "nav-radio"
+    },
+    {
+      "terme": "instruction",
+      "definition": "Instruction désigne une directive émise par un service de la circulation aérienne à destination d'un pilote afin de réguler le mouvement des aéronefs et garantir la sécurité des vols.",
+      "variantes": [
+        "instructions ATC"
+      ],
+      "xrefs": [
+        "autorisation",
+        "APP",
+        "TWR",
+        "CLEARED"
+      ],
+      "domaine": "nav-radio"
+    },
+    {
+      "terme": "lisibilité 1 à 5",
+      "definition": "Échelle utilisée en phraséologie aéronautique pour évaluer la clarté d'un message radio sur une échelle de un à cinq où cinq correspond à une réception excellente.",
+      "variantes": [
+        "échelle de lisibilité"
+      ],
+      "xrefs": [
+        "essai radio",
+        "alphabet OACI",
+        "chiffres en phraséologie"
+      ],
+      "domaine": "nav-radio"
+    },
+    {
+      "terme": "message d'urgence",
+      "definition": "Un message d'urgence est une communication radio émise par un aéronef pour signaler une situation nécessitant une assistance immédiate sans danger imminent de mort.",
+      "variantes": [
+        "messages d'urgence"
+      ],
+      "xrefs": [
+        "phases d'urgence",
+        "urgence",
+        "PAN PAN",
+        "DETRESFA"
+      ],
+      "domaine": "nav-radio"
+    },
+    {
+      "terme": "transpondeur en mode standby",
+      "definition": "Mode de fonctionnement du transpondeur dans lequel l'appareil est alimenté en électricité mais ne répond pas aux interrogations radar et n'émet aucun signal de réponse.",
+      "variantes": [
+        "mode standby"
+      ],
+      "xrefs": [
+        "mode A",
+        "mode C",
+        "mode S",
+        "STANDBY"
+      ],
+      "domaine": "nav-radio"
+    },
+    {
+      "terme": "urgence",
+      "definition": "Dans le contexte de la navigation et des radiocommunications aéronautiques, l'urgence désigne une situation critique pour un aéronef qui requiert une aide rapide sans impliquer un péril mortel imminent.",
+      "variantes": [
+        "situation d'urgence"
+      ],
+      "xrefs": [
+        "message d'urgence",
+        "phases d'urgence",
+        "PAN PAN"
+      ],
+      "domaine": "nav-radio"
+    },
+    {
+      "terme": "mille nautique",
+      "definition": "Le mille nautique est une unité de mesure de distance utilisée en navigation aérienne et maritime correspondant à une minute d'arc de méridien soit environ mille huit cent cinquante deux mètres.",
+      "variantes": [
+        "NM",
+        "mille marin"
+      ],
+      "xrefs": [
+        "latitude",
+        "longitude",
+        "loxodromie",
+        "orthodromie"
+      ],
+      "domaine": "nav-radio"
+    },
+    {
+      "terme": "facteur de conversion pied/mètre",
+      "definition": "Le facteur de conversion pied par mètre est le coefficient multiplicatif appliqué aux altitudes pour obtenir des hauteurs en unités métriques lors des navigations.",
+      "variantes": [
+        "facteur pied/mètre"
+      ],
+      "xrefs": [
+        "facteur de correction",
+        "mètre",
+        "altitude",
+        "hauteur"
+      ],
+      "domaine": "nav-radio"
+    },
+    {
+      "terme": "gallon",
+      "definition": "Terme désignant une unité de capacité volumique d'origine anglo-saxonne servant à exprimer les quantités de carburant ou d'autres liquides dans le contexte aéronautique international.",
+      "variantes": [
+        "gal"
+      ],
+      "xrefs": [
+        "litre/gallon",
+        "litre",
+        "kilogramme"
+      ],
+      "domaine": "nav-radio"
+    },
+    {
+      "terme": "heure locale",
+      "definition": "L'heure locale correspond au temps solaire déterminé par la longitude d'un point sur la Terre et sert de référence pour les opérations de navigation aérienne et les plans de vol.",
+      "variantes": [
+        "temps local"
+      ],
+      "xrefs": [
+        "longitude",
+        "méridien",
+        "coordonnées géographiques"
+      ],
+      "domaine": "nav-radio"
+    },
+    {
+      "terme": "inHg",
+      "definition": "Unité de mesure de pression atmosphérique en pouces de mercure servant au calage altimétrique et à l'affichage des valeurs barométriques dans les instruments aéronautiques.",
+      "variantes": [
+        "pouce de mercure"
+      ],
+      "xrefs": [
+        "pouce de mercure",
+        "pression atmosphérique",
+        "1013,25 hPa",
+        "correcteur d'altitude"
+      ],
+      "domaine": "nav-radio"
+    },
+    {
+      "terme": "kilogramme",
+      "definition": "Unité fondamentale de masse dans le système international équivalant à mille grammes et servant à quantifier le poids des aéronefs du carburant et des charges en aéronautique.",
+      "variantes": [
+        "kg",
+        "kilogram"
+      ],
+      "xrefs": [
+        "masse et bras de levier",
+        "charge utile",
+        "masse maximale au décollage"
+      ],
+      "domaine": "nav-radio"
+    },
+    {
+      "terme": "kilomètre",
+      "definition": "Unité métrique de distance correspondant à mille mètres, fréquemment employée dans les calculs de navigation et les communications radio pour indiquer les distances et les couvertures.",
+      "variantes": [
+        "km"
+      ],
+      "xrefs": [
+        "mètre",
+        "mille nautique"
+      ],
+      "domaine": "nav-radio"
+    },
+    {
+      "terme": "litre",
+      "definition": "Unité métrique de volume servant à quantifier le carburant ou les liquides dans les aéronefs, les réservoirs et les systèmes d'alimentation en aviation générale.",
+      "variantes": [
+        "litres",
+        "L"
+      ],
+      "xrefs": [
+        "litre/gallon",
+        "gallon",
+        "kilogramme"
+      ],
+      "domaine": "nav-radio"
+    },
+    {
+      "terme": "litre/gallon",
+      "definition": "Le litre/gallon désigne le facteur de conversion permettant de passer des litres métriques aux gallons américains dans les calculs de quantité de carburant pour l'aviation.",
+      "variantes": [
+        "conversion litre gallon"
+      ],
+      "xrefs": [
+        "litre",
+        "gallon",
+        "kilogramme",
+        "livre"
+      ],
+      "domaine": "nav-radio"
+    },
+    {
+      "terme": "livre",
+      "definition": "Unité de masse anglo-saxonne équivalant à une fraction de kilogramme et fréquemment utilisée en aéronautique pour indiquer les masses maximales au décollage ou les quantités de carburant.",
+      "variantes": [
+        "lb",
+        "pound"
+      ],
+      "xrefs": [
+        "kilogramme",
+        "masse maximale au décollage",
+        "charge utile"
+      ],
+      "domaine": "nav-radio"
+    },
+    {
+      "terme": "minute",
+      "definition": "Unité de mesure du temps valant soixante secondes, utilisée en navigation et radiocommunications aéronautiques pour calculer les temps de vol, les estimations d'arrivée et les intervalles de transmission.",
+      "variantes": [
+        "min"
+      ],
+      "xrefs": [
+        "minute d'arc",
+        "tours/minute",
+        "ETD",
+        "estime"
+      ],
+      "domaine": "nav-radio"
+    },
+    {
+      "terme": "mètre",
+      "definition": "Unité de mesure de longueur du système international équivalente à cent centimètres et utilisée en aéronautique pour exprimer distances altitudes et dimensions des aéronefs ou infrastructures.",
+      "variantes": [
+        "m"
+      ],
+      "xrefs": [
+        "ampèremètre",
+        "facteur de conversion pied/mètre",
+        "kilomètre",
+        "effet température sur l'altimètre"
+      ],
+      "domaine": "nav-radio"
+    },
+    {
+      "terme": "pouce de mercure",
+      "definition": "Unité de mesure de la pression atmosphérique égale à la pression exercée par une colonne de mercure haute d'un pouce, couramment utilisée dans le réglage des altimètres en navigation aérienne.",
+      "variantes": [
+        "inHg"
+      ],
+      "xrefs": [
+        "inHg",
+        "po",
+        "pression atmosphérique",
+        "correcteur d'altitude"
+      ],
+      "domaine": "nav-radio"
+    },
+    {
+      "terme": "seconde",
+      "definition": "Unité de mesure du temps égale à la soixantième partie de la minute employée pour exprimer les coordonnées géographiques ou les durées en radiocommunications aéronautiques.",
+      "variantes": [
+        "sec",
+        "s"
+      ],
+      "xrefs": [
+        "coordonnées géographiques",
+        "latitude",
+        "longitude",
+        "minute d'arc"
+      ],
+      "domaine": "nav-radio"
+    },
+    {
+      "terme": "VFR de nuit",
+      "definition": "Règles de vol à vue applicables de nuit imposant des conditions de visibilité et de distance aux nuages plus strictes ainsi qu'un équipement spécifique de l'aéronef et du pilote.",
+      "variantes": [
+        "VFR nocturne"
+      ],
+      "xrefs": [
+        "conditions de vol à vue",
+        "visibilité minimale",
+        "hauteurs minimales de survol",
+        "VFR spécial"
+      ],
+      "domaine": "regl-proc"
+    },
+    {
+      "terme": "conditions de vol à vue",
+      "definition": "Ensemble des conditions météorologiques permettant à un pilote de voler en se référant visuellement au sol et à l'horizon plutôt qu'aux instruments de bord.",
+      "variantes": [
+        "VMC",
+        "conditions VMC"
+      ],
+      "xrefs": [
+        "navigation à vue",
+        "visibilité météo",
+        "distance aux nuages"
+      ],
+      "domaine": "regl-proc"
+    },
+    {
+      "terme": "visibilité minimale",
+      "definition": "La visibilité minimale correspond à la distance horizontale la plus faible permettant au pilote d'assurer la séparation avec les obstacles et le trafic aérien lors des vols aux règles de vol à vue.",
+      "variantes": [
+        "visibilité minimum"
+      ],
+      "xrefs": [
+        "altitude minimale de sécurité",
+        "hauteurs minimales de survol",
+        "visibilité météo"
+      ],
+      "domaine": "regl-proc"
+    },
+    {
+      "terme": "distance aux nuages",
+      "definition": "Distance minimale que l'aéronef doit maintenir par rapport aux nuages afin de conserver les conditions de vol à vue conformément aux règles VFR applicables.",
+      "variantes": [
+        "distances aux nuages"
+      ],
+      "xrefs": [
+        "conditions de vol à vue",
+        "visibilité météo",
+        "VFR spécial",
+        "règles anticollision"
+      ],
+      "domaine": "regl-proc"
+    },
+    {
+      "terme": "règle « voir et éviter »",
+      "definition": "Règle de base en conditions de vol à vue exigeant du pilote qu'il observe en permanence l'espace environnant afin de repérer et d'éviter tout risque de collision avec d'autres aéronefs.",
+      "variantes": [
+        "voir et éviter"
+      ],
+      "xrefs": [
+        "règles anticollision",
+        "conditions de vol à vue",
+        "visibilité météo"
+      ],
+      "domaine": "regl-proc"
+    },
+    {
+      "terme": "priorités de passage",
+      "definition": "Les priorités de passage sont les règles qui déterminent quel aéronef doit céder le passage à un autre dans diverses configurations de vol ou de circulation.",
+      "variantes": [
+        "règles de priorité"
+      ],
+      "xrefs": [
+        "règles anticollision",
+        "priorité au planeur",
+        "priorité au ballon"
+      ],
+      "domaine": "regl-proc"
+    },
+    {
+      "terme": "route convergente",
+      "definition": "Route d'un aéronef qui converge vers la route d'un autre aéronef, nécessitant une vigilance accrue pour éviter tout risque de collision en espace aérien.",
+      "variantes": [
+        "routes convergentes"
+      ],
+      "xrefs": [
+        "règles anticollision",
+        "information de trafic",
+        "priorités de passage",
+        "route sol"
+      ],
+      "domaine": "regl-proc"
+    },
+    {
+      "terme": "dépassement",
+      "definition": "Manoeuvre aérienne consistant pour un aéronef à rattraper et à dépasser un autre aéronef qui le précède sur une trajectoire similaire ou convergente sans modification de cap.",
+      "variantes": [
+        "overtaking"
+      ],
+      "xrefs": [
+        "règles anticollision",
+        "priorités de passage",
+        "route convergente"
+      ],
+      "domaine": "regl-proc"
+    },
+    {
+      "terme": "rapprochement de face",
+      "definition": "Configuration de vol où deux aéronefs se rapprochent frontalement sur des trajectoires opposées, requérant l'application stricte des règles anticollision et des priorités de passage.",
+      "variantes": [
+        "approche frontale",
+        "rencontre tête-à-tête"
+      ],
+      "xrefs": [
+        "règles anticollision",
+        "priorités de passage",
+        "information de trafic",
+        "situation awareness"
+      ],
+      "domaine": "regl-proc"
+    },
+    {
+      "terme": "priorité au ballon",
+      "definition": "Droit de passage accordé au ballon libre sur tout autre aéronef lors de rencontres en vol dans les conditions de vol à vue selon les règles de l'air.",
+      "variantes": [
+        "priorité aux ballons"
+      ],
+      "xrefs": [
+        "priorité au planeur",
+        "priorité au remorquage",
+        "priorités de passage"
+      ],
+      "domaine": "regl-proc"
+    },
+    {
+      "terme": "priorité au planeur",
+      "definition": "Priorité accordée aux planeurs par rapport aux autres aéronefs motorisés lors des manœuvres d'approche finale et d'atterrissage sur un aérodrome afin de garantir la sécurité des vols.",
+      "variantes": [
+        "priorité aux planeurs"
+      ],
+      "xrefs": [
+        "priorité au ballon",
+        "priorité au remorquage",
+        "priorités de passage"
+      ],
+      "domaine": "regl-proc"
+    },
+    {
+      "terme": "priorité au remorquage",
+      "definition": "Dans le cadre des règles de l'air, priorité accordée à l'aéronef remorqueur et à l'aéronef remorqué lors des opérations de remorquage sur un aérodrome ou en vol.",
+      "variantes": [
+        "priorité remorquage"
+      ],
+      "xrefs": [
+        "priorité au ballon",
+        "priorité au planeur",
+        "priorités de passage"
+      ],
+      "domaine": "regl-proc"
+    },
+    {
+      "terme": "hauteurs minimales de survol",
+      "definition": "Hauteurs minimales prescrites par la réglementation pour le survol des zones habitées ou non afin de garantir la sécurité des personnes et des biens.",
+      "variantes": [
+        "hauteur minimale de survol"
+      ],
+      "xrefs": [
+        "hauteur",
+        "hauteur de survol",
+        "altitude minimale de sécurité",
+        "conditions de vol à vue"
+      ],
+      "domaine": "regl-proc"
+    },
+    {
+      "terme": "vol au-dessus de l'eau",
+      "definition": "Procédure de vol au-dessus d'une surface liquide imposant le port obligatoire de gilets de sauvetage et la disponibilité d'embarcations de survie pour assurer la sécurité des occupants en cas d'amerrissage d'urgence.",
+      "variantes": [
+        "survol de l'eau"
+      ],
+      "xrefs": [
+        "gilet de sauvetage",
+        "hauteur de survol",
+        "hauteurs minimales de survol",
+        "recherches et sauvetage"
+      ],
+      "domaine": "regl-proc"
+    },
+    {
+      "terme": "semi-circulaire",
+      "definition": "Règle de l'air imposant l'utilisation d'altitudes ou de niveaux de vol pairs ou impairs selon la route magnétique suivie par l'aéronef pour éviter les collisions.",
+      "variantes": [
+        "règle semi-circulaire"
+      ],
+      "xrefs": [
+        "niveau de croisière",
+        "règles anticollision",
+        "altitude"
+      ],
+      "domaine": "regl-proc"
+    },
+    {
+      "terme": "niveau de croisière",
+      "definition": "Dénivellation de vol constante choisie pour la phase de croisière en respectant les règles semi-circulaires de l'espace aérien afin de garantir la séparation verticale entre les aéronefs.",
+      "variantes": [
+        "niveau de vol"
+      ],
+      "xrefs": [
+        "semi-circulaire",
+        "altitude",
+        "courbe de niveau",
+        "plafond de croisière"
+      ],
+      "domaine": "regl-proc"
+    },
+    {
+      "terme": "règles anticollision",
+      "definition": "Règles de l'air imposant aux pilotes de maintenir une vigilance constante et d'appliquer des priorités de passage pour prévenir toute collision entre aéronefs en vol ou au sol.",
+      "variantes": [
+        "règle anticollision"
+      ],
+      "xrefs": [
+        "priorités de passage",
+        "règle « voir et éviter »",
+        "conditions de vol à vue"
+      ],
+      "domaine": "regl-proc"
+    },
+    {
+      "terme": "qualification de classe",
+      "definition": "Autorisation inscrite sur une licence de pilote permettant d'exploiter les aéronefs d'une classe donnée après avoir suivi une formation et réussi les épreuves requises.",
+      "variantes": [
+        "class rating"
+      ],
+      "xrefs": [
+        "Cl",
+        "cat",
+        "classe A",
+        "classe B"
+      ],
+      "domaine": "regl-proc"
+    },
+    {
+      "terme": "certificat médical classe 2",
+      "definition": "Attestation délivrée par un médecin examinateur agréé confirmant que le titulaire possède les capacités physiques et mentales nécessaires pour exercer les privilèges d'une licence de pilote privé.",
+      "variantes": [
+        "certificat classe 2",
+        "certificat médical PPL"
+      ],
+      "xrefs": [
+        "LAPL",
+        "certificat de navigabilité",
+        "classe A",
+        "classe B"
+      ],
+      "domaine": "regl-proc"
+    },
+    {
+      "terme": "LAPL",
+      "definition": "Licence européenne de pilote d'avion léger autorisant le vol d'aéronefs de faible masse sous règles de vol à vue avec des limitations spécifiques de puissance et de passagers.",
+      "variantes": [
+        "Licence de pilote d'aéronef léger"
+      ],
+      "xrefs": [
+        "certificat médical classe 2",
+        "conditions de vol à vue",
+        "qualification de classe"
+      ],
+      "domaine": "regl-proc"
+    },
+    {
+      "terme": "carnet de vol",
+      "definition": "Document officiel dans lequel le pilote consigne les détails de chaque vol effectué, incluant les heures de vol, les aéronefs utilisés et les conditions rencontrées, pour le suivi de l'expérience et la conformité réglementaire.",
+      "variantes": [
+        "journal de navigation",
+        "log de navigation"
+      ],
+      "xrefs": [
+        "certificat de navigabilité",
+        "qualification de classe",
+        "navigation à vue",
+        "plan de vol déposé"
+      ],
+      "domaine": "regl-proc"
+    },
+    {
+      "terme": "certificat de navigabilité",
+      "definition": "Document officiel délivré par l'autorité aéronautique attestant que l'aéronef est conforme aux exigences de navigabilité et autorisé à effectuer des vols dans des conditions données.",
+      "variantes": [
+        "CdN"
+      ],
+      "xrefs": [
+        "cat",
+        "certificat d'immatriculation",
+        "consignes de navigabilité"
+      ],
+      "domaine": "regl-proc"
+    },
+    {
+      "terme": "CDN",
+      "definition": "Le CDN est le service ATC d'un aérodrome contrôlé qui délivre les autorisations de circulation et de vol aux aéronefs stationnés sur l'aire de mouvement.",
+      "variantes": [
+        "Clearance Delivery"
+      ],
+      "xrefs": [
+        "Cd",
+        "CLEARED",
+        "autorisation",
+        "TWR"
+      ],
+      "domaine": "regl-proc"
+    },
+    {
+      "terme": "certificat d'immatriculation",
+      "definition": "Le certificat d'immatriculation est le document officiel qui atteste l'enregistrement d'un aéronef dans le registre national et lui attribue un identifiant unique pour la navigation aérienne.",
+      "variantes": [
+        "certificat d'enregistrement"
+      ],
+      "xrefs": [
+        "certificat de navigabilité",
+        "certificat médical classe 2",
+        "cat"
+      ],
+      "domaine": "regl-proc"
+    },
+    {
+      "terme": "CEN",
+      "definition": "Terme abrégé désignant le centre de contrôle de la circulation aérienne chargé de la surveillance et de la coordination des aéronefs en phase de croisière.",
+      "variantes": [
+        "Centre"
+      ],
+      "xrefs": [
+        "ACC",
+        "APP",
+        "TWR",
+        "autorisation"
+      ],
+      "domaine": "regl-proc"
+    },
+    {
+      "terme": "licence de station d'aéronef",
+      "definition": "Autorisation délivrée par l'administration des télécommunications permettant l'exploitation d'équipements de radiocommunication installés sur un aéronef pour assurer les liaisons avec les services de la navigation aérienne.",
+      "variantes": [
+        "licence radio"
+      ],
+      "xrefs": [
+        "certificat de navigabilité",
+        "autorisation",
+        "certificat d'immatriculation"
+      ],
+      "domaine": "regl-proc"
+    },
+    {
+      "terme": "assurance",
+      "definition": "Document contractuel par lequel un assureur s'engage à couvrir les risques financiers associés à l'exploitation et à la navigation d'un aéronef contre le paiement d'une prime.",
+      "variantes": [
+        "assurances",
+        "contrat d'assurance"
+      ],
+      "xrefs": [
+        "ra",
+        "ss",
+        "autorisation",
+        "certificat de navigabilité"
+      ],
+      "domaine": "regl-proc"
+    },
+    {
+      "terme": "APRS",
+      "definition": "Terme désignant une autorisation spéciale délivrée par le contrôle aérien pour le passage d'un aéronef dans une zone réglementée ou dangereuse sous conditions strictes.",
+      "variantes": [
+        "autorisation spéciale"
+      ],
+      "xrefs": [
+        "autorisation",
+        "zone R",
+        "zone D",
+        "zone P"
+      ],
+      "domaine": "regl-proc"
+    },
+    {
+      "terme": "consignes de navigabilité",
+      "definition": "Les consignes de navigabilité sont des directives obligatoires publiées par les autorités pour remédier à des défauts affectant la sécurité des aéronefs et garantir leur maintien en état de navigabilité.",
+      "variantes": [
+        "AD"
+      ],
+      "xrefs": [
+        "certificat de navigabilité",
+        "entretien 50 h/100 h"
+      ],
+      "domaine": "regl-proc"
+    },
+    {
+      "terme": "MTOW",
+      "definition": "MTOW désigne la masse maximale autorisée d'un aéronef pour le décollage. Elle comprend la masse de l'appareil, le carburant, les passagers et le fret. Cette limite assure la sécurité structurelle et les performances requises.",
+      "variantes": [
+        "masse maximale au décollage"
+      ],
+      "xrefs": [
+        "masse maximale au décollage",
+        "masse maximale à l'atterrissage",
+        "charge utile"
+      ],
+      "domaine": "regl-proc"
+    },
+    {
+      "terme": "clôture de plan de vol",
+      "definition": "Action de signaler aux services de la circulation aérienne la fin d'un vol pour lequel un plan de vol avait été déposé afin de clore le dossier et éviter des alertes inutiles.",
+      "variantes": [
+        "fermeture de plan de vol"
+      ],
+      "xrefs": [
+        "plan de vol déposé",
+        "INCERFA",
+        "DETRESFA"
+      ],
+      "domaine": "regl-proc"
+    },
+    {
+      "terme": "phases d'urgence",
+      "definition": "Les phases d'urgence désignent les trois niveaux d'alerte en aviation : INCERFA pour incertitude, ALERFA pour alerte et DETRESFA pour détresse, déclenchées selon la gravité de la situation.",
+      "variantes": [
+        "phase d'urgence"
+      ],
+      "xrefs": [
+        "INCERFA",
+        "ALERFA",
+        "DETRESFA",
+        "urgence"
+      ],
+      "domaine": "regl-proc"
+    },
+    {
+      "terme": "INCERFA",
+      "definition": "Phase d'incertitude mise en œuvre par les services de recherche et de sauvetage lorsqu'un aéronef n'a pas respecté son heure d'arrivée estimée ou n'a pu être joint par radio.",
+      "variantes": [
+        "phase d'incertitude"
+      ],
+      "xrefs": [
+        "DETRESFA",
+        "ALERFA",
+        "SAR",
+        "recherches et sauvetage"
+      ],
+      "domaine": "regl-proc"
+    },
+    {
+      "terme": "ALERFA",
+      "definition": "Phase d'alerte mise en œuvre par les services de recherche et de sauvetage lorsqu'un aéronef est considéré comme étant en difficulté ou a disparu sans explication.",
+      "variantes": [
+        "phase d'alerte"
+      ],
+      "xrefs": [
+        "INCERFA",
+        "DETRESFA",
+        "SAR",
+        "service d'alerte"
+      ],
+      "domaine": "regl-proc"
+    },
+    {
+      "terme": "DETRESFA",
+      "definition": "Phase d'urgence la plus critique des procédures de recherche et sauvetage aérien, activée lorsqu'un aéronef est présumé en détresse grave ou a disparu sans nouvelle.",
+      "variantes": [
+        "phase de détresse"
+      ],
+      "xrefs": [
+        "INCERFA",
+        "ALERFA",
+        "SAR",
+        "phases d'urgence"
+      ],
+      "domaine": "regl-proc"
+    },
+    {
+      "terme": "SAR",
+      "definition": "Service chargé de la recherche et du sauvetage des aéronefs en situation de détresse afin d'assurer la localisation rapide et le secours des occupants.",
+      "variantes": [
+        "recherches et sauvetage"
+      ],
+      "xrefs": [
+        "DETRESFA",
+        "INCERFA",
+        "ALERFA",
+        "service d'alerte"
+      ],
+      "domaine": "regl-proc"
+    },
+    {
+      "terme": "recherches et sauvetage",
+      "definition": "Ensemble des actions coordonnées par les services compétents afin de rechercher, localiser et secourir les personnes se trouvant en situation de détresse aérienne ou après un accident d'avion.",
+      "variantes": [
+        "SAR"
+      ],
+      "xrefs": [
+        "ELT",
+        "service d'alerte",
+        "DETRESFA",
+        "gilet de sauvetage"
+      ],
+      "domaine": "regl-proc"
+    },
+    {
+      "terme": "aéronef intercepté",
+      "definition": "Aéronef civil dont le vol est intercepté par des aéronefs d'État pour vérification d'identité ou application des règles de l'air en cas de suspicion.",
+      "variantes": [
+        "avion intercepté"
+      ],
+      "xrefs": [
+        "autorisation",
+        "phases d'urgence",
+        "service d'alerte",
+        "détresse"
+      ],
+      "domaine": "regl-proc"
+    },
+    {
+      "terme": "essais moteur",
+      "definition": "Procédure réglementaire de contrôle du moteur et de ses systèmes avant le vol consistant à faire tourner le moteur à différents régimes pour vérifier les paramètres.",
+      "variantes": [
+        "essai moteur",
+        "run-up moteur"
+      ],
+      "xrefs": [
+        "arrêt moteur",
+        "panne moteur au décollage",
+        "procédure de mise en route",
+        "moteur à 4 temps"
+      ],
+      "domaine": "regl-proc"
+    },
+    {
+      "terme": "briefing décollage",
+      "definition": "Préparation verbale effectuée par le pilote avant le décollage afin de revoir les procédures de décollage, les éventuelles pannes et les mesures correctives à appliquer immédiatement.",
+      "variantes": [
+        "briefing avant décollage"
+      ],
+      "xrefs": [
+        "panne moteur au décollage",
+        "masse maximale au décollage",
+        "autorisation",
+        "essais moteur"
+      ],
+      "domaine": "regl-proc"
+    },
+    {
+      "terme": "panne moteur au décollage",
+      "definition": "Incident grave consistant en l'arrêt soudain du moteur pendant la phase de décollage, nécessitant une réaction rapide du pilote pour minimiser les risques et garantir la sécurité du vol.",
+      "variantes": [
+        "défaillance moteur au décollage",
+        "panne au décollage"
+      ],
+      "xrefs": [
+        "arrêt moteur",
+        "briefing décollage",
+        "panne sèche",
+        "essais moteur"
+      ],
+      "domaine": "regl-proc"
+    },
+    {
+      "terme": "demi-tour impossible",
+      "definition": "Situation dans laquelle un aéronef en panne moteur juste après le décollage ne peut pas effectuer un virage pour revenir à l'aérodrome sans risquer un décrochage ou une collision avec le relief.",
+      "variantes": [
+        "retour sur piste impossible",
+        "virage de retour impossible"
+      ],
+      "xrefs": [
+        "panne moteur au décollage",
+        "dégagement",
+        "hauteur de survol"
+      ],
+      "domaine": "regl-proc"
+    },
+    {
+      "terme": "Fahrenheit",
+      "definition": "Échelle de température dans laquelle le point de congélation de l'eau correspond à 32 degrés et le point d'ébullition à 212 degrés, employée en aéronautique pour certaines mesures thermiques.",
+      "variantes": [
+        "°F"
+      ],
+      "xrefs": [
+        "effet température sur l'altimètre",
+        "altitude vraie",
+        "pression atmosphérique"
+      ],
+      "domaine": "nav-radio"
+    },
+    {
+      "terme": "potentiel",
+      "definition": "Grandeur physique représentant la différence de tension électrique dans un circuit avionique, indispensable au bon fonctionnement des équipements et à la sécurité des opérations.",
+      "variantes": [
+        "potentiel électrique"
+      ],
+      "xrefs": [
+        "circuit électrique",
+        "ampèremètre",
+        "master switch"
+      ],
+      "domaine": "regl-proc"
+    },
+    {
+      "terme": "entretien 50 h/100 h",
+      "definition": "Opérations de maintenance programmées effectuées sur un aéronef après cinquante ou cent heures de vol afin de vérifier l'état des systèmes et composants essentiels.",
+      "variantes": [
+        "entretien périodique",
+        "maintenance 50/100 heures"
+      ],
+      "xrefs": [
+        "certificat de navigabilité",
+        "journal de navigation",
+        "consignes de navigabilité",
+        "essais moteur"
+      ],
+      "domaine": "regl-proc"
+    },
+    {
+      "terme": "activation",
+      "definition": "Processus par lequel un plan de vol ou un dispositif de bord passe de l'état inactif à l'état opérationnel, permettant son utilisation effective dans le cadre d'un vol.",
+      "variantes": [
+        "mise en service"
+      ],
+      "xrefs": [
+        "plan de vol déposé",
+        "autorisation",
+        "EOBT"
+      ],
+      "domaine": "regl-proc"
+    },
+    {
+      "terme": "plan de vol déposé",
+      "definition": "Formulaire standardisé transmis aux autorités aéronautiques compétentes qui détaille les paramètres essentiels d'un vol projeté incluant route, altitudes et horaires prévus pour assurer la sécurité et la coordination.",
+      "variantes": [
+        "plan de vol"
+      ],
+      "xrefs": [
+        "clôture de plan de vol",
+        "autorisation",
+        "dégagement",
+        "service d'alerte"
+      ],
+      "domaine": "regl-proc"
+    }
+  ]
+}
