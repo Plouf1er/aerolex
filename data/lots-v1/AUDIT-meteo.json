@@ -1,0 +1,679 @@
+{
+  "domaine": "Météo",
+  "manquants": [
+    {
+      "terme": "stratosphère",
+      "categorie": "Météo",
+      "famille": "couches_atmosphere",
+      "priorite": "haute",
+      "justification": "Couche de l'atmosphère située au-dessus de la tropopause, hors météo active",
+      "sous_domaine": "Atmosphère"
+    },
+    {
+      "terme": "gradient adiabatique sec",
+      "categorie": "Météo",
+      "famille": "gradients_thermiques",
+      "priorite": "haute",
+      "justification": "Taux de refroidissement théorique de l'air sec en montée (1°C / 100 m)",
+      "sous_domaine": "Atmosphère"
+    },
+    {
+      "terme": "gradient adiabatique saturé",
+      "categorie": "Météo",
+      "famille": "gradients_thermiques",
+      "priorite": "haute",
+      "justification": "Taux de refroidissement de l'air saturé en montée (0,5 à 0,9°C / 100 m)",
+      "sous_domaine": "Atmosphère"
+    },
+    {
+      "terme": "isothermie",
+      "categorie": "Météo",
+      "famille": "gradients_thermiques",
+      "priorite": "haute",
+      "justification": "Tranche d'atmosphère où la température reste constante avec l'altitude",
+      "sous_domaine": "Atmosphère"
+    },
+    {
+      "terme": "pression atmosphérique",
+      "categorie": "Météo",
+      "famille": "isobares_pression",
+      "priorite": "haute",
+      "justification": "Force exercée par l'air, indispensable pour comprendre l'altimétrie et les mouvements d'air",
+      "sous_domaine": "Atmosphère"
+    },
+    {
+      "terme": "humidité relative",
+      "categorie": "Météo",
+      "famille": "generalites_atmosphere",
+      "priorite": "haute",
+      "justification": "Rapport en % de la quantité d'eau présente à la capacité maximale de l'air",
+      "sous_domaine": "Atmosphère"
+    },
+    {
+      "terme": "surfusion",
+      "categorie": "Météo",
+      "famille": "thermodynamique",
+      "priorite": "haute",
+      "justification": "État de l'eau liquide restant fluide sous 0°C, cause principale du givrage en vol",
+      "sous_domaine": "Atmosphère"
+    },
+    {
+      "terme": "chaleur latente",
+      "categorie": "Météo",
+      "famille": "thermodynamique",
+      "priorite": "haute",
+      "justification": "Énergie libérée ou absorbée lors du changement d'état de l'eau, moteur de l'instabilité",
+      "sous_domaine": "Atmosphère"
+    },
+    {
+      "terme": "salr",
+      "categorie": "Météo",
+      "famille": "gradients_thermiques",
+      "priorite": "moyenne",
+      "justification": "Saturated Adiabatic Lapse Rate (sigle anglais du gradient adiabatique saturé)",
+      "sous_domaine": "Atmosphère"
+    },
+    {
+      "terme": "surface isobare",
+      "categorie": "Météo",
+      "famille": "isobares_pression",
+      "priorite": "haute",
+      "justification": "Surface tridimensionnelle d'égale pression atmosphérique",
+      "sous_domaine": "Pression, densité, température"
+    },
+    {
+      "terme": "marais barométrique",
+      "categorie": "Météo",
+      "famille": "systemes_pression",
+      "priorite": "haute",
+      "justification": "Situation synoptique sans gradient de pression marqué, propice aux brumes/orages",
+      "sous_domaine": "Pression, densité, température"
+    },
+    {
+      "terme": "isallobare",
+      "categorie": "Météo",
+      "famille": "isobares_pression",
+      "priorite": "basse",
+      "justification": "Ligne d'égale variation de pression dans un temps donné, outil de prévision",
+      "sous_domaine": "Pression, densité, température"
+    },
+    {
+      "terme": "cirrus",
+      "categorie": "Météo",
+      "famille": "nuages_genres",
+      "priorite": "haute",
+      "justification": "Genre de nuage de l'étage supérieur composé de cristaux de glace",
+      "sous_domaine": "Nuages"
+    },
+    {
+      "terme": "cirrocumulus",
+      "categorie": "Météo",
+      "famille": "nuages_genres",
+      "priorite": "haute",
+      "justification": "Genre de nuage de l'étage supérieur formant des rides ou des galets",
+      "sous_domaine": "Nuages"
+    },
+    {
+      "terme": "humilis",
+      "categorie": "Météo",
+      "famille": "nuages_especes",
+      "priorite": "haute",
+      "justification": "Espèce de cumulus aplati caractérisant des conditions stables de beau temps",
+      "sous_domaine": "Nuages"
+    },
+    {
+      "terme": "mediocris",
+      "categorie": "Météo",
+      "famille": "nuages_especes",
+      "priorite": "haute",
+      "justification": "Espèce de cumulus d'extension verticale modérée",
+      "sous_domaine": "Nuages"
+    },
+    {
+      "terme": "congestus",
+      "categorie": "Météo",
+      "famille": "nuages_especes",
+      "priorite": "haute",
+      "justification": "Espèce de cumulus bourgeonnant à fort développement vertical",
+      "sous_domaine": "Nuages"
+    },
+    {
+      "terme": "capillatus",
+      "categorie": "Météo",
+      "famille": "nuages_especes",
+      "priorite": "haute",
+      "justification": "Espèce de cumulonimbus caractérisé par son enclume fibreuse",
+      "sous_domaine": "Nuages"
+    },
+    {
+      "terme": "virga",
+      "categorie": "Météo",
+      "famille": "nuages_especes",
+      "priorite": "haute",
+      "justification": "Précipitations s'évaporant sous la base d'un nuage avant de toucher le sol",
+      "sous_domaine": "Nuages"
+    },
+    {
+      "terme": "étage supérieur",
+      "categorie": "Météo",
+      "famille": "nuages_etages",
+      "priorite": "moyenne",
+      "justification": "Tranche d'altitude au-dessus de 20 000 ft contenant les cirrus",
+      "sous_domaine": "Nuages"
+    },
+    {
+      "terme": "étage moyen",
+      "categorie": "Météo",
+      "famille": "nuages_etages",
+      "priorite": "moyenne",
+      "justification": "Tranche d'altitude (6 500 à 20 000 ft) contenant altocumulus et altostratus",
+      "sous_domaine": "Nuages"
+    },
+    {
+      "terme": "étage inférieur",
+      "categorie": "Météo",
+      "famille": "nuages_etages",
+      "priorite": "moyenne",
+      "justification": "Tranche d'altitude (du sol à 6 500 ft) contenant stratus et stratocumulus",
+      "sous_domaine": "Nuages"
+    },
+    {
+      "terme": "bruine",
+      "categorie": "Météo",
+      "famille": "precipitations",
+      "priorite": "haute",
+      "justification": "Précipitation de très fines gouttelettes d'eau tombant du stratus",
+      "sous_domaine": "Précipitations et hydrométéores"
+    },
+    {
+      "terme": "grêle",
+      "categorie": "Météo",
+      "famille": "precipitations",
+      "priorite": "haute",
+      "justification": "Précipitation de grêlons durs émanant exclusivement du cumulonimbus",
+      "sous_domaine": "Précipitations et hydrométéores"
+    },
+    {
+      "terme": "grésil",
+      "categorie": "Météo",
+      "famille": "precipitations",
+      "priorite": "haute",
+      "justification": "Précipitation de petits grains de glace opaques ou translucides",
+      "sous_domaine": "Précipitations et hydrométéores"
+    },
+    {
+      "terme": "neige",
+      "categorie": "Météo",
+      "famille": "precipitations",
+      "priorite": "haute",
+      "justification": "Précipitation solide de cristaux de glace complexes assemblés en flocons",
+      "sous_domaine": "Précipitations et hydrométéores"
+    },
+    {
+      "terme": "pluie surfondue",
+      "categorie": "Météo",
+      "famille": "precipitations",
+      "priorite": "haute",
+      "justification": "Pluie liquide par température négative gelant instantanément à l'impact (givrage sévère)",
+      "sous_domaine": "Précipitations et hydrométéores"
+    },
+    {
+      "terme": "brouillard d'advection",
+      "categorie": "Météo",
+      "famille": "brouillards_types",
+      "priorite": "haute",
+      "justification": "Brouillard formé par le refroidissement d'un air chaud et humide sur sol froid",
+      "sous_domaine": "Précipitations et hydrométéores"
+    },
+    {
+      "terme": "brouillard d'évaporation",
+      "categorie": "Météo",
+      "famille": "brouillards_types",
+      "priorite": "haute",
+      "justification": "Brouillard sur plans d'eau par apport d'humidité chaude dans de l'air froid",
+      "sous_domaine": "Précipitations et hydrométéores"
+    },
+    {
+      "terme": "brume sèche",
+      "categorie": "Météo",
+      "famille": "visibilite_phenomenes",
+      "priorite": "haute",
+      "justification": "Réduction de visibilité par des particules microscopiques solides en suspension",
+      "sous_domaine": "Précipitations et hydrométéores"
+    },
+    {
+      "terme": "hydrométéore",
+      "categorie": "Météo",
+      "famille": "generalites_meteo",
+      "priorite": "moyenne",
+      "justification": "Tout phénomène lié à l'eau condensée ou précipitée dans l'atmosphère",
+      "sous_domaine": "Précipitations et hydrométéores"
+    },
+    {
+      "terme": "front stationnaire",
+      "categorie": "Météo",
+      "famille": "fronts_meteorologiques",
+      "priorite": "haute",
+      "justification": "Frontière stable entre deux masses d'air de températures différentes",
+      "sous_domaine": "Masses d'air et fronts"
+    },
+    {
+      "terme": "front polaire",
+      "categorie": "Météo",
+      "famille": "fronts_meteorologiques",
+      "priorite": "haute",
+      "justification": "Surface de discontinuité majeure séparant l'air polaire de l'air tropical",
+      "sous_domaine": "Masses d'air et fronts"
+    },
+    {
+      "terme": "dorsale",
+      "categorie": "Météo",
+      "famille": "systemes_pression",
+      "priorite": "haute",
+      "justification": "Axe de hautes pressions prolongeant un anticyclone (temps généralement stable)",
+      "sous_domaine": "Masses d'air et fronts"
+    },
+    {
+      "terme": "thalweg",
+      "categorie": "Météo",
+      "famille": "systemes_pression",
+      "priorite": "haute",
+      "justification": "Axe de basses pressions prolongeant une dépression (temps perturbé)",
+      "sous_domaine": "Masses d'air et fronts"
+    },
+    {
+      "terme": "col barométrique",
+      "categorie": "Météo",
+      "famille": "systemes_pression",
+      "priorite": "haute",
+      "justification": "Région de transition de pression neutre entre deux dépressions et deux anticyclones",
+      "sous_domaine": "Masses d'air et fronts"
+    },
+    {
+      "terme": "secteur chaud",
+      "categorie": "Météo",
+      "famille": "fronts_meteorologiques",
+      "priorite": "haute",
+      "justification": "Espace d'air doux situé entre le front chaud antérieur et le front froid postérieur",
+      "sous_domaine": "Masses d'air et fronts"
+    },
+    {
+      "terme": "traîne",
+      "categorie": "Météo",
+      "famille": "fronts_meteorologiques",
+      "priorite": "haute",
+      "justification": "Ciel post-frontal instable caractérisé par des averses, du vent et de belles éclaircies",
+      "sous_domaine": "Masses d'air et fronts"
+    },
+    {
+      "terme": "subsidence",
+      "categorie": "Météo",
+      "famille": "mouvements_verticaux",
+      "priorite": "haute",
+      "justification": "Mouvement de descente lente de l'air créant de la stabilité et une inversion de subsidence",
+      "sous_domaine": "Stabilité, instabilité, inversion"
+    },
+    {
+      "terme": "thermique",
+      "categorie": "Météo",
+      "famille": "mouvements_verticaux",
+      "priorite": "haute",
+      "justification": "Courant d'air chaud ascendant engendré par l'échauffement solaire du sol",
+      "sous_domaine": "Stabilité, instabilité, inversion"
+    },
+    {
+      "terme": "adiabatique",
+      "categorie": "Météo",
+      "famille": "thermodynamique",
+      "priorite": "haute",
+      "justification": "Évolution thermique d'une masse d'air sans échange de chaleur avec l'extérieur",
+      "sous_domaine": "Stabilité, instabilité, inversion"
+    },
+    {
+      "terme": "force de Coriolis",
+      "categorie": "Météo",
+      "famille": "force_vent",
+      "priorite": "haute",
+      "justification": "Force fictive déviant les vents vers la droite dans l'hémisphère nord",
+      "sous_domaine": "Vent"
+    },
+    {
+      "terme": "vent géostrophique",
+      "categorie": "Météo",
+      "famille": "force_vent",
+      "priorite": "haute",
+      "justification": "Vent théorique parallèle aux isobares résultant de l'équilibre gradient/Coriolis",
+      "sous_domaine": "Vent"
+    },
+    {
+      "terme": "brise de montagne",
+      "categorie": "Vent",
+      "famille": "brises",
+      "priorite": "haute",
+      "justification": "Brise nocturne descendant des reliefs froids vers la vallée",
+      "sous_domaine": "Vent"
+    },
+    {
+      "terme": "onde orographique",
+      "categorie": "Vent",
+      "famille": "effets_vent_relief",
+      "priorite": "haute",
+      "justification": "Mouvement ondulatoire en aval de reliefs montagneux par vent fort stable",
+      "sous_domaine": "Vent"
+    },
+    {
+      "terme": "rafale descendante",
+      "categorie": "Vent",
+      "famille": "turbulences",
+      "priorite": "haute",
+      "justification": "Courant d'air vertical descendant très violent d'origine convective (sous orage)",
+      "sous_domaine": "Vent"
+    },
+    {
+      "terme": "microburst",
+      "categorie": "Vent",
+      "famille": "turbulences",
+      "priorite": "haute",
+      "justification": "Rafale descendante extrêmement localisée et violente, mortelle au décollage",
+      "sous_domaine": "Vent"
+    },
+    {
+      "terme": "givre blanc",
+      "categorie": "Météo",
+      "famille": "givrage",
+      "priorite": "haute",
+      "justification": "Glace granuleuse opaque se formant par congélation instantanée de petites gouttelettes surfondues",
+      "sous_domaine": "Givrage"
+    },
+    {
+      "terme": "givrage clair",
+      "categorie": "Météo",
+      "famille": "givrage",
+      "priorite": "haute",
+      "justification": "Glace compacte et transparente très adhérente, formée de grosses gouttes surfondues",
+      "sous_domaine": "Givrage"
+    },
+    {
+      "terme": "givrage mixte",
+      "categorie": "Météo",
+      "famille": "givrage",
+      "priorite": "haute",
+      "justification": "Mélange dangereux de givre blanc et de glace claire",
+      "sous_domaine": "Givrage"
+    },
+    {
+      "terme": "dégivrage",
+      "categorie": "Moteur & hélice",
+      "famille": "systemes_degivrage",
+      "priorite": "haute",
+      "justification": "Action d'éliminer la glace accumulée sur l'aéronef",
+      "sous_domaine": "Givrage"
+    },
+    {
+      "terme": "antigivrage",
+      "categorie": "Moteur & hélice",
+      "famille": "systemes_degivrage",
+      "priorite": "haute",
+      "justification": "Action d'empêcher le dépôt de glace sur les surfaces de l'aéronef",
+      "sous_domaine": "Givrage"
+    },
+    {
+      "terme": "cat",
+      "categorie": "Météo",
+      "famille": "turbulences",
+      "priorite": "haute",
+      "justification": "Clear Air Turbulence, turbulence sévère en air clair liée aux cisaillements de jet-stream",
+      "sous_domaine": "Turbulence"
+    },
+    {
+      "terme": "turbulence thermique",
+      "categorie": "Météo",
+      "famille": "turbulences",
+      "priorite": "haute",
+      "justification": "Secousses provoquées par des bulles d'air chaud ascendantes (convection)",
+      "sous_domaine": "Turbulence"
+    },
+    {
+      "terme": "visibilité météo",
+      "categorie": "Météo",
+      "famille": "visibilite_phenomenes",
+      "priorite": "haute",
+      "justification": "Distance horizontale maximale d'identification d'objets ou de repères noirs",
+      "sous_domaine": "Visibilité"
+    },
+    {
+      "terme": "rvr",
+      "categorie": "Météo",
+      "famille": "visibilite_phenomenes",
+      "priorite": "haute",
+      "justification": "Runway Visual Range (portée visuelle de piste, mesurée aux instruments)",
+      "sous_domaine": "Visibilité"
+    },
+    {
+      "terme": "airmet",
+      "categorie": "Météo",
+      "famille": "messages_meteo_types",
+      "priorite": "haute",
+      "justification": "Message d'alerte météo en route destiné à l'aviation de basse altitude",
+      "sous_domaine": "Documentation et messages"
+    },
+    {
+      "terme": "gamet",
+      "categorie": "Météo",
+      "famille": "messages_meteo_types",
+      "priorite": "haute",
+      "justification": "Prévision de zone en basse couche, déclinée par sections",
+      "sous_domaine": "Documentation et messages"
+    },
+    {
+      "terme": "volmet",
+      "categorie": "Météo",
+      "famille": "messages_meteo_types",
+      "priorite": "haute",
+      "justification": "Service radio transmettant en phonie continue les METAR/TAF d'aérodromes",
+      "sous_domaine": "Documentation et messages"
+    },
+    {
+      "terme": "carte isobarique",
+      "categorie": "Météo",
+      "famille": "cartes_meteo",
+      "priorite": "haute",
+      "justification": "Carte météorologique montrant les isobares au sol et les systèmes de pression",
+      "sous_domaine": "Documentation et messages"
+    },
+    {
+      "terme": "coupe verticale",
+      "categorie": "Météo",
+      "famille": "cartes_meteo",
+      "priorite": "haute",
+      "justification": "Profil altimétrique décrivant les nuages, vents et isothermes le long d'un parcours",
+      "sous_domaine": "Documentation et messages"
+    },
+    {
+      "terme": "ra",
+      "categorie": "Météo",
+      "famille": "codes_meteo_etat",
+      "priorite": "haute",
+      "justification": "Rain (abréviation OACI pour pluie)",
+      "sous_domaine": "Documentation et messages"
+    },
+    {
+      "terme": "sn",
+      "categorie": "Météo",
+      "famille": "codes_meteo_etat",
+      "priorite": "haute",
+      "justification": "Snow (abréviation OACI pour neige)",
+      "sous_domaine": "Documentation et messages"
+    },
+    {
+      "terme": "ts",
+      "categorie": "Météo",
+      "famille": "codes_meteo_etat",
+      "priorite": "haute",
+      "justification": "Thunderstorm (abréviation OACI pour orage)",
+      "sous_domaine": "Documentation et messages"
+    },
+    {
+      "terme": "fg",
+      "categorie": "Météo",
+      "famille": "codes_meteo_etat",
+      "priorite": "haute",
+      "justification": "Fog (abréviation OACI pour brouillard)",
+      "sous_domaine": "Documentation et messages"
+    },
+    {
+      "terme": "dz",
+      "categorie": "Météo",
+      "famille": "codes_meteo_etat",
+      "priorite": "haute",
+      "justification": "Drizzle (abréviation OACI pour bruine)",
+      "sous_domaine": "Documentation et messages"
+    },
+    {
+      "terme": "gr",
+      "categorie": "Météo",
+      "famille": "codes_meteo_etat",
+      "priorite": "haute",
+      "justification": "Hail (abréviation OACI pour grêle)",
+      "sous_domaine": "Documentation et messages"
+    },
+    {
+      "terme": "sh",
+      "categorie": "Météo",
+      "famille": "codes_meteo_etat",
+      "priorite": "haute",
+      "justification": "Showers (abréviation OACI pour averses)",
+      "sous_domaine": "Documentation et messages"
+    },
+    {
+      "terme": "fz",
+      "categorie": "Météo",
+      "famille": "codes_meteo_etat",
+      "priorite": "haute",
+      "justification": "Freezing (abréviation OACI pour se congelant/surfondu)",
+      "sous_domaine": "Documentation et messages"
+    },
+    {
+      "terme": "vc",
+      "categorie": "Météo",
+      "famille": "codes_meteo_etat",
+      "priorite": "haute",
+      "justification": "Vicinity (abréviation OACI pour au voisinage)",
+      "sous_domaine": "Documentation et messages"
+    },
+    {
+      "terme": "hz",
+      "categorie": "Météo",
+      "famille": "codes_meteo_etat",
+      "priorite": "haute",
+      "justification": "Haze (abréviation OACI pour brume sèche)",
+      "sous_domaine": "Documentation et messages"
+    },
+    {
+      "terme": "fu",
+      "categorie": "Météo",
+      "famille": "codes_meteo_etat",
+      "priorite": "haute",
+      "justification": "Smoke (abréviation OACI pour fumée)",
+      "sous_domaine": "Documentation et messages"
+    },
+    {
+      "terme": "sq",
+      "categorie": "Météo",
+      "famille": "codes_meteo_etat",
+      "priorite": "haute",
+      "justification": "Squalls (abréviation OACI pour grains)",
+      "sous_domaine": "Documentation et messages"
+    },
+    {
+      "terme": "po",
+      "categorie": "Météo",
+      "famille": "codes_meteo_etat",
+      "priorite": "haute",
+      "justification": "Dust/sand whirls (abréviation OACI pour tourbillons de poussière)",
+      "sous_domaine": "Documentation et messages"
+    },
+    {
+      "terme": "fc",
+      "categorie": "Météo",
+      "famille": "codes_meteo_etat",
+      "priorite": "haute",
+      "justification": "Funnel cloud (abréviation OACI pour trombe ou tornade)",
+      "sous_domaine": "Documentation et messages"
+    },
+    {
+      "terme": "ds",
+      "categorie": "Météo",
+      "famille": "codes_meteo_etat",
+      "priorite": "haute",
+      "justification": "Duststorm (abréviation OACI pour tempête de poussière)",
+      "sous_domaine": "Documentation et messages"
+    },
+    {
+      "terme": "ss",
+      "categorie": "Météo",
+      "famille": "codes_meteo_etat",
+      "priorite": "haute",
+      "justification": "Sandstorm (abréviation OACI pour tempête de sable)",
+      "sous_domaine": "Documentation et messages"
+    },
+    {
+      "terme": "orage",
+      "categorie": "Météo",
+      "famille": "phenomenes_dangereux",
+      "priorite": "haute",
+      "justification": "Phénomène orageux complet avec ascendance violente, grêle, foudre et grains",
+      "sous_domaine": "Phénomènes dangereux"
+    },
+    {
+      "terme": "cellule orageuse",
+      "categorie": "Météo",
+      "famille": "phenomenes_dangereux",
+      "priorite": "haute",
+      "justification": "Unité convective autonome à l'origine de l'orage",
+      "sous_domaine": "Phénomènes dangereux"
+    },
+    {
+      "terme": "orage multicellulaire",
+      "categorie": "Météo",
+      "famille": "phenomenes_dangereux",
+      "priorite": "haute",
+      "justification": "Système orageux formé de plusieurs cellules à des stades différents de leur cycle",
+      "sous_domaine": "Phénomènes dangereux"
+    },
+    {
+      "terme": "orage supercellulaire",
+      "categorie": "Météo",
+      "famille": "phenomenes_dangereux",
+      "priorite": "haute",
+      "justification": "Orage monocellulaire géant caractérisé par un courant ascendant rotatif (extrêmement dangereux)",
+      "sous_domaine": "Phénomènes dangereux"
+    },
+    {
+      "terme": "tornade",
+      "categorie": "Météo",
+      "famille": "phenomenes_dangereux",
+      "priorite": "haute",
+      "justification": "Tourbillon de vent de très petite échelle extrêmement destructeur sous cumulonimbus",
+      "sous_domaine": "Phénomènes dangereux"
+    },
+    {
+      "terme": "trombe",
+      "categorie": "Météo",
+      "famille": "phenomenes_dangereux",
+      "priorite": "haute",
+      "justification": "Phénomène tourbillonnaire similaire à une tornade se développant sur l'eau",
+      "sous_domaine": "Phénomènes dangereux"
+    },
+    {
+      "terme": "front de rafales",
+      "categorie": "Météo",
+      "famille": "turbulences",
+      "priorite": "haute",
+      "justification": "Limite de l'air froid descendant d'un cumulonimbus, marquée par de violentes rafales au sol",
+      "sous_domaine": "Phénomènes dangereux"
+    }
+  ],
+  "deja_presents_verifies": 144,
+  "notes": "L'audit montre des manques notables dans les genres de nuages de base (cirrus, cirrocumulus) alors que d'autres (altocumulus, cumulonimbus) sont présents. Les abréviations OACI de temps présent (METAR/TAF) manquaient cruellement, ainsi que les hydrométéores principaux (bruine, grêle, grésil, pluie surfondue) indispensables au PPL(A). Les orages complexes (multicellulaires/supercellulaires) et le givrage fin (givre blanc vs givre clair) font l'objet d'un manque important de couverture."
+}

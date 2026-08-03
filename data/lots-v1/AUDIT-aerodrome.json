@@ -1,0 +1,711 @@
+{
+  "domaine": "Aérodrome & cartes",
+  "manquants": [
+    {
+      "terme": "stopway",
+      "categorie": "Aérodrome & cartes",
+      "famille": "dimensions_piste",
+      "priorite": "haute",
+      "justification": "Terme anglais équivalent au prolongement d'arrêt (essentiel pour les distances déclarées)",
+      "sous_domaine": "Piste"
+    },
+    {
+      "terme": "prolongement dégagé",
+      "categorie": "Aérodrome & cartes",
+      "famille": "dimensions_piste",
+      "priorite": "haute",
+      "justification": "Prolongement dégagé (clearway), zone rectangulaire au sol ou sur l'eau sous le contrôle de l'autorité compétente, sélectionnée ou préparée pour convenir au-dessus de laquelle un aéronef peut exécuter une partie de sa montée initiale",
+      "sous_domaine": "Piste"
+    },
+    {
+      "terme": "clearway",
+      "categorie": "Aérodrome & cartes",
+      "famille": "dimensions_piste",
+      "priorite": "haute",
+      "justification": "Terme anglais équivalent au prolongement dégagé (essentiel pour les distances déclarées)",
+      "sous_domaine": "Piste"
+    },
+    {
+      "terme": "aire de sécurité d'extrémité",
+      "categorie": "Aérodrome & cartes",
+      "famille": "dimensions_piste",
+      "priorite": "moyenne",
+      "justification": "RESA (Runway End Safety Area), aire symétrique prolongeant la bande de piste destinée à limiter les risques en cas d'atterrissage trop court ou de dépassement de piste",
+      "sous_domaine": "Piste"
+    },
+    {
+      "terme": "RESA",
+      "categorie": "Aérodrome & cartes",
+      "famille": "dimensions_piste",
+      "priorite": "moyenne",
+      "justification": "Acronyme de Runway End Safety Area (aire de sécurité d'extrémité de piste)",
+      "sous_domaine": "Piste"
+    },
+    {
+      "terme": "raquette de retournement",
+      "categorie": "Aérodrome & cartes",
+      "famille": "dimensions_piste",
+      "priorite": "moyenne",
+      "justification": "Aire de retournement en extrémité de piste pour les aérodromes sans taxiway parallèle",
+      "sous_domaine": "Piste"
+    },
+    {
+      "terme": "bretelle",
+      "categorie": "Aérodrome & cartes",
+      "famille": "dimensions_piste",
+      "priorite": "moyenne",
+      "justification": "Voie de raccordement reliant la piste aux autres infrastructures (taxiway, parking)",
+      "sous_domaine": "Piste"
+    },
+    {
+      "terme": "aire de trafic",
+      "categorie": "Aérodrome & cartes",
+      "famille": "dimensions_piste",
+      "priorite": "haute",
+      "justification": "Aire de trafic (apron), aire définie destinée aux aéronefs pendant l'embarquement, le déchargement, l'avitaillement, le parking ou l'entretien",
+      "sous_domaine": "Piste"
+    },
+    {
+      "terme": "aire de manœuvre",
+      "categorie": "Aérodrome & cartes",
+      "famille": "dimensions_piste",
+      "priorite": "haute",
+      "justification": "Partie de l'aérodrome à utiliser pour les décollages, les atterrissages et la circulation à la surface, à l'exclusion des aires de trafic",
+      "sous_domaine": "Piste"
+    },
+    {
+      "terme": "aire de mouvement",
+      "categorie": "Aérodrome & cartes",
+      "famille": "dimensions_piste",
+      "priorite": "haute",
+      "justification": "Partie de l'aérodrome à utiliser pour les décollages, les atterrissages et la circulation des aéronefs à la surface, constituée par l'aire de manœuvre et les aires de trafic",
+      "sous_domaine": "Piste"
+    },
+    {
+      "terme": "plateforme",
+      "categorie": "Aérodrome & cartes",
+      "famille": "dimensions_piste",
+      "priorite": "basse",
+      "justification": "Plateforme aéronautique, ensemble des infrastructures d'un aérodrome",
+      "sous_domaine": "Piste"
+    },
+    {
+      "terme": "résistance de piste",
+      "categorie": "Aérodrome & cartes",
+      "famille": "dimensions_piste",
+      "priorite": "moyenne",
+      "justification": "Capacité portante de la structure de la piste (PCN)",
+      "sous_domaine": "Piste"
+    },
+    {
+      "terme": "PCN",
+      "categorie": "Aérodrome & cartes",
+      "famille": "dimensions_piste",
+      "priorite": "moyenne",
+      "justification": "Pavement Classification Number, indicateur standardisé de la résistance d'une chaussée",
+      "sous_domaine": "Piste"
+    },
+    {
+      "terme": "nature de surface",
+      "categorie": "Aérodrome & cartes",
+      "famille": "dimensions_piste",
+      "priorite": "basse",
+      "justification": "Type de revêtement de la piste (herbe, asphalte, béton, etc.)",
+      "sous_domaine": "Piste"
+    },
+    {
+      "terme": "surface revêtue",
+      "categorie": "Aérodrome & cartes",
+      "famille": "dimensions_piste",
+      "priorite": "basse",
+      "justification": "Piste en dur (asphalte, béton, etc.)",
+      "sous_domaine": "Piste"
+    },
+    {
+      "terme": "surface en gazon",
+      "categorie": "Aérodrome & cartes",
+      "famille": "dimensions_piste",
+      "priorite": "basse",
+      "justification": "Piste en herbe ou gazon",
+      "sous_domaine": "Piste"
+    },
+    {
+      "terme": "numéro de piste",
+      "categorie": "Aérodrome & cartes",
+      "famille": "marquages_sol",
+      "priorite": "haute",
+      "justification": "Chiffres peints indiquant l'orientation magnétique de la piste",
+      "sous_domaine": "Marquages au sol"
+    },
+    {
+      "terme": "point cible",
+      "categorie": "Aérodrome & cartes",
+      "famille": "marquages_sol",
+      "priorite": "moyenne",
+      "justification": "Bandes blanches épaisses sur la piste servant de point de visée visuel à l'atterrissage",
+      "sous_domaine": "Marquages au sol"
+    },
+    {
+      "terme": "zone de toucher des roues",
+      "categorie": "Aérodrome & cartes",
+      "famille": "marquages_sol",
+      "priorite": "moyenne",
+      "justification": "Bandes latérales blanches indiquant la zone idéale de contact avec le sol",
+      "sous_domaine": "Marquages au sol"
+    },
+    {
+      "terme": "marques de guidage",
+      "categorie": "Aérodrome & cartes",
+      "famille": "marquages_sol",
+      "priorite": "moyenne",
+      "justification": "Lignes jaunes continues guidant le roulage des aéronefs sur les voies de circulation",
+      "sous_domaine": "Marquages au sol"
+    },
+    {
+      "terme": "point d'attente intermédiaire",
+      "categorie": "Aérodrome & cartes",
+      "famille": "marquages_sol",
+      "priorite": "moyenne",
+      "justification": "Marquage au sol sur un taxiway indiquant une position d'attente secondaire",
+      "sous_domaine": "Marquages au sol"
+    },
+    {
+      "terme": "barre d'arrêt",
+      "categorie": "Aérodrome & cartes",
+      "famille": "marquages_sol",
+      "priorite": "moyenne",
+      "justification": "Marquage ou dispositif lumineux interdisant l'accès sans autorisation (point d'attente)",
+      "sous_domaine": "Marquages au sol"
+    },
+    {
+      "terme": "feux de seuil",
+      "categorie": "Aérodrome & cartes",
+      "famille": "feux_balisage",
+      "priorite": "haute",
+      "justification": "Feux verts unidirectionnels marquant le début de la piste",
+      "sous_domaine": "Balisage lumineux"
+    },
+    {
+      "terme": "feux d'extrémité",
+      "categorie": "Aérodrome & cartes",
+      "famille": "feux_balisage",
+      "priorite": "haute",
+      "justification": "Feux rouges unidirectionnels marquant la fin de la piste utilisable",
+      "sous_domaine": "Balisage lumineux"
+    },
+    {
+      "terme": "feux de bord de piste",
+      "categorie": "Aérodrome & cartes",
+      "famille": "feux_balisage",
+      "priorite": "haute",
+      "justification": "Feux blancs bidirectionnels délimitant les côtés latéraux de la piste",
+      "sous_domaine": "Balisage lumineux"
+    },
+    {
+      "terme": "feux d'axe",
+      "categorie": "Aérodrome & cartes",
+      "famille": "feux_balisage",
+      "priorite": "haute",
+      "justification": "Feux incrustés le long de l'axe de la piste (blancs puis alternés rouge/blanc puis rouges)",
+      "sous_domaine": "Balisage lumineux"
+    },
+    {
+      "terme": "feux à éclats",
+      "categorie": "Aérodrome & cartes",
+      "famille": "feux_balisage",
+      "priorite": "moyenne",
+      "justification": "Feux à éclats de forte intensité (strobes) utilisés pour l'identification de la piste ou de l'approche",
+      "sous_domaine": "Balisage lumineux"
+    },
+    {
+      "terme": "PAPI",
+      "categorie": "Aérodrome & cartes",
+      "famille": "feux_balisage",
+      "priorite": "haute",
+      "justification": "Precision Approach Path Indicator, indicateur de pente d'approche à 4 feux",
+      "sous_domaine": "Balisage lumineux"
+    },
+    {
+      "terme": "VASIS",
+      "categorie": "Aérodrome & cartes",
+      "famille": "feux_balisage",
+      "priorite": "haute",
+      "justification": "Visual Approach Slope Indicator System, indicateur de pente d'approche à 2 barres de feux",
+      "sous_domaine": "Balisage lumineux"
+    },
+    {
+      "terme": "T-VASIS",
+      "categorie": "Aérodrome & cartes",
+      "famille": "feux_balisage",
+      "priorite": "moyenne",
+      "justification": "Variante d'indicateur visuel de pente d'approche en forme de T",
+      "sous_domaine": "Balisage lumineux"
+    },
+    {
+      "terme": "indicateur de pente d'approche",
+      "categorie": "Aérodrome & cartes",
+      "famille": "feux_balisage",
+      "priorite": "haute",
+      "justification": "Système visuel d'aide à l'atterrissage fournissant des repères de pente (PAPI, VASIS)",
+      "sous_domaine": "Balisage lumineux"
+    },
+    {
+      "terme": "balisage de taxiway",
+      "categorie": "Aérodrome & cartes",
+      "famille": "feux_balisage",
+      "priorite": "haute",
+      "justification": "Feux bleus de bord et feux verts d'axe pour le guidage au roulage",
+      "sous_domaine": "Balisage lumineux"
+    },
+    {
+      "terme": "feux d'obstacle",
+      "categorie": "Aérodrome & cartes",
+      "famille": "feux_balisage",
+      "priorite": "haute",
+      "justification": "Feux rouges fixes ou à éclats signalant la présence d'un obstacle",
+      "sous_domaine": "Balisage lumineux"
+    },
+    {
+      "terme": "phare d'aérodrome",
+      "categorie": "Aérodrome & cartes",
+      "famille": "feux_balisage",
+      "priorite": "moyenne",
+      "justification": "Phare rotatif signalant la position géographique de l'aérodrome de nuit",
+      "sous_domaine": "Balisage lumineux"
+    },
+    {
+      "terme": "balisage basse intensité",
+      "categorie": "Aérodrome & cartes",
+      "famille": "feux_balisage",
+      "priorite": "moyenne",
+      "justification": "Balisage lumineux de faible intensité pour conditions de vol de nuit ordinaires (LIL)",
+      "sous_domaine": "Balisage lumineux"
+    },
+    {
+      "terme": "balisage haute intensité",
+      "categorie": "Aérodrome & cartes",
+      "famille": "feux_balisage",
+      "priorite": "moyenne",
+      "justification": "Balisage de forte intensité pour les approches aux instruments par faible visibilité (HIRL)",
+      "sous_domaine": "Balisage lumineux"
+    },
+    {
+      "terme": "télécommande du balisage",
+      "categorie": "Aérodrome & cartes",
+      "famille": "feux_balisage",
+      "priorite": "haute",
+      "justification": "Activation du balisage de nuit ou par mauvaise visibilité par impulsions VHF de l'équipage (PCL)",
+      "sous_domaine": "Balisage lumineux"
+    },
+    {
+      "terme": "PCL",
+      "categorie": "Aérodrome & cartes",
+      "famille": "feux_balisage",
+      "priorite": "haute",
+      "justification": "Pilot Controlled Lighting, télécommande du balisage par l'équipage via la radio",
+      "sous_domaine": "Balisage lumineux"
+    },
+    {
+      "terme": "croix blanche",
+      "categorie": "Aérodrome & cartes",
+      "famille": "aire_signaux",
+      "priorite": "haute",
+      "justification": "Signal au sol indiquant la fermeture d'une piste ou d'un aérodrome",
+      "sous_domaine": "Signalisation et aire à signaux"
+    },
+    {
+      "terme": "damier",
+      "categorie": "Aérodrome & cartes",
+      "famille": "aire_signaux",
+      "priorite": "moyenne",
+      "justification": "Marquage rouge et blanc d'un obstacle ou véhicule sur l'aire de mouvement",
+      "sous_domaine": "Signalisation et aire à signaux"
+    },
+    {
+      "terme": "panneau de signalisation",
+      "categorie": "Aérodrome & cartes",
+      "famille": "aire_signaux",
+      "priorite": "moyenne",
+      "justification": "Panneaux verticaux (lumineux ou non) d'obligation, d'indication ou d'emplacement au sol",
+      "sous_domaine": "Signalisation et aire à signaux"
+    },
+    {
+      "terme": "signaux visuels au sol",
+      "categorie": "Aérodrome & cartes",
+      "famille": "aire_signaux",
+      "priorite": "haute",
+      "justification": "Signaux disposés sur l'aire à signaux (ex: T d'atterrissage, double croix)",
+      "sous_domaine": "Signalisation et aire à signaux"
+    },
+    {
+      "terme": "signaux lumineux de la tour",
+      "categorie": "Aérodrome & cartes",
+      "famille": "aire_signaux",
+      "priorite": "haute",
+      "justification": "Pistolet à signaux émettant des feux colorés (vert/rouge fixe/clignotant) à l'attention des aéronefs",
+      "sous_domaine": "Signalisation et aire à signaux"
+    },
+    {
+      "terme": "pistolet à signaux",
+      "categorie": "Aérodrome & cartes",
+      "famille": "aire_signaux",
+      "priorite": "haute",
+      "justification": "Dispositif optique portatif de la tour de contrôle pour communiquer avec les aéronefs sans radio",
+      "sous_domaine": "Signalisation et aire à signaux"
+    },
+    {
+      "terme": "classe A",
+      "categorie": "Réglementation & docs",
+      "famille": "espaces_controles",
+      "priorite": "haute",
+      "justification": "Espace aérien contrôlé de classe A, strictement interdit aux vols VFR",
+      "sous_domaine": "Espaces aériens"
+    },
+    {
+      "terme": "classe B",
+      "categorie": "Réglementation & docs",
+      "famille": "espaces_controles",
+      "priorite": "haute",
+      "justification": "Espace aérien contrôlé de classe B (séparation de tous les vols, VFR admis)",
+      "sous_domaine": "Espaces aériens"
+    },
+    {
+      "terme": "classe C",
+      "categorie": "Réglementation & docs",
+      "famille": "espaces_controles",
+      "priorite": "haute",
+      "justification": "Espace aérien contrôlé de classe C (séparation IFR/IFR et IFR/VFR)",
+      "sous_domaine": "Espaces aériens"
+    },
+    {
+      "terme": "classe D",
+      "categorie": "Réglementation & docs",
+      "famille": "espaces_controles",
+      "priorite": "haute",
+      "justification": "Espace aérien contrôlé de classe D (contact radio obligatoire, VFR espacés des IFR par information de trafic)",
+      "sous_domaine": "Espaces aériens"
+    },
+    {
+      "terme": "classe E",
+      "categorie": "Réglementation & docs",
+      "famille": "espaces_controles",
+      "priorite": "haute",
+      "justification": "Espace aérien contrôlé de classe E (VFR admis sans contact radio obligatoire en espace non contrôlé sous-jacent)",
+      "sous_domaine": "Espaces aériens"
+    },
+    {
+      "terme": "classe F",
+      "categorie": "Réglementation & docs",
+      "famille": "espaces_controles",
+      "priorite": "haute",
+      "justification": "Espace aérien de classe F (services consultatifs, non appliqué en France)",
+      "sous_domaine": "Espaces aériens"
+    },
+    {
+      "terme": "classe G",
+      "categorie": "Réglementation & docs",
+      "famille": "espaces_controles",
+      "priorite": "haute",
+      "justification": "Espace aérien non contrôlé de classe G (service d'information de vol et d'alerte)",
+      "sous_domaine": "Espaces aériens"
+    },
+    {
+      "terme": "CTA",
+      "categorie": "Réglementation & docs",
+      "famille": "espaces_controles",
+      "priorite": "haute",
+      "justification": "Control Area, région de contrôle de l'espace aérien supérieur ou inférieur",
+      "sous_domaine": "Espaces aériens"
+    },
+    {
+      "terme": "AWY",
+      "categorie": "Réglementation & docs",
+      "famille": "espaces_controles",
+      "priorite": "haute",
+      "justification": "Airway, voie aérienne balisée reliant des points de navigation",
+      "sous_domaine": "Espaces aériens"
+    },
+    {
+      "terme": "voie aérienne",
+      "categorie": "Réglementation & docs",
+      "famille": "espaces_controles",
+      "priorite": "haute",
+      "justification": "Couloir aérien contrôlé destiné à guider le transit des aéronefs",
+      "sous_domaine": "Espaces aériens"
+    },
+    {
+      "terme": "zone P",
+      "categorie": "Réglementation & docs",
+      "famille": "espaces_reglementes",
+      "priorite": "haute",
+      "justification": "Zone interdite (Prohibited) permanente pour des raisons de sécurité ou de défense nationale",
+      "sous_domaine": "Espaces aériens"
+    },
+    {
+      "terme": "zone R",
+      "categorie": "Réglementation & docs",
+      "famille": "espaces_reglementes",
+      "priorite": "haute",
+      "justification": "Zone réglementée (Restricted) dont l'accès est soumis à des conditions spécifiques ou des horaires d'activation",
+      "sous_domaine": "Espaces aériens"
+    },
+    {
+      "terme": "zone D",
+      "categorie": "Réglementation & docs",
+      "famille": "espaces_reglementes",
+      "priorite": "haute",
+      "justification": "Zone dangereuse (Danger) à l'intérieur de laquelle des activités dangereuses pour le vol peuvent se dérouler",
+      "sous_domaine": "Espaces aériens"
+    },
+    {
+      "terme": "zone de ségrégation",
+      "categorie": "Réglementation & docs",
+      "famille": "espaces_reglementes",
+      "priorite": "moyenne",
+      "justification": "Espace aérien réservé temporairement à l'usage exclusif d'utilisateurs spécifiques",
+      "sous_domaine": "Espaces aériens"
+    },
+    {
+      "terme": "secteur d'information de vol",
+      "categorie": "Réglementation & docs",
+      "famille": "espaces_controles",
+      "priorite": "haute",
+      "justification": "Secteur géographique sous la responsabilité d'un SIV (Secteur d'Information de Vol)",
+      "sous_domaine": "Espaces aériens"
+    },
+    {
+      "terme": "espace non contrôlé",
+      "categorie": "Réglementation & docs",
+      "famille": "espaces_controles",
+      "priorite": "haute",
+      "justification": "Espace aérien dans lequel le contrôle n'est pas assuré (classe G), seuls les services d'information et d'alerte le sont",
+      "sous_domaine": "Espaces aériens"
+    },
+    {
+      "terme": "VFR spécial",
+      "categorie": "Réglementation & docs",
+      "famille": "espaces_controles",
+      "priorite": "haute",
+      "justification": "Vol VFR autorisé par le contrôle dans une CTR par conditions météorologiques de vol à vue inférieures aux VMC",
+      "sous_domaine": "Espaces aériens"
+    },
+    {
+      "terme": "carte OACI 1/500 000",
+      "categorie": "Aérodrome & cartes",
+      "famille": "cartes_aeronautiques",
+      "priorite": "haute",
+      "justification": "Carte aéronautique de référence pour la navigation à vue (VFR) en France",
+      "sous_domaine": "Cartes et documentation"
+    },
+    {
+      "terme": "AD",
+      "categorie": "Aérodrome & cartes",
+      "famille": "cartes_aeronautiques",
+      "priorite": "moyenne",
+      "justification": "Partie de l'AIP (Aérodromes) contenant toutes les informations physiques et opérationnelles des terrains",
+      "sous_domaine": "Cartes et documentation"
+    },
+    {
+      "terme": "SIA",
+      "categorie": "Aérodrome & cartes",
+      "famille": "cartes_aeronautiques",
+      "priorite": "haute",
+      "justification": "Service de l'Information Aéronautique, organisme officiel publiant les cartes et documents aéronautiques en France",
+      "sous_domaine": "Cartes et documentation"
+    },
+    {
+      "terme": "AIC",
+      "categorie": "Aérodrome & cartes",
+      "famille": "cartes_aeronautiques",
+      "priorite": "haute",
+      "justification": "Aeronautical Information Circular, circulaire d'information aéronautique administrative ou technique",
+      "sous_domaine": "Cartes et documentation"
+    },
+    {
+      "terme": "complément aux cartes",
+      "categorie": "Aérodrome & cartes",
+      "famille": "cartes_aeronautiques",
+      "priorite": "moyenne",
+      "justification": "Ouvrage complémentaire du SIA listant les zones, fréquences et consignes opérationnelles",
+      "sous_domaine": "Cartes et documentation"
+    },
+    {
+      "terme": "échelle",
+      "categorie": "Aérodrome & cartes",
+      "famille": "cartes_aeronautiques",
+      "priorite": "moyenne",
+      "justification": "Rapport entre la distance sur la carte et la distance réelle sur le terrain (ex: 1/500 000)",
+      "sous_domaine": "Cartes et documentation"
+    },
+    {
+      "terme": "projection",
+      "categorie": "Aérodrome & cartes",
+      "famille": "cartes_aeronautiques",
+      "priorite": "moyenne",
+      "justification": "Système de projection cartographique (Lambert conforme pour les cartes VFR françaises)",
+      "sous_domaine": "Cartes et documentation"
+    },
+    {
+      "terme": "courbe de niveau",
+      "categorie": "Aérodrome & cartes",
+      "famille": "cartes_aeronautiques",
+      "priorite": "moyenne",
+      "justification": "Ligne joignant les points d'égale altitude pour représenter le relief sur les cartes",
+      "sous_domaine": "Cartes et documentation"
+    },
+    {
+      "terme": "altitude minimale de sécurité",
+      "categorie": "Aérodrome & cartes",
+      "famille": "cartes_aeronautiques",
+      "priorite": "haute",
+      "justification": "Altitude minimale à respecter en vol pour garantir le franchissement des obstacles (MSA, MEA, etc.)",
+      "sous_domaine": "Cartes et documentation"
+    },
+    {
+      "terme": "MSA",
+      "categorie": "Aérodrome & cartes",
+      "famille": "cartes_aeronautiques",
+      "priorite": "haute",
+      "justification": "Minimum Sector Altitude, altitude minimale de secteur garantissant une marge d'obstacle",
+      "sous_domaine": "Cartes et documentation"
+    },
+    {
+      "terme": "relief",
+      "categorie": "Aérodrome & cartes",
+      "famille": "cartes_aeronautiques",
+      "priorite": "moyenne",
+      "justification": "Représentation du relief terrestre (teintes hypsométriques, points cotés)",
+      "sous_domaine": "Cartes et documentation"
+    },
+    {
+      "terme": "obstacle",
+      "categorie": "Aérodrome & cartes",
+      "famille": "cartes_aeronautiques",
+      "priorite": "haute",
+      "justification": "Objet temporaire ou permanent élevé au-dessus du sol, constituant un danger pour la navigation",
+      "sous_domaine": "Cartes et documentation"
+    },
+    {
+      "terme": "ligne à haute tension",
+      "categorie": "Aérodrome & cartes",
+      "famille": "cartes_aeronautiques",
+      "priorite": "haute",
+      "justification": "Repère visuel de navigation linéaire et obstacle critique en basse altitude",
+      "sous_domaine": "Cartes et documentation"
+    },
+    {
+      "terme": "TWR",
+      "categorie": "Réglementation & docs",
+      "famille": "services_organismes",
+      "priorite": "haute",
+      "justification": "Tower, la tour de contrôle assurant le contrôle d'aérodrome",
+      "sous_domaine": "Services et organismes"
+    },
+    {
+      "terme": "APP",
+      "categorie": "Réglementation & docs",
+      "famille": "services_organismes",
+      "priorite": "haute",
+      "justification": "Approach control, organisme assurant le contrôle d'approche pour les départs/arrivées",
+      "sous_domaine": "Services et organismes"
+    },
+    {
+      "terme": "ACC",
+      "categorie": "Réglementation & docs",
+      "famille": "services_organismes",
+      "priorite": "haute",
+      "justification": "Area Control Center, centre de contrôle régional assurant le contrôle en route",
+      "sous_domaine": "Services et organismes"
+    },
+    {
+      "terme": "auto-information",
+      "categorie": "Réglementation & docs",
+      "famille": "services_organismes",
+      "priorite": "haute",
+      "justification": "Procédure d'annonce radio en l'absence d'organisme de contrôle ou d'AFIS",
+      "sous_domaine": "Services et organismes"
+    },
+    {
+      "terme": "agent AFIS",
+      "categorie": "Réglementation & docs",
+      "famille": "services_organismes",
+      "priorite": "haute",
+      "justification": "Professionnel qualifié fournissant le service d'information de vol et d'alerte sur un aérodrome non contrôlé",
+      "sous_domaine": "Services et organismes"
+    },
+    {
+      "terme": "aérodrome contrôlé",
+      "categorie": "Réglementation & docs",
+      "famille": "services_organismes",
+      "priorite": "haute",
+      "justification": "Aérodrome doté d'un service de contrôle de la circulation aérienne pour le trafic du circuit et du sol",
+      "sous_domaine": "Services et organismes"
+    },
+    {
+      "terme": "aérodrome non contrôlé",
+      "categorie": "Réglementation & docs",
+      "famille": "services_organismes",
+      "priorite": "haute",
+      "justification": "Aérodrome sans service de contrôle, pouvant disposer d'un AFIS ou être en auto-information",
+      "sous_domaine": "Services et organismes"
+    },
+    {
+      "terme": "service d'alerte",
+      "categorie": "Réglementation & docs",
+      "famille": "services_organismes",
+      "priorite": "haute",
+      "justification": "Service destiné à alerter les organismes appropriés lorsque des aéronefs ont besoin de secours et à les assister",
+      "sous_domaine": "Services et organismes"
+    },
+    {
+      "terme": "RFFS",
+      "categorie": "Réglementation & docs",
+      "famille": "services_organismes",
+      "priorite": "haute",
+      "justification": "Rescue and Fire Fighting Service, service de sauvetage et de lutte contre l'incendie des aéronefs",
+      "sous_domaine": "Services et organismes"
+    },
+    {
+      "terme": "SSLIA",
+      "categorie": "Réglementation & docs",
+      "famille": "services_organismes",
+      "priorite": "haute",
+      "justification": "Service de Sauvetage et de Lutte contre l'Incendie des Aéronefs (équivalent français du RFFS)",
+      "sous_domaine": "Services et organismes"
+    },
+    {
+      "terme": "point de compte rendu",
+      "categorie": "Aérodrome & cartes",
+      "famille": "circuit_procedures",
+      "priorite": "haute",
+      "justification": "Point géographique spécifié sur une carte VAC pour signaler sa position radio (ex: point d'entrée)",
+      "sous_domaine": "Procédures d'aérodrome"
+    },
+    {
+      "terme": "point d'entrée",
+      "categorie": "Aérodrome & cartes",
+      "famille": "circuit_procedures",
+      "priorite": "haute",
+      "justification": "Point de compte rendu géographique marquant l'entrée dans la zone de circuit",
+      "sous_domaine": "Procédures d'aérodrome"
+    },
+    {
+      "terme": "point de sortie",
+      "categorie": "Aérodrome & cartes",
+      "famille": "circuit_procedures",
+      "priorite": "haute",
+      "justification": "Point de compte rendu géographique marquant la sortie du circuit d'aérodrome",
+      "sous_domaine": "Procédures d'aérodrome"
+    },
+    {
+      "terme": "dégagement de piste",
+      "categorie": "Aérodrome & cartes",
+      "famille": "circuit_procedures",
+      "priorite": "haute",
+      "justification": "Action de quitter la piste après l'atterrissage au-delà du point d'attente pour libérer la piste",
+      "sous_domaine": "Procédures d'aérodrome"
+    }
+  ],
+  "deja_presents_verifies": 42,
+  "notes": "Audit réalisé de manière exhaustive sur le domaine 'Aérodrome, cartes, balisage, espaces aériens'. Un total de 88 termes manquants critiques pour le programme de formation PPL(A) théorique français a été identifié."
+}
