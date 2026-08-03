@@ -1,0 +1,2266 @@
+[
+{
+"terme": "stratosphère",
+"categorie": "Météo",
+"famille": "couches_atmosphere",
+"priorite": "haute",
+"justification": "Couche de l'atmosphère située au-dessus de la tropopause, hors météo active",
+"sous_domaine": "Atmosphère"
+},
+{
+"terme": "gradient adiabatique sec",
+"categorie": "Météo",
+"famille": "gradients_thermiques",
+"priorite": "haute",
+"justification": "Taux de refroidissement théorique de l'air sec en montée (1°C / 100 m)",
+"sous_domaine": "Atmosphère"
+},
+{
+"terme": "gradient adiabatique saturé",
+"categorie": "Météo",
+"famille": "gradients_thermiques",
+"priorite": "haute",
+"justification": "Taux de refroidissement de l'air saturé en montée (0,5 à 0,9°C / 100 m)",
+"sous_domaine": "Atmosphère"
+},
+{
+"terme": "isothermie",
+"categorie": "Météo",
+"famille": "gradients_thermiques",
+"priorite": "haute",
+"justification": "Tranche d'atmosphère où la température reste constante avec l'altitude",
+"sous_domaine": "Atmosphère"
+},
+{
+"terme": "pression atmosphérique",
+"categorie": "Météo",
+"famille": "isobares_pression",
+"priorite": "haute",
+"justification": "Force exercée par l'air, indispensable pour comprendre l'altimétrie et les mouvements d'air",
+"sous_domaine": "Atmosphère"
+},
+{
+"terme": "humidité relative",
+"categorie": "Météo",
+"famille": "generalites_atmosphere",
+"priorite": "haute",
+"justification": "Rapport en % de la quantité d'eau présente à la capacité maximale de l'air",
+"sous_domaine": "Atmosphère"
+},
+{
+"terme": "surfusion",
+"categorie": "Météo",
+"famille": "thermodynamique",
+"priorite": "haute",
+"justification": "État de l'eau liquide restant fluide sous 0°C, cause principale du givrage en vol",
+"sous_domaine": "Atmosphère"
+},
+{
+"terme": "chaleur latente",
+"categorie": "Météo",
+"famille": "thermodynamique",
+"priorite": "haute",
+"justification": "Énergie libérée ou absorbée lors du changement d'état de l'eau, moteur de l'instabilité",
+"sous_domaine": "Atmosphère"
+},
+{
+"terme": "salr",
+"categorie": "Météo",
+"famille": "gradients_thermiques",
+"priorite": "moyenne",
+"justification": "Saturated Adiabatic Lapse Rate (sigle anglais du gradient adiabatique saturé)",
+"sous_domaine": "Atmosphère"
+},
+{
+"terme": "surface isobare",
+"categorie": "Météo",
+"famille": "isobares_pression",
+"priorite": "haute",
+"justification": "Surface tridimensionnelle d'égale pression atmosphérique",
+"sous_domaine": "Pression, densité, température"
+},
+{
+"terme": "marais barométrique",
+"categorie": "Météo",
+"famille": "systemes_pression",
+"priorite": "haute",
+"justification": "Situation synoptique sans gradient de pression marqué, propice aux brumes/orages",
+"sous_domaine": "Pression, densité, température"
+},
+{
+"terme": "isallobare",
+"categorie": "Météo",
+"famille": "isobares_pression",
+"priorite": "basse",
+"justification": "Ligne d'égale variation de pression dans un temps donné, outil de prévision",
+"sous_domaine": "Pression, densité, température"
+},
+{
+"terme": "cirrus",
+"categorie": "Météo",
+"famille": "nuages_genres",
+"priorite": "haute",
+"justification": "Genre de nuage de l'étage supérieur composé de cristaux de glace",
+"sous_domaine": "Nuages"
+},
+{
+"terme": "cirrocumulus",
+"categorie": "Météo",
+"famille": "nuages_genres",
+"priorite": "haute",
+"justification": "Genre de nuage de l'étage supérieur formant des rides ou des galets",
+"sous_domaine": "Nuages"
+},
+{
+"terme": "humilis",
+"categorie": "Météo",
+"famille": "nuages_especes",
+"priorite": "haute",
+"justification": "Espèce de cumulus aplati caractérisant des conditions stables de beau temps",
+"sous_domaine": "Nuages"
+},
+{
+"terme": "mediocris",
+"categorie": "Météo",
+"famille": "nuages_especes",
+"priorite": "haute",
+"justification": "Espèce de cumulus d'extension verticale modérée",
+"sous_domaine": "Nuages"
+},
+{
+"terme": "congestus",
+"categorie": "Météo",
+"famille": "nuages_especes",
+"priorite": "haute",
+"justification": "Espèce de cumulus bourgeonnant à fort développement vertical",
+"sous_domaine": "Nuages"
+},
+{
+"terme": "capillatus",
+"categorie": "Météo",
+"famille": "nuages_especes",
+"priorite": "haute",
+"justification": "Espèce de cumulonimbus caractérisé par son enclume fibreuse",
+"sous_domaine": "Nuages"
+},
+{
+"terme": "virga",
+"categorie": "Météo",
+"famille": "nuages_especes",
+"priorite": "haute",
+"justification": "Précipitations s'évaporant sous la base d'un nuage avant de toucher le sol",
+"sous_domaine": "Nuages"
+},
+{
+"terme": "étage supérieur",
+"categorie": "Météo",
+"famille": "nuages_etages",
+"priorite": "moyenne",
+"justification": "Tranche d'altitude au-dessus de 20 000 ft contenant les cirrus",
+"sous_domaine": "Nuages"
+},
+{
+"terme": "étage moyen",
+"categorie": "Météo",
+"famille": "nuages_etages",
+"priorite": "moyenne",
+"justification": "Tranche d'altitude (6 500 à 20 000 ft) contenant altocumulus et altostratus",
+"sous_domaine": "Nuages"
+},
+{
+"terme": "étage inférieur",
+"categorie": "Météo",
+"famille": "nuages_etages",
+"priorite": "moyenne",
+"justification": "Tranche d'altitude (du sol à 6 500 ft) contenant stratus et stratocumulus",
+"sous_domaine": "Nuages"
+},
+{
+"terme": "bruine",
+"categorie": "Météo",
+"famille": "precipitations",
+"priorite": "haute",
+"justification": "Précipitation de très fines gouttelettes d'eau tombant du stratus",
+"sous_domaine": "Précipitations et hydrométéores"
+},
+{
+"terme": "grêle",
+"categorie": "Météo",
+"famille": "precipitations",
+"priorite": "haute",
+"justification": "Précipitation de grêlons durs émanant exclusivement du cumulonimbus",
+"sous_domaine": "Précipitations et hydrométéores"
+},
+{
+"terme": "grésil",
+"categorie": "Météo",
+"famille": "precipitations",
+"priorite": "haute",
+"justification": "Précipitation de petits grains de glace opaques ou translucides",
+"sous_domaine": "Précipitations et hydrométéores"
+},
+{
+"terme": "neige",
+"categorie": "Météo",
+"famille": "precipitations",
+"priorite": "haute",
+"justification": "Précipitation solide de cristaux de glace complexes assemblés en flocons",
+"sous_domaine": "Précipitations et hydrométéores"
+},
+{
+"terme": "pluie surfondue",
+"categorie": "Météo",
+"famille": "precipitations",
+"priorite": "haute",
+"justification": "Pluie liquide par température négative gelant instantanément à l'impact (givrage sévère)",
+"sous_domaine": "Précipitations et hydrométéores"
+},
+{
+"terme": "brouillard d'advection",
+"categorie": "Météo",
+"famille": "brouillards_types",
+"priorite": "haute",
+"justification": "Brouillard formé par le refroidissement d'un air chaud et humide sur sol froid",
+"sous_domaine": "Précipitations et hydrométéores"
+},
+{
+"terme": "brouillard d'évaporation",
+"categorie": "Météo",
+"famille": "brouillards_types",
+"priorite": "haute",
+"justification": "Brouillard sur plans d'eau par apport d'humidité chaude dans de l'air froid",
+"sous_domaine": "Précipitations et hydrométéores"
+},
+{
+"terme": "brume sèche",
+"categorie": "Météo",
+"famille": "visibilite_phenomenes",
+"priorite": "haute",
+"justification": "Réduction de visibilité par des particules microscopiques solides en suspension",
+"sous_domaine": "Précipitations et hydrométéores"
+},
+{
+"terme": "hydrométéore",
+"categorie": "Météo",
+"famille": "generalites_meteo",
+"priorite": "moyenne",
+"justification": "Tout phénomène lié à l'eau condensée ou précipitée dans l'atmosphère",
+"sous_domaine": "Précipitations et hydrométéores"
+},
+{
+"terme": "front stationnaire",
+"categorie": "Météo",
+"famille": "fronts_meteorologiques",
+"priorite": "haute",
+"justification": "Frontière stable entre deux masses d'air de températures différentes",
+"sous_domaine": "Masses d'air et fronts"
+},
+{
+"terme": "front polaire",
+"categorie": "Météo",
+"famille": "fronts_meteorologiques",
+"priorite": "haute",
+"justification": "Surface de discontinuité majeure séparant l'air polaire de l'air tropical",
+"sous_domaine": "Masses d'air et fronts"
+},
+{
+"terme": "dorsale",
+"categorie": "Météo",
+"famille": "systemes_pression",
+"priorite": "haute",
+"justification": "Axe de hautes pressions prolongeant un anticyclone (temps généralement stable)",
+"sous_domaine": "Masses d'air et fronts"
+},
+{
+"terme": "thalweg",
+"categorie": "Météo",
+"famille": "systemes_pression",
+"priorite": "haute",
+"justification": "Axe de basses pressions prolongeant une dépression (temps perturbé)",
+"sous_domaine": "Masses d'air et fronts"
+},
+{
+"terme": "col barométrique",
+"categorie": "Météo",
+"famille": "systemes_pression",
+"priorite": "haute",
+"justification": "Région de transition de pression neutre entre deux dépressions et deux anticyclones",
+"sous_domaine": "Masses d'air et fronts"
+},
+{
+"terme": "secteur chaud",
+"categorie": "Météo",
+"famille": "fronts_meteorologiques",
+"priorite": "haute",
+"justification": "Espace d'air doux situé entre le front chaud antérieur et le front froid postérieur",
+"sous_domaine": "Masses d'air et fronts"
+},
+{
+"terme": "traîne",
+"categorie": "Météo",
+"famille": "fronts_meteorologiques",
+"priorite": "haute",
+"justification": "Ciel post-frontal instable caractérisé par des averses, du vent et de belles éclaircies",
+"sous_domaine": "Masses d'air et fronts"
+},
+{
+"terme": "subsidence",
+"categorie": "Météo",
+"famille": "mouvements_verticaux",
+"priorite": "haute",
+"justification": "Mouvement de descente lente de l'air créant de la stabilité et une inversion de subsidence",
+"sous_domaine": "Stabilité, instabilité, inversion"
+},
+{
+"terme": "thermique",
+"categorie": "Météo",
+"famille": "mouvements_verticaux",
+"priorite": "haute",
+"justification": "Courant d'air chaud ascendant engendré par l'échauffement solaire du sol",
+"sous_domaine": "Stabilité, instabilité, inversion"
+},
+{
+"terme": "adiabatique",
+"categorie": "Météo",
+"famille": "thermodynamique",
+"priorite": "haute",
+"justification": "Évolution thermique d'une masse d'air sans échange de chaleur avec l'extérieur",
+"sous_domaine": "Stabilité, instabilité, inversion"
+},
+{
+"terme": "force de Coriolis",
+"categorie": "Météo",
+"famille": "force_vent",
+"priorite": "haute",
+"justification": "Force fictive déviant les vents vers la droite dans l'hémisphère nord",
+"sous_domaine": "Vent"
+},
+{
+"terme": "vent géostrophique",
+"categorie": "Météo",
+"famille": "force_vent",
+"priorite": "haute",
+"justification": "Vent théorique parallèle aux isobares résultant de l'équilibre gradient/Coriolis",
+"sous_domaine": "Vent"
+},
+{
+"terme": "brise de montagne",
+"categorie": "Vent",
+"famille": "brises",
+"priorite": "haute",
+"justification": "Brise nocturne descendant des reliefs froids vers la vallée",
+"sous_domaine": "Vent"
+},
+{
+"terme": "onde orographique",
+"categorie": "Vent",
+"famille": "effets_vent_relief",
+"priorite": "haute",
+"justification": "Mouvement ondulatoire en aval de reliefs montagneux par vent fort stable",
+"sous_domaine": "Vent"
+},
+{
+"terme": "rafale descendante",
+"categorie": "Vent",
+"famille": "turbulences",
+"priorite": "haute",
+"justification": "Courant d'air vertical descendant très violent d'origine convective (sous orage)",
+"sous_domaine": "Vent"
+},
+{
+"terme": "microburst",
+"categorie": "Vent",
+"famille": "turbulences",
+"priorite": "haute",
+"justification": "Rafale descendante extrêmement localisée et violente, mortelle au décollage",
+"sous_domaine": "Vent"
+},
+{
+"terme": "givre blanc",
+"categorie": "Météo",
+"famille": "givrage",
+"priorite": "haute",
+"justification": "Glace granuleuse opaque se formant par congélation instantanée de petites gouttelettes surfondues",
+"sous_domaine": "Givrage"
+},
+{
+"terme": "givrage clair",
+"categorie": "Météo",
+"famille": "givrage",
+"priorite": "haute",
+"justification": "Glace compacte et transparente très adhérente, formée de grosses gouttes surfondues",
+"sous_domaine": "Givrage"
+},
+{
+"terme": "givrage mixte",
+"categorie": "Météo",
+"famille": "givrage",
+"priorite": "haute",
+"justification": "Mélange dangereux de givre blanc et de glace claire",
+"sous_domaine": "Givrage"
+},
+{
+"terme": "dégivrage",
+"categorie": "Moteur & hélice",
+"famille": "systemes_degivrage",
+"priorite": "haute",
+"justification": "Action d'éliminer la glace accumulée sur l'aéronef",
+"sous_domaine": "Givrage"
+},
+{
+"terme": "antigivrage",
+"categorie": "Moteur & hélice",
+"famille": "systemes_degivrage",
+"priorite": "haute",
+"justification": "Action d'empêcher le dépôt de glace sur les surfaces de l'aéronef",
+"sous_domaine": "Givrage"
+},
+{
+"terme": "cat",
+"categorie": "Météo",
+"famille": "turbulences",
+"priorite": "haute",
+"justification": "Clear Air Turbulence, turbulence sévère en air clair liée aux cisaillements de jet-stream",
+"sous_domaine": "Turbulence"
+},
+{
+"terme": "turbulence thermique",
+"categorie": "Météo",
+"famille": "turbulences",
+"priorite": "haute",
+"justification": "Secousses provoquées par des bulles d'air chaud ascendantes (convection)",
+"sous_domaine": "Turbulence"
+},
+{
+"terme": "visibilité météo",
+"categorie": "Météo",
+"famille": "visibilite_phenomenes",
+"priorite": "haute",
+"justification": "Distance horizontale maximale d'identification d'objets ou de repères noirs",
+"sous_domaine": "Visibilité"
+},
+{
+"terme": "rvr",
+"categorie": "Météo",
+"famille": "visibilite_phenomenes",
+"priorite": "haute",
+"justification": "Runway Visual Range (portée visuelle de piste, mesurée aux instruments)",
+"sous_domaine": "Visibilité"
+},
+{
+"terme": "airmet",
+"categorie": "Météo",
+"famille": "messages_meteo_types",
+"priorite": "haute",
+"justification": "Message d'alerte météo en route destiné à l'aviation de basse altitude",
+"sous_domaine": "Documentation et messages"
+},
+{
+"terme": "gamet",
+"categorie": "Météo",
+"famille": "messages_meteo_types",
+"priorite": "haute",
+"justification": "Prévision de zone en basse couche, déclinée par sections",
+"sous_domaine": "Documentation et messages"
+},
+{
+"terme": "volmet",
+"categorie": "Météo",
+"famille": "messages_meteo_types",
+"priorite": "haute",
+"justification": "Service radio transmettant en phonie continue les METAR/TAF d'aérodromes",
+"sous_domaine": "Documentation et messages"
+},
+{
+"terme": "carte isobarique",
+"categorie": "Météo",
+"famille": "cartes_meteo",
+"priorite": "haute",
+"justification": "Carte météorologique montrant les isobares au sol et les systèmes de pression",
+"sous_domaine": "Documentation et messages"
+},
+{
+"terme": "coupe verticale",
+"categorie": "Météo",
+"famille": "cartes_meteo",
+"priorite": "haute",
+"justification": "Profil altimétrique décrivant les nuages, vents et isothermes le long d'un parcours",
+"sous_domaine": "Documentation et messages"
+},
+{
+"terme": "ra",
+"categorie": "Météo",
+"famille": "codes_meteo_etat",
+"priorite": "haute",
+"justification": "Rain (abréviation OACI pour pluie)",
+"sous_domaine": "Documentation et messages"
+},
+{
+"terme": "sn",
+"categorie": "Météo",
+"famille": "codes_meteo_etat",
+"priorite": "haute",
+"justification": "Snow (abréviation OACI pour neige)",
+"sous_domaine": "Documentation et messages"
+},
+{
+"terme": "ts",
+"categorie": "Météo",
+"famille": "codes_meteo_etat",
+"priorite": "haute",
+"justification": "Thunderstorm (abréviation OACI pour orage)",
+"sous_domaine": "Documentation et messages"
+},
+{
+"terme": "fg",
+"categorie": "Météo",
+"famille": "codes_meteo_etat",
+"priorite": "haute",
+"justification": "Fog (abréviation OACI pour brouillard)",
+"sous_domaine": "Documentation et messages"
+},
+{
+"terme": "dz",
+"categorie": "Météo",
+"famille": "codes_meteo_etat",
+"priorite": "haute",
+"justification": "Drizzle (abréviation OACI pour bruine)",
+"sous_domaine": "Documentation et messages"
+},
+{
+"terme": "gr",
+"categorie": "Météo",
+"famille": "codes_meteo_etat",
+"priorite": "haute",
+"justification": "Hail (abréviation OACI pour grêle)",
+"sous_domaine": "Documentation et messages"
+},
+{
+"terme": "sh",
+"categorie": "Météo",
+"famille": "codes_meteo_etat",
+"priorite": "haute",
+"justification": "Showers (abréviation OACI pour averses)",
+"sous_domaine": "Documentation et messages"
+},
+{
+"terme": "fz",
+"categorie": "Météo",
+"famille": "codes_meteo_etat",
+"priorite": "haute",
+"justification": "Freezing (abréviation OACI pour se congelant/surfondu)",
+"sous_domaine": "Documentation et messages"
+},
+{
+"terme": "vc",
+"categorie": "Météo",
+"famille": "codes_meteo_etat",
+"priorite": "haute",
+"justification": "Vicinity (abréviation OACI pour au voisinage)",
+"sous_domaine": "Documentation et messages"
+},
+{
+"terme": "hz",
+"categorie": "Météo",
+"famille": "codes_meteo_etat",
+"priorite": "haute",
+"justification": "Haze (abréviation OACI pour brume sèche)",
+"sous_domaine": "Documentation et messages"
+},
+{
+"terme": "fu",
+"categorie": "Météo",
+"famille": "codes_meteo_etat",
+"priorite": "haute",
+"justification": "Smoke (abréviation OACI pour fumée)",
+"sous_domaine": "Documentation et messages"
+},
+{
+"terme": "sq",
+"categorie": "Météo",
+"famille": "codes_meteo_etat",
+"priorite": "haute",
+"justification": "Squalls (abréviation OACI pour grains)",
+"sous_domaine": "Documentation et messages"
+},
+{
+"terme": "po",
+"categorie": "Météo",
+"famille": "codes_meteo_etat",
+"priorite": "haute",
+"justification": "Dust/sand whirls (abréviation OACI pour tourbillons de poussière)",
+"sous_domaine": "Documentation et messages"
+},
+{
+"terme": "fc",
+"categorie": "Météo",
+"famille": "codes_meteo_etat",
+"priorite": "haute",
+"justification": "Funnel cloud (abréviation OACI pour trombe ou tornade)",
+"sous_domaine": "Documentation et messages"
+},
+{
+"terme": "ds",
+"categorie": "Météo",
+"famille": "codes_meteo_etat",
+"priorite": "haute",
+"justification": "Duststorm (abréviation OACI pour tempête de poussière)",
+"sous_domaine": "Documentation et messages"
+},
+{
+"terme": "ss",
+"categorie": "Météo",
+"famille": "codes_meteo_etat",
+"priorite": "haute",
+"justification": "Sandstorm (abréviation OACI pour tempête de sable)",
+"sous_domaine": "Documentation et messages"
+},
+{
+"terme": "orage",
+"categorie": "Météo",
+"famille": "phenomenes_dangereux",
+"priorite": "haute",
+"justification": "Phénomène orageux complet avec ascendance violente, grêle, foudre et grains",
+"sous_domaine": "Phénomènes dangereux"
+},
+{
+"terme": "cellule orageuse",
+"categorie": "Météo",
+"famille": "phenomenes_dangereux",
+"priorite": "haute",
+"justification": "Unité convective autonome à l'origine de l'orage",
+"sous_domaine": "Phénomènes dangereux"
+},
+{
+"terme": "orage multicellulaire",
+"categorie": "Météo",
+"famille": "phenomenes_dangereux",
+"priorite": "haute",
+"justification": "Système orageux formé de plusieurs cellules à des stades différents de leur cycle",
+"sous_domaine": "Phénomènes dangereux"
+},
+{
+"terme": "orage supercellulaire",
+"categorie": "Météo",
+"famille": "phenomenes_dangereux",
+"priorite": "haute",
+"justification": "Orage monocellulaire géant caractérisé par un courant ascendant rotatif (extrêmement dangereux)",
+"sous_domaine": "Phénomènes dangereux"
+},
+{
+"terme": "tornade",
+"categorie": "Météo",
+"famille": "phenomenes_dangereux",
+"priorite": "haute",
+"justification": "Tourbillon de vent de très petite échelle extrêmement destructeur sous cumulonimbus",
+"sous_domaine": "Phénomènes dangereux"
+},
+{
+"terme": "trombe",
+"categorie": "Météo",
+"famille": "phenomenes_dangereux",
+"priorite": "haute",
+"justification": "Phénomène tourbillonnaire similaire à une tornade se développant sur l'eau",
+"sous_domaine": "Phénomènes dangereux"
+},
+{
+"terme": "front de rafales",
+"categorie": "Météo",
+"famille": "turbulences",
+"priorite": "haute",
+"justification": "Limite de l'air froid descendant d'un cumulonimbus, marquée par de violentes rafales au sol",
+"sous_domaine": "Phénomènes dangereux"
+},
+{
+"terme": "stopway",
+"categorie": "Aérodrome & cartes",
+"famille": "dimensions_piste",
+"priorite": "haute",
+"justification": "Terme anglais équivalent au prolongement d'arrêt (essentiel pour les distances déclarées)",
+"sous_domaine": "Piste"
+},
+{
+"terme": "prolongement dégagé",
+"categorie": "Aérodrome & cartes",
+"famille": "dimensions_piste",
+"priorite": "haute",
+"justification": "Prolongement dégagé (clearway), zone rectangulaire au sol ou sur l'eau sous le contrôle de l'autorité compétente, sélectionnée ou préparée pour convenir au-dessus de laquelle un aéronef peut exécuter une partie de sa montée initiale",
+"sous_domaine": "Piste"
+},
+{
+"terme": "clearway",
+"categorie": "Aérodrome & cartes",
+"famille": "dimensions_piste",
+"priorite": "haute",
+"justification": "Terme anglais équivalent au prolongement dégagé (essentiel pour les distances déclarées)",
+"sous_domaine": "Piste"
+},
+{
+"terme": "aire de sécurité d'extrémité",
+"categorie": "Aérodrome & cartes",
+"famille": "dimensions_piste",
+"priorite": "moyenne",
+"justification": "RESA (Runway End Safety Area), aire symétrique prolongeant la bande de piste destinée à limiter les risques en cas d'atterrissage trop court ou de dépassement de piste",
+"sous_domaine": "Piste"
+},
+{
+"terme": "RESA",
+"categorie": "Aérodrome & cartes",
+"famille": "dimensions_piste",
+"priorite": "moyenne",
+"justification": "Acronyme de Runway End Safety Area (aire de sécurité d'extrémité de piste)",
+"sous_domaine": "Piste"
+},
+{
+"terme": "raquette de retournement",
+"categorie": "Aérodrome & cartes",
+"famille": "dimensions_piste",
+"priorite": "moyenne",
+"justification": "Aire de retournement en extrémité de piste pour les aérodromes sans taxiway parallèle",
+"sous_domaine": "Piste"
+},
+{
+"terme": "bretelle",
+"categorie": "Aérodrome & cartes",
+"famille": "dimensions_piste",
+"priorite": "moyenne",
+"justification": "Voie de raccordement reliant la piste aux autres infrastructures (taxiway, parking)",
+"sous_domaine": "Piste"
+},
+{
+"terme": "aire de trafic",
+"categorie": "Aérodrome & cartes",
+"famille": "dimensions_piste",
+"priorite": "haute",
+"justification": "Aire de trafic (apron), aire définie destinée aux aéronefs pendant l'embarquement, le déchargement, l'avitaillement, le parking ou l'entretien",
+"sous_domaine": "Piste"
+},
+{
+"terme": "aire de manœuvre",
+"categorie": "Aérodrome & cartes",
+"famille": "dimensions_piste",
+"priorite": "haute",
+"justification": "Partie de l'aérodrome à utiliser pour les décollages, les atterrissages et la circulation à la surface, à l'exclusion des aires de trafic",
+"sous_domaine": "Piste"
+},
+{
+"terme": "aire de mouvement",
+"categorie": "Aérodrome & cartes",
+"famille": "dimensions_piste",
+"priorite": "haute",
+"justification": "Partie de l'aérodrome à utiliser pour les décollages, les atterrissages et la circulation des aéronefs à la surface, constituée par l'aire de manœuvre et les aires de trafic",
+"sous_domaine": "Piste"
+},
+{
+"terme": "plateforme",
+"categorie": "Aérodrome & cartes",
+"famille": "dimensions_piste",
+"priorite": "basse",
+"justification": "Plateforme aéronautique, ensemble des infrastructures d'un aérodrome",
+"sous_domaine": "Piste"
+},
+{
+"terme": "résistance de piste",
+"categorie": "Aérodrome & cartes",
+"famille": "dimensions_piste",
+"priorite": "moyenne",
+"justification": "Capacité portante de la structure de la piste (PCN)",
+"sous_domaine": "Piste"
+},
+{
+"terme": "PCN",
+"categorie": "Aérodrome & cartes",
+"famille": "dimensions_piste",
+"priorite": "moyenne",
+"justification": "Pavement Classification Number, indicateur standardisé de la résistance d'une chaussée",
+"sous_domaine": "Piste"
+},
+{
+"terme": "nature de surface",
+"categorie": "Aérodrome & cartes",
+"famille": "dimensions_piste",
+"priorite": "basse",
+"justification": "Type de revêtement de la piste (herbe, asphalte, béton, etc.)",
+"sous_domaine": "Piste"
+},
+{
+"terme": "surface revêtue",
+"categorie": "Aérodrome & cartes",
+"famille": "dimensions_piste",
+"priorite": "basse",
+"justification": "Piste en dur (asphalte, béton, etc.)",
+"sous_domaine": "Piste"
+},
+{
+"terme": "surface en gazon",
+"categorie": "Aérodrome & cartes",
+"famille": "dimensions_piste",
+"priorite": "basse",
+"justification": "Piste en herbe ou gazon",
+"sous_domaine": "Piste"
+},
+{
+"terme": "numéro de piste",
+"categorie": "Aérodrome & cartes",
+"famille": "marquages_sol",
+"priorite": "haute",
+"justification": "Chiffres peints indiquant l'orientation magnétique de la piste",
+"sous_domaine": "Marquages au sol"
+},
+{
+"terme": "point cible",
+"categorie": "Aérodrome & cartes",
+"famille": "marquages_sol",
+"priorite": "moyenne",
+"justification": "Bandes blanches épaisses sur la piste servant de point de visée visuel à l'atterrissage",
+"sous_domaine": "Marquages au sol"
+},
+{
+"terme": "zone de toucher des roues",
+"categorie": "Aérodrome & cartes",
+"famille": "marquages_sol",
+"priorite": "moyenne",
+"justification": "Bandes latérales blanches indiquant la zone idéale de contact avec le sol",
+"sous_domaine": "Marquages au sol"
+},
+{
+"terme": "marques de guidage",
+"categorie": "Aérodrome & cartes",
+"famille": "marquages_sol",
+"priorite": "moyenne",
+"justification": "Lignes jaunes continues guidant le roulage des aéronefs sur les voies de circulation",
+"sous_domaine": "Marquages au sol"
+},
+{
+"terme": "point d'attente intermédiaire",
+"categorie": "Aérodrome & cartes",
+"famille": "marquages_sol",
+"priorite": "moyenne",
+"justification": "Marquage au sol sur un taxiway indiquant une position d'attente secondaire",
+"sous_domaine": "Marquages au sol"
+},
+{
+"terme": "barre d'arrêt",
+"categorie": "Aérodrome & cartes",
+"famille": "marquages_sol",
+"priorite": "moyenne",
+"justification": "Marquage ou dispositif lumineux interdisant l'accès sans autorisation (point d'attente)",
+"sous_domaine": "Marquages au sol"
+},
+{
+"terme": "feux de seuil",
+"categorie": "Aérodrome & cartes",
+"famille": "feux_balisage",
+"priorite": "haute",
+"justification": "Feux verts unidirectionnels marquant le début de la piste",
+"sous_domaine": "Balisage lumineux"
+},
+{
+"terme": "feux d'extrémité",
+"categorie": "Aérodrome & cartes",
+"famille": "feux_balisage",
+"priorite": "haute",
+"justification": "Feux rouges unidirectionnels marquant la fin de la piste utilisable",
+"sous_domaine": "Balisage lumineux"
+},
+{
+"terme": "feux de bord de piste",
+"categorie": "Aérodrome & cartes",
+"famille": "feux_balisage",
+"priorite": "haute",
+"justification": "Feux blancs bidirectionnels délimitant les côtés latéraux de la piste",
+"sous_domaine": "Balisage lumineux"
+},
+{
+"terme": "feux d'axe",
+"categorie": "Aérodrome & cartes",
+"famille": "feux_balisage",
+"priorite": "haute",
+"justification": "Feux incrustés le long de l'axe de la piste (blancs puis alternés rouge/blanc puis rouges)",
+"sous_domaine": "Balisage lumineux"
+},
+{
+"terme": "feux à éclats",
+"categorie": "Aérodrome & cartes",
+"famille": "feux_balisage",
+"priorite": "moyenne",
+"justification": "Feux à éclats de forte intensité (strobes) utilisés pour l'identification de la piste ou de l'approche",
+"sous_domaine": "Balisage lumineux"
+},
+{
+"terme": "PAPI",
+"categorie": "Aérodrome & cartes",
+"famille": "feux_balisage",
+"priorite": "haute",
+"justification": "Precision Approach Path Indicator, indicateur de pente d'approche à 4 feux",
+"sous_domaine": "Balisage lumineux"
+},
+{
+"terme": "VASIS",
+"categorie": "Aérodrome & cartes",
+"famille": "feux_balisage",
+"priorite": "haute",
+"justification": "Visual Approach Slope Indicator System, indicateur de pente d'approche à 2 barres de feux",
+"sous_domaine": "Balisage lumineux"
+},
+{
+"terme": "T-VASIS",
+"categorie": "Aérodrome & cartes",
+"famille": "feux_balisage",
+"priorite": "moyenne",
+"justification": "Variante d'indicateur visuel de pente d'approche en forme de T",
+"sous_domaine": "Balisage lumineux"
+},
+{
+"terme": "indicateur de pente d'approche",
+"categorie": "Aérodrome & cartes",
+"famille": "feux_balisage",
+"priorite": "haute",
+"justification": "Système visuel d'aide à l'atterrissage fournissant des repères de pente (PAPI, VASIS)",
+"sous_domaine": "Balisage lumineux"
+},
+{
+"terme": "balisage de taxiway",
+"categorie": "Aérodrome & cartes",
+"famille": "feux_balisage",
+"priorite": "haute",
+"justification": "Feux bleus de bord et feux verts d'axe pour le guidage au roulage",
+"sous_domaine": "Balisage lumineux"
+},
+{
+"terme": "feux d'obstacle",
+"categorie": "Aérodrome & cartes",
+"famille": "feux_balisage",
+"priorite": "haute",
+"justification": "Feux rouges fixes ou à éclats signalant la présence d'un obstacle",
+"sous_domaine": "Balisage lumineux"
+},
+{
+"terme": "phare d'aérodrome",
+"categorie": "Aérodrome & cartes",
+"famille": "feux_balisage",
+"priorite": "moyenne",
+"justification": "Phare rotatif signalant la position géographique de l'aérodrome de nuit",
+"sous_domaine": "Balisage lumineux"
+},
+{
+"terme": "balisage basse intensité",
+"categorie": "Aérodrome & cartes",
+"famille": "feux_balisage",
+"priorite": "moyenne",
+"justification": "Balisage lumineux de faible intensité pour conditions de vol de nuit ordinaires (LIL)",
+"sous_domaine": "Balisage lumineux"
+},
+{
+"terme": "balisage haute intensité",
+"categorie": "Aérodrome & cartes",
+"famille": "feux_balisage",
+"priorite": "moyenne",
+"justification": "Balisage de forte intensité pour les approches aux instruments par faible visibilité (HIRL)",
+"sous_domaine": "Balisage lumineux"
+},
+{
+"terme": "télécommande du balisage",
+"categorie": "Aérodrome & cartes",
+"famille": "feux_balisage",
+"priorite": "haute",
+"justification": "Activation du balisage de nuit ou par mauvaise visibilité par impulsions VHF de l'équipage (PCL)",
+"sous_domaine": "Balisage lumineux"
+},
+{
+"terme": "PCL",
+"categorie": "Aérodrome & cartes",
+"famille": "feux_balisage",
+"priorite": "haute",
+"justification": "Pilot Controlled Lighting, télécommande du balisage par l'équipage via la radio",
+"sous_domaine": "Balisage lumineux"
+},
+{
+"terme": "croix blanche",
+"categorie": "Aérodrome & cartes",
+"famille": "aire_signaux",
+"priorite": "haute",
+"justification": "Signal au sol indiquant la fermeture d'une piste ou d'un aérodrome",
+"sous_domaine": "Signalisation et aire à signaux"
+},
+{
+"terme": "damier",
+"categorie": "Aérodrome & cartes",
+"famille": "aire_signaux",
+"priorite": "moyenne",
+"justification": "Marquage rouge et blanc d'un obstacle ou véhicule sur l'aire de mouvement",
+"sous_domaine": "Signalisation et aire à signaux"
+},
+{
+"terme": "panneau de signalisation",
+"categorie": "Aérodrome & cartes",
+"famille": "aire_signaux",
+"priorite": "moyenne",
+"justification": "Panneaux verticaux (lumineux ou non) d'obligation, d'indication ou d'emplacement au sol",
+"sous_domaine": "Signalisation et aire à signaux"
+},
+{
+"terme": "signaux visuels au sol",
+"categorie": "Aérodrome & cartes",
+"famille": "aire_signaux",
+"priorite": "haute",
+"justification": "Signaux disposés sur l'aire à signaux (ex: T d'atterrissage, double croix)",
+"sous_domaine": "Signalisation et aire à signaux"
+},
+{
+"terme": "signaux lumineux de la tour",
+"categorie": "Aérodrome & cartes",
+"famille": "aire_signaux",
+"priorite": "haute",
+"justification": "Pistolet à signaux émettant des feux colorés (vert/rouge fixe/clignotant) à l'attention des aéronefs",
+"sous_domaine": "Signalisation et aire à signaux"
+},
+{
+"terme": "pistolet à signaux",
+"categorie": "Aérodrome & cartes",
+"famille": "aire_signaux",
+"priorite": "haute",
+"justification": "Dispositif optique portatif de la tour de contrôle pour communiquer avec les aéronefs sans radio",
+"sous_domaine": "Signalisation et aire à signaux"
+},
+{
+"terme": "classe A",
+"categorie": "Réglementation & docs",
+"famille": "espaces_controles",
+"priorite": "haute",
+"justification": "Espace aérien contrôlé de classe A, strictement interdit aux vols VFR",
+"sous_domaine": "Espaces aériens"
+},
+{
+"terme": "classe B",
+"categorie": "Réglementation & docs",
+"famille": "espaces_controles",
+"priorite": "haute",
+"justification": "Espace aérien contrôlé de classe B (séparation de tous les vols, VFR admis)",
+"sous_domaine": "Espaces aériens"
+},
+{
+"terme": "classe C",
+"categorie": "Réglementation & docs",
+"famille": "espaces_controles",
+"priorite": "haute",
+"justification": "Espace aérien contrôlé de classe C (séparation IFR/IFR et IFR/VFR)",
+"sous_domaine": "Espaces aériens"
+},
+{
+"terme": "classe D",
+"categorie": "Réglementation & docs",
+"famille": "espaces_controles",
+"priorite": "haute",
+"justification": "Espace aérien contrôlé de classe D (contact radio obligatoire, VFR espacés des IFR par information de trafic)",
+"sous_domaine": "Espaces aériens"
+},
+{
+"terme": "classe E",
+"categorie": "Réglementation & docs",
+"famille": "espaces_controles",
+"priorite": "haute",
+"justification": "Espace aérien contrôlé de classe E (VFR admis sans contact radio obligatoire en espace non contrôlé sous-jacent)",
+"sous_domaine": "Espaces aériens"
+},
+{
+"terme": "classe F",
+"categorie": "Réglementation & docs",
+"famille": "espaces_controles",
+"priorite": "haute",
+"justification": "Espace aérien de classe F (services consultatifs, non appliqué en France)",
+"sous_domaine": "Espaces aériens"
+},
+{
+"terme": "classe G",
+"categorie": "Réglementation & docs",
+"famille": "espaces_controles",
+"priorite": "haute",
+"justification": "Espace aérien non contrôlé de classe G (service d'information de vol et d'alerte)",
+"sous_domaine": "Espaces aériens"
+},
+{
+"terme": "CTA",
+"categorie": "Réglementation & docs",
+"famille": "espaces_controles",
+"priorite": "haute",
+"justification": "Control Area, région de contrôle de l'espace aérien supérieur ou inférieur",
+"sous_domaine": "Espaces aériens"
+},
+{
+"terme": "AWY",
+"categorie": "Réglementation & docs",
+"famille": "espaces_controles",
+"priorite": "haute",
+"justification": "Airway, voie aérienne balisée reliant des points de navigation",
+"sous_domaine": "Espaces aériens"
+},
+{
+"terme": "voie aérienne",
+"categorie": "Réglementation & docs",
+"famille": "espaces_controles",
+"priorite": "haute",
+"justification": "Couloir aérien contrôlé destiné à guider le transit des aéronefs",
+"sous_domaine": "Espaces aériens"
+},
+{
+"terme": "zone P",
+"categorie": "Réglementation & docs",
+"famille": "espaces_reglementes",
+"priorite": "haute",
+"justification": "Zone interdite (Prohibited) permanente pour des raisons de sécurité ou de défense nationale",
+"sous_domaine": "Espaces aériens"
+},
+{
+"terme": "zone R",
+"categorie": "Réglementation & docs",
+"famille": "espaces_reglementes",
+"priorite": "haute",
+"justification": "Zone réglementée (Restricted) dont l'accès est soumis à des conditions spécifiques ou des horaires d'activation",
+"sous_domaine": "Espaces aériens"
+},
+{
+"terme": "zone D",
+"categorie": "Réglementation & docs",
+"famille": "espaces_reglementes",
+"priorite": "haute",
+"justification": "Zone dangereuse (Danger) à l'intérieur de laquelle des activités dangereuses pour le vol peuvent se dérouler",
+"sous_domaine": "Espaces aériens"
+},
+{
+"terme": "zone de ségrégation",
+"categorie": "Réglementation & docs",
+"famille": "espaces_reglementes",
+"priorite": "moyenne",
+"justification": "Espace aérien réservé temporairement à l'usage exclusif d'utilisateurs spécifiques",
+"sous_domaine": "Espaces aériens"
+},
+{
+"terme": "secteur d'information de vol",
+"categorie": "Réglementation & docs",
+"famille": "espaces_controles",
+"priorite": "haute",
+"justification": "Secteur géographique sous la responsabilité d'un SIV (Secteur d'Information de Vol)",
+"sous_domaine": "Espaces aériens"
+},
+{
+"terme": "espace non contrôlé",
+"categorie": "Réglementation & docs",
+"famille": "espaces_controles",
+"priorite": "haute",
+"justification": "Espace aérien dans lequel le contrôle n'est pas assuré (classe G), seuls les services d'information et d'alerte le sont",
+"sous_domaine": "Espaces aériens"
+},
+{
+"terme": "VFR spécial",
+"categorie": "Réglementation & docs",
+"famille": "espaces_controles",
+"priorite": "haute",
+"justification": "Vol VFR autorisé par le contrôle dans une CTR par conditions météorologiques de vol à vue inférieures aux VMC",
+"sous_domaine": "Espaces aériens"
+},
+{
+"terme": "carte OACI 1/500 000",
+"categorie": "Aérodrome & cartes",
+"famille": "cartes_aeronautiques",
+"priorite": "haute",
+"justification": "Carte aéronautique de référence pour la navigation à vue (VFR) en France",
+"sous_domaine": "Cartes et documentation"
+},
+{
+"terme": "AD",
+"categorie": "Aérodrome & cartes",
+"famille": "cartes_aeronautiques",
+"priorite": "moyenne",
+"justification": "Partie de l'AIP (Aérodromes) contenant toutes les informations physiques et opérationnelles des terrains",
+"sous_domaine": "Cartes et documentation"
+},
+{
+"terme": "SIA",
+"categorie": "Aérodrome & cartes",
+"famille": "cartes_aeronautiques",
+"priorite": "haute",
+"justification": "Service de l'Information Aéronautique, organisme officiel publiant les cartes et documents aéronautiques en France",
+"sous_domaine": "Cartes et documentation"
+},
+{
+"terme": "AIC",
+"categorie": "Aérodrome & cartes",
+"famille": "cartes_aeronautiques",
+"priorite": "haute",
+"justification": "Aeronautical Information Circular, circulaire d'information aéronautique administrative ou technique",
+"sous_domaine": "Cartes et documentation"
+},
+{
+"terme": "complément aux cartes",
+"categorie": "Aérodrome & cartes",
+"famille": "cartes_aeronautiques",
+"priorite": "moyenne",
+"justification": "Ouvrage complémentaire du SIA listant les zones, fréquences et consignes opérationnelles",
+"sous_domaine": "Cartes et documentation"
+},
+{
+"terme": "échelle",
+"categorie": "Aérodrome & cartes",
+"famille": "cartes_aeronautiques",
+"priorite": "moyenne",
+"justification": "Rapport entre la distance sur la carte et la distance réelle sur le terrain (ex: 1/500 000)",
+"sous_domaine": "Cartes et documentation"
+},
+{
+"terme": "projection",
+"categorie": "Aérodrome & cartes",
+"famille": "cartes_aeronautiques",
+"priorite": "moyenne",
+"justification": "Système de projection cartographique (Lambert conforme pour les cartes VFR françaises)",
+"sous_domaine": "Cartes et documentation"
+},
+{
+"terme": "courbe de niveau",
+"categorie": "Aérodrome & cartes",
+"famille": "cartes_aeronautiques",
+"priorite": "moyenne",
+"justification": "Ligne joignant les points d'égale altitude pour représenter le relief sur les cartes",
+"sous_domaine": "Cartes et documentation"
+},
+{
+"terme": "altitude minimale de sécurité",
+"categorie": "Aérodrome & cartes",
+"famille": "cartes_aeronautiques",
+"priorite": "haute",
+"justification": "Altitude minimale à respecter en vol pour garantir le franchissement des obstacles (MSA, MEA, etc.)",
+"sous_domaine": "Cartes et documentation"
+},
+{
+"terme": "MSA",
+"categorie": "Aérodrome & cartes",
+"famille": "cartes_aeronautiques",
+"priorite": "haute",
+"justification": "Minimum Sector Altitude, altitude minimale de secteur garantissant une marge d'obstacle",
+"sous_domaine": "Cartes et documentation"
+},
+{
+"terme": "relief",
+"categorie": "Aérodrome & cartes",
+"famille": "cartes_aeronautiques",
+"priorite": "moyenne",
+"justification": "Représentation du relief terrestre (teintes hypsométriques, points cotés)",
+"sous_domaine": "Cartes et documentation"
+},
+{
+"terme": "obstacle",
+"categorie": "Aérodrome & cartes",
+"famille": "cartes_aeronautiques",
+"priorite": "haute",
+"justification": "Objet temporaire ou permanent élevé au-dessus du sol, constituant un danger pour la navigation",
+"sous_domaine": "Cartes et documentation"
+},
+{
+"terme": "ligne à haute tension",
+"categorie": "Aérodrome & cartes",
+"famille": "cartes_aeronautiques",
+"priorite": "haute",
+"justification": "Repère visuel de navigation linéaire et obstacle critique en basse altitude",
+"sous_domaine": "Cartes et documentation"
+},
+{
+"terme": "TWR",
+"categorie": "Réglementation & docs",
+"famille": "services_organismes",
+"priorite": "haute",
+"justification": "Tower, la tour de contrôle assurant le contrôle d'aérodrome",
+"sous_domaine": "Services et organismes"
+},
+{
+"terme": "APP",
+"categorie": "Réglementation & docs",
+"famille": "services_organismes",
+"priorite": "haute",
+"justification": "Approach control, organisme assurant le contrôle d'approche pour les départs/arrivées",
+"sous_domaine": "Services et organismes"
+},
+{
+"terme": "ACC",
+"categorie": "Réglementation & docs",
+"famille": "services_organismes",
+"priorite": "haute",
+"justification": "Area Control Center, centre de contrôle régional assurant le contrôle en route",
+"sous_domaine": "Services et organismes"
+},
+{
+"terme": "auto-information",
+"categorie": "Réglementation & docs",
+"famille": "services_organismes",
+"priorite": "haute",
+"justification": "Procédure d'annonce radio en l'absence d'organisme de contrôle ou d'AFIS",
+"sous_domaine": "Services et organismes"
+},
+{
+"terme": "agent AFIS",
+"categorie": "Réglementation & docs",
+"famille": "services_organismes",
+"priorite": "haute",
+"justification": "Professionnel qualifié fournissant le service d'information de vol et d'alerte sur un aérodrome non contrôlé",
+"sous_domaine": "Services et organismes"
+},
+{
+"terme": "aérodrome contrôlé",
+"categorie": "Réglementation & docs",
+"famille": "services_organismes",
+"priorite": "haute",
+"justification": "Aérodrome doté d'un service de contrôle de la circulation aérienne pour le trafic du circuit et du sol",
+"sous_domaine": "Services et organismes"
+},
+{
+"terme": "aérodrome non contrôlé",
+"categorie": "Réglementation & docs",
+"famille": "services_organismes",
+"priorite": "haute",
+"justification": "Aérodrome sans service de contrôle, pouvant disposer d'un AFIS ou être en auto-information",
+"sous_domaine": "Services et organismes"
+},
+{
+"terme": "service d'alerte",
+"categorie": "Réglementation & docs",
+"famille": "services_organismes",
+"priorite": "haute",
+"justification": "Service destiné à alerter les organismes appropriés lorsque des aéronefs ont besoin de secours et à les assister",
+"sous_domaine": "Services et organismes"
+},
+{
+"terme": "RFFS",
+"categorie": "Réglementation & docs",
+"famille": "services_organismes",
+"priorite": "haute",
+"justification": "Rescue and Fire Fighting Service, service de sauvetage et de lutte contre l'incendie des aéronefs",
+"sous_domaine": "Services et organismes"
+},
+{
+"terme": "SSLIA",
+"categorie": "Réglementation & docs",
+"famille": "services_organismes",
+"priorite": "haute",
+"justification": "Service de Sauvetage et de Lutte contre l'Incendie des Aéronefs (équivalent français du RFFS)",
+"sous_domaine": "Services et organismes"
+},
+{
+"terme": "point de compte rendu",
+"categorie": "Aérodrome & cartes",
+"famille": "circuit_procedures",
+"priorite": "haute",
+"justification": "Point géographique spécifié sur une carte VAC pour signaler sa position radio (ex: point d'entrée)",
+"sous_domaine": "Procédures d'aérodrome"
+},
+{
+"terme": "point d'entrée",
+"categorie": "Aérodrome & cartes",
+"famille": "circuit_procedures",
+"priorite": "haute",
+"justification": "Point de compte rendu géographique marquant l'entrée dans la zone de circuit",
+"sous_domaine": "Procédures d'aérodrome"
+},
+{
+"terme": "point de sortie",
+"categorie": "Aérodrome & cartes",
+"famille": "circuit_procedures",
+"priorite": "haute",
+"justification": "Point de compte rendu géographique marquant la sortie du circuit d'aérodrome",
+"sous_domaine": "Procédures d'aérodrome"
+},
+{
+"terme": "dégagement de piste",
+"categorie": "Aérodrome & cartes",
+"famille": "circuit_procedures",
+"priorite": "haute",
+"justification": "Action de quitter la piste après l'atterrissage au-delà du point d'attente pour libérer la piste",
+"sous_domaine": "Procédures d'aérodrome"
+},
+{
+"terme": "profil",
+"categorie": "Aérodynamique",
+"famille": "profil_aile",
+"priorite": "haute",
+"justification": "concept fondamental définissant la géométrie de l'aile (profil biconvexe, asymétrique, etc.), totalement absent",
+"sous_domaine": "Aérodynamique de base"
+},
+{
+"terme": "corde",
+"categorie": "Aérodynamique",
+"famille": "profil_aile",
+"priorite": "haute",
+"justification": "ligne reliant le bord d'attaque au bord de fuite, référence indispensable pour l'incidence et la géométrie de l'aile",
+"sous_domaine": "Aérodynamique de base"
+},
+{
+"terme": "envergure",
+"categorie": "Aérodynamique",
+"famille": "geometrie_aile",
+"priorite": "haute",
+"justification": "distance entre les deux extrémités des ailes, indispensable pour caractériser l'aéronef et calculer l'allongement",
+"sous_domaine": "Aérodynamique de base"
+},
+{
+"terme": "allongement",
+"categorie": "Aérodynamique",
+"famille": "geometrie_aile",
+"priorite": "haute",
+"justification": "rapport entre le carré de l'envergure et la surface alaire, paramètre clé de la traînée induite",
+"sous_domaine": "Aérodynamique de base"
+},
+{
+"terme": "épaisseur relative",
+"categorie": "Aérodynamique",
+"famille": "profil_aile",
+"priorite": "moyenne",
+"justification": "rapport de l'épaisseur maximale sur la corde de l'aile, influence fortement la traînée de forme et le décrochage",
+"sous_domaine": "Aérodynamique de base"
+},
+{
+"terme": "extrados",
+"categorie": "Aérodynamique",
+"famille": "profil_aile",
+"priorite": "haute",
+"justification": "surface supérieure de l'aile où se crée la dépression génératrice de la majeure partie de la portance",
+"sous_domaine": "Aérodynamique de base"
+},
+{
+"terme": "intrados",
+"categorie": "Aérodynamique",
+"famille": "profil_aile",
+"priorite": "haute",
+"justification": "surface inférieure de l'aile subissant la surpression de l'air lors de l'écoulement",
+"sous_domaine": "Aérodynamique de base"
+},
+{
+"terme": "bord d'attaque",
+"categorie": "Aérodynamique",
+"famille": "profil_aile",
+"priorite": "haute",
+"justification": "partie avant du profil d'aile faisant face au vent relatif, premier contact avec l'écoulement d'air",
+"sous_domaine": "Aérodynamique de base"
+},
+{
+"terme": "bord de fuite",
+"categorie": "Aérodynamique",
+"famille": "profil_aile",
+"priorite": "haute",
+"justification": "partie arrière du profil d'aile où se rejoignent les écoulements d'extrados et d'intrados",
+"sous_domaine": "Aérodynamique de base"
+},
+{
+"terme": "angle d'incidence",
+"categorie": "Aérodynamique",
+"famille": "angles_aerodynamiques",
+"priorite": "haute",
+"justification": "angle fondamental formé par la corde de profil de l'aile et la direction du vent relatif",
+"sous_domaine": "Aérodynamique de base"
+},
+{
+"terme": "angle de calage",
+"categorie": "Aérodynamique",
+"famille": "angles_aerodynamiques",
+"priorite": "moyenne",
+"justification": "angle fixe formé par la corde de profil de l'aile et l'axe longitudinal de l'aéronef",
+"sous_domaine": "Aérodynamique de base"
+},
+{
+"terme": "dièdre",
+"categorie": "Aérodynamique",
+"famille": "geometrie_aile",
+"priorite": "haute",
+"justification": "angle formé par l'aile avec l'axe transversal, élément clé de la stabilité latérale (effet de dièdre)",
+"sous_domaine": "Aérodynamique de base"
+},
+{
+"terme": "flèche",
+"categorie": "Aérodynamique",
+"famille": "geometrie_aile",
+"priorite": "moyenne",
+"justification": "angle formé par le bord d'attaque de l'aile par rapport à l'axe transversal de l'avion",
+"sous_domaine": "Aérodynamique de base"
+},
+{
+"terme": "vrillage",
+"categorie": "Aérodynamique",
+"famille": "geometrie_aile",
+"priorite": "moyenne",
+"justification": "variation de l'angle de calage le long de l'envergure, conçu pour optimiser la portance et contrôler le décrochage",
+"sous_domaine": "Aérodynamique de base"
+},
+{
+"terme": "couche limite",
+"categorie": "Aérodynamique",
+"famille": "ecoulement_air",
+"priorite": "haute",
+"justification": "fine zone d'écoulement près des parois où les forces de frottement visqueux sont majeures",
+"sous_domaine": "Aérodynamique de base"
+},
+{
+"terme": "écoulement laminaire",
+"categorie": "Aérodynamique",
+"famille": "ecoulement_air",
+"priorite": "haute",
+"justification": "écoulement fluide régulier et ordonné, réduisant drastiquement la traînée de frottement",
+"sous_domaine": "Aérodynamique de base"
+},
+{
+"terme": "écoulement turbulent",
+"categorie": "Aérodynamique",
+"famille": "ecoulement_air",
+"priorite": "haute",
+"justification": "écoulement fluide désordonné, générant plus de traînée de frottement mais retardant le décollement",
+"sous_domaine": "Aérodynamique de base"
+},
+{
+"terme": "décollement",
+"categorie": "Aérodynamique",
+"famille": "ecoulement_air",
+"priorite": "haute",
+"justification": "séparation de la couche limite de la surface de l'aile, provoquant l'effondrement de la portance",
+"sous_domaine": "Aérodynamique de base"
+},
+{
+"terme": "centre de poussée",
+"categorie": "Aérodynamique",
+"famille": "points_aerodynamiques",
+"priorite": "haute",
+"justification": "point d'application théorique de la résultante aérodynamique globale, mobile selon l'incidence",
+"sous_domaine": "Aérodynamique de base"
+},
+{
+"terme": "foyer",
+"categorie": "Aérodynamique",
+"famille": "points_aerodynamiques",
+"priorite": "haute",
+"justification": "point fixe du profil d'aile où le moment aérodynamique est indépendant de l'incidence, fondamental pour la stabilité",
+"sous_domaine": "Aérodynamique de base"
+},
+{
+"terme": "résultante aérodynamique",
+"categorie": "Aérodynamique",
+"famille": "forces_vol",
+"priorite": "haute",
+"justification": "force globale exercée par le fluide en mouvement sur la cellule, résultante de la portance et de la traînée",
+"sous_domaine": "Aérodynamique de base"
+},
+{
+"terme": "vent relatif",
+"categorie": "Aérodynamique",
+"famille": "ecoulement_air",
+"priorite": "haute",
+"justification": "vecteur vitesse d'écoulement de l'air à l'infini amont, opposé au vecteur trajectoire de l'aéronef, notion fondamentale",
+"sous_domaine": "Aérodynamique de base"
+},
+{
+"terme": "surface alaire",
+"categorie": "Aérodynamique",
+"famille": "geometrie_aile",
+"priorite": "haute",
+"justification": "surface projetée totale des ailes, grandeur de référence de toutes les équations aérodynamiques",
+"sous_domaine": "Aérodynamique de base"
+},
+{
+"terme": "traînée de forme",
+"categorie": "Aérodynamique",
+"famille": "trainee",
+"priorite": "haute",
+"justification": "résistance à l'avancement liée à la géométrie de l'obstacle et à la différence de pression amont-aval",
+"sous_domaine": "Forces et polaire"
+},
+{
+"terme": "traînée de frottement",
+"categorie": "Aérodynamique",
+"famille": "trainee",
+"priorite": "haute",
+"justification": "résistance due à la viscosité de l'air frottant sur les surfaces extérieures mouillées de l'aéronef",
+"sous_domaine": "Forces et polaire"
+},
+{
+"terme": "traînée totale",
+"categorie": "Aérodynamique",
+"famille": "trainee",
+"priorite": "haute",
+"justification": "somme de la traînée induite et de la traînée parasite, représentant l'effort de résistance global de l'avion",
+"sous_domaine": "Forces et polaire"
+},
+{
+"terme": "poids",
+"categorie": "Aérodynamique",
+"famille": "forces_vol",
+"priorite": "haute",
+"justification": "force gravitationnelle verticale dirigée vers le bas s'opposant à la portance, l'une des 4 forces fondamentales",
+"sous_domaine": "Forces et polaire"
+},
+{
+"terme": "poussée",
+"categorie": "Aérodynamique",
+"famille": "forces_vol",
+"priorite": "haute",
+"justification": "force motrice horizontale dirigée vers l'avant générée par le moteur pour vaincre la traînée, force fondamentale",
+"sous_domaine": "Forces et polaire"
+},
+{
+"terme": "polaire des vitesses",
+"categorie": "Aérodynamique",
+"famille": "polaire_finesse",
+"priorite": "haute",
+"justification": "courbe liant la vitesse de chute à la vitesse horizontale de vol plané, définissant finesse et vitesse de plané optimales",
+"sous_domaine": "Forces et polaire"
+},
+{
+"terme": "coefficient de portance",
+"categorie": "Aérodynamique",
+"famille": "polaire_finesse",
+"priorite": "haute",
+"justification": "coefficient Cz (ou Cl), nombre sans dimension caractérisant la portance générée par un profil selon son incidence",
+"sous_domaine": "Forces et polaire"
+},
+{
+"terme": "Cz",
+"categorie": "Aérodynamique",
+"famille": "polaire_finesse",
+"priorite": "haute",
+"justification": "notation standard du coefficient de portance en aérodynamique française",
+"sous_domaine": "Forces et polaire"
+},
+{
+"terme": "Cl",
+"categorie": "Aérodynamique",
+"famille": "polaire_finesse",
+"priorite": "moyenne",
+"justification": "notation internationale du coefficient de portance (Coefficient of Lift)",
+"sous_domaine": "Forces et polaire"
+},
+{
+"terme": "coefficient de traînée",
+"categorie": "Aérodynamique",
+"famille": "polaire_finesse",
+"priorite": "haute",
+"justification": "coefficient Cx (ou Cd), nombre sans dimension caractérisant la traînée générée par une surface aérodynamique",
+"sous_domaine": "Forces et polaire"
+},
+{
+"terme": "Cx",
+"categorie": "Aérodynamique",
+"famille": "polaire_finesse",
+"priorite": "haute",
+"justification": "notation standard du coefficient de traînée en aérodynamique française",
+"sous_domaine": "Forces et polaire"
+},
+{
+"terme": "Cd",
+"categorie": "Aérodynamique",
+"famille": "polaire_finesse",
+"priorite": "moyenne",
+"justification": "notation internationale du coefficient de traînée (Coefficient of Drag)",
+"sous_domaine": "Forces et polaire"
+},
+{
+"terme": "rapport portance/traînée",
+"categorie": "Aérodynamique",
+"famille": "polaire_finesse",
+"priorite": "haute",
+"justification": "ratio L/D ou Cz/Cx équivalent à la finesse aérodynamique instantanée de l'aéronef",
+"sous_domaine": "Forces et polaire"
+},
+{
+"terme": "charge alaire",
+"categorie": "Aérodynamique",
+"famille": "forces_vol",
+"priorite": "haute",
+"justification": "masse totale de l'avion divisée par la surface alaire (en kg/m²), paramètre de base de la mécanique du vol",
+"sous_domaine": "Forces et polaire"
+},
+{
+"terme": "pression statique",
+"categorie": "Aérodynamique",
+"famille": "aerodynamique_fluides",
+"priorite": "haute",
+"justification": "pression exercée par un fluide indépendamment de son mouvement, lue par la prise statique pour l'altimètre et l'anémomètre",
+"sous_domaine": "Forces et polaire"
+},
+{
+"terme": "pression dynamique",
+"categorie": "Aérodynamique",
+"famille": "aerodynamique_fluides",
+"priorite": "haute",
+"justification": "surpression générée par le mouvement relatif du fluide (1/2 * rho * V²), mesurée par le tube de Pitot",
+"sous_domaine": "Forces et polaire"
+},
+{
+"terme": "incidence de décrochage",
+"categorie": "Aérodynamique",
+"famille": "decrochages",
+"priorite": "haute",
+"justification": "angle d'incidence limite au-delà duquel l'écoulement se sépare brutalement de l'extrados",
+"sous_domaine": "Décrochage"
+},
+{
+"terme": "décrochage accéléré",
+"categorie": "Aérodynamique",
+"famille": "decrochages",
+"priorite": "haute",
+"justification": "décrochage se produisant sous un facteur de charge supérieur à 1 g (ex: ressource ou virage serré), augmentant la vitesse de décrochage",
+"sous_domaine": "Décrochage"
+},
+{
+"terme": "décrochage en virage",
+"categorie": "Aérodynamique",
+"famille": "decrochages",
+"priorite": "haute",
+"justification": "décrochage asymétrique s'effectuant en virage incliné, extrêmement dangereux en raison du départ en vrille induit",
+"sous_domaine": "Décrochage"
+},
+{
+"terme": "départ en vrille",
+"categorie": "Aérodynamique",
+"famille": "decrochages",
+"priorite": "haute",
+"justification": "phase transitoire menant du décrochage asymétrique non contrôlé à l'établissement de la vrille",
+"sous_domaine": "Décrochage"
+},
+{
+"terme": "buffeting",
+"categorie": "Aérodynamique",
+"famille": "decrochages",
+"priorite": "haute",
+"justification": "vibrations aérodynamiques structurales provoquées par l'impact du sillage turbulent de l'aile décollée sur les empennages",
+"sous_domaine": "Décrochage"
+},
+{
+"terme": "avertisseur de décrochage",
+"categorie": "Aérodynamique",
+"famille": "decrochages",
+"priorite": "haute",
+"justification": "dispositif de sécurité mécanique ou sonore indiquant au pilote l'imminence de l'atteinte de l'incidence critique",
+"sous_domaine": "Décrochage"
+},
+{
+"terme": "virage à grande inclinaison",
+"categorie": "Aérodynamique",
+"famille": "decrochages",
+"priorite": "haute",
+"justification": "virage au-delà de 45° inclinaison demandant un fort facteur de charge pour maintenir le palier",
+"sous_domaine": "Décrochage"
+},
+{
+"terme": "stabilité dynamique",
+"categorie": "Aérodynamique",
+"famille": "stabilite_vol",
+"priorite": "haute",
+"justification": "comportement temporel de l'aéronef oscillant autour de sa position d'équilibre suite à une perturbation",
+"sous_domaine": "Stabilité et manœuvrabilité"
+},
+{
+"terme": "stabilité longitudinale",
+"categorie": "Aérodynamique",
+"famille": "stabilite_vol",
+"priorite": "haute",
+"justification": "stabilité de l'appareil autour de son axe transversal (tangage), conditionnée par la position du CG et de l'empennage",
+"sous_domaine": "Stabilité et manœuvrabilité"
+},
+{
+"terme": "stabilité latérale",
+"categorie": "Aérodynamique",
+"famille": "stabilite_vol",
+"priorite": "haute",
+"justification": "stabilité autour de l'axe longitudinal (roulis), influencée majoritairement par le dièdre de l'aile",
+"sous_domaine": "Stabilité et manœuvrabilité"
+},
+{
+"terme": "stabilité de route",
+"categorie": "Aérodynamique",
+"famille": "stabilite_vol",
+"priorite": "haute",
+"justification": "stabilité en lacet (autour de l'axe vertical), assurée principalement par l'empennage vertical (effet girouette)",
+"sous_domaine": "Stabilité et manœuvrabilité"
+},
+{
+"terme": "roulis induit",
+"categorie": "Aérodynamique",
+"famille": "couplage_aerodynamique",
+"priorite": "haute",
+"justification": "mouvement parasite de roulis apparaissant lors d'une commande de lacet pure (différence de vitesse d'aile)",
+"sous_domaine": "Stabilité et manœuvrabilité"
+},
+{
+"terme": "lacet inverse",
+"categorie": "Aérodynamique",
+"famille": "couplage_aerodynamique",
+"priorite": "haute",
+"justification": "lacet parasite opposé au sens du virage induit par l'augmentation de traînée de l'aileron abaissé",
+"sous_domaine": "Stabilité et manœuvrabilité"
+},
+{
+"terme": "lacet induit",
+"categorie": "Aérodynamique",
+"famille": "couplage_aerodynamique",
+"priorite": "moyenne",
+"justification": "lacet secondaire provoqué par l'inclinaison latérale des forces de portance",
+"sous_domaine": "Stabilité et manœuvrabilité"
+},
+{
+"terme": "effet de dièdre",
+"categorie": "Aérodynamique",
+"famille": "couplage_aerodynamique",
+"priorite": "haute",
+"justification": "stabilisation automatique en roulis grâce à l'angle de dièdre générant un différentiel de portance lors d'un glissement latéral",
+"sous_domaine": "Stabilité et manœuvrabilité"
+},
+{
+"terme": "amortissement",
+"categorie": "Aérodynamique",
+"famille": "stabilite_vol",
+"priorite": "moyenne",
+"justification": "réduction progressive des oscillations de l'aéronef induite par les forces aérodynamiques dissipatives",
+"sous_domaine": "Stabilité et manœuvrabilité"
+},
+{
+"terme": "tenue de cap",
+"categorie": "Aérodynamique",
+"famille": "stabilite_vol",
+"priorite": "moyenne",
+"justification": "habileté à maintenir de manière précise la trajectoire d'un aéronef alignée sur une direction magnétique déterminée",
+"sous_domaine": "Stabilité et manœuvrabilité"
+},
+{
+"terme": "couple",
+"categorie": "Moteur & hélice",
+"famille": "moteur_helice",
+"priorite": "haute",
+"justification": "effet de couple physique lié au moteur et à la rotation de l'hélice, provoquant une tendance au roulis gauche",
+"sous_domaine": "Effets moteur/hélice"
+},
+{
+"terme": "couple de renversement",
+"categorie": "Moteur & hélice",
+"famille": "moteur_helice",
+"priorite": "haute",
+"justification": "réaction de la cellule au couple de rotation exercé sur l'hélice, tendant à faire pivoter l'avion en sens opposé",
+"sous_domaine": "Effets moteur/hélice"
+},
+{
+"terme": "précession gyroscopique",
+"categorie": "Moteur & hélice",
+"famille": "moteur_helice",
+"priorite": "haute",
+"justification": "propriété gyroscopique de l'hélice en rotation décalant de 90 degrés l'effet d'un couple appliqué (important lors des changements d'assiette)",
+"sous_domaine": "Effets moteur/hélice"
+},
+{
+"terme": "traction dissymétrique",
+"categorie": "Moteur & hélice",
+"famille": "moteur_helice",
+"priorite": "haute",
+"justification": "effet P (P-factor) dû à une asymétrie de traction entre la pale montante et la pale descendante à forte incidence",
+"sous_domaine": "Effets moteur/hélice"
+},
+{
+"terme": "VLO",
+"categorie": "Vitesses & performances",
+"famille": "vitesses_limites",
+"priorite": "haute",
+"justification": "vitesse maximale à laquelle il est possible d'actionner (ouvrir/fermer) le train d'atterrissage",
+"sous_domaine": "Vitesses"
+},
+{
+"terme": "VBG",
+"categorie": "Vitesses & performances",
+"famille": "vitesses_operationnelles",
+"priorite": "haute",
+"justification": "vitesse de finesse maximale (Best Glide), permettant la plus grande distance de vol plané sans moteur",
+"sous_domaine": "Vitesses"
+},
+{
+"terme": "VRA",
+"categorie": "Vitesses & performances",
+"famille": "vitesses_limites",
+"priorite": "haute",
+"justification": "vitesse limite opérationnelle recommandée en air agité (Rugged Air speed) pour éviter les surcharges de rafales",
+"sous_domaine": "Vitesses"
+},
+{
+"terme": "VG",
+"categorie": "Vitesses & performances",
+"famille": "vitesses_operationnelles",
+"priorite": "moyenne",
+"justification": "vitesse générale recommandée de plané optimal",
+"sous_domaine": "Vitesses"
+},
+{
+"terme": "Vlof",
+"categorie": "Vitesses & performances",
+"famille": "vitesses_operationnelles",
+"priorite": "moyenne",
+"justification": "vitesse effective de décollage (Lift-off) où l'aéronef quitte physiquement le sol",
+"sous_domaine": "Vitesses"
+},
+{
+"terme": "Vtoss",
+"categorie": "Vitesses & performances",
+"famille": "vitesses_operationnelles",
+"priorite": "moyenne",
+"justification": "vitesse minimale de sécurité initiale au décollage (Take-off safety speed)",
+"sous_domaine": "Vitesses"
+},
+{
+"terme": "EAS",
+"categorie": "Vitesses & performances",
+"famille": "vitesses_mesurees",
+"priorite": "haute",
+"justification": "vitesse équivalente (Equivalent Airspeed), corrige la CAS de l'effet de compressibilité à haute vitesse",
+"sous_domaine": "Vitesses"
+},
+{
+"terme": "Mach",
+"categorie": "Vitesses & performances",
+"famille": "vitesses_mesurees",
+"priorite": "moyenne",
+"justification": "rapport de la vitesse de l'aéronef par rapport à la vitesse locale du son, utilisé à haute altitude",
+"sous_domaine": "Vitesses"
+},
+{
+"terme": "vitesse conventionnelle",
+"categorie": "Vitesses & performances",
+"famille": "vitesses_mesurees",
+"priorite": "haute",
+"justification": "traduction officielle française de CAS, vitesse indiquée corrigée des erreurs de position et d'instrument",
+"sous_domaine": "Vitesses"
+},
+{
+"terme": "erreur de densité",
+"categorie": "Vitesses & performances",
+"famille": "erreurs_mesures",
+"priorite": "haute",
+"justification": "erreur anémométrique due à l'écart de la masse volumique réelle de l'air par rapport à la valeur standard de référence",
+"sous_domaine": "Vitesses"
+},
+{
+"terme": "erreur instrumentale",
+"categorie": "Vitesses & performances",
+"famille": "erreurs_mesures",
+"priorite": "haute",
+"justification": "erreur de lecture propre aux imperfections physiques mécaniques de l'indicateur",
+"sous_domaine": "Vitesses"
+},
+{
+"terme": "erreur de position",
+"categorie": "Vitesses & performances",
+"famille": "erreurs_mesures",
+"priorite": "haute",
+"justification": "erreur de prise statique ou dynamique liée à la position de l'antenne et à l'attitude de l'appareil",
+"sous_domaine": "Vitesses"
+},
+{
+"terme": "distance franchissement 15 m",
+"categorie": "Vitesses & performances",
+"famille": "distances_performances",
+"priorite": "haute",
+"justification": "distance sol parcourue pour atteindre la hauteur de sécurité réglementaire de 15 m au décollage",
+"sous_domaine": "Performances"
+},
+{
+"terme": "distance franchissement 50 ft",
+"categorie": "Vitesses & performances",
+"famille": "distances_performances",
+"priorite": "haute",
+"justification": "distance équivalente exprimée en pieds (50 ft), standard mondial de certification aéronautique",
+"sous_domaine": "Performances"
+},
+{
+"terme": "distance accélération-arrêt",
+"categorie": "Vitesses & performances",
+"famille": "distances_performances",
+"priorite": "haute",
+"justification": "distance requise pour accélérer l'avion au décollage jusqu'à une vitesse donnée puis effectuer un arrêt complet d'urgence",
+"sous_domaine": "Performances"
+},
+{
+"terme": "plafond pratique",
+"categorie": "Vitesses & performances",
+"famille": "plafonds_vol",
+"priorite": "haute",
+"justification": "altitude maximale où le taux de montée maximal possible en conditions standard tombe à 100 ft/min",
+"sous_domaine": "Performances"
+},
+{
+"terme": "plafond de sustentation",
+"categorie": "Vitesses & performances",
+"famille": "plafonds_vol",
+"priorite": "moyenne",
+"justification": "altitude ultime théorique de l'avion où le taux de montée possible s'annule complètement",
+"sous_domaine": "Performances"
+},
+{
+"terme": "effet de l'altitude",
+"categorie": "Vitesses & performances",
+"famille": "facteurs_performances",
+"priorite": "haute",
+"justification": "dégradation des performances moteur, de la traction et accroissement de la vitesse sol due à la raréfaction de l'air",
+"sous_domaine": "Performances"
+},
+{
+"terme": "effet de la température",
+"categorie": "Vitesses & performances",
+"famille": "facteurs_performances",
+"priorite": "haute",
+"justification": "réduction de la masse volumique de l'air sous l'effet du réchauffement, dégradant la portance et la puissance",
+"sous_domaine": "Performances"
+},
+{
+"terme": "effet de la masse",
+"categorie": "Vitesses & performances",
+"famille": "facteurs_performances",
+"priorite": "haute",
+"justification": "l'augmentation de la masse détériore la pente de montée, élève la vitesse de décrochage et allonge les distances",
+"sous_domaine": "Performances"
+},
+{
+"terme": "effet du vent",
+"categorie": "Vitesses & performances",
+"famille": "facteurs_performances",
+"priorite": "haute",
+"justification": "le vent de face réduit drastiquement les distances sol de décollage/atterrissage et augmente la pente sol",
+"sous_domaine": "Performances"
+},
+{
+"terme": "effet de l'état de surface",
+"categorie": "Vitesses & performances",
+"famille": "facteurs_performances",
+"priorite": "haute",
+"justification": "influence du revêtement de la piste (herbe haute, boue, neige) augmentant le frottement et les distances",
+"sous_domaine": "Performances"
+},
+{
+"terme": "facteur de correction",
+"categorie": "Vitesses & performances",
+"famille": "facteurs_performances",
+"priorite": "haute",
+"justification": "coefficient multiplicateur réglementaire ou constructeur à appliquer aux abaques selon les conditions de piste",
+"sous_domaine": "Performances"
+},
+{
+"terme": "plafond de croisière",
+"categorie": "Vitesses & performances",
+"famille": "plafonds_vol",
+"priorite": "moyenne",
+"justification": "altitude de vol idéale conciliant la vitesse propre, la consommation spécifique et la sécurité",
+"sous_domaine": "Performances"
+},
+{
+"terme": "rayon d'action",
+"categorie": "Vitesses & performances",
+"famille": "distances_performances",
+"priorite": "haute",
+"justification": "distance maximale qu'un aéronef peut parcourir à partir de son point de départ avant de devoir ravitailler",
+"sous_domaine": "Performances"
+},
+{
+"terme": "consommation spécifique",
+"categorie": "Vitesses & performances",
+"famille": "facteurs_performances",
+"priorite": "moyenne",
+"justification": "masse de carburant consommée par unité de puissance utile générée et de temps, critère de performance motrice",
+"sous_domaine": "Performances"
+},
+{
+"terme": "masse maximale au décollage",
+"categorie": "Masse & centrage",
+"famille": "masses",
+"priorite": "haute",
+"justification": "MTOW, limite réglementaire et structurelle maximale à laquelle l'avion est autorisé à décoller",
+"sous_domaine": "Masse et centrage"
+},
+{
+"terme": "masse maximale à l'atterrissage",
+"categorie": "Masse & centrage",
+"famille": "masses",
+"priorite": "haute",
+"justification": "MLW, masse maximale structurelle autorisée lors du contact des roues au sol lors du poser",
+"sous_domaine": "Masse et centrage"
+},
+{
+"terme": "charge utile",
+"categorie": "Masse & centrage",
+"famille": "masses",
+"priorite": "haute",
+"justification": "masse transportée représentant les pilotes, passagers, bagages et fret payant",
+"sous_domaine": "Masse et centrage"
+},
+{
+"terme": "masse et bras de levier",
+"categorie": "Masse & centrage",
+"famille": "masses",
+"priorite": "haute",
+"justification": "méthode algébrique d'évaluation du centre de gravité par sommation des moments",
+"sous_domaine": "Masse et centrage"
+},
+{
+"terme": "moment",
+"categorie": "Masse & centrage",
+"famille": "masses",
+"priorite": "haute",
+"justification": "produit de la masse par le bras de levier par rapport à la référence (datum), servant au calcul du CG",
+"sous_domaine": "Masse et centrage"
+},
+{
+"terme": "limites de centrage",
+"categorie": "Masse & centrage",
+"famille": "limites_de_centrage",
+"priorite": "haute",
+"justification": "bornes avant et arrière réglementaires de la plage de position du CG assurant la gouvernabilité",
+"sous_domaine": "Masse et centrage"
+},
+{
+"terme": "enveloppe de centrage",
+"categorie": "Masse & centrage",
+"famille": "limites_de_centrage",
+"priorite": "haute",
+"justification": "diagramme limite tracé en fonction de la masse et du centrage autorisant l'appareil à voler",
+"sous_domaine": "Masse et centrage"
+},
+{
+"terme": "index",
+"categorie": "Masse & centrage",
+"famille": "limites_de_centrage",
+"priorite": "moyenne",
+"justification": "unité simplifiée de moment facilitant le calcul mental de masse et centrage",
+"sous_domaine": "Masse et centrage"
+},
+{
+"terme": "centrage avant",
+"categorie": "Masse & centrage",
+"famille": "limites_de_centrage",
+"priorite": "haute",
+"justification": "CG situé trop en avant, augmentant la stabilité longitudinale mais diminuant l'efficacité de la profondeur",
+"sous_domaine": "Masse et centrage"
+},
+{
+"terme": "centrage arrière",
+"categorie": "Masse & centrage",
+"famille": "limites_de_centrage",
+"priorite": "haute",
+"justification": "CG situé trop en arrière, réduisant l'effort au manche et la stabilité, créant un grand risque de vrille",
+"sous_domaine": "Masse et centrage"
+},
+{
+"terme": "masse sans carburant",
+"categorie": "Masse & centrage",
+"famille": "masses",
+"priorite": "moyenne",
+"justification": "MZFW, masse totale de l'avion incluant charge utile mais sans le carburant utilisable",
+"sous_domaine": "Masse et centrage"
+},
+{
+"terme": "diagramme de manœuvre",
+"categorie": "Aérodynamique",
+"famille": "structure_limites",
+"priorite": "haute",
+"justification": "diagramme V-n décrivant l'enveloppe de vol de l'aéronef en fonction de la vitesse et du facteur de charge",
+"sous_domaine": "Structure et facteurs de charge"
+},
+{
+"terme": "facteur de charge limite",
+"categorie": "Aérodynamique",
+"famille": "structure_limites",
+"priorite": "haute",
+"justification": "facteur de charge mécanique maximal supportable par l'avion sans déformation permanente",
+"sous_domaine": "Structure et facteurs de charge"
+},
+{
+"terme": "facteur de charge ultime",
+"categorie": "Aérodynamique",
+"famille": "structure_limites",
+"priorite": "haute",
+"justification": "facteur de charge au-delà duquel se produit la rupture immédiate de la structure",
+"sous_domaine": "Structure et facteurs de charge"
+},
+{
+"terme": "catégorie normale",
+"categorie": "Structure & cellule",
+"famille": "categories_aeronefs",
+"priorite": "haute",
+"justification": "catégorie standard certifiée d'avion limitant le facteur de charge à +3.8 g en voltige interdite",
+"sous_domaine": "Structure et facteurs de charge"
+},
+{
+"terme": "catégorie utilitaire",
+"categorie": "Structure & cellule",
+"famille": "categories_aeronefs",
+"priorite": "moyenne",
+"justification": "catégorie permettant des manœuvres acrobatiques modérées avec limite renforcée de +4.4 g",
+"sous_domaine": "Structure et facteurs de charge"
+},
+{
+"terme": "catégorie voltige",
+"categorie": "Structure & cellule",
+"famille": "categories_aeronefs",
+"priorite": "moyenne",
+"justification": "catégorie d'avions spécifiquement renforcés tolérant des g importants (+6.0 g ou plus)",
+"sous_domaine": "Structure et facteurs de charge"
+},
+{
+"terme": "revêtement travaillant",
+"categorie": "Structure & cellule",
+"famille": "structure_element",
+"priorite": "haute",
+"justification": "coque métallique ou composite participant directement à la reprise et répartition des charges structurelles",
+"sous_domaine": "Structure et facteurs de charge"
+},
+{
+"terme": "fuselage treillis",
+"categorie": "Structure & cellule",
+"famille": "structure_element",
+"priorite": "moyenne",
+"justification": "type de construction de fuselage triangulée à l'aide de tubes métalliques ou poutres de bois",
+"sous_domaine": "Structure et facteurs de charge"
+},
+{
+"terme": "fuselage monocoque",
+"categorie": "Structure & cellule",
+"famille": "structure_element",
+"priorite": "moyenne",
+"justification": "construction aéronautique où le revêtement externe absorbe l'intégralité des forces structurelles",
+"sous_domaine": "Structure et facteurs de charge"
+},
+{
+"terme": "fuselage semi-monocoque",
+"categorie": "Structure & cellule",
+"famille": "structure_element",
+"priorite": "haute",
+"justification": "structure standard combinant cadres, lisses longitudinales et revêtement travaillant",
+"sous_domaine": "Structure et facteurs de charge"
+},
+{
+"terme": "train classique",
+"categorie": "Structure & cellule",
+"famille": "train_atterrissage",
+"priorite": "haute",
+"justification": "train d'atterrissage comprenant un train principal avant et une roulette de queue arrière, délicat au sol",
+"sous_domaine": "Structure et facteurs de charge"
+},
+{
+"terme": "train tricycle",
+"categorie": "Structure & cellule",
+"famille": "train_atterrissage",
+"priorite": "haute",
+"justification": "configuration de train moderne comportant un atterrisseur avant directionnel et un train principal arrière",
+"sous_domaine": "Structure et facteurs de charge"
+},
+{
+"terme": "amortisseur",
+"categorie": "Structure & cellule",
+"famille": "train_atterrissage",
+"priorite": "haute",
+"justification": "mécanisme oléopneumatique de la jambe de train absorbant l'énergie cinétique de l'impact lors de l'atterrissage",
+"sous_domaine": "Structure et facteurs de charge"
+},
+{
+"terme": "atterrisseur",
+"categorie": "Structure & cellule",
+"famille": "train_atterrissage",
+"priorite": "moyenne",
+"justification": "ensemble mécanique de train supportant le poids et permettant la décélération de l'aéronef",
+"sous_domaine": "Structure et facteurs de charge"
+}
+]

@@ -1,0 +1,446 @@
+{
+  "lot": 6,
+  "domaine_principal": "regl-proc",
+  "termes": [
+    {
+      "terme": "vent arrière basse hauteur",
+      "priorite": "haute",
+      "domaine": "regl-proc"
+    },
+    {
+      "terme": "procédure de mise en route",
+      "priorite": "haute",
+      "domaine": "regl-proc"
+    },
+    {
+      "terme": "dégagement",
+      "priorite": "haute",
+      "domaine": "regl-proc"
+    },
+    {
+      "terme": "arrêt moteur",
+      "priorite": "haute",
+      "domaine": "regl-proc"
+    },
+    {
+      "terme": "moteur à 4 temps",
+      "priorite": "haute",
+      "domaine": "regl-proc"
+    },
+    {
+      "terme": "admission",
+      "priorite": "haute",
+      "domaine": "regl-proc"
+    },
+    {
+      "terme": "compression",
+      "priorite": "haute",
+      "domaine": "regl-proc"
+    },
+    {
+      "terme": "détente",
+      "priorite": "haute",
+      "domaine": "regl-proc"
+    },
+    {
+      "terme": "échappement",
+      "priorite": "haute",
+      "domaine": "regl-proc"
+    },
+    {
+      "terme": "bougie",
+      "priorite": "haute",
+      "domaine": "regl-proc"
+    },
+    {
+      "terme": "carburateur",
+      "priorite": "haute",
+      "domaine": "regl-proc"
+    },
+    {
+      "terme": "injection",
+      "priorite": "haute",
+      "domaine": "regl-proc"
+    },
+    {
+      "terme": "mixture",
+      "priorite": "haute",
+      "domaine": "regl-proc"
+    },
+    {
+      "terme": "correcteur d'altitude",
+      "priorite": "haute",
+      "domaine": "regl-proc"
+    },
+    {
+      "terme": "papillon des gaz",
+      "priorite": "haute",
+      "domaine": "regl-proc"
+    },
+    {
+      "terme": "ralenti",
+      "priorite": "haute",
+      "domaine": "regl-proc"
+    },
+    {
+      "terme": "pression d'admission",
+      "priorite": "haute",
+      "domaine": "regl-proc"
+    },
+    {
+      "terme": "EGT",
+      "priorite": "haute",
+      "domaine": "regl-proc"
+    },
+    {
+      "terme": "cliquetis",
+      "priorite": "haute",
+      "domaine": "regl-proc"
+    },
+    {
+      "terme": "détonation",
+      "priorite": "haute",
+      "domaine": "regl-proc"
+    },
+    {
+      "terme": "auto-allumage",
+      "priorite": "haute",
+      "domaine": "regl-proc"
+    },
+    {
+      "terme": "encrassement des bougies",
+      "priorite": "haute",
+      "domaine": "regl-proc"
+    },
+    {
+      "terme": "hélice à pas fixe",
+      "priorite": "haute",
+      "domaine": "regl-proc"
+    },
+    {
+      "terme": "hélice à pas variable",
+      "priorite": "haute",
+      "domaine": "regl-proc"
+    },
+    {
+      "terme": "calage d'hélice",
+      "priorite": "haute",
+      "domaine": "regl-proc"
+    },
+    {
+      "terme": "mise en moulinet",
+      "priorite": "haute",
+      "domaine": "regl-proc"
+    },
+    {
+      "terme": "effet de couple",
+      "priorite": "haute",
+      "domaine": "regl-proc"
+    },
+    {
+      "terme": "circuit carburant",
+      "priorite": "haute",
+      "domaine": "regl-proc"
+    },
+    {
+      "terme": "pompe mécanique",
+      "priorite": "haute",
+      "domaine": "regl-proc"
+    },
+    {
+      "terme": "carburant 100LL",
+      "priorite": "haute",
+      "domaine": "regl-proc"
+    },
+    {
+      "terme": "100LL",
+      "priorite": "haute",
+      "domaine": "regl-proc"
+    },
+    {
+      "terme": "UL91",
+      "priorite": "haute",
+      "domaine": "regl-proc"
+    },
+    {
+      "terme": "essence auto",
+      "priorite": "haute",
+      "domaine": "regl-proc"
+    },
+    {
+      "terme": "mogas",
+      "priorite": "haute",
+      "domaine": "regl-proc"
+    },
+    {
+      "terme": "panne sèche",
+      "priorite": "haute",
+      "domaine": "regl-proc"
+    },
+    {
+      "terme": "alimentation croisée",
+      "priorite": "haute",
+      "domaine": "regl-proc"
+    },
+    {
+      "terme": "crossfeed",
+      "priorite": "haute",
+      "domaine": "regl-proc"
+    },
+    {
+      "terme": "circuit électrique",
+      "priorite": "haute",
+      "domaine": "regl-proc"
+    },
+    {
+      "terme": "disjoncteur",
+      "priorite": "haute",
+      "domaine": "regl-proc"
+    },
+    {
+      "terme": "fusible",
+      "priorite": "haute",
+      "domaine": "regl-proc"
+    },
+    {
+      "terme": "master switch",
+      "priorite": "haute",
+      "domaine": "regl-proc"
+    },
+    {
+      "terme": "ampèremètre",
+      "priorite": "haute",
+      "domaine": "regl-proc"
+    },
+    {
+      "terme": "mal des transports",
+      "priorite": "haute",
+      "domaine": "regl-proc"
+    },
+    {
+      "terme": "otite barotraumatique",
+      "priorite": "haute",
+      "domaine": "regl-proc"
+    },
+    {
+      "terme": "aérosinusite",
+      "priorite": "haute",
+      "domaine": "regl-proc"
+    },
+    {
+      "terme": "effets de l'altitude",
+      "priorite": "haute",
+      "domaine": "regl-proc"
+    },
+    {
+      "terme": "illusions sensorielles",
+      "priorite": "haute",
+      "domaine": "regl-proc"
+    },
+    {
+      "terme": "illusion sensorielle",
+      "priorite": "haute",
+      "domaine": "regl-proc"
+    },
+    {
+      "terme": "désorientation spatiale",
+      "priorite": "haute",
+      "domaine": "regl-proc"
+    },
+    {
+      "terme": "illusion somatogravique",
+      "priorite": "haute",
+      "domaine": "regl-proc"
+    },
+    {
+      "terme": "fausse horizon",
+      "priorite": "haute",
+      "domaine": "regl-proc"
+    },
+    {
+      "terme": "faux horizon",
+      "priorite": "haute",
+      "domaine": "regl-proc"
+    },
+    {
+      "terme": "effet de trou noir",
+      "priorite": "haute",
+      "domaine": "regl-proc"
+    },
+    {
+      "terme": "rythme circadien",
+      "priorite": "haute",
+      "domaine": "regl-proc"
+    },
+    {
+      "terme": "situation awareness",
+      "priorite": "haute",
+      "domaine": "regl-proc"
+    },
+    {
+      "terme": "violation",
+      "priorite": "haute",
+      "domaine": "regl-proc"
+    },
+    {
+      "terme": "complaisance",
+      "priorite": "haute",
+      "domaine": "regl-proc"
+    },
+    {
+      "terme": "excès de confiance",
+      "priorite": "haute",
+      "domaine": "regl-proc"
+    },
+    {
+      "terme": "pression temporelle",
+      "priorite": "haute",
+      "domaine": "regl-proc"
+    },
+    {
+      "terme": "get-there-itis",
+      "priorite": "haute",
+      "domaine": "regl-proc"
+    },
+    {
+      "terme": "chaîne des causes",
+      "priorite": "haute",
+      "domaine": "regl-proc"
+    },
+    {
+      "terme": "chaîne causale",
+      "priorite": "haute",
+      "domaine": "regl-proc"
+    },
+    {
+      "terme": "modèle SHELL",
+      "priorite": "haute",
+      "domaine": "regl-proc"
+    },
+    {
+      "terme": "modèle de Reason",
+      "priorite": "haute",
+      "domaine": "regl-proc"
+    },
+    {
+      "terme": "plaques de Reason",
+      "priorite": "haute",
+      "domaine": "regl-proc"
+    },
+    {
+      "terme": "DODAR",
+      "priorite": "haute",
+      "domaine": "regl-proc"
+    },
+    {
+      "terme": "prise de décision",
+      "priorite": "haute",
+      "domaine": "regl-proc"
+    },
+    {
+      "terme": "médicaments",
+      "priorite": "haute",
+      "domaine": "regl-proc"
+    },
+    {
+      "terme": "don du sang",
+      "priorite": "haute",
+      "domaine": "regl-proc"
+    },
+    {
+      "terme": "plongée sous-marine",
+      "priorite": "haute",
+      "domaine": "regl-proc"
+    },
+    {
+      "terme": "monoxyde de carbone",
+      "priorite": "haute",
+      "domaine": "regl-proc"
+    },
+    {
+      "terme": "déshydratation",
+      "priorite": "haute",
+      "domaine": "regl-proc"
+    },
+    {
+      "terme": "hypoglycémie",
+      "priorite": "haute",
+      "domaine": "regl-proc"
+    },
+    {
+      "terme": "hypothermie",
+      "priorite": "haute",
+      "domaine": "regl-proc"
+    },
+    {
+      "terme": "extincteur",
+      "priorite": "haute",
+      "domaine": "regl-proc"
+    },
+    {
+      "terme": "gilet de sauvetage",
+      "priorite": "haute",
+      "domaine": "regl-proc"
+    },
+    {
+      "terme": "évacuation",
+      "priorite": "haute",
+      "domaine": "regl-proc"
+    },
+    {
+      "terme": "cycle à 4 temps",
+      "priorite": "moyenne",
+      "domaine": "regl-proc"
+    },
+    {
+      "terme": "refroidissement",
+      "priorite": "moyenne",
+      "domaine": "regl-proc"
+    },
+    {
+      "terme": "régime",
+      "priorite": "moyenne",
+      "domaine": "regl-proc"
+    },
+    {
+      "terme": "tours/minute",
+      "priorite": "moyenne",
+      "domaine": "regl-proc"
+    },
+    {
+      "terme": "réservoir",
+      "priorite": "moyenne",
+      "domaine": "regl-proc"
+    },
+    {
+      "terme": "jauge",
+      "priorite": "moyenne",
+      "domaine": "regl-proc"
+    },
+    {
+      "terme": "filtre",
+      "priorite": "moyenne",
+      "domaine": "regl-proc"
+    },
+    {
+      "terme": "erreur",
+      "priorite": "moyenne",
+      "domaine": "regl-proc"
+    },
+    {
+      "terme": "ceinture",
+      "priorite": "moyenne",
+      "domaine": "regl-proc"
+    },
+    {
+      "terme": "harnais",
+      "priorite": "moyenne",
+      "domaine": "regl-proc"
+    },
+    {
+      "terme": "cycle",
+      "priorite": "basse",
+      "domaine": "regl-proc"
+    }
+  ]
+}

@@ -1,0 +1,451 @@
+{
+  "lot": 1,
+  "domaine_principal": "aero-perfs",
+  "termes": [
+    {
+      "terme": "profil",
+      "priorite": "haute",
+      "domaine": "aero-perfs"
+    },
+    {
+      "terme": "corde",
+      "priorite": "haute",
+      "domaine": "aero-perfs"
+    },
+    {
+      "terme": "envergure",
+      "priorite": "haute",
+      "domaine": "aero-perfs"
+    },
+    {
+      "terme": "allongement",
+      "priorite": "haute",
+      "domaine": "aero-perfs"
+    },
+    {
+      "terme": "extrados",
+      "priorite": "haute",
+      "domaine": "aero-perfs"
+    },
+    {
+      "terme": "intrados",
+      "priorite": "haute",
+      "domaine": "aero-perfs"
+    },
+    {
+      "terme": "bord d'attaque",
+      "priorite": "haute",
+      "domaine": "aero-perfs"
+    },
+    {
+      "terme": "bord de fuite",
+      "priorite": "haute",
+      "domaine": "aero-perfs"
+    },
+    {
+      "terme": "angle d'incidence",
+      "priorite": "haute",
+      "domaine": "aero-perfs"
+    },
+    {
+      "terme": "dièdre",
+      "priorite": "haute",
+      "domaine": "aero-perfs"
+    },
+    {
+      "terme": "couche limite",
+      "priorite": "haute",
+      "domaine": "aero-perfs"
+    },
+    {
+      "terme": "écoulement laminaire",
+      "priorite": "haute",
+      "domaine": "aero-perfs"
+    },
+    {
+      "terme": "écoulement turbulent",
+      "priorite": "haute",
+      "domaine": "aero-perfs"
+    },
+    {
+      "terme": "décollement",
+      "priorite": "haute",
+      "domaine": "aero-perfs"
+    },
+    {
+      "terme": "centre de poussée",
+      "priorite": "haute",
+      "domaine": "aero-perfs"
+    },
+    {
+      "terme": "foyer",
+      "priorite": "haute",
+      "domaine": "aero-perfs"
+    },
+    {
+      "terme": "résultante aérodynamique",
+      "priorite": "haute",
+      "domaine": "aero-perfs"
+    },
+    {
+      "terme": "vent relatif",
+      "priorite": "haute",
+      "domaine": "aero-perfs"
+    },
+    {
+      "terme": "surface alaire",
+      "priorite": "haute",
+      "domaine": "aero-perfs"
+    },
+    {
+      "terme": "traînée de forme",
+      "priorite": "haute",
+      "domaine": "aero-perfs"
+    },
+    {
+      "terme": "traînée de frottement",
+      "priorite": "haute",
+      "domaine": "aero-perfs"
+    },
+    {
+      "terme": "traînée totale",
+      "priorite": "haute",
+      "domaine": "aero-perfs"
+    },
+    {
+      "terme": "poids",
+      "priorite": "haute",
+      "domaine": "aero-perfs"
+    },
+    {
+      "terme": "poussée",
+      "priorite": "haute",
+      "domaine": "aero-perfs"
+    },
+    {
+      "terme": "polaire des vitesses",
+      "priorite": "haute",
+      "domaine": "aero-perfs"
+    },
+    {
+      "terme": "coefficient de portance",
+      "priorite": "haute",
+      "domaine": "aero-perfs"
+    },
+    {
+      "terme": "Cz",
+      "priorite": "haute",
+      "domaine": "aero-perfs"
+    },
+    {
+      "terme": "coefficient de traînée",
+      "priorite": "haute",
+      "domaine": "aero-perfs"
+    },
+    {
+      "terme": "Cx",
+      "priorite": "haute",
+      "domaine": "aero-perfs"
+    },
+    {
+      "terme": "rapport portance/traînée",
+      "priorite": "haute",
+      "domaine": "aero-perfs"
+    },
+    {
+      "terme": "charge alaire",
+      "priorite": "haute",
+      "domaine": "aero-perfs"
+    },
+    {
+      "terme": "pression statique",
+      "priorite": "haute",
+      "domaine": "aero-perfs"
+    },
+    {
+      "terme": "pression dynamique",
+      "priorite": "haute",
+      "domaine": "aero-perfs"
+    },
+    {
+      "terme": "incidence de décrochage",
+      "priorite": "haute",
+      "domaine": "aero-perfs"
+    },
+    {
+      "terme": "décrochage accéléré",
+      "priorite": "haute",
+      "domaine": "aero-perfs"
+    },
+    {
+      "terme": "décrochage en virage",
+      "priorite": "haute",
+      "domaine": "aero-perfs"
+    },
+    {
+      "terme": "départ en vrille",
+      "priorite": "haute",
+      "domaine": "aero-perfs"
+    },
+    {
+      "terme": "buffeting",
+      "priorite": "haute",
+      "domaine": "aero-perfs"
+    },
+    {
+      "terme": "avertisseur de décrochage",
+      "priorite": "haute",
+      "domaine": "aero-perfs"
+    },
+    {
+      "terme": "virage à grande inclinaison",
+      "priorite": "haute",
+      "domaine": "aero-perfs"
+    },
+    {
+      "terme": "stabilité dynamique",
+      "priorite": "haute",
+      "domaine": "aero-perfs"
+    },
+    {
+      "terme": "stabilité longitudinale",
+      "priorite": "haute",
+      "domaine": "aero-perfs"
+    },
+    {
+      "terme": "stabilité latérale",
+      "priorite": "haute",
+      "domaine": "aero-perfs"
+    },
+    {
+      "terme": "stabilité de route",
+      "priorite": "haute",
+      "domaine": "aero-perfs"
+    },
+    {
+      "terme": "roulis induit",
+      "priorite": "haute",
+      "domaine": "aero-perfs"
+    },
+    {
+      "terme": "lacet inverse",
+      "priorite": "haute",
+      "domaine": "aero-perfs"
+    },
+    {
+      "terme": "effet de dièdre",
+      "priorite": "haute",
+      "domaine": "aero-perfs"
+    },
+    {
+      "terme": "couple",
+      "priorite": "haute",
+      "domaine": "aero-perfs"
+    },
+    {
+      "terme": "couple de renversement",
+      "priorite": "haute",
+      "domaine": "aero-perfs"
+    },
+    {
+      "terme": "précession gyroscopique",
+      "priorite": "haute",
+      "domaine": "aero-perfs"
+    },
+    {
+      "terme": "traction dissymétrique",
+      "priorite": "haute",
+      "domaine": "aero-perfs"
+    },
+    {
+      "terme": "VLO",
+      "priorite": "haute",
+      "domaine": "aero-perfs"
+    },
+    {
+      "terme": "VBG",
+      "priorite": "haute",
+      "domaine": "aero-perfs"
+    },
+    {
+      "terme": "VRA",
+      "priorite": "haute",
+      "domaine": "aero-perfs"
+    },
+    {
+      "terme": "EAS",
+      "priorite": "haute",
+      "domaine": "aero-perfs"
+    },
+    {
+      "terme": "vitesse conventionnelle",
+      "priorite": "haute",
+      "domaine": "aero-perfs"
+    },
+    {
+      "terme": "erreur de densité",
+      "priorite": "haute",
+      "domaine": "aero-perfs"
+    },
+    {
+      "terme": "erreur instrumentale",
+      "priorite": "haute",
+      "domaine": "aero-perfs"
+    },
+    {
+      "terme": "erreur de position",
+      "priorite": "haute",
+      "domaine": "aero-perfs"
+    },
+    {
+      "terme": "distance franchissement 15 m",
+      "priorite": "haute",
+      "domaine": "aero-perfs"
+    },
+    {
+      "terme": "distance franchissement 50 ft",
+      "priorite": "haute",
+      "domaine": "aero-perfs"
+    },
+    {
+      "terme": "distance accélération-arrêt",
+      "priorite": "haute",
+      "domaine": "aero-perfs"
+    },
+    {
+      "terme": "plafond pratique",
+      "priorite": "haute",
+      "domaine": "aero-perfs"
+    },
+    {
+      "terme": "effet de l'altitude",
+      "priorite": "haute",
+      "domaine": "aero-perfs"
+    },
+    {
+      "terme": "effet de la température",
+      "priorite": "haute",
+      "domaine": "aero-perfs"
+    },
+    {
+      "terme": "effet de la masse",
+      "priorite": "haute",
+      "domaine": "aero-perfs"
+    },
+    {
+      "terme": "effet du vent",
+      "priorite": "haute",
+      "domaine": "aero-perfs"
+    },
+    {
+      "terme": "effet de l'état de surface",
+      "priorite": "haute",
+      "domaine": "aero-perfs"
+    },
+    {
+      "terme": "facteur de correction",
+      "priorite": "haute",
+      "domaine": "aero-perfs"
+    },
+    {
+      "terme": "rayon d'action",
+      "priorite": "haute",
+      "domaine": "aero-perfs"
+    },
+    {
+      "terme": "masse maximale au décollage",
+      "priorite": "haute",
+      "domaine": "aero-perfs"
+    },
+    {
+      "terme": "masse maximale à l'atterrissage",
+      "priorite": "haute",
+      "domaine": "aero-perfs"
+    },
+    {
+      "terme": "charge utile",
+      "priorite": "haute",
+      "domaine": "aero-perfs"
+    },
+    {
+      "terme": "épaisseur relative",
+      "priorite": "moyenne",
+      "domaine": "aero-perfs"
+    },
+    {
+      "terme": "angle de calage",
+      "priorite": "moyenne",
+      "domaine": "aero-perfs"
+    },
+    {
+      "terme": "flèche",
+      "priorite": "moyenne",
+      "domaine": "aero-perfs"
+    },
+    {
+      "terme": "vrillage",
+      "priorite": "moyenne",
+      "domaine": "aero-perfs"
+    },
+    {
+      "terme": "Cl",
+      "priorite": "moyenne",
+      "domaine": "aero-perfs"
+    },
+    {
+      "terme": "Cd",
+      "priorite": "moyenne",
+      "domaine": "aero-perfs"
+    },
+    {
+      "terme": "lacet induit",
+      "priorite": "moyenne",
+      "domaine": "aero-perfs"
+    },
+    {
+      "terme": "amortissement",
+      "priorite": "moyenne",
+      "domaine": "aero-perfs"
+    },
+    {
+      "terme": "tenue de cap",
+      "priorite": "moyenne",
+      "domaine": "aero-perfs"
+    },
+    {
+      "terme": "VG",
+      "priorite": "moyenne",
+      "domaine": "aero-perfs"
+    },
+    {
+      "terme": "Vlof",
+      "priorite": "moyenne",
+      "domaine": "aero-perfs"
+    },
+    {
+      "terme": "Vtoss",
+      "priorite": "moyenne",
+      "domaine": "aero-perfs"
+    },
+    {
+      "terme": "Mach",
+      "priorite": "moyenne",
+      "domaine": "aero-perfs"
+    },
+    {
+      "terme": "plafond de sustentation",
+      "priorite": "moyenne",
+      "domaine": "aero-perfs"
+    },
+    {
+      "terme": "plafond de croisière",
+      "priorite": "moyenne",
+      "domaine": "aero-perfs"
+    },
+    {
+      "terme": "consommation spécifique",
+      "priorite": "moyenne",
+      "domaine": "aero-perfs"
+    }
+  ]
+}

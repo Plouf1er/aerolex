@@ -1,0 +1,1111 @@
+{
+  "domaine": "Réglementation, procédures, moteur, FH",
+  "manquants": [
+    {
+      "terme": "VFR de nuit",
+      "categorie": "Réglementation & docs",
+      "famille": "vfr_ifr",
+      "priorite": "haute",
+      "justification": "Variante nocturne du vol à vue, soumise à des règles de visibilité et d'équipements spécifiques.",
+      "sous_domaine": "Règles de l'air"
+    },
+    {
+      "terme": "VFR spécial",
+      "categorie": "Réglementation & docs",
+      "famille": "vfr_ifr",
+      "priorite": "haute",
+      "justification": "Vol à vue autorisé par le contrôle dans une CTR lorsque les conditions météo sont inférieures aux minima VMC.",
+      "sous_domaine": "Règles de l'air"
+    },
+    {
+      "terme": "conditions de vol à vue",
+      "categorie": "Réglementation & docs",
+      "famille": "vfr_ifr",
+      "priorite": "haute",
+      "justification": "Conditions météorologiques minimales requises pour voler en VFR.",
+      "sous_domaine": "Règles de l'air"
+    },
+    {
+      "terme": "visibilité minimale",
+      "categorie": "Réglementation & docs",
+      "famille": "vfr_ifr",
+      "priorite": "haute",
+      "justification": "Distance de visibilité minimale réglementaire requise pour le vol à vue.",
+      "sous_domaine": "Règles de l'air"
+    },
+    {
+      "terme": "distance aux nuages",
+      "categorie": "Réglementation & docs",
+      "famille": "vfr_ifr",
+      "priorite": "haute",
+      "justification": "Distances de séparation minimale par rapport aux nuages imposées en conditions VMC.",
+      "sous_domaine": "Règles de l'air"
+    },
+    {
+      "terme": "règle « voir et éviter »",
+      "categorie": "Réglementation & docs",
+      "famille": "regles_anticollision",
+      "priorite": "haute",
+      "justification": "Principe de base de l'anticollision en vol à vue.",
+      "sous_domaine": "Règles de l'air"
+    },
+    {
+      "terme": "priorités de passage",
+      "categorie": "Réglementation & docs",
+      "famille": "regles_anticollision",
+      "priorite": "haute",
+      "justification": "Règles d'évitement définissant l'ordre de priorité entre différentes catégories d'aéronefs.",
+      "sous_domaine": "Règles de l'air"
+    },
+    {
+      "terme": "route convergente",
+      "categorie": "Réglementation & docs",
+      "famille": "regles_anticollision",
+      "priorite": "haute",
+      "justification": "Règle de priorité applicable lorsque deux trajectoires d'aéronefs se croisent.",
+      "sous_domaine": "Règles de l'air"
+    },
+    {
+      "terme": "dépassement",
+      "categorie": "Réglementation & docs",
+      "famille": "regles_anticollision",
+      "priorite": "haute",
+      "justification": "Règles de sécurité à suivre pour dépasser un autre aéronef en vol.",
+      "sous_domaine": "Règles de l'air"
+    },
+    {
+      "terme": "rapprochement de face",
+      "categorie": "Réglementation & docs",
+      "famille": "regles_anticollision",
+      "priorite": "haute",
+      "justification": "Règle d'évitement imposant à chaque aéronef de dévier sa trajectoire par la droite lors d'un face à face.",
+      "sous_domaine": "Règles de l'air"
+    },
+    {
+      "terme": "priorité au ballon",
+      "categorie": "Réglementation & docs",
+      "famille": "regles_anticollision",
+      "priorite": "haute",
+      "justification": "Priorité réglementaire absolue des ballons libres.",
+      "sous_domaine": "Règles de l'air"
+    },
+    {
+      "terme": "priorité au planeur",
+      "categorie": "Réglementation & docs",
+      "famille": "regles_anticollision",
+      "priorite": "haute",
+      "justification": "Priorité réglementaire des planeurs sur les aéronefs motorisés.",
+      "sous_domaine": "Règles de l'air"
+    },
+    {
+      "terme": "priorité au remorquage",
+      "categorie": "Réglementation & docs",
+      "famille": "regles_anticollision",
+      "priorite": "haute",
+      "justification": "Priorité réglementaire des aéronefs remorquant d'autres appareils.",
+      "sous_domaine": "Règles de l'air"
+    },
+    {
+      "terme": "hauteurs minimales de survol",
+      "categorie": "Réglementation & docs",
+      "famille": "altitudes_survol",
+      "priorite": "haute",
+      "justification": "Altitudes de survol minimales obligatoires au-dessus des agglomérations, des rassemblements et des obstacles.",
+      "sous_domaine": "Règles de l'air"
+    },
+    {
+      "terme": "vol au-dessus de l'eau",
+      "categorie": "Réglementation & docs",
+      "famille": "regles_vol",
+      "priorite": "haute",
+      "justification": "Règles régissant le survol des plans d'eau (emport obligatoire de gilets de sauvetage au-delà d'une certaine distance).",
+      "sous_domaine": "Règles de l'air"
+    },
+    {
+      "terme": "semi-circulaire",
+      "categorie": "Réglementation & docs",
+      "famille": "regle_semi_circulaire",
+      "priorite": "haute",
+      "justification": "Règle de choix de l'altitude ou du niveau de vol en croisière selon la route magnétique pour assurer la séparation verticale.",
+      "sous_domaine": "Règles de l'air"
+    },
+    {
+      "terme": "niveau de croisière",
+      "categorie": "Réglementation & docs",
+      "famille": "niveaux_vol",
+      "priorite": "haute",
+      "justification": "Altitude ou niveau de vol maintenu pendant la phase de croisière.",
+      "sous_domaine": "Règles de l'air"
+    },
+    {
+      "terme": "règles anticollision",
+      "categorie": "Réglementation & docs",
+      "famille": "regles_anticollision",
+      "priorite": "haute",
+      "justification": "Règles de l'air destinées à prévenir les collisions au sol et en vol.",
+      "sous_domaine": "Règles de l'air"
+    },
+    {
+      "terme": "qualification de classe",
+      "categorie": "Réglementation & docs",
+      "famille": "documents_licences",
+      "priorite": "haute",
+      "justification": "Autorisation apposée sur la licence pour piloter une classe spécifique d'aéronef.",
+      "sous_domaine": "Documents"
+    },
+    {
+      "terme": "certificat médical classe 2",
+      "categorie": "Réglementation & docs",
+      "famille": "documents_licences",
+      "priorite": "haute",
+      "justification": "Attestation d'aptitude physique et mentale requise pour les pilotes privés (PPL).",
+      "sous_domaine": "Documents"
+    },
+    {
+      "terme": "LAPL",
+      "categorie": "Réglementation & docs",
+      "famille": "documents_licences",
+      "priorite": "haute",
+      "justification": "Licence de pilote d'avion léger (Light Aircraft Pilot Licence).",
+      "sous_domaine": "Documents"
+    },
+    {
+      "terme": "carnet de vol",
+      "categorie": "Réglementation & docs",
+      "famille": "documents_licences",
+      "priorite": "haute",
+      "justification": "Registre individuel obligatoire où le pilote consigne ses heures de vol et d'instruction.",
+      "sous_domaine": "Documents"
+    },
+    {
+      "terme": "certificat de navigabilité",
+      "categorie": "Réglementation & docs",
+      "famille": "documents_bord",
+      "priorite": "haute",
+      "justification": "Document officiel attestant de l'aptitude au vol d'un aéronef individuel conformément à sa définition.",
+      "sous_domaine": "Documents"
+    },
+    {
+      "terme": "CDN",
+      "categorie": "Réglementation & docs",
+      "famille": "documents_bord",
+      "priorite": "haute",
+      "justification": "Certificat de Navigabilité.",
+      "sous_domaine": "Documents"
+    },
+    {
+      "terme": "certificat d'immatriculation",
+      "categorie": "Réglementation & docs",
+      "famille": "documents_bord",
+      "priorite": "haute",
+      "justification": "Document officiel établissant l'identité de l'aéronef et l'identité de son propriétaire.",
+      "sous_domaine": "Documents"
+    },
+    {
+      "terme": "CEN",
+      "categorie": "Réglementation & docs",
+      "famille": "documents_bord",
+      "priorite": "haute",
+      "justification": "Certificat d'Examen de Navigabilité.",
+      "sous_domaine": "Documents"
+    },
+    {
+      "terme": "licence de station d'aéronef",
+      "categorie": "Réglementation & docs",
+      "famille": "documents_bord",
+      "priorite": "haute",
+      "justification": "Autorisation d'exploitation des émetteurs radio à bord.",
+      "sous_domaine": "Documents"
+    },
+    {
+      "terme": "assurance",
+      "categorie": "Réglementation & docs",
+      "famille": "documents_bord",
+      "priorite": "haute",
+      "justification": "Attestation obligatoire de couverture de responsabilité civile pour l'aéronef.",
+      "sous_domaine": "Documents"
+    },
+    {
+      "terme": "APRS",
+      "categorie": "Réglementation & docs",
+      "famille": "maintenance",
+      "priorite": "haute",
+      "justification": "Approbation Pour Remise en Service signée par un mécanicien agréé après travaux de maintenance.",
+      "sous_domaine": "Documents"
+    },
+    {
+      "terme": "potentiel",
+      "categorie": "Réglementation & docs",
+      "famille": "maintenance",
+      "priorite": "moyenne",
+      "justification": "Nombre d'heures de vol maximales autorisées pour un organe (moteur, hélice) avant sa révision ou son remplacement.",
+      "sous_domaine": "Documents"
+    },
+    {
+      "terme": "entretien 50 h/100 h",
+      "categorie": "Réglementation & docs",
+      "famille": "maintenance",
+      "priorite": "moyenne",
+      "justification": "Visites de maintenance périodiques obligatoires pour garantir la navigabilité de l'appareil.",
+      "sous_domaine": "Documents"
+    },
+    {
+      "terme": "consignes de navigabilité",
+      "categorie": "Réglementation & docs",
+      "famille": "maintenance",
+      "priorite": "haute",
+      "justification": "Directives de sécurité obligatoires émises par les autorités aéronautiques pour corriger un défaut technique potentiel.",
+      "sous_domaine": "Documents"
+    },
+    {
+      "terme": "MTOW",
+      "categorie": "Réglementation & docs",
+      "famille": "masses",
+      "priorite": "haute",
+      "justification": "Masse maximale autorisée au décollage (Maximum Take-Off Weight).",
+      "sous_domaine": "Documents"
+    },
+    {
+      "terme": "clôture de plan de vol",
+      "categorie": "Réglementation & docs",
+      "famille": "plan_de_vol",
+      "priorite": "haute",
+      "justification": "Action obligatoire de signaler l'arrivée à destination pour clore le plan de vol.",
+      "sous_domaine": "Plan de vol et procédures"
+    },
+    {
+      "terme": "activation",
+      "categorie": "Réglementation & docs",
+      "famille": "plan_de_vol",
+      "priorite": "moyenne",
+      "justification": "Mise en œuvre effective du plan de vol au moment du décollage.",
+      "sous_domaine": "Plan de vol et procédures"
+    },
+    {
+      "terme": "EOBT",
+      "categorie": "Réglementation & docs",
+      "famille": "plan_de_vol",
+      "priorite": "haute",
+      "justification": "Heure estimée de mise en route ou de départ des cales (Estimated Off-Block Time).",
+      "sous_domaine": "Plan de vol et procédures"
+    },
+    {
+      "terme": "plan de vol déposé",
+      "categorie": "Réglementation & docs",
+      "famille": "plan_de_vol",
+      "priorite": "moyenne",
+      "justification": "Plan de vol effectivement soumis et enregistré auprès de l'organisme de contrôle.",
+      "sous_domaine": "Plan de vol et procédures"
+    },
+    {
+      "terme": "service d'alerte",
+      "categorie": "Réglementation & docs",
+      "famille": "services_atc",
+      "priorite": "haute",
+      "justification": "Service destiné à alerter les organismes de recherche et de sauvetage en cas de détresse d'un aéronef.",
+      "sous_domaine": "Plan de vol et procédures"
+    },
+    {
+      "terme": "phases d'urgence",
+      "categorie": "Réglementation & docs",
+      "famille": "phases_urgence",
+      "priorite": "haute",
+      "justification": "Niveaux d'alerte réglementaires en cas d'absence de nouvelles d'un aéronef : INCERFA, ALERFA, DETRESFA.",
+      "sous_domaine": "Plan de vol et procédures"
+    },
+    {
+      "terme": "INCERFA",
+      "categorie": "Réglementation & docs",
+      "famille": "phases_urgence",
+      "priorite": "haute",
+      "justification": "Phase d'incertitude quant à la sécurité d'un aéronef.",
+      "sous_domaine": "Plan de vol et procédures"
+    },
+    {
+      "terme": "ALERFA",
+      "categorie": "Réglementation & docs",
+      "famille": "phases_urgence",
+      "priorite": "haute",
+      "justification": "Phase d'alerte lorsqu'on craint pour la sécurité d'un aéronef.",
+      "sous_domaine": "Plan de vol et procédures"
+    },
+    {
+      "terme": "DETRESFA",
+      "categorie": "Réglementation & docs",
+      "famille": "phases_urgence",
+      "priorite": "haute",
+      "justification": "Phase de détresse lorsqu'il est presque certain qu'un aéronef est en grave danger.",
+      "sous_domaine": "Plan de vol et procédures"
+    },
+    {
+      "terme": "SAR",
+      "categorie": "Réglementation & docs",
+      "famille": "recherche_sauvetage",
+      "priorite": "haute",
+      "justification": "Service de recherche et sauvetage (Search and Rescue).",
+      "sous_domaine": "Plan de vol et procédures"
+    },
+    {
+      "terme": "recherches et sauvetage",
+      "categorie": "Réglementation & docs",
+      "famille": "recherche_sauvetage",
+      "priorite": "haute",
+      "justification": "Opérations coordonnées visant à localiser et secourir un aéronef en détresse.",
+      "sous_domaine": "Plan de vol et procédures"
+    },
+    {
+      "terme": "aéronef intercepté",
+      "categorie": "Réglementation & docs",
+      "famille": "interception",
+      "priorite": "haute",
+      "justification": "Aéronef soumis à une procédure d'interception, devant suivre des signaux visuels et instructions de vol stricts.",
+      "sous_domaine": "Plan de vol et procédures"
+    },
+    {
+      "terme": "essais moteur",
+      "categorie": "Procédures",
+      "famille": "essais_moteur",
+      "priorite": "haute",
+      "justification": "Séquence de vérifications au sol de l'intégrité du groupe motopropulseur (magnétos, réchauffage carbu).",
+      "sous_domaine": "Procédures de vol"
+    },
+    {
+      "terme": "briefing décollage",
+      "categorie": "Procédures",
+      "famille": "briefings",
+      "priorite": "haute",
+      "justification": "Rappel par le pilote des actions de sécurité et d'urgence à réaliser lors du décollage et en cas de panne.",
+      "sous_domaine": "Procédures de vol"
+    },
+    {
+      "terme": "panne moteur au décollage",
+      "categorie": "Procédures",
+      "famille": "pannes_moteur",
+      "priorite": "haute",
+      "justification": "Urgence absolue nécessitant une trajectoire rectiligne vers l'avant à vitesse de finesse max.",
+      "sous_domaine": "Procédures de vol"
+    },
+    {
+      "terme": "demi-tour impossible",
+      "categorie": "Procédures",
+      "famille": "pannes_moteur",
+      "priorite": "haute",
+      "justification": "Règle de sécurité interdisant le demi-tour vers la piste après une panne moteur à basse hauteur.",
+      "sous_domaine": "Procédures de vol"
+    },
+    {
+      "terme": "vent arrière basse hauteur",
+      "categorie": "Procédures",
+      "famille": "pannes_moteur",
+      "priorite": "haute",
+      "justification": "Trajectoire de secours serrée effectuée à basse hauteur suite à une panne ou anomalie après décollage.",
+      "sous_domaine": "Procédures de vol"
+    },
+    {
+      "terme": "procédure de mise en route",
+      "categorie": "Procédures",
+      "famille": "phases_vol",
+      "priorite": "haute",
+      "justification": "Actions méthodiques pour démarrer le moteur de l'aéronef en toute sécurité.",
+      "sous_domaine": "Procédures de vol"
+    },
+    {
+      "terme": "dégagement",
+      "categorie": "Procédures",
+      "famille": "phases_vol",
+      "priorite": "haute",
+      "justification": "Libération de la piste par une voie de sortie rapide après l'atterrissage.",
+      "sous_domaine": "Procédures de vol"
+    },
+    {
+      "terme": "arrêt moteur",
+      "categorie": "Procédures",
+      "famille": "phases_vol",
+      "priorite": "haute",
+      "justification": "Séquence finale d'extinction ordonnée des systèmes et du moteur.",
+      "sous_domaine": "Procédures de vol"
+    },
+    {
+      "terme": "moteur à 4 temps",
+      "categorie": "Moteur & hélice",
+      "famille": "moteur_cycle",
+      "priorite": "haute",
+      "justification": "Moteur à explosion le plus courant en aviation, effectuant un cycle thermodynamique complet en quatre temps.",
+      "sous_domaine": "Moteur et hélice"
+    },
+    {
+      "terme": "cycle",
+      "categorie": "Moteur & hélice",
+      "famille": "moteur_cycle",
+      "priorite": "basse",
+      "justification": "Ensemble des phases thermodynamiques de fonctionnement du moteur.",
+      "sous_domaine": "Moteur et hélice"
+    },
+    {
+      "terme": "cycle à 4 temps",
+      "categorie": "Moteur & hélice",
+      "famille": "moteur_cycle",
+      "priorite": "moyenne",
+      "justification": "Séquence complète : admission, compression, combustion-détente, échappement.",
+      "sous_domaine": "Moteur et hélice"
+    },
+    {
+      "terme": "admission",
+      "categorie": "Moteur & hélice",
+      "famille": "moteur_cycle",
+      "priorite": "haute",
+      "justification": "Phase d'aspiration du mélange air-carburant dans le cylindre.",
+      "sous_domaine": "Moteur et hélice"
+    },
+    {
+      "terme": "compression",
+      "categorie": "Moteur & hélice",
+      "famille": "moteur_cycle",
+      "priorite": "haute",
+      "justification": "Phase de compression du mélange air-carburant par la remontée du piston.",
+      "sous_domaine": "Moteur et hélice"
+    },
+    {
+      "terme": "détente",
+      "categorie": "Moteur & hélice",
+      "famille": "moteur_cycle",
+      "priorite": "haute",
+      "justification": "Phase motrice où l'inflammation du mélange repousse le piston.",
+      "sous_domaine": "Moteur et hélice"
+    },
+    {
+      "terme": "échappement",
+      "categorie": "Moteur & hélice",
+      "famille": "moteur_cycle",
+      "priorite": "haute",
+      "justification": "Phase d'expulsion des gaz brûlés hors du cylindre.",
+      "sous_domaine": "Moteur et hélice"
+    },
+    {
+      "terme": "bougie",
+      "categorie": "Moteur & hélice",
+      "famille": "circuit_allumage",
+      "priorite": "haute",
+      "justification": "Dispositif générant l'étincelle dans la chambre de combustion.",
+      "sous_domaine": "Moteur et hélice"
+    },
+    {
+      "terme": "carburateur",
+      "categorie": "Moteur & hélice",
+      "famille": "carburation",
+      "priorite": "haute",
+      "justification": "Organe réalisant le mélange d'air et d'essence admis dans le moteur.",
+      "sous_domaine": "Moteur et hélice"
+    },
+    {
+      "terme": "injection",
+      "categorie": "Moteur & hélice",
+      "famille": "carburation",
+      "priorite": "haute",
+      "justification": "Système d'alimentation injectant le carburant sous pression directement au niveau des soupapes ou cylindres.",
+      "sous_domaine": "Moteur et hélice"
+    },
+    {
+      "terme": "mixture",
+      "categorie": "Moteur & hélice",
+      "famille": "carburation",
+      "priorite": "haute",
+      "justification": "Terme désignant le réglage de la richesse carburant.",
+      "sous_domaine": "Moteur et hélice"
+    },
+    {
+      "terme": "correcteur d'altitude",
+      "categorie": "Moteur & hélice",
+      "famille": "carburation",
+      "priorite": "haute",
+      "justification": "Dispositif permettant d'appauvrir le mélange pour compenser la baisse de densité de l'air avec l'altitude.",
+      "sous_domaine": "Moteur et hélice"
+    },
+    {
+      "terme": "papillon des gaz",
+      "categorie": "Moteur & hélice",
+      "famille": "carburation",
+      "priorite": "haute",
+      "justification": "Vanne pivotante régulant l'admission d'air dans le carburateur pour contrôler la puissance.",
+      "sous_domaine": "Moteur et hélice"
+    },
+    {
+      "terme": "ralenti",
+      "categorie": "Moteur & hélice",
+      "famille": "carburation",
+      "priorite": "haute",
+      "justification": "Régime minimal stable du moteur sans action sur la manette des gaz.",
+      "sous_domaine": "Moteur et hélice"
+    },
+    {
+      "terme": "pression d'admission",
+      "categorie": "Moteur & hélice",
+      "famille": "carburation",
+      "priorite": "haute",
+      "justification": "Pression régnant dans le collecteur d'admission, lue sur les moteurs équipés d'hélices à pas variable.",
+      "sous_domaine": "Moteur et hélice"
+    },
+    {
+      "terme": "EGT",
+      "categorie": "Moteur & hélice",
+      "famille": "carburation",
+      "priorite": "haute",
+      "justification": "Exhaust Gas Temperature (température des gaz d'échappement) servant au réglage de la richesse.",
+      "sous_domaine": "Moteur et hélice"
+    },
+    {
+      "terme": "refroidissement",
+      "categorie": "Moteur & hélice",
+      "famille": "refroidissement_moteur",
+      "priorite": "moyenne",
+      "justification": "Système d'évacuation de la chaleur du moteur, généralement par flux d'air autour des cylindres.",
+      "sous_domaine": "Moteur et hélice"
+    },
+    {
+      "terme": "cliquetis",
+      "categorie": "Moteur & hélice",
+      "famille": "pannes_moteur",
+      "priorite": "haute",
+      "justification": "Combustion détonante anormale causant des vibrations destructrices.",
+      "sous_domaine": "Moteur et hélice"
+    },
+    {
+      "terme": "détonation",
+      "categorie": "Moteur & hélice",
+      "famille": "pannes_moteur",
+      "priorite": "haute",
+      "justification": "Combustion brutale, explosive et instantanée du mélange air-carburant.",
+      "sous_domaine": "Moteur et hélice"
+    },
+    {
+      "terme": "auto-allumage",
+      "categorie": "Moteur & hélice",
+      "famille": "pannes_moteur",
+      "priorite": "haute",
+      "justification": "Inflammation spontanée du mélange due à des points chauds dans le cylindre avant l'allumage commandé.",
+      "sous_domaine": "Moteur et hélice"
+    },
+    {
+      "terme": "encrassement des bougies",
+      "categorie": "Moteur & hélice",
+      "famille": "circuit_allumage",
+      "priorite": "haute",
+      "justification": "Dépôt de plomb ou de carbone sur les bougies provoquant des pertes de puissance ou ratés d'allumage.",
+      "sous_domaine": "Moteur et hélice"
+    },
+    {
+      "terme": "hélice à pas fixe",
+      "categorie": "Moteur & hélice",
+      "famille": "helice",
+      "priorite": "haute",
+      "justification": "Hélice dont le calage des pales ne peut pas être modifié en vol.",
+      "sous_domaine": "Moteur et hélice"
+    },
+    {
+      "terme": "hélice à pas variable",
+      "categorie": "Moteur & hélice",
+      "famille": "helice",
+      "priorite": "haute",
+      "justification": "Hélice dont le calage des pales peut être modifié en vol pour s'adapter au régime.",
+      "sous_domaine": "Moteur et hélice"
+    },
+    {
+      "terme": "calage d'hélice",
+      "categorie": "Moteur & hélice",
+      "famille": "helice",
+      "priorite": "haute",
+      "justification": "Angle géométrique formé par les pales de l'hélice par rapport au plan de rotation.",
+      "sous_domaine": "Moteur et hélice"
+    },
+    {
+      "terme": "mise en moulinet",
+      "categorie": "Moteur & hélice",
+      "famille": "helice",
+      "priorite": "haute",
+      "justification": "Séquence d'entraînement de l'hélice par le flux d'air, créant une forte traînée.",
+      "sous_domaine": "Moteur et hélice"
+    },
+    {
+      "terme": "effet de couple",
+      "categorie": "Moteur & hélice",
+      "famille": "helice",
+      "priorite": "haute",
+      "justification": "Forces aérodynamiques et gyroscopiques induisant un lacet à gauche lors d'une forte puissance.",
+      "sous_domaine": "Moteur et hélice"
+    },
+    {
+      "terme": "régime",
+      "categorie": "Moteur & hélice",
+      "famille": "helice",
+      "priorite": "moyenne",
+      "justification": "Vitesse de rotation du groupe motopropulseur en tours par minute.",
+      "sous_domaine": "Moteur et hélice"
+    },
+    {
+      "terme": "tours/minute",
+      "categorie": "Moteur & hélice",
+      "famille": "helice",
+      "priorite": "moyenne",
+      "justification": "Régime de rotation du moteur.",
+      "sous_domaine": "Moteur et hélice"
+    },
+    {
+      "terme": "circuit carburant",
+      "categorie": "Moteur & hélice",
+      "famille": "circuit_carburant",
+      "priorite": "haute",
+      "justification": "Réseau de stockage, de filtrage et de distribution du carburant vers le moteur.",
+      "sous_domaine": "Moteur et hélice"
+    },
+    {
+      "terme": "réservoir",
+      "categorie": "Moteur & hélice",
+      "famille": "circuit_carburant",
+      "priorite": "moyenne",
+      "justification": "Cuve de stockage du carburant dans la cellule d'aéronef.",
+      "sous_domaine": "Moteur et hélice"
+    },
+    {
+      "terme": "jauge",
+      "categorie": "Moteur & hélice",
+      "famille": "circuit_carburant",
+      "priorite": "moyenne",
+      "justification": "Indicateur de quantité de carburant restante.",
+      "sous_domaine": "Moteur et hélice"
+    },
+    {
+      "terme": "pompe mécanique",
+      "categorie": "Moteur & hélice",
+      "famille": "circuit_carburant",
+      "priorite": "haute",
+      "justification": "Pompe principale entraînée par le moteur pour alimenter le carburateur ou l'injection.",
+      "sous_domaine": "Moteur et hélice"
+    },
+    {
+      "terme": "filtre",
+      "categorie": "Moteur & hélice",
+      "famille": "circuit_carburant",
+      "priorite": "moyenne",
+      "justification": "Composant destiné à retenir les impuretés en suspension dans le carburant ou l'huile.",
+      "sous_domaine": "Moteur et hélice"
+    },
+    {
+      "terme": "carburant 100LL",
+      "categorie": "Moteur & hélice",
+      "famille": "circuit_carburant",
+      "priorite": "haute",
+      "justification": "Essence aéronautique standard de couleur bleue, plombée à 100 octanes.",
+      "sous_domaine": "Moteur et hélice"
+    },
+    {
+      "terme": "100LL",
+      "categorie": "Moteur & hélice",
+      "famille": "circuit_carburant",
+      "priorite": "haute",
+      "justification": "Abréviation usuelle de l'essence d'aviation standard.",
+      "sous_domaine": "Moteur et hélice"
+    },
+    {
+      "terme": "UL91",
+      "categorie": "Moteur & hélice",
+      "famille": "circuit_carburant",
+      "priorite": "haute",
+      "justification": "Essence aéronautique sans plomb d'indice d'octane 91.",
+      "sous_domaine": "Moteur et hélice"
+    },
+    {
+      "terme": "essence auto",
+      "categorie": "Moteur & hélice",
+      "famille": "circuit_carburant",
+      "priorite": "haute",
+      "justification": "Utilisation d'essence routière sous réserve d'approbation réglementaire spécifique.",
+      "sous_domaine": "Moteur et hélice"
+    },
+    {
+      "terme": "mogas",
+      "categorie": "Moteur & hélice",
+      "famille": "circuit_carburant",
+      "priorite": "haute",
+      "justification": "Désignation de l'essence automobile autorisée pour l'aviation.",
+      "sous_domaine": "Moteur et hélice"
+    },
+    {
+      "terme": "panne sèche",
+      "categorie": "Moteur & hélice",
+      "famille": "pannes_moteur",
+      "priorite": "haute",
+      "justification": "Arrêt complet du moteur dû à un épuisement ou un manque de carburant.",
+      "sous_domaine": "Moteur et hélice"
+    },
+    {
+      "terme": "alimentation croisée",
+      "categorie": "Moteur & hélice",
+      "famille": "circuit_carburant",
+      "priorite": "haute",
+      "justification": "Possibilité d'alimenter un moteur à partir des réservoirs du côté opposé (crossfeed).",
+      "sous_domaine": "Moteur et hélice"
+    },
+    {
+      "terme": "crossfeed",
+      "categorie": "Moteur & hélice",
+      "famille": "circuit_carburant",
+      "priorite": "haute",
+      "justification": "Terme d'alimentation croisée carburant.",
+      "sous_domaine": "Moteur et hélice"
+    },
+    {
+      "terme": "circuit électrique",
+      "categorie": "Moteur & hélice",
+      "famille": "circuit_electrique",
+      "priorite": "haute",
+      "justification": "Système de génération et distribution de l'énergie électrique à bord.",
+      "sous_domaine": "Moteur et hélice"
+    },
+    {
+      "terme": "disjoncteur",
+      "categorie": "Moteur & hélice",
+      "famille": "circuit_electrique",
+      "priorite": "haute",
+      "justification": "Organe de protection électrique réarmable (breaker).",
+      "sous_domaine": "Moteur et hélice"
+    },
+    {
+      "terme": "fusible",
+      "categorie": "Moteur & hélice",
+      "famille": "circuit_electrique",
+      "priorite": "haute",
+      "justification": "Dispositif fusible de sécurité électrique à usage unique.",
+      "sous_domaine": "Moteur et hélice"
+    },
+    {
+      "terme": "master switch",
+      "categorie": "Moteur & hélice",
+      "famille": "circuit_electrique",
+      "priorite": "haute",
+      "justification": "Interrupteur général commandant le branchement de la batterie et de l'alternateur au réseau de bord.",
+      "sous_domaine": "Moteur et hélice"
+    },
+    {
+      "terme": "ampèremètre",
+      "categorie": "Moteur & hélice",
+      "famille": "circuit_electrique",
+      "priorite": "haute",
+      "justification": "Indicateur mesurant la charge ou décharge électrique sur la batterie.",
+      "sous_domaine": "Moteur et hélice"
+    },
+    {
+      "terme": "mal des transports",
+      "categorie": "Sécurité & facteurs humains",
+      "famille": "facteurs_humains_physiologie",
+      "priorite": "haute",
+      "justification": "Cinétose due à un conflit sensoriel visuel-vestibulaire (mal de l'air).",
+      "sous_domaine": "Facteurs humains et sécurité"
+    },
+    {
+      "terme": "otite barotraumatique",
+      "categorie": "Sécurité & facteurs humains",
+      "famille": "facteurs_humains_physiologie",
+      "priorite": "haute",
+      "justification": "Inflammation de l'oreille moyenne par défaut d'équilibrage de pression à la descente.",
+      "sous_domaine": "Facteurs humains et sécurité"
+    },
+    {
+      "terme": "aérosinusite",
+      "categorie": "Sécurité & facteurs humains",
+      "famille": "facteurs_humains_physiologie",
+      "priorite": "haute",
+      "justification": "Douleur sinusale due à une différence de pression non équilibrée en descente.",
+      "sous_domaine": "Facteurs humains et sécurité"
+    },
+    {
+      "terme": "effets de l'altitude",
+      "categorie": "Sécurité & facteurs humains",
+      "famille": "facteurs_humains_physiologie",
+      "priorite": "haute",
+      "justification": "Perturbations physiques liées à la baisse de la pression barométrique.",
+      "sous_domaine": "Facteurs humains et sécurité"
+    },
+    {
+      "terme": "illusions sensorielles",
+      "categorie": "Sécurité & facteurs humains",
+      "famille": "fh_illusions_sensorielles",
+      "priorite": "haute",
+      "justification": "Interprétations erronées par le cerveau d'informations fournies par l'oreille interne ou la vue.",
+      "sous_domaine": "Facteurs humains et sécurité"
+    },
+    {
+      "terme": "illusion sensorielle",
+      "categorie": "Sécurité & facteurs humains",
+      "famille": "fh_illusions_sensorielles",
+      "priorite": "haute",
+      "justification": "Fausse perception sensorielle en vol.",
+      "sous_domaine": "Facteurs humains et sécurité"
+    },
+    {
+      "terme": "désorientation spatiale",
+      "categorie": "Sécurité & facteurs humains",
+      "famille": "fh_illusions_sensorielles",
+      "priorite": "haute",
+      "justification": "Perte de la notion de l'assiette et de la position de l'avion dans l'espace.",
+      "sous_domaine": "Facteurs humains et sécurité"
+    },
+    {
+      "terme": "illusion somatogravique",
+      "categorie": "Sécurité & facteurs humains",
+      "famille": "fh_illusions_sensorielles",
+      "priorite": "haute",
+      "justification": "Illusion d'assiette à cabrer provoquée par une forte accélération linéaire.",
+      "sous_domaine": "Facteurs humains et sécurité"
+    },
+    {
+      "terme": "fausse horizon",
+      "categorie": "Sécurité & facteurs humains",
+      "famille": "fh_illusions_sensorielles",
+      "priorite": "haute",
+      "justification": "Erreur d'assiette provoquée par la confusion de l'horizon naturel avec des lignes inclinées au sol ou de nuages.",
+      "sous_domaine": "Facteurs humains et sécurité"
+    },
+    {
+      "terme": "faux horizon",
+      "categorie": "Sécurité & facteurs humains",
+      "famille": "fh_illusions_sensorielles",
+      "priorite": "haute",
+      "justification": "Erreur d'appréciation de l'horizon en vol.",
+      "sous_domaine": "Facteurs humains et sécurité"
+    },
+    {
+      "terme": "effet de trou noir",
+      "categorie": "Sécurité & facteurs humains",
+      "famille": "fh_illusions_sensorielles",
+      "priorite": "haute",
+      "justification": "Illusion d'approche de nuit au-dessus d'une zone sans repères visuels incitant à voler trop bas.",
+      "sous_domaine": "Facteurs humains et sécurité"
+    },
+    {
+      "terme": "rythme circadien",
+      "categorie": "Sécurité & facteurs humains",
+      "famille": "facteurs_humains_physiologie",
+      "priorite": "haute",
+      "justification": "Cycle biologique alternant veille et sommeil sur une période d'environ 24 heures.",
+      "sous_domaine": "Facteurs humains et sécurité"
+    },
+    {
+      "terme": "situation awareness",
+      "categorie": "Sécurité & facteurs humains",
+      "famille": "fh_prise_de_decision",
+      "priorite": "haute",
+      "justification": "Conscience globale de la situation de vol (perception, compréhension et projection dans le temps).",
+      "sous_domaine": "Facteurs humains et sécurité"
+    },
+    {
+      "terme": "erreur",
+      "categorie": "Sécurité & facteurs humains",
+      "famille": "fh_modeles_et_biais",
+      "priorite": "moyenne",
+      "justification": "Action ou omission involontaire en vol gérée par les barrières de défense.",
+      "sous_domaine": "Facteurs humains et sécurité"
+    },
+    {
+      "terme": "violation",
+      "categorie": "Sécurité & facteurs humains",
+      "famille": "fh_modeles_et_biais",
+      "priorite": "haute",
+      "justification": "Écart délibéré par rapport aux règles de sécurité ou d'exploitation.",
+      "sous_domaine": "Facteurs humains et sécurité"
+    },
+    {
+      "terme": "complaisance",
+      "categorie": "Sécurité & facteurs humains",
+      "famille": "fh_modeles_et_biais",
+      "priorite": "haute",
+      "justification": "Excès de confiance induit par l'habitude menant au relâchement des contrôles.",
+      "sous_domaine": "Facteurs humains et sécurité"
+    },
+    {
+      "terme": "excès de confiance",
+      "categorie": "Sécurité & facteurs humains",
+      "famille": "fh_modeles_et_biais",
+      "priorite": "haute",
+      "justification": "Biais d'auto-évaluation positive menant à sous-estimer les risques.",
+      "sous_domaine": "Facteurs humains et sécurité"
+    },
+    {
+      "terme": "pression temporelle",
+      "categorie": "Sécurité & facteurs humains",
+      "famille": "fh_modeles_et_biais",
+      "priorite": "haute",
+      "justification": "Sentiment d'urgence incitant à précipiter les tâches aéronautiques.",
+      "sous_domaine": "Facteurs humains et sécurité"
+    },
+    {
+      "terme": "get-there-itis",
+      "categorie": "Sécurité & facteurs humains",
+      "famille": "fh_modeles_et_biais",
+      "priorite": "haute",
+      "justification": "Biais d'obstination incitant à forcer l'atterrissage de destination à tout prix.",
+      "sous_domaine": "Facteurs humains et sécurité"
+    },
+    {
+      "terme": "chaîne des causes",
+      "categorie": "Sécurité & facteurs humains",
+      "famille": "fh_modeles_et_biais",
+      "priorite": "haute",
+      "justification": "Séquence cumulée d'incidents qui débouche sur un accident aéronautique.",
+      "sous_domaine": "Facteurs humains et sécurité"
+    },
+    {
+      "terme": "chaîne causale",
+      "categorie": "Sécurité & facteurs humains",
+      "famille": "fh_modeles_et_biais",
+      "priorite": "haute",
+      "justification": "Enchaînement d'erreurs et d'événements menant à l'accident.",
+      "sous_domaine": "Facteurs humains et sécurité"
+    },
+    {
+      "terme": "modèle SHELL",
+      "categorie": "Sécurité & facteurs humains",
+      "famille": "fh_modeles_et_biais",
+      "priorite": "haute",
+      "justification": "Modèle d'analyse ergonomique reliant l'humain à ses outils, procédures et environnement.",
+      "sous_domaine": "Facteurs humains et sécurité"
+    },
+    {
+      "terme": "modèle de Reason",
+      "categorie": "Sécurité & facteurs humains",
+      "famille": "fh_modeles_et_biais",
+      "priorite": "haute",
+      "justification": "Modèle systémique de défaillance (fromage suisse) analysant les défenses et failles latentes.",
+      "sous_domaine": "Facteurs humains et sécurité"
+    },
+    {
+      "terme": "plaques de Reason",
+      "categorie": "Sécurité & facteurs humains",
+      "famille": "fh_modeles_et_biais",
+      "priorite": "haute",
+      "justification": "Représentation des barrières de défense successives d'une organisation.",
+      "sous_domaine": "Facteurs humains et sécurité"
+    },
+    {
+      "terme": "DODAR",
+      "categorie": "Sécurité & facteurs humains",
+      "famille": "fh_prise_de_decision",
+      "priorite": "haute",
+      "justification": "Méthode structurée de prise de décision d'urgence (Diagnose, Options, Decide, Act, Review).",
+      "sous_domaine": "Facteurs humains et sécurité"
+    },
+    {
+      "terme": "prise de décision",
+      "categorie": "Sécurité & facteurs humains",
+      "famille": "fh_prise_de_decision",
+      "priorite": "haute",
+      "justification": "Processus cognitif de choix d'une action aéronautique.",
+      "sous_domaine": "Facteurs humains et sécurité"
+    },
+    {
+      "terme": "médicaments",
+      "categorie": "Sécurité & facteurs humains",
+      "famille": "facteurs_humains_physiologie",
+      "priorite": "haute",
+      "justification": "Emport et ingestion de traitements pouvant altérer la vigilance du pilote.",
+      "sous_domaine": "Facteurs humains et sécurité"
+    },
+    {
+      "terme": "don du sang",
+      "categorie": "Sécurité & facteurs humains",
+      "famille": "facteurs_humains_physiologie",
+      "priorite": "haute",
+      "justification": "Délai d'interdiction de vol post-don (24h) dû au risque cardiovasculaire et hypoxique.",
+      "sous_domaine": "Facteurs humains et sécurité"
+    },
+    {
+      "terme": "plongée sous-marine",
+      "categorie": "Sécurité & facteurs humains",
+      "famille": "facteurs_humains_physiologie",
+      "priorite": "haute",
+      "justification": "Délai obligatoire entre la plongée et le vol en altitude pour prévenir les accidents de décompression.",
+      "sous_domaine": "Facteurs humains et sécurité"
+    },
+    {
+      "terme": "monoxyde de carbone",
+      "categorie": "Sécurité & facteurs humains",
+      "famille": "facteurs_humains_physiologie",
+      "priorite": "haute",
+      "justification": "Gaz inodore toxique (CO) risquant d'infiltrer la cabine par le circuit de chauffage défectueux.",
+      "sous_domaine": "Facteurs humains et sécurité"
+    },
+    {
+      "terme": "déshydratation",
+      "categorie": "Sécurité & facteurs humains",
+      "famille": "facteurs_humains_physiologie",
+      "priorite": "haute",
+      "justification": "Diminution critique d'eau corporelle altérant les fonctions cognitives.",
+      "sous_domaine": "Facteurs humains et sécurité"
+    },
+    {
+      "terme": "hypoglycémie",
+      "categorie": "Sécurité & facteurs humains",
+      "famille": "facteurs_humains_physiologie",
+      "priorite": "haute",
+      "justification": "Baisse anormale de glycémie altérant la vigilance et la concentration.",
+      "sous_domaine": "Facteurs humains et sécurité"
+    },
+    {
+      "terme": "hypothermie",
+      "categorie": "Sécurité & facteurs humains",
+      "famille": "facteurs_humains_physiologie",
+      "priorite": "haute",
+      "justification": "Refroidissement corporel dégradant les capacités de pilotage.",
+      "sous_domaine": "Facteurs humains et sécurité"
+    },
+    {
+      "terme": "ceinture",
+      "categorie": "Sécurité & facteurs humains",
+      "famille": "equipements_secu",
+      "priorite": "moyenne",
+      "justification": "Sangle abdominale de sécurité passive des passagers.",
+      "sous_domaine": "Facteurs humains et sécurité"
+    },
+    {
+      "terme": "harnais",
+      "categorie": "Sécurité & facteurs humains",
+      "famille": "equipements_secu",
+      "priorite": "moyenne",
+      "justification": "Système de retenue complet obligatoire en place pilote.",
+      "sous_domaine": "Facteurs humains et sécurité"
+    },
+    {
+      "terme": "extincteur",
+      "categorie": "Sécurité & facteurs humains",
+      "famille": "equipements_secu",
+      "priorite": "haute",
+      "justification": "Équipement de lutte contre les départs d'incendie de bord.",
+      "sous_domaine": "Facteurs humains et sécurité"
+    },
+    {
+      "terme": "ELT",
+      "categorie": "Sécurité & facteurs humains",
+      "famille": "equipements_secu",
+      "priorite": "haute",
+      "justification": "Balise de détresse automatique à déclenchement par impact (Emergency Locator Transmitter).",
+      "sous_domaine": "Facteurs humains et sécurité"
+    },
+    {
+      "terme": "gilet de sauvetage",
+      "categorie": "Sécurité & facteurs humains",
+      "famille": "equipements_secu",
+      "priorite": "haute",
+      "justification": "Équipement individuel de flottaison pour les vols au-dessus de l'eau.",
+      "sous_domaine": "Facteurs humains et sécurité"
+    },
+    {
+      "terme": "évacuation",
+      "categorie": "Sécurité & facteurs humains",
+      "famille": "procedures_urgence",
+      "priorite": "haute",
+      "justification": "Procédure d'évacuation d'urgence de la cabine en cas de détresse.",
+      "sous_domaine": "Facteurs humains et sécurité"
+    }
+  ],
+  "deja_presents_verifies": 53,
+  "notes": "Audit d'exhaustivité effectué sur les domaines Réglementation, Procédures, Moteur & hélice et Facteurs humains. Les termes de l'index ont été normalisés (minuscules, sans accents) pour un diff rigoureux afin d'éviter tout doublon."
+}

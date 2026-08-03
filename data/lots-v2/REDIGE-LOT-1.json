@@ -1,0 +1,1221 @@
+{
+  "lot": 1,
+  "fiches": [
+    {
+      "terme": "profil",
+      "definition": "Forme de la section transversale d'une aile ou d'une pale. Sa géométrie particulière accélère l'écoulement de l'air sur l'extrados, créant ainsi une différence de pression génératrice de portance.",
+      "variantes": [
+        "profil d'aile",
+        "profils",
+        "profil aérodynamique"
+      ],
+      "xrefs": [
+        "extrados",
+        "intrados",
+        "portance"
+      ],
+      "domaine": "aero-perfs"
+    },
+    {
+      "terme": "corde",
+      "definition": "Segment de droite reliant le bord d'attaque au bord de fuite d'un profil d'aile. Sa longueur sert de référence géométrique pour le calcul de la surface alaire et de l'allongement.",
+      "variantes": [
+        "corde de profil",
+        "corde aérodynamique",
+        "corde moyenne"
+      ],
+      "xrefs": [
+        "profil",
+        "bord d'attaque",
+        "bord de fuite",
+        "surface alaire"
+      ],
+      "domaine": "aero-perfs"
+    },
+    {
+      "terme": "envergure",
+      "definition": "Distance séparant les deux extrémités des ailes d'un aéronef. Cette dimension géométrique majeure est une donnée essentielle pour calculer l'allongement de l'aile et évaluer la traînée induite.",
+      "variantes": [
+        "envergure de l'aile",
+        "envergure totale"
+      ],
+      "xrefs": [
+        "aile",
+        "allongement",
+        "traînée de forme"
+      ],
+      "domaine": "aero-perfs"
+    },
+    {
+      "terme": "allongement",
+      "definition": "Rapport entre le carré de l'envergure et la surface alaire d'une aile. Un allongement élevé réduit la traînée induite par les tourbillons marginaux, améliorant la finesse en vol plané.",
+      "variantes": [
+        "allongement de l'aile",
+        "allongement aérodynamique"
+      ],
+      "xrefs": [
+        "envergure",
+        "surface alaire",
+        "aile"
+      ],
+      "domaine": "aero-perfs"
+    },
+    {
+      "terme": "extrados",
+      "definition": "Partie supérieure bombée du profil d'une aile. En vol, l'air s'y écoule plus rapidement que sur l'intrados, provoquant une forte dépression qui génère l'essentiel de la force de portance.",
+      "variantes": [
+        "extrados de l'aile"
+      ],
+      "xrefs": [
+        "profil",
+        "intrados",
+        "portance"
+      ],
+      "domaine": "aero-perfs"
+    },
+    {
+      "terme": "intrados",
+      "definition": "Partie inférieure du profil d'une aile. L'air s'y déplace moins vite que sur l'extrados, créant une surpression relative qui contribue minoritairement à la portance totale de l'aéronef.",
+      "variantes": [
+        "intrados de l'aile"
+      ],
+      "xrefs": [
+        "profil",
+        "extrados",
+        "portance"
+      ],
+      "domaine": "aero-perfs"
+    },
+    {
+      "terme": "bord d'attaque",
+      "definition": "Partie avant d'un profil d'aile qui rencontre le vent relatif en premier. Sa forme arrondie divise le flux d'air entre l'extrados et l'intrados pour initier la portance.",
+      "variantes": [
+        "bord d'attaque de l'aile"
+      ],
+      "xrefs": [
+        "profil",
+        "vent relatif",
+        "extrados",
+        "intrados"
+      ],
+      "domaine": "aero-perfs"
+    },
+    {
+      "terme": "bord de fuite",
+      "definition": "Partie arrière affinée d'un profil d'aile où se rejoignent les écoulements de l'extrados et de l'intrados. Sa géométrie nette permet de stabiliser les filets d'air en sortie.",
+      "variantes": [
+        "bord de fuite de l'aile"
+      ],
+      "xrefs": [
+        "profil",
+        "extrados",
+        "intrados"
+      ],
+      "domaine": "aero-perfs"
+    },
+    {
+      "terme": "angle d'incidence",
+      "definition": "Angle formé entre la corde de profil d'une aile et la direction du vent relatif. Cet angle détermine directement l'intensité de la portance et de la traînée développées.",
+      "variantes": [
+        "incidence",
+        "angle d'attaque",
+        "incidences"
+      ],
+      "xrefs": [
+        "corde",
+        "vent relatif",
+        "portance",
+        "traînée"
+      ],
+      "domaine": "aero-perfs"
+    },
+    {
+      "terme": "dièdre",
+      "definition": "Angle formé par l'aile d'un avion avec le plan horizontal transversal. Un dièdre positif améliore la stabilité latérale naturelle en vol en induisant un roulis correcteur lors d'un glissement.",
+      "variantes": [
+        "dièdre positif",
+        "dièdre négatif",
+        "dièdre de l'aile"
+      ],
+      "xrefs": [
+        "stabilité latérale",
+        "roulis induit"
+      ],
+      "domaine": "aero-perfs"
+    },
+    {
+      "terme": "couche limite",
+      "definition": "Fine pellicule d'air en contact direct avec la paroi d'une aile, ralentie par les forces de frottement visqueux. Son comportement détermine la traînée de frottement et le décollement.",
+      "variantes": [
+        "couche limite aérodynamique",
+        "couches limites"
+      ],
+      "xrefs": [
+        "aile",
+        "traînée de frottement",
+        "décollement"
+      ],
+      "domaine": "aero-perfs"
+    },
+    {
+      "terme": "écoulement laminaire",
+      "definition": "Type d'écoulement fluide et régulier où les filets d'air glissent parallèlement à la surface de l'aile sans se mélanger, minimisant ainsi les forces de traînée de frottement.",
+      "variantes": [
+        "flux laminaire",
+        "écoulements laminaires"
+      ],
+      "xrefs": [
+        "couche limite",
+        "traînée de frottement"
+      ],
+      "domaine": "aero-perfs"
+    },
+    {
+      "terme": "écoulement turbulent",
+      "definition": "Type d'écoulement désordonné caractérisé par des tourbillons au sein de la couche limite. Bien qu'il augmente la traînée de frottement, il résiste mieux au décollement de la couche limite.",
+      "variantes": [
+        "flux turbulent",
+        "écoulements turbulents"
+      ],
+      "xrefs": [
+        "couche limite",
+        "traînée de frottement",
+        "décollement"
+      ],
+      "domaine": "aero-perfs"
+    },
+    {
+      "terme": "décollement",
+      "definition": "Séparation des filets d'air de la couche limite de l'extrados de l'aile. Ce phénomène survient à forte incidence, provoquant une perte brutale de portance appelée décrochage de l'appareil.",
+      "variantes": [
+        "décollement de la couche limite",
+        "décollements"
+      ],
+      "xrefs": [
+        "couche limite",
+        "extrados",
+        "décrochage",
+        "incidence de décrochage"
+      ],
+      "domaine": "aero-perfs"
+    },
+    {
+      "terme": "centre de poussée",
+      "definition": "Point d'application de la résultante des forces aérodynamiques s'exerçant sur un profil d'aile. Sa position varie le long de la corde en fonction de l'angle d'incidence en vol.",
+      "variantes": [
+        "centre de pression",
+        "centres de poussée"
+      ],
+      "xrefs": [
+        "résultante aérodynamique",
+        "profil",
+        "corde",
+        "angle d'incidence"
+      ],
+      "domaine": "aero-perfs"
+    },
+    {
+      "terme": "foyer",
+      "definition": "Point fixe du profil d'une aile par rapport auquel le moment aérodynamique reste constant lorsque l'incidence varie. Il se situe théoriquement au quart de la corde de l'aile.",
+      "variantes": [
+        "foyer aérodynamique",
+        "point neutre",
+        "foyers"
+      ],
+      "xrefs": [
+        "profil",
+        "corde",
+        "angle d'incidence"
+      ],
+      "domaine": "aero-perfs"
+    },
+    {
+      "terme": "résultante aérodynamique",
+      "definition": "Somme vectorielle de toutes les forces de pression et de frottement exercées par l'air sur un profil d'aile. Elle se décompose traditionnellement en deux forces orthogonales : la portance et la traînée.",
+      "variantes": [
+        "force aérodynamique totale",
+        "résultante des forces aérodynamiques"
+      ],
+      "xrefs": [
+        "profil",
+        "portance",
+        "traînée",
+        "vent relatif"
+      ],
+      "domaine": "aero-perfs"
+    },
+    {
+      "terme": "vent relatif",
+      "definition": "Écoulement d'air rencontré par l'aéronef en mouvement. Sa direction est exactement opposée à la trajectoire de vol de l'appareil et sert de référence pour mesurer l'angle d'incidence.",
+      "variantes": [
+        "flux d'air relatif",
+        "vent de déplacement"
+      ],
+      "xrefs": [
+        "angle d'incidence",
+        "résultante aérodynamique"
+      ],
+      "domaine": "aero-perfs"
+    },
+    {
+      "terme": "surface alaire",
+      "definition": "Aire totale projetée des ailes d'un aéronef, incluant la partie virtuelle traversant le fuselage. C'est la surface de référence fondamentale servant aux calculs de portance et de charge alaire.",
+      "variantes": [
+        "surface de l'aile",
+        "surfaces alaires"
+      ],
+      "xrefs": [
+        "aile",
+        "portance",
+        "charge alaire"
+      ],
+      "domaine": "aero-perfs"
+    },
+    {
+      "terme": "traînée de forme",
+      "definition": "Composante de la traînée totale due à la forme géométrique de l'appareil et à la différence de pression entre l'avant et l'arrière. Un fuselage profilé permet de la minimiser.",
+      "variantes": [
+        "traînée de pression",
+        "traînée d'impact"
+      ],
+      "xrefs": [
+        "traînée totale",
+        "profil"
+      ],
+      "domaine": "aero-perfs"
+    },
+    {
+      "terme": "traînée de frottement",
+      "definition": "Composante de la traînée totale engendrée par le frottement de l'air contre les parois de l'avion. Elle dépend de la rugosité des surfaces mouillées et de l'état de la couche limite.",
+      "variantes": [
+        "traînée visqueuse",
+        "traînées de frottement"
+      ],
+      "xrefs": [
+        "traînée totale",
+        "couche limite"
+      ],
+      "domaine": "aero-perfs"
+    },
+    {
+      "terme": "traînée totale",
+      "definition": "Somme de toutes les forces s'opposant au déplacement de l'appareil dans l'air. Elle englobe la traînée induite par la portance et la traînée parasite, cette dernière comprenant les traînées de forme et de frottement.",
+      "variantes": [
+        "traînée globale",
+        "traînée aérodynamique totale"
+      ],
+      "xrefs": [
+        "traînée de forme",
+        "traînée de frottement",
+        "portance"
+      ],
+      "domaine": "aero-perfs"
+    },
+    {
+      "terme": "poids",
+      "definition": "Force d'attraction terrestre s'exerçant verticalement vers le bas sur la masse de l'aéronef. En vol rectiligne stabilisé, elle est exactement équilibrée par la force aérodynamique de portance.",
+      "variantes": [
+        "force de gravité",
+        "poids de l'avion"
+      ],
+      "xrefs": [
+        "portance",
+        "masse maximale au décollage"
+      ],
+      "domaine": "aero-perfs"
+    },
+    {
+      "terme": "poussée",
+      "definition": "Force propulsive générée par le groupe motopropulseur d'un avion pour surmonter la traînée totale. Dirigée vers l'avant, elle permet d'accélérer l'aéronef et d'assurer le maintien de la vitesse de vol.",
+      "variantes": [
+        "traction",
+        "force de propulsion",
+        "poussées"
+      ],
+      "xrefs": [
+        "traînée totale",
+        "vitesse"
+      ],
+      "domaine": "aero-perfs"
+    },
+    {
+      "terme": "polaire des vitesses",
+      "definition": "Courbe représentant la vitesse de descente d'un planeur ou d'un avion moteur coupé en fonction de sa vitesse horizontale. Elle permet de déterminer la finesse maximale de l'aéronef.",
+      "variantes": [
+        "courbe polaire",
+        "polaires des vitesses"
+      ],
+      "xrefs": [
+        "vitesse",
+        "traînée totale",
+        "portance"
+      ],
+      "domaine": "aero-perfs"
+    },
+    {
+      "terme": "coefficient de portance",
+      "definition": "Nombre sans dimension caractérisant la capacité d'un profil d'aile à générer de la portance pour une incidence donnée. Il augmente linéairement avec l'incidence jusqu'à l'angle de décrochage.",
+      "variantes": [
+        "Cz",
+        "coefficient porteur",
+        "coefficients de portance"
+      ],
+      "xrefs": [
+        "Cz",
+        "profil",
+        "angle d'incidence",
+        "portance"
+      ],
+      "domaine": "aero-perfs"
+    },
+    {
+      "terme": "Cz",
+      "definition": "Symbole aérodynamique standard désignant le coefficient de portance d'une aile. Il relie directement la force de portance générée à la surface alaire, la pression dynamique et la densité de l'air.",
+      "variantes": [
+        "coefficient de portance",
+        "CZ"
+      ],
+      "xrefs": [
+        "coefficient de portance",
+        "surface alaire",
+        "pression dynamique",
+        "portance"
+      ],
+      "domaine": "aero-perfs"
+    },
+    {
+      "terme": "coefficient de traînée",
+      "definition": "Nombre sans dimension quantifiant la résistance aérodynamique globale d'un profil d'aile ou d'un aéronef. Sa valeur varie avec l'incidence et s'obtient expérimentalement en soufflerie.",
+      "variantes": [
+        "Cx",
+        "coefficient de traînée aérodynamique",
+        "coefficients de traînée"
+      ],
+      "xrefs": [
+        "Cx",
+        "profil",
+        "angle d'incidence",
+        "traînée totale"
+      ],
+      "domaine": "aero-perfs"
+    },
+    {
+      "terme": "Cx",
+      "definition": "Symbole aérodynamique universel représentant le coefficient de traînée. Il permet de calculer l'intensité de la force de traînée totale s'opposant au déplacement de l'aéronef pour une surface donnée.",
+      "variantes": [
+        "coefficient de traînée",
+        "CX"
+      ],
+      "xrefs": [
+        "coefficient de traînée",
+        "traînée totale"
+      ],
+      "domaine": "aero-perfs"
+    },
+    {
+      "terme": "rapport portance/traînée",
+      "definition": "Quotient de la force de portance divisée par la traînée totale. Équivalent à la finesse aérodynamique, ce rapport définit l'efficacité globale de l'aile et détermine la distance maximale de plané.",
+      "variantes": [
+        "finesse",
+        "finesse aérodynamique",
+        "L/D ratio"
+      ],
+      "xrefs": [
+        "portance",
+        "traînée totale"
+      ],
+      "domaine": "aero-perfs"
+    },
+    {
+      "terme": "charge alaire",
+      "definition": "Rapport entre la masse totale de l'avion en vol et sa surface alaire. Exprimée en kilogrammes par mètre carré, elle influe sur les vitesses de décollage, d'atterrissage et de décrochage.",
+      "variantes": [
+        "charge sur l'aile",
+        "charges alaires"
+      ],
+      "xrefs": [
+        "surface alaire",
+        "décrochage",
+        "masse maximale au décollage"
+      ],
+      "domaine": "aero-perfs"
+    },
+    {
+      "terme": "pression statique",
+      "definition": "Pression ambiante de l'atmosphère s'exerçant de manière identique dans toutes les directions. Mesurée par les prises statiques, elle permet aux instruments de déterminer l'altitude de l'aéronef.",
+      "variantes": [
+        "pression atmosphérique statique",
+        "pressions statiques"
+      ],
+      "xrefs": [
+        "altitude",
+        "pression dynamique"
+      ],
+      "domaine": "aero-perfs"
+    },
+    {
+      "terme": "pression dynamique",
+      "definition": "Surpression résultant de la vitesse relative de l'écoulement de l'air sur l'avion. Elle correspond à la différence entre la pression totale captée par le tube de Pitot et la pression statique.",
+      "variantes": [
+        "pression de vitesse",
+        "pressions dynamiques"
+      ],
+      "xrefs": [
+        "pression statique",
+        "vent relatif"
+      ],
+      "domaine": "aero-perfs"
+    },
+    {
+      "terme": "incidence de décrochage",
+      "definition": "Angle d'incidence limite au-delà duquel l'écoulement de l'air se décolle de l'extrados, provoquant une perte soudaine de portance. Cette valeur angulaire critique est constante pour un profil donné.",
+      "variantes": [
+        "incidence critique",
+        "incidence limite"
+      ],
+      "xrefs": [
+        "angle d'incidence",
+        "extrados",
+        "décollement",
+        "décrochage"
+      ],
+      "domaine": "aero-perfs"
+    },
+    {
+      "terme": "décrochage accéléré",
+      "definition": "Décrochage survenant à une vitesse supérieure à la vitesse de décrochage standard sous l'effet d'un facteur de charge élevé. Ce phénomène se produit lors d'une ressource brusque de l'appareil.",
+      "variantes": [
+        "décrochage dynamique",
+        "décrochages accélérés"
+      ],
+      "xrefs": [
+        "décrochage",
+        "incidence de décrochage"
+      ],
+      "domaine": "aero-perfs"
+    },
+    {
+      "terme": "décrochage en virage",
+      "definition": "Décrochage se produisant lors d'une évolution inclinée où le facteur de charge accru augmente la vitesse de décrochage. Il se manifeste par une tendance prononcée de l'avion à engager en roulis.",
+      "variantes": [
+        "décrochage sous inclinaison",
+        "décrochages en virage"
+      ],
+      "xrefs": [
+        "décrochage",
+        "incidence de décrochage"
+      ],
+      "domaine": "aero-perfs"
+    },
+    {
+      "terme": "départ en vrille",
+      "definition": "Perte de contrôle initiée par un décrochage asymétrique, entraînant l'avion dans une trajectoire hélicoïdale descendante rapide autour de ses axes de roulis et de lacet. C'est une situation d'urgence majeure.",
+      "variantes": [
+        "engagement en vrille",
+        "départs en vrille"
+      ],
+      "xrefs": [
+        "décrochage",
+        "roulis induit"
+      ],
+      "domaine": "aero-perfs"
+    },
+    {
+      "terme": "buffeting",
+      "definition": "Vibrations aérodynamiques ressenties dans la structure de l'avion et les commandes de vol, causées par des écoulements d'air turbulents et décollés. Il constitue un avertissement naturel pré-décrochage.",
+      "variantes": [
+        "buffetage",
+        "vibrations de décrochage"
+      ],
+      "xrefs": [
+        "décrochage",
+        "écoulement turbulent",
+        "décollement"
+      ],
+      "domaine": "aero-perfs"
+    },
+    {
+      "terme": "avertisseur de décrochage",
+      "definition": "Dispositif pneumatique ou électrique émettant une alarme sonore ou lumineuse en cabine pour prévenir le pilote d'une approche imminente du décrochage, généralement déclenché par une palette mobile d'intrados.",
+      "variantes": [
+        "alarme de décrochage",
+        "avertisseurs de décrochage"
+      ],
+      "xrefs": [
+        "décrochage",
+        "intrados"
+      ],
+      "domaine": "aero-perfs"
+    },
+    {
+      "terme": "virage à grande inclinaison",
+      "definition": "Manœuvre aérienne inclinée au-delà de quarante-cinq degrés où le facteur de charge augmente significativement pour maintenir le vol horizontal. Cela requiert un surplus de puissance moteur.",
+      "variantes": [
+        "virage serré",
+        "virages à grande inclinaison"
+      ],
+      "xrefs": [
+        "décrochage en virage",
+        "poussée"
+      ],
+      "domaine": "aero-perfs"
+    },
+    {
+      "terme": "stabilité dynamique",
+      "definition": "Capacité d'un aéronef à amortir progressivement les oscillations aérodynamiques induites par une perturbation pour revenir spontanément et de manière stable à son état d'équilibre initial en vol.",
+      "variantes": [
+        "stabilité temporelle",
+        "stabilités dynamiques"
+      ],
+      "xrefs": [
+        "stabilité longitudinale",
+        "stabilité latérale",
+        "amortissement"
+      ],
+      "domaine": "aero-perfs"
+    },
+    {
+      "terme": "stabilité longitudinale",
+      "definition": "Stabilité de l'appareil autour de son axe de tangage. Elle dépend du calage de l'empennage horizontal et de la position relative du centre de gravité par rapport au foyer de l'aile.",
+      "variantes": [
+        "stabilité de tangage",
+        "stabilités longitudinales"
+      ],
+      "xrefs": [
+        "stabilité dynamique",
+        "foyer",
+        "profil"
+      ],
+      "domaine": "aero-perfs"
+    },
+    {
+      "terme": "stabilité latérale",
+      "definition": "Capacité naturelle de l'appareil à revenir à l'assiette horizontale de roulis après une inclinaison involontaire. Elle est principalement assurée par la présence d'un angle de dièdre positif sur l'aile.",
+      "variantes": [
+        "stabilité de roulis",
+        "stabilités latérales"
+      ],
+      "xrefs": [
+        "stabilité dynamique",
+        "dièdre",
+        "effet de dièdre"
+      ],
+      "domaine": "aero-perfs"
+    },
+    {
+      "terme": "stabilité de route",
+      "definition": "Stabilité naturelle de l'appareil autour de son axe de lacet, lui permettant de s'aligner face au vent relatif. Elle est principalement garantie par la dérive verticale de l'empennage arrière.",
+      "variantes": [
+        "stabilité directionnelle",
+        "stabilités de route"
+      ],
+      "xrefs": [
+        "stabilité dynamique",
+        "vent relatif"
+      ],
+      "domaine": "aero-perfs"
+    },
+    {
+      "terme": "roulis induit",
+      "definition": "Mouvement involontaire de l'aéronef autour de l'axe de roulis découlant d'un mouvement de lacet. L'aile extérieure au virage allant plus vite, elle génère plus de portance, provoquant l'inclinaison.",
+      "variantes": [
+        "roulis secondaire",
+        "roulis induits"
+      ],
+      "xrefs": [
+        "lacet inverse",
+        "portance"
+      ],
+      "domaine": "aero-perfs"
+    },
+    {
+      "terme": "lacet inverse",
+      "definition": "Tendance parasite de l'appareil à tourner le nez du côté opposé à l'inclinaison souhaitée lors du braquage des ailerons, causée par la traînée supérieure de l'aileron descendant.",
+      "variantes": [
+        "effet de lacet inverse",
+        "lacets inverses"
+      ],
+      "xrefs": [
+        "roulis induit",
+        "traînée totale"
+      ],
+      "domaine": "aero-perfs"
+    },
+    {
+      "terme": "effet de dièdre",
+      "definition": "Phénomène aérodynamique par lequel un angle de dièdre positif crée un roulis correcteur lors d'un glissement latéral, l'aile basse attaquant le vent relatif avec un angle d'incidence plus élevé.",
+      "variantes": [
+        "action de dièdre",
+        "effets de dièdre"
+      ],
+      "xrefs": [
+        "dièdre",
+        "stabilité latérale",
+        "angle d'incidence",
+        "vent relatif"
+      ],
+      "domaine": "aero-perfs"
+    },
+    {
+      "terme": "couple",
+      "definition": "Force de rotation résultant de l'action de l'hélice sur l'avion. En réaction, l'appareil a naturellement tendance à s'incliner dans le sens opposé à la rotation du moteur en vol.",
+      "variantes": [
+        "couple moteur",
+        "couples"
+      ],
+      "xrefs": [
+        "couple de renversement",
+        "précession gyroscopique"
+      ],
+      "domaine": "aero-perfs"
+    },
+    {
+      "terme": "couple de renversement",
+      "definition": "Tendance aérodynamique de l'avion à pivoter autour de son axe de roulis dans le sens opposé au mouvement de rotation de l'hélice, un effet particulièrement sensible à forte puissance.",
+      "variantes": [
+        "couple de réaction",
+        "torque effect"
+      ],
+      "xrefs": [
+        "couple",
+        "roulis induit"
+      ],
+      "domaine": "aero-perfs"
+    },
+    {
+      "terme": "précession gyroscopique",
+      "definition": "Phénomène gyroscopique par lequel une force appliquée sur l'hélice en rotation produit un effet décalé de quatre-vingt-dix degrés dans le sens de rotation, particulièrement sensible lors des variations d'assiette.",
+      "variantes": [
+        "effet gyroscopique de l'hélice"
+      ],
+      "xrefs": [
+        "couple",
+        "stabilité longitudinale"
+      ],
+      "domaine": "aero-perfs"
+    },
+    {
+      "terme": "traction dissymétrique",
+      "definition": "Phénomène se produisant à forte incidence où la pale descendante de l'hélice a une vitesse relative et une incidence supérieures à la pale montante, créant une poussée asymétrique.",
+      "variantes": [
+        "effet P",
+        "p-factor"
+      ],
+      "xrefs": [
+        "poussée",
+        "angle d'incidence"
+      ],
+      "domaine": "aero-perfs"
+    },
+    {
+      "terme": "VLO",
+      "definition": "Vitesse maximale de vol autorisée avec le train d'atterrissage en cours de manœuvre, de sortie ou de rentrée, pour éviter d'endommager les mécanismes aérodynamiques sous la pression du vent.",
+      "variantes": [
+        "vitesse de manœuvre du train",
+        "Vlo"
+      ],
+      "xrefs": [
+        "vitesse conventionnelle",
+        "pression dynamique"
+      ],
+      "domaine": "aero-perfs"
+    },
+    {
+      "terme": "VBG",
+      "definition": "Vitesse aérodynamique permettant d'obtenir la finesse maximale de vol plané moteur coupé. Elle garantit la plus grande distance de franchissement possible sans l'aide du groupe motopropulseur en vol.",
+      "variantes": [
+        "vitesse de finesse max",
+        "vitesse de plané optimal",
+        "Vbg"
+      ],
+      "xrefs": [
+        "vitesse conventionnelle",
+        "rapport portance/traînée"
+      ],
+      "domaine": "aero-perfs"
+    },
+    {
+      "terme": "VRA",
+      "definition": "Vitesse recommandée pour évoluer en air turbulent. Elle offre une marge de sécurité structurelle pour protéger l'aéronef contre les rafales violentes sans risquer de dépassement du facteur de charge.",
+      "variantes": [
+        "vitesse de pénétration en air turbulent",
+        "Vra"
+      ],
+      "xrefs": [
+        "vitesse conventionnelle",
+        "écoulement turbulent"
+      ],
+      "domaine": "aero-perfs"
+    },
+    {
+      "terme": "EAS",
+      "definition": "Vitesse équivalente obtenue en corrigeant la vitesse conventionnelle des effets de la compressibilité de l'air. À basse altitude, elle se confond presque totalement avec la vitesse indiquée par le badin.",
+      "variantes": [
+        "Equivalent Airspeed",
+        "vitesse équivalente",
+        "eas"
+      ],
+      "xrefs": [
+        "vitesse conventionnelle",
+        "pression dynamique"
+      ],
+      "domaine": "aero-perfs"
+    },
+    {
+      "terme": "vitesse conventionnelle",
+      "definition": "Vitesse indiquée par l'anémomètre corrigée des seules erreurs d'antenne et d'instrumentation. Elle sert de référence directe pour les limitations aérodynamiques et structurales définies dans le manuel de vol officiel.",
+      "variantes": [
+        "Calibrated Airspeed",
+        "CAS",
+        "vitesses conventionnelles"
+      ],
+      "xrefs": [
+        "erreur instrumentale",
+        "erreur de position"
+      ],
+      "domaine": "aero-perfs"
+    },
+    {
+      "terme": "erreur de densité",
+      "definition": "Écart entre la vitesse conventionnelle et la vitesse propre de l'avion, causé par la diminution de la masse volumique de l'air avec l'altitude et les variations de la température extérieure.",
+      "variantes": [
+        "erreur barométrique",
+        "erreurs de densité"
+      ],
+      "xrefs": [
+        "vitesse conventionnelle",
+        "altitude",
+        "erreur instrumentale"
+      ],
+      "domaine": "aero-perfs"
+    },
+    {
+      "terme": "erreur instrumentale",
+      "definition": "Écart de mesure d'un instrument de bord attribuable à ses imperfections de fabrication ou à l'usure mécanique de ses composants internes, mesuré et spécifié dans le tableau d'étalonnage de l'appareil.",
+      "variantes": [
+        "erreur d'étalonnage",
+        "erreurs instrumentales"
+      ],
+      "xrefs": [
+        "erreur de position",
+        "vitesse conventionnelle"
+      ],
+      "domaine": "aero-perfs"
+    },
+    {
+      "terme": "erreur de position",
+      "definition": "Erreur de mesure altimétrique ou anémométrique causée par des perturbations locales de l'écoulement de l'air autour des prises de pression statique et totale dues à la configuration de vol.",
+      "variantes": [
+        "erreur d'antenne",
+        "erreur d'installation",
+        "erreurs de position"
+      ],
+      "xrefs": [
+        "erreur instrumentale",
+        "pression statique"
+      ],
+      "domaine": "aero-perfs"
+    },
+    {
+      "terme": "distance franchissement 15 m",
+      "definition": "Longueur de piste nécessaire à un aéronef pour décoller et atteindre une hauteur de sécurité de quinze mètres au-dessus du sol, ou pour s'arrêter après le passage de ce plan.",
+      "variantes": [
+        "distance de passage des 15 mètres"
+      ],
+      "xrefs": [
+        "distance franchissement 50 ft",
+        "plafond pratique"
+      ],
+      "domaine": "aero-perfs"
+    },
+    {
+      "terme": "distance franchissement 50 ft",
+      "definition": "Distance horizontale requise pour franchir un obstacle virtuel de cinquante pieds lors du décollage ou de l'atterrissage. Cette mesure réglementaire standard sert à définir la longueur minimale de piste.",
+      "variantes": [
+        "distance de passage des 50 pieds",
+        "obstacle clearance distance"
+      ],
+      "xrefs": [
+        "distance franchissement 15 m",
+        "plafond pratique"
+      ],
+      "domaine": "aero-perfs"
+    },
+    {
+      "terme": "distance accélération-arrêt",
+      "definition": "Distance totale nécessaire pour accélérer l'avion jusqu'à la vitesse de décision, simuler une panne moteur, puis immobiliser complètement l'appareil sur la piste en utilisant les dispositifs de freinage.",
+      "variantes": [
+        "accélération-arrêt",
+        "ASD",
+        "distances accélération-arrêt"
+      ],
+      "xrefs": [
+        "vitesse conventionnelle",
+        "poussée"
+      ],
+      "domaine": "aero-perfs"
+    },
+    {
+      "terme": "plafond pratique",
+      "definition": "Altitude maximale théorique à laquelle le taux de montée d'un aéronef en configuration de vol standard se réduit à cent pieds par minute sous l'effet de la baisse de puissance moteur.",
+      "variantes": [
+        "plafond de service",
+        "plafonds pratiques"
+      ],
+      "xrefs": [
+        "altitude",
+        "poussée"
+      ],
+      "domaine": "aero-perfs"
+    },
+    {
+      "terme": "effet de l'altitude",
+      "definition": "Conséquence de la baisse de densité de l'air liée à l'altitude sur l'avion. Elle engendre une diminution notable de la portance, de la poussée du moteur et de l'efficacité aérodynamique.",
+      "variantes": [
+        "effet d'altitude",
+        "effets de l'altitude"
+      ],
+      "xrefs": [
+        "altitude",
+        "portance",
+        "poussée"
+      ],
+      "domaine": "aero-perfs"
+    },
+    {
+      "terme": "effet de la température",
+      "definition": "Impact des températures élevées sur la densité de l'air. Une température supérieure aux normes standard augmente l'altitude-densité de l'aérodrome, réduisant la portance et allongeant les distances de décollage.",
+      "variantes": [
+        "effet thermique sur les performances",
+        "effets de la température"
+      ],
+      "xrefs": [
+        "portance",
+        "poussée"
+      ],
+      "domaine": "aero-perfs"
+    },
+    {
+      "terme": "effet de la masse",
+      "definition": "Influence du poids total de l'avion sur ses performances de vol. Une masse accrue augmente les vitesses de décrochage, dégrade le taux de montée et allonge considérablement la distance de décollage.",
+      "variantes": [
+        "effet de poids",
+        "effets de la masse"
+      ],
+      "xrefs": [
+        "poids",
+        "décrochage",
+        "masse maximale au décollage"
+      ],
+      "domaine": "aero-perfs"
+    },
+    {
+      "terme": "effet du vent",
+      "definition": "Influence de la composante du vent sur la trajectoire sol de l'aéronef. Un vent de face réduit la distance de décollage et d'atterrissage sol, tandis qu'un vent arrière les rallonge.",
+      "variantes": [
+        "effet éolien",
+        "effets du vent"
+      ],
+      "xrefs": [
+        "vent relatif",
+        "tenue de cap"
+      ],
+      "domaine": "aero-perfs"
+    },
+    {
+      "terme": "effet de l'état de surface",
+      "definition": "Impact de la nature de la piste sur les performances au roulage. L'herbe haute, la neige ou l'eau augmentent la résistance au roulement, allongeant considérablement la distance nécessaire au décollage.",
+      "variantes": [
+        "effet de piste contaminée",
+        "effets de l'état de surface"
+      ],
+      "xrefs": [
+        "distance accélération-arrêt",
+        "traînée totale"
+      ],
+      "domaine": "aero-perfs"
+    },
+    {
+      "terme": "facteur de correction",
+      "definition": "Coefficient multiplicateur appliqué aux performances de base de l'aéronef pour tenir compte de conditions non standard comme l'état de la piste, le vent de travers ou l'humidité de l'air.",
+      "variantes": [
+        "coefficient correcteur",
+        "facteurs de correction"
+      ],
+      "xrefs": [
+        "effet de l'état de surface",
+        "effet du vent"
+      ],
+      "domaine": "aero-perfs"
+    },
+    {
+      "terme": "rayon d'action",
+      "definition": "Distance maximale qu'un aéronef peut parcourir en partant de sa base pour y revenir sans escale intermédiaire, tout en conservant les réserves de carburant de sécurité réglementaires obligatoires.",
+      "variantes": [
+        "rayon de vol",
+        "rayons d'action"
+      ],
+      "xrefs": [
+        "consommation spécifique",
+        "tenue de cap"
+      ],
+      "domaine": "aero-perfs"
+    },
+    {
+      "terme": "masse maximale au décollage",
+      "definition": "Masse limite autorisée pour l'aéronef au moment du lâcher des freins. Cette valeur structurale et réglementaire ne doit jamais être dépassée pour garantir la résistance mécanique de la cellule.",
+      "variantes": [
+        "MTOW",
+        "maximum takeoff weight",
+        "masses maximales au décollage"
+      ],
+      "xrefs": [
+        "masse maximale à l'atterrissage",
+        "charge utile"
+      ],
+      "domaine": "aero-perfs"
+    },
+    {
+      "terme": "masse maximale à l'atterrissage",
+      "definition": "Masse maximale sous laquelle l'aéronef est autorisé à toucher le sol pour éviter tout dommage sur les trains d'atterrissage et la structure lors de l'impact vertical normal de l'appareil.",
+      "variantes": [
+        "MLW",
+        "maximum landing weight",
+        "masses maximales à l'atterrissage"
+      ],
+      "xrefs": [
+        "masse maximale au décollage",
+        "charge utile"
+      ],
+      "domaine": "aero-perfs"
+    },
+    {
+      "terme": "charge utile",
+      "definition": "Masse du chargement commercial de l'aéronef, comprenant les passagers, leurs bagages et le fret éventuel. Elle s'obtient en soustrayant la masse à vide en ordre de marche de la masse maximale.",
+      "variantes": [
+        "payload",
+        "charges utiles"
+      ],
+      "xrefs": [
+        "masse maximale au décollage",
+        "charge alaire"
+      ],
+      "domaine": "aero-perfs"
+    },
+    {
+      "terme": "épaisseur relative",
+      "definition": "Rapport entre l'épaisseur maximale d'un profil d'aile et la longueur de sa corde. Ce paramètre géométrique clé influence fortement les performances en termes de portance maximale et de traînée.",
+      "variantes": [
+        "épaisseur de profil",
+        "épaisseurs relatives"
+      ],
+      "xrefs": [
+        "profil",
+        "corde"
+      ],
+      "domaine": "aero-perfs"
+    },
+    {
+      "terme": "angle de calage",
+      "definition": "Angle fixe formé entre la corde de profil de l'aile et l'axe longitudinal de référence de l'aéronef. Ce calage géométrique initial est défini lors de la construction de l'appareil.",
+      "variantes": [
+        "angle de calage de l'aile",
+        "angles de calage"
+      ],
+      "xrefs": [
+        "profil",
+        "corde"
+      ],
+      "domaine": "aero-perfs"
+    },
+    {
+      "terme": "flèche",
+      "definition": "Angle formé entre le bord d'attaque de l'aile et l'axe transversal de l'aéronef. Un angle de flèche prononcé permet de retarder l'apparition des ondes de choc aux vitesses transsoniques.",
+      "variantes": [
+        "flèche de l'aile",
+        "ailes en flèche"
+      ],
+      "xrefs": [
+        "bord d'attaque",
+        "profil"
+      ],
+      "domaine": "aero-perfs"
+    },
+    {
+      "terme": "vrillage",
+      "definition": "Variation progressive de l'angle de calage d'un profil d'aile entre l'emplanture et le saumon. Ce vrillage aérodynamique garantit que l'emplanture décroche en premier pour préserver le contrôle des ailerons.",
+      "variantes": [
+        "vrillage d'aile",
+        "vrillage aérodynamique",
+        "vrillages"
+      ],
+      "xrefs": [
+        "angle de calage",
+        "décrochage",
+        "profil"
+      ],
+      "domaine": "aero-perfs"
+    },
+    {
+      "terme": "Cl",
+      "definition": "Symbole aérodynamique représentant le coefficient de portance bidimensionnel d'un profil d'aile. Il caractérise l'efficacité portante locale d'une section d'aile indépendamment des effets d'extrémités et de l'envergure.",
+      "variantes": [
+        "coefficient de portance local",
+        "cl"
+      ],
+      "xrefs": [
+        "coefficient de portance",
+        "Cz",
+        "profil"
+      ],
+      "domaine": "aero-perfs"
+    },
+    {
+      "terme": "Cd",
+      "definition": "Symbole aérodynamique représentant le coefficient de traînée bidimensionnel d'une section d'aile. Il indique l'efficacité de traînée propre au profil aérodynamique sans intégrer la traînée induite par les saumons d'ailes.",
+      "variantes": [
+        "coefficient de traînée de profil",
+        "cd"
+      ],
+      "xrefs": [
+        "coefficient de traînée",
+        "Cx",
+        "profil"
+      ],
+      "domaine": "aero-perfs"
+    },
+    {
+      "terme": "lacet induit",
+      "definition": "Mouvement parasite de l'aéronef autour de son axe de lacet provoqué par le roulis. L'augmentation de portance sur l'aile montante engendre une hausse de traînée, tirant le nez vers l'extérieur.",
+      "variantes": [
+        "lacet secondaire",
+        "lacets induits"
+      ],
+      "xrefs": [
+        "lacet inverse",
+        "roulis induit"
+      ],
+      "domaine": "aero-perfs"
+    },
+    {
+      "terme": "amortissement",
+      "definition": "Capacité aérodynamique ou mécanique de l'appareil à dissiper l'énergie des oscillations induites par une perturbation atmosphérique, permettant un retour rapide et confortable à l'attitude de vol stabilisée.",
+      "variantes": [
+        "amortissement aérodynamique",
+        "amortissements"
+      ],
+      "xrefs": [
+        "stabilité dynamique",
+        "stabilité longitudinale"
+      ],
+      "domaine": "aero-perfs"
+    },
+    {
+      "terme": "tenue de cap",
+      "definition": "Action de pilotage consistant à maintenir l'axe longitudinal de l'aéronef aligné avec une direction magnétique ou géographique donnée. Elle nécessite des corrections continuelles en fonction de la dérive du vent.",
+      "variantes": [
+        "maintien de cap",
+        "tenues de cap"
+      ],
+      "xrefs": [
+        "effet du vent",
+        "stabilité de route"
+      ],
+      "domaine": "aero-perfs"
+    },
+    {
+      "terme": "VG",
+      "definition": "Vitesse aérodynamique recommandée pour effectuer la meilleure montée possible sans moteur, garantissant la distance de plané maximale en cas de panne de propulsion en vol.",
+      "variantes": [
+        "vitesse de plané optimal",
+        "Vg"
+      ],
+      "xrefs": [
+        "vitesse conventionnelle",
+        "VBG"
+      ],
+      "domaine": "aero-perfs"
+    },
+    {
+      "terme": "Vlof",
+      "definition": "Vitesse conventionnelle à laquelle l'aéronef quitte physiquement le sol lors du décollage, les forces aérodynamiques de portance devenant strictement supérieures au poids de l'appareil au roulage.",
+      "variantes": [
+        "vitesse d'envol",
+        "vitesse de décollage",
+        "VLOF"
+      ],
+      "xrefs": [
+        "vitesse conventionnelle",
+        "portance",
+        "poids"
+      ],
+      "domaine": "aero-perfs"
+    },
+    {
+      "terme": "Vtoss",
+      "definition": "Vitesse conventionnelle minimale de sécurité à atteindre au décollage lors du passage de l'obstacle de cinquante pieds en cas de panne de moteur sur un aéronef multimoteur léger.",
+      "variantes": [
+        "vitesse de sécurité au décollage",
+        "VTOSS"
+      ],
+      "xrefs": [
+        "vitesse conventionnelle",
+        "distance franchissement 50 ft"
+      ],
+      "domaine": "aero-perfs"
+    },
+    {
+      "terme": "Mach",
+      "definition": "Nombre sans dimension représentant le rapport entre la vitesse propre de l'aéronef et la vitesse locale du son dans l'air. C'est une référence de vitesse essentielle en haute altitude.",
+      "variantes": [
+        "nombre de Mach",
+        "mach"
+      ],
+      "xrefs": [
+        "vitesse conventionnelle",
+        "vitesse propre"
+      ],
+      "domaine": "aero-perfs"
+    },
+    {
+      "terme": "plafond de sustentation",
+      "definition": "Altitude théorique maximale à laquelle la poussée maximale disponible correspond exactement à la traînée de l'appareil en vol rectiligne horizontal stabilisé, rendant tout changement d'altitude ou virage impossible.",
+      "variantes": [
+        "plafond aérodynamique",
+        "plafonds de sustentation"
+      ],
+      "xrefs": [
+        "altitude",
+        "poussée",
+        "traînée totale"
+      ],
+      "domaine": "aero-perfs"
+    },
+    {
+      "terme": "plafond de croisière",
+      "definition": "Altitude maximale à laquelle l'aéronef peut maintenir un vol de croisière stable avec un taux de montée résiduel suffisant pour des raisons de sécurité, généralement de l'ordre de trois cents pieds par minute.",
+      "variantes": [
+        "plafond opérationnel",
+        "plafonds de croisière"
+      ],
+      "xrefs": [
+        "altitude",
+        "plafond pratique"
+      ],
+      "domaine": "aero-perfs"
+    },
+    {
+      "terme": "consommation spécifique",
+      "definition": "Quantité de carburant consommée par unité de puissance ou de poussée et par unité de temps. C'est un indicateur clé de l'efficacité énergétique du groupe motopropulseur en croisière.",
+      "variantes": [
+        "consommation spécifique de carburant",
+        "consommations spécifiques"
+      ],
+      "xrefs": [
+        "rayon d'action",
+        "poussée"
+      ],
+      "domaine": "aero-perfs"
+    }
+  ]
+}

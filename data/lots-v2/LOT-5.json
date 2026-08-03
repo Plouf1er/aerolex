@@ -1,0 +1,451 @@
+{
+  "lot": 5,
+  "domaine_principal": "regl-proc",
+  "termes": [
+    {
+      "terme": "parallèle",
+      "priorite": "haute",
+      "domaine": "nav-radio"
+    },
+    {
+      "terme": "projection Lambert",
+      "priorite": "haute",
+      "domaine": "nav-radio"
+    },
+    {
+      "terme": "projection Mercator",
+      "priorite": "haute",
+      "domaine": "nav-radio"
+    },
+    {
+      "terme": "équateur",
+      "priorite": "haute",
+      "domaine": "nav-radio"
+    },
+    {
+      "terme": "121,5 MHz",
+      "priorite": "haute",
+      "domaine": "nav-radio"
+    },
+    {
+      "terme": "25 kHz",
+      "priorite": "haute",
+      "domaine": "nav-radio"
+    },
+    {
+      "terme": "AFFIRM",
+      "priorite": "haute",
+      "domaine": "nav-radio"
+    },
+    {
+      "terme": "CLEARED",
+      "priorite": "haute",
+      "domaine": "nav-radio"
+    },
+    {
+      "terme": "HOLD SHORT",
+      "priorite": "haute",
+      "domaine": "nav-radio"
+    },
+    {
+      "terme": "LINE UP",
+      "priorite": "haute",
+      "domaine": "nav-radio"
+    },
+    {
+      "terme": "NEGATIVE",
+      "priorite": "haute",
+      "domaine": "nav-radio"
+    },
+    {
+      "terme": "PAN PAN",
+      "priorite": "haute",
+      "domaine": "nav-radio"
+    },
+    {
+      "terme": "STANDBY",
+      "priorite": "haute",
+      "domaine": "nav-radio"
+    },
+    {
+      "terme": "WILCO",
+      "priorite": "haute",
+      "domaine": "nav-radio"
+    },
+    {
+      "terme": "accusé de réception",
+      "priorite": "haute",
+      "domaine": "nav-radio"
+    },
+    {
+      "terme": "alphabet OACI",
+      "priorite": "haute",
+      "domaine": "nav-radio"
+    },
+    {
+      "terme": "autorisation",
+      "priorite": "haute",
+      "domaine": "nav-radio"
+    },
+    {
+      "terme": "blocage micro",
+      "priorite": "haute",
+      "domaine": "nav-radio"
+    },
+    {
+      "terme": "canal 8,33 kHz",
+      "priorite": "haute",
+      "domaine": "nav-radio"
+    },
+    {
+      "terme": "chiffres en phraséologie",
+      "priorite": "haute",
+      "domaine": "nav-radio"
+    },
+    {
+      "terme": "détresse",
+      "priorite": "haute",
+      "domaine": "nav-radio"
+    },
+    {
+      "terme": "essai radio",
+      "priorite": "haute",
+      "domaine": "nav-radio"
+    },
+    {
+      "terme": "information de trafic",
+      "priorite": "haute",
+      "domaine": "nav-radio"
+    },
+    {
+      "terme": "instruction",
+      "priorite": "haute",
+      "domaine": "nav-radio"
+    },
+    {
+      "terme": "lisibilité 1 à 5",
+      "priorite": "haute",
+      "domaine": "nav-radio"
+    },
+    {
+      "terme": "message d'urgence",
+      "priorite": "haute",
+      "domaine": "nav-radio"
+    },
+    {
+      "terme": "transpondeur en mode standby",
+      "priorite": "haute",
+      "domaine": "nav-radio"
+    },
+    {
+      "terme": "urgence",
+      "priorite": "haute",
+      "domaine": "nav-radio"
+    },
+    {
+      "terme": "mille nautique",
+      "priorite": "haute",
+      "domaine": "nav-radio"
+    },
+    {
+      "terme": "facteur de conversion pied/mètre",
+      "priorite": "haute",
+      "domaine": "nav-radio"
+    },
+    {
+      "terme": "gallon",
+      "priorite": "haute",
+      "domaine": "nav-radio"
+    },
+    {
+      "terme": "heure locale",
+      "priorite": "haute",
+      "domaine": "nav-radio"
+    },
+    {
+      "terme": "inHg",
+      "priorite": "haute",
+      "domaine": "nav-radio"
+    },
+    {
+      "terme": "kilogramme",
+      "priorite": "haute",
+      "domaine": "nav-radio"
+    },
+    {
+      "terme": "kilomètre",
+      "priorite": "haute",
+      "domaine": "nav-radio"
+    },
+    {
+      "terme": "litre",
+      "priorite": "haute",
+      "domaine": "nav-radio"
+    },
+    {
+      "terme": "litre/gallon",
+      "priorite": "haute",
+      "domaine": "nav-radio"
+    },
+    {
+      "terme": "livre",
+      "priorite": "haute",
+      "domaine": "nav-radio"
+    },
+    {
+      "terme": "minute",
+      "priorite": "haute",
+      "domaine": "nav-radio"
+    },
+    {
+      "terme": "mètre",
+      "priorite": "haute",
+      "domaine": "nav-radio"
+    },
+    {
+      "terme": "pouce de mercure",
+      "priorite": "haute",
+      "domaine": "nav-radio"
+    },
+    {
+      "terme": "seconde",
+      "priorite": "haute",
+      "domaine": "nav-radio"
+    },
+    {
+      "terme": "VFR de nuit",
+      "priorite": "haute",
+      "domaine": "regl-proc"
+    },
+    {
+      "terme": "conditions de vol à vue",
+      "priorite": "haute",
+      "domaine": "regl-proc"
+    },
+    {
+      "terme": "visibilité minimale",
+      "priorite": "haute",
+      "domaine": "regl-proc"
+    },
+    {
+      "terme": "distance aux nuages",
+      "priorite": "haute",
+      "domaine": "regl-proc"
+    },
+    {
+      "terme": "règle « voir et éviter »",
+      "priorite": "haute",
+      "domaine": "regl-proc"
+    },
+    {
+      "terme": "priorités de passage",
+      "priorite": "haute",
+      "domaine": "regl-proc"
+    },
+    {
+      "terme": "route convergente",
+      "priorite": "haute",
+      "domaine": "regl-proc"
+    },
+    {
+      "terme": "dépassement",
+      "priorite": "haute",
+      "domaine": "regl-proc"
+    },
+    {
+      "terme": "rapprochement de face",
+      "priorite": "haute",
+      "domaine": "regl-proc"
+    },
+    {
+      "terme": "priorité au ballon",
+      "priorite": "haute",
+      "domaine": "regl-proc"
+    },
+    {
+      "terme": "priorité au planeur",
+      "priorite": "haute",
+      "domaine": "regl-proc"
+    },
+    {
+      "terme": "priorité au remorquage",
+      "priorite": "haute",
+      "domaine": "regl-proc"
+    },
+    {
+      "terme": "hauteurs minimales de survol",
+      "priorite": "haute",
+      "domaine": "regl-proc"
+    },
+    {
+      "terme": "vol au-dessus de l'eau",
+      "priorite": "haute",
+      "domaine": "regl-proc"
+    },
+    {
+      "terme": "semi-circulaire",
+      "priorite": "haute",
+      "domaine": "regl-proc"
+    },
+    {
+      "terme": "niveau de croisière",
+      "priorite": "haute",
+      "domaine": "regl-proc"
+    },
+    {
+      "terme": "règles anticollision",
+      "priorite": "haute",
+      "domaine": "regl-proc"
+    },
+    {
+      "terme": "qualification de classe",
+      "priorite": "haute",
+      "domaine": "regl-proc"
+    },
+    {
+      "terme": "certificat médical classe 2",
+      "priorite": "haute",
+      "domaine": "regl-proc"
+    },
+    {
+      "terme": "LAPL",
+      "priorite": "haute",
+      "domaine": "regl-proc"
+    },
+    {
+      "terme": "carnet de vol",
+      "priorite": "haute",
+      "domaine": "regl-proc"
+    },
+    {
+      "terme": "certificat de navigabilité",
+      "priorite": "haute",
+      "domaine": "regl-proc"
+    },
+    {
+      "terme": "CDN",
+      "priorite": "haute",
+      "domaine": "regl-proc"
+    },
+    {
+      "terme": "certificat d'immatriculation",
+      "priorite": "haute",
+      "domaine": "regl-proc"
+    },
+    {
+      "terme": "CEN",
+      "priorite": "haute",
+      "domaine": "regl-proc"
+    },
+    {
+      "terme": "licence de station d'aéronef",
+      "priorite": "haute",
+      "domaine": "regl-proc"
+    },
+    {
+      "terme": "assurance",
+      "priorite": "haute",
+      "domaine": "regl-proc"
+    },
+    {
+      "terme": "APRS",
+      "priorite": "haute",
+      "domaine": "regl-proc"
+    },
+    {
+      "terme": "consignes de navigabilité",
+      "priorite": "haute",
+      "domaine": "regl-proc"
+    },
+    {
+      "terme": "MTOW",
+      "priorite": "haute",
+      "domaine": "regl-proc"
+    },
+    {
+      "terme": "clôture de plan de vol",
+      "priorite": "haute",
+      "domaine": "regl-proc"
+    },
+    {
+      "terme": "phases d'urgence",
+      "priorite": "haute",
+      "domaine": "regl-proc"
+    },
+    {
+      "terme": "INCERFA",
+      "priorite": "haute",
+      "domaine": "regl-proc"
+    },
+    {
+      "terme": "ALERFA",
+      "priorite": "haute",
+      "domaine": "regl-proc"
+    },
+    {
+      "terme": "DETRESFA",
+      "priorite": "haute",
+      "domaine": "regl-proc"
+    },
+    {
+      "terme": "SAR",
+      "priorite": "haute",
+      "domaine": "regl-proc"
+    },
+    {
+      "terme": "recherches et sauvetage",
+      "priorite": "haute",
+      "domaine": "regl-proc"
+    },
+    {
+      "terme": "aéronef intercepté",
+      "priorite": "haute",
+      "domaine": "regl-proc"
+    },
+    {
+      "terme": "essais moteur",
+      "priorite": "haute",
+      "domaine": "regl-proc"
+    },
+    {
+      "terme": "briefing décollage",
+      "priorite": "haute",
+      "domaine": "regl-proc"
+    },
+    {
+      "terme": "panne moteur au décollage",
+      "priorite": "haute",
+      "domaine": "regl-proc"
+    },
+    {
+      "terme": "demi-tour impossible",
+      "priorite": "haute",
+      "domaine": "regl-proc"
+    },
+    {
+      "terme": "Fahrenheit",
+      "priorite": "moyenne",
+      "domaine": "nav-radio"
+    },
+    {
+      "terme": "potentiel",
+      "priorite": "moyenne",
+      "domaine": "regl-proc"
+    },
+    {
+      "terme": "entretien 50 h/100 h",
+      "priorite": "moyenne",
+      "domaine": "regl-proc"
+    },
+    {
+      "terme": "activation",
+      "priorite": "moyenne",
+      "domaine": "regl-proc"
+    },
+    {
+      "terme": "plan de vol déposé",
+      "priorite": "moyenne",
+      "domaine": "regl-proc"
+    }
+  ]
+}

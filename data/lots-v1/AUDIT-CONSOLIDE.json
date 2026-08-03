@@ -1,0 +1,2671 @@
+{
+ "total": 533,
+ "haute": 445,
+ "termes": [
+  {
+   "terme": "profil",
+   "priorite": "haute",
+   "domaine": "aero-perfs"
+  },
+  {
+   "terme": "corde",
+   "priorite": "haute",
+   "domaine": "aero-perfs"
+  },
+  {
+   "terme": "envergure",
+   "priorite": "haute",
+   "domaine": "aero-perfs"
+  },
+  {
+   "terme": "allongement",
+   "priorite": "haute",
+   "domaine": "aero-perfs"
+  },
+  {
+   "terme": "épaisseur relative",
+   "priorite": "moyenne",
+   "domaine": "aero-perfs"
+  },
+  {
+   "terme": "extrados",
+   "priorite": "haute",
+   "domaine": "aero-perfs"
+  },
+  {
+   "terme": "intrados",
+   "priorite": "haute",
+   "domaine": "aero-perfs"
+  },
+  {
+   "terme": "bord d'attaque",
+   "priorite": "haute",
+   "domaine": "aero-perfs"
+  },
+  {
+   "terme": "bord de fuite",
+   "priorite": "haute",
+   "domaine": "aero-perfs"
+  },
+  {
+   "terme": "angle d'incidence",
+   "priorite": "haute",
+   "domaine": "aero-perfs"
+  },
+  {
+   "terme": "angle de calage",
+   "priorite": "moyenne",
+   "domaine": "aero-perfs"
+  },
+  {
+   "terme": "dièdre",
+   "priorite": "haute",
+   "domaine": "aero-perfs"
+  },
+  {
+   "terme": "flèche",
+   "priorite": "moyenne",
+   "domaine": "aero-perfs"
+  },
+  {
+   "terme": "vrillage",
+   "priorite": "moyenne",
+   "domaine": "aero-perfs"
+  },
+  {
+   "terme": "couche limite",
+   "priorite": "haute",
+   "domaine": "aero-perfs"
+  },
+  {
+   "terme": "écoulement laminaire",
+   "priorite": "haute",
+   "domaine": "aero-perfs"
+  },
+  {
+   "terme": "écoulement turbulent",
+   "priorite": "haute",
+   "domaine": "aero-perfs"
+  },
+  {
+   "terme": "décollement",
+   "priorite": "haute",
+   "domaine": "aero-perfs"
+  },
+  {
+   "terme": "centre de poussée",
+   "priorite": "haute",
+   "domaine": "aero-perfs"
+  },
+  {
+   "terme": "foyer",
+   "priorite": "haute",
+   "domaine": "aero-perfs"
+  },
+  {
+   "terme": "résultante aérodynamique",
+   "priorite": "haute",
+   "domaine": "aero-perfs"
+  },
+  {
+   "terme": "vent relatif",
+   "priorite": "haute",
+   "domaine": "aero-perfs"
+  },
+  {
+   "terme": "surface alaire",
+   "priorite": "haute",
+   "domaine": "aero-perfs"
+  },
+  {
+   "terme": "traînée de forme",
+   "priorite": "haute",
+   "domaine": "aero-perfs"
+  },
+  {
+   "terme": "traînée de frottement",
+   "priorite": "haute",
+   "domaine": "aero-perfs"
+  },
+  {
+   "terme": "traînée totale",
+   "priorite": "haute",
+   "domaine": "aero-perfs"
+  },
+  {
+   "terme": "poids",
+   "priorite": "haute",
+   "domaine": "aero-perfs"
+  },
+  {
+   "terme": "poussée",
+   "priorite": "haute",
+   "domaine": "aero-perfs"
+  },
+  {
+   "terme": "polaire des vitesses",
+   "priorite": "haute",
+   "domaine": "aero-perfs"
+  },
+  {
+   "terme": "coefficient de portance",
+   "priorite": "haute",
+   "domaine": "aero-perfs"
+  },
+  {
+   "terme": "Cz",
+   "priorite": "haute",
+   "domaine": "aero-perfs"
+  },
+  {
+   "terme": "Cl",
+   "priorite": "moyenne",
+   "domaine": "aero-perfs"
+  },
+  {
+   "terme": "coefficient de traînée",
+   "priorite": "haute",
+   "domaine": "aero-perfs"
+  },
+  {
+   "terme": "Cx",
+   "priorite": "haute",
+   "domaine": "aero-perfs"
+  },
+  {
+   "terme": "Cd",
+   "priorite": "moyenne",
+   "domaine": "aero-perfs"
+  },
+  {
+   "terme": "rapport portance/traînée",
+   "priorite": "haute",
+   "domaine": "aero-perfs"
+  },
+  {
+   "terme": "charge alaire",
+   "priorite": "haute",
+   "domaine": "aero-perfs"
+  },
+  {
+   "terme": "pression statique",
+   "priorite": "haute",
+   "domaine": "aero-perfs"
+  },
+  {
+   "terme": "pression dynamique",
+   "priorite": "haute",
+   "domaine": "aero-perfs"
+  },
+  {
+   "terme": "incidence de décrochage",
+   "priorite": "haute",
+   "domaine": "aero-perfs"
+  },
+  {
+   "terme": "décrochage accéléré",
+   "priorite": "haute",
+   "domaine": "aero-perfs"
+  },
+  {
+   "terme": "décrochage en virage",
+   "priorite": "haute",
+   "domaine": "aero-perfs"
+  },
+  {
+   "terme": "départ en vrille",
+   "priorite": "haute",
+   "domaine": "aero-perfs"
+  },
+  {
+   "terme": "buffeting",
+   "priorite": "haute",
+   "domaine": "aero-perfs"
+  },
+  {
+   "terme": "avertisseur de décrochage",
+   "priorite": "haute",
+   "domaine": "aero-perfs"
+  },
+  {
+   "terme": "virage à grande inclinaison",
+   "priorite": "haute",
+   "domaine": "aero-perfs"
+  },
+  {
+   "terme": "stabilité dynamique",
+   "priorite": "haute",
+   "domaine": "aero-perfs"
+  },
+  {
+   "terme": "stabilité longitudinale",
+   "priorite": "haute",
+   "domaine": "aero-perfs"
+  },
+  {
+   "terme": "stabilité latérale",
+   "priorite": "haute",
+   "domaine": "aero-perfs"
+  },
+  {
+   "terme": "stabilité de route",
+   "priorite": "haute",
+   "domaine": "aero-perfs"
+  },
+  {
+   "terme": "roulis induit",
+   "priorite": "haute",
+   "domaine": "aero-perfs"
+  },
+  {
+   "terme": "lacet inverse",
+   "priorite": "haute",
+   "domaine": "aero-perfs"
+  },
+  {
+   "terme": "lacet induit",
+   "priorite": "moyenne",
+   "domaine": "aero-perfs"
+  },
+  {
+   "terme": "effet de dièdre",
+   "priorite": "haute",
+   "domaine": "aero-perfs"
+  },
+  {
+   "terme": "amortissement",
+   "priorite": "moyenne",
+   "domaine": "aero-perfs"
+  },
+  {
+   "terme": "tenue de cap",
+   "priorite": "moyenne",
+   "domaine": "aero-perfs"
+  },
+  {
+   "terme": "couple",
+   "priorite": "haute",
+   "domaine": "aero-perfs"
+  },
+  {
+   "terme": "couple de renversement",
+   "priorite": "haute",
+   "domaine": "aero-perfs"
+  },
+  {
+   "terme": "précession gyroscopique",
+   "priorite": "haute",
+   "domaine": "aero-perfs"
+  },
+  {
+   "terme": "traction dissymétrique",
+   "priorite": "haute",
+   "domaine": "aero-perfs"
+  },
+  {
+   "terme": "VLO",
+   "priorite": "haute",
+   "domaine": "aero-perfs"
+  },
+  {
+   "terme": "VBG",
+   "priorite": "haute",
+   "domaine": "aero-perfs"
+  },
+  {
+   "terme": "VRA",
+   "priorite": "haute",
+   "domaine": "aero-perfs"
+  },
+  {
+   "terme": "VG",
+   "priorite": "moyenne",
+   "domaine": "aero-perfs"
+  },
+  {
+   "terme": "Vlof",
+   "priorite": "moyenne",
+   "domaine": "aero-perfs"
+  },
+  {
+   "terme": "Vtoss",
+   "priorite": "moyenne",
+   "domaine": "aero-perfs"
+  },
+  {
+   "terme": "EAS",
+   "priorite": "haute",
+   "domaine": "aero-perfs"
+  },
+  {
+   "terme": "Mach",
+   "priorite": "moyenne",
+   "domaine": "aero-perfs"
+  },
+  {
+   "terme": "vitesse conventionnelle",
+   "priorite": "haute",
+   "domaine": "aero-perfs"
+  },
+  {
+   "terme": "erreur de densité",
+   "priorite": "haute",
+   "domaine": "aero-perfs"
+  },
+  {
+   "terme": "erreur instrumentale",
+   "priorite": "haute",
+   "domaine": "aero-perfs"
+  },
+  {
+   "terme": "erreur de position",
+   "priorite": "haute",
+   "domaine": "aero-perfs"
+  },
+  {
+   "terme": "distance franchissement 15 m",
+   "priorite": "haute",
+   "domaine": "aero-perfs"
+  },
+  {
+   "terme": "distance franchissement 50 ft",
+   "priorite": "haute",
+   "domaine": "aero-perfs"
+  },
+  {
+   "terme": "distance accélération-arrêt",
+   "priorite": "haute",
+   "domaine": "aero-perfs"
+  },
+  {
+   "terme": "plafond pratique",
+   "priorite": "haute",
+   "domaine": "aero-perfs"
+  },
+  {
+   "terme": "plafond de sustentation",
+   "priorite": "moyenne",
+   "domaine": "aero-perfs"
+  },
+  {
+   "terme": "effet de l'altitude",
+   "priorite": "haute",
+   "domaine": "aero-perfs"
+  },
+  {
+   "terme": "effet de la température",
+   "priorite": "haute",
+   "domaine": "aero-perfs"
+  },
+  {
+   "terme": "effet de la masse",
+   "priorite": "haute",
+   "domaine": "aero-perfs"
+  },
+  {
+   "terme": "effet du vent",
+   "priorite": "haute",
+   "domaine": "aero-perfs"
+  },
+  {
+   "terme": "effet de l'état de surface",
+   "priorite": "haute",
+   "domaine": "aero-perfs"
+  },
+  {
+   "terme": "facteur de correction",
+   "priorite": "haute",
+   "domaine": "aero-perfs"
+  },
+  {
+   "terme": "plafond de croisière",
+   "priorite": "moyenne",
+   "domaine": "aero-perfs"
+  },
+  {
+   "terme": "rayon d'action",
+   "priorite": "haute",
+   "domaine": "aero-perfs"
+  },
+  {
+   "terme": "consommation spécifique",
+   "priorite": "moyenne",
+   "domaine": "aero-perfs"
+  },
+  {
+   "terme": "masse maximale au décollage",
+   "priorite": "haute",
+   "domaine": "aero-perfs"
+  },
+  {
+   "terme": "masse maximale à l'atterrissage",
+   "priorite": "haute",
+   "domaine": "aero-perfs"
+  },
+  {
+   "terme": "charge utile",
+   "priorite": "haute",
+   "domaine": "aero-perfs"
+  },
+  {
+   "terme": "masse et bras de levier",
+   "priorite": "haute",
+   "domaine": "aero-perfs"
+  },
+  {
+   "terme": "moment",
+   "priorite": "haute",
+   "domaine": "aero-perfs"
+  },
+  {
+   "terme": "limites de centrage",
+   "priorite": "haute",
+   "domaine": "aero-perfs"
+  },
+  {
+   "terme": "enveloppe de centrage",
+   "priorite": "haute",
+   "domaine": "aero-perfs"
+  },
+  {
+   "terme": "index",
+   "priorite": "moyenne",
+   "domaine": "aero-perfs"
+  },
+  {
+   "terme": "centrage avant",
+   "priorite": "haute",
+   "domaine": "aero-perfs"
+  },
+  {
+   "terme": "centrage arrière",
+   "priorite": "haute",
+   "domaine": "aero-perfs"
+  },
+  {
+   "terme": "masse sans carburant",
+   "priorite": "moyenne",
+   "domaine": "aero-perfs"
+  },
+  {
+   "terme": "diagramme de manœuvre",
+   "priorite": "haute",
+   "domaine": "aero-perfs"
+  },
+  {
+   "terme": "facteur de charge limite",
+   "priorite": "haute",
+   "domaine": "aero-perfs"
+  },
+  {
+   "terme": "facteur de charge ultime",
+   "priorite": "haute",
+   "domaine": "aero-perfs"
+  },
+  {
+   "terme": "catégorie normale",
+   "priorite": "haute",
+   "domaine": "aero-perfs"
+  },
+  {
+   "terme": "catégorie utilitaire",
+   "priorite": "moyenne",
+   "domaine": "aero-perfs"
+  },
+  {
+   "terme": "catégorie voltige",
+   "priorite": "moyenne",
+   "domaine": "aero-perfs"
+  },
+  {
+   "terme": "revêtement travaillant",
+   "priorite": "haute",
+   "domaine": "aero-perfs"
+  },
+  {
+   "terme": "fuselage treillis",
+   "priorite": "moyenne",
+   "domaine": "aero-perfs"
+  },
+  {
+   "terme": "fuselage monocoque",
+   "priorite": "moyenne",
+   "domaine": "aero-perfs"
+  },
+  {
+   "terme": "fuselage semi-monocoque",
+   "priorite": "haute",
+   "domaine": "aero-perfs"
+  },
+  {
+   "terme": "train classique",
+   "priorite": "haute",
+   "domaine": "aero-perfs"
+  },
+  {
+   "terme": "train tricycle",
+   "priorite": "haute",
+   "domaine": "aero-perfs"
+  },
+  {
+   "terme": "amortisseur",
+   "priorite": "haute",
+   "domaine": "aero-perfs"
+  },
+  {
+   "terme": "atterrisseur",
+   "priorite": "moyenne",
+   "domaine": "aero-perfs"
+  },
+  {
+   "terme": "stopway",
+   "priorite": "haute",
+   "domaine": "aerodrome"
+  },
+  {
+   "terme": "prolongement dégagé",
+   "priorite": "haute",
+   "domaine": "aerodrome"
+  },
+  {
+   "terme": "clearway",
+   "priorite": "haute",
+   "domaine": "aerodrome"
+  },
+  {
+   "terme": "aire de sécurité d'extrémité",
+   "priorite": "moyenne",
+   "domaine": "aerodrome"
+  },
+  {
+   "terme": "RESA",
+   "priorite": "moyenne",
+   "domaine": "aerodrome"
+  },
+  {
+   "terme": "raquette de retournement",
+   "priorite": "moyenne",
+   "domaine": "aerodrome"
+  },
+  {
+   "terme": "bretelle",
+   "priorite": "moyenne",
+   "domaine": "aerodrome"
+  },
+  {
+   "terme": "aire de trafic",
+   "priorite": "haute",
+   "domaine": "aerodrome"
+  },
+  {
+   "terme": "aire de manœuvre",
+   "priorite": "haute",
+   "domaine": "aerodrome"
+  },
+  {
+   "terme": "aire de mouvement",
+   "priorite": "haute",
+   "domaine": "aerodrome"
+  },
+  {
+   "terme": "plateforme",
+   "priorite": "basse",
+   "domaine": "aerodrome"
+  },
+  {
+   "terme": "résistance de piste",
+   "priorite": "moyenne",
+   "domaine": "aerodrome"
+  },
+  {
+   "terme": "PCN",
+   "priorite": "moyenne",
+   "domaine": "aerodrome"
+  },
+  {
+   "terme": "nature de surface",
+   "priorite": "basse",
+   "domaine": "aerodrome"
+  },
+  {
+   "terme": "surface revêtue",
+   "priorite": "basse",
+   "domaine": "aerodrome"
+  },
+  {
+   "terme": "surface en gazon",
+   "priorite": "basse",
+   "domaine": "aerodrome"
+  },
+  {
+   "terme": "numéro de piste",
+   "priorite": "haute",
+   "domaine": "aerodrome"
+  },
+  {
+   "terme": "point cible",
+   "priorite": "moyenne",
+   "domaine": "aerodrome"
+  },
+  {
+   "terme": "zone de toucher des roues",
+   "priorite": "moyenne",
+   "domaine": "aerodrome"
+  },
+  {
+   "terme": "marques de guidage",
+   "priorite": "moyenne",
+   "domaine": "aerodrome"
+  },
+  {
+   "terme": "point d'attente intermédiaire",
+   "priorite": "moyenne",
+   "domaine": "aerodrome"
+  },
+  {
+   "terme": "barre d'arrêt",
+   "priorite": "moyenne",
+   "domaine": "aerodrome"
+  },
+  {
+   "terme": "feux de seuil",
+   "priorite": "haute",
+   "domaine": "aerodrome"
+  },
+  {
+   "terme": "feux d'extrémité",
+   "priorite": "haute",
+   "domaine": "aerodrome"
+  },
+  {
+   "terme": "feux de bord de piste",
+   "priorite": "haute",
+   "domaine": "aerodrome"
+  },
+  {
+   "terme": "feux d'axe",
+   "priorite": "haute",
+   "domaine": "aerodrome"
+  },
+  {
+   "terme": "feux à éclats",
+   "priorite": "moyenne",
+   "domaine": "aerodrome"
+  },
+  {
+   "terme": "PAPI",
+   "priorite": "haute",
+   "domaine": "aerodrome"
+  },
+  {
+   "terme": "VASIS",
+   "priorite": "haute",
+   "domaine": "aerodrome"
+  },
+  {
+   "terme": "T-VASIS",
+   "priorite": "moyenne",
+   "domaine": "aerodrome"
+  },
+  {
+   "terme": "indicateur de pente d'approche",
+   "priorite": "haute",
+   "domaine": "aerodrome"
+  },
+  {
+   "terme": "balisage de taxiway",
+   "priorite": "haute",
+   "domaine": "aerodrome"
+  },
+  {
+   "terme": "feux d'obstacle",
+   "priorite": "haute",
+   "domaine": "aerodrome"
+  },
+  {
+   "terme": "phare d'aérodrome",
+   "priorite": "moyenne",
+   "domaine": "aerodrome"
+  },
+  {
+   "terme": "balisage basse intensité",
+   "priorite": "moyenne",
+   "domaine": "aerodrome"
+  },
+  {
+   "terme": "balisage haute intensité",
+   "priorite": "moyenne",
+   "domaine": "aerodrome"
+  },
+  {
+   "terme": "télécommande du balisage",
+   "priorite": "haute",
+   "domaine": "aerodrome"
+  },
+  {
+   "terme": "PCL",
+   "priorite": "haute",
+   "domaine": "aerodrome"
+  },
+  {
+   "terme": "croix blanche",
+   "priorite": "haute",
+   "domaine": "aerodrome"
+  },
+  {
+   "terme": "damier",
+   "priorite": "moyenne",
+   "domaine": "aerodrome"
+  },
+  {
+   "terme": "panneau de signalisation",
+   "priorite": "moyenne",
+   "domaine": "aerodrome"
+  },
+  {
+   "terme": "signaux visuels au sol",
+   "priorite": "haute",
+   "domaine": "aerodrome"
+  },
+  {
+   "terme": "signaux lumineux de la tour",
+   "priorite": "haute",
+   "domaine": "aerodrome"
+  },
+  {
+   "terme": "pistolet à signaux",
+   "priorite": "haute",
+   "domaine": "aerodrome"
+  },
+  {
+   "terme": "classe A",
+   "priorite": "haute",
+   "domaine": "aerodrome"
+  },
+  {
+   "terme": "classe B",
+   "priorite": "haute",
+   "domaine": "aerodrome"
+  },
+  {
+   "terme": "classe C",
+   "priorite": "haute",
+   "domaine": "aerodrome"
+  },
+  {
+   "terme": "classe D",
+   "priorite": "haute",
+   "domaine": "aerodrome"
+  },
+  {
+   "terme": "classe E",
+   "priorite": "haute",
+   "domaine": "aerodrome"
+  },
+  {
+   "terme": "classe F",
+   "priorite": "haute",
+   "domaine": "aerodrome"
+  },
+  {
+   "terme": "classe G",
+   "priorite": "haute",
+   "domaine": "aerodrome"
+  },
+  {
+   "terme": "CTA",
+   "priorite": "haute",
+   "domaine": "aerodrome"
+  },
+  {
+   "terme": "AWY",
+   "priorite": "haute",
+   "domaine": "aerodrome"
+  },
+  {
+   "terme": "voie aérienne",
+   "priorite": "haute",
+   "domaine": "aerodrome"
+  },
+  {
+   "terme": "zone P",
+   "priorite": "haute",
+   "domaine": "aerodrome"
+  },
+  {
+   "terme": "zone R",
+   "priorite": "haute",
+   "domaine": "aerodrome"
+  },
+  {
+   "terme": "zone D",
+   "priorite": "haute",
+   "domaine": "aerodrome"
+  },
+  {
+   "terme": "zone de ségrégation",
+   "priorite": "moyenne",
+   "domaine": "aerodrome"
+  },
+  {
+   "terme": "secteur d'information de vol",
+   "priorite": "haute",
+   "domaine": "aerodrome"
+  },
+  {
+   "terme": "espace non contrôlé",
+   "priorite": "haute",
+   "domaine": "aerodrome"
+  },
+  {
+   "terme": "VFR spécial",
+   "priorite": "haute",
+   "domaine": "aerodrome"
+  },
+  {
+   "terme": "carte OACI 1/500 000",
+   "priorite": "haute",
+   "domaine": "aerodrome"
+  },
+  {
+   "terme": "AD",
+   "priorite": "moyenne",
+   "domaine": "aerodrome"
+  },
+  {
+   "terme": "SIA",
+   "priorite": "haute",
+   "domaine": "aerodrome"
+  },
+  {
+   "terme": "AIC",
+   "priorite": "haute",
+   "domaine": "aerodrome"
+  },
+  {
+   "terme": "complément aux cartes",
+   "priorite": "moyenne",
+   "domaine": "aerodrome"
+  },
+  {
+   "terme": "échelle",
+   "priorite": "moyenne",
+   "domaine": "aerodrome"
+  },
+  {
+   "terme": "projection",
+   "priorite": "moyenne",
+   "domaine": "aerodrome"
+  },
+  {
+   "terme": "courbe de niveau",
+   "priorite": "moyenne",
+   "domaine": "aerodrome"
+  },
+  {
+   "terme": "altitude minimale de sécurité",
+   "priorite": "haute",
+   "domaine": "aerodrome"
+  },
+  {
+   "terme": "MSA",
+   "priorite": "haute",
+   "domaine": "aerodrome"
+  },
+  {
+   "terme": "relief",
+   "priorite": "moyenne",
+   "domaine": "aerodrome"
+  },
+  {
+   "terme": "obstacle",
+   "priorite": "haute",
+   "domaine": "aerodrome"
+  },
+  {
+   "terme": "ligne à haute tension",
+   "priorite": "haute",
+   "domaine": "aerodrome"
+  },
+  {
+   "terme": "TWR",
+   "priorite": "haute",
+   "domaine": "aerodrome"
+  },
+  {
+   "terme": "APP",
+   "priorite": "haute",
+   "domaine": "aerodrome"
+  },
+  {
+   "terme": "ACC",
+   "priorite": "haute",
+   "domaine": "aerodrome"
+  },
+  {
+   "terme": "auto-information",
+   "priorite": "haute",
+   "domaine": "aerodrome"
+  },
+  {
+   "terme": "agent AFIS",
+   "priorite": "haute",
+   "domaine": "aerodrome"
+  },
+  {
+   "terme": "aérodrome contrôlé",
+   "priorite": "haute",
+   "domaine": "aerodrome"
+  },
+  {
+   "terme": "aérodrome non contrôlé",
+   "priorite": "haute",
+   "domaine": "aerodrome"
+  },
+  {
+   "terme": "service d'alerte",
+   "priorite": "haute",
+   "domaine": "aerodrome"
+  },
+  {
+   "terme": "RFFS",
+   "priorite": "haute",
+   "domaine": "aerodrome"
+  },
+  {
+   "terme": "SSLIA",
+   "priorite": "haute",
+   "domaine": "aerodrome"
+  },
+  {
+   "terme": "point de compte rendu",
+   "priorite": "haute",
+   "domaine": "aerodrome"
+  },
+  {
+   "terme": "point d'entrée",
+   "priorite": "haute",
+   "domaine": "aerodrome"
+  },
+  {
+   "terme": "point de sortie",
+   "priorite": "haute",
+   "domaine": "aerodrome"
+  },
+  {
+   "terme": "dégagement de piste",
+   "priorite": "haute",
+   "domaine": "aerodrome"
+  },
+  {
+   "terme": "stratosphère",
+   "priorite": "haute",
+   "domaine": "meteo"
+  },
+  {
+   "terme": "gradient adiabatique sec",
+   "priorite": "haute",
+   "domaine": "meteo"
+  },
+  {
+   "terme": "gradient adiabatique saturé",
+   "priorite": "haute",
+   "domaine": "meteo"
+  },
+  {
+   "terme": "isothermie",
+   "priorite": "haute",
+   "domaine": "meteo"
+  },
+  {
+   "terme": "pression atmosphérique",
+   "priorite": "haute",
+   "domaine": "meteo"
+  },
+  {
+   "terme": "humidité relative",
+   "priorite": "haute",
+   "domaine": "meteo"
+  },
+  {
+   "terme": "surfusion",
+   "priorite": "haute",
+   "domaine": "meteo"
+  },
+  {
+   "terme": "chaleur latente",
+   "priorite": "haute",
+   "domaine": "meteo"
+  },
+  {
+   "terme": "salr",
+   "priorite": "moyenne",
+   "domaine": "meteo"
+  },
+  {
+   "terme": "surface isobare",
+   "priorite": "haute",
+   "domaine": "meteo"
+  },
+  {
+   "terme": "marais barométrique",
+   "priorite": "haute",
+   "domaine": "meteo"
+  },
+  {
+   "terme": "isallobare",
+   "priorite": "basse",
+   "domaine": "meteo"
+  },
+  {
+   "terme": "cirrus",
+   "priorite": "haute",
+   "domaine": "meteo"
+  },
+  {
+   "terme": "cirrocumulus",
+   "priorite": "haute",
+   "domaine": "meteo"
+  },
+  {
+   "terme": "humilis",
+   "priorite": "haute",
+   "domaine": "meteo"
+  },
+  {
+   "terme": "mediocris",
+   "priorite": "haute",
+   "domaine": "meteo"
+  },
+  {
+   "terme": "congestus",
+   "priorite": "haute",
+   "domaine": "meteo"
+  },
+  {
+   "terme": "capillatus",
+   "priorite": "haute",
+   "domaine": "meteo"
+  },
+  {
+   "terme": "virga",
+   "priorite": "haute",
+   "domaine": "meteo"
+  },
+  {
+   "terme": "étage supérieur",
+   "priorite": "moyenne",
+   "domaine": "meteo"
+  },
+  {
+   "terme": "étage moyen",
+   "priorite": "moyenne",
+   "domaine": "meteo"
+  },
+  {
+   "terme": "étage inférieur",
+   "priorite": "moyenne",
+   "domaine": "meteo"
+  },
+  {
+   "terme": "bruine",
+   "priorite": "haute",
+   "domaine": "meteo"
+  },
+  {
+   "terme": "grêle",
+   "priorite": "haute",
+   "domaine": "meteo"
+  },
+  {
+   "terme": "grésil",
+   "priorite": "haute",
+   "domaine": "meteo"
+  },
+  {
+   "terme": "neige",
+   "priorite": "haute",
+   "domaine": "meteo"
+  },
+  {
+   "terme": "pluie surfondue",
+   "priorite": "haute",
+   "domaine": "meteo"
+  },
+  {
+   "terme": "brouillard d'advection",
+   "priorite": "haute",
+   "domaine": "meteo"
+  },
+  {
+   "terme": "brouillard d'évaporation",
+   "priorite": "haute",
+   "domaine": "meteo"
+  },
+  {
+   "terme": "brume sèche",
+   "priorite": "haute",
+   "domaine": "meteo"
+  },
+  {
+   "terme": "hydrométéore",
+   "priorite": "moyenne",
+   "domaine": "meteo"
+  },
+  {
+   "terme": "front stationnaire",
+   "priorite": "haute",
+   "domaine": "meteo"
+  },
+  {
+   "terme": "front polaire",
+   "priorite": "haute",
+   "domaine": "meteo"
+  },
+  {
+   "terme": "dorsale",
+   "priorite": "haute",
+   "domaine": "meteo"
+  },
+  {
+   "terme": "thalweg",
+   "priorite": "haute",
+   "domaine": "meteo"
+  },
+  {
+   "terme": "col barométrique",
+   "priorite": "haute",
+   "domaine": "meteo"
+  },
+  {
+   "terme": "secteur chaud",
+   "priorite": "haute",
+   "domaine": "meteo"
+  },
+  {
+   "terme": "traîne",
+   "priorite": "haute",
+   "domaine": "meteo"
+  },
+  {
+   "terme": "subsidence",
+   "priorite": "haute",
+   "domaine": "meteo"
+  },
+  {
+   "terme": "thermique",
+   "priorite": "haute",
+   "domaine": "meteo"
+  },
+  {
+   "terme": "adiabatique",
+   "priorite": "haute",
+   "domaine": "meteo"
+  },
+  {
+   "terme": "force de Coriolis",
+   "priorite": "haute",
+   "domaine": "meteo"
+  },
+  {
+   "terme": "vent géostrophique",
+   "priorite": "haute",
+   "domaine": "meteo"
+  },
+  {
+   "terme": "brise de montagne",
+   "priorite": "haute",
+   "domaine": "meteo"
+  },
+  {
+   "terme": "onde orographique",
+   "priorite": "haute",
+   "domaine": "meteo"
+  },
+  {
+   "terme": "rafale descendante",
+   "priorite": "haute",
+   "domaine": "meteo"
+  },
+  {
+   "terme": "microburst",
+   "priorite": "haute",
+   "domaine": "meteo"
+  },
+  {
+   "terme": "givre blanc",
+   "priorite": "haute",
+   "domaine": "meteo"
+  },
+  {
+   "terme": "givrage clair",
+   "priorite": "haute",
+   "domaine": "meteo"
+  },
+  {
+   "terme": "givrage mixte",
+   "priorite": "haute",
+   "domaine": "meteo"
+  },
+  {
+   "terme": "dégivrage",
+   "priorite": "haute",
+   "domaine": "meteo"
+  },
+  {
+   "terme": "antigivrage",
+   "priorite": "haute",
+   "domaine": "meteo"
+  },
+  {
+   "terme": "cat",
+   "priorite": "haute",
+   "domaine": "meteo"
+  },
+  {
+   "terme": "turbulence thermique",
+   "priorite": "haute",
+   "domaine": "meteo"
+  },
+  {
+   "terme": "visibilité météo",
+   "priorite": "haute",
+   "domaine": "meteo"
+  },
+  {
+   "terme": "rvr",
+   "priorite": "haute",
+   "domaine": "meteo"
+  },
+  {
+   "terme": "airmet",
+   "priorite": "haute",
+   "domaine": "meteo"
+  },
+  {
+   "terme": "gamet",
+   "priorite": "haute",
+   "domaine": "meteo"
+  },
+  {
+   "terme": "volmet",
+   "priorite": "haute",
+   "domaine": "meteo"
+  },
+  {
+   "terme": "carte isobarique",
+   "priorite": "haute",
+   "domaine": "meteo"
+  },
+  {
+   "terme": "coupe verticale",
+   "priorite": "haute",
+   "domaine": "meteo"
+  },
+  {
+   "terme": "ra",
+   "priorite": "haute",
+   "domaine": "meteo"
+  },
+  {
+   "terme": "sn",
+   "priorite": "haute",
+   "domaine": "meteo"
+  },
+  {
+   "terme": "ts",
+   "priorite": "haute",
+   "domaine": "meteo"
+  },
+  {
+   "terme": "fg",
+   "priorite": "haute",
+   "domaine": "meteo"
+  },
+  {
+   "terme": "dz",
+   "priorite": "haute",
+   "domaine": "meteo"
+  },
+  {
+   "terme": "gr",
+   "priorite": "haute",
+   "domaine": "meteo"
+  },
+  {
+   "terme": "sh",
+   "priorite": "haute",
+   "domaine": "meteo"
+  },
+  {
+   "terme": "fz",
+   "priorite": "haute",
+   "domaine": "meteo"
+  },
+  {
+   "terme": "vc",
+   "priorite": "haute",
+   "domaine": "meteo"
+  },
+  {
+   "terme": "hz",
+   "priorite": "haute",
+   "domaine": "meteo"
+  },
+  {
+   "terme": "fu",
+   "priorite": "haute",
+   "domaine": "meteo"
+  },
+  {
+   "terme": "sq",
+   "priorite": "haute",
+   "domaine": "meteo"
+  },
+  {
+   "terme": "po",
+   "priorite": "haute",
+   "domaine": "meteo"
+  },
+  {
+   "terme": "fc",
+   "priorite": "haute",
+   "domaine": "meteo"
+  },
+  {
+   "terme": "ds",
+   "priorite": "haute",
+   "domaine": "meteo"
+  },
+  {
+   "terme": "ss",
+   "priorite": "haute",
+   "domaine": "meteo"
+  },
+  {
+   "terme": "orage",
+   "priorite": "haute",
+   "domaine": "meteo"
+  },
+  {
+   "terme": "cellule orageuse",
+   "priorite": "haute",
+   "domaine": "meteo"
+  },
+  {
+   "terme": "orage multicellulaire",
+   "priorite": "haute",
+   "domaine": "meteo"
+  },
+  {
+   "terme": "orage supercellulaire",
+   "priorite": "haute",
+   "domaine": "meteo"
+  },
+  {
+   "terme": "tornade",
+   "priorite": "haute",
+   "domaine": "meteo"
+  },
+  {
+   "terme": "trombe",
+   "priorite": "haute",
+   "domaine": "meteo"
+  },
+  {
+   "terme": "front de rafales",
+   "priorite": "haute",
+   "domaine": "meteo"
+  },
+  {
+   "terme": "1000 ft agglomération",
+   "priorite": "haute",
+   "domaine": "nav-radio"
+  },
+  {
+   "terme": "1013,25 hPa",
+   "priorite": "haute",
+   "domaine": "nav-radio"
+  },
+  {
+   "terme": "500 ft",
+   "priorite": "haute",
+   "domaine": "nav-radio"
+  },
+  {
+   "terme": "MEF",
+   "priorite": "haute",
+   "domaine": "nav-radio"
+  },
+  {
+   "terme": "MORA",
+   "priorite": "moyenne",
+   "domaine": "nav-radio"
+  },
+  {
+   "terme": "TL",
+   "priorite": "haute",
+   "domaine": "nav-radio"
+  },
+  {
+   "terme": "altitude",
+   "priorite": "haute",
+   "domaine": "nav-radio"
+  },
+  {
+   "terme": "altitude vraie",
+   "priorite": "haute",
+   "domaine": "nav-radio"
+  },
+  {
+   "terme": "couche de transition",
+   "priorite": "moyenne",
+   "domaine": "nav-radio"
+  },
+  {
+   "terme": "du chaud vers le froid, gare aux dégâts",
+   "priorite": "haute",
+   "domaine": "nav-radio"
+  },
+  {
+   "terme": "effet température sur l'altimètre",
+   "priorite": "haute",
+   "domaine": "nav-radio"
+  },
+  {
+   "terme": "erreur altimétrique",
+   "priorite": "haute",
+   "domaine": "nav-radio"
+  },
+  {
+   "terme": "hauteur",
+   "priorite": "haute",
+   "domaine": "nav-radio"
+  },
+  {
+   "terme": "hauteur de survol",
+   "priorite": "haute",
+   "domaine": "nav-radio"
+  },
+  {
+   "terme": "7000 (VFR)",
+   "priorite": "haute",
+   "domaine": "nav-radio"
+  },
+  {
+   "terme": "DME",
+   "priorite": "haute",
+   "domaine": "nav-radio"
+  },
+  {
+   "terme": "ELT",
+   "priorite": "haute",
+   "domaine": "nav-radio"
+  },
+  {
+   "terme": "NDB",
+   "priorite": "haute",
+   "domaine": "nav-radio"
+  },
+  {
+   "terme": "RNAV",
+   "priorite": "moyenne",
+   "domaine": "nav-radio"
+  },
+  {
+   "terme": "alternat",
+   "priorite": "haute",
+   "domaine": "nav-radio"
+  },
+  {
+   "terme": "blocage Pitot",
+   "priorite": "haute",
+   "domaine": "nav-radio"
+  },
+  {
+   "terme": "blocage statique",
+   "priorite": "haute",
+   "domaine": "nav-radio"
+  },
+  {
+   "terme": "code 7500",
+   "priorite": "haute",
+   "domaine": "nav-radio"
+  },
+  {
+   "terme": "code 7600",
+   "priorite": "haute",
+   "domaine": "nav-radio"
+  },
+  {
+   "terme": "code 7700",
+   "priorite": "haute",
+   "domaine": "nav-radio"
+  },
+  {
+   "terme": "compas magnétique",
+   "priorite": "haute",
+   "domaine": "nav-radio"
+  },
+  {
+   "terme": "conservateur de cap",
+   "priorite": "haute",
+   "domaine": "nav-radio"
+  },
+  {
+   "terme": "coordinateur de virage",
+   "priorite": "haute",
+   "domaine": "nav-radio"
+  },
+  {
+   "terme": "directionnel",
+   "priorite": "haute",
+   "domaine": "nav-radio"
+  },
+  {
+   "terme": "erreurs gyroscopiques",
+   "priorite": "haute",
+   "domaine": "nav-radio"
+  },
+  {
+   "terme": "indicateur de virage",
+   "priorite": "haute",
+   "domaine": "nav-radio"
+  },
+  {
+   "terme": "marqueur",
+   "priorite": "moyenne",
+   "domaine": "nav-radio"
+  },
+  {
+   "terme": "mode A",
+   "priorite": "haute",
+   "domaine": "nav-radio"
+  },
+  {
+   "terme": "mode C",
+   "priorite": "haute",
+   "domaine": "nav-radio"
+  },
+  {
+   "terme": "mode S",
+   "priorite": "haute",
+   "domaine": "nav-radio"
+  },
+  {
+   "terme": "prise Pitot",
+   "priorite": "haute",
+   "domaine": "nav-radio"
+  },
+  {
+   "terme": "prise dynamique",
+   "priorite": "haute",
+   "domaine": "nav-radio"
+  },
+  {
+   "terme": "prise statique",
+   "priorite": "haute",
+   "domaine": "nav-radio"
+  },
+  {
+   "terme": "précession",
+   "priorite": "haute",
+   "domaine": "nav-radio"
+  },
+  {
+   "terme": "réchauffage Pitot",
+   "priorite": "haute",
+   "domaine": "nav-radio"
+  },
+  {
+   "terme": "tube de Pitot",
+   "priorite": "haute",
+   "domaine": "nav-radio"
+  },
+  {
+   "terme": "QTE",
+   "priorite": "moyenne",
+   "domaine": "nav-radio"
+  },
+  {
+   "terme": "QUJ",
+   "priorite": "moyenne",
+   "domaine": "nav-radio"
+  },
+  {
+   "terme": "base de temps",
+   "priorite": "haute",
+   "domaine": "nav-radio"
+  },
+  {
+   "terme": "facteur de base",
+   "priorite": "haute",
+   "domaine": "nav-radio"
+  },
+  {
+   "terme": "gisement",
+   "priorite": "haute",
+   "domaine": "nav-radio"
+  },
+  {
+   "terme": "relèvement",
+   "priorite": "haute",
+   "domaine": "nav-radio"
+  },
+  {
+   "terme": "route sol",
+   "priorite": "haute",
+   "domaine": "nav-radio"
+  },
+  {
+   "terme": "règle du 1 en 60",
+   "priorite": "moyenne",
+   "domaine": "nav-radio"
+  },
+  {
+   "terme": "EOBT",
+   "priorite": "haute",
+   "domaine": "nav-radio"
+  },
+  {
+   "terme": "ETD",
+   "priorite": "haute",
+   "domaine": "nav-radio"
+  },
+  {
+   "terme": "cheminement",
+   "priorite": "haute",
+   "domaine": "nav-radio"
+  },
+  {
+   "terme": "dead reckoning",
+   "priorite": "moyenne",
+   "domaine": "nav-radio"
+  },
+  {
+   "terme": "dernier point connu",
+   "priorite": "moyenne",
+   "domaine": "nav-radio"
+  },
+  {
+   "terme": "estime",
+   "priorite": "haute",
+   "domaine": "nav-radio"
+  },
+  {
+   "terme": "journal de navigation",
+   "priorite": "haute",
+   "domaine": "nav-radio"
+  },
+  {
+   "terme": "log de navigation",
+   "priorite": "haute",
+   "domaine": "nav-radio"
+  },
+  {
+   "terme": "navigation à vue",
+   "priorite": "haute",
+   "domaine": "nav-radio"
+  },
+  {
+   "terme": "point tournant",
+   "priorite": "haute",
+   "domaine": "nav-radio"
+  },
+  {
+   "terme": "recalage",
+   "priorite": "haute",
+   "domaine": "nav-radio"
+  },
+  {
+   "terme": "repère caractéristique",
+   "priorite": "haute",
+   "domaine": "nav-radio"
+  },
+  {
+   "terme": "temps sans vent",
+   "priorite": "haute",
+   "domaine": "nav-radio"
+  },
+  {
+   "terme": "coordonnées géographiques",
+   "priorite": "haute",
+   "domaine": "nav-radio"
+  },
+  {
+   "terme": "courbe de déviation",
+   "priorite": "haute",
+   "domaine": "nav-radio"
+  },
+  {
+   "terme": "grand cercle",
+   "priorite": "moyenne",
+   "domaine": "nav-radio"
+  },
+  {
+   "terme": "inclinaison magnétique",
+   "priorite": "moyenne",
+   "domaine": "nav-radio"
+  },
+  {
+   "terme": "latitude",
+   "priorite": "haute",
+   "domaine": "nav-radio"
+  },
+  {
+   "terme": "longitude",
+   "priorite": "haute",
+   "domaine": "nav-radio"
+  },
+  {
+   "terme": "loxodromie",
+   "priorite": "moyenne",
+   "domaine": "nav-radio"
+  },
+  {
+   "terme": "minute d'arc",
+   "priorite": "moyenne",
+   "domaine": "nav-radio"
+  },
+  {
+   "terme": "méridien",
+   "priorite": "haute",
+   "domaine": "nav-radio"
+  },
+  {
+   "terme": "nord compas",
+   "priorite": "haute",
+   "domaine": "nav-radio"
+  },
+  {
+   "terme": "orthodromie",
+   "priorite": "moyenne",
+   "domaine": "nav-radio"
+  },
+  {
+   "terme": "parallèle",
+   "priorite": "haute",
+   "domaine": "nav-radio"
+  },
+  {
+   "terme": "projection Lambert",
+   "priorite": "haute",
+   "domaine": "nav-radio"
+  },
+  {
+   "terme": "projection Mercator",
+   "priorite": "haute",
+   "domaine": "nav-radio"
+  },
+  {
+   "terme": "équateur",
+   "priorite": "haute",
+   "domaine": "nav-radio"
+  },
+  {
+   "terme": "121,5 MHz",
+   "priorite": "haute",
+   "domaine": "nav-radio"
+  },
+  {
+   "terme": "25 kHz",
+   "priorite": "haute",
+   "domaine": "nav-radio"
+  },
+  {
+   "terme": "AFFIRM",
+   "priorite": "haute",
+   "domaine": "nav-radio"
+  },
+  {
+   "terme": "CLEARED",
+   "priorite": "haute",
+   "domaine": "nav-radio"
+  },
+  {
+   "terme": "HOLD SHORT",
+   "priorite": "haute",
+   "domaine": "nav-radio"
+  },
+  {
+   "terme": "LINE UP",
+   "priorite": "haute",
+   "domaine": "nav-radio"
+  },
+  {
+   "terme": "NEGATIVE",
+   "priorite": "haute",
+   "domaine": "nav-radio"
+  },
+  {
+   "terme": "PAN PAN",
+   "priorite": "haute",
+   "domaine": "nav-radio"
+  },
+  {
+   "terme": "STANDBY",
+   "priorite": "haute",
+   "domaine": "nav-radio"
+  },
+  {
+   "terme": "WILCO",
+   "priorite": "haute",
+   "domaine": "nav-radio"
+  },
+  {
+   "terme": "accusé de réception",
+   "priorite": "haute",
+   "domaine": "nav-radio"
+  },
+  {
+   "terme": "alphabet OACI",
+   "priorite": "haute",
+   "domaine": "nav-radio"
+  },
+  {
+   "terme": "autorisation",
+   "priorite": "haute",
+   "domaine": "nav-radio"
+  },
+  {
+   "terme": "blocage micro",
+   "priorite": "haute",
+   "domaine": "nav-radio"
+  },
+  {
+   "terme": "canal 8,33 kHz",
+   "priorite": "haute",
+   "domaine": "nav-radio"
+  },
+  {
+   "terme": "chiffres en phraséologie",
+   "priorite": "haute",
+   "domaine": "nav-radio"
+  },
+  {
+   "terme": "détresse",
+   "priorite": "haute",
+   "domaine": "nav-radio"
+  },
+  {
+   "terme": "essai radio",
+   "priorite": "haute",
+   "domaine": "nav-radio"
+  },
+  {
+   "terme": "information de trafic",
+   "priorite": "haute",
+   "domaine": "nav-radio"
+  },
+  {
+   "terme": "instruction",
+   "priorite": "haute",
+   "domaine": "nav-radio"
+  },
+  {
+   "terme": "lisibilité 1 à 5",
+   "priorite": "haute",
+   "domaine": "nav-radio"
+  },
+  {
+   "terme": "message d'urgence",
+   "priorite": "haute",
+   "domaine": "nav-radio"
+  },
+  {
+   "terme": "transpondeur en mode standby",
+   "priorite": "haute",
+   "domaine": "nav-radio"
+  },
+  {
+   "terme": "urgence",
+   "priorite": "haute",
+   "domaine": "nav-radio"
+  },
+  {
+   "terme": "mille nautique",
+   "priorite": "haute",
+   "domaine": "nav-radio"
+  },
+  {
+   "terme": "Fahrenheit",
+   "priorite": "moyenne",
+   "domaine": "nav-radio"
+  },
+  {
+   "terme": "facteur de conversion pied/mètre",
+   "priorite": "haute",
+   "domaine": "nav-radio"
+  },
+  {
+   "terme": "gallon",
+   "priorite": "haute",
+   "domaine": "nav-radio"
+  },
+  {
+   "terme": "heure locale",
+   "priorite": "haute",
+   "domaine": "nav-radio"
+  },
+  {
+   "terme": "inHg",
+   "priorite": "haute",
+   "domaine": "nav-radio"
+  },
+  {
+   "terme": "kilogramme",
+   "priorite": "haute",
+   "domaine": "nav-radio"
+  },
+  {
+   "terme": "kilomètre",
+   "priorite": "haute",
+   "domaine": "nav-radio"
+  },
+  {
+   "terme": "litre",
+   "priorite": "haute",
+   "domaine": "nav-radio"
+  },
+  {
+   "terme": "litre/gallon",
+   "priorite": "haute",
+   "domaine": "nav-radio"
+  },
+  {
+   "terme": "livre",
+   "priorite": "haute",
+   "domaine": "nav-radio"
+  },
+  {
+   "terme": "minute",
+   "priorite": "haute",
+   "domaine": "nav-radio"
+  },
+  {
+   "terme": "mètre",
+   "priorite": "haute",
+   "domaine": "nav-radio"
+  },
+  {
+   "terme": "pouce de mercure",
+   "priorite": "haute",
+   "domaine": "nav-radio"
+  },
+  {
+   "terme": "seconde",
+   "priorite": "haute",
+   "domaine": "nav-radio"
+  },
+  {
+   "terme": "VFR de nuit",
+   "priorite": "haute",
+   "domaine": "regl-proc"
+  },
+  {
+   "terme": "conditions de vol à vue",
+   "priorite": "haute",
+   "domaine": "regl-proc"
+  },
+  {
+   "terme": "visibilité minimale",
+   "priorite": "haute",
+   "domaine": "regl-proc"
+  },
+  {
+   "terme": "distance aux nuages",
+   "priorite": "haute",
+   "domaine": "regl-proc"
+  },
+  {
+   "terme": "règle « voir et éviter »",
+   "priorite": "haute",
+   "domaine": "regl-proc"
+  },
+  {
+   "terme": "priorités de passage",
+   "priorite": "haute",
+   "domaine": "regl-proc"
+  },
+  {
+   "terme": "route convergente",
+   "priorite": "haute",
+   "domaine": "regl-proc"
+  },
+  {
+   "terme": "dépassement",
+   "priorite": "haute",
+   "domaine": "regl-proc"
+  },
+  {
+   "terme": "rapprochement de face",
+   "priorite": "haute",
+   "domaine": "regl-proc"
+  },
+  {
+   "terme": "priorité au ballon",
+   "priorite": "haute",
+   "domaine": "regl-proc"
+  },
+  {
+   "terme": "priorité au planeur",
+   "priorite": "haute",
+   "domaine": "regl-proc"
+  },
+  {
+   "terme": "priorité au remorquage",
+   "priorite": "haute",
+   "domaine": "regl-proc"
+  },
+  {
+   "terme": "hauteurs minimales de survol",
+   "priorite": "haute",
+   "domaine": "regl-proc"
+  },
+  {
+   "terme": "vol au-dessus de l'eau",
+   "priorite": "haute",
+   "domaine": "regl-proc"
+  },
+  {
+   "terme": "semi-circulaire",
+   "priorite": "haute",
+   "domaine": "regl-proc"
+  },
+  {
+   "terme": "niveau de croisière",
+   "priorite": "haute",
+   "domaine": "regl-proc"
+  },
+  {
+   "terme": "règles anticollision",
+   "priorite": "haute",
+   "domaine": "regl-proc"
+  },
+  {
+   "terme": "qualification de classe",
+   "priorite": "haute",
+   "domaine": "regl-proc"
+  },
+  {
+   "terme": "certificat médical classe 2",
+   "priorite": "haute",
+   "domaine": "regl-proc"
+  },
+  {
+   "terme": "LAPL",
+   "priorite": "haute",
+   "domaine": "regl-proc"
+  },
+  {
+   "terme": "carnet de vol",
+   "priorite": "haute",
+   "domaine": "regl-proc"
+  },
+  {
+   "terme": "certificat de navigabilité",
+   "priorite": "haute",
+   "domaine": "regl-proc"
+  },
+  {
+   "terme": "CDN",
+   "priorite": "haute",
+   "domaine": "regl-proc"
+  },
+  {
+   "terme": "certificat d'immatriculation",
+   "priorite": "haute",
+   "domaine": "regl-proc"
+  },
+  {
+   "terme": "CEN",
+   "priorite": "haute",
+   "domaine": "regl-proc"
+  },
+  {
+   "terme": "licence de station d'aéronef",
+   "priorite": "haute",
+   "domaine": "regl-proc"
+  },
+  {
+   "terme": "assurance",
+   "priorite": "haute",
+   "domaine": "regl-proc"
+  },
+  {
+   "terme": "APRS",
+   "priorite": "haute",
+   "domaine": "regl-proc"
+  },
+  {
+   "terme": "potentiel",
+   "priorite": "moyenne",
+   "domaine": "regl-proc"
+  },
+  {
+   "terme": "entretien 50 h/100 h",
+   "priorite": "moyenne",
+   "domaine": "regl-proc"
+  },
+  {
+   "terme": "consignes de navigabilité",
+   "priorite": "haute",
+   "domaine": "regl-proc"
+  },
+  {
+   "terme": "MTOW",
+   "priorite": "haute",
+   "domaine": "regl-proc"
+  },
+  {
+   "terme": "clôture de plan de vol",
+   "priorite": "haute",
+   "domaine": "regl-proc"
+  },
+  {
+   "terme": "activation",
+   "priorite": "moyenne",
+   "domaine": "regl-proc"
+  },
+  {
+   "terme": "plan de vol déposé",
+   "priorite": "moyenne",
+   "domaine": "regl-proc"
+  },
+  {
+   "terme": "phases d'urgence",
+   "priorite": "haute",
+   "domaine": "regl-proc"
+  },
+  {
+   "terme": "INCERFA",
+   "priorite": "haute",
+   "domaine": "regl-proc"
+  },
+  {
+   "terme": "ALERFA",
+   "priorite": "haute",
+   "domaine": "regl-proc"
+  },
+  {
+   "terme": "DETRESFA",
+   "priorite": "haute",
+   "domaine": "regl-proc"
+  },
+  {
+   "terme": "SAR",
+   "priorite": "haute",
+   "domaine": "regl-proc"
+  },
+  {
+   "terme": "recherches et sauvetage",
+   "priorite": "haute",
+   "domaine": "regl-proc"
+  },
+  {
+   "terme": "aéronef intercepté",
+   "priorite": "haute",
+   "domaine": "regl-proc"
+  },
+  {
+   "terme": "essais moteur",
+   "priorite": "haute",
+   "domaine": "regl-proc"
+  },
+  {
+   "terme": "briefing décollage",
+   "priorite": "haute",
+   "domaine": "regl-proc"
+  },
+  {
+   "terme": "panne moteur au décollage",
+   "priorite": "haute",
+   "domaine": "regl-proc"
+  },
+  {
+   "terme": "demi-tour impossible",
+   "priorite": "haute",
+   "domaine": "regl-proc"
+  },
+  {
+   "terme": "vent arrière basse hauteur",
+   "priorite": "haute",
+   "domaine": "regl-proc"
+  },
+  {
+   "terme": "procédure de mise en route",
+   "priorite": "haute",
+   "domaine": "regl-proc"
+  },
+  {
+   "terme": "dégagement",
+   "priorite": "haute",
+   "domaine": "regl-proc"
+  },
+  {
+   "terme": "arrêt moteur",
+   "priorite": "haute",
+   "domaine": "regl-proc"
+  },
+  {
+   "terme": "moteur à 4 temps",
+   "priorite": "haute",
+   "domaine": "regl-proc"
+  },
+  {
+   "terme": "cycle",
+   "priorite": "basse",
+   "domaine": "regl-proc"
+  },
+  {
+   "terme": "cycle à 4 temps",
+   "priorite": "moyenne",
+   "domaine": "regl-proc"
+  },
+  {
+   "terme": "admission",
+   "priorite": "haute",
+   "domaine": "regl-proc"
+  },
+  {
+   "terme": "compression",
+   "priorite": "haute",
+   "domaine": "regl-proc"
+  },
+  {
+   "terme": "détente",
+   "priorite": "haute",
+   "domaine": "regl-proc"
+  },
+  {
+   "terme": "échappement",
+   "priorite": "haute",
+   "domaine": "regl-proc"
+  },
+  {
+   "terme": "bougie",
+   "priorite": "haute",
+   "domaine": "regl-proc"
+  },
+  {
+   "terme": "carburateur",
+   "priorite": "haute",
+   "domaine": "regl-proc"
+  },
+  {
+   "terme": "injection",
+   "priorite": "haute",
+   "domaine": "regl-proc"
+  },
+  {
+   "terme": "mixture",
+   "priorite": "haute",
+   "domaine": "regl-proc"
+  },
+  {
+   "terme": "correcteur d'altitude",
+   "priorite": "haute",
+   "domaine": "regl-proc"
+  },
+  {
+   "terme": "papillon des gaz",
+   "priorite": "haute",
+   "domaine": "regl-proc"
+  },
+  {
+   "terme": "ralenti",
+   "priorite": "haute",
+   "domaine": "regl-proc"
+  },
+  {
+   "terme": "pression d'admission",
+   "priorite": "haute",
+   "domaine": "regl-proc"
+  },
+  {
+   "terme": "EGT",
+   "priorite": "haute",
+   "domaine": "regl-proc"
+  },
+  {
+   "terme": "refroidissement",
+   "priorite": "moyenne",
+   "domaine": "regl-proc"
+  },
+  {
+   "terme": "cliquetis",
+   "priorite": "haute",
+   "domaine": "regl-proc"
+  },
+  {
+   "terme": "détonation",
+   "priorite": "haute",
+   "domaine": "regl-proc"
+  },
+  {
+   "terme": "auto-allumage",
+   "priorite": "haute",
+   "domaine": "regl-proc"
+  },
+  {
+   "terme": "encrassement des bougies",
+   "priorite": "haute",
+   "domaine": "regl-proc"
+  },
+  {
+   "terme": "hélice à pas fixe",
+   "priorite": "haute",
+   "domaine": "regl-proc"
+  },
+  {
+   "terme": "hélice à pas variable",
+   "priorite": "haute",
+   "domaine": "regl-proc"
+  },
+  {
+   "terme": "calage d'hélice",
+   "priorite": "haute",
+   "domaine": "regl-proc"
+  },
+  {
+   "terme": "mise en moulinet",
+   "priorite": "haute",
+   "domaine": "regl-proc"
+  },
+  {
+   "terme": "effet de couple",
+   "priorite": "haute",
+   "domaine": "regl-proc"
+  },
+  {
+   "terme": "régime",
+   "priorite": "moyenne",
+   "domaine": "regl-proc"
+  },
+  {
+   "terme": "tours/minute",
+   "priorite": "moyenne",
+   "domaine": "regl-proc"
+  },
+  {
+   "terme": "circuit carburant",
+   "priorite": "haute",
+   "domaine": "regl-proc"
+  },
+  {
+   "terme": "réservoir",
+   "priorite": "moyenne",
+   "domaine": "regl-proc"
+  },
+  {
+   "terme": "jauge",
+   "priorite": "moyenne",
+   "domaine": "regl-proc"
+  },
+  {
+   "terme": "pompe mécanique",
+   "priorite": "haute",
+   "domaine": "regl-proc"
+  },
+  {
+   "terme": "filtre",
+   "priorite": "moyenne",
+   "domaine": "regl-proc"
+  },
+  {
+   "terme": "carburant 100LL",
+   "priorite": "haute",
+   "domaine": "regl-proc"
+  },
+  {
+   "terme": "100LL",
+   "priorite": "haute",
+   "domaine": "regl-proc"
+  },
+  {
+   "terme": "UL91",
+   "priorite": "haute",
+   "domaine": "regl-proc"
+  },
+  {
+   "terme": "essence auto",
+   "priorite": "haute",
+   "domaine": "regl-proc"
+  },
+  {
+   "terme": "mogas",
+   "priorite": "haute",
+   "domaine": "regl-proc"
+  },
+  {
+   "terme": "panne sèche",
+   "priorite": "haute",
+   "domaine": "regl-proc"
+  },
+  {
+   "terme": "alimentation croisée",
+   "priorite": "haute",
+   "domaine": "regl-proc"
+  },
+  {
+   "terme": "crossfeed",
+   "priorite": "haute",
+   "domaine": "regl-proc"
+  },
+  {
+   "terme": "circuit électrique",
+   "priorite": "haute",
+   "domaine": "regl-proc"
+  },
+  {
+   "terme": "disjoncteur",
+   "priorite": "haute",
+   "domaine": "regl-proc"
+  },
+  {
+   "terme": "fusible",
+   "priorite": "haute",
+   "domaine": "regl-proc"
+  },
+  {
+   "terme": "master switch",
+   "priorite": "haute",
+   "domaine": "regl-proc"
+  },
+  {
+   "terme": "ampèremètre",
+   "priorite": "haute",
+   "domaine": "regl-proc"
+  },
+  {
+   "terme": "mal des transports",
+   "priorite": "haute",
+   "domaine": "regl-proc"
+  },
+  {
+   "terme": "otite barotraumatique",
+   "priorite": "haute",
+   "domaine": "regl-proc"
+  },
+  {
+   "terme": "aérosinusite",
+   "priorite": "haute",
+   "domaine": "regl-proc"
+  },
+  {
+   "terme": "effets de l'altitude",
+   "priorite": "haute",
+   "domaine": "regl-proc"
+  },
+  {
+   "terme": "illusions sensorielles",
+   "priorite": "haute",
+   "domaine": "regl-proc"
+  },
+  {
+   "terme": "illusion sensorielle",
+   "priorite": "haute",
+   "domaine": "regl-proc"
+  },
+  {
+   "terme": "désorientation spatiale",
+   "priorite": "haute",
+   "domaine": "regl-proc"
+  },
+  {
+   "terme": "illusion somatogravique",
+   "priorite": "haute",
+   "domaine": "regl-proc"
+  },
+  {
+   "terme": "fausse horizon",
+   "priorite": "haute",
+   "domaine": "regl-proc"
+  },
+  {
+   "terme": "faux horizon",
+   "priorite": "haute",
+   "domaine": "regl-proc"
+  },
+  {
+   "terme": "effet de trou noir",
+   "priorite": "haute",
+   "domaine": "regl-proc"
+  },
+  {
+   "terme": "rythme circadien",
+   "priorite": "haute",
+   "domaine": "regl-proc"
+  },
+  {
+   "terme": "situation awareness",
+   "priorite": "haute",
+   "domaine": "regl-proc"
+  },
+  {
+   "terme": "erreur",
+   "priorite": "moyenne",
+   "domaine": "regl-proc"
+  },
+  {
+   "terme": "violation",
+   "priorite": "haute",
+   "domaine": "regl-proc"
+  },
+  {
+   "terme": "complaisance",
+   "priorite": "haute",
+   "domaine": "regl-proc"
+  },
+  {
+   "terme": "excès de confiance",
+   "priorite": "haute",
+   "domaine": "regl-proc"
+  },
+  {
+   "terme": "pression temporelle",
+   "priorite": "haute",
+   "domaine": "regl-proc"
+  },
+  {
+   "terme": "get-there-itis",
+   "priorite": "haute",
+   "domaine": "regl-proc"
+  },
+  {
+   "terme": "chaîne des causes",
+   "priorite": "haute",
+   "domaine": "regl-proc"
+  },
+  {
+   "terme": "chaîne causale",
+   "priorite": "haute",
+   "domaine": "regl-proc"
+  },
+  {
+   "terme": "modèle SHELL",
+   "priorite": "haute",
+   "domaine": "regl-proc"
+  },
+  {
+   "terme": "modèle de Reason",
+   "priorite": "haute",
+   "domaine": "regl-proc"
+  },
+  {
+   "terme": "plaques de Reason",
+   "priorite": "haute",
+   "domaine": "regl-proc"
+  },
+  {
+   "terme": "DODAR",
+   "priorite": "haute",
+   "domaine": "regl-proc"
+  },
+  {
+   "terme": "prise de décision",
+   "priorite": "haute",
+   "domaine": "regl-proc"
+  },
+  {
+   "terme": "médicaments",
+   "priorite": "haute",
+   "domaine": "regl-proc"
+  },
+  {
+   "terme": "don du sang",
+   "priorite": "haute",
+   "domaine": "regl-proc"
+  },
+  {
+   "terme": "plongée sous-marine",
+   "priorite": "haute",
+   "domaine": "regl-proc"
+  },
+  {
+   "terme": "monoxyde de carbone",
+   "priorite": "haute",
+   "domaine": "regl-proc"
+  },
+  {
+   "terme": "déshydratation",
+   "priorite": "haute",
+   "domaine": "regl-proc"
+  },
+  {
+   "terme": "hypoglycémie",
+   "priorite": "haute",
+   "domaine": "regl-proc"
+  },
+  {
+   "terme": "hypothermie",
+   "priorite": "haute",
+   "domaine": "regl-proc"
+  },
+  {
+   "terme": "ceinture",
+   "priorite": "moyenne",
+   "domaine": "regl-proc"
+  },
+  {
+   "terme": "harnais",
+   "priorite": "moyenne",
+   "domaine": "regl-proc"
+  },
+  {
+   "terme": "extincteur",
+   "priorite": "haute",
+   "domaine": "regl-proc"
+  },
+  {
+   "terme": "gilet de sauvetage",
+   "priorite": "haute",
+   "domaine": "regl-proc"
+  },
+  {
+   "terme": "évacuation",
+   "priorite": "haute",
+   "domaine": "regl-proc"
+  }
+ ]
+}

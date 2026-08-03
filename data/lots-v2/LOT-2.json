@@ -1,0 +1,451 @@
+{
+  "lot": 2,
+  "domaine_principal": "aerodrome",
+  "termes": [
+    {
+      "terme": "masse et bras de levier",
+      "priorite": "haute",
+      "domaine": "aero-perfs"
+    },
+    {
+      "terme": "moment",
+      "priorite": "haute",
+      "domaine": "aero-perfs"
+    },
+    {
+      "terme": "limites de centrage",
+      "priorite": "haute",
+      "domaine": "aero-perfs"
+    },
+    {
+      "terme": "enveloppe de centrage",
+      "priorite": "haute",
+      "domaine": "aero-perfs"
+    },
+    {
+      "terme": "centrage avant",
+      "priorite": "haute",
+      "domaine": "aero-perfs"
+    },
+    {
+      "terme": "centrage arrière",
+      "priorite": "haute",
+      "domaine": "aero-perfs"
+    },
+    {
+      "terme": "diagramme de manœuvre",
+      "priorite": "haute",
+      "domaine": "aero-perfs"
+    },
+    {
+      "terme": "facteur de charge limite",
+      "priorite": "haute",
+      "domaine": "aero-perfs"
+    },
+    {
+      "terme": "facteur de charge ultime",
+      "priorite": "haute",
+      "domaine": "aero-perfs"
+    },
+    {
+      "terme": "catégorie normale",
+      "priorite": "haute",
+      "domaine": "aero-perfs"
+    },
+    {
+      "terme": "revêtement travaillant",
+      "priorite": "haute",
+      "domaine": "aero-perfs"
+    },
+    {
+      "terme": "fuselage semi-monocoque",
+      "priorite": "haute",
+      "domaine": "aero-perfs"
+    },
+    {
+      "terme": "train classique",
+      "priorite": "haute",
+      "domaine": "aero-perfs"
+    },
+    {
+      "terme": "train tricycle",
+      "priorite": "haute",
+      "domaine": "aero-perfs"
+    },
+    {
+      "terme": "amortisseur",
+      "priorite": "haute",
+      "domaine": "aero-perfs"
+    },
+    {
+      "terme": "stopway",
+      "priorite": "haute",
+      "domaine": "aerodrome"
+    },
+    {
+      "terme": "prolongement dégagé",
+      "priorite": "haute",
+      "domaine": "aerodrome"
+    },
+    {
+      "terme": "clearway",
+      "priorite": "haute",
+      "domaine": "aerodrome"
+    },
+    {
+      "terme": "aire de trafic",
+      "priorite": "haute",
+      "domaine": "aerodrome"
+    },
+    {
+      "terme": "aire de manœuvre",
+      "priorite": "haute",
+      "domaine": "aerodrome"
+    },
+    {
+      "terme": "aire de mouvement",
+      "priorite": "haute",
+      "domaine": "aerodrome"
+    },
+    {
+      "terme": "numéro de piste",
+      "priorite": "haute",
+      "domaine": "aerodrome"
+    },
+    {
+      "terme": "feux de seuil",
+      "priorite": "haute",
+      "domaine": "aerodrome"
+    },
+    {
+      "terme": "feux d'extrémité",
+      "priorite": "haute",
+      "domaine": "aerodrome"
+    },
+    {
+      "terme": "feux de bord de piste",
+      "priorite": "haute",
+      "domaine": "aerodrome"
+    },
+    {
+      "terme": "feux d'axe",
+      "priorite": "haute",
+      "domaine": "aerodrome"
+    },
+    {
+      "terme": "PAPI",
+      "priorite": "haute",
+      "domaine": "aerodrome"
+    },
+    {
+      "terme": "VASIS",
+      "priorite": "haute",
+      "domaine": "aerodrome"
+    },
+    {
+      "terme": "indicateur de pente d'approche",
+      "priorite": "haute",
+      "domaine": "aerodrome"
+    },
+    {
+      "terme": "balisage de taxiway",
+      "priorite": "haute",
+      "domaine": "aerodrome"
+    },
+    {
+      "terme": "feux d'obstacle",
+      "priorite": "haute",
+      "domaine": "aerodrome"
+    },
+    {
+      "terme": "télécommande du balisage",
+      "priorite": "haute",
+      "domaine": "aerodrome"
+    },
+    {
+      "terme": "PCL",
+      "priorite": "haute",
+      "domaine": "aerodrome"
+    },
+    {
+      "terme": "croix blanche",
+      "priorite": "haute",
+      "domaine": "aerodrome"
+    },
+    {
+      "terme": "signaux visuels au sol",
+      "priorite": "haute",
+      "domaine": "aerodrome"
+    },
+    {
+      "terme": "signaux lumineux de la tour",
+      "priorite": "haute",
+      "domaine": "aerodrome"
+    },
+    {
+      "terme": "pistolet à signaux",
+      "priorite": "haute",
+      "domaine": "aerodrome"
+    },
+    {
+      "terme": "classe A",
+      "priorite": "haute",
+      "domaine": "aerodrome"
+    },
+    {
+      "terme": "classe B",
+      "priorite": "haute",
+      "domaine": "aerodrome"
+    },
+    {
+      "terme": "classe C",
+      "priorite": "haute",
+      "domaine": "aerodrome"
+    },
+    {
+      "terme": "classe D",
+      "priorite": "haute",
+      "domaine": "aerodrome"
+    },
+    {
+      "terme": "classe E",
+      "priorite": "haute",
+      "domaine": "aerodrome"
+    },
+    {
+      "terme": "classe F",
+      "priorite": "haute",
+      "domaine": "aerodrome"
+    },
+    {
+      "terme": "classe G",
+      "priorite": "haute",
+      "domaine": "aerodrome"
+    },
+    {
+      "terme": "CTA",
+      "priorite": "haute",
+      "domaine": "aerodrome"
+    },
+    {
+      "terme": "AWY",
+      "priorite": "haute",
+      "domaine": "aerodrome"
+    },
+    {
+      "terme": "voie aérienne",
+      "priorite": "haute",
+      "domaine": "aerodrome"
+    },
+    {
+      "terme": "zone P",
+      "priorite": "haute",
+      "domaine": "aerodrome"
+    },
+    {
+      "terme": "zone R",
+      "priorite": "haute",
+      "domaine": "aerodrome"
+    },
+    {
+      "terme": "zone D",
+      "priorite": "haute",
+      "domaine": "aerodrome"
+    },
+    {
+      "terme": "secteur d'information de vol",
+      "priorite": "haute",
+      "domaine": "aerodrome"
+    },
+    {
+      "terme": "espace non contrôlé",
+      "priorite": "haute",
+      "domaine": "aerodrome"
+    },
+    {
+      "terme": "VFR spécial",
+      "priorite": "haute",
+      "domaine": "aerodrome"
+    },
+    {
+      "terme": "carte OACI 1/500 000",
+      "priorite": "haute",
+      "domaine": "aerodrome"
+    },
+    {
+      "terme": "SIA",
+      "priorite": "haute",
+      "domaine": "aerodrome"
+    },
+    {
+      "terme": "AIC",
+      "priorite": "haute",
+      "domaine": "aerodrome"
+    },
+    {
+      "terme": "index",
+      "priorite": "moyenne",
+      "domaine": "aero-perfs"
+    },
+    {
+      "terme": "masse sans carburant",
+      "priorite": "moyenne",
+      "domaine": "aero-perfs"
+    },
+    {
+      "terme": "catégorie utilitaire",
+      "priorite": "moyenne",
+      "domaine": "aero-perfs"
+    },
+    {
+      "terme": "catégorie voltige",
+      "priorite": "moyenne",
+      "domaine": "aero-perfs"
+    },
+    {
+      "terme": "fuselage treillis",
+      "priorite": "moyenne",
+      "domaine": "aero-perfs"
+    },
+    {
+      "terme": "fuselage monocoque",
+      "priorite": "moyenne",
+      "domaine": "aero-perfs"
+    },
+    {
+      "terme": "atterrisseur",
+      "priorite": "moyenne",
+      "domaine": "aero-perfs"
+    },
+    {
+      "terme": "aire de sécurité d'extrémité",
+      "priorite": "moyenne",
+      "domaine": "aerodrome"
+    },
+    {
+      "terme": "RESA",
+      "priorite": "moyenne",
+      "domaine": "aerodrome"
+    },
+    {
+      "terme": "raquette de retournement",
+      "priorite": "moyenne",
+      "domaine": "aerodrome"
+    },
+    {
+      "terme": "bretelle",
+      "priorite": "moyenne",
+      "domaine": "aerodrome"
+    },
+    {
+      "terme": "résistance de piste",
+      "priorite": "moyenne",
+      "domaine": "aerodrome"
+    },
+    {
+      "terme": "PCN",
+      "priorite": "moyenne",
+      "domaine": "aerodrome"
+    },
+    {
+      "terme": "point cible",
+      "priorite": "moyenne",
+      "domaine": "aerodrome"
+    },
+    {
+      "terme": "zone de toucher des roues",
+      "priorite": "moyenne",
+      "domaine": "aerodrome"
+    },
+    {
+      "terme": "marques de guidage",
+      "priorite": "moyenne",
+      "domaine": "aerodrome"
+    },
+    {
+      "terme": "point d'attente intermédiaire",
+      "priorite": "moyenne",
+      "domaine": "aerodrome"
+    },
+    {
+      "terme": "barre d'arrêt",
+      "priorite": "moyenne",
+      "domaine": "aerodrome"
+    },
+    {
+      "terme": "feux à éclats",
+      "priorite": "moyenne",
+      "domaine": "aerodrome"
+    },
+    {
+      "terme": "T-VASIS",
+      "priorite": "moyenne",
+      "domaine": "aerodrome"
+    },
+    {
+      "terme": "phare d'aérodrome",
+      "priorite": "moyenne",
+      "domaine": "aerodrome"
+    },
+    {
+      "terme": "balisage basse intensité",
+      "priorite": "moyenne",
+      "domaine": "aerodrome"
+    },
+    {
+      "terme": "balisage haute intensité",
+      "priorite": "moyenne",
+      "domaine": "aerodrome"
+    },
+    {
+      "terme": "damier",
+      "priorite": "moyenne",
+      "domaine": "aerodrome"
+    },
+    {
+      "terme": "panneau de signalisation",
+      "priorite": "moyenne",
+      "domaine": "aerodrome"
+    },
+    {
+      "terme": "zone de ségrégation",
+      "priorite": "moyenne",
+      "domaine": "aerodrome"
+    },
+    {
+      "terme": "AD",
+      "priorite": "moyenne",
+      "domaine": "aerodrome"
+    },
+    {
+      "terme": "complément aux cartes",
+      "priorite": "moyenne",
+      "domaine": "aerodrome"
+    },
+    {
+      "terme": "échelle",
+      "priorite": "moyenne",
+      "domaine": "aerodrome"
+    },
+    {
+      "terme": "plateforme",
+      "priorite": "basse",
+      "domaine": "aerodrome"
+    },
+    {
+      "terme": "nature de surface",
+      "priorite": "basse",
+      "domaine": "aerodrome"
+    },
+    {
+      "terme": "surface revêtue",
+      "priorite": "basse",
+      "domaine": "aerodrome"
+    },
+    {
+      "terme": "surface en gazon",
+      "priorite": "basse",
+      "domaine": "aerodrome"
+    }
+  ]
+}

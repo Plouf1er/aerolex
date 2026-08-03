@@ -1,0 +1,451 @@
+{
+  "lot": 4,
+  "domaine_principal": "nav-radio",
+  "termes": [
+    {
+      "terme": "fz",
+      "priorite": "haute",
+      "domaine": "meteo"
+    },
+    {
+      "terme": "vc",
+      "priorite": "haute",
+      "domaine": "meteo"
+    },
+    {
+      "terme": "hz",
+      "priorite": "haute",
+      "domaine": "meteo"
+    },
+    {
+      "terme": "fu",
+      "priorite": "haute",
+      "domaine": "meteo"
+    },
+    {
+      "terme": "sq",
+      "priorite": "haute",
+      "domaine": "meteo"
+    },
+    {
+      "terme": "po",
+      "priorite": "haute",
+      "domaine": "meteo"
+    },
+    {
+      "terme": "fc",
+      "priorite": "haute",
+      "domaine": "meteo"
+    },
+    {
+      "terme": "ds",
+      "priorite": "haute",
+      "domaine": "meteo"
+    },
+    {
+      "terme": "ss",
+      "priorite": "haute",
+      "domaine": "meteo"
+    },
+    {
+      "terme": "orage",
+      "priorite": "haute",
+      "domaine": "meteo"
+    },
+    {
+      "terme": "cellule orageuse",
+      "priorite": "haute",
+      "domaine": "meteo"
+    },
+    {
+      "terme": "orage multicellulaire",
+      "priorite": "haute",
+      "domaine": "meteo"
+    },
+    {
+      "terme": "orage supercellulaire",
+      "priorite": "haute",
+      "domaine": "meteo"
+    },
+    {
+      "terme": "tornade",
+      "priorite": "haute",
+      "domaine": "meteo"
+    },
+    {
+      "terme": "trombe",
+      "priorite": "haute",
+      "domaine": "meteo"
+    },
+    {
+      "terme": "front de rafales",
+      "priorite": "haute",
+      "domaine": "meteo"
+    },
+    {
+      "terme": "1000 ft agglomération",
+      "priorite": "haute",
+      "domaine": "nav-radio"
+    },
+    {
+      "terme": "1013,25 hPa",
+      "priorite": "haute",
+      "domaine": "nav-radio"
+    },
+    {
+      "terme": "500 ft",
+      "priorite": "haute",
+      "domaine": "nav-radio"
+    },
+    {
+      "terme": "MEF",
+      "priorite": "haute",
+      "domaine": "nav-radio"
+    },
+    {
+      "terme": "TL",
+      "priorite": "haute",
+      "domaine": "nav-radio"
+    },
+    {
+      "terme": "altitude",
+      "priorite": "haute",
+      "domaine": "nav-radio"
+    },
+    {
+      "terme": "altitude vraie",
+      "priorite": "haute",
+      "domaine": "nav-radio"
+    },
+    {
+      "terme": "du chaud vers le froid, gare aux dégâts",
+      "priorite": "haute",
+      "domaine": "nav-radio"
+    },
+    {
+      "terme": "effet température sur l'altimètre",
+      "priorite": "haute",
+      "domaine": "nav-radio"
+    },
+    {
+      "terme": "erreur altimétrique",
+      "priorite": "haute",
+      "domaine": "nav-radio"
+    },
+    {
+      "terme": "hauteur",
+      "priorite": "haute",
+      "domaine": "nav-radio"
+    },
+    {
+      "terme": "hauteur de survol",
+      "priorite": "haute",
+      "domaine": "nav-radio"
+    },
+    {
+      "terme": "7000 (VFR)",
+      "priorite": "haute",
+      "domaine": "nav-radio"
+    },
+    {
+      "terme": "DME",
+      "priorite": "haute",
+      "domaine": "nav-radio"
+    },
+    {
+      "terme": "ELT",
+      "priorite": "haute",
+      "domaine": "nav-radio"
+    },
+    {
+      "terme": "NDB",
+      "priorite": "haute",
+      "domaine": "nav-radio"
+    },
+    {
+      "terme": "alternat",
+      "priorite": "haute",
+      "domaine": "nav-radio"
+    },
+    {
+      "terme": "blocage Pitot",
+      "priorite": "haute",
+      "domaine": "nav-radio"
+    },
+    {
+      "terme": "blocage statique",
+      "priorite": "haute",
+      "domaine": "nav-radio"
+    },
+    {
+      "terme": "code 7500",
+      "priorite": "haute",
+      "domaine": "nav-radio"
+    },
+    {
+      "terme": "code 7600",
+      "priorite": "haute",
+      "domaine": "nav-radio"
+    },
+    {
+      "terme": "code 7700",
+      "priorite": "haute",
+      "domaine": "nav-radio"
+    },
+    {
+      "terme": "compas magnétique",
+      "priorite": "haute",
+      "domaine": "nav-radio"
+    },
+    {
+      "terme": "conservateur de cap",
+      "priorite": "haute",
+      "domaine": "nav-radio"
+    },
+    {
+      "terme": "coordinateur de virage",
+      "priorite": "haute",
+      "domaine": "nav-radio"
+    },
+    {
+      "terme": "directionnel",
+      "priorite": "haute",
+      "domaine": "nav-radio"
+    },
+    {
+      "terme": "erreurs gyroscopiques",
+      "priorite": "haute",
+      "domaine": "nav-radio"
+    },
+    {
+      "terme": "indicateur de virage",
+      "priorite": "haute",
+      "domaine": "nav-radio"
+    },
+    {
+      "terme": "mode A",
+      "priorite": "haute",
+      "domaine": "nav-radio"
+    },
+    {
+      "terme": "mode C",
+      "priorite": "haute",
+      "domaine": "nav-radio"
+    },
+    {
+      "terme": "mode S",
+      "priorite": "haute",
+      "domaine": "nav-radio"
+    },
+    {
+      "terme": "prise Pitot",
+      "priorite": "haute",
+      "domaine": "nav-radio"
+    },
+    {
+      "terme": "prise dynamique",
+      "priorite": "haute",
+      "domaine": "nav-radio"
+    },
+    {
+      "terme": "prise statique",
+      "priorite": "haute",
+      "domaine": "nav-radio"
+    },
+    {
+      "terme": "précession",
+      "priorite": "haute",
+      "domaine": "nav-radio"
+    },
+    {
+      "terme": "réchauffage Pitot",
+      "priorite": "haute",
+      "domaine": "nav-radio"
+    },
+    {
+      "terme": "tube de Pitot",
+      "priorite": "haute",
+      "domaine": "nav-radio"
+    },
+    {
+      "terme": "base de temps",
+      "priorite": "haute",
+      "domaine": "nav-radio"
+    },
+    {
+      "terme": "facteur de base",
+      "priorite": "haute",
+      "domaine": "nav-radio"
+    },
+    {
+      "terme": "gisement",
+      "priorite": "haute",
+      "domaine": "nav-radio"
+    },
+    {
+      "terme": "relèvement",
+      "priorite": "haute",
+      "domaine": "nav-radio"
+    },
+    {
+      "terme": "route sol",
+      "priorite": "haute",
+      "domaine": "nav-radio"
+    },
+    {
+      "terme": "EOBT",
+      "priorite": "haute",
+      "domaine": "nav-radio"
+    },
+    {
+      "terme": "ETD",
+      "priorite": "haute",
+      "domaine": "nav-radio"
+    },
+    {
+      "terme": "cheminement",
+      "priorite": "haute",
+      "domaine": "nav-radio"
+    },
+    {
+      "terme": "estime",
+      "priorite": "haute",
+      "domaine": "nav-radio"
+    },
+    {
+      "terme": "journal de navigation",
+      "priorite": "haute",
+      "domaine": "nav-radio"
+    },
+    {
+      "terme": "log de navigation",
+      "priorite": "haute",
+      "domaine": "nav-radio"
+    },
+    {
+      "terme": "navigation à vue",
+      "priorite": "haute",
+      "domaine": "nav-radio"
+    },
+    {
+      "terme": "point tournant",
+      "priorite": "haute",
+      "domaine": "nav-radio"
+    },
+    {
+      "terme": "recalage",
+      "priorite": "haute",
+      "domaine": "nav-radio"
+    },
+    {
+      "terme": "repère caractéristique",
+      "priorite": "haute",
+      "domaine": "nav-radio"
+    },
+    {
+      "terme": "temps sans vent",
+      "priorite": "haute",
+      "domaine": "nav-radio"
+    },
+    {
+      "terme": "coordonnées géographiques",
+      "priorite": "haute",
+      "domaine": "nav-radio"
+    },
+    {
+      "terme": "courbe de déviation",
+      "priorite": "haute",
+      "domaine": "nav-radio"
+    },
+    {
+      "terme": "latitude",
+      "priorite": "haute",
+      "domaine": "nav-radio"
+    },
+    {
+      "terme": "longitude",
+      "priorite": "haute",
+      "domaine": "nav-radio"
+    },
+    {
+      "terme": "méridien",
+      "priorite": "haute",
+      "domaine": "nav-radio"
+    },
+    {
+      "terme": "nord compas",
+      "priorite": "haute",
+      "domaine": "nav-radio"
+    },
+    {
+      "terme": "MORA",
+      "priorite": "moyenne",
+      "domaine": "nav-radio"
+    },
+    {
+      "terme": "couche de transition",
+      "priorite": "moyenne",
+      "domaine": "nav-radio"
+    },
+    {
+      "terme": "RNAV",
+      "priorite": "moyenne",
+      "domaine": "nav-radio"
+    },
+    {
+      "terme": "marqueur",
+      "priorite": "moyenne",
+      "domaine": "nav-radio"
+    },
+    {
+      "terme": "QTE",
+      "priorite": "moyenne",
+      "domaine": "nav-radio"
+    },
+    {
+      "terme": "QUJ",
+      "priorite": "moyenne",
+      "domaine": "nav-radio"
+    },
+    {
+      "terme": "règle du 1 en 60",
+      "priorite": "moyenne",
+      "domaine": "nav-radio"
+    },
+    {
+      "terme": "dead reckoning",
+      "priorite": "moyenne",
+      "domaine": "nav-radio"
+    },
+    {
+      "terme": "dernier point connu",
+      "priorite": "moyenne",
+      "domaine": "nav-radio"
+    },
+    {
+      "terme": "grand cercle",
+      "priorite": "moyenne",
+      "domaine": "nav-radio"
+    },
+    {
+      "terme": "inclinaison magnétique",
+      "priorite": "moyenne",
+      "domaine": "nav-radio"
+    },
+    {
+      "terme": "loxodromie",
+      "priorite": "moyenne",
+      "domaine": "nav-radio"
+    },
+    {
+      "terme": "minute d'arc",
+      "priorite": "moyenne",
+      "domaine": "nav-radio"
+    },
+    {
+      "terme": "orthodromie",
+      "priorite": "moyenne",
+      "domaine": "nav-radio"
+    }
+  ]
+}

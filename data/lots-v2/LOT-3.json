@@ -1,0 +1,451 @@
+{
+  "lot": 3,
+  "domaine_principal": "meteo",
+  "termes": [
+    {
+      "terme": "altitude minimale de sécurité",
+      "priorite": "haute",
+      "domaine": "aerodrome"
+    },
+    {
+      "terme": "MSA",
+      "priorite": "haute",
+      "domaine": "aerodrome"
+    },
+    {
+      "terme": "obstacle",
+      "priorite": "haute",
+      "domaine": "aerodrome"
+    },
+    {
+      "terme": "ligne à haute tension",
+      "priorite": "haute",
+      "domaine": "aerodrome"
+    },
+    {
+      "terme": "TWR",
+      "priorite": "haute",
+      "domaine": "aerodrome"
+    },
+    {
+      "terme": "APP",
+      "priorite": "haute",
+      "domaine": "aerodrome"
+    },
+    {
+      "terme": "ACC",
+      "priorite": "haute",
+      "domaine": "aerodrome"
+    },
+    {
+      "terme": "auto-information",
+      "priorite": "haute",
+      "domaine": "aerodrome"
+    },
+    {
+      "terme": "agent AFIS",
+      "priorite": "haute",
+      "domaine": "aerodrome"
+    },
+    {
+      "terme": "aérodrome contrôlé",
+      "priorite": "haute",
+      "domaine": "aerodrome"
+    },
+    {
+      "terme": "aérodrome non contrôlé",
+      "priorite": "haute",
+      "domaine": "aerodrome"
+    },
+    {
+      "terme": "service d'alerte",
+      "priorite": "haute",
+      "domaine": "aerodrome"
+    },
+    {
+      "terme": "RFFS",
+      "priorite": "haute",
+      "domaine": "aerodrome"
+    },
+    {
+      "terme": "SSLIA",
+      "priorite": "haute",
+      "domaine": "aerodrome"
+    },
+    {
+      "terme": "point de compte rendu",
+      "priorite": "haute",
+      "domaine": "aerodrome"
+    },
+    {
+      "terme": "point d'entrée",
+      "priorite": "haute",
+      "domaine": "aerodrome"
+    },
+    {
+      "terme": "point de sortie",
+      "priorite": "haute",
+      "domaine": "aerodrome"
+    },
+    {
+      "terme": "dégagement de piste",
+      "priorite": "haute",
+      "domaine": "aerodrome"
+    },
+    {
+      "terme": "stratosphère",
+      "priorite": "haute",
+      "domaine": "meteo"
+    },
+    {
+      "terme": "gradient adiabatique sec",
+      "priorite": "haute",
+      "domaine": "meteo"
+    },
+    {
+      "terme": "gradient adiabatique saturé",
+      "priorite": "haute",
+      "domaine": "meteo"
+    },
+    {
+      "terme": "isothermie",
+      "priorite": "haute",
+      "domaine": "meteo"
+    },
+    {
+      "terme": "pression atmosphérique",
+      "priorite": "haute",
+      "domaine": "meteo"
+    },
+    {
+      "terme": "humidité relative",
+      "priorite": "haute",
+      "domaine": "meteo"
+    },
+    {
+      "terme": "surfusion",
+      "priorite": "haute",
+      "domaine": "meteo"
+    },
+    {
+      "terme": "chaleur latente",
+      "priorite": "haute",
+      "domaine": "meteo"
+    },
+    {
+      "terme": "surface isobare",
+      "priorite": "haute",
+      "domaine": "meteo"
+    },
+    {
+      "terme": "marais barométrique",
+      "priorite": "haute",
+      "domaine": "meteo"
+    },
+    {
+      "terme": "cirrus",
+      "priorite": "haute",
+      "domaine": "meteo"
+    },
+    {
+      "terme": "cirrocumulus",
+      "priorite": "haute",
+      "domaine": "meteo"
+    },
+    {
+      "terme": "humilis",
+      "priorite": "haute",
+      "domaine": "meteo"
+    },
+    {
+      "terme": "mediocris",
+      "priorite": "haute",
+      "domaine": "meteo"
+    },
+    {
+      "terme": "congestus",
+      "priorite": "haute",
+      "domaine": "meteo"
+    },
+    {
+      "terme": "capillatus",
+      "priorite": "haute",
+      "domaine": "meteo"
+    },
+    {
+      "terme": "virga",
+      "priorite": "haute",
+      "domaine": "meteo"
+    },
+    {
+      "terme": "bruine",
+      "priorite": "haute",
+      "domaine": "meteo"
+    },
+    {
+      "terme": "grêle",
+      "priorite": "haute",
+      "domaine": "meteo"
+    },
+    {
+      "terme": "grésil",
+      "priorite": "haute",
+      "domaine": "meteo"
+    },
+    {
+      "terme": "neige",
+      "priorite": "haute",
+      "domaine": "meteo"
+    },
+    {
+      "terme": "pluie surfondue",
+      "priorite": "haute",
+      "domaine": "meteo"
+    },
+    {
+      "terme": "brouillard d'advection",
+      "priorite": "haute",
+      "domaine": "meteo"
+    },
+    {
+      "terme": "brouillard d'évaporation",
+      "priorite": "haute",
+      "domaine": "meteo"
+    },
+    {
+      "terme": "brume sèche",
+      "priorite": "haute",
+      "domaine": "meteo"
+    },
+    {
+      "terme": "front stationnaire",
+      "priorite": "haute",
+      "domaine": "meteo"
+    },
+    {
+      "terme": "front polaire",
+      "priorite": "haute",
+      "domaine": "meteo"
+    },
+    {
+      "terme": "dorsale",
+      "priorite": "haute",
+      "domaine": "meteo"
+    },
+    {
+      "terme": "thalweg",
+      "priorite": "haute",
+      "domaine": "meteo"
+    },
+    {
+      "terme": "col barométrique",
+      "priorite": "haute",
+      "domaine": "meteo"
+    },
+    {
+      "terme": "secteur chaud",
+      "priorite": "haute",
+      "domaine": "meteo"
+    },
+    {
+      "terme": "traîne",
+      "priorite": "haute",
+      "domaine": "meteo"
+    },
+    {
+      "terme": "subsidence",
+      "priorite": "haute",
+      "domaine": "meteo"
+    },
+    {
+      "terme": "thermique",
+      "priorite": "haute",
+      "domaine": "meteo"
+    },
+    {
+      "terme": "adiabatique",
+      "priorite": "haute",
+      "domaine": "meteo"
+    },
+    {
+      "terme": "force de Coriolis",
+      "priorite": "haute",
+      "domaine": "meteo"
+    },
+    {
+      "terme": "vent géostrophique",
+      "priorite": "haute",
+      "domaine": "meteo"
+    },
+    {
+      "terme": "brise de montagne",
+      "priorite": "haute",
+      "domaine": "meteo"
+    },
+    {
+      "terme": "onde orographique",
+      "priorite": "haute",
+      "domaine": "meteo"
+    },
+    {
+      "terme": "rafale descendante",
+      "priorite": "haute",
+      "domaine": "meteo"
+    },
+    {
+      "terme": "microburst",
+      "priorite": "haute",
+      "domaine": "meteo"
+    },
+    {
+      "terme": "givre blanc",
+      "priorite": "haute",
+      "domaine": "meteo"
+    },
+    {
+      "terme": "givrage clair",
+      "priorite": "haute",
+      "domaine": "meteo"
+    },
+    {
+      "terme": "givrage mixte",
+      "priorite": "haute",
+      "domaine": "meteo"
+    },
+    {
+      "terme": "dégivrage",
+      "priorite": "haute",
+      "domaine": "meteo"
+    },
+    {
+      "terme": "antigivrage",
+      "priorite": "haute",
+      "domaine": "meteo"
+    },
+    {
+      "terme": "cat",
+      "priorite": "haute",
+      "domaine": "meteo"
+    },
+    {
+      "terme": "turbulence thermique",
+      "priorite": "haute",
+      "domaine": "meteo"
+    },
+    {
+      "terme": "visibilité météo",
+      "priorite": "haute",
+      "domaine": "meteo"
+    },
+    {
+      "terme": "rvr",
+      "priorite": "haute",
+      "domaine": "meteo"
+    },
+    {
+      "terme": "airmet",
+      "priorite": "haute",
+      "domaine": "meteo"
+    },
+    {
+      "terme": "gamet",
+      "priorite": "haute",
+      "domaine": "meteo"
+    },
+    {
+      "terme": "volmet",
+      "priorite": "haute",
+      "domaine": "meteo"
+    },
+    {
+      "terme": "carte isobarique",
+      "priorite": "haute",
+      "domaine": "meteo"
+    },
+    {
+      "terme": "coupe verticale",
+      "priorite": "haute",
+      "domaine": "meteo"
+    },
+    {
+      "terme": "ra",
+      "priorite": "haute",
+      "domaine": "meteo"
+    },
+    {
+      "terme": "sn",
+      "priorite": "haute",
+      "domaine": "meteo"
+    },
+    {
+      "terme": "ts",
+      "priorite": "haute",
+      "domaine": "meteo"
+    },
+    {
+      "terme": "fg",
+      "priorite": "haute",
+      "domaine": "meteo"
+    },
+    {
+      "terme": "dz",
+      "priorite": "haute",
+      "domaine": "meteo"
+    },
+    {
+      "terme": "gr",
+      "priorite": "haute",
+      "domaine": "meteo"
+    },
+    {
+      "terme": "sh",
+      "priorite": "haute",
+      "domaine": "meteo"
+    },
+    {
+      "terme": "projection",
+      "priorite": "moyenne",
+      "domaine": "aerodrome"
+    },
+    {
+      "terme": "courbe de niveau",
+      "priorite": "moyenne",
+      "domaine": "aerodrome"
+    },
+    {
+      "terme": "relief",
+      "priorite": "moyenne",
+      "domaine": "aerodrome"
+    },
+    {
+      "terme": "salr",
+      "priorite": "moyenne",
+      "domaine": "meteo"
+    },
+    {
+      "terme": "étage supérieur",
+      "priorite": "moyenne",
+      "domaine": "meteo"
+    },
+    {
+      "terme": "étage moyen",
+      "priorite": "moyenne",
+      "domaine": "meteo"
+    },
+    {
+      "terme": "étage inférieur",
+      "priorite": "moyenne",
+      "domaine": "meteo"
+    },
+    {
+      "terme": "hydrométéore",
+      "priorite": "moyenne",
+      "domaine": "meteo"
+    },
+    {
+      "terme": "isallobare",
+      "priorite": "basse",
+      "domaine": "meteo"
+    }
+  ]
+}
