@@ -1,6 +1,6 @@
 {
-  "empreinte": "f9299c48",
-  "date": "2026-08-04T00:55:56+00:00",
+  "empreinte": "445f7b24",
+  "date": "2026-08-04T00:58:59+00:00",
   "nb_termes": 1300,
   "assets": [
     {
@@ -20,8 +20,8 @@
     },
     {
       "fichier": "aerolex-svg.js",
-      "octets": 12501,
-      "sha256": "001f5f99"
+      "octets": 13511,
+      "sha256": "3a4421a9"
     },
     {
       "fichier": "lexicon.json",

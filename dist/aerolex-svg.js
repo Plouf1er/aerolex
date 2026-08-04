@@ -64,18 +64,23 @@
     return null;
   }
 
-  /** Cible d'un libellé pris comme un tout, ou null (libellé atomique). */
+  /* Cible d'un libellé ATOMIQUE (le terme couvre toute l'étiquette), ou null.
+
+     STRICT VOLONTAIREMENT : on n'accepte que la couverture totale. Un repli sur
+     hits[0] rendrait cliquable le <text> ENTIER dès qu'il contient un terme —
+     « 3. Volets selon manuel de vol » deviendrait une seule grande zone
+     cliquable « volets », étiquette et numéro compris. Le libellé partiel est
+     le travail de splitCompositeText(), qui n'active que la sous-chaîne. */
   function resolveLabel(txt) {
     var hits = resolveSurfaces(txt);
     if (!hits.length) return null;
     var s = String(txt == null ? '' : txt).replace(/\u00a0/g, ' ').trim();
+    // Ponctuation/parenthèses de bord ignorées : « (crosswind) » ≡ « crosswind ».
+    var noyau = s.replace(/^[(\[«"'\s]+|[)\]»"':;,.!?\s]+$/g, '');
     for (var i = 0; i < hits.length; i++) {
-      // Couvre tout le libellé (aux espaces/ponctuation légère près) ?
-      if (hits[i].raw.trim().length >= s.replace(/^[(\[«"'\s]+|[)\]»"':;,.!?\s]+$/g, '').length) {
-        return hits[i];
-      }
+      if (hits[i].raw.trim().length >= noyau.length) return hits[i];
     }
-    return hits[0];
+    return null;
   }
 
   /* Marque un élément SVG textuel comme terme cliquable.
@@ -95,7 +100,15 @@
     el.setAttribute('tabindex', '0');
     var t = el.getAttribute('data-alx-term');
     el.setAttribute('aria-label', t + ' — ouvrir la définition');
-    if (!el.querySelector || !el.querySelector('title')) {
+    /* Infobulle : JAMAIS dans un <tspan>.
+       Un <title> est bien un élément descriptif non rendu... dans un <text>.
+       Dans un <tspan>, les navigateurs le traitent comme du contenu textuel et
+       DESSINENT son texte : constaté le 04/08/2026, « finale instable » est
+       devenu « finale instablefinale — ouvrir la définition » superposé au
+       schéma. On ne pose donc le <title> que sur un <text> ; pour un <tspan>
+       l'aria-label ci-dessus assure déjà l'annonce aux lecteurs d'écran. */
+    var tag = (el.tagName || '').toLowerCase();
+    if (tag === 'text' && el.querySelector && !el.querySelector('title')) {
       try {
         var ti = document.createElementNS(SVG_NS, 'title');
         ti.textContent = t + ' — ouvrir la définition';
@@ -252,7 +265,7 @@
   window.AeroLexSvg = window.AeroLexSvg || {};
   window.AeroLexSvg.process = process;
   window.AeroLexSvg.resolveLabel = resolveLabel;
-  window.AeroLexSvg.version = '1.0.0';
+  window.AeroLexSvg.version = '1.1.0';
 
   /* L'index peut arriver après nous (aerolex.js fetche en asynchrone). On
      retente donc une fois l'index disponible : sans lui, resolveLabel() ne
