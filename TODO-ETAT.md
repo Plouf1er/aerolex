@@ -1,5 +1,5 @@
 # AeroLex — État & TODO
-_Dernière mise à jour : 2026-08-04 01:25_
+_Dernière mise à jour : 2026-08-04 02:55_
 
 ## 0. 🔴 EN HAUT DE PILE — à faire dès que possible (Louis, 04/08 01h23)
 
@@ -27,6 +27,32 @@ Correction à appliquer :
 
 ### 0.2 Casse des V-speeds — `case_sensitive` (tranché 04/08 01h21)
 Décision prise, **pas encore implémentée** : les 4 faux positifs sur `VA` sont toujours en ligne. Détail complet en section 6.
+
+### 0.3 🔤 SÉPARER LE MOT DE SES DÉFINITIONS — N définitions par mot (Louis 04/08 01h43)
+**Demandé explicitement par Louis d'être noté « assez haut dans la liste ».**
+
+Idée de Louis : séparer la notion de **MOT** (la forme de surface, le slug, le matching) de celle de **DÉFINITION** (le contenu rédigé). Un mot peut porter **N définitions**.
+
+Ce que ça débloque immédiatement — deux arbitrages du modèle v4 réglés par une seule idée :
+
+| Problème | Résolution par la séparation |
+|---|---|
+| **Homonymes — arbitrage (9)** | `dérive` = UNE page, **deux définitions listées** (Navigation / Empennage), chacune avec **sa** famille et **ses** xrefs. Plus besoin d'élire un « sens par défaut » : le lecteur voit l'ambiguïté, ce qui est pédagogiquement supérieur à un choix arbitraire qui cache l'autre sens. |
+| **Fusions de doublons — arbitrage (11)** | Plus rien à détruire. Sur MTOW (3 fiches, **3 définitions rédigées et correctes**, 96-311 car.), les définitions cohabitent et `MTOW`/`MTOM` deviennent des formes de surface. **Aucune définition ne meurt** → l'arbitrage « laquelle survit » disparaît. |
+
+**Format rétro-compatible (proposé par Louis, validé)** :
+- `definition` reste une **CHAÎNE** quand il n'y a qu'un seul sens ;
+- un tableau **`definitions[]`** apparaît **seulement** s'il y en a plusieurs ;
+- le JS **teste le type** et gère les deux formes.
+
+→ Conséquence chiffrée : **1 299 payloads inchangés**, seul `dérive` prend la forme enrichie.
+  **Ce n'est PAS une migration des 1 300 fichiers** (ma première estimation était fausse) : c'est un ajout sur un fichier + du code défensif dans le consommateur.
+
+À prévoir dans la popup : décider quoi afficher avec 2+ définitions → **empiler quand il y en a 2**, **replier au-delà** (« + 1 autre sens »). Cas rare et mesuré : **1 seul vrai homonyme identifié sur 1 300 termes**.
+
+⚠️ Le champ `v` (payload_version) doit protéger ce changement de forme — une clé qui change de sens entre deux formats casse le consommateur (leçon du bug popup du 04/08).
+
+→ Détail complet et plan d'action : `TODO-FEATURES.md` §4ter. Axe à ne pas confondre avec `TODO-FEATURES.md` §8 (UN sens, plusieurs noms).
 
 ## 1. État réel vérifié
 
@@ -114,14 +140,15 @@ Décision prise, **pas encore implémentée** : les 4 faux positifs sur `VA` son
 
 ### Arbitrages du modèle de données v4 (04/08)
 - ✅ **(10) Casse des V-speeds — TRANCHÉ 04/08 01h21** → décision détaillée en section 6 (`case_sensitive` par terme). À implémenter.
-- ⬜ (8) Famille primaire des unités transverses (`hPa`, `kt`, `ft`…)
-- ⬜ (9) Sens par défaut des homonymes (quelle fiche prend la forme de surface nue)
-- ⬜ (11) Quelle définition survit aux fusions de doublons
-- ⬜ (12) Stubs ou rien pour les codes OACI
-- ⬜ (13) Défauts plateforme des blocs popup
-- ⬜ (14) Statut du bloc `count`
+- ✅ **(8) Famille primaire des unités transverses — TRANCHÉ 04/08 02h45.** **Multi-familles obligatoire** : un mot appartient à **N familles**, et **UN TABLEAU PAR FAMILLE est affiché** (pas un tableau de la famille « élue »). La notion de « famille primaire » se réduit donc à un **détail technique** (fil d'Ariane, chemin d'URL) et n'est plus un **choix éditorial**. Exemple acté : `hPa` sera dans `unites` **ET** `altimetrie`. → Implémentation : table de liaison terme↔famille (voir §7).
+- ✅ **(9) Sens par défaut des homonymes — RÉSOLU 04/08 01h43 par §0.3** (N définitions sur une seule page). **Plus besoin de choisir un sens par défaut** : les deux sens s'affichent, chacun avec sa famille et ses xrefs. `context_reroute` redevient un confort, plus une nécessité.
+- ✅ **(11) Quelle définition survit aux fusions — RÉSOLU 04/08 01h43 par §0.3.** **Aucune définition ne meurt lors d'une fusion** : les N définitions cohabitent sur la fiche, les graphies deviennent des formes de surface. L'arbitrage n'a plus d'objet.
+- ✅ **(12) Stubs ou rien pour les codes OACI — TRANCHÉ 04/08 02h45 : PAS de stubs.** On ne crée pas ~51-60 fiches vides pour les codes de terrain. **Exception : garder `LFPN`** (terrain de référence des pilotes ATCF) avec une vraie fiche rédigée.
+  - ⚠️ **Chiffre périmé à ne plus citer** : les « 977 stubs vides » **n'existent PLUS**. Mesure du 04/08 : **1 300/1 300 en `statut: redigee`**, définitions de **96 à 311 caractères, médiane 203**. Toute décision qui s'appuyait sur « 977 stubs » doit être reprise.
+- ✅ **(13) Défauts plateforme des blocs popup — TRANCHÉ 04/08 02h45.** Le **tableau de famille est affiché SYSTÉMATIQUEMENT par défaut** dans la popup : il aide l'apprentissage (voir la notion dans son ensemble fermé, pas isolée). **3 options prévues** dans le modèle : `jamais` / `lien à la demande` / `systématique` (défaut).
+- ✅ **(14) Statut du bloc `count` — TRANCHÉ 04/08 02h45 : bloc `count` SUPPRIMÉ.** On compte **à l'affichage**. Verbatim Louis : « on compte au moment d'afficher bien sûr ! On n'écrit rien qui peut drifter alors qu'on peut déduire facilement ». → Application directe de la règle §5 (« ne jamais stocker un état dérivable »).
 
-Arthur doit proposer une recommandation argumentée sur les 6 restants (Louis n'a pas encore dit oui à cette proposition).
+**→ Les 7 arbitrages du modèle de données v4 sont tranchés (8, 9, 10, 11, 12, 13, 14).** Reste à implémenter : (10) `case_sensitive`, (8) table terme↔familles, (9)/(11) `definitions[]`, (13) options de blocs popup, (14) retrait du champ `count`.
 
 ## 5. Leçon de la soirée
 5 flags « qui affirment sans porter la donnée » trouvés en une soirée (`statut:redige` sur fiches vides, `schema:True` sans cible ×204, compteurs en dur, `termes_couverts:93` avec liste vide, `context_required` plat).
@@ -159,7 +186,9 @@ Corriger la casse d'affichage des vitesses (`vr` → `VR` selon convention PPL) 
 5. Termes sans caractère latin (slug impossible)
 6. Un terme et sa variante ne doivent jamais être 2 fiches
 
-## 7. Multi-familles (Louis 04/08) — À PRÉVOIR
+## 7. Multi-familles (Louis 04/08) — ✅ TRANCHÉ 02h45, À IMPLÉMENTER
+> **Arbitrage (8) tranché** (voir §4) : multi-familles **obligatoire**, **un tableau par famille** affiché, la « famille primaire » n'est plus qu'un détail technique (fil d'Ariane / URL) et non un choix éditorial.
+
 Aujourd'hui `famille` = champ UNIQUE, un seul par terme. Limite réelle :
 - `hPa` = unité ET terme d'altimétrie
 - `VNE` = vitesse ET limitation

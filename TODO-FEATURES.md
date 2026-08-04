@@ -85,6 +85,110 @@ Leçons à intégrer dans la procédure (vécues le 03/08) :
   entières en croyant nettoyer (incident assemblage : 64 familles -> 5)
 - écrire le .py avec repr(), pas json.dumps (sinon `false` au lieu de `False`)
 
+## 4quater. 🔒 DOMAINES AUTORISÉS PAR LEXIQUE (CORS) — Louis 04/08 02h10
+
+**Décision Louis** : les `t/<slug>.json` vivent à UN SEUL endroit
+(`aerolex.prunel.net`), les sites clients (ATCF et autres) les appellent en
+cross-origin. On ne duplique PAS les fichiers chez chaque client — sinon on
+recrée le problème des deux copies divergentes (vécu le 04/08 avec deux `aero.js`).
+
+**Origine fermée à des domaines déclarés dans un premier temps** (pas `*`).
+Plus facile d'élargir que de restreindre, et c'est le prérequis de la
+facturation au trafic (§4bis) : `*` = service gratuit pour tout le monde.
+
+### À prévoir dans le modèle de données (demande explicite de Louis)
+Chaque lexique porte sa **liste de domaines autorisés à la consommation**.
+Le champ doit accepter plusieurs granularités de motif :
+
+| Motif | Sens |
+|---|---|
+| `atcf-ppl.prunel.net` | un hôte exact |
+| `*.xyz.com` | tous les sous-domaines d'un domaine |
+| `*.*.*` / `*` | tout ouvert (lexique public, à assumer) |
+
+Implications à spécifier :
+- Le champ appartient au **lexique** (un index = un jeu de domaines), pas au terme.
+- CORS ne se négocie pas par wildcard côté navigateur : `Access-Control-Allow-Origin`
+  ne peut renvoyer qu'UNE origine (ou `*`). Donc pour une liste/motif, il faut
+  **comparer l'`Origin` de la requête au motif et répondre en écho** l'origine
+  si elle matche → un `_headers` statique de Cloudflare Pages NE SUFFIT PAS dès
+  qu'il y a plusieurs domaines ou un wildcard. Il faut une Cloudflare Function /
+  Worker devant `/aero/t/*`. ⚠️ À acter avant de promettre la feature.
+- Prévoir `Vary: Origin` sinon le cache CF sert la mauvaise en-tête au domaine suivant.
+- Un refus doit être lisible côté client (403 explicite plutôt qu'une erreur CORS
+  opaque, qui est indébuggable dans la console).
+- Lien §4bis : c'est le même Worker qui peut compter les appels par `Origin`
+  → CORS et facturation partagent le point de passage.
+
+⚠️ **Dépendance externe acceptée** : si `aerolex.prunel.net` tombe, les popups
+des sites clients meurent (avec des fichiers locaux, non). Prix normal d'un
+service centralisé, Louis en est informé (04/08 02h04).
+
+## 4bis. 📊 STATS D'APPEL PAR FICHIER → FACTURATION AU TRAFIC (Louis 04/08 02h03)
+
+Bénéfice secondaire de l'architecture « fichier par mot », relevé par Louis :
+en plus d'alléger les pages client (index 370 Ko → 90 Ko), **chaque définition
+est désormais une requête HTTP distincte** (`t/<slug>.json`) — donc mesurable
+individuellement, sans aucun code de tracking à écrire.
+
+Ce que ça débloque :
+- **Facturation à l'usage / au trafic** pour les index tiers (voir §5 : moteur
+  de lexique multi-clients). Le volume d'appels = la valeur consommée.
+- **Analytics de contenu gratuits** : quels termes sont réellement cliqués,
+  lesquels ne le sont jamais (candidats à la suppression), quels termes sont
+  cherchés mais absents (404 sur `t/`).
+- **Priorisation éditoriale par la donnée** : rédiger/enrichir d'abord les
+  termes les plus consultés au lieu de deviner.
+
+Implémentation pressentie (à spécifier, RIEN de fait) :
+- Les logs Cloudflare portent déjà l'info (chemin + référent + horodatage) →
+  pas besoin d'un backend au départ. Vérifier ce que le plan CF actuel expose
+  (Analytics GraphQL vs Logpush) avant de construire quoi que ce soit.
+- Agrégation par `index_id` + `slug` + jour. Le `slug` est dans l'URL, donc
+  aucune instrumentation côté JS n'est nécessaire.
+- ⚠️ Le **cache** fausse le comptage : un terme mis en cache navigateur/CF ne
+  génère plus de hit. Pour de la facturation, compter au niveau CF (avant le
+  cache navigateur) et assumer le biais, ou définir l'unité facturable comme
+  « appel origine » plutôt que « consultation ». À trancher AVANT de vendre.
+- ⚠️ RGPD : agréger, ne pas conserver d'IP. Des compteurs par slug suffisent.
+
+Lien avec §5 : c'est le compteur qui rend le plan pro « schémas » et l'usage
+en mode `open` facturables — deux arbitrages déjà ouverts dans TODO-ETAT §4.
+
+## 4ter. 🔤 SÉPARATION MOT / DÉFINITIONS (Louis 04/08 01h43) — HAUT DE PILE
+
+**Décision Louis** : un mot peut porter **N définitions**. On sépare la notion
+de *mot* (la forme, le slug, le matching) de celle de *définition* (le contenu).
+
+Ce que ça résout d'un coup — deux arbitrages du modèle v4 en une idée :
+- **Homonymes (9)** : plus besoin d'élire un « sens par défaut ». `dérive` = UNE
+  page, deux définitions listées (Navigation / Empennage), chacune avec sa
+  famille et ses xrefs. Le lecteur voit l'ambiguïté → supérieur pédagogiquement
+  à un choix arbitraire qui cache l'autre sens. `context_reroute` devient un
+  confort, plus une nécessité.
+- **Fusions (11)** : plus rien à détruire. Sur MTOW (3 fiches, 3 définitions
+  rédigées et correctes), les 3 cohabitent ; `MTOW`/`MTOM` deviennent des formes
+  de surface. Aucune définition ne meurt → l'arbitrage « laquelle survit »
+  disparaît.
+
+**Format rétro-compatible (proposé par Louis, retenu)** :
+- `definition` reste une **chaîne** quand il n'y a qu'un sens ;
+- un tableau `definitions[]` apparaît **seulement** s'il y en a plusieurs ;
+- le JS teste le type et gère les deux.
+→ Conséquence : **1 299 payloads inchangés**, seul `dérive` prend la forme
+  enrichie. Ce n'est PAS une migration des 1 300 fichiers (ma première
+  estimation était fausse) — c'est un ajout sur un fichier + du code défensif.
+
+À faire :
+1. Fable met à jour le modèle de données v4 avec cette forme (EN COURS).
+2. `aero.js` / `aerolex.js` : gérer chaîne ET tableau (déjà dans le brief du
+   chantier popup en cours, en défensif).
+3. Popup avec 2+ définitions : empiler quand il y en a 2, replier au-delà
+   (« + 1 autre sens »). Cas rare : 1 seul homonyme identifié sur 1 300 termes.
+4. Le `v` (payload_version) doit protéger ce changement de forme — c'est
+   exactement le rôle du contrat versionné (leçon du bug popup du 04/08 :
+   une clé qui change de sens entre deux formats casse le consommateur).
+
 ## 5. 🎯 INDEX PERSONNALISÉS PAR N'IMPORTE QUI (feature produit majeure)
 Demandé par Louis le 03/08/2026 20h40.
 
@@ -127,6 +231,48 @@ Le même moteur sert le PPL, la charpente, le droit notarial, la viticulture,
 la plomberie, un jargon d'entreprise interne. La valeur n'est pas le contenu
 aéro : c'est la **mécanique de lexique posable partout**.
 
+### 5bis. 🧩 EMBED DU LEXIQUE HTML CHEZ UN TIERS (Louis 04/08 02h50)
+
+Verbatim Louis : « Note aussi dans la ToDo features qu'on pourrait faire en sorte
+de permettre l'embed de toute la partie HTML du lexique si quelqu'un veut mettre
+ça sur son site. »
+
+Même logique de plateforme que le §5 (index personnalisés) : aujourd'hui on pose
+une ligne de `<script>` qui **surligne les mots d'une page existante**. L'embed,
+c'est l'autre moitié du produit : poser **le lexique lui-même** (les pages fiches
++ l'index A-Z) à l'intérieur d'un site tiers, comme une section de leur site.
+
+Ce qui serait intégrable :
+- l'**index A-Z** complet (liens seulement, cf. décision SEO en TODO-ETAT §3)
+- les **pages fiches** `<slug>.html` (définition, famille, tableau, xrefs, SVG)
+- la **recherche** dans le lexique
+
+Trois techniques possibles, à trancher (aucune retenue) :
+
+| Voie | Avantage | Coût |
+|---|---|---|
+| `<iframe>` | isolation CSS totale, zéro conflit | pas de SEO pour l'hôte, hauteur à gérer, style « encart étranger » |
+| Web component (`<aerolex-lexique>`) | Shadow DOM = isolation propre, s'intègre au flux de la page | rendu client → SEO faible sans SSR |
+| Snippet JS qui injecte dans le DOM hôte | CSS de l'hôte hérité (look natif), indexable si rendu tôt | collisions de styles, le risque réel |
+
+→ Dépend directement du **§7bis (thème CSS des pages HTML)** : un embed sans thème
+  personnalisable rend un bloc qui jure avec le site hôte. Les deux features vont
+  ensemble.
+
+Questions ouvertes à noter :
+- **Isolation du style** : Shadow DOM ou préfixe `--aerolex-*` sur tout ? On a déjà
+  23 variables CSS (§P4 de TODO-ETAT) → base saine, mais insuffisante si l'hôte a
+  un reset agressif.
+- **CORS** : mêmes contraintes qu'en §4quater (domaines déclarés, `Vary: Origin`,
+  Worker devant `/aero/t/*`). L'embed multiplie les origines appelantes → la liste
+  de domaines autorisés devient le point de contrôle central.
+- **Attribution / branding** : « propulsé par AeroLex » obligatoire en gratuit,
+  retirable en payant ? À décider AVANT d'ouvrir la feature.
+- **Comptage d'usage** : un embed génère beaucoup plus d'appels qu'une pose de
+  surlignage → l'unité facturable du §4bis doit être revue pour ce mode.
+- **URL canonique / SEO** : si le lexique est embarqué sur 10 sites, qui porte la
+  canonique ? (`rel=canonical` vers `aerolex.prunel.net` par défaut.)
+
 ---
 
 ## 6. 📌 RÈGLE DE TRAVAIL — un TODO-FEATURES.md par projet
@@ -141,3 +287,137 @@ de contexte pour être repris à froid après un restart.
 
 Règle : dès qu'une idée de feature ou un manque est évoqué en conversation,
 il atterrit dans le TODO-FEATURES.md du projet concerné DANS LA MÊME SESSION.
+
+---
+
+## 7. 🧹 NETTOYAGE DES DONNÉES — CAS D'ÉCOLE (Louis 04/08 : « ajoute ce cas à notre sujet nettoyage dans le fichier des features »)
+
+> **La méthode elle-même est dans `TODO-ETAT.md` §6** (cas réels mesurés + les
+> 6 contrôles à automatiser). Cette section garde les **spécimens de référence** :
+> les cas concrets qui servent de test de non-régression au futur pipeline de
+> nettoyage vendu avec la plateforme (§5).
+
+### 7.1 Spécimen n°1 — `MTOW` en TRIPLE (contrôle n°3 de la méthode)
+
+Mesuré le 04/08 sur `dist/aero/t/`. Ce n'est pas un doublon, c'est un **triplon** :
+
+| Slug | Terme affiché | Famille déclarée | Problème |
+|---|---|---|---|
+| `mtow` | `MTOW` | `documents_bord` | ❌ **FAUSSE famille** — c'est une masse, pas un document de bord |
+| `masse-maximale-au-decollage` | `masse maximale au décollage` | `masses` | ✅ la bonne fiche — porte **déjà `MTOW` en variante** |
+| `mtom` | `mtom` | — | ❌ 3e fiche, même notion (*Maximum Take-Off Mass*), casse minuscule |
+
+**Les TROIS ont une définition rédigée et correcte** (96 à 311 caractères). Il n'y
+a donc rien à jeter : le nettoyage ne peut pas être « supprimer les 2 mauvaises ».
+
+**Conséquence constatée par Louis en usage réel** : `MTOW` est à la fois un terme
+autonome ET une variante d'un autre terme → conflit de résolution dans le moteur
+→ **`MTOW` ne se surligne pas dans les cours**.
+C'est une **fonctionnalité cassée**, pas une coquetterie de données. C'est
+l'argument qui justifie que le nettoyage soit une étape du produit et pas une
+option de confort.
+
+**Pourquoi c'est LE spécimen de référence du contrôle n°3** (« sigle présent à la
+fois comme terme ET comme variante d'un autre terme ») : il cumule les 4 pathologies
+que le contrôle doit attraper d'un coup —
+1. sigle = terme autonome **et** variante ailleurs (le conflit) ;
+2. famille manifestement fausse (`documents_bord` pour une masse) ;
+3. variante de casse traitée comme un terme distinct (`mtom`) ;
+4. contenu rédigé des deux côtés → interdit de résoudre par suppression sèche.
+
+→ Tout pipeline de nettoyage doit être testé sur ce cas avant d'être considéré
+  comme fonctionnel. Correction opérationnelle détaillée : `TODO-ETAT.md` §0.1.
+
+---
+
+## 7bis. 🎨 PERSONNALISATION DU CSS DES PAGES HTML (Louis 04/08 02h50)
+
+Verbatim Louis : « là aussi on pourrait permettre dans le modèle de données de
+personnaliser le CSS de la partie HTML »
+
+État : le modèle prévoit **déjà** un thème CSS pour l'**overlay / popup** (décision
+actée, TODO-ETAT §3 : « Thème CSS : appartient au lexique, choisi par pose ;
+override 3 crans ; anti-injection par whitelist + validation typée »).
+→ **Étendre le même principe aux PAGES fiches HTML** et à l'index A-Z, avec le
+même mécanisme (variables `--aerolex-*`, whitelist, validation typée) et le même
+propriétaire (le thème appartient au lexique, la pose choisit).
+
+Bénéfice direct : c'est ce qui rend le **§5bis (embed chez un tiers)** présentable.
+Un lexique embarqué doit ressembler au site hôte, pas à AeroLex.
+
+⚠️ **Rappel de gouvernance déjà décidée — ne pas fusionner les deux axes** :
+- le **thème** dit « **de quoi ça a l'air** » → CSS uniquement ;
+- les **options** disent « **qu'est-ce qui existe** » → quels blocs sont émis
+  (tableau de famille, xrefs, schéma, compteurs…).
+
+Si on les fusionne, le CSS se met à créer/masquer du contenu : on ne sait plus ce
+qui est réellement dans la page (mauvais pour le SEO, pour l'accessibilité, et
+indébuggable). Un bloc masqué en CSS est toujours envoyé ; un bloc non émis, non.
+Deux champs distincts dans le modèle de données, jamais un seul.
+
+---
+
+## 8. 🔗 FICHE À N DÉCLENCHEURS / ANNUAIRE MULTI-ENTRÉES (Louis 04/08 02h34→02h50) — À TRANCHER
+
+### Ce que Louis a dit (verbatim)
+
+**02h34** : « je vois le terme "masse maximale au décollage" je me dis que c'est
+la même chose que "MTOW". On devrait dans ce cas là avoir la possibilité d'écrire
+une fiche "masse maximale au décollage (MTOW)" qui peut être déclenchée par
+plusieurs termes non ? A discuter ensemble et à mettre en ToDo pour trancher pour
+plus tard »
+
+**02h39** : « MTOW est le terme le plus facile à retenir je pense, et masse
+maximale au décollage pourrait être la variante aussi... dans le langage aéro,
+MTOW est peut-être la fiche de base ? D'un autre côté dans l'annuaire des termes
+les deux doivent pouvoir exister donc peut-être que c'est deux noms qui renvoient
+vers le même contenu ? »
+
+**02h50** : « Peu importe l'URL canonique du contenu, on peut mettre dans
+l'annuaire les différentes formes de recherche, ici par exemple MTOW et masse
+maximale au décollage ou toute autre forme jugée réellement utile / utilisée. »
+
+### ✅ Décision acquise (04/08 02h50)
+
+**L'annuaire (index A-Z) liste PLUSIEURS formes pointant vers UN contenu unique.**
+Une fiche a N déclencheurs (matching) **et** N entrées d'annuaire (navigation),
+pour un seul contenu rédigé.
+**L'URL canonique est un choix technique/SEO, pas éditorial** — donc elle ne doit
+plus bloquer la décision de contenu. C'est ce qui débloque le cas MTOW : on n'a
+plus à élire « le vrai nom », seulement « la vraie adresse ».
+
+Conséquence sur le modèle de données : les formes de surface (`MTOW`,
+`masse maximale au décollage`, `MTOM`) sont un **jeu de clés** attaché à la fiche,
+utilisé à la fois par le moteur de surlignage ET par le générateur d'index A-Z.
+Aujourd'hui `variantes` sert au matching mais **pas** à l'annuaire → c'est le
+delta à implémenter.
+
+### ⬜ Reste à trancher
+
+1. **Quelle forme est canonique, fiche par fiche.** Piste proposée (à valider) :
+   - **sigle canonique** quand c'est le terme d'usage réel du métier :
+     `MTOW`, `METAR`, `QNH`, `PAPI`, `TAF`, `ATIS`…
+   - **terme français canonique** quand le sigle est rare ou ambigu.
+   - champ `canonique: true` **décidé fiche par fiche**, pas par règle automatique.
+   - Volume réel : **~30-50 cas concernés**, pas 1 300. Ce n'est pas un chantier
+     de masse, c'est une liste à relire une fois.
+2. **Titre d'affichage** : `masse maximale au décollage (MTOW)` est acceptable —
+   **MAIS** le sigle doit rester une **variante déclarée** dans les données, et ne
+   JAMAIS être matché en parsant le titre. (Sinon on reconstruit un flag menteur :
+   une donnée déduite d'une chaîne d'affichage → §5 « leçon de la soirée ».)
+3. **SEO / redirections** : faut-il une page de redirection légère `mtow.html` →
+   canonique, pour ne pas perdre les entrées de recherche sur le sigle ?
+   Options : page HTML minimale avec `rel=canonical` + `<meta refresh>`, ou vraie
+   301 côté Cloudflare. À trancher avec le chantier `aerolex.prunel.net`.
+
+### ⚠️ Ne pas confondre avec la multi-définition (§4ter)
+
+Deux axes **indépendants**, à ne jamais mélanger dans le modèle :
+
+| | Axe | Exemple | Mécanisme |
+|---|---|---|---|
+| **§8 (ici)** | **UN sens, plusieurs noms** | MTOW = masse maximale au décollage = MTOM | N déclencheurs + N entrées d'annuaire → 1 contenu |
+| **§4ter** | **UN nom, plusieurs sens** | `dérive` = navigation / empennage | 1 forme → `definitions[]` (N contenus) |
+
+Une fiche peut cumuler les deux (plusieurs noms **et** plusieurs sens) : c'est
+justement pour ça qu'il faut deux champs séparés et pas un bricolage commun.
