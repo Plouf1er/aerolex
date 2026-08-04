@@ -1,0 +1,186 @@
+/* ============================================================================
+   aerolex-page.css — HABILLAGE DES PAGES DE FICHE (dist/aero/<slug>.html)
+   ----------------------------------------------------------------------------
+   POURQUOI CE FICHIER EXISTE (2026-08-04)
+
+   Les 1297 pages de fiche s'affichaient sans style. Ce n'était NI un 404 NI un
+   mauvais content-type : mesuré dans Chrome, aerolex.css répondait 200, était
+   parsé (41 règles, document.styleSheets[0].cssRules.length === 41) et le
+   <link> était bien présent. Le défaut était plus bête et invisible côté
+   réseau : aerolex.css est la feuille du WIDGET EMBARQUÉ (.glos, .alx-pop-*,
+   .alx-svg-term). Elle ne contient, par construction, AUCUN sélecteur de mise
+   en page. Tout l'habillage des fiches tenait donc dans les 6 règles du <style>
+   inline de build_pages.py (body/nav/.meta/...) — d'où l'aspect « page HTML
+   brute de 1995 » : police système par défaut, titres énormes, tableau nu.
+
+   POURQUOI PAS DANS aerolex.css : cette feuille est chargée par des sites
+   TIERS (« une ligne à ajouter »). Y mettre des règles body/nav/h1/table
+   repeindrait la maquette de l'hôte. Un widget embarqué ne style que ses
+   propres éléments. D'où deux feuilles :
+     - aerolex.css       -> widget, chargée partout (hôtes inclus) ;
+     - aerolex-page.css  -> pages de fiche AeroLex uniquement.
+   ========================================================================== */
+
+:root {
+  --pg-bg:      #f7f9fc;
+  --pg-card:    #ffffff;
+  --pg-ink:     #16232f;
+  --pg-ink-sec: #5a6c7d;
+  --pg-line:    #dfe6ee;
+  --pg-accent:  #2563eb;
+  --pg-radius:  10px;
+  --pg-w:       860px;
+}
+
+*, *::before, *::after { box-sizing: border-box; }
+
+body {
+  margin: 0 auto;
+  padding: 2rem 1.25rem 4rem;
+  max-width: var(--pg-w);
+  background: var(--pg-bg);
+  color: var(--pg-ink);
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+  font-size: 17px;
+  line-height: 1.65;
+  -webkit-text-size-adjust: 100%;
+}
+
+a { color: var(--pg-accent); text-decoration: none; }
+a:hover { text-decoration: underline; }
+
+/* ── Barre de navigation préc./index/suiv. ─────────────────────────────────
+   Le gabarit émet 3 <a> dans <nav>. En mobile, « précédent » et « suivant »
+   portent des noms de termes parfois longs : on autorise le retour à la ligne
+   plutôt qu'un débordement horizontal. */
+nav {
+  display: flex;
+  flex-wrap: wrap;
+  gap: .5rem 1rem;
+  justify-content: space-between;
+  align-items: baseline;
+  font-size: .88rem;
+  padding-bottom: .9rem;
+  margin-bottom: 1.8rem;
+  border-bottom: 1px solid var(--pg-line);
+}
+nav a { color: var(--pg-ink-sec); }
+nav a:hover { color: var(--pg-accent); }
+
+h1 {
+  font-size: 2.05rem;
+  line-height: 1.2;
+  letter-spacing: -.015em;
+  font-weight: 650;
+  margin: 0 0 .5rem;
+}
+
+/* Catégorie | Famille */
+.meta {
+  font-size: .87rem;
+  color: var(--pg-ink-sec);
+  margin-bottom: 1.6rem;
+}
+
+/* ── Définition : l'élément principal de la page ───────────────────────────
+   Barre d'accent à gauche plutôt qu'un encadré complet : ça hiérarchise sans
+   enfermer le texte, et ça reste lisible si la définition fait 3 lignes. */
+.definition {
+  background: var(--pg-card);
+  border: 1px solid var(--pg-line);
+  border-left: 3px solid var(--pg-accent);
+  border-radius: var(--pg-radius);
+  padding: 1.15rem 1.35rem;
+  margin-bottom: 1.6rem;
+}
+.definition p { margin: 0; }
+.definition p + p { margin-top: .75rem; }
+
+/* Variantes : <div><strong>Variantes:</strong> …</div>, sans classe dans le
+   gabarit — ciblé par sa position (frère direct de .definition). */
+.definition + div {
+  font-size: .9rem;
+  color: var(--pg-ink-sec);
+  margin-bottom: 1.6rem;
+}
+.definition + div strong { color: var(--pg-ink); font-weight: 600; }
+
+/* ── Schéma SVG ───────────────────────────────────────────────────────────
+   Le SVG porte déjà width:100%;height:auto en style inline (build). On ne
+   fournit que le cadre : fond blanc + bord, pour que les schémas à fond clair
+   ne flottent pas dans le gris de la page. */
+.svg-container {
+  background: var(--pg-card);
+  border: 1px solid var(--pg-line);
+  border-radius: var(--pg-radius);
+  padding: .75rem;
+  margin: 0 0 1.8rem;
+  overflow: hidden;
+}
+.svg-container svg { display: block; width: 100%; height: auto; }
+
+/* ── Tableau de famille ───────────────────────────────────────────────────*/
+.family-table {
+  background: var(--pg-card);
+  border: 1px solid var(--pg-line);
+  border-radius: var(--pg-radius);
+  padding: 1.1rem 1.35rem;
+  margin: 0 0 1.8rem;
+}
+.family-table h3 {
+  margin: 0 0 .7rem;
+  font-size: .78rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: .07em;
+  color: var(--pg-ink-sec);
+}
+.family-table table { width: 100%; border-collapse: collapse; font-size: .93rem; }
+.family-table th,
+.family-table td {
+  text-align: left;
+  padding: .5rem .6rem;
+  border-bottom: 1px solid var(--pg-line);
+  vertical-align: top;
+}
+.family-table th { font-weight: 600; color: var(--pg-ink-sec); font-size: .82rem; }
+.family-table tr:last-child td { border-bottom: 0; }
+/* Le membre = la fiche courante : mis en avant, non cliquable dans le gabarit. */
+.family-table tr.courant,
+.family-table td.courant { background: #eef4ff; font-weight: 600; }
+
+.family-table ul { margin: 0; padding-left: 1.15rem; }
+.family-table li { margin: .2rem 0; }
+
+/* ── Voir aussi ───────────────────────────────────────────────────────────*/
+.xrefs {
+  margin-top: 2rem;
+  padding-top: 1.1rem;
+  border-top: 1px solid var(--pg-line);
+  font-size: .93rem;
+}
+.xrefs h3 {
+  margin: 0 0 .6rem;
+  font-size: .78rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: .07em;
+  color: var(--pg-ink-sec);
+}
+.xrefs ul { margin: 0; padding-left: 1.15rem; }
+.xrefs li { margin: .25rem 0; }
+
+/* ── Petits écrans ────────────────────────────────────────────────────────*/
+@media (max-width: 560px) {
+  body { font-size: 16px; padding: 1.25rem 1rem 3rem; }
+  h1 { font-size: 1.65rem; }
+  nav { font-size: .82rem; }
+  .definition, .family-table { padding: 1rem; }
+}
+
+/* Impression : pas de fond gris, pas de navigation. */
+@media print {
+  body { background: #fff; max-width: none; }
+  nav, .xrefs { display: none; }
+  .definition, .family-table, .svg-container { border: 1px solid #bbb; }
+}

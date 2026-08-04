@@ -34,57 +34,48 @@
   var SVG_NS = 'http://www.w3.org/2000/svg';
   var CLS = 'alx-svg-term';
 
-  /** Normalise pour comparer : minuscules, espaces/NBSP compactés, trim. */
-  function norm(s) {
-    return String(s == null ? '' : s)
-      .replace(/\u00a0/g, ' ')
-      .replace(/\s+/g, ' ')
-      .trim()
-      .toLowerCase();
+  /* ── RÉSOLUTION : déléguée au moteur de surlignage ────────────────────────
+     AVANT (v1.0.0) : ce fichier reconstruisait sa propre table
+     « libellé normalisé -> terme » avec un norm() maison (minuscules + trim).
+     Trois divergences avec le moteur texte, donc trois familles de ratés :
+       1. pas de stripAccents (NFKD)  -> « décollage » vs « decollage » ;
+       2. pas de pluriels automatiques -> « volets » ne trouvait pas « volet » ;
+       3. pas de règle case_sensitive  -> les sigles courts homographes
+          (« S », « A »…) pouvaient matcher un mot français quelconque.
+     Et surtout : match sur le libellé ENTIER uniquement, donc un libellé
+     composite (« rejointe vent arrière », « remise · montée ») ne résolvait
+     rien alors qu'il contient un terme.
+
+     MAINTENANT : window.AeroLex.resolveSurface() — même regex, mêmes maps
+     ciMap/csMap, mêmes pluriels/variantes/homographes que le texte courant.
+     Un seul moteur de matching dans tout le projet. */
+  function resolveSurfaces(txt) {
+    var f = window.AeroLex && window.AeroLex.resolveSurface;
+    if (typeof f !== 'function') return [];
+    try { return f(txt) || []; } catch (e) { return []; }
   }
 
-  /* Table de correspondance « libellé normalisé -> {terme canonique, slug} ».
-     Construite depuis l'index de surlignage (window.AeroLex.terms), variantes
-     incluses : un schéma peut porter « vent arrière » quand la clé canonique
-     est « vent arrière (branche) ». Mémoïsée, mais invalidée si l'index change
-     de taille (chargement tardif). */
-  var _lookup = null;
-  var _lookupSize = -1;
+  /* Terme de la fiche courante : on ne se renvoie jamais à soi-même.
+     Sur une page de fiche, CURRENT_SLUG est posé par build_pages.py ; dans la
+     popup, aero.js publie le slug affiché via AeroLexSvg.currentSlug. */
+  function currentSlug() {
+    if (window.AeroLexSvg && window.AeroLexSvg.currentSlug) return window.AeroLexSvg.currentSlug;
+    if (typeof window.CURRENT_SLUG === 'string') return window.CURRENT_SLUG;
+    return null;
+  }
 
-  function buildLookup() {
-    var terms = (window.AeroLex && window.AeroLex.terms) || {};
-    var keys = Object.keys(terms);
-    if (_lookup && _lookupSize === keys.length) return _lookup;
-
-    var map = Object.create(null);
-    for (var i = 0; i < keys.length; i++) {
-      var canon = keys[i];
-      var e = terms[canon] || {};
-      var rec = { terme: canon, slug: e.sl || null, s: e.s };
-      var n = norm(canon);
-      if (n && !map[n]) map[n] = rec;
-      var vs = e.v || [];
-      for (var j = 0; j < vs.length; j++) {
-        var nv = norm(vs[j]);
-        // Une variante ne doit jamais écraser une clé canonique.
-        if (nv && !map[nv]) map[nv] = rec;
+  /** Cible d'un libellé pris comme un tout, ou null (libellé atomique). */
+  function resolveLabel(txt) {
+    var hits = resolveSurfaces(txt);
+    if (!hits.length) return null;
+    var s = String(txt == null ? '' : txt).replace(/\u00a0/g, ' ').trim();
+    for (var i = 0; i < hits.length; i++) {
+      // Couvre tout le libellé (aux espaces/ponctuation légère près) ?
+      if (hits[i].raw.trim().length >= s.replace(/^[(\[«"'\s]+|[)\]»"':;,.!?\s]+$/g, '').length) {
+        return hits[i];
       }
     }
-    _lookup = map;
-    _lookupSize = keys.length;
-    return map;
-  }
-
-  /** Cible d'un libellé, ou null. Tolère un libellé ponctué (« finale : »). */
-  function resolveLabel(txt) {
-    var map = buildLookup();
-    var n = norm(txt);
-    if (!n) return null;
-    if (map[n]) return map[n];
-    // Retire une ponctuation terminale/initiale légère et les parenthèses.
-    var cleaned = n.replace(/^[(\[«"'\s]+|[)\]»"':;,.!?\s]+$/g, '');
-    if (cleaned && cleaned !== n && map[cleaned]) return map[cleaned];
-    return null;
+    return hits[0];
   }
 
   /* Marque un élément SVG textuel comme terme cliquable.
@@ -92,6 +83,8 @@
      Le soulignement discret vient du CSS (.alx-svg-term), pas d'un attribut. */
   function markElement(el, rec) {
     if (!el || el.getAttribute('data-alx-term')) return false;
+    // Le terme de la fiche courante reste inerte (pas d'auto-référence).
+    if (rec.slug && rec.slug === currentSlug()) return false;
     el.setAttribute('data-alx-term', rec.terme);
     if (rec.slug) el.setAttribute('data-alx-slug', rec.slug);
     if (!rec.s) el.setAttribute('data-alx-todo', '1');
@@ -130,9 +123,64 @@
       }
       if (hitInner) continue;               // déjà traité au niveau tspan
       var recT = resolveLabel(t.textContent);
-      if (recT && markElement(t, recT)) n++;
+      if (recT && markElement(t, recT)) { n++; continue; }
+      /* Rien au niveau du libellé entier : tenter le libellé composite
+         (un terme noyé dans une phrase d'étiquette). */
+      n += splitCompositeText(t);
     }
     svg.setAttribute('data-alx-svg-done', '1');
+    return n;
+  }
+
+  /* Libellé COMPOSITE (« rejointe vent arrière », « remise · montée ») : le
+     terme n'est qu'une partie du <text>. On ne peut pas y poser un <span>
+     (interdit en SVG), MAIS on peut découper le <text> en <tspan> : un <tspan>
+     sans x/y hérite du flux de son parent, donc le rendu est identique au
+     pixel tant qu'on ne réordonne rien. C'est ce qui débloque les schémas dont
+     les étiquettes sont des phrases (cas « remise des gaz »).
+     Prérequis : le <text> ne contient QUE du texte (aucun tspan positionné),
+     sinon on s'abstient plutôt que de risquer un déplacement. */
+  function splitCompositeText(t) {
+    if (t.querySelector('tspan')) return 0;
+    var s = t.textContent;
+    if (!s || !s.trim()) return 0;
+    var hits = resolveSurfaces(s);
+    if (!hits.length) return 0;
+
+    // Garder des surfaces disjointes, les plus longues d'abord (regex déjà triée).
+    hits.sort(function (a, b) { return a.index - b.index || b.end - a.end; });
+    var keep = [], last = -1, cur = currentSlug();
+    for (var i = 0; i < hits.length; i++) {
+      var h = hits[i];
+      if (h.index < last) continue;             // chevauchement
+      if (!h.slug || h.slug === cur) continue;  // inerte / auto-référence
+      keep.push(h); last = h.end;
+    }
+    if (!keep.length) return 0;
+    // Surface unique couvrant tout le libellé : markElement suffit, pas de découpe.
+    if (keep.length === 1 && keep[0].raw.trim().length === s.trim().length) return 0;
+
+    var frag = document.createDocumentFragment();
+    var pos = 0, n = 0;
+    function plain(txt) {
+      if (!txt) return;
+      var sp = document.createElementNS(SVG_NS, 'tspan');
+      sp.textContent = txt;
+      frag.appendChild(sp);
+    }
+    for (var k = 0; k < keep.length; k++) {
+      var h2 = keep[k];
+      plain(s.slice(pos, h2.index));
+      var sp2 = document.createElementNS(SVG_NS, 'tspan');
+      sp2.textContent = s.slice(h2.index, h2.end);
+      frag.appendChild(sp2);
+      if (markElement(sp2, h2)) n++;
+      pos = h2.end;
+    }
+    plain(s.slice(pos));
+    if (!n) return 0;
+    while (t.firstChild) t.removeChild(t.firstChild);
+    t.appendChild(frag);
     return n;
   }
 

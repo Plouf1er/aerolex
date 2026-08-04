@@ -564,6 +564,61 @@
           return root.querySelectorAll('.glos').length;
         };
 
+        /* ── RÉSOLUTION DE SURFACE (2026-08-04, libellés de schéma SVG) ─────
+           aerolex-svg.js doit décider si un libellé de SVG désigne un terme.
+           Il ne peut PAS utiliser highlight() : dans un <svg>, envelopper une
+           sous-chaîne d'un <text> dans un <span> casse le positionnement
+           (x/y/text-anchor portés par l'élément) — cf. en-tête aerolex-svg.js.
+           Il lui faut donc la DÉCISION sans le remplacement DOM.
+
+           On expose la MÊME regex et les MÊMES maps que le surlignage texte :
+           pluriels, variantes `v`, homographes `case_sensitive` (csMap) et
+           mots-outils sont donc appliqués à l'identique. Zéro second moteur
+           de matching — c'était le risque de duplication à éviter.
+
+           Retourne les surfaces trouvées DANS la chaîne (offsets inclus), la
+           plus longue d'abord (la regex est déjà triée nb-mots DESC), ce qui
+           permet à l'appelant de traiter aussi bien un libellé atomique
+           (« vent arrière ») qu'un libellé composite (« rejointe vent
+           arrière ») sans réimplémenter la moindre normalisation. */
+        window.AeroLex.resolveSurface = function (texte) {
+          var s = String(texte == null ? '' : texte).replace(/\u00a0/g, ' ');
+          if (!s.trim()) return [];
+          var res = [];
+          rx.lastIndex = 0;
+          var m;
+          while ((m = rx.exec(s)) !== null) {
+            var raw = matchedGroup(m);
+            if (!raw) { if (rx.lastIndex === m.index) rx.lastIndex++; continue; }
+            var key = raw.replace(/\s+/g, ' ');
+            var lu = maps.csMap[key] || maps.ciMap[key.toLowerCase()];
+            if (!lu) continue;
+            var canon = lu.canon, st = lu.s;
+            /* Contexte requis : un libellé de schéma est une étiquette isolée,
+               il n'offre pas la fenêtre de texte que contexteOk() exige. On
+               écarte donc les termes à contexte plutôt que de les accepter à
+               tort (faux positif visible = lien qui trompe l'élève). */
+            if (maps.ctx[canon] && !contexteOk(s, m.index, m.index + raw.length, maps.ctx[canon])) continue;
+            if (maps.hom[canon]) {
+              var h = maps.hom[canon];
+              if (contexteOk(s, m.index, m.index + raw.length, h.ctx)) {
+                canon = h.c;
+                st = (maps.ciMap[canon] || maps.csMap[canon] || {s: st}).s;
+              }
+            }
+            var ent = termsData[canon] || {};
+            res.push({
+              raw: raw,
+              index: m.index,
+              end: m.index + raw.length,
+              terme: canon,
+              slug: ent.sl || null,
+              s: st
+            });
+          }
+          return res;
+        };
+
         var occMap = Object.create(null);
 
         // Idempotence : si des spans glos existent déjà, ne pas re-traiter
