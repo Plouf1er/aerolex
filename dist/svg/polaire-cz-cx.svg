@@ -1,0 +1,27 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 560 440" role="img" aria-labelledby="t">
+<title id="t">La polaire Cz/Cx du profil</title>
+<style>
+.ax{stroke:#1b3a5c;stroke-width:2.2;fill:none;marker-end:url(#a)}
+.curve{stroke:#1b3a5c;stroke-width:3;fill:none}
+.tang{stroke:#c1462c;stroke-width:2;fill:none}
+.gr{stroke:#dfe8f0;stroke-width:1}
+text{font-family:Arial,Helvetica,sans-serif;font-size:15px;fill:#1b3a5c}
+.aerolex-terme{font-weight:bold;cursor:pointer}
+.sub{font-size:12.5px;fill:#5a6b7a;font-weight:normal}
+</style>
+<defs><marker id="a" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto"><path d="M0 0 10 5 0 10z" fill="#1b3a5c"/></marker></defs>
+<g class="gr"><line x1="140" y1="90" x2="500" y2="90"/><line x1="140" y1="160" x2="500" y2="160"/><line x1="140" y1="230" x2="500" y2="230"/><line x1="140" y1="300" x2="500" y2="300"/></g>
+<line class="ax" x1="140" y1="360" x2="140" y2="60"/>
+<line class="ax" x1="140" y1="360" x2="510" y2="360"/>
+<text x="104" y="72" font-weight="bold">Cz</text>
+<text x="500" y="386" font-weight="bold">Cx</text>
+<path class="curve" d="M168 330 C176 250 200 150 268 108 C316 80 372 92 410 140 C444 184 452 240 448 300"/>
+<line class="tang" x1="140" y1="360" x2="330" y2="97"/>
+<circle cx="286" cy="120" r="6" fill="#c1462c"/>
+<text class="aerolex-terme" data-slug="finesse-max" x="300" y="112">finesse max</text>
+<text class="sub" x="300" y="130">tangente depuis l'origine</text>
+<text class="aerolex-terme" data-slug="polaire" x="404" y="322">polaire</text>
+<text class="aerolex-terme" data-slug="finesse" x="60" y="404">finesse</text>
+<text class="aerolex-terme" data-slug="rapport-portance-trainee" x="140" y="404">rapport portance/traînée</text>
+<text class="sub" x="60" y="426">= Cz / Cx en chaque point de la courbe</text>
+</svg>

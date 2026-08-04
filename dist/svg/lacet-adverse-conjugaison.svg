@@ -1,0 +1,40 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 620 420" role="img" aria-labelledby="t">
+<title id="t">Le lacet adverse et la conjugaison</title>
+<style>
+.pl{fill:#dfe8f0;stroke:#1b3a5c;stroke-width:2}
+.mob{fill:#f2c14e;stroke:#1b3a5c;stroke-width:2}
+.drag{stroke:#c1462c;stroke-width:3;fill:none;marker-end:url(#a)}
+.rot{stroke:#c1462c;stroke-width:2.2;fill:none;marker-end:url(#a)}
+.fix{stroke:#2d7d5a;stroke-width:2.4;fill:none;marker-end:url(#g)}
+text{font-family:Arial,Helvetica,sans-serif;font-size:15px;fill:#1b3a5c}
+.aerolex-terme{font-weight:bold;cursor:pointer}
+.sub{font-size:12.5px;fill:#5a6b7a;font-weight:normal}
+</style>
+<defs>
+<marker id="a" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto"><path d="M0 0 10 5 0 10z" fill="#c1462c"/></marker>
+<marker id="g" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto"><path d="M0 0 10 5 0 10z" fill="#2d7d5a"/></marker>
+</defs>
+<path class="pl" d="M300 210 v-120 l-8 -26 h16 l-8 26"/>
+<path class="pl" d="M300 150 h-150 v22 h150 z"/>
+<path class="pl" d="M300 150 h150 v22 h-150 z"/>
+<path class="pl" d="M300 250 h-52 v18 h52 z"/>
+<path class="pl" d="M300 250 h52 v18 h-52 z"/>
+<path class="mob" d="M150 150 h44 v-12 h-44 z"/>
+<path class="mob" d="M406 172 h44 v12 h-44 z"/>
+<text class="sub" x="60" y="130">aileron baissé</text>
+<text class="sub" x="60" y="148">(aile qui monte)</text>
+<text class="sub" x="466" y="196">aileron levé</text>
+<line class="drag" x1="170" y1="196" x2="170" y2="272"/>
+<text class="aerolex-terme" data-slug="trainee-induite" x="96" y="296">traînée induite</text>
+<text class="sub" x="96" y="314">plus forte de ce côté</text>
+<line class="drag" x1="428" y1="196" x2="428" y2="232" stroke-width="1.6"/>
+<text class="sub" x="404" y="252">moins de traînée</text>
+<path class="rot" d="M300 64 a44 44 0 0 0 -52 14"/>
+<text class="aerolex-terme" data-slug="lacet-adverse" x="60" y="40">lacet adverse</text>
+<text class="sub" x="60" y="58">le nez part à l'opposé du virage</text>
+<text class="aerolex-terme" data-slug="lacet-inverse" x="404" y="40">lacet inverse</text>
+<text class="aerolex-terme" data-slug="lacet-induit" x="404" y="58">lacet induit</text>
+<line class="fix" x1="300" y1="300" x2="300" y2="352"/>
+<text class="sub" x="60" y="378">Correction : accompagner au palonnier</text>
+<text class="sub" x="60" y="396">du côté du virage — c'est la conjugaison.</text>
+</svg>

@@ -1,0 +1,36 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 400" role="img" aria-labelledby="t">
+<title id="t">L'aérofrein : position et effet sur le plané</title>
+<style>
+.prof{fill:#dfe8f0;stroke:#1b3a5c;stroke-width:2.2}
+.mob{fill:#f2c14e;stroke:#1b3a5c;stroke-width:2}
+.gl{stroke:#5a6b7a;stroke-width:1.4;stroke-dasharray:7 5}
+.p1{stroke:#1b3a5c;stroke-width:2.6;fill:none;marker-end:url(#a)}
+.p2{stroke:#c1462c;stroke-width:2.6;fill:none;marker-end:url(#r)}
+text{font-family:Arial,Helvetica,sans-serif;font-size:15px;fill:#1b3a5c}
+.aerolex-terme{font-weight:bold;cursor:pointer}
+.sub{font-size:12.5px;fill:#5a6b7a;font-weight:normal}
+.h{font-size:14px;font-weight:bold}
+</style>
+<defs>
+<marker id="a" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto"><path d="M0 0 10 5 0 10z" fill="#1b3a5c"/></marker>
+<marker id="r" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto"><path d="M0 0 10 5 0 10z" fill="#c1462c"/></marker>
+</defs>
+<text class="h" x="40" y="40">rentré</text>
+<path class="prof" d="M40 96 C80 70 170 64 240 84 C264 90 274 94 280 96 C240 106 120 116 70 110 C54 108 44 102 40 96 Z"/>
+<text class="h" x="360" y="40">sorti</text>
+<path class="prof" d="M360 96 C400 70 490 64 560 84 C584 90 594 94 600 96 C560 106 440 116 390 110 C374 108 364 102 360 96 Z"/>
+<path class="mob" d="M452 76 l4 -34 h12 l-4 34z"/>
+<text class="aerolex-terme" data-slug="aerofrein" x="470" y="46">aérofrein</text>
+<line class="gl" x1="40" y1="180" x2="600" y2="180"/>
+<line class="p1" x1="60" y1="196" x2="300" y2="300"/>
+<text class="sub" x="120" y="230">pente lisse</text>
+<line class="p2" x1="60" y1="196" x2="230" y2="340"/>
+<text class="sub" x="196" y="330">pente aérofrein sorti</text>
+<text class="sub" x="60" y="196">↘</text>
+<text class="aerolex-terme" data-slug="aerofreinage" x="380" y="228">aérofreinage</text>
+<text class="aerolex-terme" data-slug="trainee-parasite" x="380" y="252">traînée parasite</text>
+<text class="sub" x="380" y="272">ajoutée sans portance</text>
+<text class="sub" x="40" y="366">Sorti : traînée en plus, portance inchangée.</text>
+<text class="sub" x="40" y="384">La finesse se dégrade, la pente se raidit,</text>
+<text class="sub" x="40" y="398">sans que l'avion accélère.</text>
+</svg>

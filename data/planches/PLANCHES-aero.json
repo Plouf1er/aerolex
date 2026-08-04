@@ -1,0 +1,750 @@
+{
+  "meta": {
+    "domaine": "Aérodynamique + Gouvernes/Axes + Mécanique du vol",
+    "regle": "Homogénéité > densité. Une planche = une seule idée physique, exprimable en une phrase.",
+    "source_vocabulaire": "data/svg-scoring-gemini.jsonl (inventaire uniquement, scoring ignoré)",
+    "statut": "complet",
+    "note_slugs_absents": "Les slugs 'axe de roulis / axe de tangage / axe de lacet' figurent dans schemas-inventaire.json mais N'EXISTENT PAS dans svg-scoring-gemini.jsonl : les libellés restent dessinés sur repere-3-axes, mais seuls roulis/tangage/lacet sont ancrables en liens.",
+    "total_planches": 23,
+    "total_mots_couverts": 143
+  },
+  "planches": [
+    {
+      "id": "gouvernes-3-axes",
+      "titre": "Les trois gouvernes primaires et leurs commandes",
+      "idee": "Chaque gouverne primaire est une surface mobile qui, actionnée par une commande du cockpit, fait pivoter l'avion autour d'un axe.",
+      "mots_couverts": [
+        "gouverne",
+        "aileron",
+        "gouverne-de-profondeur",
+        "profondeur",
+        "gouverne-de-direction",
+        "derive-empennage",
+        "empennage",
+        "manche",
+        "palonnier",
+        "double-commande"
+      ],
+      "description_image": "Vue de dessus en perspective légère d'une silhouette d'avion léger monomoteur, gris clair, aile haute. Les trois surfaces mobiles sont surlignées d'une couleur différente chacune et dessinées EN DÉBATTEMENT (une position braquée, pas neutre) : ailerons en bout d'aile (un vers le haut, l'autre vers le bas), gouverne de profondeur au bord de fuite du plan horizontal, gouverne de direction au bord de fuite de la dérive. Une flèche courbe part de chaque gouverne et indique le sens de rotation obtenu. En encart bas-gauche, deux petits pictogrammes de commande cockpit : un manche (flèches gauche/droite + avant/arrière) et un palonnier (flèches pied gauche / pied droit), reliés par un trait fin en pointillés à la gouverne correspondante. Libellés exacts : « aileron », « gouverne de profondeur », « gouverne de direction », « dérive », « empennage », « manche », « palonnier ». NE PAS mettre : les noms des axes ni les mots roulis/tangage/lacet (ils sont sur la planche repère-3-axes), pas de volets ni d'aérofreins, pas de vecteurs de forces, pas de décor (nuages, sol, horizon), pas de câblerie interne détaillée.",
+      "legendes": [
+        "aileron",
+        "gouverne-de-profondeur",
+        "gouverne-de-direction",
+        "derive-empennage",
+        "empennage",
+        "manche",
+        "palonnier",
+        "double-commande",
+        "gouverne",
+        "profondeur"
+      ],
+      "mots_ecartes_et_pourquoi": {
+        "roulis": "c'est le mouvement, pas le mécanisme — planche repere-3-axes",
+        "tangage": "idem, planche repere-3-axes",
+        "lacet": "idem, planche repere-3-axes",
+        "volets": "surface mobile mais NON primaire : change la portance, ne fait pas tourner l'avion — planche volets-hypersustentation",
+        "becs": "hypersustentateur de bord d'attaque, même raison que les volets",
+        "aerofrein": "surface mobile mais son idée est la dégradation de finesse — planche aerofrein-effet",
+        "compensateur": "agit sur l'effort, pas sur la rotation — planche trim-effort-manche",
+        "trim": "idem compensateur",
+        "effort-au-manche": "grandeur ressentie, appartient à la planche trim",
+        "lacet-adverse": "phénomène parasite du roulis — planche lacet-adverse-conjugaison",
+        "gouverne-de-direction": "IMPORTANT : gardée ici (surface primaire) ; c'est le lacet adverse qui part ailleurs"
+      },
+      "priorite": 1
+    },
+    {
+      "id": "repere-3-axes",
+      "titre": "Le repère des trois axes autour du centre de gravité",
+      "idee": "Les trois axes de rotation de l'avion se croisent au centre de gravité et définissent le roulis, le tangage et le lacet.",
+      "mots_couverts": [
+        "roulis",
+        "tangage",
+        "lacet",
+        "centre-de-gravite",
+        "cg",
+        "inertie"
+      ],
+      "description_image": "Silhouette d'avion en vue trois-quarts avant, dessinée en fil de fer très épuré (contour gris fin, semi-transparente) pour que les axes restent lisibles. Trois axes rectilignes traversent l'avion et se coupent en UN seul point marqué d'un cercle noir bicolore (symbole classique du centre de gravité) : axe longitudinal du nez à la queue, axe transversal d'un bout d'aile à l'autre, axe vertical de haut en bas. Chaque axe porte une flèche circulaire double (sens + et −) autour de lui, et deux libellés : le nom de l'axe et le nom du mouvement. Libellés exacts : « axe de roulis » / « roulis », « axe de tangage » / « tangage », « axe de lacet » / « lacet », et « centre de gravité (CG) » au point d'intersection. Chaque axe a sa propre couleur, reprise sur la planche gouvernes-3-axes. NE PAS mettre : les gouvernes ni aucune surface mobile, pas de manche ni palonnier, pas de forces (portance, poids), pas de bras de levier ni d'enveloppe de centrage, pas de sol ni d'horizon.",
+      "legendes": [
+        "roulis",
+        "tangage",
+        "lacet",
+        "centre-de-gravite",
+        "cg",
+        "inertie"
+      ],
+      "mots_ecartes_et_pourquoi": {
+        "aileron": "mécanisme d'action, pas le repère — planche gouvernes-3-axes",
+        "gouverne-de-profondeur": "idem gouvernes-3-axes",
+        "gouverne-de-direction": "idem gouvernes-3-axes",
+        "centrage": "le centrage est une PLAGE admissible (limites avant/arrière), autre idée, autre domaine (masse & centrage)",
+        "limites-de-centrage": "idem centrage",
+        "bras-de-levier": "outil de calcul du CG, pas le repère de rotation",
+        "assiette": "angle par rapport à l'horizon, pas une rotation autour d'un axe — planche assiette-incidence-pente",
+        "inclinaison": "état d'inclinaison latérale ; rattaché au virage — planche virage-forces",
+        "stabilite-statique": "réaction de l'avion écarté de sa position, autre idée — planche stabilite-3-axes"
+      },
+      "priorite": 1
+    },
+    {
+      "id": "profil-aile-geometrie",
+      "titre": "Géométrie d'un profil d'aile",
+      "idee": "Un profil d'aile se décrit par un petit nombre de repères géométriques fixes : bord d'attaque, bord de fuite, corde, extrados, intrados, épaisseur.",
+      "mots_couverts": [
+        "profil",
+        "bord-d-attaque",
+        "bord-de-fuite",
+        "corde",
+        "extrados",
+        "intrados",
+        "epaisseur-relative",
+        "angle-de-calage",
+        "lisse"
+      ],
+      "description_image": "Coupe d'un profil d'aile classique (type NACA cambré), grande, seule, au centre de l'image, contour noir épais, intérieur gris très clair. Repères cotés : point le plus avant appelé « bord d'attaque », point le plus arrière « bord de fuite », un trait droit qui joint les deux appelé « corde » avec une double flèche de cote, la surface supérieure « extrados », la surface inférieure « intrados », une double flèche verticale à l'endroit le plus épais annotée « épaisseur relative (e/c) ». Un trait horizontal de référence (axe longitudinal de l'avion) permet de coter l'angle entre la corde et cet axe : « angle de calage ». NE PAS mettre : le vent relatif ni aucune flèche d'écoulement, pas d'angle d'incidence, pas de portance ni traînée, pas de filets d'air, pas de couche limite, pas de vue en plan de l'aile (c'est la planche aile-geometrie-plan).",
+      "legendes": [
+        "profil",
+        "bord-d-attaque",
+        "bord-de-fuite",
+        "corde",
+        "extrados",
+        "intrados",
+        "epaisseur-relative",
+        "angle-de-calage",
+        "lisse"
+      ],
+      "mots_ecartes_et_pourquoi": {
+        "vent-relatif": "introduit l'écoulement : autre idée, planche incidence-vent-relatif",
+        "angle-d-incidence": "angle corde/vent relatif, dépend du vol et non de la géométrie du profil — planche incidence-vent-relatif",
+        "portance": "force, pas géométrie — planche forces-vol-palier",
+        "couche-limite": "phénomène d'écoulement — planche couche-limite",
+        "envergure": "grandeur de l'aile vue en plan, pas du profil — planche aile-geometrie-plan",
+        "foyer": "point d'application aérodynamique, appartient aux forces — planche resultante-centre-poussee",
+        "centre-de-poussee": "idem foyer"
+      },
+      "priorite": 1
+    },
+    {
+      "id": "aile-geometrie-plan",
+      "titre": "Géométrie de l'aile vue en plan et de face",
+      "idee": "Vue de dessus et de face, l'aile se décrit par son envergure, sa surface, son allongement, sa flèche, son dièdre et son vrillage.",
+      "mots_couverts": [
+        "aile",
+        "envergure",
+        "surface-alaire",
+        "fleche",
+        "diedre",
+        "vrillage",
+        "charge-alaire"
+      ],
+      "description_image": "Image en deux moitiés séparées par un trait fin. EN HAUT, vue de dessus d'un avion réduit à son aile et à un fuselage schématique : double flèche de cote d'un bout d'aile à l'autre libellée « envergure (b) » ; la surface de l'aile teintée en gris clair et hachurée, libellée « surface alaire (S) » ; l'angle entre le bord d'attaque et la perpendiculaire au fuselage coté « flèche » ; une note encadrée donnant la formule « allongement λ = b² / S » ; deux petites sections de profil, une en emplanture et une en bout d'aile, montrant des calages différents, reliées par une accolade libellée « vrillage ». EN BAS, vue de face de l'avion : les deux ailes remontent en V, l'angle avec l'horizontale coté « dièdre ». Une note encadrée : « charge alaire = masse / S ». NE PAS mettre : bord d'attaque/bord de fuite en légende (c'est la planche profil), aucune force, aucun filet d'air, pas d'ailerons ni volets, pas de décor.",
+      "legendes": [
+        "aile",
+        "envergure",
+        "surface-alaire",
+        "fleche",
+        "diedre",
+        "vrillage",
+        "charge-alaire"
+      ],
+      "mots_ecartes_et_pourquoi": {
+        "profil": "la coupe du profil a sa planche dédiée",
+        "corde": "grandeur du profil, planche profil-aile-geometrie",
+        "effet-de-diedre": "le dièdre géométrique est ici ; son EFFET stabilisant est un phénomène — planche stabilite-3-axes",
+        "trainee-induite": "conséquence de l'allongement mais c'est une force — planche courbes_trainee (schéma existant)",
+        "nervure": "élément de structure interne, pas la géométrie aérodynamique",
+        "longeron": "idem nervure",
+        "allongement": "coté sur cette planche mais ancré sur trainee-composantes, où il explique la traînée induite"
+      },
+      "priorite": 2
+    },
+    {
+      "id": "incidence-vent-relatif",
+      "titre": "Incidence, vent relatif et assiette",
+      "idee": "L'incidence est l'angle entre la corde du profil et le vent relatif, et elle ne se confond pas avec l'assiette mesurée par rapport à l'horizon.",
+      "mots_couverts": [
+        "incidence",
+        "angle-d-incidence",
+        "angle-d-attaque",
+        "vent-relatif",
+        "assiette",
+        "assiette-de-reference",
+        "attitude-de-vol",
+        "cabre",
+        "pente",
+        "trajectoire"
+      ],
+      "description_image": "Une silhouette d'avion vue de profil, en vol, dessinée petite mais nette, au centre. Trois droites partent de l'avion et sont clairement distinguées : (1) un trait horizontal pointillé libellé « horizon », (2) l'axe longitudinal de l'avion prolongé vers l'avant, (3) la trajectoire de vol, trait plein fléché vers l'avant-bas, libellée « trajectoire », avec les filets d'air arrivant en sens inverse en flèches libellées « vent relatif ». Trois angles cotés en arcs de couleurs différentes : entre l'axe de l'avion et l'horizon = « assiette » ; entre la trajectoire et l'horizon = « pente » ; entre la corde de l'aile et le vent relatif = « incidence (angle d'attaque) », montré dans un encart agrandi de l'aile en médaillon. Sous l'image, une phrase-clé : « assiette = incidence + pente ». NE PAS mettre : la portance ni la traînée, pas de courbe Cz/α, pas de décrochage, pas de sol ni de piste, pas de nuages.",
+      "legendes": [
+        "incidence",
+        "angle-d-incidence",
+        "angle-d-attaque",
+        "vent-relatif",
+        "assiette",
+        "assiette-de-reference",
+        "attitude-de-vol",
+        "cabre",
+        "pente",
+        "trajectoire"
+      ],
+      "mots_ecartes_et_pourquoi": {
+        "incidence-critique": "seuil du décrochage — schéma mecanique_decrochage existant / planche courbe-cz-incidence",
+        "assiette-de-croisiere": "valeur d'assiette pour une phase de vol, relève des performances, pas de la définition d'angle",
+        "assiette-de-montee": "idem assiette-de-croisiere",
+        "portance": "force — planche forces-vol-palier",
+        "inclinaison": "angle latéral, autre axe, autre idée — planche virage-forces",
+        "angle-de-calage": "angle constructif corde/fuselage, géométrie fixe — planche profil-aile-geometrie"
+      },
+      "priorite": 1
+    },
+    {
+      "id": "forces-vol-palier",
+      "titre": "Les quatre forces en vol en palier",
+      "idee": "En vol rectiligne stabilisé, la portance équilibre le poids et la traction équilibre la traînée.",
+      "mots_couverts": [
+        "portance",
+        "poids",
+        "trainee",
+        "traction",
+        "poussee",
+        "energie-cinetique"
+      ],
+      "description_image": "Silhouette d'avion vue de profil, horizontale, au centre d'une image sobre. Quatre vecteurs de même style (flèches épaisses, pleines) partant du centre de l'avion : un vers le haut libellé « portance (Fz) », un vers le bas libellé « poids (P = m·g) », un vers l'avant libellé « traction / poussée », un vers l'arrière libellé « traînée (Fx) ». Les paires opposées ont exactement la même longueur, et une petite mention « = » entre elles pour signifier l'équilibre. En pointillé fin, la somme portance+traînée est tracée en diagonale et libellée « résultante aérodynamique (Ra) ». Un cartouche discret rappelle « Fz = ½ ρ V² S Cz ». NE PAS mettre : l'incidence ni le vent relatif coté (planche incidence), pas de virage ni d'inclinaison, pas de facteur de charge, pas de polaire, pas de décor.",
+      "legendes": [
+        "portance",
+        "poids",
+        "trainee",
+        "traction",
+        "poussee",
+        "energie-cinetique"
+      ],
+      "mots_ecartes_et_pourquoi": {
+        "trainee-induite": "décomposition de la traînée, déjà couverte par le schéma existant courbes_trainee",
+        "trainee-parasite": "idem, schéma courbes_trainee",
+        "trainee-de-forme": "détail de la traînée parasite — planche trainee-composantes",
+        "trainee-de-frottement": "idem trainee-de-forme",
+        "facteur-de-charge": "apparaît en manœuvre, pas en palier — planche facteur-de-charge-virage",
+        "pression-dynamique": "grandeur d'écoulement — planche pression-statique-dynamique",
+        "centre-de-poussee": "point d'application, idée distincte — planche resultante-centre-poussee",
+        "finesse": "rapport portance/traînée, idée de performance — planche finesse-polaire-vitesses",
+        "resultante-aerodynamique": "ancré sur resultante-centre-poussee (planche dédiée)"
+      },
+      "priorite": 1
+    },
+    {
+      "id": "resultante-centre-poussee",
+      "titre": "Résultante aérodynamique, centre de poussée et foyer",
+      "idee": "La résultante aérodynamique s'applique au centre de poussée, qui se déplace le long de la corde quand l'incidence change, alors que le foyer reste fixe.",
+      "mots_couverts": [
+        "centre-de-poussee",
+        "foyer",
+        "resultante-aerodynamique",
+        "coefficient-de-portance",
+        "cl",
+        "cz",
+        "coefficient-de-trainee",
+        "cd",
+        "cx"
+      ],
+      "description_image": "Trois coupes de profil identiques empilées verticalement, à trois incidences croissantes (faible, moyenne, forte), chacune avec son vent relatif fléché. Sur chaque profil : un vecteur unique perpendiculaire-ish à la corde libellé « résultante aérodynamique », son point d'application marqué d'un petit disque plein libellé « centre de poussée » — ce disque avance vers le bord d'attaque quand l'incidence augmente, ce déplacement étant souligné par une flèche pointillée verticale qui relie les trois positions. Un second point, marqué d'une croix et libellé « foyer (≈ 25 % de la corde) », est à la MÊME abscisse sur les trois profils, pour montrer qu'il ne bouge pas. Un encart texte donne la décomposition : « Ra → portance (Cz/Cl) ⟂ vent relatif + traînée (Cx/Cd) ∥ vent relatif ». NE PAS mettre : le poids, la traction, pas de courbe, pas de centre de gravité (autre notion, autre planche), pas de décrochage.",
+      "legendes": [
+        "centre-de-poussee",
+        "foyer",
+        "resultante-aerodynamique",
+        "coefficient-de-portance",
+        "cl",
+        "cz",
+        "coefficient-de-trainee",
+        "cd",
+        "cx"
+      ],
+      "mots_ecartes_et_pourquoi": {
+        "centre-de-gravite": "point de masse, pas point aérodynamique ; confusion classique à ne pas encourager sur la même image — planche repere-3-axes",
+        "portance": "force globale, planche forces-vol-palier",
+        "stabilite-longitudinale": "le couple foyer/CG explique la stabilité, mais c'est un mécanisme distinct — planche stabilite-3-axes",
+        "polaire": "représentation graphique des coefficients — planche polaire-cz-cx"
+      },
+      "priorite": 2
+    },
+    {
+      "id": "couche-limite",
+      "titre": "La couche limite le long du profil",
+      "idee": "Au contact de la surface, l'air forme une couche limite d'abord laminaire, puis turbulente, qui finit par se décoller.",
+      "mots_couverts": [
+        "couche-limite",
+        "ecoulement-laminaire",
+        "ecoulement-turbulent",
+        "decollement"
+      ],
+      "description_image": "Un profil d'aile vu en coupe, très allongé, occupant toute la largeur de l'image, à incidence faible. Au-dessus de l'extrados, la couche limite est représentée par une bande fine dont l'épaisseur croît de l'avant vers l'arrière, avec des PROFILS DE VITESSE dessinés en petits peignes de flèches (courtes près de la paroi, longues au bord extérieur). Trois zones séparées par des repères verticaux pointillés et libellées : « écoulement laminaire » (filets parallèles réguliers) puis un repère « transition » puis « écoulement turbulent » (filets ondulés désordonnés), enfin « décollement » là où les filets quittent la surface, avec de petits tourbillons ronds derrière libellés « sillage ». Une flèche vers la paroi indique « traînée de frottement ». NE PAS mettre : le mot décrochage ni l'incidence critique (schéma mecanique_decrochage existant), pas de portance ni de vecteurs de forces globales, pas de volets, pas de courbe, pas de décor.",
+      "legendes": [
+        "couche-limite",
+        "ecoulement-laminaire",
+        "ecoulement-turbulent",
+        "decollement"
+      ],
+      "mots_ecartes_et_pourquoi": {
+        "decrochage": "déjà couvert par le schéma existant mecanique_decrochage ; ici on montre la MÉCANIQUE de l'écoulement pariétal, pas la perte de portance",
+        "incidence-critique": "appartient au décrochage",
+        "buffeting": "symptôme du décrochage — planche decrochage-signes-annonciateurs",
+        "trainee-de-forme": "autre composante — planche trainee-composantes",
+        "effet-venturi": "accélération dans un rétrécissement, autre idée et déjà utilisée dans le schéma carburateur",
+        "lisse": "ancré sur profil-aile-geometrie (état de surface du profil)",
+        "trainee-de-frottement": "ancré sur trainee-composantes, la planche qui recense les ORIGINES de traînée ; ici on ne montre que le mécanisme pariétal",
+        "sillage": "ancré sur trainee-composantes (le sillage y est la cause de la traînée de forme)"
+      },
+      "priorite": 2
+    },
+    {
+      "id": "polaire-cz-cx",
+      "titre": "La polaire Cz/Cx du profil",
+      "idee": "La polaire trace le coefficient de portance en fonction du coefficient de traînée et fait apparaître les points remarquables du profil, dont la finesse maximale.",
+      "mots_couverts": [
+        "polaire",
+        "rapport-portance-trainee",
+        "finesse",
+        "finesse-max"
+      ],
+      "description_image": "Un unique graphique propre : axe horizontal « Cx (coefficient de traînée) », axe vertical « Cz (coefficient de portance) », et une courbe en forme de crosse partant près de l'origine, montant vers la droite puis se recourbant au sommet. Trois éléments annotés : le sommet de la courbe marqué d'un point et libellé « Cz max (incidence de décrochage) » ; une droite partant de l'ORIGINE et tangente à la courbe, son point de tangence marqué et libellé « finesse max (Cz/Cx maximal) » ; quelques valeurs d'incidence inscrites en petit le long de la courbe (par ex. 0°, 5°, 10°, 15°) pour montrer que la polaire est paramétrée en incidence. Un cartouche : « finesse = Cz / Cx = portance / traînée ». NE PAS mettre : la polaire des vitesses (autre graphique, autre planche), pas d'avion dessiné, pas de vecteurs de forces, pas de courbes de traînée en fonction de la vitesse (schéma courbes_trainee existant), pas de volets.",
+      "legendes": [
+        "polaire",
+        "rapport-portance-trainee",
+        "finesse",
+        "finesse-max"
+      ],
+      "mots_ecartes_et_pourquoi": {
+        "polaire-des-vitesses": "graphique DIFFÉRENT (Vz en fonction de Vi) : il parle de performance avion, pas de qualité de profil — planche polaire-des-vitesses",
+        "trainee-totale": "courbe traînée/vitesse, schéma courbes_trainee existant",
+        "coefficient-de-portance": "déjà porté par cz/cl ici ; le terme long est légendé sur resultante-centre-poussee pour éviter le doublon d'ancrage",
+        "decrochage": "schéma existant mecanique_decrochage",
+        "vbg": "vitesse de finesse max, notion de vitesse — planche polaire-des-vitesses",
+        "cl": "coefficients ancrés sur resultante-centre-poussee",
+        "cz": "coefficients ancrés sur resultante-centre-poussee",
+        "cd": "coefficients ancrés sur resultante-centre-poussee",
+        "cx": "coefficients ancrés sur resultante-centre-poussee",
+        "cz-max": "ancré sur volets-hypersustentation (c'est l'effet central des volets)"
+      },
+      "priorite": 1
+    },
+    {
+      "id": "polaire-des-vitesses",
+      "titre": "La polaire des vitesses (finesse max et taux de chute mini)",
+      "idee": "La polaire des vitesses trace le taux de chute en fonction de la vitesse et donne les deux vitesses de plané remarquables : finesse maximale et taux de chute minimal.",
+      "mots_couverts": [
+        "polaire-des-vitesses",
+        "taux-de-chute",
+        "vbg",
+        "vitesse-de-croisiere",
+        "pente-de-descente"
+      ],
+      "description_image": "Un graphique unique. Axe horizontal « vitesse indiquée (kt) », axe vertical orienté VERS LE BAS libellé « taux de chute (ft/min) ». Une courbe en U inversé (creux vers le bas) sous l'axe horizontal. Deux points remarquables annotés : le point le plus HAUT de la courbe (creux minimal de chute) marqué « taux de chute mini » ; et le point de tangence d'une droite partant de l'ORIGINE, marqué « finesse max — VBG (vitesse de plané optimal) ». Deux droites pointillées depuis l'origine matérialisent les pentes de descente correspondantes, chacune libellée « pente de descente ». Zone à droite de la courbe grisée et libellée « au-delà : plus vite = plus de chute ». NE PAS mettre : la polaire Cz/Cx (autre planche), pas d'avion dessiné, pas de vecteurs de forces, pas de VNE ni d'arcs d'anémomètre, pas de facteur de charge.",
+      "legendes": [
+        "polaire-des-vitesses",
+        "taux-de-chute",
+        "vbg",
+        "vitesse-de-croisiere",
+        "pente-de-descente"
+      ],
+      "mots_ecartes_et_pourquoi": {
+        "polaire": "la polaire du profil est un autre graphique — planche polaire-cz-cx",
+        "finesse-max": "légendé sur polaire-cz-cx pour ne pas ancrer deux fois le même slug ; le point est néanmoins dessiné ici",
+        "taux-de-montee": "phase de montée, autre idée (performances)",
+        "vx": "vitesses de montée, autre planche hors de ce domaine",
+        "vy": "idem vx",
+        "aerofrein": "son effet se lit sur cette courbe mais l'objet mérite sa propre planche — planche aerofrein-effet",
+        "domaine-de-vol": "ancré sur facteur-de-charge-domaine (diagramme V-n)"
+      },
+      "priorite": 2
+    },
+    {
+      "id": "aerofrein-effet",
+      "titre": "L'aérofrein : position et effet sur le plané",
+      "idee": "Sorti, l'aérofrein ajoute de la traînée sans ajouter de portance, ce qui dégrade la finesse et raidit la pente de descente sans accélérer l'avion.",
+      "mots_couverts": [
+        "aerofrein",
+        "aerofreinage",
+        "trainee-parasite"
+      ],
+      "description_image": "Image en trois zones. À GAUCHE, deux coupes d'aile superposées : celle du haut avec le volet d'aérofrein escamoté dans l'extrados, libellée « aérofrein rentré » ; celle du bas avec la plaque dressée perpendiculairement à l'extrados, libellée « aérofrein sorti », avec les filets d'air qui butent dessus et un gros tourbillon derrière libellé « traînée de forme ». Une flèche épaisse vers l'arrière sur la version sortie, libellée « traînée ». À DROITE, un petit graphique de polaire des vitesses avec DEUX courbes : la courbe pleine « aérofrein rentré » et une seconde courbe plus basse et décalée « aérofrein sorti », plus les deux droites de pente depuis l'origine montrant que la pente devient plus raide, libellées « pente de descente » ; annotation « finesse dégradée ». Sous l'ensemble, la phrase : « aérofreinage = descendre plus fort à vitesse constante ». NE PAS mettre : les volets d'hypersustentation (surface différente, effet différent), pas de becs, pas d'ailerons, pas de train d'atterrissage, pas de piste ni de décor.",
+      "legendes": [
+        "aerofrein",
+        "aerofreinage",
+        "trainee-parasite"
+      ],
+      "mots_ecartes_et_pourquoi": {
+        "volets": "les volets AJOUTENT de la portance ; les confondre avec l'aérofrein est l'erreur exacte que la planche doit éviter — planche volets-hypersustentation",
+        "polaire-des-vitesses": "le graphique sert de support ici mais le slug est ancré sur sa planche propre",
+        "trainee-totale": "schéma existant courbes_trainee",
+        "vfe": "limitation de vitesse volets, pas aérofrein",
+        "finesse": "ancré sur polaire-cz-cx (définition Cz/Cx)",
+        "pente-de-descente": "ancré sur polaire-des-vitesses (lecture graphique)",
+        "trainee-de-forme": "ancré sur trainee-composantes (recensement des origines) ; l'aérofrein l'illustre mais n'en est pas la définition"
+      },
+      "priorite": 1
+    },
+    {
+      "id": "volets-hypersustentation",
+      "titre": "Volets et becs : l'hypersustentation",
+      "idee": "Les volets et les becs augmentent la courbure et la surface portante de l'aile, ce qui augmente le Cz max et abaisse la vitesse de décrochage.",
+      "mots_couverts": [
+        "volets",
+        "flaps",
+        "volets-rentres",
+        "volets-sortis",
+        "volets-up",
+        "becs",
+        "configuration",
+        "cz-max",
+        "vfe",
+        "vs0",
+        "vs1"
+      ],
+      "description_image": "Image en deux étages. EN HAUT, trois coupes d'aile côte à côte, mêmes dimensions : (1) bord de fuite lisse, libellée « volets rentrés (volets up) » ; (2) volet braqué à mi-course avec une fente visible, libellée « volets sortis — position intermédiaire » ; (3) volet braqué à fond avec bec de bord d'attaque également déployé, libellée « volets sortis pleins + becs ». Sur chaque coupe, la corde et la courbure apparentes sont visibles, et un arc coté indique l'angle de braquage. EN BAS, un graphique Cz en fonction de l'incidence avec deux courbes : « volets rentrés » et « volets sortis », la seconde plus haute et décalée à gauche ; les deux sommets marqués « Cz max » ; sur l'axe des vitesses en dessous, deux repères « VS1 (lisse) » et « VS0 (volets sortis) » avec une flèche montrant que VS0 est plus faible. Un rappel encadré : « VFE = vitesse maximale volets sortis ». NE PAS mettre : l'aérofrein, pas d'ailerons, pas de train, pas de décrochage détaillé (schéma existant), pas de décor.",
+      "legendes": [
+        "volets",
+        "flaps",
+        "volets-rentres",
+        "volets-sortis",
+        "volets-up",
+        "becs",
+        "configuration",
+        "cz-max",
+        "vfe",
+        "vs0",
+        "vs1"
+      ],
+      "mots_ecartes_et_pourquoi": {
+        "aerofrein": "ajoute de la traînée sans portance : idée opposée — planche aerofrein-effet",
+        "vitesse-de-decrochage": "terme générique déjà rattaché au schéma existant mecanique_decrochage",
+        "marge-de-decrochage": "notion de pilotage/marge, pas de dispositif",
+        "surface-alaire": "géométrie fixe de l'aile — planche aile-geometrie-plan",
+        "portance": "force globale — planche forces-vol-palier",
+        "cz-max": "partagé avec polaire-cz-cx ; gardé ici car c'est l'effet central des volets"
+      },
+      "priorite": 1
+    },
+    {
+      "id": "virage-forces",
+      "titre": "Les forces dans un virage stabilisé",
+      "idee": "En virage, l'inclinaison bascule la portance dont la composante horizontale crée la force centripète, ce qui oblige à augmenter la portance totale pour tenir l'altitude.",
+      "mots_couverts": [
+        "virage",
+        "virage-horizontal-stabilise",
+        "inclinaison",
+        "rayon",
+        "virage-a-grande-inclinaison"
+      ],
+      "description_image": "Vue de FACE (de l'arrière) d'un avion incliné à environ 30° sur la droite, silhouette simple. Depuis le centre de l'avion, un vecteur perpendiculaire aux ailes libellé « portance totale (inclinée) », décomposé en pointillés en deux composantes cotées : une verticale libellée « composante verticale = équilibre le poids » et une horizontale libellée « composante horizontale = force centripète ». Un vecteur vers le bas libellé « poids ». L'angle entre les ailes et l'horizon pointillé est coté « inclinaison (φ) ». En encart bas-droite, une petite vue de dessus de la trajectoire circulaire de l'avion avec le rayon tracé du centre au trajet, libellé « rayon de virage », et une annotation « plus d'inclinaison → rayon plus petit ». NE PAS mettre : le facteur de charge chiffré (planche dédiée), pas de bille ni d'indicateur de virage, pas de gouvernes ni de manche, pas de décrochage en virage, pas de décor.",
+      "legendes": [
+        "virage",
+        "virage-horizontal-stabilise",
+        "inclinaison",
+        "rayon",
+        "virage-a-grande-inclinaison"
+      ],
+      "mots_ecartes_et_pourquoi": {
+        "facteur-de-charge": "conséquence chiffrée de l'inclinaison, mérite sa propre lecture — planche facteur-de-charge-domaine",
+        "decrochage-en-virage": "cas de décrochage, rattaché au décrochage — planche decrochage-signes-annonciateurs",
+        "lacet-adverse": "phénomène d'entrée en virage — planche lacet-adverse-conjugaison",
+        "portance": "force de base — planche forces-vol-palier",
+        "roulis": "la rotation d'entrée en virage — planche repere-3-axes",
+        "trajectoire": "définie sur la planche incidence-vent-relatif"
+      },
+      "priorite": 1
+    },
+    {
+      "id": "facteur-de-charge-domaine",
+      "titre": "Facteur de charge et domaine de vol (diagramme V-n)",
+      "idee": "Le facteur de charge mesure combien la portance dépasse le poids, et le diagramme V-n délimite le domaine où l'avion peut le supporter.",
+      "mots_couverts": [
+        "facteur-de-charge",
+        "facteur-de-charge-limite",
+        "facteur-de-charge-ultime",
+        "diagramme-v-n",
+        "diagramme-de-man-uvre",
+        "domaine-de-vol",
+        "va",
+        "vne",
+        "vno",
+        "categorie-normale",
+        "categorie-utilitaire",
+        "categorie-voltige",
+        "constante-structurale"
+      ],
+      "description_image": "Un graphique unique, le diagramme V-n : axe horizontal « vitesse indiquée (kt) », axe vertical « facteur de charge n (g) » gradué de −2 à +6 avec la ligne n = 1 en pointillé libellée « vol en palier : n = 1 ». Le contour du domaine est tracé en trait plein épais : à gauche, la parabole de décrochage montante ; en haut, le plafond horizontal libellé « facteur de charge limite (+n max) » ; à droite, le mur vertical libellé « VNE » ; en bas, le plancher négatif libellé « facteur de charge limite négatif ». Le coin où la parabole rejoint le plafond est marqué d'un point libellé « VA (vitesse de manœuvre) ». Une bande hachurée juste au-dessus du plafond libellée « facteur de charge ultime — déformation permanente ». Un tableau minuscule en encart donne trois lignes : « normale +3,8 g / utilitaire +4,4 g / voltige +6 g ». NE PAS mettre : d'avion dessiné, pas de virage incliné (autre planche), pas d'arcs d'anémomètre colorés (schéma anemometre_arcs existant), pas de rafale ni de VRA détaillée en dessin.",
+      "legendes": [
+        "facteur-de-charge",
+        "facteur-de-charge-limite",
+        "facteur-de-charge-ultime",
+        "diagramme-v-n",
+        "diagramme-de-man-uvre",
+        "domaine-de-vol",
+        "va",
+        "vne",
+        "vno",
+        "categorie-normale",
+        "categorie-utilitaire",
+        "categorie-voltige",
+        "constante-structurale"
+      ],
+      "mots_ecartes_et_pourquoi": {
+        "inclinaison": "la relation n = 1/cos φ appartient au virage — planche virage-forces",
+        "vfe": "limitation volets — planche volets-hypersustentation",
+        "vra": "vitesse en air turbulent : proche mais relève d'une consigne opérationnelle, pas du tracé du domaine",
+        "majoration-rafale": "idem vra",
+        "arc jaune": "schéma existant anemometre_arcs",
+        "decrochage-accelere": "décrochage à n>1 : la parabole gauche l'illustre, mais le mot est ancré sur la planche décrochage"
+      },
+      "priorite": 1
+    },
+    {
+      "id": "decrochage-signes-et-cas",
+      "titre": "Signes annonciateurs et cas particuliers du décrochage",
+      "idee": "Le décrochage s'annonce par des signes perceptibles au poste de pilotage et se rencontre dans plusieurs situations de vol distinctes.",
+      "mots_couverts": [
+        "buffeting",
+        "avertisseur-de-decrochage",
+        "decrochage-accelere",
+        "decrochage-en-virage",
+        "marge-de-decrochage",
+        "incidence-de-decrochage"
+      ],
+      "description_image": "Image en deux colonnes. COLONNE GAUCHE, « les signes » : une silhouette d'avion vue de profil à forte incidence, avec trois pictogrammes annotés — de petits traits vibrants sur l'aile et le manche libellés « buffeting (vibrations) », un petit klaxon ou lampe rouge dans le cockpit libellé « avertisseur de décrochage », et un manche en butée arrière avec une flèche libellée « effort au manche qui s'allège ». COLONNE DROITE, « les cas », trois vignettes empilées et libellées : (1) avion en palier ailes à plat, « décrochage à 1 g » ; (2) avion incliné en virage, « décrochage en virage » ; (3) avion en ressource, flèche de trajectoire fortement courbée avec mention « n > 1 », libellée « décrochage accéléré — la vitesse de décrochage augmente avec √n ». En bas, une bande d'échelle de vitesse avec l'écart entre la vitesse de vol et VS1 coté « marge de décrochage », et un repère « incidence de décrochage : toujours la même ». NE PAS mettre : la mécanique du décollement à l'extrados (schéma mecanique_decrochage existant), pas de vrille (planche séparée), pas de procédure de récupération détaillée, pas de courbe Cz/α complète.",
+      "legendes": [
+        "buffeting",
+        "avertisseur-de-decrochage",
+        "decrochage-accelere",
+        "decrochage-en-virage",
+        "marge-de-decrochage",
+        "incidence-de-decrochage"
+      ],
+      "mots_ecartes_et_pourquoi": {
+        "decrochage": "schéma existant mecanique_decrochage : on ne redessine pas le décollement",
+        "couche-limite": "schéma existant + planche couche-limite",
+        "decrochage-secondaire": "rattaché au schéma existant mecanique_decrochage (récupération)",
+        "vrille": "autre phénomène (rotation auto-entretenue) — planche vrille-autorotation",
+        "depart-en-vrille": "idem vrille",
+        "vitesse-de-decrochage": "déjà rattaché au schéma existant",
+        "effort-au-manche": "ancré sur trim-effort-manche (planche dédiée à l'effort et à sa compensation) ; ici il n'apparaît que comme signe"
+      },
+      "priorite": 2
+    },
+    {
+      "id": "vrille-autorotation",
+      "titre": "La vrille : décrochage dissymétrique et autorotation",
+      "idee": "Quand une aile décroche avant l'autre, l'avion part en rotation auto-entretenue autour de l'axe de lacet en descendant sur une trajectoire hélicoïdale.",
+      "mots_couverts": [
+        "vrille",
+        "depart-en-vrille",
+        "vrille-a-plat",
+        "decrochage-dynamique",
+        "roulis-induit"
+      ],
+      "description_image": "Image en deux parties. À GAUCHE, un schéma d'aile vue de face à forte incidence avec un léger dérapage/roulis amorcé : l'aile intérieure porte la mention « aile décrochée — incidence plus forte, portance chutée » et l'aile extérieure « aile encore portante », avec deux flèches de portance de longueurs très inégales et une flèche circulaire de roulis libellée « roulis induit — autorotation ». À DROITE, une vue en perspective de la trajectoire : une hélice descendante serrée dessinée en trait plein avec l'avion en trois positions successives le long de cette hélice, libellée « départ en vrille » puis « vrille établie », l'axe vertical de la spirale libellé « axe de lacet ». En bas, deux petites silhouettes vues de profil pour opposer « vrille normale (assiette piquée) » et « vrille à plat (assiette proche de l'horizontale, rotation lente et stabilisée) ». NE PAS mettre : la procédure de sortie de vrille en texte d'action, pas de gouvernes légendées, pas de facteur de charge, pas de décor ni de sol.",
+      "legendes": [
+        "vrille",
+        "depart-en-vrille",
+        "vrille-a-plat",
+        "decrochage-dynamique",
+        "roulis-induit"
+      ],
+      "mots_ecartes_et_pourquoi": {
+        "decrochage": "le décrochage symétrique est déjà couvert (schéma existant) ; ici la clé est la DISSYMÉTRIE",
+        "lacet": "le repère est sur repere-3-axes",
+        "palonnier": "outil de sortie, mais légendé sur gouvernes-3-axes",
+        "decrochage-en-virage": "cas de décrochage sans autorotation — planche decrochage-signes-et-cas",
+        "stabilite-laterale": "qualité de vol en régime normal — planche stabilite-3-axes"
+      },
+      "priorite": 2
+    },
+    {
+      "id": "lacet-adverse-conjugaison",
+      "titre": "Le lacet adverse et la conjugaison",
+      "idee": "Le braquage des ailerons crée une traînée dissymétrique qui fait partir le nez à l'opposé du virage, d'où la nécessité d'accompagner au palonnier.",
+      "mots_couverts": [
+        "lacet-adverse",
+        "lacet-inverse",
+        "lacet-induit",
+        "trainee-induite"
+      ],
+      "description_image": "Vue de DESSUS d'un avion amorçant un virage à droite, silhouette simple. Sur l'aile gauche (aileron baissé) : arc coté « aileron baissé », vecteur de portance plus long dessiné en petit et surtout une flèche de traînée épaisse vers l'arrière libellée « traînée plus forte ». Sur l'aile droite (aileron levé) : « aileron levé » et une flèche de traînée nettement plus courte libellée « traînée plus faible ». Une flèche circulaire autour du centre de l'avion, orientée vers la GAUCHE (soit à l'opposé du virage voulu), libellée « lacet adverse (lacet inverse) ». À côté, une seconde silhouette identique avec un pictogramme de palonnier enfoncé du pied droit et la flèche de lacet neutralisée (barrée), libellée « conjugaison : palonnier dans le sens du virage ». Une flèche verte indique la trajectoire de virage voulue. NE PAS mettre : les forces du virage établi (autre planche), pas de bille/indicateur, pas de gouverne de profondeur, pas de décor.",
+      "legendes": [
+        "lacet-adverse",
+        "lacet-inverse",
+        "lacet-induit",
+        "trainee-induite"
+      ],
+      "mots_ecartes_et_pourquoi": {
+        "virage": "le virage établi et son équilibre de forces sont ailleurs — planche virage-forces",
+        "roulis": "le mouvement de roulis est sur repere-3-axes",
+        "souffle-helicoidal": "effet moteur, cause différente du même symptôme (lacet) — planche effets-moteur-lacet",
+        "effet-gyroscopique": "idem souffle-helicoidal",
+        "stabilite-de-route": "qualité de stabilité — planche stabilite-3-axes",
+        "aileron": "ancré sur gouvernes-3-axes (surface primaire) ; dessiné aussi ici mais lié une seule fois",
+        "palonnier": "ancré sur gouvernes-3-axes ; dessiné aussi ici"
+      },
+      "priorite": 1
+    },
+    {
+      "id": "effets-moteur-lacet",
+      "titre": "Les effets du groupe motopropulseur sur le lacet",
+      "idee": "L'hélice engendre par elle-même des effets dissymétriques — souffle hélicoïdal, couple de renversement et effet gyroscopique — qui font dévier l'avion en lacet.",
+      "mots_couverts": [
+        "souffle-helicoidal",
+        "effet-gyroscopique",
+        "tenue-de-cap"
+      ],
+      "description_image": "Trois vignettes côte à côte, même avion schématique, chacune isolant UN effet. (1) Vue de dessus/perspective : le flux d'hélice représenté par une spirale qui s'enroule autour du fuselage et vient frapper la dérive sur un côté ; flèche de lacet ; libellé « souffle hélicoïdal — la spirale d'air frappe la dérive ». (2) Vue de face : l'hélice tourne dans un sens (flèche circulaire), le fuselage tend à tourner dans l'autre (flèche circulaire inverse plus fine) ; libellé « couple de renversement ». (3) Vue de profil d'un avion cabrant, avec l'hélice représentée en disque et deux flèches perpendiculaires montrant la précession ; flèche de lacet en sortie ; libellé « effet gyroscopique — cabrer/piquer produit du lacet ». Sous les trois vignettes, une bande unique : « correction : palonnier — tenue de cap ». NE PAS mettre : le lacet adverse des ailerons (cause différente, planche séparée), pas de pas d'hélice ni de calage (schéma pas_helice_calage existant), pas de moteur détaillé, pas de décor.",
+      "legendes": [
+        "souffle-helicoidal",
+        "effet-gyroscopique",
+        "tenue-de-cap"
+      ],
+      "mots_ecartes_et_pourquoi": {
+        "lacet-adverse": "cause aérodynamique liée aux ailerons, pas au moteur — planche lacet-adverse-conjugaison",
+        "pas-d-helice": "schéma existant pas_helice_calage",
+        "palonnier": "légendé sur gouvernes-3-axes",
+        "lacet": "repère — planche repere-3-axes",
+        "traction": "force de propulsion — planche forces-vol-palier"
+      },
+      "priorite": 3
+    },
+    {
+      "id": "stabilite-3-axes",
+      "titre": "Stabilité statique et dynamique sur les trois axes",
+      "idee": "Un avion stable génère de lui-même un moment de rappel qui le ramène vers sa position d'équilibre après une perturbation, et l'amortissement décide si le retour est amorti ou divergent.",
+      "mots_couverts": [
+        "stabilite-statique",
+        "stabilite-dynamique",
+        "stable",
+        "moment-de-rappel",
+        "amortissement",
+        "stabilite-longitudinale",
+        "stabilite-laterale",
+        "stabilite-de-route",
+        "effet-de-diedre"
+      ],
+      "description_image": "Image en deux étages. ÉTAGE HAUT, « statique : d'où vient le rappel », trois vignettes : (1) vue de profil, avion perturbé en tangage, le foyer derrière le centre de gravité et l'empennage horizontal générant une force de rappel fléchée, libellée « stabilité longitudinale » ; (2) vue de face, avion incliné, les ailes en V produisant plus de portance sur l'aile basse, flèche de rappel, libellée « stabilité latérale — effet de dièdre » ; (3) vue de dessus, avion en dérapage, la dérive frappée de biais et une flèche de rappel qui réaligne le nez, libellée « stabilité de route ». Chaque vignette porte une flèche courbe libellée « moment de rappel ». ÉTAGE BAS, « dynamique : comment le retour se fait » — un petit graphique unique, écart en fonction du temps, avec trois courbes oscillantes libellées « amortie (stable) », « entretenue », « divergente (instable) », le mot « amortissement » annotant la décroissance de l'enveloppe. NE PAS mettre : les gouvernes braquées ni le manche (ici l'avion se rappelle SEUL, pilote neutre), pas de vrille, pas de limites de centrage chiffrées, pas de décor.",
+      "legendes": [
+        "stabilite-statique",
+        "stabilite-dynamique",
+        "stable",
+        "moment-de-rappel",
+        "amortissement",
+        "stabilite-longitudinale",
+        "stabilite-laterale",
+        "stabilite-de-route",
+        "effet-de-diedre"
+      ],
+      "mots_ecartes_et_pourquoi": {
+        "diedre": "l'angle géométrique est coté sur aile-geometrie-plan ; ici c'est son EFFET",
+        "foyer": "point dessiné pour l'explication mais ancré sur resultante-centre-poussee",
+        "centre-de-gravite": "ancré sur repere-3-axes",
+        "centrage-arriere": "le centrage et ses limites relèvent du domaine masse & centrage",
+        "compensateur": "annule l'effort, ne crée pas la stabilité — planche trim-effort-manche",
+        "inertie": "ancré sur repere-3-axes"
+      },
+      "priorite": 2
+    },
+    {
+      "id": "trim-effort-manche",
+      "titre": "Le compensateur (trim) et l'effort au manche",
+      "idee": "Le compensateur décale la position d'équilibre de la gouverne de profondeur pour annuler l'effort que le pilote doit maintenir au manche.",
+      "mots_couverts": [
+        "compensateur",
+        "trim",
+        "effort-au-manche"
+      ],
+      "description_image": "Deux vignettes empilées, même empennage horizontal vu de profil, agrandi. VIGNETTE HAUTE, « sans compensation » : la gouverne de profondeur est maintenue braquée à cabrer, le tab du bord de fuite est neutre ; une main schématique sur le manche avec une flèche de force et la mention « effort permanent à maintenir ». VIGNETTE BASSE, « compensé » : le petit volet de compensation au bord de fuite de la gouverne est braqué en sens INVERSE de la gouverne, avec une flèche d'air qui vient dessus produisant le moment d'équilibre ; la gouverne reste dans la même position que ci-dessus mais la main quitte le manche (main dessinée ouverte, à côté) et la mention « effort nul ». Libellés exacts : « compensateur (trim) », « gouverne de profondeur », « effort au manche ». En bas, une petite molette de trim de cockpit avec les repères « à cabrer / à piquer ». NE PAS mettre : les autres gouvernes, pas de forces globales de vol, pas de stabilité, pas de décor.",
+      "legendes": [
+        "compensateur",
+        "trim",
+        "effort-au-manche"
+      ],
+      "mots_ecartes_et_pourquoi": {
+        "gouverne-de-profondeur": "ancré sur gouvernes-3-axes",
+        "stabilite-longitudinale": "le trim ne change pas la stabilité, seulement le point d'équilibre — planche stabilite-3-axes",
+        "manche": "ancré sur gouvernes-3-axes"
+      },
+      "priorite": 3
+    },
+    {
+      "id": "pression-statique-dynamique",
+      "titre": "Pression statique, pression dynamique et pression totale",
+      "idee": "Dans un écoulement, la pression totale se partage entre une pression statique et une pression dynamique qui ne dépend que de la densité et du carré de la vitesse.",
+      "mots_couverts": [
+        "pression-statique",
+        "pression-dynamique",
+        "vitesse-air",
+        "effet-venturi",
+        "regime-venturi"
+      ],
+      "description_image": "Un tube horizontal vu en coupe, large aux extrémités et rétréci au milieu (venturi), traversé par des filets d'air fléchés qui se resserrent et s'allongent dans l'étranglement. Trois piquages verticaux mesurent la pression statique en trois points (avant, dans le rétrécissement, après) : la hauteur de colonne est HAUTE avant, BASSE au milieu, haute après, chaque colonne libellée « pression statique (Ps) ». Une flèche horizontale dans le rétrécissement libellée « vitesse air augmente » et une flèche verticale vers le bas libellée « pression statique diminue » ; l'ensemble annoté « effet venturi ». En bas, une bande d'équation lisible : « pression totale = pression statique + pression dynamique », avec « pression dynamique q = ½ ρ V² » encadré. NE PAS mettre : de tube Pitot d'avion (instruments), pas de carburateur (schéma givrage_carburateur_venturi existant), pas de profil d'aile, pas de portance, pas de décor.",
+      "legendes": [
+        "pression-statique",
+        "pression-dynamique",
+        "vitesse-air",
+        "effet-venturi",
+        "regime-venturi"
+      ],
+      "mots_ecartes_et_pourquoi": {
+        "givrage carburateur": "schéma existant givrage_carburateur_venturi : on ne redessine pas le carbu",
+        "portance": "conséquence appliquée à l'aile — planche forces-vol-palier",
+        "ias": "vitesses indiquées, domaine instruments/vitesses",
+        "tas": "idem ias",
+        "energie-cinetique": "ancré sur forces-vol-palier"
+      },
+      "priorite": 3
+    },
+    {
+      "id": "trainee-composantes",
+      "titre": "D'où vient la traînée : frottement, forme et induite",
+      "idee": "La traînée totale se décompose en une traînée de frottement, une traînée de forme et une traînée induite, chacune ayant une origine physique visible.",
+      "mots_couverts": [
+        "trainee-totale",
+        "trainee-de-frottement",
+        "trainee-de-forme",
+        "sillage",
+        "allongement"
+      ],
+      "description_image": "Trois vignettes côte à côte, chacune isolant une origine. (1) Un profil vu en coupe avec des flèches minuscules tangentes à la paroi tout le long de l'extrados et de l'intrados, libellée « traînée de frottement — l'air frotte sur la surface ». (2) Le même profil placé à forte incidence, avec un large décollement et des tourbillons derrière, la zone de dépression arrière teintée, libellée « traînée de forme — sillage tourbillonnaire ». (3) Une aile vue en perspective de trois-quarts arrière, avec deux gros tourbillons enroulés qui s'échappent des BOUTS d'aile, libellée « traînée induite — le prix de la portance », plus une note « diminue quand l'allongement augmente ». Sous les trois, une barre horizontale empilée en trois segments de couleurs correspondantes, libellée « traînée totale ». NE PAS mettre : la courbe traînée/vitesse (schéma courbes_trainee existant), pas de valeurs numériques de Cx, pas de portance vectorielle, pas de décor.",
+      "legendes": [
+        "trainee-totale",
+        "trainee-de-frottement",
+        "trainee-de-forme",
+        "sillage",
+        "allongement"
+      ],
+      "mots_ecartes_et_pourquoi": {
+        "trainee-induite": "rattachée au schéma existant courbes_trainee ; dessinée ici (tourbillons de bout d'aile) mais non ancrée en double",
+        "trainee-parasite": "schéma existant courbes_trainee",
+        "trainee": "terme générique, schéma existant courbes_trainee",
+        "couche-limite": "le détail laminaire/turbulent est une autre idée — planche couche-limite",
+        "finesse": "rapport de performance — planche polaire-cz-cx",
+        "aerofrein": "dispositif, pas une origine physique de traînée — planche aerofrein-effet"
+      },
+      "priorite": 2
+    },
+    {
+      "id": "effet-de-sol",
+      "titre": "L'effet de sol",
+      "idee": "Près du sol, les tourbillons de bout d'aile sont bridés, ce qui réduit la traînée induite et fait flotter l'avion à l'atterrissage.",
+      "mots_couverts": [
+        "effet-de-sol"
+      ],
+      "description_image": "Deux vignettes empilées, même aile vue de face/trois-quarts arrière. VIGNETTE HAUTE, « hors effet de sol » : l'aile est loin du sol (aucun sol dessiné ou très bas), avec deux tourbillons de bout d'aile amples et bien enroulés, et un vecteur de traînée induite long. VIGNETTE BASSE, « en effet de sol (hauteur < 1 envergure) » : le sol est une bande hachurée juste sous l'aile, les tourbillons sont écrasés et déformés contre le sol, le vecteur de traînée induite est nettement plus court, et une flèche de portance légèrement plus longue. Une double flèche verticale cote la hauteur au sol avec la mention « ≈ 1 envergure ». En bas, deux conséquences en texte simple : « à l'atterrissage : l'avion flotte » / « au décollage : décolle plus tôt mais accélère moins bien ensuite ». NE PAS mettre : de piste détaillée avec marquages, pas d'avion complet avec train et hélice détaillés, pas de courbes, pas de décor.",
+      "legendes": [
+        "effet-de-sol"
+      ],
+      "mots_ecartes_et_pourquoi": {
+        "trainee-induite": "schéma existant courbes_trainee ; ici on montre uniquement sa variation près du sol",
+        "distance-de-decollage": "schéma existant profil_decollage_distances",
+        "distance-d-atterrissage": "performances, autre domaine",
+        "envergure": "ancré sur aile-geometrie-plan",
+        "portance": "ancré sur forces-vol-palier"
+      },
+      "priorite": 3
+    }
+  ]
+}

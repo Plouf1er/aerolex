@@ -1,0 +1,27 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 620 440" role="img" aria-labelledby="t">
+<title id="t">Les quatre forces en vol en palier</title>
+<style>
+.pl{fill:#dfe8f0;stroke:#1b3a5c;stroke-width:2}
+.f{stroke:#c1462c;stroke-width:3.4;fill:none;marker-end:url(#a)}
+text{font-family:Arial,Helvetica,sans-serif;font-size:16px;fill:#1b3a5c}
+.aerolex-terme{font-weight:bold;cursor:pointer}
+.sub{font-size:12.5px;fill:#5a6b7a;font-weight:normal}
+</style>
+<defs><marker id="a" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="5.5" markerHeight="5.5" orient="auto"><path d="M0 0 10 5 0 10z" fill="#c1462c"/></marker></defs>
+<path class="pl" d="M210 220 h190 l34 -7 v14 l-34 -7"/>
+<path class="pl" d="M300 220 l-26 -62 h30 l38 62z"/>
+<path class="pl" d="M300 220 l-26 62 h30 l38 -62z"/>
+<path class="pl" d="M220 220 l-7 -38 h14 l12 38z"/>
+<line class="f" x1="305" y1="206" x2="305" y2="70"/>
+<text class="aerolex-terme" data-slug="portance" x="318" y="76">portance</text>
+<line class="f" x1="305" y1="236" x2="305" y2="372"/>
+<text class="aerolex-terme" data-slug="poids" x="318" y="368">poids</text>
+<line class="f" x1="420" y1="221" x2="552" y2="221"/>
+<text class="aerolex-terme" data-slug="traction" x="452" y="208">traction</text>
+<text class="aerolex-terme" data-slug="poussee" x="452" y="248">poussée</text>
+<line class="f" x1="196" y1="221" x2="64" y2="221"/>
+<text class="aerolex-terme" data-slug="trainee" x="66" y="208">traînée</text>
+<text class="sub" x="66" y="404">Vol rectiligne stabilisé : portance = poids, traction = traînée.</text>
+<text class="aerolex-terme" data-slug="energie-cinetique" x="66" y="426">énergie cinétique</text>
+<text class="sub" x="212" y="426">— conservée à vitesse constante</text>
+</svg>

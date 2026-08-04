@@ -1,0 +1,46 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 660 470" role="img" aria-labelledby="t">
+<title id="t">Volets et becs : l'hypersustentation</title>
+<style>
+.prof{fill:#dfe8f0;stroke:#1b3a5c;stroke-width:2.2}
+.mob{fill:#f2c14e;stroke:#1b3a5c;stroke-width:2}
+.ax{stroke:#1b3a5c;stroke-width:2;fill:none;marker-end:url(#a)}
+.c1{stroke:#1b3a5c;stroke-width:2.8;fill:none}
+.c2{stroke:#c1462c;stroke-width:2.8;fill:none}
+.gl{stroke:#5a6b7a;stroke-width:1.2;stroke-dasharray:6 4}
+text{font-family:Arial,Helvetica,sans-serif;font-size:15px;fill:#1b3a5c}
+.aerolex-terme{font-weight:bold;cursor:pointer}
+.sub{font-size:12.5px;fill:#5a6b7a;font-weight:normal}
+.h{font-size:14px;font-weight:bold}
+</style>
+<defs><marker id="a" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto"><path d="M0 0 10 5 0 10z" fill="#1b3a5c"/></marker></defs>
+<text class="h" x="40" y="36">volets rentrés</text>
+<path class="prof" d="M40 90 C76 66 158 60 222 78 C244 84 254 88 260 90 C222 100 112 110 66 104 C51 102 44 96 40 90 Z"/>
+<text class="aerolex-terme" data-slug="volets-rentres" x="40" y="132">volets rentrés</text>
+<text class="aerolex-terme" data-slug="volets-up" x="164" y="132">volets up</text>
+<text class="h" x="360" y="36">volets sortis</text>
+<path class="prof" d="M360 90 C396 66 478 60 542 78 C564 84 574 88 580 90 C542 100 432 110 386 104 C371 102 364 96 360 90 Z"/>
+<path class="mob" d="M544 84 l40 26 8 -10 -38 -22z"/>
+<path class="mob" d="M360 84 l-24 -6 -2 12 24 6z"/>
+<text class="aerolex-terme" data-slug="becs" x="300" y="70">becs</text>
+<text class="aerolex-terme" data-slug="volets-sortis" x="360" y="140">volets sortis</text>
+<text class="aerolex-terme" data-slug="volets" x="480" y="140">volets</text>
+<text class="aerolex-terme" data-slug="flaps" x="546" y="140">flaps</text>
+<line class="ax" x1="120" y1="420" x2="120" y2="192"/>
+<line class="ax" x1="120" y1="420" x2="560" y2="420"/>
+<text x="86" y="204" font-weight="bold">Cz</text>
+<text x="536" y="444" font-weight="bold">α</text>
+<path class="c1" d="M140 404 C210 356 280 292 340 268"/>
+<path class="c2" d="M140 372 C204 320 262 254 314 230"/>
+<circle cx="340" cy="268" r="5.5" fill="#1b3a5c"/>
+<circle cx="314" cy="230" r="5.5" fill="#c1462c"/>
+<line class="gl" x1="120" y1="230" x2="314" y2="230"/>
+<text class="aerolex-terme" data-slug="cz-max" x="330" y="222">Cz max</text>
+<text class="sub" x="330" y="240">plus élevé volets sortis</text>
+<text class="aerolex-terme" data-slug="configuration" x="330" y="300">configuration</text>
+<text class="aerolex-terme" data-slug="vs1" x="330" y="336">Vs1</text>
+<text class="sub" x="372" y="336">décrochage lisse</text>
+<text class="aerolex-terme" data-slug="vs0" x="330" y="358">Vs0</text>
+<text class="sub" x="372" y="358">décrochage volets sortis (plus basse)</text>
+<text class="aerolex-terme" data-slug="vfe" x="330" y="380">Vfe</text>
+<text class="sub" x="372" y="380">vitesse max volets sortis</text>
+</svg>

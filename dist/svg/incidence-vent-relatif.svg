@@ -1,0 +1,42 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 660 420" role="img" aria-labelledby="t">
+<title id="t">Incidence, vent relatif et assiette</title>
+<style>
+.prof{fill:#dfe8f0;stroke:#1b3a5c;stroke-width:2.5}
+.horiz{stroke:#5a6b7a;stroke-width:1.6;stroke-dasharray:8 5}
+.corde{stroke:#1b3a5c;stroke-width:1.8;stroke-dasharray:5 4}
+.wind{stroke:#2d7d5a;stroke-width:2.8;fill:none;marker-end:url(#g)}
+.traj{stroke:#c1462c;stroke-width:2.4;stroke-dasharray:9 5;fill:none;marker-end:url(#a)}
+text{font-family:Arial,Helvetica,sans-serif;font-size:15px;fill:#1b3a5c}
+.aerolex-terme{font-weight:bold;cursor:pointer}
+.sub{font-size:12.5px;fill:#5a6b7a;font-weight:normal}
+.ang{font-size:14px;fill:#c1462c;font-weight:bold}
+</style>
+<defs>
+<marker id="a" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto"><path d="M0 0 10 5 0 10z" fill="#c1462c"/></marker>
+<marker id="g" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto"><path d="M0 0 10 5 0 10z" fill="#2d7d5a"/></marker>
+</defs>
+<g transform="rotate(-12 340 210)">
+<path class="prof" d="M240 210 C280 176 380 168 470 194 C500 202 512 206 520 210 C480 220 340 232 280 226 C258 223 246 216 240 210 Z"/>
+<line class="corde" x1="240" y1="210" x2="520" y2="210"/>
+</g>
+<line class="horiz" x1="120" y1="222" x2="620" y2="222"/>
+<text class="sub" x="540" y="242">horizon</text>
+<line class="wind" x1="90" y1="252" x2="248" y2="228"/>
+<text class="aerolex-terme" data-slug="vent-relatif" x="60" y="284">vent relatif</text>
+<line class="traj" x1="470" y1="196" x2="612" y2="176"/>
+<text class="aerolex-terme" data-slug="trajectoire" x="520" y="162">trajectoire</text>
+<text class="aerolex-terme" data-slug="pente" x="520" y="144">pente</text>
+<text class="ang" x="268" y="206">α</text>
+<text class="aerolex-terme" data-slug="incidence" x="150" y="60">incidence</text>
+<text class="sub" x="234" y="60">= corde ↔ vent relatif</text>
+<text class="aerolex-terme" data-slug="angle-d-incidence" x="150" y="82">angle d'incidence</text>
+<text class="aerolex-terme" data-slug="angle-d-attaque" x="300" y="82">angle d'attaque</text>
+<text class="aerolex-terme" data-slug="assiette" x="150" y="112">assiette</text>
+<text class="sub" x="216" y="112">= axe avion ↔ horizon (≠ incidence)</text>
+<text class="aerolex-terme" data-slug="assiette-de-reference" x="150" y="134">assiette de référence</text>
+<text class="aerolex-terme" data-slug="attitude-de-vol" x="330" y="134">attitude de vol</text>
+<text class="aerolex-terme" data-slug="cabre" x="150" y="156">cabré</text>
+<text class="sub" x="210" y="156">— nez au-dessus de l'horizon</text>
+<text class="sub" x="60" y="380">L'incidence se mesure par rapport au vent relatif,</text>
+<text class="sub" x="60" y="398">l'assiette par rapport à l'horizon. Les deux ne se confondent pas.</text>
+</svg>

@@ -1,0 +1,45 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 660 470" role="img" aria-labelledby="t">
+<title id="t">Les trois gouvernes primaires et leurs commandes</title>
+<style>
+.pl{fill:#dfe8f0;stroke:#1b3a5c;stroke-width:2}
+.mob{fill:#f2c14e;stroke:#1b3a5c;stroke-width:2}
+.rot{stroke:#c1462c;stroke-width:2.2;fill:none;marker-end:url(#a)}
+.lead{stroke:#5a6b7a;stroke-width:1}
+text{font-family:Arial,Helvetica,sans-serif;font-size:15px;fill:#1b3a5c}
+.aerolex-terme{font-weight:bold;cursor:pointer}
+.sub{font-size:12.5px;fill:#5a6b7a;font-weight:normal}
+</style>
+<defs><marker id="a" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto"><path d="M0 0 10 5 0 10z" fill="#c1462c"/></marker></defs>
+<path class="pl" d="M150 230 h300 l38 -8 v16 l-38 -8"/>
+<path class="pl" d="M290 230 l-30 -92 h36 l50 92z"/>
+<path class="pl" d="M290 230 l-30 92 h36 l50 -92z"/>
+<path class="mob" d="M262 142 l-14 -4 4 -12 14 4z"/>
+<path class="mob" d="M262 318 l-14 4 4 12 14 -4z"/>
+<line class="lead" x1="252" y1="132" x2="210" y2="86"/>
+<text class="aerolex-terme" data-slug="aileron" x="150" y="76">aileron</text>
+<text class="sub" x="150" y="93">roulis</text>
+<path class="pl" d="M162 230 l-10 -52 h18 l16 52z"/>
+<path class="mob" d="M152 178 l-12 -2 2 -12 12 2z"/>
+<line class="lead" x1="146" y1="172" x2="104" y2="140"/>
+<text class="aerolex-terme" data-slug="gouverne-de-direction" x="20" y="130">gouverne de direction</text>
+<text class="sub" x="20" y="147">lacet</text>
+<path class="pl" d="M160 230 h-46 l-6 -20 h30z"/>
+<path class="mob" d="M114 230 h-30 l-4 10 h30z"/>
+<line class="lead" x1="94" y1="240" x2="70" y2="288"/>
+<text class="aerolex-terme" data-slug="gouverne-de-profondeur" x="20" y="308">gouverne de profondeur</text>
+<text class="aerolex-terme" data-slug="profondeur" x="20" y="326">(profondeur)</text>
+<text class="sub" x="130" y="326">tangage</text>
+<text class="aerolex-terme" data-slug="empennage" x="176" y="200">empennage</text>
+<text class="aerolex-terme" data-slug="derive-empennage" x="176" y="182">dérive</text>
+<path class="rot" d="M470 206 a30 30 0 0 1 0 44"/>
+<text class="sub" x="500" y="232">roulis</text>
+<text class="aerolex-terme" data-slug="gouverne" x="470" y="60">gouverne</text>
+<text class="sub" x="470" y="77">= surface mobile</text>
+<line class="lead" x1="330" y1="360" x2="330" y2="392"/>
+<text class="aerolex-terme" data-slug="manche" x="240" y="412">manche</text>
+<text class="sub" x="300" y="412">→ ailerons + profondeur</text>
+<text class="aerolex-terme" data-slug="palonnier" x="240" y="434">palonnier</text>
+<text class="sub" x="316" y="434">→ direction</text>
+<text class="aerolex-terme" data-slug="double-commande" x="240" y="456">double commande</text>
+<text class="sub" x="392" y="456">— instruction</text>
+</svg>

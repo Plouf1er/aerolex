@@ -1,0 +1,189 @@
+1000-ft-agglomeration | 1000 ft agglomération
+500-ft | 500 ft
+altitude-de-transition | altitude de transition
+altitude-densite | altitude-densité
+altitude-minimale-de-securite | altitude minimale de sécurité
+altitude-pression | altitude-pression
+couche-de-transition | couche de transition
+du-chaud-vers-le-froid-gare-aux-degats | du chaud vers le froid, gare aux dégâts
+effet-temperature-sur-l-altimetre | effet température sur l'altimètre
+erreur-altimetrique | erreur altimétrique
+hauteur-de-survol | hauteur de survol
+mef | MEF
+mora | MORA
+msa | MSA
+niveau-de-transition | niveau de transition
+niveau-de-vol | niveau de vol
+plancher | plancher
+tl | TL
+grele | grêle
+neige | neige
+pluie | pluie
+pluie-surfondue | pluie surfondue
+hyperventilation | hyperventilation
+hypothermie | hypothermie
+temps-de-reaction | temps de reaction
+compression | compression
+cycle-a-4-temps | cycle à 4 temps
+moteur-a-4-temps | moteur à 4 temps
+pression-d-huile | pression d'huile
+temperature-culasse | température culasse
+temperature-d-huile | température d'huile
+distance-aux-nuages | distance aux nuages
+visibilite-minimale | visibilité minimale
+ascendance-thermique | ascendance thermique
+cellule-orageuse | cellule orageuse
+convection-thermique | convection thermique
+depression | dépression
+humidite-relative | humidité relative
+isobare | isobare
+orage | orage
+orage-multicellulaire | orage multicellulaire
+orage-supercellulaire | orage supercellulaire
+pression-atmospherique | pression atmosphérique
+surface-isobare | surface isobare
+thermique | thermique
+ecoulement-turbulent | écoulement turbulent
+pression-dynamique | pression dynamique
+pression-statique | pression statique
+vent-relatif | vent relatif
+angle-de-derive | angle de dérive
+composante-arriere | composante arrière
+composante-de-face | composante de face
+composante-de-travers | composante de travers
+decrabage | décrabage
+girouette | girouette
+kt-de-travers | kt de travers
+pression | pression
+secteur-variable | secteur variable
+temperature-standard | température standard
+terme-2 | θ
+vent-de-face | vent de face
+vent-de-travers-demontre | vent de travers démontré
+vent-effectif | vent effectif
+vent-estime | vent estimé
+vent-fort | vent fort
+vent-reel | vent réel
+brise-de-mer | brise de mer
+brise-de-montagne | brise de montagne
+brise-de-pente | brise de pente
+brise-de-terre | brise de terre
+brise-de-vallee | brise de vallée
+mistral | mistral
+tramontane | tramontane
+vent-anabatique | vent anabatique
+vent-catabatique | vent catabatique
+1013-25-hpa | 1013,25 hPa
+altimetrie | altimétrie
+calage-altimetrique | calage altimétrique
+calage-standard | calage standard
+pression-standard | pression standard
+qfe | QFE
+qne | QNE
+qnh | QNH
+vent-arriere | vent arrière
+vent-arriere-de-securite | vent arriere de securite
+vent-traversier | vent traversier
+brouillard | brouillard
+brouillard-d-advection | brouillard d'advection
+brouillard-d-evaporation | brouillard d'évaporation
+brouillard-de-rayonnement | brouillard de rayonnement
+cisaillement | cisaillement
+cisaillement-basse-couche | cisaillement basse couche
+cisaillement-de-vent | cisaillement de vent
+gradient-de-vent | gradient de vent
+pression-d-admission | pression d'admission
+vent-gradient | vent gradient
+visibilite | visibilité
+visibilite-horizontale | visibilité horizontale
+visibilite-meteo | visibilité météo
+visibilite-verticale | visibilité verticale
+effet-de-foehn | effet de foehn
+effet-de-la-temperature | effet de la température
+effet-de-site | effet de site
+effet-du-vent | effet du vent
+foehn | foehn
+fohn | föhn
+onde-de-relief | onde de relief
+onde-orographique | onde orographique
+pompe | pompe
+pression-temporelle | pression temporelle
+rabattant | rabattant
+rabattant-sous-le-vent | rabattant sous le vent
+vent-geostrophique | vent géostrophique
+antigivrage | antigivrage
+degivrage | dégivrage
+front | front
+front-chaud | front chaud
+front-froid | front froid
+front-occlus | front occlus
+front-polaire | front polaire
+front-stationnaire | front stationnaire
+givrage | givrage
+givrage-carburateur | givrage carburateur
+givrage-clair | givrage clair
+givrage-en-vol | givrage en vol
+givrage-mixte | givrage mixte
+givrage-moteur | givrage moteur
+givrage-structural | givrage structural
+givre | givre
+givre-blanc | givre blanc
+aileron-au-vent | aileron au vent
+base-de-temps | base de temps
+temps-estime | temps estimé
+temps-sans-vent | temps sans vent
+altimetre | altimètre
+effet-venturi | effet venturi
+regime-venturi | regime venturi
+couche-d-inversion | couche d'inversion
+gradient-thermique | gradient thermique
+inversion | inversion
+inversion-de-temperature | inversion de température
+isothermie | isothermie
+point-de-rosee | point de rosée
+base-des-nuages | base des nuages
+carte-isobarique | carte isobarique
+metar | METAR
+metar-taf | metar/taf
+nuage-du-jour | nuage du jour
+plafond | plafond
+plafond-nuageux | plafond nuageux
+taf | TAF
+tempo | TEMPO
+altocumulus | altocumulus
+altostratus | altostratus
+chute-de-pression | chute de pression
+cirrocumulus | cirrocumulus
+cirrostratus | cirrostratus
+cirrus | cirrus
+cumulonimbus | cumulonimbus
+cumulus | cumulus
+cumulus-congestus | cumulus congestus
+nimbostratus | nimbostratus
+nuage | nuage
+plafond-de-croisiere | plafond de croisière
+plafond-de-sustentation | plafond de sustentation
+plafond-pratique | plafond pratique
+stratocumulus | stratocumulus
+stratus | stratus
+vent-arriere-basse-hauteur | vent arrière basse hauteur
+rose-des-vents | rose des vents
+aal | AAL
+agl | agl
+altitude | altitude
+altitude-vraie | altitude vraie
+amsl | AMSL
+front-de-rafales | front de rafales
+ft-aal | ft aal
+ft-agl | ft agl
+ft-amsl | ft amsl
+hauteur | hauteur
+microburst | microburst
+rafale | rafale
+rafale-descendante | rafale descendante
+turbulence | turbulence
+turbulence-de-sillage | turbulence de sillage
+turbulence-en-air-clair | turbulence en air clair
+turbulence-mecanique | turbulence mécanique
+turbulence-thermique | turbulence thermique
+vitesse-conventionnelle | vitesse conventionnelle

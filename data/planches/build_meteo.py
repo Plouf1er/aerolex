@@ -1,0 +1,245 @@
+#!/usr/bin/env python3
+# -*- coding: utf-8 -*-
+"""Construit PLANCHES-meteo.json par lots, réécrit le fichier complet à chaque appel."""
+import json, os, sys
+
+HERE = os.path.dirname(os.path.abspath(__file__))
+OUT = os.path.join(HERE, "PLANCHES-meteo.json")
+
+NUAGES_IDS = [
+    "nuages-etages-formes",
+    "nuage-cumulus", "nuage-cumulus-congestus", "nuage-cumulonimbus",
+    "nuage-stratus", "nuage-stratocumulus", "nuage-nimbostratus",
+    "nuage-altocumulus", "nuage-altostratus",
+    "nuage-cirrus", "nuage-cirrocumulus", "nuage-cirrostratus",
+]
+
+def liens_nuages(self_id):
+    return [i for i in NUAGES_IDS if i != self_id]
+
+PLANCHES = []
+
+def P(**kw):
+    kw.setdefault("lie_vers", [])
+    PLANCHES.append(kw)
+
+# ---------------------------------------------------------------- NUAGES
+P(
+ id="nuages-etages-formes",
+ titre="Les trois étages nuageux et la place de chaque type",
+ idee="Tous les types de nuages se rangent par l'altitude de leur base en trois étages superposés — bas, moyen, haut — et par leur forme, en couche ou en bourgeon.",
+ mots_couverts=["nuage","cirrus","cirrocumulus","cirrostratus","altocumulus","altostratus",
+   "nimbostratus","stratocumulus","stratus","cumulus","cumulus-congestus","cumulonimbus","base-des-nuages"],
+ description_image="Coupe verticale unique de l'atmosphère, sol en bas, ciel en haut, sur toute la largeur. Échelle d'altitude à gauche graduée en pieds : 0, 6 500 ft, 20 000 ft, 45 000 ft. Trois bandes horizontales de fond très pâle et de teinte différente, libellées à droite : « étage bas (surface à 6 500 ft) », « étage moyen (6 500 à 20 000 ft) », « étage haut (16 000 à 45 000 ft) ». Dans chaque bande, les nuages de l'étage sont dessinés en silhouette blanche à leur hauteur et à distance les uns des autres, chacun avec son nom écrit juste dessous : étage bas = « stratus » (nappe grise collée au sol), « stratocumulus » (galets soudés), « cumulus » (petit bourgeon à base plate), « nimbostratus » (nappe épaisse et sombre qui déborde vers le haut) ; étage moyen = « altocumulus » (bancs de galets), « altostratus » (voile gris uniforme) ; étage haut = « cirrus » (filaments), « cirrocumulus » (grains fins), « cirrostratus » (voile blanchâtre). À droite du dessin, traversant les trois étages sur toute la hauteur, deux nuages à extension verticale : « cumulus congestus » (chou-fleur montant jusqu'au milieu de l'étage moyen) et « cumulonimbus » (montant jusqu'à l'étage haut avec sommet aplati en enclume). Un trait pointillé horizontal sous chaque nuage bas avec l'étiquette « base des nuages ». NE PAS mettre : de précipitations, de fronts, d'avion, de flèches de vent, de valeurs de température, ni de détail interne des nuages — chaque type a sa propre planche.",
+ legendes=["nuage","stratus","stratocumulus","cumulus","nimbostratus","altocumulus","altostratus",
+   "cirrus","cirrocumulus","cirrostratus","cumulus-congestus","cumulonimbus","base-des-nuages"],
+ mots_ecartes_et_pourquoi={
+   "plafond":"grandeur opérationnelle mesurée (hauteur du plafond), pas une classification de nuage — planche plafond-et-visibilites",
+   "plafond-nuageux":"idem plafond",
+   "nuage-du-jour":"expression d'observation, pas un type — planche plafond-et-visibilites",
+   "convection-thermique":"c'est le mécanisme de formation, pas la classification — planche cumulus-formation-convection",
+   "point-de-rosee":"grandeur thermodynamique de la condensation — planche point-de-rosee-condensation",
+   "distance-aux-nuages":"règle de vol VFR, pas de la météo descriptive — hors lot",
+ },
+ lie_vers=liens_nuages("nuages-etages-formes"),
+ priorite=1,
+)
+
+P(
+ id="nuage-cumulus",
+ titre="Cumulus : le bourgeon de beau temps",
+ idee="Le cumulus est un nuage bas isolé à base plate et sommet bourgeonnant, sommet d'une bulle d'air chaud qui monte et se condense.",
+ mots_couverts=["cumulus","ascendance-thermique","convection-thermique","thermique","pompe"],
+ description_image="Un seul cumulus dessiné de profil, grand, au centre : base parfaitement plate et horizontale, sommet en trois ou quatre bourgeons arrondis blancs, ombré en gris clair sous la base. Sol en bas de l'image, avec une parcelle plus sombre (champ labouré) juste sous le nuage. De cette parcelle, trois flèches verticales montantes rouges vers la base du nuage, libellées « ascendance thermique » et « thermique ». Une flèche verticale unique et plus large à l'intérieur du nuage, libellée « pompe ». Un trait pointillé horizontal à la base, étiqueté « convection thermique » avec la mention « l'air chaud monte, se refroidit, condense ». Deux flèches descendantes fines grises de part et d'autre du nuage pour l'air qui redescend, sans libellé. Libellé principal du nuage : « cumulus ». NE PAS mettre : de précipitation, de sommet en enclume, de cumulus congestus ou de cumulonimbus, pas d'avion, pas d'autres types de nuages, pas d'échelle d'altitude.",
+ legendes=["cumulus","ascendance-thermique","convection-thermique","thermique","pompe"],
+ mots_ecartes_et_pourquoi={
+   "cumulus-congestus":"stade de développement suivant, planche dédiée",
+   "cumulonimbus":"stade orageux, planche dédiée",
+   "turbulence-thermique":"conséquence pour le pilotage, planche turbulence-types",
+   "base-des-nuages":"grandeur commune à tous les nuages, gardée sur la planche d'ensemble",
+ },
+ lie_vers=liens_nuages("nuage-cumulus"),
+ priorite=1,
+)
+
+P(
+ id="nuage-cumulus-congestus",
+ titre="Cumulus congestus : le bourgeon qui s'étire en chou-fleur",
+ idee="Le cumulus congestus est un cumulus dont l'ascendance persistante a poussé le sommet très haut en chou-fleur net, sans encore geler en enclume.",
+ mots_couverts=["cumulus-congestus"],
+ description_image="Un seul nuage de profil, nettement plus haut que large, base plate en bas, silhouette qui monte en bourgeons serrés de plus en plus gros, sommet en chou-fleur aux contours francs et encore blancs (pas fibreux, pas aplati). Ombrage gris moyen sur le tiers inférieur. Une flèche verticale épaisse rouge à l'intérieur, du bas vers le sommet, sans libellé texte autre que « ascendance vigoureuse ». À gauche, une échelle verticale simple avec deux repères : « base ~3 000 ft » et « sommet > 20 000 ft ». En bas à droite, en petit et en gris, la silhouette d'un cumulus ordinaire à la même échelle pour la comparaison de taille, étiquetée « cumulus (comparaison) ». Libellé principal : « cumulus congestus ». NE PAS mettre : d'enclume au sommet, pas d'éclair, pas de pluie, pas de grêle, pas de cumulonimbus complet, pas d'avion.",
+ legendes=["cumulus-congestus"],
+ mots_ecartes_et_pourquoi={
+   "cumulus":"mentionné seulement en comparaison visuelle, ancré sur sa propre planche",
+   "cumulonimbus":"stade suivant avec enclume et électricité, planche dédiée",
+   "orage":"le phénomène orageux a ses propres planches",
+ },
+ lie_vers=liens_nuages("nuage-cumulus-congestus"),
+ priorite=2,
+)
+
+P(
+ id="nuage-cumulonimbus",
+ titre="Cumulonimbus : le nuage d'orage et son enclume",
+ idee="Le cumulonimbus est un nuage à extension verticale totale, dont le sommet glacé s'étale en enclume et qui concentre à lui seul tous les dangers du vol.",
+ mots_couverts=["cumulonimbus","cellule-orageuse","grele"],
+ description_image="Un seul cumulonimbus vu de profil occupant toute la hauteur de l'image : base sombre et basse, corps massif bourgeonnant, sommet glacé étalé horizontalement en enclume avec bord fibreux, débordant sous le vent. Zones internes indiquées par des teintes : blanc en haut (cristaux de glace), gris moyen au milieu, gris très sombre en bas. Sous la base, hachures verticales pour les précipitations et quelques petits ronds blancs libellés « grêle ». Un éclair unique du nuage vers le sol. Le contour complet du nuage entouré d'un liseré pointillé, étiqueté « cellule orageuse ». Échelle d'altitude à gauche : « base ~2 000 ft », « sommet 35 000 à 45 000 ft ». Libellé principal : « cumulonimbus ». NE PAS mettre : les trois stades du cycle de vie (planche orage-cycle-de-vie), pas de front de rafales ni de microburst (planche dédiée), pas de trajectoire d'avion, pas d'autres nuages.",
+ legendes=["cumulonimbus","cellule-orageuse","grele"],
+ mots_ecartes_et_pourquoi={
+   "orage":"le phénomène et son évolution sont sur orage-cycle-de-vie",
+   "orage-multicellulaire":"organisation à l'échelle de plusieurs cellules — planche orages-organisation",
+   "orage-supercellulaire":"idem",
+   "front-de-rafales":"phénomène de basse couche sous l'orage — planche microburst-front-de-rafales",
+   "microburst":"idem",
+   "givrage-en-vol":"conséquence en vol, planche givrage-types",
+ },
+ lie_vers=liens_nuages("nuage-cumulonimbus"),
+ priorite=1,
+)
+P(
+ id="nuage-stratus",
+ titre="Stratus : la nappe grise collée au sol",
+ idee="Le stratus est une couche nuageuse basse, uniforme et sans relief, dont la base peut toucher le relief et se confondre alors avec le brouillard.",
+ mots_couverts=["stratus","plafond","plafond-nuageux","visibilite-verticale"],
+ description_image="Paysage de profil, sol plat à gauche et une colline arrondie à droite. Une nappe nuageuse grise parfaitement horizontale, sans bourgeon ni découpe, s'étend sur toute la largeur à faible hauteur, et sa base vient trancher la colline à mi-pente (le sommet de la colline disparaît dedans). La nappe est d'un gris uniforme, plus sombre en dessous. Une cote verticale du sol jusqu'à la base de la nappe, étiquetée « plafond » avec la valeur « 300 ft » ; le mot « plafond nuageux » écrit sur la base de la nappe. À droite, une flèche verticale montante depuis le sol traversant la nappe, étiquetée « visibilité verticale ». Libellé principal : « stratus ». NE PAS mettre : de brouillard au sol séparé, pas de gouttes de pluie, pas d'autres nuages, pas d'avion, pas de front.",
+ legendes=["stratus","plafond","plafond-nuageux","visibilite-verticale"],
+ mots_ecartes_et_pourquoi={
+   "brouillard":"c'est un stratus au niveau du sol mais son idée est la visibilité horizontale — planche brouillard-types",
+   "nimbostratus":"nappe précipitante beaucoup plus épaisse, planche dédiée",
+   "stratocumulus":"couche à structure de galets, planche dédiée",
+ },
+ lie_vers=liens_nuages("nuage-stratus"),
+ priorite=1,
+)
+
+P(
+ id="nuage-stratocumulus",
+ titre="Stratocumulus : la couche basse en galets soudés",
+ idee="Le stratocumulus est une couche basse continue mais bosselée, découpée en galets soudés, née d'une convection bloquée sous une inversion.",
+ mots_couverts=["stratocumulus"],
+ description_image="Vue de profil. Une couche nuageuse basse s'étend sur toute la largeur : dessous plat et gris, dessus bosselé en galets arrondis jointifs de tailles inégales, comme des pavés soudés. Au-dessus de la couche, un trait horizontal noir en tirets étiqueté « inversion (couvercle) » : les galets viennent buter dessous et s'aplatissent. Sous la couche, deux ou trois flèches montantes rouges courtes qui s'arrêtent net au niveau du trait. Ciel bleu clair au-dessus du trait. Échelle à gauche : « base 1 500 à 6 500 ft ». Libellé principal : « stratocumulus ». NE PAS mettre : de précipitation, pas de cumulus isolé, pas de valeur de température, pas d'avion, pas d'autres étages nuageux.",
+ legendes=["stratocumulus"],
+ mots_ecartes_et_pourquoi={
+   "inversion":"le mot est écrit comme repère de contexte mais il est ancré sur la planche inversion-gradient-thermique",
+   "stratus":"couche sans relief, planche dédiée",
+   "cumulus":"bourgeon isolé, planche dédiée",
+ },
+ lie_vers=liens_nuages("nuage-stratocumulus"),
+ priorite=2,
+)
+
+P(
+ id="nuage-nimbostratus",
+ titre="Nimbostratus : la nappe épaisse qui pleut en continu",
+ idee="Le nimbostratus est une couche nuageuse épaisse, sombre et sans structure visible, qui donne des précipitations continues et étendues.",
+ mots_couverts=["nimbostratus","pluie","neige"],
+ description_image="Vue de profil, sol en bas. Une masse nuageuse grise très épaisse occupe les deux tiers supérieurs de l'image sur toute la largeur : base basse, floue et déchiquetée, sommet noyé hors du cadre en haut, aucune découpe interne, gris de plus en plus sombre vers le bas. Sous toute la base, des traits obliques serrés et réguliers sur toute la largeur pour la précipitation continue, libellés « pluie » à gauche et « neige » à droite (à droite les traits deviennent des flocons). Sol assombri et uniformément mouillé. Une mention « précipitations continues, étendues, plusieurs heures » écrite dans la zone de pluie. Libellé principal : « nimbostratus ». NE PAS mettre : d'éclair, pas de grêle, pas d'averse isolée, pas de bourgeon convectif, pas de front (planches dédiées), pas d'avion.",
+ legendes=["nimbostratus","pluie","neige"],
+ mots_ecartes_et_pourquoi={
+   "grele":"précipitation convective, gardée sur cumulonimbus",
+   "pluie-surfondue":"cas particulier dangereux traité sur givrage-pluie-surfondue",
+   "front-chaud":"le nimbostratus est le nuage typique du front chaud mais le front est sa propre planche",
+   "stratus":"nappe mince non précipitante, planche dédiée",
+ },
+ lie_vers=liens_nuages("nuage-nimbostratus"),
+ priorite=2,
+)
+
+P(
+ id="nuage-altocumulus",
+ titre="Altocumulus : les bancs de galets de l'étage moyen",
+ idee="L'altocumulus est une nappe d'étage moyen fractionnée en galets ou rouleaux blancs et gris nettement séparés, signe d'instabilité en altitude.",
+ mots_couverts=["altocumulus"],
+ description_image="Vue du sol vers le ciel, en légère perspective. Un ciel bleu occupé par un banc de nuages en altitude : une trentaine d'éléments arrondis, blancs sur le dessus et grisés en dessous, alignés en rangées régulières, jointifs par endroits et séparés par du bleu ailleurs ; les éléments sont plus petits et plus serrés vers l'horizon (perspective). Aucune autre couche. Une accolade verticale à gauche avec l'étiquette « étage moyen : 6 500 à 20 000 ft ». Libellé principal : « altocumulus ». NE PAS mettre : de cirrocumulus (grains beaucoup plus fins), pas de stratocumulus (couche basse), pas de précipitation, pas d'avion, pas de sol détaillé.",
+ legendes=["altocumulus"],
+ mots_ecartes_et_pourquoi={
+   "cirrocumulus":"même motif mais étage haut et grains fins — planche dédiée",
+   "stratocumulus":"même motif mais étage bas — planche dédiée",
+   "altostratus":"voile uniforme du même étage — planche dédiée",
+ },
+ lie_vers=liens_nuages("nuage-altocumulus"),
+ priorite=2,
+)
+
+P(
+ id="nuage-altostratus",
+ titre="Altostratus : le voile gris qui voile le soleil",
+ idee="L'altostratus est un voile gris uniforme d'étage moyen, assez épais pour effacer les contours du soleil sans le faire disparaître.",
+ mots_couverts=["altostratus"],
+ description_image="Vue du sol vers le ciel. Tout le cadre est occupé par un voile gris moyen d'aspect strié et lisse, sans galet ni bourgeon, légèrement plus clair en haut. Au centre, le soleil apparaît comme une tache lumineuse aux bords totalement flous, sans disque net, sans halo circulaire. Une flèche pointe la tache avec l'étiquette « soleil aux contours effacés, pas de halo ». Une accolade verticale à gauche : « étage moyen : 6 500 à 20 000 ft ». En bas, une bande étroite de sol en silhouette sombre sans détail. Libellé principal : « altostratus ». NE PAS mettre : de halo (c'est le cirrostratus), pas de précipitation atteignant le sol, pas de galets, pas d'avion, pas d'autres couches.",
+ legendes=["altostratus"],
+ mots_ecartes_et_pourquoi={
+   "cirrostratus":"voile haut translucide AVEC halo — planche dédiée, c'est le critère de distinction",
+   "nimbostratus":"l'épaississement suivant, qui précipite — planche dédiée",
+   "altocumulus":"même étage mais fractionné — planche dédiée",
+ },
+ lie_vers=liens_nuages("nuage-altostratus"),
+ priorite=2,
+)
+
+P(
+ id="nuage-cirrus",
+ titre="Cirrus : les filaments de glace de la haute altitude",
+ idee="Le cirrus est un nuage d'étage haut fait uniquement de cristaux de glace, en filaments blancs et fibreux étirés par le vent d'altitude.",
+ mots_couverts=["cirrus","turbulence-en-air-clair"],
+ description_image="Vue du sol vers le ciel, ciel bleu franc. Une dizaine de traînées blanches fines, fibreuses, très étirées en diagonale du bas-gauche vers le haut-droite, à crochet recourbé à une extrémité, sans aucune épaisseur ni ombre. Une flèche longue et fine en haut, parallèle aux filaments, étiquetée « vent d'altitude ». Une accolade verticale à gauche : « étage haut : 16 000 à 45 000 ft — cristaux de glace ». À droite, une petite zone hachurée en pointillés le long des filaments, étiquetée « turbulence en air clair ». Libellé principal : « cirrus ». NE PAS mettre : de cirrocumulus en grains, pas de voile continu, pas de halo, pas de précipitation, pas d'avion visible.",
+ legendes=["cirrus","turbulence-en-air-clair"],
+ mots_ecartes_et_pourquoi={
+   "cirrostratus":"voile continu du même étage — planche dédiée",
+   "cirrocumulus":"grains du même étage — planche dédiée",
+   "turbulence":"notion générique, ancrée sur turbulence-types",
+ },
+ lie_vers=liens_nuages("nuage-cirrus"),
+ priorite=2,
+)
+
+P(
+ id="nuage-cirrocumulus",
+ titre="Cirrocumulus : le ciel pommelé en grains fins",
+ idee="Le cirrocumulus est une nappe d'étage haut découpée en très petits grains blancs sans ombre, aspect de sable ou d'écailles.",
+ mots_couverts=["cirrocumulus"],
+ description_image="Vue du sol vers le ciel, ciel bleu. Une nappe couvrant les deux tiers du cadre, faite de très nombreux grains blancs minuscules, tous de taille comparable, alignés en rangées, sans aucune ombre grise (contrairement à l'altocumulus). Le bleu du ciel reste visible entre les grains. En encart bas-droite, un carré de comparaison à la même échelle montrant trois gros galets gris ombrés, étiqueté « altocumulus : éléments plus gros et ombrés ». Accolade à gauche : « étage haut : 16 000 à 45 000 ft ». Libellé principal : « cirrocumulus ». NE PAS mettre : d'ombre sur les grains, pas de précipitation, pas de halo, pas d'avion.",
+ legendes=["cirrocumulus"],
+ mots_ecartes_et_pourquoi={
+   "altocumulus":"cité en encart de comparaison mais ancré sur sa propre planche",
+   "cirrus":"filaments, planche dédiée",
+ },
+ lie_vers=liens_nuages("nuage-cirrocumulus"),
+ priorite=3,
+)
+
+P(
+ id="nuage-cirrostratus",
+ titre="Cirrostratus : le voile blanchâtre à halo",
+ idee="Le cirrostratus est un voile de glace d'étage haut, si mince que le soleil garde son disque net et s'entoure d'un halo.",
+ mots_couverts=["cirrostratus"],
+ description_image="Vue du sol vers le ciel. Voile blanchâtre laiteux très pâle couvrant tout le cadre, légèrement plus dense en haut, sans structure ni galet. Au centre, le soleil dessiné avec un disque parfaitement net, entouré d'un anneau circulaire fin et complet, nettement séparé du disque. Une flèche vers l'anneau avec l'étiquette « halo (22°) — signature du cirrostratus ». Accolade à gauche : « étage haut : 16 000 à 45 000 ft — cristaux de glace ». Libellé principal : « cirrostratus ». NE PAS mettre : de soleil aux bords flous (c'est l'altostratus), pas de grains, pas de filaments, pas de précipitation, pas d'avion.",
+ legendes=["cirrostratus"],
+ mots_ecartes_et_pourquoi={
+   "altostratus":"voile moyen SANS halo et à soleil flou — planche dédiée, critère de distinction",
+   "cirrus":"filaments discontinus, planche dédiée",
+   "front-chaud":"le cirrostratus annonce le front chaud mais le front a sa planche",
+ },
+ lie_vers=liens_nuages("nuage-cirrostratus"),
+ priorite=3,
+)
+# ---------------------------------------------------------------- FIN LOT 1
+
+def dump():
+    doc = {
+        "meta": {
+            "domaine": "Météorologie + Nuages + Altimétrie/Pression + Vent",
+            "regle": "Homogénéité > densité. Une planche = une seule idée physique, exprimable en une phrase.",
+            "source_vocabulaire": "data/planches/termes/termes-meteo.txt (189 termes)",
+            "statut": "en cours",
+            "total_planches": len(PLANCHES),
+            "total_mots_couverts": sum(len(p["mots_couverts"]) for p in PLANCHES),
+        },
+        "planches": PLANCHES,
+    }
+    with open(OUT, "w", encoding="utf-8") as f:
+        json.dump(doc, f, ensure_ascii=False, indent=1)
+    print("planches:", len(PLANCHES), "mots:", doc["meta"]["total_mots_couverts"])
+
+if __name__ == "__main__":
+    dump()

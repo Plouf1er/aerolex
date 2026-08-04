@@ -1,0 +1,275 @@
+surface-alaire | surface alaire
+altitude-tour-de-piste | altitude tour de piste
+effet-temperature-sur-l-altimetre | effet température sur l'altimètre
+erreur-altimetrique | erreur altimétrique
+aire-de-man-uvre | aire de manœuvre
+aire-de-mouvement | aire de mouvement
+aire-de-securite-d-extremite | aire de sécurité d'extrémité
+aire-de-trafic | aire de trafic
+largeur-de-piste | largeur de piste
+longueur-de-piste | longueur de piste
+parking | parking
+resistance-de-piste | résistance de piste
+surface-en-gazon | surface en gazon
+aerodrome-controle | aérodrome contrôlé
+aerodrome-non-controle | aérodrome non contrôlé
+controle-d-aerodrome | contrôle d'aérodrome
+voie-aerienne | voie aérienne
+cap-compas | cap compas
+facteur-de-base | facteur de base
+100ll | 100LL
+admission | admission
+alimentation-croisee | alimentation croisée
+alternateur | alternateur
+amperemetre | ampèremètre
+batterie | batterie
+carbu | carbu
+choke | choke
+cht | cht
+circuit-carburant | circuit carburant
+circuit-electrique | circuit électrique
+compression | compression
+consommation-horaire | consommation horaire
+crossfeed | crossfeed
+cycle | cycle
+cycle-a-4-temps | cycle à 4 temps
+detente | détente
+disjoncteur | disjoncteur
+echappement | échappement
+egt | EGT
+essence-auto | essence auto
+filtre | filtre
+fuel-pump | fuel pump
+fusible | fusible
+jauge | jauge
+master-switch | master switch
+mogas | mogas
+moteur-a-4-temps | moteur à 4 temps
+pompe-electrique | pompe électrique
+pompe-mecanique | pompe mécanique
+pression-d-huile | pression d'huile
+pump | pump
+refroidissement | refroidissement
+regime-moteur | régime moteur
+reservoir | réservoir
+selecteur-carburant | sélecteur carburant
+temperature-culasse | température culasse
+temperature-d-huile | température d'huile
+axe-de-piste | axe de piste
+balisage-basse-intensite | balisage basse intensité
+balisage-de-taxiway | balisage de taxiway
+balisage-haute-intensite | balisage haute intensité
+etat-de-piste | état de piste
+feux-de-bord-de-piste | feux de bord de piste
+feux-de-seuil | feux de seuil
+numero-de-piste | numéro de piste
+phare-d-aerodrome | phare d'aérodrome
+piste | piste
+piste-contaminee | piste contaminée
+piste-en-service | piste en service
+piste-mouillee | piste mouillée
+point-d-attente-intermediaire | point d'attente intermédiaire
+seuil-de-piste | seuil de piste
+surface-de-piste | surface de piste
+telecommande-du-balisage | télécommande du balisage
+zone-de-toucher-des-roues | zone de toucher des roues
+autorisation-atterrissage | autorisation atterrissage
+clairance-de-decollage | clairance de décollage
+espacement-reglementaire | espacement réglementaire
+semi-circulaire | semi-circulaire
+vol-aux-instruments | vol aux instruments
+orage-multicellulaire | orage multicellulaire
+orage-supercellulaire | orage supercellulaire
+charge-alaire | charge alaire
+ecoulement-laminaire | écoulement laminaire
+polaire | polaire
+polaire-des-vitesses | polaire des vitesses
+tours-minute | tours/minute
+atterrisseur | atterrisseur
+categorie-utilitaire | catégorie utilitaire
+composante-arriere | composante arrière
+instrument | instrument
+monomoteur | monomoteur
+monomoteur-leger | monomoteur léger
+arc-blanc | arc blanc
+arc-jaune | arc jaune
+arc-vert | arc vert
+arrondi | arrondi
+atterrissage-de-precaution | atterrissage de précaution
+atterrissage-force | atterrissage forcé
+atterrissage-precaution | atterrissage precaution
+atterrissage-train-rentre | atterrissage train rentré
+briefing-decollage | briefing décollage
+choix-de-piste | choix de piste
+remise-de-gaz-interrompue | remise de gaz interrompue
+remise-des-gaz | remise des gaz
+touche | touché
+altimetrie | altimétrie
+approche-finale | approche finale
+calage-altimetrique | calage altimétrique
+circuit-basse-hauteur | circuit basse hauteur
+courte-finale | courte finale
+decollage | décollage
+degagement-de-piste | dégagement de piste
+etape-de-base | étape de base
+finale | finale
+finale-courte | finale courte
+hauteur-tour-de-piste | hauteur tour de piste
+integration | intégration
+longue-finale | longue finale
+percee-verticale | percée verticale
+sens-du-tour-de-piste | sens du tour de piste
+tour-de-piste | tour de piste
+tour-de-piste-basse-hauteur | tour de piste basse hauteur
+vent-arriere | vent arrière
+vent-arriere-de-securite | vent arriere de securite
+vent-traversier | vent traversier
+verticale-terrain | verticale terrain
+carburateur | carburateur
+correcteur-d-altitude | correcteur d'altitude
+decrochage-secondaire | décrochage secondaire
+idle | idle
+injection | injection
+lean | lean
+manette | manette
+mixture | mixture
+papillon-des-gaz | papillon des gaz
+portee-visuelle-de-piste | portée visuelle de piste
+pression-d-admission | pression d'admission
+ralenti | ralenti
+richesse | richesse
+richesse-melange | richesse mélange
+throttle | throttle
+visibilite-horizontale | visibilité horizontale
+visibilite-verticale | visibilité verticale
+autonomie-carburant | autonomie carburant
+distance-d-atterrissage | distance d'atterrissage
+distance-de-decollage | distance de décollage
+aerodrome-de-degagement | aérodrome de dégagement
+antigivrage | antigivrage
+bilan-carburant | bilan carburant
+carburant-100ll | carburant 100ll
+carburant-degagement | carburant degagement
+degivrage | dégivrage
+front-polaire | front polaire
+front-stationnaire | front stationnaire
+givrage-carburateur | givrage carburateur
+givrage-moteur | givrage moteur
+rechauffage-carburateur | réchauffage carburateur
+reserve-de-carburant | réserve de carburant
+reserve-finale | reserve finale
+reserve-reglementaire | réserve réglementaire
+base-de-temps | base de temps
+calage-d-helice | calage d'hélice
+calage-helice | calage helice
+couple | couple
+couple-de-renversement | couple de renversement
+couple-gyroscopique | couple gyroscopique
+couple-moteur | couple moteur
+effet-de-couple | effet de couple
+helice | hélice
+helice-a-pas-fixe | hélice à pas fixe
+helice-a-pas-variable | hélice à pas variable
+mise-en-moulinet | mise en moulinet
+moulinet | moulinet
+pas-d-helice | pas d'hélice
+pas-variable | pas variable
+precession-gyroscopique | précession gyroscopique
+prop | prop
+reducteur | réducteur
+regime | régime
+regime-helice | régime hélice
+traction-dissymetrique | traction dissymétrique
+7000-vfr | 7000 (VFR)
+alternat | alternat
+altimetre | altimètre
+anemometre | anémomètre
+asi | asi
+badin | badin
+bille | bille
+blocage-pitot | blocage Pitot
+blocage-statique | blocage statique
+code-7500 | code 7500
+code-7600 | code 7600
+code-7700 | code 7700
+compas | compas
+conservateur-de-cap | conservateur de cap
+coordinateur-de-virage | coordinateur de virage
+directionnel | directionnel
+dme | DME
+erreurs-gyroscopiques | erreurs gyroscopiques
+gyroscope | gyroscope
+horizon-artificiel | horizon artificiel
+ils | ils
+inclinaison-standard | inclinaison standard
+indicateur-de-virage | indicateur de virage
+machmetre | machmetre
+marqueur | marqueur
+mode-a | mode A
+mode-c | mode C
+ndb | ndb
+oat | oat
+pitot | pitot
+precession | précession
+prise-dynamique | prise dynamique
+prise-pitot | prise pitot
+prise-statique | prise statique
+radiocompas | radiocompas
+rechauffage-pitot | réchauffage pitot
+red-lines | red lines
+rnav | rnav
+stall-warning | stall warning
+tachymetre | tachymetre
+totalisateur | totalisateur
+trait-rouge | trait rouge
+transpondeur | transpondeur
+transpondeur-mode-c | transpondeur mode c
+tube-de-pitot | tube de pitot
+variometre | variometre
+vireur | vireur
+vor | vor
+allumage | allumage
+bougie | bougie
+centrage-arriere | centrage arrière
+check-list-atterrissage | check-list atterrissage
+check-list-decollage | check-list décollage
+encrassement-des-bougies | encrassement des bougies
+essai-magnetos | essai magnétos
+ignition | ignition
+limite-arriere | limite arriere
+magneto | magnéto
+magneto-droite | magnéto droite
+magneto-gauche | magnéto gauche
+base-des-nuages | base des nuages
+carburant-inutilisable | carburant inutilisable
+carburant-utilisable | carburant utilisable
+coupe-verticale | coupe verticale
+masse-maximale-a-l-atterrissage | masse maximale à l'atterrissage
+masse-maximale-au-decollage | masse maximale au décollage
+masse-sans-carburant | masse sans carburant
+auto-allumage | auto-allumage
+chute-de-pression | chute de pression
+cliquetis | cliquetis
+detonation | détonation
+feu-moteur | feu moteur
+panne-electrique | panne électrique
+panne-moteur | panne moteur
+panne-moteur-au-decollage | panne moteur au décollage
+panne-seche | panne sèche
+vent-arriere-basse-hauteur | vent arrière basse hauteur
+arret-moteur | arrêt moteur
+compas-magnetique | compas magnétique
+deviation-compas | déviation compas
+essais-moteur | essais moteur
+fausse-horizon | fausse horizon
+faux-horizon | faux horizon
+nord-compas | nord compas
+palier | palier
+palier-de-croisiere | palier de croisière
+panneau-de-signalisation | panneau de signalisation
+plein-gaz | plein gaz
+roulage | roulage
+roulage-au-sol | roulage au sol
+tableau-de-deviation | tableau de déviation
+virage-horizontal-stabilise | virage horizontal stabilisé
+erreur-instrumentale | erreur instrumentale
