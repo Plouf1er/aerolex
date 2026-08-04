@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+  <key>Label</key><string>com.prunel.aerolex</string>
+  <key>ProgramArguments</key>
+  <array>
+    <string>/usr/bin/python3</string>
+    <string>/Users/aprunel/.openclaw/workspace/projects/aerolex/serve_cors.py</string>
+    <string>4140</string>
+    <string>--dir</string><string>/Users/aprunel/.openclaw/workspace/projects/aerolex/dist</string>
+  </array>
+  <key>WorkingDirectory</key><string>/Users/aprunel/.openclaw/workspace/projects/aerolex</string>
+  <key>RunAtLoad</key><true/>
+  <key>KeepAlive</key><true/>
+  <key>StandardOutPath</key><string>/tmp/aerolex-4140.log</string>
+  <key>StandardErrorPath</key><string>/tmp/aerolex-4140.err.log</string>
+</dict>
+</plist>
