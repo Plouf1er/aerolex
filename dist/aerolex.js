@@ -464,12 +464,25 @@
 
     indexUrl = withVer(indexUrl);
 
-    /* Base des fichiers par mot : <dir de l'index>/aero/t/ .
-       Dérivée de l'URL de l'index (et non re-slugifiée/recodée en dur) pour
-       que tout site hôte qui déplace aerolex-dist/ continue de fonctionner. */
-    var _idxNoQuery = indexUrl.split('#')[0].split('?')[0];
-    var _distBase   = _idxNoQuery.replace(/[^\/]*$/, '');   // …/aerolex-dist/
-    var termsBase   = cfg.termsBase || (_distBase + 'aero/t/');
+    /* Base des fichiers par mot — CROSS-ORIGIN, UNE SEULE SOURCE
+       (décision Louis, 2026-08-04 02h10).
+       Le lexique n'est PLUS dupliqué chez les sites clients : il vit à un seul
+       endroit et les hôtes le lisent en cross-origin (CORS en liste fermée
+       côté serveur, cf. aerolex/serve_cors.py).
+       Ordre de priorité, identique à celui de aero.js pour qu'il n'existe
+       jamais deux avis sur l'emplacement du lexique :
+         1. AeroLexConfig.termsBase
+         2. window.AEROLEX_BASE
+         3. <script data-aerolex-base="…">
+         4. https://aerolex.prunel.net/aero/t/ */
+    var TERMS_BASE_DEFAUT = 'https://aerolex.prunel.net/aero/t/';
+    var _baseAttrEl = document.querySelector('script[data-aerolex-base]');
+    var termsBase   = cfg.termsBase
+                    || (typeof window.AEROLEX_BASE === 'string' && window.AEROLEX_BASE
+                          ? window.AEROLEX_BASE : '')
+                    || (_baseAttrEl ? (_baseAttrEl.getAttribute('data-aerolex-base') || '') : '')
+                    || TERMS_BASE_DEFAUT;
+    if (termsBase.charAt(termsBase.length - 1) !== '/') termsBase += '/';
 
     /* Exposé pour aero.js (consommateur de la popup) : il fetche
        termsBase + <sl> + '.json' + ?v=<ver>, en réutilisant NOTRE version. */
