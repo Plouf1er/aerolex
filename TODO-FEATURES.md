@@ -421,3 +421,108 @@ Deux axes **indépendants**, à ne jamais mélanger dans le modèle :
 
 Une fiche peut cumuler les deux (plusieurs noms **et** plusieurs sens) : c'est
 justement pour ça qu'il faut deux champs séparés et pas un bricolage commun.
+
+---
+
+## 7ter. 🎯 PRIORITÉ DE MATCHING : LONGEST-MATCH + EXCLUSIONS CONTEXTUELLES (Louis 04/08 03h07)
+
+Point de départ de Louis : « si `nœud papillon` apparaît dans un texte, il ne faut
+pas surligner `nœud` » → « qu'en penses-tu ? ». **DEUX mécanismes distincts, à ne
+jamais fusionner** : le premier est automatique et sans maintenance, le second est
+manuel et doit rester rare.
+
+### (a) Longest-match — priorité, automatique, ZÉRO maintenance ✅ déjà en place
+
+Principe standard de tokenisation : si `nœud papillon` est lui-même un terme du
+lexique, le moteur le préfère à `nœud` **sans qu'on déclare quoi que ce soit**.
+
+**MESURÉ dans le run du 04/08 : oui, le moteur fait du longest-match.**
+`buildRegex()` (`dist/aerolex.js`) trie les surfaces par **nb de mots DESC puis
+longueur DESC** avant de les joindre en alternation ; une alternation JS retient la
+première branche qui matche, donc la plus longue gagne. Vérifié : la 1ʳᵉ branche est
+`services de sauvetage et de lutte contre l'incendie des aéronefs` (63 car.), la
+dernière `θ` (1 car.).
+
+⚠️ **Ce tri était FAUX jusqu'au correctif de ce run** : `buildRegex` poussait dans
+la regex le terme CANONIQUE au lieu de la SURFACE (`{t: ciMap[lc].canon||lc}` →
+`{t: lc}`). Le longest-match s'appliquait donc aux canoniques, pas aux formes
+réellement cherchées — et surtout **1477 surfaces sur 2763 (les variantes, pluriels
+et abréviations) n'entraient jamais dans la regex**. C'est la cause racine du
+« `nœuds` pas surligné » (ce n'était PAS un problème de ligature `œ`).
+
+**Collisions mesurées** : **744 surfaces sur 2763** sont sous-chaîne d'une autre
+surface du lexique. Elles sont donc déjà arbitrées par le tri — mais uniquement pour
+les surfaces réellement présentes dans le texte. Exemples : `1013` ⊂ `1013,25 hPa`,
+`7500` ⊂ `code 7500`, `100LL` ⊂ `carburant 100LL`, `25 kHz` ⊂ `espacement 25 kHz`,
+`500 pieds` ⊂ `hauteur de 500 pieds`, `AAL` ⊂ `ft AAL`, `abaque` ⊂ `abaques`,
+`cap` ⊂ `cap magnétique`, `finale` ⊂ `courte finale`, `piste` ⊂ `axe de piste`.
+
+**À faire** : rien pour le cas `nœud papillon` — il suffit que l'expression longue
+SOIT un terme du lexique. Corollaire à documenter dans la procédure d'ajout (§4) :
+*ajouter l'expression longue comme terme est la bonne réponse à une collision, pas
+déclarer une exclusion*.
+
+### (b) Exclusions contextuelles — DERNIER RECOURS, manuel
+
+Utile seulement quand l'expression longue **n'a pas** vocation à être un terme du
+lexique (`nœud papillon` dans un lexique aéro : hors sujet, on ne va pas créer la
+fiche). On veut alors bloquer `nœud` sur cette expression précise.
+
+**Modélisation retenue : attachée AU TERME, pas globale.** C'est `kt` qui déclare
+son exclusion, dans sa propre fiche :
+
+```json
+"kt": { "v": ["nœud","nœuds"], "excl": ["nœud papillon", "nœud coulant"] }
+```
+
+Raison : l'exclusion **voyage avec la fiche**. Export d'un lexique, réutilisation
+d'un terme dans un autre index, suppression du terme → l'exclusion suit ou disparaît
+avec lui. Une liste globale d'exclusions serait un fichier orphelin que personne ne
+nettoie, et qui référencerait des termes supprimés.
+
+Sémantique : `excl` = liste d'expressions ; si une occurrence du terme tombe DANS
+une de ces expressions, elle n'est pas surlignée. Implémentation côté moteur
+partagé (`applyGlossaryToTextNode` + `resolveSurface`), jamais en local.
+
+### 🚨 Règle d'usage à graver — l'exclusion est le DERNIER recours
+
+**Avant de déclarer une exclusion, vérifier que la variante elle-même n'est pas
+fautive.** Ordre obligatoire :
+
+1. La variante est-elle légitime ? (`nœud` comme variante de `kt` : oui) — sinon
+   **corriger/supprimer la variante**, pas ajouter une exclusion.
+2. L'expression longue devrait-elle être un terme ? → l'ajouter, le longest-match
+   (a) règle le cas tout seul, zéro maintenance.
+3. Un contexte requis (`ctx`, déjà au modèle) suffit-il ? → le préférer.
+4. **Seulement alors**, une exclusion.
+
+**Risques explicites** (à surveiller, pas à ignorer) :
+- **un champ que personne ne remplit** : l'exclusion demande d'anticiper des
+  expressions absentes du corpus → il restera vide et donnera une fausse impression
+  de couverture ;
+- **rempli à la place de corriger une mauvaise variante** : c'est le vrai danger.
+  Une exclusion masque le symptôme d'une variante trop large (ex. `l` pour `litre`)
+  au lieu de la retirer. Toute exclusion ajoutée doit citer laquelle des 4 étapes
+  ci-dessus a été écartée et pourquoi.
+- Corollaire mesuré ce run : les surfaces de 1-2 caractères (`l`, `m`, `s`, `cc`,
+  `co`, `cv`, `cm`, `fl`, `lb`… — **13 surfaces**) sont des variantes trop larges.
+  Traitées par une règle générale (unité signifiante seulement si précédée d'un
+  nombre ou en casse exacte), PAS par 13 exclusions. Illustration de l'étape 1.
+
+### (c) Règle xref / famille (issue de l'audit du 04/08, §T3)
+
+Dérivée du cas `tour-de-piste` :
+- xref pointant vers un **membre d'une famille du terme** = **bruit** → le tableau
+  de famille l'affiche déjà, le xref n'ajoute rien ;
+- xref pointant vers une **autre famille** = **signal qu'une famille manque** au
+  terme → candidat multi-familles.
+
+**Mesuré sur les 1300 fiches : 966 xrefs de bruit / 943 candidats** (1909 xrefs au
+total, soit 50,6 % de bruit, sur 519 fiches). **Pathologie de fond, pas un cas
+isolé.** Détail : `data/audit-xrefs-familles.md` + `.json`.
+
+Ordre de correction : **multi-familles d'abord, purge du bruit ensuite** (un xref
+hors famille devient intra-famille dès que la 2ᵉ famille existe → le bruit augmente
+mécaniquement, purger avant serait mesurer sur une base fausse). Le rendu client
+accepte DÉJÀ un tableau de familles (`_payloadFamilles`) et produit un tableau par
+famille : côté client, rien à faire.

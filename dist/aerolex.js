@@ -91,7 +91,17 @@
     'vers','chez','dans','avec',
   ]);
 
-  function stripAccents(s) { return s.normalize('NFKD').replace(/[\u0300-\u036f]/g,''); }
+  /* NFKD ne décompose PAS les ligatures œ/æ (ce sont des lettres, pas des
+     lettres accentuées) : `nœud` et `noeud` ne se réduisaient donc pas à la
+     même clé. On replie explicitement avant NFKD pour que le `skip` de
+     highlight() et la table des homographes traitent les deux graphies
+     comme une seule. */
+  function stripAccents(s) {
+    return String(s)
+      .replace(/\u0153/g,'oe').replace(/\u0152/g,'OE')
+      .replace(/\u00e6/g,'ae').replace(/\u00c6/g,'AE')
+      .normalize('NFKD').replace(/[\u0300-\u036f]/g,'');
+  }
 
   function nbMots(s) {
     var parts = s.split(/[^\w\u00c0-\u024f]+/);
@@ -102,6 +112,28 @@
   function needsExactCase(surface) {
     if (nbMots(surface) !== 1) return false;
     return /[A-Z]/.test(surface) && HOMOGRAPHES_FR.has(stripAccents(surface.toLowerCase()));
+  }
+
+  /* ── SYMBOLES D'UNITÉ ULTRA-COURTS ──────────────────────────────────
+     Corollaire du correctif de buildRegex : 1477 surfaces jusque-là inertes
+     deviennent cherchables, dont 13 de 1 à 2 caractères (`l`, `m`, `s`, `cc`,
+     `co`, `cv`, `cm`, `fl`, `lb`…). En français courant ces formes sont des
+     mots-outils ou des élisions : le lookbehind `(?<![\w\-])` ne protège PAS
+     `l'aéronef` (l'apostrophe n'est pas un caractère de mot), donc `l` y
+     matcherait → lien « litre » sur une élision. Mesuré sur la définition de
+     `vitesse` : 2 faux positifs `l -> litre`.
+     Un symbole d'unité n'est signifiant qu'accolé à une valeur (« 50 l ») ou
+     écrit en capitales (« FL 95 »). On exige donc soit la casse exacte, soit un
+     nombre à gauche — dans le moteur PARTAGÉ, pas au cas par cas. */
+  function isSymboleCourt(surface) {
+    return surface.length <= 2 && !/\s/.test(surface) && !/^[0-9]+$/.test(surface);
+  }
+
+  /* Vrai si le symbole court est précédé d'une valeur numérique (« 50 l »,
+     « 10 m », « 2,5 cm »). Sert de contexte minimal pour les formes minuscules. */
+  function precedeParNombre(texte, index) {
+    var avant = texte.slice(Math.max(0, index - 12), index);
+    return /[0-9][0-9\s,.\u00a0]*$/.test(avant);
   }
 
   // ══════════════════════════════════════════════════════════════════════════
@@ -166,9 +198,20 @@
   // ══════════════════════════════════════════════════════════════════════════
   function escRx(s) { return s.replace(/[.*+?^${}()|[\]\\]/g,'\\$&'); }
 
+  /* ── CAUSE RACINE du « nœuds pas surligné » (2026-08-04) ────────────────
+     Cette fonction poussait dans la regex `ciMap[lc].canon` — le terme
+     CANONIQUE — au lieu de `lc`, la SURFACE effectivement présente dans le
+     texte. Conséquence : seules les 1286 formes canoniques entraient dans
+     l'alternation, et les 1477 autres surfaces (variantes `v`, pluriels
+     automatiques, abréviations) n'étaient JAMAIS cherchées. Le lookup
+     csMap/ciMap en aval était donc correct mais inatteignable.
+     `nœud/nœuds` (variantes de `kt`) n'était qu'un symptôme visible parmi
+     1477 : ce n'était pas un problème de ligature `œ`. Le tri par nb mots
+     DESC puis longueur DESC assure le longest-match sur les surfaces réelles
+     (avant le correctif il portait sur les canoniques — donc faux). */
   function buildRegex(ciMap, csMap) {
     var surfaces = [];
-    for (var lc in ciMap) surfaces.push({t: ciMap[lc].canon||lc, lc:lc});
+    for (var lc in ciMap) surfaces.push({t: lc, lc: lc});
     for (var cs in csMap) surfaces.push({t: cs, lc: cs.toLowerCase(), csSurf: cs});
 
     surfaces.sort(function(a,b){
@@ -354,6 +397,9 @@
       var lu = csMap[norm] || ciMap[norm.toLowerCase()];
       if (!lu) continue;
       var canon = lu.canon, s = lu.s;
+      /* Symbole d'unité de 1-2 car. en minuscules : exiger une valeur numérique
+         à gauche, sinon on surligne l'élision « l' » ou le mot-outil. */
+      if (isSymboleCourt(norm) && !csMap[norm] && !precedeParNombre(text, m.index)) continue;
       // Contexte requis ?
       if (ctxMap[canon] && !contexteOk(text, m.index, m.index + raw.length, ctxMap[canon])) continue;
       // Homonyme ?
@@ -594,6 +640,9 @@
             var lu = maps.csMap[key] || maps.ciMap[key.toLowerCase()];
             if (!lu) continue;
             var canon = lu.canon, st = lu.s;
+            /* Même garde que le moteur texte (cf. isSymboleCourt) : un libellé
+               de schéma « l » isolé n'est pas un litre. */
+            if (isSymboleCourt(key) && !maps.csMap[key] && !precedeParNombre(s, m.index)) continue;
             /* Contexte requis : un libellé de schéma est une étiquette isolée,
                il n'offre pas la fenêtre de texte que contexteOk() exige. On
                écarte donc les termes à contexte plutôt que de les accepter à
