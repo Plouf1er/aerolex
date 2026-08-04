@@ -429,11 +429,57 @@
 
     var cfg       = window.AeroLexConfig || {};
     var scriptEl  = document.currentScript || document.querySelector('script[src*="aerolex"]');
+
+    /* ── CACHE-BUST (2026-08-04) ────────────────────────────────────────────
+       Bug corrigé : le repli `scriptEl.src.replace(/aerolex\.js([?#].*)?$/,…)`
+       SUPPRIMAIT la query string, donc l'index n'était jamais cache-busté même
+       quand le script l'était (?v=xxxx). On récupère désormais le `?v=` du
+       script et on le PROPAGE à l'index ET aux fichiers par mot (aero/t/*.json).
+       Mode test : `?nocache=1` dans l'URL de la page → version aléatoire à
+       chaque chargement. Aléatoire UNIQUEMENT dans ce mode : sinon on tuerait
+       le cache de tous les lecteurs. */
+    var _scriptSrc = (scriptEl && scriptEl.src) || '';
+    var _noCache   = /[?&]nocache=1(&|$)/.test(location.search);
+    var _vMatch    = _scriptSrc.match(/[?&]v=([^&#]+)/);
+    var _ver       = _noCache
+                       ? ('nc' + Date.now().toString(36) + Math.random().toString(36).slice(2, 8))
+                       : (cfg.version || (_vMatch ? decodeURIComponent(_vMatch[1]) : ''));
+
+    /* Ajoute/écrase ?v= sur une URL sans casser un fragment existant. */
+    function withVer(url) {
+      if (!url || !_ver) return url;
+      var hash = '';
+      var iH = url.indexOf('#');
+      if (iH >= 0) { hash = url.slice(iH); url = url.slice(0, iH); }
+      url = url.replace(/([?&])v=[^&]*(&|$)/, function (m, p1, p2) { return p2 ? p1 : ''; })
+               .replace(/[?&]$/, '');
+      return url + (url.indexOf('?') >= 0 ? '&' : '?') + 'v=' + encodeURIComponent(_ver) + hash;
+    }
+
     var indexUrl  = cfg.indexUrl ||
                     (scriptEl && scriptEl.dataset && scriptEl.dataset.index) ||
-                    (scriptEl ? scriptEl.src.replace(/aerolex\.js([?#].*)?$/, 'aerolex-index.json') : null);
+                    (_scriptSrc ? _scriptSrc.replace(/aerolex\.js([?#].*)?$/, 'aerolex-index.json') : null);
 
     if (!indexUrl) { console.warn('[AeroLex] index URL introuvable.'); return; }
+
+    indexUrl = withVer(indexUrl);
+
+    /* Base des fichiers par mot : <dir de l'index>/aero/t/ .
+       Dérivée de l'URL de l'index (et non re-slugifiée/recodée en dur) pour
+       que tout site hôte qui déplace aerolex-dist/ continue de fonctionner. */
+    var _idxNoQuery = indexUrl.split('#')[0].split('?')[0];
+    var _distBase   = _idxNoQuery.replace(/[^\/]*$/, '');   // …/aerolex-dist/
+    var termsBase   = cfg.termsBase || (_distBase + 'aero/t/');
+
+    /* Exposé pour aero.js (consommateur de la popup) : il fetche
+       termsBase + <sl> + '.json' + ?v=<ver>, en réutilisant NOTRE version. */
+    window.AeroLex.indexUrl  = indexUrl;
+    window.AeroLex.termsBase = termsBase;
+    window.AeroLex.assetVer  = _ver || '';
+    window.AeroLex.termUrl   = function (sl) {
+      if (!sl) return null;
+      return withVer(termsBase + encodeURIComponent(String(sl)) + '.json');
+    };
 
     var container = cfg.container
       ? (typeof cfg.container==='string' ? document.querySelector(cfg.container) : cfg.container)
@@ -446,6 +492,12 @@
       .then(function(r){ return r.json(); })
       .then(function(data){
         var termsData = data.terms || data;
+        /* Expose l'index de SURLIGNAGE. Depuis le 2026-08-04 il ne contient
+           plus les définitions : la popup ne lit ici que le slug (routage) et
+           l'état rédigé (couleur), puis fetche dist/aero/t/<slug>.json au clic.
+           Le bloc "families" a disparu de l'index — les membres d'une famille
+           arrivent dans le fichier du mot, déjà triés et résolus en slugs. */
+        window.AeroLex.terms = termsData;
         var maps = buildMaps(termsData);
         var rx   = buildRegex(maps.ciMap, maps.csMap);
         if (!rx) { console.warn('[AeroLex] aucun terme.'); return; }
