@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>directionnel - Glossaire Aéronautique</title>
+    <meta name="description" content="Terme d&#x27;usage courant désignant le conservateur de cap gyroscopique. Il offre une référence de direction stable au pilote lors des manœuvres, s&#x27;affranch...">
+    <link rel="canonical" href="https://example.com/aero/directionnel.html">
+    <meta property="og:title" content="directionnel - Glossaire Aéronautique">
+    <meta property="og:description" content="Terme d&#x27;usage courant désignant le conservateur de cap gyroscopique. Il offre une référence de direction stable au pilote lors des manœuvres, s&#x27;affranch...">
+    <meta property="og:type" content="article">
+    <meta property="og:url" content="https://example.com/aero/directionnel.html">
+    
+    <link rel="stylesheet" href="../aerolex.css?v=6e4e4075">
+    <style>
+        body { font-family: sans-serif; line-height: 1.6; max-width: 800px; margin: 0 auto; padding: 1rem; }
+        nav { display: flex; justify-content: space-between; margin-bottom: 2rem; }
+        .meta { color: #666; font-size: 0.9em; }
+        .svg-container { margin: 2rem 0; text-align: center; }
+        .family-table { background: #f5f5f5; padding: 1rem; border-radius: 4px; margin: 2rem 0; }
+        .xrefs { margin-top: 2rem; padding-top: 1rem; border-top: 1px solid #ccc; }
+    </style>
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "DefinedTerm",
+      "name": "directionnel",
+      "description": "Terme d&#x27;usage courant désignant le conservateur de cap gyroscopique. Il offre une référence de direction stable au pilote lors des manœuvres, s&#x27;affranch..."
+    }
+    </script>
+</head>
+<body>
+    <nav>
+        <a href="diagramme-v-n.html">&laquo; diagramme v-n</a>
+        <a href="index.html">Index Sommaire</a>
+        <a href="disjoncteur.html">disjoncteur &raquo;</a>
+    </nav>
+    <main>
+        <h1>directionnel</h1>
+        <div class="meta">
+            Catégorie: <a href="index.html?cat=Instruments">Instruments</a> | 
+            Famille: <a href="index.html?fam=instruments_gyroscopiques">instruments_gyroscopiques</a>
+        </div>
+        
+        <div class="definition">
+            <p>Terme d&#x27;usage courant désignant le conservateur de cap gyroscopique. Il offre une référence de direction stable au pilote lors des manœuvres, s&#x27;affranchissant de la sensibilité magnétique du compas de bord.</p>
+        </div>
+<div><strong>Variantes:</strong> directionnels, gyro directionnel</div><div class="family-table"><h3>Famille : instruments_gyroscopiques</h3><ul><li><a href="bille.html">bille</a></li><li><a href="compas.html">compas</a></li><li><a href="conservateur-de-cap.html">conservateur de cap</a></li><li><a href="coordinateur-de-virage.html">coordinateur de virage</a></li><li><strong>directionnel</strong></li><li><a href="erreurs-gyroscopiques.html">erreurs gyroscopiques</a></li><li><a href="gyroscope.html">gyroscope</a></li><li><a href="horizon-artificiel.html">horizon artificiel</a></li><li><a href="inclinaison-standard.html">inclinaison standard</a></li><li><a href="indicateur-de-virage.html">indicateur de virage</a></li><li><a href="precession.html">précession</a></li><li><a href="vireur.html">vireur</a></li></ul></div><div class="xrefs"><strong>Voir aussi :</strong><ul><li><a href="conservateur-de-cap.html">conservateur de cap</a></li><li><a href="recalage.html">recalage</a></li></ul></div>
+    </main>
+    <script src="../aerolex.js?v=6e4e4075" data-index="../aerolex-index.json?v=6e4e4075" data-lexicon="aero" defer></script>
+    <!-- Libellés des schémas SVG cliquables (aerolex-svg.js). Sur une page de
+         fiche, aucun hook onTermClick n'est posé : le module navigue lui-même
+         vers la page du mot. -->
+    <script src="../aerolex-svg.js?v=6e4e4075" defer></script>
+    <script>
+var CURRENT_SLUG="directionnel";
+/* AeroLex - sur une page de fiche, un mot surligne mene a SA page (pas d'overlay). */
+(function(){
+  var SLUGS=null;
+  fetch('slugmap.json').then(function(r){return r.json();}).then(function(j){SLUGS=j;});
+  document.addEventListener('click',function(e){
+    var s=e.target.closest?e.target.closest('span.glos'):null;
+    if(!s)return;
+    var t=s.dataset.term;
+    if(!t||!SLUGS)return;
+    var sl=SLUGS[t];
+    if(!sl||sl===CURRENT_SLUG)return;
+    e.preventDefault();
+    window.location.href=sl+'.html';
+  },true);
+})();
+</script>
+</body>
+</html>

@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>finesse - Glossaire Aéronautique</title>
+    <meta name="description" content="Rapport distance parcourue / hauteur perdue moteur coupé. Une finesse de 12, c&#x27;est 12 km planés par 1000 m perdu: c&#x27;est elle qui décide si ton point d&#x27;a...">
+    <link rel="canonical" href="https://example.com/aero/finesse.html">
+    <meta property="og:title" content="finesse - Glossaire Aéronautique">
+    <meta property="og:description" content="Rapport distance parcourue / hauteur perdue moteur coupé. Une finesse de 12, c&#x27;est 12 km planés par 1000 m perdu: c&#x27;est elle qui décide si ton point d&#x27;a...">
+    <meta property="og:type" content="article">
+    <meta property="og:url" content="https://example.com/aero/finesse.html">
+    
+    <link rel="stylesheet" href="../aerolex.css?v=6e4e4075">
+    <style>
+        body { font-family: sans-serif; line-height: 1.6; max-width: 800px; margin: 0 auto; padding: 1rem; }
+        nav { display: flex; justify-content: space-between; margin-bottom: 2rem; }
+        .meta { color: #666; font-size: 0.9em; }
+        .svg-container { margin: 2rem 0; text-align: center; }
+        .family-table { background: #f5f5f5; padding: 1rem; border-radius: 4px; margin: 2rem 0; }
+        .xrefs { margin-top: 2rem; padding-top: 1rem; border-top: 1px solid #ccc; }
+    </style>
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "DefinedTerm",
+      "name": "finesse",
+      "description": "Rapport distance parcourue / hauteur perdue moteur coupé. Une finesse de 12, c&#x27;est 12 km planés par 1000 m perdu: c&#x27;est elle qui décide si ton point d&#x27;a..."
+    }
+    </script>
+</head>
+<body>
+    <nav>
+        <a href="finale-courte.html">&laquo; finale courte</a>
+        <a href="index.html">Index Sommaire</a>
+        <a href="finesse-max.html">finesse max &raquo;</a>
+    </nav>
+    <main>
+        <h1>finesse</h1>
+        <div class="meta">
+            Catégorie: <a href="index.html?cat=Vitesses%20%26%20performances">Vitesses &amp; performances</a> | 
+            
+        </div>
+        
+        <div class="definition">
+            <p>Rapport distance parcourue / hauteur perdue moteur coupé. Une finesse de 12, c&#x27;est 12 km planés par 1000 m perdu: c&#x27;est elle qui décide si ton point d&#x27;aboutissement est atteignable.</p>
+        </div>
+<div><strong>Variantes:</strong> finesses, finesse max, glide ratio</div><div class="xrefs"><strong>Voir aussi :</strong><ul><li><a href="vitesse-de-decrochage.html">vitesse de décrochage</a></li><li><a href="pente-de-descente.html">pente de descente</a></li></ul></div>
+    </main>
+    <script src="../aerolex.js?v=6e4e4075" data-index="../aerolex-index.json?v=6e4e4075" data-lexicon="aero" defer></script>
+    <!-- Libellés des schémas SVG cliquables (aerolex-svg.js). Sur une page de
+         fiche, aucun hook onTermClick n'est posé : le module navigue lui-même
+         vers la page du mot. -->
+    <script src="../aerolex-svg.js?v=6e4e4075" defer></script>
+    <script>
+var CURRENT_SLUG="finesse";
+/* AeroLex - sur une page de fiche, un mot surligne mene a SA page (pas d'overlay). */
+(function(){
+  var SLUGS=null;
+  fetch('slugmap.json').then(function(r){return r.json();}).then(function(j){SLUGS=j;});
+  document.addEventListener('click',function(e){
+    var s=e.target.closest?e.target.closest('span.glos'):null;
+    if(!s)return;
+    var t=s.dataset.term;
+    if(!t||!SLUGS)return;
+    var sl=SLUGS[t];
+    if(!sl||sl===CURRENT_SLUG)return;
+    e.preventDefault();
+    window.location.href=sl+'.html';
+  },true);
+})();
+</script>
+</body>
+</html>

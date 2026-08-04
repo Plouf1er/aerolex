@@ -1,0 +1,27 @@
+{
+  "empreinte": "6e4e4075",
+  "date": "2026-08-03T23:19:54+00:00",
+  "nb_termes": 1300,
+  "assets": [
+    {
+      "fichier": "aerolex.js",
+      "octets": 24768,
+      "sha256": "a8436d25"
+    },
+    {
+      "fichier": "aerolex.css",
+      "octets": 10776,
+      "sha256": "9c634762"
+    },
+    {
+      "fichier": "aerolex-svg.js",
+      "octets": 9584,
+      "sha256": "f12a9db8"
+    },
+    {
+      "fichier": "lexicon.json",
+      "octets": 315,
+      "sha256": "8d18894f"
+    }
+  ]
+}

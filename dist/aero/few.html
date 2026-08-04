@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>few - Glossaire Aéronautique</title>
+    <meta name="description" content="Abréviation METAR indiquant une couverture nuageuse faible, comprise entre un et deux octas du ciel. Elle n&#x27;entrave pas le vol visuel mais nécessite de ...">
+    <link rel="canonical" href="https://example.com/aero/few.html">
+    <meta property="og:title" content="few - Glossaire Aéronautique">
+    <meta property="og:description" content="Abréviation METAR indiquant une couverture nuageuse faible, comprise entre un et deux octas du ciel. Elle n&#x27;entrave pas le vol visuel mais nécessite de ...">
+    <meta property="og:type" content="article">
+    <meta property="og:url" content="https://example.com/aero/few.html">
+    
+    <link rel="stylesheet" href="../aerolex.css?v=6e4e4075">
+    <style>
+        body { font-family: sans-serif; line-height: 1.6; max-width: 800px; margin: 0 auto; padding: 1rem; }
+        nav { display: flex; justify-content: space-between; margin-bottom: 2rem; }
+        .meta { color: #666; font-size: 0.9em; }
+        .svg-container { margin: 2rem 0; text-align: center; }
+        .family-table { background: #f5f5f5; padding: 1rem; border-radius: 4px; margin: 2rem 0; }
+        .xrefs { margin-top: 2rem; padding-top: 1rem; border-top: 1px solid #ccc; }
+    </style>
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "DefinedTerm",
+      "name": "few",
+      "description": "Abréviation METAR indiquant une couverture nuageuse faible, comprise entre un et deux octas du ciel. Elle n&#x27;entrave pas le vol visuel mais nécessite de ..."
+    }
+    </script>
+</head>
+<body>
+    <nav>
+        <a href="feux-a-eclats.html">&laquo; feux à éclats</a>
+        <a href="index.html">Index Sommaire</a>
+        <a href="fg.html">fg &raquo;</a>
+    </nav>
+    <main>
+        <h1>few</h1>
+        <div class="meta">
+            Catégorie: <a href="index.html?cat=M%C3%A9t%C3%A9o">Météo</a> | 
+            Famille: <a href="index.html?fam=nuages_couverture">nuages_couverture</a>
+        </div>
+        
+        <div class="definition">
+            <p>Abréviation METAR indiquant une couverture nuageuse faible, comprise entre un et deux octas du ciel. Elle n&#x27;entrave pas le vol visuel mais nécessite de surveiller l&#x27;évolution de la base des nuages.</p>
+        </div>
+<div><strong>Variantes:</strong> fews</div><div class="family-table"><h3>Famille : nuages_couverture</h3><ul><li><a href="base-des-nuages.html">base des nuages</a></li><li><a href="bkn.html">bkn</a></li><li><strong>few</strong></li><li><a href="nuage-du-jour.html">nuage du jour</a></li><li><a href="ovc.html">ovc</a></li><li><a href="plafond.html">plafond</a></li><li><a href="plafond-nuageux.html">plafond nuageux</a></li><li><a href="sct.html">sct</a></li><li><a href="etage-inferieur.html">étage inférieur</a></li><li><a href="etage-moyen.html">étage moyen</a></li><li><a href="etage-superieur.html">étage supérieur</a></li></ul></div>
+    </main>
+    <script src="../aerolex.js?v=6e4e4075" data-index="../aerolex-index.json?v=6e4e4075" data-lexicon="aero" defer></script>
+    <!-- Libellés des schémas SVG cliquables (aerolex-svg.js). Sur une page de
+         fiche, aucun hook onTermClick n'est posé : le module navigue lui-même
+         vers la page du mot. -->
+    <script src="../aerolex-svg.js?v=6e4e4075" defer></script>
+    <script>
+var CURRENT_SLUG="few";
+/* AeroLex - sur une page de fiche, un mot surligne mene a SA page (pas d'overlay). */
+(function(){
+  var SLUGS=null;
+  fetch('slugmap.json').then(function(r){return r.json();}).then(function(j){SLUGS=j;});
+  document.addEventListener('click',function(e){
+    var s=e.target.closest?e.target.closest('span.glos'):null;
+    if(!s)return;
+    var t=s.dataset.term;
+    if(!t||!SLUGS)return;
+    var sl=SLUGS[t];
+    if(!sl||sl===CURRENT_SLUG)return;
+    e.preventDefault();
+    window.location.href=sl+'.html';
+  },true);
+})();
+</script>
+</body>
+</html>

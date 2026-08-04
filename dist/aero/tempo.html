@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TEMPO - Glossaire Aéronautique</title>
+    <meta name="description" content="Temporary: indicateur de TAF décrivant des fluctuations temporaires des conditions météorologiques de moins d&#x27;une heure à chaque fois, et ne dépassant p...">
+    <link rel="canonical" href="https://example.com/aero/tempo.html">
+    <meta property="og:title" content="TEMPO - Glossaire Aéronautique">
+    <meta property="og:description" content="Temporary: indicateur de TAF décrivant des fluctuations temporaires des conditions météorologiques de moins d&#x27;une heure à chaque fois, et ne dépassant p...">
+    <meta property="og:type" content="article">
+    <meta property="og:url" content="https://example.com/aero/tempo.html">
+    
+    <link rel="stylesheet" href="../aerolex.css?v=6e4e4075">
+    <style>
+        body { font-family: sans-serif; line-height: 1.6; max-width: 800px; margin: 0 auto; padding: 1rem; }
+        nav { display: flex; justify-content: space-between; margin-bottom: 2rem; }
+        .meta { color: #666; font-size: 0.9em; }
+        .svg-container { margin: 2rem 0; text-align: center; }
+        .family-table { background: #f5f5f5; padding: 1rem; border-radius: 4px; margin: 2rem 0; }
+        .xrefs { margin-top: 2rem; padding-top: 1rem; border-top: 1px solid #ccc; }
+    </style>
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "DefinedTerm",
+      "name": "TEMPO",
+      "description": "Temporary: indicateur de TAF décrivant des fluctuations temporaires des conditions météorologiques de moins d&#x27;une heure à chaque fois, et ne dépassant p..."
+    }
+    </script>
+</head>
+<body>
+    <nav>
+        <a href="tem.html">&laquo; tem</a>
+        <a href="index.html">Index Sommaire</a>
+        <a href="temps-de-reaction.html">temps de reaction &raquo;</a>
+    </nav>
+    <main>
+        <h1>TEMPO</h1>
+        <div class="meta">
+            Catégorie: <a href="index.html?cat=M%C3%A9t%C3%A9o">Météo</a> | 
+            Famille: <a href="index.html?fam=messages_meteo_evolutions">messages_meteo_evolutions</a>
+        </div>
+        
+        <div class="definition">
+            <p>Temporary: indicateur de TAF décrivant des fluctuations temporaires des conditions météorologiques de moins d&#x27;une heure à chaque fois, et ne dépassant pas la moitié de la période de validité.</p>
+        </div>
+<div><strong>Variantes:</strong> TEMPO, tempo, fluctuations temporaires</div><div class="family-table"><h3>Famille : messages_meteo_evolutions</h3><ul><li><a href="becmg.html">BECMG</a></li><li><a href="nosig.html">NOSIG</a></li><li><a href="prob.html">prob</a></li><li><a href="prob30.html">PROB30</a></li><li><a href="prob40.html">PROB40</a></li><li><strong>TEMPO</strong></li></ul></div><div class="xrefs"><strong>Voir aussi :</strong><ul><li><a href="taf.html">TAF</a></li><li><a href="becmg.html">BECMG</a></li><li><a href="prob30.html">PROB30</a></li></ul></div>
+    </main>
+    <script src="../aerolex.js?v=6e4e4075" data-index="../aerolex-index.json?v=6e4e4075" data-lexicon="aero" defer></script>
+    <!-- Libellés des schémas SVG cliquables (aerolex-svg.js). Sur une page de
+         fiche, aucun hook onTermClick n'est posé : le module navigue lui-même
+         vers la page du mot. -->
+    <script src="../aerolex-svg.js?v=6e4e4075" defer></script>
+    <script>
+var CURRENT_SLUG="tempo";
+/* AeroLex - sur une page de fiche, un mot surligne mene a SA page (pas d'overlay). */
+(function(){
+  var SLUGS=null;
+  fetch('slugmap.json').then(function(r){return r.json();}).then(function(j){SLUGS=j;});
+  document.addEventListener('click',function(e){
+    var s=e.target.closest?e.target.closest('span.glos'):null;
+    if(!s)return;
+    var t=s.dataset.term;
+    if(!t||!SLUGS)return;
+    var sl=SLUGS[t];
+    if(!sl||sl===CURRENT_SLUG)return;
+    e.preventDefault();
+    window.location.href=sl+'.html';
+  },true);
+})();
+</script>
+</body>
+</html>

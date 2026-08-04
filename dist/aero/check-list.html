@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>check-list - Glossaire Aéronautique</title>
+    <meta name="description" content="Liste ordonnée d&#x27;actions ou de vérifications à effectuer de manière systématique durant les différentes phases du vol. Son utilisation rigoureuse permet...">
+    <link rel="canonical" href="https://example.com/aero/check-list.html">
+    <meta property="og:title" content="check-list - Glossaire Aéronautique">
+    <meta property="og:description" content="Liste ordonnée d&#x27;actions ou de vérifications à effectuer de manière systématique durant les différentes phases du vol. Son utilisation rigoureuse permet...">
+    <meta property="og:type" content="article">
+    <meta property="og:url" content="https://example.com/aero/check-list.html">
+    
+    <link rel="stylesheet" href="../aerolex.css?v=6e4e4075">
+    <style>
+        body { font-family: sans-serif; line-height: 1.6; max-width: 800px; margin: 0 auto; padding: 1rem; }
+        nav { display: flex; justify-content: space-between; margin-bottom: 2rem; }
+        .meta { color: #666; font-size: 0.9em; }
+        .svg-container { margin: 2rem 0; text-align: center; }
+        .family-table { background: #f5f5f5; padding: 1rem; border-radius: 4px; margin: 2rem 0; }
+        .xrefs { margin-top: 2rem; padding-top: 1rem; border-top: 1px solid #ccc; }
+    </style>
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "DefinedTerm",
+      "name": "check-list",
+      "description": "Liste ordonnée d&#x27;actions ou de vérifications à effectuer de manière systématique durant les différentes phases du vol. Son utilisation rigoureuse permet..."
+    }
+    </script>
+</head>
+<body>
+    <nav>
+        <a href="chaine-des-causes.html">&laquo; chaîne des causes</a>
+        <a href="index.html">Index Sommaire</a>
+        <a href="check-list-atterrissage.html">check-list atterrissage &raquo;</a>
+    </nav>
+    <main>
+        <h1>check-list</h1>
+        <div class="meta">
+            Catégorie: <a href="index.html?cat=Proc%C3%A9dures">Procédures</a> | 
+            Famille: <a href="index.html?fam=listes_de_verification">listes_de_verification</a>
+        </div>
+        
+        <div class="definition">
+            <p>Liste ordonnée d&#x27;actions ou de vérifications à effectuer de manière systématique durant les différentes phases du vol. Son utilisation rigoureuse permet de pallier les oublis dus à la fatigue, à la distraction ou à une surcharge de travail.</p>
+        </div>
+<div><strong>Variantes:</strong> check-lists</div><div class="family-table"><h3>Famille : listes_de_verification</h3><ul><li><a href="action-vitale.html">action vitale</a></li><li><strong>check-list</strong></li><li><a href="check-list-atterrissage.html">check-list atterrissage</a></li><li><a href="check-list-decollage.html">check-list décollage</a></li><li><a href="checklist.html">checklist</a></li><li><a href="fuel-pump-on.html">fuel pump on</a></li><li><a href="ldg.html">ldg</a></li><li><a href="mise-en-route.html">mise en route</a></li><li><a href="point-fixe.html">point fixe</a></li><li><a href="purge.html">purge</a></li><li><a href="verification-vitale.html">verification vitale</a></li></ul></div>
+    </main>
+    <script src="../aerolex.js?v=6e4e4075" data-index="../aerolex-index.json?v=6e4e4075" data-lexicon="aero" defer></script>
+    <!-- Libellés des schémas SVG cliquables (aerolex-svg.js). Sur une page de
+         fiche, aucun hook onTermClick n'est posé : le module navigue lui-même
+         vers la page du mot. -->
+    <script src="../aerolex-svg.js?v=6e4e4075" defer></script>
+    <script>
+var CURRENT_SLUG="check-list";
+/* AeroLex - sur une page de fiche, un mot surligne mene a SA page (pas d'overlay). */
+(function(){
+  var SLUGS=null;
+  fetch('slugmap.json').then(function(r){return r.json();}).then(function(j){SLUGS=j;});
+  document.addEventListener('click',function(e){
+    var s=e.target.closest?e.target.closest('span.glos'):null;
+    if(!s)return;
+    var t=s.dataset.term;
+    if(!t||!SLUGS)return;
+    var sl=SLUGS[t];
+    if(!sl||sl===CURRENT_SLUG)return;
+    e.preventDefault();
+    window.location.href=sl+'.html';
+  },true);
+})();
+</script>
+</body>
+</html>

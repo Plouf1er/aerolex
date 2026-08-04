@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>force de Coriolis - Glossaire Aéronautique</title>
+    <meta name="description" content="Force d&#x27;inertie liée à la rotation de la Terre, déviant la trajectoire des vents vers la droite dans l&#x27;hémisphère nord. Elle est responsable de la circu...">
+    <link rel="canonical" href="https://example.com/aero/force-de-coriolis.html">
+    <meta property="og:title" content="force de Coriolis - Glossaire Aéronautique">
+    <meta property="og:description" content="Force d&#x27;inertie liée à la rotation de la Terre, déviant la trajectoire des vents vers la droite dans l&#x27;hémisphère nord. Elle est responsable de la circu...">
+    <meta property="og:type" content="article">
+    <meta property="og:url" content="https://example.com/aero/force-de-coriolis.html">
+    
+    <link rel="stylesheet" href="../aerolex.css?v=6e4e4075">
+    <style>
+        body { font-family: sans-serif; line-height: 1.6; max-width: 800px; margin: 0 auto; padding: 1rem; }
+        nav { display: flex; justify-content: space-between; margin-bottom: 2rem; }
+        .meta { color: #666; font-size: 0.9em; }
+        .svg-container { margin: 2rem 0; text-align: center; }
+        .family-table { background: #f5f5f5; padding: 1rem; border-radius: 4px; margin: 2rem 0; }
+        .xrefs { margin-top: 2rem; padding-top: 1rem; border-top: 1px solid #ccc; }
+    </style>
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "DefinedTerm",
+      "name": "force de Coriolis",
+      "description": "Force d&#x27;inertie liée à la rotation de la Terre, déviant la trajectoire des vents vers la droite dans l&#x27;hémisphère nord. Elle est responsable de la circu..."
+    }
+    </script>
+</head>
+<body>
+    <nav>
+        <a href="foehn.html">&laquo; foehn</a>
+        <a href="index.html">Index Sommaire</a>
+        <a href="foxtrot.html">foxtrot &raquo;</a>
+    </nav>
+    <main>
+        <h1>force de Coriolis</h1>
+        <div class="meta">
+            Catégorie: <a href="index.html?cat=M%C3%A9t%C3%A9o">Météo</a> | 
+            Famille: <a href="index.html?fam=effets_vent_relief">effets_vent_relief</a>
+        </div>
+        
+        <div class="definition">
+            <p>Force d&#x27;inertie liée à la rotation de la Terre, déviant la trajectoire des vents vers la droite dans l&#x27;hémisphère nord. Elle est responsable de la circulation cyclonique autour des dépressions.</p>
+        </div>
+<div><strong>Variantes:</strong> effet de Coriolis, accélération de Coriolis</div><div class="family-table"><h3>Famille : effets_vent_relief</h3><ul><li><a href="effet-de-foehn.html">effet de foehn</a></li><li><a href="effet-de-pente.html">effet de pente</a></li><li><a href="effet-de-site.html">effet de site</a></li><li><a href="foehn.html">foehn</a></li><li><strong>force de Coriolis</strong></li><li><a href="fohn.html">föhn</a></li><li><a href="onde-de-relief.html">onde de relief</a></li><li><a href="onde-orographique.html">onde orographique</a></li><li><a href="pompe.html">pompe</a></li><li><a href="rabattant.html">rabattant</a></li><li><a href="rabattant-sous-le-vent.html">rabattant sous le vent</a></li><li><a href="vent-geostrophique.html">vent géostrophique</a></li></ul></div><div class="xrefs"><strong>Voir aussi :</strong><ul><li><a href="vent-geostrophique.html">vent géostrophique</a></li><li><a href="pression-atmospherique.html">pression atmosphérique</a></li></ul></div>
+    </main>
+    <script src="../aerolex.js?v=6e4e4075" data-index="../aerolex-index.json?v=6e4e4075" data-lexicon="aero" defer></script>
+    <!-- Libellés des schémas SVG cliquables (aerolex-svg.js). Sur une page de
+         fiche, aucun hook onTermClick n'est posé : le module navigue lui-même
+         vers la page du mot. -->
+    <script src="../aerolex-svg.js?v=6e4e4075" defer></script>
+    <script>
+var CURRENT_SLUG="force-de-coriolis";
+/* AeroLex - sur une page de fiche, un mot surligne mene a SA page (pas d'overlay). */
+(function(){
+  var SLUGS=null;
+  fetch('slugmap.json').then(function(r){return r.json();}).then(function(j){SLUGS=j;});
+  document.addEventListener('click',function(e){
+    var s=e.target.closest?e.target.closest('span.glos'):null;
+    if(!s)return;
+    var t=s.dataset.term;
+    if(!t||!SLUGS)return;
+    var sl=SLUGS[t];
+    if(!sl||sl===CURRENT_SLUG)return;
+    e.preventDefault();
+    window.location.href=sl+'.html';
+  },true);
+})();
+</script>
+</body>
+</html>

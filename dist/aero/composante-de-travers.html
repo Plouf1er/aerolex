@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>composante de travers - Glossaire Aéronautique</title>
+    <meta name="description" content="Part du vent perpendiculaire à la piste (V × sin θ, où θ est l&#x27;écart au QFU). Estimée au tiers par secteurs, elle se compare à la limite démontrée de l&#x27;...">
+    <link rel="canonical" href="https://example.com/aero/composante-de-travers.html">
+    <meta property="og:title" content="composante de travers - Glossaire Aéronautique">
+    <meta property="og:description" content="Part du vent perpendiculaire à la piste (V × sin θ, où θ est l&#x27;écart au QFU). Estimée au tiers par secteurs, elle se compare à la limite démontrée de l&#x27;...">
+    <meta property="og:type" content="article">
+    <meta property="og:url" content="https://example.com/aero/composante-de-travers.html">
+    
+    <link rel="stylesheet" href="../aerolex.css?v=6e4e4075">
+    <style>
+        body { font-family: sans-serif; line-height: 1.6; max-width: 800px; margin: 0 auto; padding: 1rem; }
+        nav { display: flex; justify-content: space-between; margin-bottom: 2rem; }
+        .meta { color: #666; font-size: 0.9em; }
+        .svg-container { margin: 2rem 0; text-align: center; }
+        .family-table { background: #f5f5f5; padding: 1rem; border-radius: 4px; margin: 2rem 0; }
+        .xrefs { margin-top: 2rem; padding-top: 1rem; border-top: 1px solid #ccc; }
+    </style>
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "DefinedTerm",
+      "name": "composante de travers",
+      "description": "Part du vent perpendiculaire à la piste (V × sin θ, où θ est l&#x27;écart au QFU). Estimée au tiers par secteurs, elle se compare à la limite démontrée de l&#x27;..."
+    }
+    </script>
+</head>
+<body>
+    <nav>
+        <a href="composante-de-face.html">&laquo; composante de face</a>
+        <a href="index.html">Index Sommaire</a>
+        <a href="composite.html">composite &raquo;</a>
+    </nav>
+    <main>
+        <h1>composante de travers</h1>
+        <div class="meta">
+            Catégorie: <a href="index.html?cat=Vent">Vent</a> | 
+            
+        </div>
+        
+        <div class="definition">
+            <p>Part du vent perpendiculaire à la piste (V × sin θ, où θ est l&#x27;écart au QFU). Estimée au tiers par secteurs, elle se compare à la limite démontrée de l&#x27;avion calculée sur les rafales.</p>
+        </div>
+<div><strong>Variantes:</strong> vent de travers, composantes de travers, crosswind</div><div class="svg-container">
+<svg class="schema glos-schema" viewBox="0 0 640 360" xmlns="http://www.w3.org/2000/svg" role="img" style="max-width:100%;width:100%;height:auto;display:block;margin:10px 0;"><rect width="640" height="360" fill="#e0f2fe" rx="8"/>
+  <text x="320" y="26" text-anchor="middle" font-size="15" font-weight="700" fill="#1e3a5f">Composantes face / travers</text>
+  <text x="320" y="46" text-anchor="middle" font-size="12" fill="#64748b">face = V · cos θ ··· travers = V · sin θ</text>
+  <!-- Piste horizontale -->
+  <rect x="80" y="200" width="360" height="36" fill="#475569" rx="3"/>
+  <text x="100" y="224" font-size="14" font-weight="700" fill="#f8fafc">07</text>
+  <text x="400" y="224" font-size="14" font-weight="700" fill="#f8fafc">25</text>
+  <text x="260" y="255" text-anchor="middle" font-size="12" fill="#475569">axe de piste (QFU)</text>
+  <!-- Origine O sur le seuil gauche-ish -->
+  <circle cx="200" cy="218" r="5" fill="#0f172a"/>
+  <text x="200" y="275" text-anchor="middle" font-size="12" fill="#0f172a">O</text>
+  <defs>
+    <marker id="gg-cf" markerWidth="8" markerHeight="8" refX="7" refY="4" orient="auto">
+      <path d="M0,0 L8,4 L0,8 Z" fill="#059669"/>
+    </marker>
+    <marker id="gg-ct" markerWidth="8" markerHeight="8" refX="7" refY="4" orient="auto">
+      <path d="M0,0 L8,4 L0,8 Z" fill="#dc2626"/>
+    </marker>
+    <marker id="gg-cv" markerWidth="8" markerHeight="8" refX="7" refY="4" orient="auto">
+      <path d="M0,0 L8,4 L0,8 Z" fill="#2563eb"/>
+    </marker>
+  </defs>
+  <!-- Face (le long de la piste, vers la droite = vent de face pour QFU 07 si vent vient d'avant) 
+       Convention pédagogique : vecteur vent dessiné VERS la piste (d'où il vient → impact)
+       Vent vient du 040° pour QFU 070 → θ=30°. On dessine V oblique. -->
+  <!-- Vecteur V (vent) -->
+  <line x1="200" y1="218" x2="360" y2="100" stroke="#2563eb" stroke-width="3.5" marker-end="url(#gg-cv)"/>
+  <text x="370" y="95" font-size="13" font-weight="700" fill="#1d4ed8">V vent</text>
+  <!-- Face (projection sur axe) -->
+  <line x1="200" y1="218" x2="340" y2="218" stroke="#059669" stroke-width="3.5" marker-end="url(#gg-cf)"/>
+  <text x="270" y="205" text-anchor="middle" font-size="13" font-weight="700" fill="#047857">face</text>
+  <!-- Travers (perpendiculaire) -->
+  <line x1="340" y1="218" x2="340" y2="100" stroke="#dc2626" stroke-width="3.5" marker-end="url(#gg-ct)"/>
+  <text x="355" y="160" font-size="13" font-weight="700" fill="#b91c1c">travers</text>
+  <!-- Angle theta arc -->
+  <path d="M250 218 A50 50 0 0 0 245 175" fill="none" stroke="#7c3aed" stroke-width="2"/>
+  <text x="255" y="185" font-size="13" font-weight="700" fill="#6d28d9">θ</text>
+  <!-- Formules -->
+  <g font-size="13" fill="#1e293b">
+    <text x="460" y="130" font-weight="700" fill="#1e3a5f">Formules</text>
+    <text x="460" y="158" fill="#047857">face = V × cos θ</text>
+    <text x="460" y="182" fill="#b91c1c">travers = V × sin θ</text>
+    <text x="460" y="215">θ = |direction vent − QFU|</text>
+    <text x="460" y="245" fill="#b45309">Règle 30/45/60 :</text>
+    <text x="460" y="268" fill="#b45309">30°→½ · 45°→0,7 · 60°→0,9</text>
+  </g>
+</svg>
+</div><div class="xrefs"><strong>Voir aussi :</strong><ul><li><a href="composante-de-face.html">composante de face</a></li><li><a href="decrabage.html">décrabage</a></li><li><a href="vent-traversier.html">vent traversier</a></li><li><a href="terme-2.html">θ</a></li></ul></div>
+    </main>
+    <script src="../aerolex.js?v=6e4e4075" data-index="../aerolex-index.json?v=6e4e4075" data-lexicon="aero" defer></script>
+    <!-- Libellés des schémas SVG cliquables (aerolex-svg.js). Sur une page de
+         fiche, aucun hook onTermClick n'est posé : le module navigue lui-même
+         vers la page du mot. -->
+    <script src="../aerolex-svg.js?v=6e4e4075" defer></script>
+    <script>
+var CURRENT_SLUG="composante-de-travers";
+/* AeroLex - sur une page de fiche, un mot surligne mene a SA page (pas d'overlay). */
+(function(){
+  var SLUGS=null;
+  fetch('slugmap.json').then(function(r){return r.json();}).then(function(j){SLUGS=j;});
+  document.addEventListener('click',function(e){
+    var s=e.target.closest?e.target.closest('span.glos'):null;
+    if(!s)return;
+    var t=s.dataset.term;
+    if(!t||!SLUGS)return;
+    var sl=SLUGS[t];
+    if(!sl||sl===CURRENT_SLUG)return;
+    e.preventDefault();
+    window.location.href=sl+'.html';
+  },true);
+})();
+</script>
+</body>
+</html>

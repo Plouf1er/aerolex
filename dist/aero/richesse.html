@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>richesse - Glossaire Aéronautique</title>
+    <meta name="description" content="Rapport entre la masse d&#x27;essence et la masse d&#x27;air admises dans les cylindres du moteur. Le pilote l&#x27;ajuste en vol à l&#x27;aide de la commande de mélange (m...">
+    <link rel="canonical" href="https://example.com/aero/richesse.html">
+    <meta property="og:title" content="richesse - Glossaire Aéronautique">
+    <meta property="og:description" content="Rapport entre la masse d&#x27;essence et la masse d&#x27;air admises dans les cylindres du moteur. Le pilote l&#x27;ajuste en vol à l&#x27;aide de la commande de mélange (m...">
+    <meta property="og:type" content="article">
+    <meta property="og:url" content="https://example.com/aero/richesse.html">
+    
+    <link rel="stylesheet" href="../aerolex.css?v=6e4e4075">
+    <style>
+        body { font-family: sans-serif; line-height: 1.6; max-width: 800px; margin: 0 auto; padding: 1rem; }
+        nav { display: flex; justify-content: space-between; margin-bottom: 2rem; }
+        .meta { color: #666; font-size: 0.9em; }
+        .svg-container { margin: 2rem 0; text-align: center; }
+        .family-table { background: #f5f5f5; padding: 1rem; border-radius: 4px; margin: 2rem 0; }
+        .xrefs { margin-top: 2rem; padding-top: 1rem; border-top: 1px solid #ccc; }
+    </style>
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "DefinedTerm",
+      "name": "richesse",
+      "description": "Rapport entre la masse d&#x27;essence et la masse d&#x27;air admises dans les cylindres du moteur. Le pilote l&#x27;ajuste en vol à l&#x27;aide de la commande de mélange (m..."
+    }
+    </script>
+</head>
+<body>
+    <nav>
+        <a href="rffs.html">&laquo; RFFS</a>
+        <a href="index.html">Index Sommaire</a>
+        <a href="richesse-melange.html">richesse mélange &raquo;</a>
+    </nav>
+    <main>
+        <h1>richesse</h1>
+        <div class="meta">
+            Catégorie: <a href="index.html?cat=Moteur%20%26%20h%C3%A9lice">Moteur &amp; hélice</a> | 
+            Famille: <a href="index.html?fam=commandes_cockpit">commandes_cockpit</a>
+        </div>
+        
+        <div class="definition">
+            <p>Rapport entre la masse d&#x27;essence et la masse d&#x27;air admises dans les cylindres du moteur. Le pilote l&#x27;ajuste en vol à l&#x27;aide de la commande de mélange (manette rouge) pour optimiser la combustion et la consommation.</p>
+        </div>
+<div><strong>Variantes:</strong> richesses</div><div class="family-table"><h3>Famille : commandes_cockpit</h3><ul><li><a href="carburateur.html">carburateur</a></li><li><a href="correcteur-d-altitude.html">correcteur d&#x27;altitude</a></li><li><a href="idle.html">idle</a></li><li><a href="injection.html">injection</a></li><li><a href="lean.html">lean</a></li><li><a href="manette.html">manette</a></li><li><a href="mixture.html">mixture</a></li><li><a href="papillon-des-gaz.html">papillon des gaz</a></li><li><a href="pression-d-admission.html">pression d&#x27;admission</a></li><li><a href="ralenti.html">ralenti</a></li><li><strong>richesse</strong></li><li><a href="richesse-melange.html">richesse mélange</a></li><li><a href="throttle.html">throttle</a></li></ul></div>
+    </main>
+    <script src="../aerolex.js?v=6e4e4075" data-index="../aerolex-index.json?v=6e4e4075" data-lexicon="aero" defer></script>
+    <!-- Libellés des schémas SVG cliquables (aerolex-svg.js). Sur une page de
+         fiche, aucun hook onTermClick n'est posé : le module navigue lui-même
+         vers la page du mot. -->
+    <script src="../aerolex-svg.js?v=6e4e4075" defer></script>
+    <script>
+var CURRENT_SLUG="richesse";
+/* AeroLex - sur une page de fiche, un mot surligne mene a SA page (pas d'overlay). */
+(function(){
+  var SLUGS=null;
+  fetch('slugmap.json').then(function(r){return r.json();}).then(function(j){SLUGS=j;});
+  document.addEventListener('click',function(e){
+    var s=e.target.closest?e.target.closest('span.glos'):null;
+    if(!s)return;
+    var t=s.dataset.term;
+    if(!t||!SLUGS)return;
+    var sl=SLUGS[t];
+    if(!sl||sl===CURRENT_SLUG)return;
+    e.preventDefault();
+    window.location.href=sl+'.html';
+  },true);
+})();
+</script>
+</body>
+</html>

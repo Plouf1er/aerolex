@@ -1,0 +1,16 @@
+{
+  "id": "aero",
+  "titre": "Glossaire Aéronautique",
+  "html_published": true,
+  "visibility": "public",
+  "base_url": "https://aerolex.prunel.net/aero/",
+  "payload_version": 1,
+  "popup": {
+    "def": true,
+    "schema": true,
+    "variants": true,
+    "family": true,
+    "xrefs": true,
+    "link": true
+  }
+}

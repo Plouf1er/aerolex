@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>nord vrai - Glossaire Aéronautique</title>
+    <meta name="description" content="Direction du pôle Nord géographique, référence des méridiens de la carte. Le vent des messages METAR/TAF est donné en degrés vrais, contrairement au ven...">
+    <link rel="canonical" href="https://example.com/aero/nord-vrai.html">
+    <meta property="og:title" content="nord vrai - Glossaire Aéronautique">
+    <meta property="og:description" content="Direction du pôle Nord géographique, référence des méridiens de la carte. Le vent des messages METAR/TAF est donné en degrés vrais, contrairement au ven...">
+    <meta property="og:type" content="article">
+    <meta property="og:url" content="https://example.com/aero/nord-vrai.html">
+    
+    <link rel="stylesheet" href="../aerolex.css?v=6e4e4075">
+    <style>
+        body { font-family: sans-serif; line-height: 1.6; max-width: 800px; margin: 0 auto; padding: 1rem; }
+        nav { display: flex; justify-content: space-between; margin-bottom: 2rem; }
+        .meta { color: #666; font-size: 0.9em; }
+        .svg-container { margin: 2rem 0; text-align: center; }
+        .family-table { background: #f5f5f5; padding: 1rem; border-radius: 4px; margin: 2rem 0; }
+        .xrefs { margin-top: 2rem; padding-top: 1rem; border-top: 1px solid #ccc; }
+    </style>
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "DefinedTerm",
+      "name": "nord vrai",
+      "description": "Direction du pôle Nord géographique, référence des méridiens de la carte. Le vent des messages METAR/TAF est donné en degrés vrais, contrairement au ven..."
+    }
+    </script>
+</head>
+<body>
+    <nav>
+        <a href="nord-magnetique.html">&laquo; nord magnétique</a>
+        <a href="index.html">Index Sommaire</a>
+        <a href="nosig.html">NOSIG &raquo;</a>
+    </nav>
+    <main>
+        <h1>nord vrai</h1>
+        <div class="meta">
+            Catégorie: <a href="index.html?cat=Navigation">Navigation</a> | 
+            Famille: <a href="index.html?fam=references_magnetiques">references_magnetiques</a>
+        </div>
+        
+        <div class="definition">
+            <p>Direction du pôle Nord géographique, référence des méridiens de la carte. Le vent des messages METAR/TAF est donné en degrés vrais, contrairement au vent de la tour de contrôle, qui est magnétique.</p>
+        </div>
+<div><strong>Variantes:</strong> Nord vrai, nord géographique, nord Vrai, pole nord géographique, true north</div><div class="family-table"><h3>Famille : references_magnetiques</h3><ul><li><a href="compas-magnetique.html">compas magnétique</a></li><li><a href="courbe-de-deviation.html">courbe de déviation</a></li><li><a href="degres-vrais.html">degrés vrais</a></li><li><a href="declinaison-magnetique.html">déclinaison magnétique</a></li><li><a href="deviation-compas.html">déviation compas</a></li><li><a href="east-is-least.html">east is least</a></li><li><a href="inclinaison-magnetique.html">inclinaison magnétique</a></li><li><a href="mag.html">mag</a></li><li><a href="magnetique.html">magnétique</a></li><li><a href="nord.html">nord</a></li><li><a href="nord-compas.html">nord compas</a></li><li><a href="nord-magnetique.html">nord magnétique</a></li><li><strong>nord vrai</strong></li><li><a href="ouest.html">ouest</a></li><li><a href="rose-des-vents.html">rose des vents</a></li><li><a href="sud.html">sud</a></li><li><a href="tableau-de-deviation.html">tableau de déviation</a></li></ul></div><div class="xrefs"><strong>Voir aussi :</strong><ul><li><a href="nord-magnetique.html">nord magnétique</a></li><li><a href="declinaison-magnetique.html">déclinaison magnétique</a></li><li><a href="cap-vrai.html">cap vrai</a></li></ul></div>
+    </main>
+    <script src="../aerolex.js?v=6e4e4075" data-index="../aerolex-index.json?v=6e4e4075" data-lexicon="aero" defer></script>
+    <!-- Libellés des schémas SVG cliquables (aerolex-svg.js). Sur une page de
+         fiche, aucun hook onTermClick n'est posé : le module navigue lui-même
+         vers la page du mot. -->
+    <script src="../aerolex-svg.js?v=6e4e4075" defer></script>
+    <script>
+var CURRENT_SLUG="nord-vrai";
+/* AeroLex - sur une page de fiche, un mot surligne mene a SA page (pas d'overlay). */
+(function(){
+  var SLUGS=null;
+  fetch('slugmap.json').then(function(r){return r.json();}).then(function(j){SLUGS=j;});
+  document.addEventListener('click',function(e){
+    var s=e.target.closest?e.target.closest('span.glos'):null;
+    if(!s)return;
+    var t=s.dataset.term;
+    if(!t||!SLUGS)return;
+    var sl=SLUGS[t];
+    if(!sl||sl===CURRENT_SLUG)return;
+    e.preventDefault();
+    window.location.href=sl+'.html';
+  },true);
+})();
+</script>
+</body>
+</html>

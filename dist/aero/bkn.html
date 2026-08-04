@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>bkn - Glossaire Aéronautique</title>
+    <meta name="description" content="Code METAR/TAF signifiant « Broken » (très nuageux). Il désigne une couverture nuageuse de 5 à 7 octas, constituant réglementairement un plafond limitan...">
+    <link rel="canonical" href="https://example.com/aero/bkn.html">
+    <meta property="og:title" content="bkn - Glossaire Aéronautique">
+    <meta property="og:description" content="Code METAR/TAF signifiant « Broken » (très nuageux). Il désigne une couverture nuageuse de 5 à 7 octas, constituant réglementairement un plafond limitan...">
+    <meta property="og:type" content="article">
+    <meta property="og:url" content="https://example.com/aero/bkn.html">
+    
+    <link rel="stylesheet" href="../aerolex.css?v=6e4e4075">
+    <style>
+        body { font-family: sans-serif; line-height: 1.6; max-width: 800px; margin: 0 auto; padding: 1rem; }
+        nav { display: flex; justify-content: space-between; margin-bottom: 2rem; }
+        .meta { color: #666; font-size: 0.9em; }
+        .svg-container { margin: 2rem 0; text-align: center; }
+        .family-table { background: #f5f5f5; padding: 1rem; border-radius: 4px; margin: 2rem 0; }
+        .xrefs { margin-top: 2rem; padding-top: 1rem; border-top: 1px solid #ccc; }
+    </style>
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "DefinedTerm",
+      "name": "bkn",
+      "description": "Code METAR/TAF signifiant « Broken » (très nuageux). Il désigne une couverture nuageuse de 5 à 7 octas, constituant réglementairement un plafond limitan..."
+    }
+    </script>
+</head>
+<body>
+    <nav>
+        <a href="bille.html">&laquo; bille</a>
+        <a href="index.html">Index Sommaire</a>
+        <a href="blocage-micro.html">blocage micro &raquo;</a>
+    </nav>
+    <main>
+        <h1>bkn</h1>
+        <div class="meta">
+            Catégorie: <a href="index.html?cat=M%C3%A9t%C3%A9o">Météo</a> | 
+            Famille: <a href="index.html?fam=nuages_couverture">nuages_couverture</a>
+        </div>
+        
+        <div class="definition">
+            <p>Code METAR/TAF signifiant « Broken » (très nuageux). Il désigne une couverture nuageuse de 5 à 7 octas, constituant réglementairement un plafond limitant la hauteur de vol des pilotes VFR.</p>
+        </div>
+<div><strong>Variantes:</strong> bkns</div><div class="family-table"><h3>Famille : nuages_couverture</h3><ul><li><a href="base-des-nuages.html">base des nuages</a></li><li><strong>bkn</strong></li><li><a href="few.html">few</a></li><li><a href="nuage-du-jour.html">nuage du jour</a></li><li><a href="ovc.html">ovc</a></li><li><a href="plafond.html">plafond</a></li><li><a href="plafond-nuageux.html">plafond nuageux</a></li><li><a href="sct.html">sct</a></li><li><a href="etage-inferieur.html">étage inférieur</a></li><li><a href="etage-moyen.html">étage moyen</a></li><li><a href="etage-superieur.html">étage supérieur</a></li></ul></div>
+    </main>
+    <script src="../aerolex.js?v=6e4e4075" data-index="../aerolex-index.json?v=6e4e4075" data-lexicon="aero" defer></script>
+    <!-- Libellés des schémas SVG cliquables (aerolex-svg.js). Sur une page de
+         fiche, aucun hook onTermClick n'est posé : le module navigue lui-même
+         vers la page du mot. -->
+    <script src="../aerolex-svg.js?v=6e4e4075" defer></script>
+    <script>
+var CURRENT_SLUG="bkn";
+/* AeroLex - sur une page de fiche, un mot surligne mene a SA page (pas d'overlay). */
+(function(){
+  var SLUGS=null;
+  fetch('slugmap.json').then(function(r){return r.json();}).then(function(j){SLUGS=j;});
+  document.addEventListener('click',function(e){
+    var s=e.target.closest?e.target.closest('span.glos'):null;
+    if(!s)return;
+    var t=s.dataset.term;
+    if(!t||!SLUGS)return;
+    var sl=SLUGS[t];
+    if(!sl||sl===CURRENT_SLUG)return;
+    e.preventDefault();
+    window.location.href=sl+'.html';
+  },true);
+})();
+</script>
+</body>
+</html>

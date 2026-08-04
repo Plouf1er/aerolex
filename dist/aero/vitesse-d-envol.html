@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>vitesse d&#x27;envol - Glossaire Aéronautique</title>
+    <meta name="description" content="Vitesse à laquelle l&#x27;aéronef quitte effectivement le sol lors de la phase de décollage après la rotation. Elle doit être supérieure à la vitesse de décr...">
+    <link rel="canonical" href="https://example.com/aero/vitesse-d-envol.html">
+    <meta property="og:title" content="vitesse d&#x27;envol - Glossaire Aéronautique">
+    <meta property="og:description" content="Vitesse à laquelle l&#x27;aéronef quitte effectivement le sol lors de la phase de décollage après la rotation. Elle doit être supérieure à la vitesse de décr...">
+    <meta property="og:type" content="article">
+    <meta property="og:url" content="https://example.com/aero/vitesse-d-envol.html">
+    
+    <link rel="stylesheet" href="../aerolex.css?v=6e4e4075">
+    <style>
+        body { font-family: sans-serif; line-height: 1.6; max-width: 800px; margin: 0 auto; padding: 1rem; }
+        nav { display: flex; justify-content: space-between; margin-bottom: 2rem; }
+        .meta { color: #666; font-size: 0.9em; }
+        .svg-container { margin: 2rem 0; text-align: center; }
+        .family-table { background: #f5f5f5; padding: 1rem; border-radius: 4px; margin: 2rem 0; }
+        .xrefs { margin-top: 2rem; padding-top: 1rem; border-top: 1px solid #ccc; }
+    </style>
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "DefinedTerm",
+      "name": "vitesse d&#x27;envol",
+      "description": "Vitesse à laquelle l&#x27;aéronef quitte effectivement le sol lors de la phase de décollage après la rotation. Elle doit être supérieure à la vitesse de décr..."
+    }
+    </script>
+</head>
+<body>
+    <nav>
+        <a href="vitesse-d-approche.html">&laquo; vitesse d&#x27;approche</a>
+        <a href="index.html">Index Sommaire</a>
+        <a href="vitesse-de-croisiere.html">vitesse de croisière &raquo;</a>
+    </nav>
+    <main>
+        <h1>vitesse d&#x27;envol</h1>
+        <div class="meta">
+            Catégorie: <a href="index.html?cat=Vitesses%20%26%20performances">Vitesses &amp; performances</a> | 
+            Famille: <a href="index.html?fam=vitesses_operationnelles">vitesses_operationnelles</a>
+        </div>
+        
+        <div class="definition">
+            <p>Vitesse à laquelle l&#x27;aéronef quitte effectivement le sol lors de la phase de décollage après la rotation. Elle doit être supérieure à la vitesse de décrochage pour assurer une pente de montée initiale sécurisée.</p>
+        </div>
+<div class="family-table"><h3>Famille : vitesses_operationnelles</h3><ul><li><a href="vapp.html">Vapp</a></li><li><a href="vbg.html">VBG</a></li><li><a href="vg.html">VG</a></li><li><a href="vitesse-d-approche.html">vitesse d&#x27;approche</a></li><li><strong>vitesse d&#x27;envol</strong></li><li><a href="vitesse-de-croisiere.html">vitesse de croisière</a></li><li><a href="vitesse-de-rotation.html">vitesse de rotation</a></li><li><a href="vitesse-de-securite.html">vitesse de sécurité</a></li><li><a href="vlof.html">Vlof</a></li><li><a href="vr.html">vr</a></li><li><a href="vref.html">Vref</a></li><li><a href="vtoss.html">Vtoss</a></li><li><a href="vx.html">Vx</a></li><li><a href="vy.html">Vy</a></li></ul></div>
+    </main>
+    <script src="../aerolex.js?v=6e4e4075" data-index="../aerolex-index.json?v=6e4e4075" data-lexicon="aero" defer></script>
+    <!-- Libellés des schémas SVG cliquables (aerolex-svg.js). Sur une page de
+         fiche, aucun hook onTermClick n'est posé : le module navigue lui-même
+         vers la page du mot. -->
+    <script src="../aerolex-svg.js?v=6e4e4075" defer></script>
+    <script>
+var CURRENT_SLUG="vitesse-d-envol";
+/* AeroLex - sur une page de fiche, un mot surligne mene a SA page (pas d'overlay). */
+(function(){
+  var SLUGS=null;
+  fetch('slugmap.json').then(function(r){return r.json();}).then(function(j){SLUGS=j;});
+  document.addEventListener('click',function(e){
+    var s=e.target.closest?e.target.closest('span.glos'):null;
+    if(!s)return;
+    var t=s.dataset.term;
+    if(!t||!SLUGS)return;
+    var sl=SLUGS[t];
+    if(!sl||sl===CURRENT_SLUG)return;
+    e.preventDefault();
+    window.location.href=sl+'.html';
+  },true);
+})();
+</script>
+</body>
+</html>
