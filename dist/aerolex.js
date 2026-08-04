@@ -515,6 +515,55 @@
         var rx   = buildRegex(maps.ciMap, maps.csMap);
         if (!rx) { console.warn('[AeroLex] aucun terme.'); return; }
 
+        /* ── API PUBLIQUE DE RE-SURLIGNAGE (2026-08-04, régression 1) ────────
+           La popup de aero.js injecte du texte de définition APRÈS l'init : ce
+           texte doit lui aussi devenir cliquable (« navigation de terme en
+           terme »). Sans point d'entrée public, aero.js n'avait aucun moyen de
+           réutiliser le moteur — il ne pouvait ni reconstruire la regex ni
+           accéder aux maps, toutes deux locales à init().
+           On expose donc une fonction qui applique la MÊME regex et les MÊMES
+           maps à une racine arbitraire. `skip` : terme à NE PAS surligner
+           (le terme courant de la popup — un mot ne se renvoie pas à lui-même).
+           Aucun état partagé muté : occMap est local à l'appel, donc le
+           compteur d'occurrences de la page n'est pas pollué. */
+        window.AeroLex.highlight = function (root, opts) {
+          if (!root || !root.querySelectorAll) return 0;
+          opts = opts || {};
+          var occLocal = Object.create(null);
+          /* Un terme à exclure : on pré-charge occMap au-delà du plafond ?
+             Non — le moteur ne connaît pas de plafond ici. On retire donc
+             l'entrée des maps le temps de l'appel, puis on la remet. C'est la
+             seule façon de ne pas surligner le terme courant sans toucher au
+             coeur du moteur. */
+          var retires = [];
+          if (opts.skip) {
+            var nSkip = stripAccents(String(opts.skip)).toLowerCase();
+            for (var kci in maps.ciMap) {
+              if (kci === nSkip || stripAccents(kci).toLowerCase() === nSkip) {
+                retires.push(['ci', kci, maps.ciMap[kci]]);
+              }
+            }
+            for (var kcs in maps.csMap) {
+              if (stripAccents(kcs).toLowerCase() === nSkip) {
+                retires.push(['cs', kcs, maps.csMap[kcs]]);
+              }
+            }
+            for (var r = 0; r < retires.length; r++) {
+              if (retires[r][0] === 'ci') delete maps.ciMap[retires[r][1]];
+              else delete maps.csMap[retires[r][1]];
+            }
+          }
+          try {
+            applyGlossaryToDOM(root, rx, maps.ciMap, maps.csMap, maps.ctx, maps.hom, occLocal);
+          } finally {
+            for (var q = 0; q < retires.length; q++) {
+              if (retires[q][0] === 'ci') maps.ciMap[retires[q][1]] = retires[q][2];
+              else maps.csMap[retires[q][1]] = retires[q][2];
+            }
+          }
+          return root.querySelectorAll('.glos').length;
+        };
+
         var occMap = Object.create(null);
 
         // Idempotence : si des spans glos existent déjà, ne pas re-traiter
