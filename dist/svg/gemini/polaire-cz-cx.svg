@@ -1,0 +1,32 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 400">
+  <rect width="640" height="400" fill="#e0f2fe"/>
+  <rect x="10" y="10" width="620" height="380" fill="#f8fafc" stroke="#94a3b8" stroke-width="2"/>
+  <text x="320" y="40" font-family="Arial" font-size="18" fill="#1e3a5f" font-weight="bold" text-anchor="middle">GRAPHIQUE &#183; Polaire de l'aile (Cz en fonction de Cx)</text>
+  
+  <g transform="translate(150, 320)">
+    <!-- Axes -->
+    <line x1="0" y1="0" x2="400" y2="0" stroke="#1e3a5f" stroke-width="2" marker-end="url(#arrow-axis)"/>
+    <text x="390" y="20" font-family="Arial" font-size="14" fill="#1e3a5f" class="aerolex-terme" data-slug="coefficient-de-trainee">Cx (Coef. Tra&#238;n&#233;e)</text>
+    
+    <line x1="0" y1="0" x2="0" y2="-250" stroke="#1e3a5f" stroke-width="2" marker-end="url(#arrow-axis)"/>
+    <text x="-10" y="-240" font-family="Arial" font-size="14" fill="#1e3a5f" text-anchor="end" class="aerolex-terme" data-slug="coefficient-de-portance">Cz (Coef. Portance)</text>
+    
+    <!-- Courbe polaire -->
+    <path d="M 20,-20 Q 30,-150 150,-200 Q 250,-220 300,-150 Q 330,-100 350,-50" fill="none" stroke="#2563eb" stroke-width="3"/>
+    
+    <!-- Point de Finesse Max (Tangente depuis l'origine) -->
+    <line x1="0" y1="0" x2="160" y2="-213.3" stroke="#10b981" stroke-width="2" stroke-dasharray="4,4"/>
+    <circle cx="125" cy="-166" r="5" fill="#10b981"/>
+    <text x="140" y="-166" font-family="Arial" font-size="14" fill="#047857" font-weight="bold" class="aerolex-terme" data-slug="finesse">Finesse max</text>
+    
+    <!-- Cz max et D&#233;crochage -->
+    <circle cx="205" cy="-210" r="5" fill="#dc2626"/>
+    <text x="215" y="-215" font-family="Arial" font-size="14" fill="#dc2626" font-weight="bold">Cz Max</text>
+    
+    <text x="320" y="-150" font-family="Arial" font-size="14" fill="#dc2626" font-weight="bold" class="aerolex-terme" data-slug="decrochage">D&#233;crochage</text>
+  </g>
+
+  <defs>
+    <marker id="arrow-axis" viewBox="0 0 10 10" refX="5" refY="5" markerWidth="6" markerHeight="6" orient="auto"><path d="M0,0 L10,5 L0,10 z" fill="#1e3a5f"/></marker>
+  </defs>
+</svg>

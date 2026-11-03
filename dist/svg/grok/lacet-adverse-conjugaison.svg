@@ -1,0 +1,103 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 400" role="img" aria-labelledby="tl" style="max-width:100%;width:100%;height:auto;display:block">
+<title id="tl">Lacet adverse et conjugaison</title>
+<defs>
+<marker id="la-r" markerWidth="8" markerHeight="8" refX="7" refY="4" orient="auto"><path d="M0,0 L8,4 L0,8 Z" fill="#dc2626"/></marker>
+<marker id="la-b" markerWidth="8" markerHeight="8" refX="7" refY="4" orient="auto"><path d="M0,0 L8,4 L0,8 Z" fill="#2563eb"/></marker>
+<marker id="la-o" markerWidth="8" markerHeight="8" refX="7" refY="4" orient="auto"><path d="M0,0 L8,4 L0,8 Z" fill="#b45309"/></marker>
+<marker id="la-g" markerWidth="8" markerHeight="8" refX="7" refY="4" orient="auto"><path d="M0,0 L8,4 L0,8 Z" fill="#16a34a"/></marker>
+</defs>
+<style>
+.cad{fill:#f8fafc;stroke:#94a3b8;stroke-width:1.2}
+.vt{font-family:Arial;font-size:10px;font-weight:700;fill:#475569}
+.av{fill:#cbd5e1;stroke:#1e3a5f;stroke-width:1.4}
+.mo{fill:#f59e0b;stroke:#b45309;stroke-width:1.2}
+.lb{font-family:Arial;font-size:11px;fill:#1e3a5f}
+.aerolex-terme{font-family:Arial;font-size:11.5px;font-weight:700;cursor:pointer}
+</style>
+<rect width="640" height="400" fill="#e0f2fe" rx="8"/>
+<text x="320" y="18" text-anchor="middle" font-family="Arial" font-size="14.5" font-weight="700" fill="#1e3a5f">Lacet adverse et conjugaison</text>
+<text x="320" y="34" text-anchor="middle" font-family="Arial" font-size="11.5" fill="#64748b">Aileron baiss&#233; = plus de tra&#238;n&#233;e &#8594; nez part &#224; l'oppos&#233; du virage</text>
+
+<!-- GAUCHE -->
+<rect class="cad" x="12" y="44" width="300" height="258" rx="6"/>
+<text class="vt" x="20" y="60">1 &#183; SANS CONJUGAISON &#183; VUE DE DESSUS</text>
+
+<!-- avion -->
+<path class="av" d="M152 70 L162 92 L162 188 L142 188 L142 92 Z"/>
+<!-- aile fixe (milieu seulement) -->
+<rect class="av" x="112" y="122" width="88" height="11"/>
+<!-- aileron G LEV&#201; bleu - hors chevauchement labels -->
+<rect x="78" y="122" width="34" height="11" fill="#2563eb" stroke="#1e40af" stroke-width="1.2"/>
+<!-- aileron D BAISS&#201; rouge -->
+<rect x="200" y="122" width="34" height="11" fill="#dc2626" stroke="#991b1b" stroke-width="1.2"/>
+<!-- empennage H -->
+<rect class="av" x="126" y="178" width="50" height="8"/>
+
+<text class="lb" x="78" y="115" font-size="9" fill="#2563eb" font-weight="700">G LEV&#201;</text>
+<text class="lb" x="195" y="115" font-size="9" fill="#dc2626" font-weight="700">D BAISS&#201;</text>
+
+<!-- +tra&#238;n&#233;e sous aileron D, pas sur label -->
+<line x1="217" y1="136" x2="217" y2="162" stroke="#b45309" stroke-width="2.4" marker-end="url(#la-o)"/>
+<text class="aerolex-terme" data-slug="trainee" x="222" y="152" fill="#b45309" font-size="10">+ tra&#238;n&#233;e</text>
+
+<!-- virage intention : arc LOIN de l'aile -->
+<path d="M88 150 A22 22 0 0 0 88 178" fill="none" stroke="#2563eb" stroke-width="2" marker-end="url(#la-b)"/>
+<text class="lb" x="48" y="168" font-size="9.5" fill="#2563eb">virage &#8592;</text>
+
+<!-- lacet adverse : arc loin du fuselage -->
+<path d="M168 78 A28 28 0 0 1 198 102" fill="none" stroke="#dc2626" stroke-width="2.4" marker-end="url(#la-r)"/>
+<text class="aerolex-terme" data-slug="lacet-adverse" x="200" y="82" fill="#dc2626" font-size="11">lacet adverse</text>
+<text class="lb" x="200" y="96" font-size="9.5" fill="#dc2626">nez part &#8594;</text>
+
+<!-- ENCART : ailerons DESSIN&#201;S hors de l'aile (pas travers&#233;s) -->
+<rect x="22" y="205" width="148" height="88" rx="4" fill="#f1f5f9" stroke="#94a3b8" stroke-width="1"/>
+<text class="vt" x="30" y="219" font-size="9">ENCART &#183; VUE DE FACE</text>
+<!-- fuselage -->
+<circle cx="96" cy="250" r="7" fill="#cbd5e1" stroke="#1e3a5f" stroke-width="1"/>
+<!-- aile centrale seulement -->
+<rect x="70" y="238" width="52" height="5" fill="#cbd5e1" stroke="#1e3a5f" stroke-width="1"/>
+<!-- aileron D bas (gauche) S&#201;PAR&#201; -->
+<path d="M40 243 L66 243 L66 256 L40 252 Z" fill="#dc2626" stroke="#991b1b" stroke-width="1"/>
+<!-- aileron G haut (droite) S&#201;PAR&#201; -->
+<path d="M126 226 L152 228 L152 243 L126 243 Z" fill="#2563eb" stroke="#1e40af" stroke-width="1"/>
+<text class="lb" x="40" y="270" font-size="8" fill="#dc2626">D bas</text>
+<text class="lb" x="126" y="270" font-size="8" fill="#2563eb">G haut</text>
+<text class="lb" x="48" y="284" font-size="8.5" fill="#64748b">&#8594; roulis &#224; gauche</text>
+
+<!-- DROITE -->
+<rect class="cad" x="328" y="44" width="300" height="258" rx="6"/>
+<text class="vt" x="336" y="60">2 &#183; AVEC CONJUGAISON &#183; VUE DE DESSUS</text>
+
+<path class="av" d="M468 70 L478 92 L478 188 L458 188 L458 92 Z"/>
+<rect class="av" x="428" y="122" width="88" height="11"/>
+<rect x="394" y="122" width="34" height="11" fill="#2563eb" stroke="#1e40af" stroke-width="1.2"/>
+<rect x="516" y="122" width="34" height="11" fill="#dc2626" stroke="#991b1b" stroke-width="1.2"/>
+<!-- empennage H -->
+<rect class="av" x="442" y="178" width="50" height="8"/>
+<!-- gouverne direction : attach&#233;e derri&#232;re, d&#233;vi&#233;e G, SANS traverser empennage -->
+<path class="mo" d="M458 186 L470 186 L452 222 L444 222 Z"/>
+
+<text class="lb" x="394" y="115" font-size="9" fill="#2563eb" font-weight="700">G LEV&#201;</text>
+<text class="lb" x="510" y="115" font-size="9" fill="#dc2626" font-weight="700">D BAISS&#201;</text>
+
+<text class="aerolex-terme" data-slug="palonnier" x="400" y="240" fill="#b45309" font-size="11">palonnier gauche</text>
+<text class="lb" x="400" y="254" font-size="9.5" fill="#64748b">(gouverne &#8592;)</text>
+
+<!-- conjugaison arc -->
+<path d="M452 78 A28 28 0 0 0 422 102" fill="none" stroke="#16a34a" stroke-width="2.4" marker-end="url(#la-g)"/>
+<text class="aerolex-terme" data-slug="conjugaison" x="336" y="82" fill="#16a34a" font-size="11">conjugaison</text>
+<text class="lb" x="336" y="96" font-size="9.5" fill="#16a34a">nez suit &#8592;</text>
+
+<path d="M405 150 A22 22 0 0 0 405 178" fill="none" stroke="#2563eb" stroke-width="2" marker-end="url(#la-b)"/>
+<text class="lb" x="338" y="168" font-size="9.5" fill="#2563eb">virage &#8592;</text>
+
+<circle cx="585" cy="165" r="18" fill="#dcfce7" stroke="#16a34a" stroke-width="2"/>
+<text x="585" y="171" text-anchor="middle" font-family="Arial" font-size="18" fill="#16a34a" font-weight="700">&#10003;</text>
+<text class="lb" x="555" y="198" font-size="9.5" fill="#16a34a" font-weight="700">coordonn&#233;</text>
+
+<!-- BANDEAU -->
+<rect class="cad" x="12" y="312" width="616" height="74" rx="6"/>
+<text class="lb" x="22" y="332" font-weight="700"><tspan class="aerolex-terme" data-slug="lacet-adverse">Lacet adverse</tspan> : l'<tspan class="aerolex-terme" data-slug="aileron">aileron</tspan> baiss&#233; produit plus de <tspan class="aerolex-terme" data-slug="trainee">tra&#238;n&#233;e</tspan> &#8594; cette aile freine &#8594; nez &#224; l'oppos&#233;.</text>
+<text class="lb" x="22" y="350" font-size="11"><tspan class="aerolex-terme" data-slug="conjugaison">Conjugaison</tspan> : <tspan class="aerolex-terme" data-slug="palonnier">palonnier</tspan> du m&#234;me c&#244;t&#233; que le virage pour ramener le nez.</text>
+<text class="lb" x="22" y="368" font-size="10.5" fill="#64748b">R&#232;gle PPL : ailerons + palonnier du m&#234;me c&#244;t&#233; = virage coordonn&#233; (<tspan class="aerolex-terme" data-slug="bille" font-size="10.5">bille</tspan> centr&#233;e).</text>
+</svg>

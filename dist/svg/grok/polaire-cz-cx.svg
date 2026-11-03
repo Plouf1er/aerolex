@@ -1,0 +1,109 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 400" role="img" aria-labelledby="tpo" style="max-width:100%;width:100%;height:auto;display:block">
+<title id="tpo">Polaire Cz / Cx : finesse max et d&#233;crochage</title>
+<defs>
+<marker id="po-ax" markerWidth="8" markerHeight="8" refX="7" refY="4" orient="auto"><path d="M0,0 L8,4 L0,8 Z" fill="#1e3a5f"/></marker>
+</defs>
+<style>
+.cad{fill:#f8fafc;stroke:#94a3b8;stroke-width:1.2}
+.vt{font-family:Arial;font-size:10.5px;font-weight:700;fill:#475569}
+.lb{font-family:Arial;font-size:11.5px;fill:#1e3a5f}
+.aerolex-terme{font-family:Arial;font-size:12px;font-weight:700;cursor:pointer}
+</style>
+<rect width="640" height="400" fill="#e0f2fe" rx="8"/>
+<text x="320" y="18" text-anchor="middle" font-family="Arial" font-size="15" font-weight="700" fill="#1e3a5f">La polaire Cz / Cx</text>
+<text x="320" y="34" text-anchor="middle" font-family="Arial" font-size="11.5" fill="#64748b">Chaque point = une incidence &#183; la tangente donne la finesse max</text>
+
+<rect class="cad" x="16" y="46" width="400" height="274" rx="6"/>
+<text class="vt" x="26" y="62">GRAPHIQUE &#183; Cz (&#8593;) en fonction de Cx (&#8594;)</text>
+
+<!-- Axes O=(85,295) -->
+<line x1="85" y1="295" x2="390" y2="295" stroke="#1e3a5f" stroke-width="1.6" marker-end="url(#po-ax)"/>
+<line x1="85" y1="295" x2="85" y2="72" stroke="#1e3a5f" stroke-width="1.6" marker-end="url(#po-ax)"/>
+<text class="aerolex-terme" data-slug="coefficient-de-trainee" x="360" y="312" fill="#1e3a5f" font-size="12">Cx</text>
+<text class="lb" x="300" y="312" font-size="10" fill="#64748b">tra&#238;n&#233;e &#8594;</text>
+<text class="aerolex-terme" data-slug="coefficient-de-portance" x="30" y="85" fill="#1e3a5f" font-size="12">Cz</text>
+<text class="lb" x="30" y="99" font-size="10" fill="#64748b">&#8593; portance</text>
+<text class="lb" x="72" y="310" font-size="11" font-weight="700">O</text>
+
+<!--
+  Courbe polaire r&#233;aliste (Cx0 > 0) :
+  O = (85, 295)
+  D&#233;marre pr&#232;s axe X &#224; Cx0 : (100, 285) Cz&#8776;0.1
+  Monte avec Cx croissant lentement puis plus vite
+  Contact tangente finesse max : (125, 155)  &#8212; pente depuis O = (295-155)/(125-85) = 140/40 = 3.5
+  Cz max : (175, 88)
+  Post-stall courbe douce : (220, 120), (280, 165), (340, 210)
+  
+  VRAIE TANGENTE : droite O(85,295) &#8594; contact(125,155)
+  Prolong&#233;e un peu : jusqu'&#224; (145, 120) &#8212; doit RESTER &#224; gauche/sous la courbe
+  V&#233;rif pente m = -140/40 = -3.5
+  &#192; x=110 : y = 295 - 3.5*(110-85) = 295 - 87.5 = 207.5
+  Courbe &#224; x=110 est environ y=200? Need curve to the RIGHT of tangent.
+  
+  Better approach: draw curve that bows to the RIGHT of the tangent line.
+  Tangent line: from (85,295) through (130,160)
+  m = (160-295)/(130-85) = -135/45 = -3.0
+  Curve should touch at (130,160) and stay to the right (higher Cx) of this line.
+-->
+
+<!-- Courbe : d&#233;marre Cx0, touche en (130,160), sommet (175,88), post-stall -->
+<path d="M100 285
+  C105 260, 110 230, 115 200
+  C120 175, 125 165, 130 160
+  C140 140, 155 105, 175 88
+  C195 78, 215 95, 240 125
+  C270 160, 310 195, 350 225"
+  fill="none" stroke="#2563eb" stroke-width="2.8"/>
+
+<!-- i faible pr&#232;s du bas -->
+<circle cx="105" cy="255" r="3.5" fill="#64748b"/>
+<text class="lb" x="112" y="258" font-size="9.5" fill="#64748b">i faible</text>
+
+<!-- TANGENTE vraie : O &#8594; contact (130,160) &#8594; un peu au-del&#224; (148, 118) -->
+<!-- m = (160-295)/(130-85) = -3.0 ; &#224; x=148 : y=295-3*63=106 close -->
+<line x1="85" y1="295" x2="150" y2="100" stroke="#16a34a" stroke-width="1.7" stroke-dasharray="6 3"/>
+<circle cx="130" cy="160" r="6" fill="#16a34a" stroke="#fff" stroke-width="1.5"/>
+<!-- labels &#224; DROITE du point, pas sur la courbe -->
+<text class="aerolex-terme" data-slug="finesse" x="155" y="155" fill="#16a34a" font-size="12">finesse max</text>
+<text class="lb" x="155" y="170" font-size="10" fill="#16a34a">tangente depuis O</text>
+<text class="lb" x="155" y="183" font-size="9.5" fill="#64748b">= meilleur Cz/Cx</text>
+
+<!-- Cz max -->
+<circle cx="175" cy="88" r="6" fill="#dc2626" stroke="#fff" stroke-width="1.5"/>
+<text class="aerolex-terme" data-slug="decrochage" x="188" y="78" fill="#dc2626" font-size="12">Cz max</text>
+<text class="lb" x="188" y="92" font-size="10" fill="#dc2626">= d&#233;crochage</text>
+
+<!-- post-d&#233;crochage label HORS courbe -->
+<text class="lb" x="260" y="130" font-size="10" fill="#64748b">apr&#232;s d&#233;crochage :</text>
+<text class="lb" x="260" y="144" font-size="9.5" fill="#64748b">Cz &#8595; , Cx explose</text>
+
+<!-- incidence le long de TOUTE la courbe, fl&#232;che en bas &#224; droite -->
+<text class="aerolex-terme" data-slug="incidence" x="250" y="250" fill="#2563eb" font-size="11">incidence &#8593;</text>
+<path d="M200 270 Q230 250 280 230" fill="none" stroke="#2563eb" stroke-width="1.4" marker-end="url(#po-ax)"/>
+<text class="lb" x="200" y="285" font-size="9" fill="#64748b">(tout le long de la courbe)</text>
+
+<!-- L&#201;GENDE -->
+<rect class="cad" x="428" y="46" width="196" height="274" rx="6"/>
+<text class="vt" x="440" y="66">&#192; RETENIR</text>
+<text class="lb" x="440" y="94" font-weight="700" font-size="11">Un point = une incidence</text>
+<text class="lb" x="440" y="110" font-size="10.5" fill="#64748b">On fait varier i, on mesure</text>
+<text class="lb" x="440" y="124" font-size="10.5" fill="#64748b">Cz et Cx, on trace.</text>
+
+<circle cx="450" cy="152" r="5" fill="#16a34a"/>
+<text class="aerolex-terme" data-slug="finesse" x="462" y="156" fill="#16a34a" font-size="11">Finesse max</text>
+<text class="lb" x="440" y="172" font-size="10.5" fill="#64748b">Tangente depuis O.</text>
+<text class="lb" x="440" y="186" font-size="10.5" fill="#64748b">Meilleur Cz/Cx</text>
+<text class="lb" x="440" y="200" font-size="10.5" fill="#64748b">= meilleure glisse.</text>
+
+<circle cx="450" cy="230" r="5" fill="#dc2626"/>
+<text class="aerolex-terme" data-slug="decrochage" x="462" y="234" fill="#dc2626" font-size="11">Cz max</text>
+<text class="lb" x="440" y="250" font-size="10.5" fill="#64748b">Sommet = d&#233;crochage.</text>
+<text class="lb" x="440" y="264" font-size="10.5" fill="#64748b">Au-del&#224; : portance &#8595;.</text>
+
+<text class="aerolex-terme" data-slug="polaire" x="440" y="295" fill="#2563eb" font-size="11">polaire</text>
+
+<!-- BANDEAU -->
+<rect class="cad" x="16" y="330" width="608" height="54" rx="6"/>
+<text class="lb" x="28" y="350" font-weight="700"><tspan class="aerolex-terme" data-slug="polaire">Polaire</tspan> : carte d'identit&#233; a&#233;rodynamique du profil (ou de l'avion).</text>
+<text class="lb" x="28" y="368" font-size="11">Finesse = Cz/Cx = pente O&#8594;point. La tangente depuis O = le maximum possible.</text>
+</svg>

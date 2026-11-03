@@ -1,0 +1,241 @@
+#!/usr/bin/env python3
+# -*- coding: utf-8 -*-
+"""Patch ponctuel 2026-08-04 : familles unites / codes_aerodromes + 4 termes.
+
+Édite data/data_glossaire_full.py par réécriture ciblée du champ `famille` des
+termes concernés (aucune définition touchée) et ajoute 4 entrées de gouvernes.
+Idempotent : relancer ne duplique rien.
+"""
+from __future__ import annotations
+
+import os
+import re
+import sys
+
+_DIR = os.path.dirname(os.path.abspath(__file__))
+_ROOT = os.path.dirname(_DIR)
+DATA = os.path.join(_ROOT, "data", "data_glossaire_full.py")
+sys.path.insert(0, os.path.join(_ROOT, "data"))
+
+from data_glossaire_full import GLOSSAIRE  # noqa: E402
+
+# ── (a) UNITÉS ───────────────────────────────────────────────────────────────
+# Les termes de catégorie 'Unités' avaient déjà 4 sous-familles hétéroclites
+# (unites_altitude_pression / _moteur_temps / _vitesse / _masse_carburant), mal
+# réparties : 'NM' et 'mille nautique' classés en 'unites_moteur_temps', 'km' en
+# 'unites_masse_carburant'. Louis demande UNE famille `unites`.
+# On ne retient QUE les vraies unités : on exclut les concepts qui ont atterri
+# dans la catégorie 'Unités' sans être des unités de mesure.
+NON_UNITES = {
+    "heure locale",   # repère temporel, pas une unité
+    "utc",            # échelle de temps / référentiel, pas une unité
+    "facteur de conversion pied/mètre",  # facteur, pas unité
+    "litre/gallon",   # facteur de conversion, pas unité
+    "Fahrenheit",     # échelle... mais garde: c'est une unité de température
+}
+NON_UNITES.discard("Fahrenheit")  # Fahrenheit EST une unité de température
+
+# Unités hors catégorie 'Unités' repérées dans le corpus.
+UNITES_HORS_CAT = {
+    "octa", "octas",
+    "tours/minute", "tr/min",
+    "minute d'arc",
+    "hertz", "hz",
+    "pouce", "po",
+    "mm aft datum",
+    "degré", "degrés",
+}
+
+
+def collect_unites(g):
+    out = set()
+    for t, m in g.items():
+        if not isinstance(m, dict):
+            continue
+        if (m.get("categorie") or "").strip() == "Unités" and t not in NON_UNITES:
+            out.add(t)
+    for t in UNITES_HORS_CAT:
+        if t in g:
+            out.add(t)
+    return out
+
+
+# ── (b) CODES AÉRODROMES ─────────────────────────────────────────────────────
+def collect_codes(g):
+    out = set()
+    for t, m in g.items():
+        if not isinstance(m, dict):
+            continue
+        cat = (m.get("categorie") or "").strip()
+        # Code OACI France = 4 lettres commençant par LF, catégorie aérodrome.
+        if re.fullmatch(r"(?i)lf[a-z]{2}", t) and cat == "Aérodrome & cartes":
+            out.add(t)
+    return out
+
+
+# ── (c) 4 NOUVEAUX TERMES ────────────────────────────────────────────────────
+# 'dérive' EXISTE DÉJÀ = sens NAVIGATION (angle axe avion / trajectoire sol dû au
+# vent). La dérive-empennage est un HOMONYME. On NE TOUCHE PAS à l'existant :
+# le nouveau terme est nommé 'dérive (empennage)', désambiguïsé par parenthèse,
+# comme le fait déjà le corpus pour d'autres collisions.
+NOUVEAUX = {
+    "aileron": {
+        "definition": (
+            "Gouverne primaire articulée au bord de fuite de chaque aile, près de "
+            "l'extrémité. Les ailerons se braquent de façon différentielle : l'un se "
+            "lève quand l'autre s'abaisse, créant une différence de portance qui fait "
+            "rouler l'avion autour de son axe longitudinal. Commandés au manche."
+        ),
+        "categorie": "Structure & cellule",
+        "famille": "gouvernes_primaires",
+        "variantes": ["ailerons"],
+        "xrefs": ["gouverne", "roulis", "manche", "aile"],
+        "statut": "redigee",
+        "origine": "ajout-manuel-2026-08-04",
+    },
+    "dérive (empennage)": {
+        "definition": (
+            "Partie fixe verticale de l'empennage, à l'arrière du fuselage. Elle assure "
+            "la stabilité de route en girouette : écarté de sa trajectoire, l'avion tend "
+            "à revenir dans le lit du vent relatif. Elle porte la gouverne de direction. "
+            "À ne pas confondre avec la dérive du vent en navigation."
+        ),
+        "categorie": "Structure & cellule",
+        "famille": "gouvernes_primaires",
+        "variantes": ["dérives", "empennage vertical", "plan fixe vertical"],
+        "xrefs": ["empennage", "gouverne de direction", "lacet", "gouverne"],
+        "statut": "redigee",
+        "origine": "ajout-manuel-2026-08-04",
+    },
+    "gouverne de direction": {
+        "definition": (
+            "Gouverne primaire articulée à l'arrière de la dérive, actionnée par les "
+            "palonniers. Braquée d'un côté, elle fait pivoter l'avion autour de son axe "
+            "vertical. Elle sert surtout à symétriser le vol, contrer le lacet inverse "
+            "en virage et décraber à l'atterrissage par vent de travers."
+        ),
+        "categorie": "Structure & cellule",
+        "famille": "gouvernes_primaires",
+        "variantes": ["gouvernes de direction", "direction", "rudder"],
+        "xrefs": ["palonnier", "lacet", "gouverne", "décrabage"],
+        "statut": "redigee",
+        "origine": "ajout-manuel-2026-08-04",
+    },
+    "gouverne de profondeur": {
+        "definition": (
+            "Gouverne primaire articulée à l'arrière de l'empennage horizontal, commandée "
+            "d'avant en arrière au manche. Elle modifie l'assiette longitudinale de "
+            "l'avion, donc son incidence et sa vitesse. C'est la commande principale du "
+            "contrôle de trajectoire dans le plan vertical."
+        ),
+        "categorie": "Structure & cellule",
+        "famille": "gouvernes_primaires",
+        "variantes": ["gouvernes de profondeur", "profondeur", "elevator"],
+        "xrefs": ["empennage", "tangage", "manche", "compensateur"],
+        "statut": "redigee",
+        "origine": "ajout-manuel-2026-08-04",
+    },
+}
+
+
+def py(v):
+    """Littéral Python d'une valeur simple (str/list)."""
+    if isinstance(v, str):
+        return repr(v)
+    if isinstance(v, list):
+        return "[" + ", ".join(repr(x) for x in v) + "]"
+    return repr(v)
+
+
+def main():
+    src = open(DATA, encoding="utf-8").read()
+    orig_len = len(src)
+
+    unites = collect_unites(GLOSSAIRE)
+    codes = collect_codes(GLOSSAIRE)
+
+    # Sanity : aucun terme dans les deux ensembles.
+    assert not (unites & codes), unites & codes
+
+    cible = {t: "unites" for t in unites}
+    cible.update({t: "codes_aerodromes" for t in codes})
+
+    # ── Réécriture du champ famille, terme par terme ─────────────────────────
+    # On localise le bloc du terme par sa clé littérale, puis on remplace le
+    # PREMIER 'famille': ... du bloc. Bornes : jusqu'à la clé suivante au même
+    # niveau (une ligne qui commence par 4 espaces ou moins + quote).
+    n_fam = 0
+    manques = []
+    for terme, fam in sorted(cible.items()):
+        # clé du dict : "terme": {  ou  'terme': {
+        pat_key = re.compile(
+            r"^([ \t]*)(['\"])" + re.escape(terme) + r"\2\s*:\s*\{",
+            re.M,
+        )
+        mk = pat_key.search(src)
+        if not mk:
+            manques.append(terme)
+            continue
+        start = mk.end()
+        # fin du bloc : accolade fermante au même niveau d'indentation
+        indent = mk.group(1)
+        pat_end = re.compile(r"^" + re.escape(indent) + r"\},?\s*$", re.M)
+        me = pat_end.search(src, start)
+        end = me.start() if me else len(src)
+        bloc = src[start:end]
+
+        pat_fam = re.compile(r"(['\"])famille\1(\s*:\s*)(None|'[^']*'|\"[^\"]*\")")
+        if pat_fam.search(bloc):
+            new_bloc = pat_fam.sub(
+                lambda m: f"{m.group(1)}famille{m.group(1)}{m.group(2)}{fam!r}",
+                bloc, count=1,
+            )
+        else:
+            # pas de champ famille : on l'insère juste après l'ouverture
+            new_bloc = f"\n{indent}    'famille': {fam!r}," + bloc
+        if new_bloc != bloc:
+            src = src[:start] + new_bloc + src[end:]
+            n_fam += 1
+
+    # ── Ajout des nouveaux termes, avant la dernière accolade du GLOSSAIRE ────
+    n_new = 0
+    ajouts = []
+    for terme, meta in NOUVEAUX.items():
+        if terme in GLOSSAIRE:
+            print(f"   (déjà présent, ignoré) {terme!r}")
+            continue
+        # xrefs : ne garder que celles qui existent RÉELLEMENT (ou qui sont
+        # ajoutées par ce même patch).
+        connus = set(GLOSSAIRE) | set(NOUVEAUX)
+        xr = [x for x in meta["xrefs"] if x in connus]
+        assert len(xr) >= 2, (terme, xr)
+        lignes = [f"    {terme!r}: {{"]
+        for k in ("definition", "categorie", "famille", "variantes", "xrefs", "statut", "origine"):
+            v = xr if k == "xrefs" else meta[k]
+            lignes.append(f"        {k!r}: {py(v)},")
+        lignes.append("    },")
+        ajouts.append("\n".join(lignes))
+        n_new += 1
+
+    if ajouts:
+        # dernière accolade fermante de niveau 0 dans le fichier
+        m = None
+        for m in re.finditer(r"^\}\s*$", src, re.M):
+            pass
+        assert m, "accolade de fermeture du GLOSSAIRE introuvable"
+        src = src[: m.start()] + "\n".join(ajouts) + "\n" + src[m.start():]
+
+    with open(DATA, "w", encoding="utf-8") as f:
+        f.write(src)
+
+    print(f"unites          : {len(unites)} termes ciblés")
+    print(f"codes_aerodromes: {len(codes)} termes ciblés")
+    print(f"champs famille réécrits : {n_fam}")
+    print(f"termes ajoutés  : {n_new}")
+    if manques:
+        print(f"⚠️  clés introuvables ({len(manques)}) : {manques[:10]}")
+    print(f"fichier : {orig_len} -> {len(src)} o")
+
+
+if __name__ == "__main__":
+    main()

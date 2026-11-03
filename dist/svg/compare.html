@@ -1,0 +1,57 @@
+<!doctype html><html lang="fr"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>AeroLex &#8212; Comparatif 3 approches</title>
+<style>
+*{box-sizing:border-box}
+body{margin:0;padding:22px 14px;background:#f1f5f9;font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Arial,sans-serif;color:#1e3a5f}
+h1{font-size:21px;margin:0 0 6px}
+.sub{color:#64748b;font-size:13.5px;margin:0 0 16px;line-height:1.55;max-width:860px}
+.note{background:#fef9c3;border:1px solid #fde047;border-radius:8px;padding:12px 14px;font-size:13px;margin-bottom:22px;max-width:860px;line-height:1.55}
+.row{background:#fff;border:1px solid #94a3b8;border-radius:10px;padding:15px;margin-bottom:24px}
+.row h2{font-size:16px;margin:0 0 3px}
+.row .desc{font-size:12.5px;color:#64748b;margin:0 0 13px;line-height:1.45}
+.trio{display:grid;grid-template-columns:repeat(3,1fr);gap:13px}
+@media(max-width:1000px){.trio{grid-template-columns:1fr}}
+.cell{border:1px solid #cbd5e1;border-radius:8px;overflow:hidden;background:#fff}
+.cell .hd{padding:7px 10px;font-size:11.5px;font-weight:700;color:#fff}
+.a .hd{background:#475569}.b .hd{background:#7c3aed}.c .hd{background:#0d9488}
+.cell img{width:100%;display:block;background:#fff;cursor:zoom-in}
+.cell .ft{padding:7px 10px;font-size:11px;color:#64748b;border-top:1px solid #e2e8f0}
+.na{padding:44px 12px;text-align:center;color:#94a3b8;font-size:12.5px}
+a{color:#2563eb}
+</style></head><body>
+<h1>AeroLex &#8212; trois approches, m&#234;mes sujets</h1>
+<p class="sub"><b>A &#8212; Arthur</b> : produites par moi, corrig&#233;es apr&#232;s jugement &#224; l'aveugle par un juge externe.<br>
+<b>B &#8212; Grok 4.5</b> et <b>C &#8212; Gemini 3.1 Pro</b> : produites de z&#233;ro, en aveugle (ils n'ont vu ni mes planches ni celles de l'autre), avec auto-jugement puis auto-correction.</p>
+<div class="note"><b>Comment regarder :</b> pas &#171; laquelle est la plus jolie &#187;. Regarde si la <b>physique</b> tient &#8212; fl&#232;ches oppos&#233;es de m&#234;me longueur quand le texte dit &#171; &#233;quilibre &#187;, bord d'attaque arrondi du bon c&#244;t&#233;, vent relatif oppos&#233; &#224; la trajectoire, tra&#238;n&#233;e horizontale &#8212; et si tu comprends l'id&#233;e <b>sans lire</b> le texte.</div>
+<div id="rows"></div>
+<script>
+const V=Date.now();
+const items=[
+ ['virage-forces','Les forces en virage',"La portance s'incline et se d\u00e9compose : une part soutient, une part fait tourner."],
+ ['incidence-vent-relatif',"L'incidence","Angle corde / vent relatif. Pi\u00e8ges : sens du profil, signe de l'angle."],
+ ['forces-vol-palier','Les 4 forces en palier',"\u00c9quilibre deux \u00e0 deux. Pi\u00e8ge : longueurs de fl\u00e8ches coh\u00e9rentes avec le texte."],
+ ['gouvernes-3-axes','Les 3 gouvernes',"Quelle gouverne commande quel axe."],
+ ['repere-3-axes','Les 3 axes',"Roulis, tangage, lacet \u2014 concourants au centre de gravit\u00e9."],
+ ['lacet-adverse-conjugaison','Lacet adverse',"Le nez part \u00e0 l'oppos\u00e9 du virage ; on compense au palonnier."],
+ ['volets-hypersustentation','Les volets',"Plus de portance \u00e0 basse vitesse, mais plus de tra\u00een\u00e9e."],
+ ['aerofrein-effet',"L'a\u00e9rofrein","D\u00e9truit la portance. Pi\u00e8ge : la diff\u00e9rence avec le volet doit se VOIR."],
+ ['profil-aile-geometrie',"G\u00e9om\u00e9trie du profil","Pi\u00e8ge : bord d'attaque vraiment arrondi, \u00e9paisseur extrados\u2192intrados."],
+ ['polaire-cz-cx','La polaire Cz/Cx',"Finesse max, Cz max, d\u00e9crochage."]
+];
+document.getElementById('rows').innerHTML=items.map(function(it){
+ var s=it[0],t=it[1],d=it[2];
+ return '<div class="row"><h2>'+t+'</h2><p class="desc">'+d+'</p><div class="trio">'
+ +'<div class="cell a"><div class="hd">A \u2014 Arthur</div>'
+ +'<a href="_iter/'+s+'-arthur.png?v='+V+'"><img src="_iter/'+s+'-arthur.png?v='+V+'" loading="lazy" alt="'+t+' Arthur" onerror="this.parentElement.outerHTML=\'<div class=na>&#8212;</div>\'"></a>'
+ +'<div class="ft"><a href="_iter/'+s+'-arthur.png?v='+V+'">grand</a></div></div>'
+ +'<div class="cell b"><div class="hd">B \u2014 Grok 4.5</div>'
+ +'<a href="grok/'+s+'.png?v='+V+'"><img src="grok/'+s+'.png?v='+V+'" loading="lazy" alt="'+t+' Grok" onerror="this.parentElement.outerHTML=\'<div class=na>en cours\u2026</div>\'"></a>'
+ +'<div class="ft"><a href="grok/'+s+'.png?v='+V+'">grand</a> &#183; <a href="grok/'+s+'.svg?v='+V+'">svg</a></div></div>'
+ +'<div class="cell c"><div class="hd">C \u2014 Gemini 3.1 Pro</div>'
+ +'<a href="gemini/'+s+'.png?v='+V+'"><img src="gemini/'+s+'.png?v='+V+'" loading="lazy" alt="'+t+' Gemini" onerror="this.parentElement.outerHTML=\'<div class=na>en cours\u2026</div>\'"></a>'
+ +'<div class="ft"><a href="gemini/'+s+'.png?v='+V+'">grand</a> &#183; <a href="gemini/'+s+'.svg?v='+V+'">svg</a></div></div>'
+ +'</div></div>';
+}).join('');
+</script>
+</body></html>

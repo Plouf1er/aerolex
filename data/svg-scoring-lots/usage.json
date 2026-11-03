@@ -1,0 +1,8 @@
+{
+ "model": "gpt-5-mini",
+ "calls": 31,
+ "prompt_tokens": 128499,
+ "completion_tokens": 223916,
+ "cost_usd": 0.48,
+ "lots_en_echec": 0
+}

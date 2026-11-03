@@ -1,0 +1,47 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 380" role="img" aria-labelledby="ta" style="max-width:100%;width:100%;height:auto;display:block">
+<title id="ta">L'a&#233;rofrein casse la portance</title>
+<defs><marker id="ae-b" markerWidth="9" markerHeight="9" refX="8" refY="4.5" orient="auto"><path d="M0,0 L9,4.5 L0,9 Z" fill="#2563eb"/></marker>
+<marker id="ae-o" markerWidth="9" markerHeight="9" refX="8" refY="4.5" orient="auto"><path d="M0,0 L9,4.5 L0,9 Z" fill="#b45309"/></marker></defs>
+<rect width="640" height="380" fill="#e0f2fe" rx="8"/>
+<text x="320" y="26" text-anchor="middle" font-family="Arial" font-size="15" font-weight="700" fill="#1e3a5f">L'a&#233;rofrein : casser la portance pour descendre</text>
+<text x="320" y="45" text-anchor="middle" font-family="Arial" font-size="12" fill="#64748b">Coupe de l'aile vue de c&#244;t&#233; &#183; le vent arrive de la gauche</text>
+<style>
+.cad{fill:#f8fafc;stroke:#94a3b8;stroke-width:1.2}
+.vt{font-family:Arial;font-size:11px;font-weight:700;fill:#475569}
+.pr{fill:#dbe6f0;stroke:#1e3a5f;stroke-width:2}
+.mo{fill:#f59e0b;stroke:#b45309;stroke-width:2}
+.lb{font-family:Arial;font-size:11.5px;fill:#1e3a5f}
+.aerolex-terme{font-family:Arial;font-size:12px;font-weight:700;cursor:pointer;fill:#1e3a5f}
+.fl{stroke:#16a34a;stroke-width:2;fill:none}
+</style>
+<rect class="cad" x="16" y="58" width="296" height="196" rx="6"/>
+<text class="vt" x="26" y="76">A&#201;ROFREIN RENTR&#201;</text>
+<path class="pr" d="M56 162 Q140 126 250 142 Q150 158 56 162 Z"/>
+<path class="fl" d="M26 130 Q90 118 160 122 Q220 126 260 132"/>
+<path class="fl" d="M26 118 Q90 106 170 110 Q230 114 268 120"/><path class="fl" d="M26 178 Q100 174 170 172 Q230 172 268 176"/>
+<text class="lb" x="26" y="100" font-size="10" fill="#16a34a">l'air colle au profil</text>
+<line x1="150" y1="124" x2="150" y2="92" stroke="#2563eb" stroke-width="3.4" marker-end="url(#ae-b)"/>
+<text class="lb" x="158" y="100" fill="#2563eb">portance pleine</text>
+<text class="lb" x="26" y="200" font-size="10.5">&#201;coulement r&#233;gulier : l'aile porte normalement.</text>
+<text class="lb" x="26" y="222" font-size="10.5" fill="#64748b">Pour descendre, il faudrait r&#233;duire le moteur.</text>
+
+<rect class="cad" x="328" y="58" width="296" height="196" rx="6"/>
+<text class="vt" x="338" y="76">A&#201;ROFREIN SORTI</text>
+<path class="pr" d="M368 162 Q452 126 562 142 Q462 158 368 162 Z"/>
+<rect class="mo" x="452" y="108" width="9" height="26"/>
+<text class="aerolex-terme" data-slug="aerofrein" x="404" y="102" fill="#b45309">a&#233;rofrein</text>
+<path class="fl" d="M338 130 Q392 120 446 124"/>
+<path d="M466 122 q10 -8 18 4 q8 10 18 0 q10 -8 18 6" fill="none" stroke="#dc2626" stroke-width="2"/>
+<path d="M470 136 q10 8 20 -4 q10 -10 20 2" fill="none" stroke="#dc2626" stroke-width="2"/>
+<text class="lb" x="486" y="102" font-size="10" fill="#dc2626">air d&#233;coll&#233;, turbulent</text>
+<line x1="410" y1="124" x2="410" y2="104" stroke="#2563eb" stroke-width="3.4" marker-end="url(#ae-b)"/>
+<text class="lb" x="338" y="200" font-size="10.5">La portance tombe et la tra&#238;n&#233;e monte : l'avion descend.</text>
+<line x1="556" y1="186" x2="608" y2="186" stroke="#b45309" stroke-width="3.4" marker-end="url(#ae-o)"/><text class="lb" x="536" y="204" font-size="10" fill="#b45309">tra&#238;n&#233;e &#8594;</text>
+<text class="lb" x="338" y="222" font-size="10.5" fill="#64748b">Sans prendre de vitesse, contrairement au piqu&#233;.</text>
+
+<rect class="cad" x="16" y="264" width="608" height="72" rx="6"/>
+<text class="lb" x="28" y="284" font-weight="700">L'<tspan class="aerolex-terme" data-slug="aerofrein">a&#233;rofrein</tspan> d&#233;colle volontairement l'&#233;coulement : il d&#233;truit de la <tspan class="aerolex-terme" data-slug="portance">portance</tspan>.</text>
+<text class="lb" x="28" y="302">R&#233;sultat : plus de <tspan class="aerolex-terme" data-slug="trainee">tra&#238;n&#233;e</tspan>, taux de chute augment&#233;, vitesse ma&#238;tris&#233;e.</text>
+<text class="lb" x="28" y="320" font-size="10.5" fill="#64748b">&#192; ne pas confondre avec le <tspan class="aerolex-terme" data-slug="volet" font-size="10.5">volet</tspan>, qui lui AUGMENTE la portance.</text>
+<text x="320" y="362" text-anchor="middle" font-family="Arial" font-size="11" fill="#475569">A&#233;rofrein = descendre fort sans acc&#233;l&#233;rer. Volet = porter plus &#224; basse vitesse.</text>
+</svg>

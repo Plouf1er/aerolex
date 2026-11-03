@@ -670,8 +670,11 @@
 
         var occMap = Object.create(null);
 
-        // Idempotence : si des spans glos existent déjà, ne pas re-traiter
-        if (container.querySelector('.glos')) {
+        // Idempotence : si des spans glossaire (hors METAR) existent déjà, ne pas
+        // re-traiter. Les spans .glos-metar posés au BUILD (couche METAR) ne
+        // comptent pas : avant ce correctif (2026-11-03), ils faisaient sauter
+        // tout le surlignage glossaire des séances 001-037 (aucun terme cliquable).
+        if (container.querySelector('.glos:not(.glos-metar)')) {
           if (container.dataset) container.dataset.aerolexDone = '1';
           return;
         }

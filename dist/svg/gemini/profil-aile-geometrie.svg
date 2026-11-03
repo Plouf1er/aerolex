@@ -1,0 +1,34 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 400">
+  <rect width="640" height="400" fill="#e0f2fe"/>
+  <rect x="10" y="10" width="620" height="380" fill="#f8fafc" stroke="#94a3b8" stroke-width="2"/>
+  <text x="320" y="40" font-family="Arial" font-size="18" fill="#1e3a5f" font-weight="bold" text-anchor="middle">VUE DE PROFIL &#183; G&#233;om&#233;trie de l'aile</text>
+  
+  <g transform="translate(320, 200)">
+    <!-- Profil d'aile : Bord d'attaque ARRONDI (-200), bord de fuite EFFIL&#201; (200) -->
+    <path d="M-200,0 C-200,-80 50,-60 200,0 C50,20 -200,30 -200,0 Z" fill="#cbd5e1" stroke="#64748b" stroke-width="2"/>
+    
+    <!-- Corde -->
+    <line x1="-200" y1="0" x2="200" y2="0" stroke="#1e3a5f" stroke-width="2" stroke-dasharray="5,5"/>
+    <text x="0" y="15" font-family="Arial" font-size="14" fill="#1e3a5f" class="aerolex-terme" data-slug="corde">Corde</text>
+    
+    <!-- &#201;paisseur maximale -->
+    <line x1="-50" y1="-43" x2="-50" y2="12" stroke="#dc2626" stroke-width="2"/>
+    <line x1="-60" y1="-43" x2="-40" y2="-43" stroke="#dc2626" stroke-width="2"/>
+    <line x1="-60" y1="12" x2="-40" y2="12" stroke="#dc2626" stroke-width="2"/>
+    <text x="-40" y="-10" font-family="Arial" font-size="14" fill="#dc2626" class="aerolex-terme" data-slug="epaisseur">&#201;paisseur</text>
+    
+    <!-- Extrados -->
+    <text x="0" y="-60" font-family="Arial" font-size="14" fill="#0284c7" font-weight="bold" class="aerolex-terme" data-slug="extrados">Extrados (Dessus)</text>
+    
+    <!-- Intrados -->
+    <text x="0" y="40" font-family="Arial" font-size="14" fill="#0284c7" font-weight="bold" class="aerolex-terme" data-slug="intrados">Intrados (Dessous)</text>
+    
+    <!-- Bord d'attaque -->
+    <circle cx="-200" cy="0" r="5" fill="#f59e0b"/>
+    <text x="-210" y="-20" font-family="Arial" font-size="14" fill="#b45309" font-weight="bold" text-anchor="end" class="aerolex-terme" data-slug="bord-d-attaque">Bord d'attaque (Arrondi)</text>
+    
+    <!-- Bord de fuite -->
+    <circle cx="200" cy="0" r="5" fill="#f59e0b"/>
+    <text x="210" y="-20" font-family="Arial" font-size="14" fill="#b45309" font-weight="bold" class="aerolex-terme" data-slug="bord-de-fuite">Bord de fuite (Effil&#233;)</text>
+  </g>
+</svg>

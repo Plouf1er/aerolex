@@ -65,3 +65,235 @@
   text-align: right;
   letter-spacing: 0.01em;
 }
+
+/* ═══════════════════════════════════════════════════════════════════════════
+   POPUP ENRICHIE — LE CSS EST L'INTERRUPTEUR          (2026-08-04)
+   ═══════════════════════════════════════════════════════════════════════════
+   La popup (aero-coach/assets/aero.js, _renderGlos) émet TOUJOURS les cinq
+   blocs dans le DOM :
+       .alx-pop-def      définition
+       .alx-pop-schema   schéma SVG (termes ayant un générateur, clé "g")
+       .alx-pop-family   tableau des termes de la même famille (clé "f")
+       .alx-pop-xrefs    « Voir aussi » (clé "x")
+       .alx-pop-link     « Voir la fiche complète »
+   Rien n'est décidé en JS : c'est ici qu'on choisit ce qui s'affiche.
+
+   TECHNIQUE RETENUE : `display: var(--alx-pop-show-X)` avec pour valeurs des
+   MOTS-CLÉS d'affichage (`block` / `none`), pas des booléens. Raison : une
+   custom property ne peut pas piloter display via un 1|0 (il n'existe pas de
+   `if()` en CSS stable) ; en revanche `display: var(--x)` est parfaitement
+   valide quand --x contient déjà un mot-clé. Les classes `.alx-on-*` posées
+   par le JS depuis la config du lexique servent de second interrupteur, en
+   amont, pour un site hôte qui ne peut pas écrire de CSS.
+
+   ── Réglage global d'un site hôte : redéfinir les variables ───────────────
+       :root { --alx-pop-show-family: none; }   masque le tableau de famille
+       :root { --alx-pop-show-schema: block; }  affiche les schémas
+   ── Réglage par le JS (window.AEROLEX_POPUP = {xrefs:false}) ─────────────
+       la classe .alx-on-xrefs n'est alors pas posée → bloc masqué.
+
+   LEXIQUE `aero` : TOUT ACTIVÉ (famille, schéma, xrefs, lien). Défauts
+   ci-dessous, ne rien surcharger côté hôte pour rester dans ce mode.
+   ═══════════════════════════════════════════════════════════════════════════ */
+
+:root {
+  --alx-pop-show-def:    block;   /* la définition : toujours block */
+  --alx-pop-show-schema: block;   /* 'none' pour couper les schémas */
+  --alx-pop-show-family: block;   /* 'none' pour couper le tableau de famille */
+  --alx-pop-show-xrefs:  block;   /* 'none' pour couper « Voir aussi » */
+  --alx-pop-show-variants: block; /* 'none' pour couper les variantes du mot */
+  --alx-pop-show-link:   block;   /* 'none' pour couper le lien fiche complète */
+}
+
+/* Masqué par défaut : un bloc ne s'affiche que si le JS a posé sa classe
+   .alx-on-* ET que la variable vaut un display visible. Deux verrous en
+   série, aucun JS d'affichage. */
+.alx-pop .alx-pop-schema,
+.alx-pop .alx-pop-variants,
+.alx-pop .alx-pop-family,
+.alx-pop .alx-pop-xrefs,
+.alx-pop .alx-pop-link { display: none; }
+
+.alx-pop.alx-on-schema .alx-pop-schema { display: var(--alx-pop-show-schema); }
+.alx-pop.alx-on-variants .alx-pop-variants { display: var(--alx-pop-show-variants); }
+.alx-pop.alx-on-family .alx-pop-family { display: var(--alx-pop-show-family); }
+.alx-pop.alx-on-xrefs  .alx-pop-xrefs  { display: var(--alx-pop-show-xrefs); }
+.alx-pop.alx-on-link   .alx-pop-link   { display: var(--alx-pop-show-link); }
+.alx-pop .alx-pop-def                  { display: var(--alx-pop-show-def); }
+
+/* Un bloc sans contenu ne laisse pas de trou (le JS le vide, il reste dans
+   le DOM) : :empty le neutralise quel que soit l'interrupteur. */
+.alx-pop .alx-pop-schema:empty,
+.alx-pop .alx-pop-variants:empty,
+.alx-pop .alx-pop-family:empty,
+.alx-pop .alx-pop-xrefs:empty { display: none; }
+
+/* Fiche à rédiger : on ne montre que la définition/alerte, pas l'appareil. */
+.glos-carte.a-rediger .alx-pop-schema,
+.glos-carte.a-rediger .alx-pop-variants,
+.glos-carte.a-rediger .alx-pop-family,
+.glos-carte.a-rediger .alx-pop-xrefs { display: none; }
+
+/* ── Style des blocs (sobre, aligné sur l'existant) ───────────────────────── */
+.alx-pop-schema { margin: 0.9rem 0 0.2rem; }
+.alx-pop-schema .alx-schema-fig { margin: 0; text-align: center; }
+.alx-pop-schema svg {
+  max-width: 100%;
+  height: auto;
+  max-height: 42vh;      /* la popup reste lisible : le SVG ne la mange pas */
+  display: block;
+  margin: 0 auto;
+}
+
+.alx-pop-family,
+.alx-pop-xrefs {
+  margin-top: 1rem;
+  padding-top: 0.7rem;
+  border-top: 1px solid #e2e8f0;
+}
+.alx-pop-family-titre,
+.alx-pop-xrefs-titre {
+  margin: 0 0 0.45rem;
+  font-size: 0.78rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: #64748b;
+}
+.alx-pop-count { font-weight: 400; color: #94a3b8; }
+
+.alx-pop-family-liste,
+.alx-pop-xrefs-liste {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.3rem 0.4rem;
+}
+.alx-pop-family-liste li,
+.alx-pop-xrefs-liste li { margin: 0; }
+.alx-pop-family-liste a,
+.alx-pop-xrefs-liste a {
+  display: inline-block;
+  padding: 0.16rem 0.5rem;
+  font-size: 0.83rem;
+  line-height: 1.35;
+  color: #1e3a5f;
+  background: #f1f5f9;
+  border: 1px solid #e2e8f0;
+  border-radius: 999px;
+  text-decoration: none;
+}
+.alx-pop-family-liste a:hover,
+.alx-pop-xrefs-liste a:hover {
+  background: #e0edff;
+  border-color: #bfdbfe;
+}
+/* Terme courant : marqué, non cliquable (jamais de lien vers soi-même). */
+.alx-pop-family-liste li.alx-courant {
+  display: inline-block;
+  padding: 0.16rem 0.5rem;
+  font-size: 0.83rem;
+  line-height: 1.35;
+  font-weight: 600;
+  color: #1e3a5f;
+  background: #dbeafe;
+  border: 1px solid #93c5fd;
+  border-radius: 999px;
+  cursor: default;
+}
+
+.alx-pop-link { margin-top: 1rem; }
+
+/* ── Mobile ───────────────────────────────────────────────────────────────── */
+@media (max-width: 560px) {
+  .alx-pop-schema svg { max-height: 34vh; }
+  .alx-pop-family-liste a,
+  .alx-pop-xrefs-liste a,
+  .alx-pop-family-liste li.alx-courant {
+    font-size: 0.8rem;
+    padding: 0.22rem 0.5rem;   /* cible tactile plus confortable */
+  }
+}
+
+
+/* ============================================================
+   Bloc VARIANTES de la popup (--alx-pop-show-variants)
+   Les autres façons de nommer le même mot. Utile en radio :
+   « terrain » / « aérodrome », « PA » / « pilote automatique ».
+   ============================================================ */
+.alx-pop-variants {
+  margin: 0.7rem 0 0;
+  font-size: 0.86rem;
+  color: #475569;
+}
+.alx-pop-variants .alx-pop-variants-titre {
+  font-weight: 600;
+  color: #334155;
+  margin-right: 0.35rem;
+}
+.alx-pop-variants .alx-pop-variante {
+  display: inline-block;
+  background: #f1f5f9;
+  border: 1px solid #e2e8f0;
+  border-radius: 999px;
+  padding: 0.1rem 0.5rem;
+  margin: 0.12rem 0.2rem 0.12rem 0;
+  white-space: nowrap;
+}
+
+/* ============================================================
+   État de chargement du fichier par mot (dist/aero/t/<slug>.json)
+   Le contenu arrive par fetch : on montre un état bref plutôt
+   qu'une carte vide, et un message discret si le réseau échoue.
+   ============================================================ */
+.glos-carte.alx-loading .glos-def { color: #94a3b8; font-style: italic; }
+.alx-pop-erreur {
+  margin: 0.6rem 0 0;
+  font-size: 0.82rem;
+  color: #b45309;
+  background: #fffbeb;
+  border: 1px solid #fde68a;
+  border-radius: 6px;
+  padding: 0.4rem 0.6rem;
+}
+
+/* ============================================================
+   Libellés de schéma cliquables (aerolex-svg.js)
+   SVG n'a pas de <span> : on ne peut pas poser de fond sans
+   casser le positionnement. On se limite donc au curseur + un
+   soulignement discret, appliqués sur le <text>/<tspan> lui-même.
+   ============================================================ */
+.alx-svg-term {
+  cursor: pointer;
+  text-decoration: underline;
+  text-decoration-style: dotted;
+  text-decoration-thickness: 1px;
+  text-underline-offset: 2px;
+  text-decoration-color: rgba(37, 99, 235, 0.55);
+}
+.alx-svg-term:hover,
+.alx-svg-term:focus {
+  text-decoration-style: solid;
+  text-decoration-color: #2563eb;
+  fill: #1d4ed8;
+  outline: none;
+}
+/* Terme repéré mais sans définition : même code couleur que le texte courant. */
+.alx-svg-term[data-alx-todo] { text-decoration-color: rgba(220, 38, 38, 0.6); }
+.alx-svg-term[data-alx-todo]:hover { text-decoration-color: #dc2626; fill: #b91c1c; }
+
+
+/* ── Sigle développé sous le titre (2026-11-03) ─────────────────────────── */
+.alx-pop .alx-pop-sigle {
+  margin: 0.1rem 0 0.35rem;
+  font-size: 0.95rem;
+  font-weight: 600;
+  color: #1e3a5f;
+}
+.alx-pop .alx-pop-sigle[hidden] { display: none; }
+/* « Aussi appelé » : texte simple séparé par des virgules (plus de pastilles collées) */
+.alx-pop-variants .alx-pop-variants-liste { color: #334155; }
+.alx-pop-family-titre, .alx-pop-xrefs-titre { text-transform: none; letter-spacing: 0; font-size: 0.85rem; }
+.alx-pop-family-liste a, .alx-pop-xrefs-liste a, .alx-pop-family-liste li.alx-courant { white-space: nowrap; }

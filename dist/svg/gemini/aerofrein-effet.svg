@@ -1,0 +1,36 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 400">
+  <rect width="640" height="400" fill="#e0f2fe"/>
+  <rect x="10" y="10" width="620" height="380" fill="#f8fafc" stroke="#94a3b8" stroke-width="2"/>
+  <text x="320" y="40" font-family="Arial" font-size="18" fill="#1e3a5f" font-weight="bold" text-anchor="middle">VUE DE PROFIL &#183; Effet de l'a&#233;rofrein (Destructeur de portance)</text>
+  
+  <g transform="translate(320, 200)">
+    <!-- Profil avec A&#233;rofrein sur l'extrados -->
+    <path d="M-150,0 C-150,-30 50,-20 150,0 C50,10 -150,20 -150,0 Z" fill="#cbd5e1" stroke="#64748b" stroke-width="2"/>
+    <!-- A&#233;rofrein (lame lev&#233;e au-dessus de l'aile) -->
+    <rect x="-20" y="-40" width="5" height="30" fill="#475569" stroke="#0f172a" stroke-width="2"/>
+    <text x="-15" y="-50" font-family="Arial" font-size="14" fill="#0f172a" font-weight="bold" class="aerolex-terme" data-slug="aerofrein">A&#233;rofrein sorti</text>
+    
+    <!-- D&#233;collement des filets d'air (tourbillons) -->
+    <path d="M-150,-10 C-50,-25 -25,-40 -20,-60" fill="none" stroke="#38bdf8" stroke-width="2" stroke-dasharray="5,3"/>
+    <circle cx="10" cy="-20" r="10" fill="none" stroke="#94a3b8" stroke-width="2" stroke-dasharray="2,2"/>
+    <circle cx="40" cy="-15" r="15" fill="none" stroke="#94a3b8" stroke-width="2" stroke-dasharray="2,2"/>
+    <circle cx="80" cy="-10" r="20" fill="none" stroke="#94a3b8" stroke-width="2" stroke-dasharray="2,2"/>
+    <text x="40" y="-40" font-family="Arial" font-size="12" fill="#64748b">D&#233;collement (Portance d&#233;truite)</text>
+    
+    <!-- Portance r&#233;duite -->
+    <line x1="-50" y1="0" x2="-50" y2="-40" stroke="#2563eb" stroke-width="2" marker-end="url(#arrow-blue)"/>
+    <text x="-55" y="-20" font-family="Arial" font-size="14" fill="#2563eb" text-anchor="end">Portance r&#233;duite (-)</text>
+    
+    <!-- Tra&#238;n&#233;e massive -->
+    <line x1="20" y1="0" x2="200" y2="0" stroke="#b45309" stroke-width="6" marker-end="url(#arrow-brown)"/>
+    <text x="100" y="20" font-family="Arial" font-size="14" fill="#b45309" font-weight="bold" class="aerolex-terme" data-slug="trainee">Grosse Tra&#238;n&#233;e (+)</text>
+  </g>
+  
+  <text x="320" y="360" font-family="Arial" font-size="14" fill="#1e3a5f" text-anchor="middle">Contrairement au volet (qui ajoute de la portance), l'a&#233;rofrein d&#233;truit la portance</text>
+  <text x="320" y="380" font-family="Arial" font-size="14" fill="#1e3a5f" text-anchor="middle">et cr&#233;e de la tra&#238;n&#233;e pour descendre sans acc&#233;l&#233;rer.</text>
+
+  <defs>
+    <marker id="arrow-blue" viewBox="0 0 10 10" refX="5" refY="5" markerWidth="6" markerHeight="6" orient="auto"><path d="M0,0 L10,5 L0,10 z" fill="#2563eb"/></marker>
+    <marker id="arrow-brown" viewBox="0 0 10 10" refX="5" refY="5" markerWidth="6" markerHeight="6" orient="auto"><path d="M0,0 L10,5 L0,10 z" fill="#b45309"/></marker>
+  </defs>
+</svg>

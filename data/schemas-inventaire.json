@@ -1,0 +1,174 @@
+{
+  "meta": {
+    "total_schemas": 16,
+    "termes_couverts": 93,
+    "ratio_mutualisation": 5.8,
+    "repartition_priorite": {
+      "1": 8,
+      "2": 6,
+      "3": 2
+    }
+  },
+  "schemas": [
+    {
+      "id": "nuages_etages_classification",
+      "titre": "Classification et étages des nuages",
+      "description": "Coupe verticale de l'atmosphère montrant les 3 étages (bas, moyen, haut) et les silhouettes typiques des 10 genres de nuages associés.",
+      "type": "coupe",
+      "termes_rattaches": ["nuage", "cumulus", "stratus", "stratocumulus", "cumulonimbus", "altocumulus", "altostratus", "cirrostratus", "nimbostratus", "CB", "TCU", "castellanus", "lenticularis", "calvus", "fractus", "mammatus"],
+      "priorite": 1,
+      "herite": true,
+      "categorie": "Météo"
+    },
+    {
+      "id": "fronts_meteo_coupe",
+      "titre": "Coupe d'un front chaud et d'un front froid",
+      "description": "Vue en coupe montrant l'air froid repoussant l'air chaud (pente raide, Cu/Cb) et l'air chaud glissant sur l'air froid (pente douce, nuages stratiformes), avec les symboles des cartes géographiques.",
+      "type": "coupe",
+      "termes_rattaches": ["front", "front chaud", "front froid", "front occlus", "occlusion"],
+      "priorite": 1,
+      "herite": true,
+      "categorie": "Météo"
+    },
+    {
+      "id": "anemometre_arcs",
+      "titre": "Les arcs de l'anémomètre",
+      "description": "Cadran d'un anémomètre classique montrant l'arc blanc (volets), l'arc vert (croisière), l'arc jaune (prudence) et la ligne rouge (VNE), avec le lien vers les vitesses caractéristiques (Vs0, Vs1, Vno).",
+      "type": "schéma de principe",
+      "termes_rattaches": ["arc blanc", "arc vert", "arc jaune", "anémomètre", "badin", "asi"],
+      "priorite": 1,
+      "herite": true,
+      "categorie": "Instruments"
+    },
+    {
+      "id": "espaces_aeriens_profil",
+      "titre": "Profil des espaces aériens (CTR, TMA, FIR)",
+      "description": "Coupe verticale montrant l'emboîtement d'une CTR (du sol), surmontée d'une TMA (en entonnoir) et englobée dans une FIR/UIR, différenciant contrôlé et non contrôlé.",
+      "type": "coupe",
+      "termes_rattaches": ["espace aérien", "espace contrôlé", "espaces aériens", "CTR", "zone de contrôle", "TMA", "tma paris", "région terminale", "FIR", "UIR", "atz"],
+      "priorite": 1,
+      "herite": true,
+      "categorie": "Réglementation"
+    },
+    {
+      "id": "courbes_trainee",
+      "titre": "Courbes de traînée (parasite, induite, totale)",
+      "description": "Graphique montrant l'évolution des traînées en fonction de la vitesse : induite (baisse), parasite (monte au carré), et la courbe totale avec le point de finesse max au creux.",
+      "type": "graphique",
+      "termes_rattaches": ["traînée", "traînée induite", "traînée parasite"],
+      "priorite": 1,
+      "herite": true,
+      "categorie": "Aérodynamique"
+    },
+    {
+      "id": "mecanique_decrochage",
+      "titre": "Mécanique du décrochage",
+      "description": "Profil d'aile montrant l'écoulement de l'air décollé à l'extrados lorsque l'angle d'incidence dépasse l'incidence critique, avec chute brutale de la portance.",
+      "type": "diagramme de forces",
+      "termes_rattaches": ["décrochage", "décrochage dynamique", "décrochage secondaire", "stall", "récupération de décrochage", "vitesse de décrochage", "couche limite", "décollement"],
+      "priorite": 1,
+      "herite": true,
+      "categorie": "Aérodynamique"
+    },
+    {
+      "id": "axes_gouvernes_avion",
+      "titre": "Axes de rotation et gouvernes primaires",
+      "description": "Vue 3/4 d'un avion illustrant les 3 axes passant par le centre de gravité (roulis, tangage, lacet) associés aux 3 gouvernes (ailerons, profondeur, direction).",
+      "type": "vue 3/4",
+      "termes_rattaches": ["gouverne", "manche", "palonnier", "profondeur", "roulis", "tangage", "lacet", "axe de roulis", "axe de tangage", "axe de lacet"],
+      "priorite": 1,
+      "herite": true,
+      "categorie": "Mécanique du vol"
+    },
+    {
+      "id": "profil_decollage_distances",
+      "titre": "Distances de décollage (roulement et passage des 15m)",
+      "description": "Séquence latérale montrant l'avion au lâcher des freins, la rotation (Vr), l'envol (Vlof), puis le passage de l'obstacle de 15 m / 50 ft pour définir la distance de décollage totale.",
+      "type": "chronologie/procédure",
+      "termes_rattaches": ["distance de décollage", "distance de roulement", "distance de franchissement", "ground roll", "vitesse de rotation", "vr", "vitesse d'envol", "décollage"],
+      "priorite": 1,
+      "herite": true,
+      "categorie": "Vitesses & performances"
+    },
+    {
+      "id": "givrage_carburateur_venturi",
+      "titre": "Givrage dans le venturi du carburateur",
+      "description": "Coupe du carburateur montrant le papillon des gaz et la zone de dépression/refroidissement (venturi) où la glace s'accumule, expliquant pourquoi ça arrive même à 15°C extérieurs.",
+      "type": "schéma de principe",
+      "termes_rattaches": ["givrage carburateur", "réchauffage carburateur", "carbu", "effet venturi"],
+      "priorite": 2,
+      "herite": true,
+      "categorie": "Moteur & hélice"
+    },
+    {
+      "id": "fh_fromage_suisse",
+      "titre": "Le modèle du Fromage Suisse de Reason",
+      "description": "Représentation visuelle de tranches de fromage suisse avec des trous (défaillances) qui s'alignent pour mener à l'accident, illustrant que l'erreur unique est rarement fatale.",
+      "type": "schéma de principe",
+      "termes_rattaches": ["fromage suisse", "chaine des erreurs", "accident", "incident", "TEM"],
+      "priorite": 2,
+      "herite": true,
+      "categorie": "Sécurité & facteurs humains"
+    },
+    {
+      "id": "altimetrie_calages_qnh_qfe",
+      "titre": "Calages altimétriques : QNH vs QFE vs 1013",
+      "description": "Coupe avec le sol de l'aérodrome, le niveau de la mer et la surface 1013 hPa, montrant visuellement la différence entre Hauteur, Altitude et Niveau de Vol.",
+      "type": "coupe",
+      "termes_rattaches": ["calage altimétrique", "calage standard", "QFE", "QNH", "QNE", "altitude", "hauteur", "niveau de vol"],
+      "priorite": 2,
+      "herite": true,
+      "categorie": "Altimétrie"
+    },
+    {
+      "id": "pas_helice_calage",
+      "titre": "Le pas de l'hélice (petit vs grand)",
+      "description": "Coupe de deux pales (ou une pale articulée) comparant un petit pas (traction max, faible vitesse) et un grand pas (croisière, avance max).",
+      "type": "coupe",
+      "termes_rattaches": ["pas d'hélice", "pas variable", "calage helice", "prop", "moulinet"],
+      "priorite": 2,
+      "herite": true,
+      "categorie": "Moteur & hélice"
+    },
+    {
+      "id": "brises_thermiques",
+      "titre": "Cycle des brises thermiques (mer/terre et vallée)",
+      "description": "Panneaux contrastés jour/nuit montrant la brise de mer/vallée le jour (air chaud s'élève) et la brise de terre/montagne la nuit (air froid descend).",
+      "type": "coupe",
+      "termes_rattaches": ["brise de mer", "brise de terre", "brise de pente", "brise de vallée", "vent anabatique", "vent catabatique"],
+      "priorite": 2,
+      "herite": true,
+      "categorie": "Vent"
+    },
+    {
+      "id": "effet_foehn",
+      "titre": "Effet de Foehn sur un relief",
+      "description": "Coupe de montagne avec l'air humide qui monte, condense, pleut au vent, puis redescend plus sec et plus chaud sous le vent.",
+      "type": "coupe",
+      "termes_rattaches": ["effet de foehn", "foehn", "föhn", "effet de pente"],
+      "priorite": 2,
+      "herite": true,
+      "categorie": "Météo"
+    },
+    {
+      "id": "vision_tache_aveugle",
+      "titre": "Tache aveugle et vision nocturne",
+      "description": "Diagramme simplifié de l'œil montrant la fovéa (cônes), la périphérie (bâtonnets) et le point aveugle (nerf optique), expliquant la vision périphérique de nuit.",
+      "type": "schéma de principe",
+      "termes_rattaches": ["tache aveugle", "vision nocturne", "cônes", "bâtonnets", "rétine"],
+      "priorite": 3,
+      "herite": true,
+      "categorie": "Sécurité & facteurs humains"
+    },
+    {
+      "id": "cisaillement_basses_couches",
+      "titre": "Cisaillement de vent en finale",
+      "description": "Trajectoire d'un avion en finale traversant une rafale descendante (microburst), montrant l'augmentation soudaine de portance suivie d'un enfoncement.",
+      "type": "chronologie/procédure",
+      "termes_rattaches": ["cisaillement", "cisaillement basse couche", "cisaillement de vent", "microburst", "rafale descendante"],
+      "priorite": 3,
+      "herite": true,
+      "categorie": "Vent"
+    }
+  ]
+}

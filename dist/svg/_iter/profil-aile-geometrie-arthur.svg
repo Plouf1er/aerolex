@@ -1,0 +1,52 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 360" role="img" aria-labelledby="tp" style="max-width:100%;width:100%;height:auto;display:block">
+<title id="tp">La g&#233;om&#233;trie d'un profil d'aile</title>
+<rect width="640" height="360" fill="#e0f2fe" rx="8"/>
+<text x="320" y="26" text-anchor="middle" font-family="Arial" font-size="15" font-weight="700" fill="#1e3a5f">La g&#233;om&#233;trie d'un profil d'aile</text>
+<text x="320" y="45" text-anchor="middle" font-family="Arial" font-size="12" fill="#64748b">Coupe de l'aile vue de c&#244;t&#233; &#183; le vent arrive de la gauche</text>
+<style>
+.cad{fill:#f8fafc;stroke:#94a3b8;stroke-width:1.2}
+.pr{fill:#dbe6f0;stroke:#1e3a5f;stroke-width:2.4}
+.lb{font-family:Arial;font-size:12px;fill:#1e3a5f}
+.aerolex-terme{font-family:Arial;font-size:12.5px;font-weight:700;cursor:pointer;fill:#1e3a5f}
+.g{stroke:#7c3aed;stroke-width:1.8}
+.d{stroke:#12314f;stroke-width:2;stroke-dasharray:8 5}
+</style>
+<rect class="cad" x="16" y="58" width="608" height="204" rx="6"/>
+<text x="26" y="78" font-family="Arial" font-size="11" font-weight="700" fill="#475569">VUE DE COTE &#183; COUPE D'AILE</text>
+
+<!-- profil : bord d'attaque a gauche (arrondi), bord de fuite a droite (pointu) -->
+<path class="pr" d="M110 178 C 110 154, 138 132, 190 126 C 300 114, 440 142, 552 172 C 430 186, 260 194, 150 192 C 124 190, 110 188, 110 178 Z"/>
+<!-- corde : bord d'attaque -> bord de fuite -->
+<line class="d" x1="110" y1="190" x2="552" y2="172"/>
+<text class="aerolex-terme" data-slug="corde" x="300" y="204">corde</text>
+<text class="lb" x="300" y="220" font-size="10.5" fill="#64748b">la ligne droite qui joint les deux bords</text>
+
+<!-- bord d'attaque -->
+<circle cx="110" cy="190" r="5" fill="#dc2626"/>
+<text class="aerolex-terme" data-slug="bord-d-attaque" x="26" y="176">bord d'attaque</text>
+<text class="lb" x="26" y="160" font-size="10.5" fill="#64748b">arrondi, face au vent</text>
+<!-- bord de fuite -->
+<circle cx="552" cy="172" r="5" fill="#dc2626"/>
+<text class="aerolex-terme" data-slug="bord-de-fuite" x="496" y="152">bord de fuite</text>
+<text class="lb" x="516" y="136" font-size="10.5" fill="#64748b">effil&#233;</text>
+
+<!-- extrados / intrados -->
+<text class="aerolex-terme" data-slug="extrados" x="240" y="112">extrados</text>
+<text class="lb" x="240" y="96" font-size="10.5" fill="#64748b">dessus, plus bomb&#233;</text>
+<text class="aerolex-terme" data-slug="intrados" x="240" y="240">intrados</text>
+<text class="lb" x="240" y="256" font-size="10.5" fill="#64748b">dessous, plus plat</text>
+
+<!-- epaisseur -->
+<line class="g" x1="300" y1="130" x2="300" y2="192"/>
+<text class="aerolex-terme" data-slug="epaisseur" x="308" y="164" fill="#7c3aed">&#233;paisseur</text><text class="lb" x="308" y="180" font-size="10" fill="#64748b">extrados &#8594; intrados</text>
+
+<!-- vent -->
+<line x1="26" y1="190" x2="100" y2="190" stroke="#16a34a" stroke-width="3.4"/>
+<path d="M100 184 l14 6 -14 6 z" fill="#16a34a"/>
+<text class="lb" x="26" y="208" fill="#16a34a" font-weight="700" font-size="11">vent</text>
+
+<rect class="cad" x="16" y="272" width="608" height="52" rx="6"/>
+<text class="lb" x="28" y="292">L'<tspan class="aerolex-terme" data-slug="extrados">extrados</tspan> plus bomb&#233; que l'<tspan class="aerolex-terme" data-slug="intrados">intrados</tspan> : l'air y va plus vite, la pression y baisse.</text>
+<text class="lb" x="28" y="312" font-size="10.5" fill="#64748b">Cette diff&#233;rence de pression cr&#233;e la <tspan class="aerolex-terme" data-slug="portance" font-size="10.5">portance</tspan>. La <tspan class="aerolex-terme" data-slug="corde" font-size="10.5">corde</tspan> sert de r&#233;f&#233;rence pour mesurer l'<tspan class="aerolex-terme" data-slug="incidence" font-size="10.5">incidence</tspan>.</text>
+<text x="320" y="346" text-anchor="middle" font-family="Arial" font-size="11" fill="#475569">Un profil n'est pas sym&#233;trique : c'est sa forme qui fait voler l'avion.</text>
+</svg>

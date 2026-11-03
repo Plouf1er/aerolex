@@ -13,6 +13,7 @@ sys.path.insert(0, 'src')
 from slugify import build_slug_map
 from data_glossaire_full import GLOSSAIRE
 from svg_glossaire import SCHEMAS, get_schema
+from extra_content import get_extra_content
 
 # SOURCE DE VÉRITÉ UNIQUE du contenu d'un terme (2026-08-04).
 # Ce module décide seul de ce que contient une fiche ; il alimente
@@ -21,6 +22,7 @@ from svg_glossaire import SCHEMAS, get_schema
 # payload : il ne relit jamais GLOSSAIRE pour décider d'un contenu, donc la
 # fiche en ligne et la popup ne peuvent pas diverger.
 from term_payload import PayloadContext, build_payload
+from term_display import family_label
 
 # --- JS de navigation (hors f-string : contient des accolades) ---
 NAV_JS_TMPL = """<script>
@@ -120,31 +122,38 @@ def generate_term_page(terme, index_list):
     family_html = ""
     has_family_table = bool(p['famille_membres'])
     if has_family_table:
-        family_html = f"<h3>Famille : {escape(famille)}</h3><ul>"
+        family_html = f"<h3>Famille : {escape(p['famille_label'])}</h3><ul>"
         for m in p['famille_membres']:
             if m['courant']:
-                family_html += f"<li><strong>{escape(m['t'])}</strong></li>"
+                family_html += f"<li><strong>{escape(m['titre'])}</strong></li>"
             else:
-                family_html += f'<li><a href="{escape(m["sl"])}.html">{escape(m["t"])}</a></li>'
+                family_html += f'<li><a href="{escape(m["sl"])}.html">{escape(m["titre"])}</a></li>'
         family_html += "</ul>"
 
-    prev_link = f'<a href="{escape(p["prev"]["sl"])}.html">&laquo; {escape(p["prev"]["t"])}</a>' if p['prev'] else '<span></span>'
-    next_link = f'<a href="{escape(p["next"]["sl"])}.html">{escape(p["next"]["t"])} &raquo;</a>' if p['next'] else '<span></span>'
+    prev_link = f'<a href="{escape(p["prev"]["sl"])}.html">&laquo; {escape(p["prev"]["titre"])}</a>' if p['prev'] else '<span></span>'
+    next_link = f'<a href="{escape(p["next"]["sl"])}.html">{escape(p["next"]["titre"])} &raquo;</a>' if p['next'] else '<span></span>'
     
     meta_desc = escape(definition[:152] + '...') if len(definition) > 155 else escape(definition)
     robots = '<meta name="robots" content="noindex">' if VISIBILITY == 'private' else ''
     
     canonical_url = f"https://example.com/aero/{escape(slug)}.html"
     
+    fam_label_esc = escape(p['famille_label'])
+    fam_meta = (f'Famille: <a href="index.html?fam={quote(famille)}">{fam_label_esc}</a>' if famille else "")
+    sg = p['sigle']
+    sigle_html = ''
+    if sg:
+        sigle_html = (f'<p class="sigle"><strong>{escape(p["titre"])}</strong> — {escape(sg["developpement"])}'
+                      + (f' ({escape(sg["equivalent"])})' if sg.get('equivalent') else '') + '</p>')
     html_content = f"""<!DOCTYPE html>
 <html lang="fr">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>{escape(terme)} - Glossaire Aéronautique</title>
+    <title>{escape(p['titre'])} - Glossaire Aéronautique</title>
     <meta name="description" content="{meta_desc}">
     <link rel="canonical" href="{canonical_url}">
-    <meta property="og:title" content="{escape(terme)} - Glossaire Aéronautique">
+    <meta property="og:title" content="{escape(p['titre'])} - Glossaire Aéronautique">
     <meta property="og:description" content="{meta_desc}">
     <meta property="og:type" content="article">
     <meta property="og:url" content="{canonical_url}">
@@ -167,10 +176,11 @@ def generate_term_page(terme, index_list):
         {next_link}
     </nav>
     <main>
-        <h1>{escape(terme)}</h1>
+        <h1>{escape(p['titre'])}</h1>
+        {sigle_html}
         <div class="meta">
             {f'Catégorie: <a href="index.html?cat={quote(categorie)}">{escape(categorie)}</a> | ' if categorie else ""}
-            {f'Famille: <a href="index.html?fam={quote(famille)}">{escape(famille)}</a>' if famille else ""}
+            {fam_meta}
         </div>
         
         <div class="definition">
@@ -178,18 +188,22 @@ def generate_term_page(terme, index_list):
         </div>
 """
     if variantes:
-        html_content += f"<div><strong>Variantes:</strong> {escape(', '.join(variantes))}</div>"
+        html_content += f"<div class=\"aliases\"><strong>Aussi appelé :</strong> {escape(', '.join(variantes))}</div>"
         
     if svg_html:
         html_content += f'<div class="svg-container">\n{svg_html}\n</div>'
         
+    extra_html = get_extra_content(slug)
+    if extra_html:
+        html_content += extra_html
+
     if has_family_table:
         html_content += f'<div class="family-table">{family_html}</div>'
         
     if valid_xrefs:
         html_content += '<div class="xrefs"><strong>Voir aussi :</strong><ul>'
         for xr in valid_xrefs:
-            html_content += f'<li><a href="{escape(xr["sl"])}.html">{escape(xr["t"])}</a></li>'
+            html_content += f'<li><a href="{escape(xr["sl"])}.html">{escape(xr["titre"])}</a></li>'
         html_content += '</ul></div>'
         
     html_content += f"""
@@ -220,7 +234,7 @@ def generate_index():
         letters[letter].append(terme)
         
     cat_opts = "".join(f'<option value="{escape(c)}">{escape(c)}</option>' for c in sorted(categories_set))
-    fam_opts = "".join(f'<option value="{escape(f)}">{escape(f)} ({len(families[f])})</option>' for f in sorted(families.keys()))
+    fam_opts = "".join(f'<option value="{escape(f)}">{escape(family_label(f))} ({len(families[f])})</option>' for f in sorted(families.keys()))
     
     html_content = f"""<!DOCTYPE html>
 <html lang="fr">
@@ -258,7 +272,9 @@ def generate_index():
             slug = terme_to_slug[terme]
             cat = GLOSSAIRE[terme].get('categorie', '')
             fam = GLOSSAIRE[terme].get('famille', '')
-            html_content += f'<li data-cat="{escape(cat)}" data-fam="{escape(fam)}"><a href="{escape(slug)}.html">{escape(terme)}</a></li>'
+            _exp = PAYLOAD_CTX.display[terme]["expansion"]
+            dev_html = f' <span class="dev">({escape(_exp)})</span>' if _exp else ''
+            html_content += f'<li data-cat="{escape(cat)}" data-fam="{escape(fam)}"><a href="{escape(slug)}.html">{escape(PAYLOAD_CTX.display[terme]["titre"])}</a>{dev_html}</li>'
         html_content += '</ul></div>'
         
     html_content += """

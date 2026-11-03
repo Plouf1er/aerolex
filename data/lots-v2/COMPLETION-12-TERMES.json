@@ -1,0 +1,121 @@
+{
+  "bande derobee": {
+    "definition": "Bande de terrain sommairement aménagée, dérobée à la culture ou au pâturage, utilisable comme aire d'atterrissage occasionnelle. Sans balisage ni services, elle impose une reconnaissance en vol de l'état du sol et des obstacles avant usage.",
+    "categorie": "Aérodrome & cartes",
+    "famille": "pistes",
+    "variantes": [
+      "bandes derobees"
+    ],
+    "xrefs": [
+      "bande",
+      "piste",
+      "plateforme"
+    ],
+    "statut": "redige",
+    "origine": "v2-completion",
+    "schema": false
+  },
+  "branche": {
+    "definition": "Segment rectiligne d'une trajectoire, qu'il s'agisse d'un côté du tour de piste ou d'une portion de route entre deux points tournants. Chaque branche se pilote à cap, vitesse et altitude définis.",
+    "categorie": "Procédures",
+    "famille": "circuit_branches",
+    "variantes": [
+      "branches"
+    ],
+    "xrefs": [
+      "tour de piste",
+      "vent arrière",
+      "étape de base",
+      "point tournant"
+    ],
+    "statut": "redige",
+    "origine": "v2-completion",
+    "schema": false
+  },
+  "cas": {
+    "definition": "Calibrated Air Speed: vitesse conventionnelle, soit la vitesse indiquée corrigée des erreurs d'instrument et de position de l'antenne statique. Elle sert de référence aux limitations publiées dans le manuel de vol.",
+    "categorie": "Vitesses & performances",
+    "famille": "vitesses_mesurees",
+    "variantes": [
+      "CAS",
+      "calibrated air speed"
+    ],
+    "xrefs": [
+      "vitesse conventionnelle",
+      "IAS",
+      "erreur de position",
+      "erreur instrumentale"
+    ],
+    "statut": "redige",
+    "origine": "v2-completion",
+    "schema": false
+  },
+  "constante structurale": {
+    "definition": "Grandeur caractérisant la résistance retenue au dimensionnement d'un élément de cellule, exprimée comme rapport entre charge admissible et section sollicitée. Elle fixe la marge conservée entre effort de service et rupture.",
+    "categorie": "Structure & cellule",
+    "famille": null,
+    "variantes": [
+      "constantes structurales"
+    ],
+    "xrefs": [
+      "facteur de charge limite",
+      "facteur de charge ultime",
+      "longeron"
+    ],
+    "statut": "redige",
+    "origine": "v2-completion",
+    "schema": false
+  },
+  "remise de gaz interrompue": {
+    "definition": "Remise des gaz abandonnée en cours d'exécution pour reprendre l'atterrissage, ou au contraire mal engagée puis reprise. Cette hésitation cumule les inconvénients des deux options et constitue une configuration reconnue comme dangereuse.",
+    "categorie": "Procédures",
+    "famille": "atterrissages",
+    "variantes": [
+      "remises de gaz interrompue",
+      "remise des gaz interrompue"
+    ],
+    "xrefs": [
+      "remise des gaz",
+      "approche interrompue",
+      "courte finale"
+    ],
+    "statut": "redige",
+    "origine": "v2-completion",
+    "schema": false
+  },
+  "station": {
+    "definition": "Emplacement de chargement repéré sur l'appareil par sa distance à la référence de centrage: sièges, soutes, réservoirs. Le devis de masse affecte à chaque station une masse et son bras de levier.",
+    "categorie": "Masse & centrage",
+    "famille": "masses",
+    "variantes": [
+      "stations",
+      "station de chargement"
+    ],
+    "xrefs": [
+      "bras de levier",
+      "devis de masse",
+      "moment",
+      "centrage"
+    ],
+    "statut": "redige",
+    "origine": "v2-completion",
+    "schema": false
+  },
+  "structure": {
+    "definition": "Ensemble des éléments de la cellule qui reprennent et transmettent les efforts: longerons, nervures, cadres et revêtement. Elle est dimensionnée pour encaisser les charges de vol sans déformation permanente.",
+    "categorie": "Structure & cellule",
+    "famille": null,
+    "variantes": [
+      "structures"
+    ],
+    "xrefs": [
+      "longeron",
+      "nervure",
+      "fuselage",
+      "revêtement travaillant"
+    ],
+    "statut": "redige",
+    "origine": "v2-completion",
+    "schema": false
+  }
+}
