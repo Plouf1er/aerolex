@@ -807,7 +807,7 @@ GLOSSAIRE = {
         "categorie": "Masse & centrage",
         "famille": "masses",
         "variantes": ["référence datum", "plan de référence", "datum de référence"],
-        "xrefs": ["bras de levier", "mm aft datum", "moment", "masse a vide", "fiche de pesée"],
+        "xrefs": ["bras de levier", "mm aft datum", "moment", "masse à vide", "fiche de pesée"],
         "origine": "suggest",
     },
     "emplanture": {
@@ -834,8 +834,16 @@ GLOSSAIRE = {
         "categorie": "À classer",
         "famille": "masses",
         "variantes": ["poids total", "masse brute"],
-        "xrefs": ["masse maximale au décollage", "masse maximale à l'atterrissage", "charge utile", "masse a vide", "masse du jour", "masse sans carburant", "devis de masse", "manuel de vol"],
+        "xrefs": ["masse maximale au décollage", "masse maximale à l'atterrissage", "charge utile", "masse à vide", "masse du jour", "masse sans carburant", "devis de masse", "manuel de vol"],
         "origine": "suggest",
+    },
+    "aérodrome": {
+        "definition": "Un aérodrome est une surface définie, sur terre ou sur l'eau, aménagée pour l'arrivée, le départ et les mouvements des aéronefs : piste ou aire d'atterrissage, voies de circulation, aire de stationnement, bâtiments et installations. Il est dit contrôlé quand une tour de contrôle y assure le service du contrôle, non contrôlé sinon. Sur les cartes il est abrégé en AD (Aerodrome — aérodrome) ; la carte VAC (Visual Approach Chart — carte d'approche à vue) en donne les pistes, les fréquences et les procédures d'arrivée.",
+        "categorie": "Aérodrome & cartes",
+        "famille": "cartes_aeronautiques",
+        "origine": "corpus",
+        "variantes": ["aérodromes", "aerodrome"],
+        "xrefs": ["piste", "atz", "tour de contrôle", "VAC"],
     },
 }
 

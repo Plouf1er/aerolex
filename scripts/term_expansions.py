@@ -11,8 +11,8 @@ Forme d'origine (anglaise ou française) + traduction française entre
 parenthèses quand l'original est anglais.
 
 Consommé par term_display.compute_entry() (donc HTML + popup + index + recherche).
-Le sens retenu est celui de la DÉFINITION de la fiche (ex. AD = aérodrome, pas
-Airworthiness Directive : aucune fiche AD « navigabilité » dans le lexique).
+Le sens retenu est celui de la DÉFINITION de la fiche (ex. AD = aérodrome ; en contexte
+entretien / navigabilité, le moteur aiguille AD vers « consignes de navigabilité » : champ homonyme).
 
 Format : clé GLOSSAIRE -> (développement, équivalent FR | None, flags)
 flags : "U" = titre en MAJUSCULES, "N" = ne pas insérer le développement dans

@@ -28,6 +28,8 @@ Structure de sortie (le strict minimum pour détecter + matcher + router) :
         "v": [...],       // variantes + synonymes : ce qu'il faut MATCHER aussi
         "cs": true,       // casse_sensible (optionnel) : pilote le matching
         "ctx": [...],     // contexte_requis (optionnel) : désambiguïsation
+        "cxs": [...],     // contexte_singulier (optionnel) : contexte exigé pour le singulier auto
+        "cxg": [...],     // contexte_sigle (optionnel) : contexte exigé pour les sigles de 2 lettres
         "hom": {...},     // homonyme (optionnel) : aiguillage au matching
         "sl": "..."       // slug → URL du fichier par mot ET de la fiche HTML
       }, ...
@@ -107,6 +109,16 @@ def build_index(glossaire: dict) -> dict:
         ctx = meta.get("contexte_requis") or []
         if ctx:
             entry["ctx"] = list(ctx)
+
+        # Contexte exigé pour le SINGULIER automatique (« volet » : sens aéro seulement près de flaps…)
+        cxs = meta.get("contexte_singulier") or []
+        if cxs:
+            entry["cxs"] = list(cxs)
+
+        # Contexte exigé pour les SIGLES de 2 lettres de la fiche (« CL = 7 » n'est pas Cl)
+        cxg = meta.get("contexte_sigle") or []
+        if cxg:
+            entry["cxg"] = list(cxg)
 
         # Homonyme (aiguillage)
         hom = meta.get("homonyme")

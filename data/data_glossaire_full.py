@@ -159,14 +159,15 @@ GLOSSAIRE = {
         'xrefs': ['plan de vol déposé', 'autorisation', 'EOBT'],
     },
     'AD': {
-        'definition': "Abréviation réglementaire internationale pour deésigner un aérodrome. Elle est largement employée sur les cartes de navigation, les NOTAM et l'ensemble de la documentation d'information aéronautique officielle.",
+        'definition': "Abréviation réglementaire internationale pour désigner un aérodrome. Elle est largement employée sur les cartes de navigation, les NOTAM et l'ensemble de la documentation d'information aéronautique officielle.",
         'categorie': 'Aérodrome & cartes',
         'famille': 'cartes_aeronautiques',
         'statut': 'redigee',
         'origine': 'v2-audit-ppl',
         'schema': False,
-        'variantes': ['ad', 'Aerodrome'],
-        'xrefs': ['SIA', 'carte OACI 1/500 000', 'aérodrome contrôlé'],
+        'variantes': ['ad'],
+        'xrefs': ['aérodrome', 'SIA', 'carte OACI 1/500 000', 'aérodrome contrôlé'],
+        'homonyme': {'cible': 'consignes de navigabilité', 'contexte': ['navigabilité', 'CRS', 'Part-M', 'Part M', 'entretien', 'visite', 'airworthiness']},
     },
     'adf': {
         'definition': "Automatic Direction Finder: récepteur radio de bord affichant le gisement d'une balise au sol NDB. C'est un instrument d'ancienne génération, mais encore utile pour l'identification ou en secours.",
@@ -215,14 +216,14 @@ GLOSSAIRE = {
         'schema': True,
         'variantes': ['aerocoliques'],
     },
-    'aerofrein': {
+    'aérofrein': {
         'famille': 'trainee',
         'definition': "Dispositif mobile augmentant la traînée aérodynamique de l'aéronef sans modifier la portance. Principalement utilisé sur planeur pour accentuer la pente de descente sans prendre de vitesse.",
         'categorie': 'Aérodynamique',
         'statut': 'redigee',
         'origine': 'metier',
         'schema': True,
-        'variantes': ['aerofreins'],
+        'variantes': ['aérofreins', 'aerofrein', 'aerofreins'],
     },
     'AFFIRM': {
         'definition': 'Terme standardisé de la phraséologie aéronautique indiquant une réponse affirmative à une question ou une autorisation émise par un organisme de la circulation aérienne.',
@@ -394,6 +395,7 @@ GLOSSAIRE = {
         'schema': False,
         'variantes': ['alignements', "s'aligner", 'aligné', 'alignement piste'],
         'xrefs': ['QFU', 'décollage', 'finale', 'seuil de piste'],
+        'contexte_requis': ['piste', 'axe', 'QFU', 'décollage', 'finale', 'seuil', 'cap'],
     },
     'alimentation croisée': {
         'definition': "Système de plomberie permettant d'alimenter un moteur à partir d'un réservoir situé du côté opposé. Cette fonction est essentielle pour rééquilibrer les masses de carburant entre les ailes.",
@@ -845,6 +847,7 @@ GLOSSAIRE = {
         'schema': True,
         'variantes': ['Accelerate-Stop Distance Available', 'ASDA'],
         'xrefs': ['TORA', 'TODA', 'LDA', 'piste'],
+        'casse_sensible': True,
     },
     'asi': {
         'definition': "Airspeed Indicator: appellation anglaise fréquente de l'anémomètre de bord. Il traduit la différence de pression captée par le tube Pitot et les prises statiques en vitesse indiquée exprimée en nœuds.",
@@ -1251,6 +1254,7 @@ GLOSSAIRE = {
         'schema': False,
         'variantes': ['bande de piste', 'bandes'],
         'xrefs': ['piste', 'seuil de piste', 'alignement'],
+        'contexte_requis': ['piste', 'aérodrome', 'terrain', 'dégagée'],
     },
     'bande derobee': {
         'definition': "Bande de terrain sommairement aménagée, dérobée à la culture ou au pâturage, utilisable comme aire d'atterrissage occasionnelle. Sans balisage ni services, elle impose une reconnaissance en vol de l'état du sol et des obstacles avant usage.",
@@ -1730,6 +1734,7 @@ GLOSSAIRE = {
         'statut': 'redigee',
         'origine': 'corpus',
         'schema': False,
+        'variantes': ['Cc'],
     },
     'cap magnétique': {
         'definition': "Cap mesuré par rapport au nord magnétique vers lequel pointe le compas. C'est le cap annoncé et tenu par le pilote, comparé au QFU. Il s'obtient à partir du cap vrai corrigé de la déclinaison.",
@@ -2308,7 +2313,6 @@ GLOSSAIRE = {
         'statut': 'redigee',
         'origine': 'v2-audit-ppl',
         'schema': False,
-        'variantes': ['Cc'],
         'xrefs': ['étage supérieur', 'cirrus', 'altitude'],
     },
     'cirrostratus': {
@@ -2365,6 +2369,7 @@ GLOSSAIRE = {
         'schema': False,
         'variantes': ['coefficient de portance local', 'cl'],
         'xrefs': ['coefficient de portance', 'Cz', 'profil'],
+        'contexte_sigle': ['portance', 'coefficient', 'profil', 'aile', 'incidence', 'Cz', 'aérodynamique'],
     },
     'clairance': {
         'definition': "Autorisation officielle délivrée par le contrôle aérien à un aéronef pour effectuer une action spécifique (pénétrer un espace contrôlé, décoller, atterrir, etc.) dans des conditions données. Le pilote doit s'y conformer strictement ou la refuser si elle compromet la sécurité.",
@@ -2792,7 +2797,6 @@ GLOSSAIRE = {
         'statut': 'redigee',
         'origine': 'v2-audit-ppl',
         'schema': False,
-        'variantes': ['AD'],
         'xrefs': ['certificat de navigabilité', 'entretien 50 h/100 h'],
     },
     'consommation horaire': {
@@ -3193,7 +3197,7 @@ GLOSSAIRE = {
         'origine': 'corpus',
         'schema': False,
         'variantes': ['référence datum', 'plan de référence', 'datum de référence'],
-        'xrefs': ['bras de levier', 'mm aft datum', 'moment', 'masse a vide', 'fiche de pesée'],
+        'xrefs': ['bras de levier', 'mm aft datum', 'moment', 'masse à vide', 'fiche de pesée'],
     },
     'dead reckoning': {
         'definition': "Terme aéronautique anglais désignant la navigation à l'estime. Cette technique consiste à estimer la position présente et future en combinant la vitesse propre, le cap et le temps écoulé.",
@@ -4484,6 +4488,7 @@ GLOSSAIRE = {
         'schema': True,
         'variantes': ['final', 'finales', 'final approach'],
         'xrefs': ['tour de piste', 'décrabage', 'remise des gaz', 'courte finale', 'longue finale', 'arrondi'],
+        'contexte_requis': ['piste', 'atterriss', 'axe', 'tour de piste', 'approche', 'QFU', 'remise des gaz'],
     },
     'finale courte': {
         'definition': "Dernière partie de la trajectoire d'approche, située juste avant le seuil de piste. Cette position fait l'objet d'un message radio obligatoire et exige une concentration maximale pour stabiliser la vitesse et l'arrondi.",
@@ -5717,6 +5722,7 @@ GLOSSAIRE = {
         'schema': True,
         'variantes': ['intégrations', "s'intégrer", 'intégration au tour de piste', 'intégration verticale'],
         'xrefs': ['tour de piste', 'verticale terrain', 'VAC', 'vent arrière'],
+        'contexte_requis': ['tour de piste', 'circuit', 'terrain', 'aérodrome', 'piste', 'VAC', 'verticale', 'radio'],
     },
     'inversion': {
         'definition': "Couche où la température augmente avec l'altitude au lieu de diminuer. Couvercle stable: elle piège brume et pollution en dessous, et marque souvent le haut de la couche turbulente.",
@@ -5986,6 +5992,7 @@ GLOSSAIRE = {
         'schema': True,
         'variantes': ['Landing Distance Available', 'LDA'],
         'xrefs': ['TORA', 'TODA', 'ASDA', 'seuil de piste', 'piste'],
+        'casse_sensible': True,
     },
     'ldg': {
         'definition': "Landing: abréviation aéronautique désignant l'atterrissage ou les équipements associés (comme les phares d'atterrissage ou la configuration des volets). Utilisée couramment dans les check-lists et les manuels de vol.",
@@ -6497,13 +6504,14 @@ GLOSSAIRE = {
         'variantes': ['lignes à haute tension', 'ligne électrique'],
         'xrefs': ['obstacle', 'aérodrome non contrôlé', 'hauteur de survol'],
     },
-    'limite arriere': {
+    'limite arrière': {
         'definition': "Limite maximale de recul du centre de gravité autorisée par le manuel de vol. Un centrage trop arrière rend l'avion instable, difficile voire impossible à sortir d'un décrochage ou d'une vrille.",
         'categorie': 'Masse & centrage',
         'famille': 'limites_de_centrage',
         'statut': 'redigee',
         'origine': 'corpus',
         'schema': False,
+        'variantes': ['limite arriere'],
     },
     'limite avant': {
         'definition': "Limite maximale d'avancement du centre de gravité autorisée par le manuel de vol. Un centrage trop avant augmente la stabilité mais réduit l'efficacité de la gouverne de profondeur, rendant l'arrondi difficile ou impossible à l'atterrissage.",
@@ -6810,14 +6818,14 @@ GLOSSAIRE = {
         'variantes': ['marais barométriques'],
         'xrefs': ['pression atmosphérique', 'surface isobare', 'brume sèche'],
     },
-    'marge de decrochage': {
+    'marge de décrochage': {
         'definition': "Écart entre la vitesse de vol actuelle de l'aéronef et sa vitesse de décrochage dans la configuration donnée. Cette marge doit être maintenue suffisante, notamment en virage serré ou en approche finale par vent turbulent.",
         'categorie': 'Vitesses & performances',
         'famille': 'decrochages',
         'statut': 'redigee',
         'origine': 'corpus',
         'schema': False,
-        'variantes': ['marges de decrochage'],
+        'variantes': ['marges de décrochage', 'marge de decrochage', 'marges de decrochage'],
     },
     'marge de franchissement': {
         'definition': 'Hauteur minimale de sécurité calculée ou requise pour franchir les obstacles environnants lors de la montée initiale ou des approches, garantissant une marge de sécurité contre les collisions.',
@@ -6848,14 +6856,14 @@ GLOSSAIRE = {
         'variantes': ['marqueurs', 'radiobalise marqueur'],
         'xrefs': ["indicateur de pente d'approche", 'aérodrome contrôlé'],
     },
-    'masse a vide': {
+    'masse à vide': {
         'definition': "Masse de l'avion comprenant la structure, le moteur, les équipements fixes, les fluides indispensables au fonctionnement et le carburant inutilisable. Elle sert de base de départ obligatoire pour le calcul du devis de masse.",
         'categorie': 'Masse & centrage',
         'famille': 'masses',
         'statut': 'redigee',
         'origine': 'corpus',
         'schema': False,
-        'variantes': ['masse à vide'],
+        'variantes': ['masse a vide'],
     },
     'masse du jour': {
         'definition': "Masse totale de l'aéronef calculée pour un vol précis, incluant la masse à vide, l'équipage, les passagers, les bagages et le carburant embarqué. Elle doit impérativement rester inférieure à la masse maximale autorisée.",
@@ -8333,14 +8341,14 @@ GLOSSAIRE = {
         'variantes': ['points de compte rendu'],
         'xrefs': ["point d'entrée", 'point de sortie', 'aérodrome contrôlé', 'point de report'],
     },
-    'point de decision': {
+    'point de décision': {
         'definition': 'Repère géographique, temporel ou lié aux performances à partir duquel le pilote doit obligatoirement valider une option de vol ou appliquer une alternative définie (ex. demi-tour ou déroutement face au mauvais temps).',
         'categorie': 'Sécurité & facteurs humains',
         'famille': 'fh_prise_de_decision',
         'statut': 'redigee',
         'origine': 'corpus',
         'schema': True,
-        'variantes': ['points de decision'],
+        'variantes': ['points de décision', 'point de decision', 'points de decision'],
     },
     'point de non retour': {
         'definition': "Limite géographique ou temporelle au-delà de laquelle l'appareil ne dispose plus de la réserve de carburant nécessaire pour faire demi-tour vers son aérodrome de départ ou de dégagement initial.",
@@ -9252,13 +9260,14 @@ GLOSSAIRE = {
         'variantes': ['resa', 'Runway End Safety Area'],
         'xrefs': ["aire de sécurité d'extrémité", 'stopway', 'clearway'],
     },
-    'reserve finale': {
+    'réserve finale': {
         'definition': 'Quantité minimale de carburant devant obligatoirement rester à bord à la coupure du moteur. En vol VFR de jour, cette marge réglementaire correspond à 30 minutes de vol à la vitesse de croisière économique.',
         'categorie': 'Réglementation & docs',
         'famille': 'gestion_carburant',
         'statut': 'redigee',
         'origine': 'corpus',
         'schema': False,
+        'variantes': ['reserve finale'],
     },
     'revêtement travaillant': {
         'famille': 'cellule_fuselage',
@@ -9388,6 +9397,7 @@ GLOSSAIRE = {
         'schema': False,
         'variantes': ['rouements', 'roulements', 'roulement au décollage', "roulement à l'atterrissage"],
         'xrefs': ['décollage', 'roulage', 'composante arrière', 'arrondi'],
+        'contexte_requis': ['piste', 'décollage', 'atterriss', 'distance', 'sol', 'frein', 'vitesse'],
     },
     'roulette': {
         'famille': 'train_atterrissage',
@@ -9740,6 +9750,7 @@ GLOSSAIRE = {
         'schema': False,
         'variantes': ['secteurs variables', 'vent variable', 'variable'],
         'xrefs': ['composante de travers', 'rafale', 'vent'],
+        'contexte_requis': ['vent', 'METAR', 'V', 'direction', 'kt', 'secteur'],
     },
     'semi-circulaire': {
         'definition': "Règle de l'air imposant l'utilisation d'altitudes ou de niveaux de vol pairs ou impairs selon la route magnétique suivie par l'aéronef pour éviter les collisions.",
@@ -9795,6 +9806,7 @@ GLOSSAIRE = {
         'schema': True,
         'variantes': ['seuil', 'seuils', 'seuils de piste', 'seuil décalé', 'runway threshold'],
         'xrefs': ['QFU', 'piste', 'courte finale', 'toucher'],
+        'contexte_requis': ['piste', 'QFU', 'atterriss', 'seuil décalé', 'zébra'],
     },
     'sh': {
         'definition': "Code utilisé dans les rapports météorologiques aéronautiques pour signaler des averses. Ces précipitations de courte durée mais d'intensité variable se caractérisent par un début et une fin brusques.",
@@ -9971,6 +9983,7 @@ GLOSSAIRE = {
         'schema': False,
         'variantes': ['SS', 'sandstorm', 'tempête de sable'],
         'xrefs': ['visibilité minimale', 'filtre'],
+        'contexte_sigle': ['sable', 'tempête', 'sandstorm', 'poussière', 'visibilité', 'METAR', 'TAF', 'météo'],
     },
     'SSLIA': {
         'definition': "Service de sauvetage et de lutte contre l'incendie des aéronefs, équivalent francophone du RFFS. Sa catégorie détermine le niveau de protection incendie minimal requis selon les dimensions de l'aérodrome.",
@@ -10295,14 +10308,14 @@ GLOSSAIRE = {
         'origine': 'corpus',
         'schema': True,
     },
-    'tachymetre': {
+    'tachymètre': {
         'definition': "Instrument de bord affichant la vitesse de rotation du moteur en tours par minute (RPM). C'est le principal indicateur pour régler la puissance du moteur à pistons et surveiller son bon fonctionnement.",
         'categorie': 'Instruments',
         'famille': 'instruments_moteur',
         'statut': 'redigee',
         'origine': 'corpus',
         'schema': False,
-        'variantes': ['tachymetres'],
+        'variantes': ['tachymètres', 'tachymetre', 'tachymetres'],
     },
     'TAF': {
         'definition': "Terminal Aerodrome Forecast: message de prévision météorologique d'aérodrome, valable de 9 à 30 heures. Il emploie le même code que le METAR mais y intègre des indicateurs d'évolution (BECMG, TEMPO, PROB).",
@@ -10403,13 +10416,14 @@ GLOSSAIRE = {
         'variantes': ['TEMPO', 'tempo', 'fluctuations temporaires'],
         'xrefs': ['TAF', 'BECMG', 'PROB30'],
     },
-    'temps de reaction': {
+    'temps de réaction': {
         'definition': "Délai s'écoulant entre la perception d'un événement imprévu en vol (alarme, trafic conflictuel) et le déclenchement de l'action corrective par le pilote. Ce facteur humain, influencé par la fatigue ou le stress, affecte directement la sécurité.",
         'categorie': 'Sécurité & facteurs humains',
         'famille': 'facteurs_humains_physiologie',
         'statut': 'redigee',
         'origine': 'corpus',
         'schema': True,
+        'variantes': ['temps de reaction'],
     },
     'temps estimé': {
         'definition': "Durée calculée à l'avance pour effectuer une branche de navigation ou l'ensemble d'un vol, basée sur la vitesse sol estimée. En route, le pilote compare régulièrement cette estimation avec l'heure réelle de passage.",
@@ -10564,6 +10578,7 @@ GLOSSAIRE = {
         'schema': True,
         'variantes': ['Take-Off Distance Available', 'TODA'],
         'xrefs': ['TORA', 'ASDA', 'LDA', 'piste'],
+        'casse_sensible': True,
     },
     'TORA': {
         'definition': "Take-Off Run Available: distance de roulement disponible au décollage. Longueur déclarée de piste utilisable pour le roulement au sol d'un avion décollant. Elle est comparée à la distance requise dans le manuel de vol.",
@@ -10574,6 +10589,7 @@ GLOSSAIRE = {
         'schema': True,
         'variantes': ['Take-Off Run Available', 'TORA'],
         'xrefs': ['TODA', 'ASDA', 'LDA', 'piste'],
+        'casse_sensible': True,
     },
     'tornade': {
         'definition': "Tourbillon d'air extrêmement violent, de faible diamètre vertical, se propageant sous un cumulonimbus jusqu'au sol. Elle provoque d'immenses ravages et engendre des cisaillements de vent mortels pour les aéronefs.",
@@ -10621,6 +10637,7 @@ GLOSSAIRE = {
         'schema': True,
         'variantes': ['tours de piste', "circuit d'aérodrome", 'circuit de piste', 'traffic pattern'],
         'xrefs': ['vent arrière', 'étape de base', 'finale', 'remise des gaz'],
+        'contexte_requis': ['piste', 'aérodrome', 'finale', 'vent arrière', 'circuit', 'QFU', 'intégration'],
     },
     'tour de piste basse hauteur': {
         'definition': "Circuit de piste effectué à une hauteur inférieure à celle du tour de piste standard, généralement pour s'entraîner à la panne moteur ou en conditions météorologiques dégradées de plafond bas.",
@@ -10867,14 +10884,14 @@ GLOSSAIRE = {
         'schema': True,
         'variantes': ['tropopauses'],
     },
-    'troposphere': {
+    'troposphère': {
         'definition': "Couche la plus basse de l'atmosphère terrestre, s'étendant du sol jusqu'à la tropopause. C'est dans cette zone que se produisent la quasi-totalité des phénomènes météorologiques intéressant le pilote VFR.",
         'categorie': 'Météo',
         'famille': 'couches_atmospheriques',
         'statut': 'redigee',
         'origine': 'corpus',
         'schema': True,
-        'variantes': ['tropospheres'],
+        'variantes': ['troposphères', 'troposphere', 'tropospheres'],
     },
     'trou noir': {
         'definition': "Illusion sensorielle nocturne survenant lors d'une approche sur une piste éclairée entourée d'un sol totalement sombre. En l'absence de repères visuels au sol, le pilote tend à surévaluer sa hauteur et à descendre trop bas.",
@@ -11041,14 +11058,14 @@ GLOSSAIRE = {
         'schema': True,
         'variantes': ['vapp'],
     },
-    'variometre': {
+    'variomètre': {
         'definition': "Instrument de bord mesurant la vitesse verticale de l'aéronef à partir des variations de la pression statique. Indiquant une montée ou une descente en pieds par minute, il aide à stabiliser les trajectoires.",
         'categorie': 'Instruments',
         'famille': 'instruments_anemobarometriques',
         'statut': 'redigee',
         'origine': 'corpus',
         'schema': False,
-        'variantes': ['variometres'],
+        'variantes': ['variomètres', 'variometre', 'variometres'],
     },
     'VASIS': {
         'definition': "Dispositif visuel d'indicateur de pente composé de barres de feux rouges et blancs disposées en deux échelons, fournissant un guidage visuel de descente lors de l'approche finale vers la piste.",
@@ -11105,6 +11122,7 @@ GLOSSAIRE = {
         'schema': True,
         'variantes': ['branche vent arrière', 'vent-arrière', 'downwind', 'downwind leg'],
         'xrefs': ['tour de piste', 'étape de base', 'composante arrière'],
+        'homonyme': {'cible': 'composante arrière', 'contexte': ['composante', 'composantes', 'cos', 'sin', 'θ', 'theta', 'vent arrière de', 'kt de vent arrière', 'nœuds de vent arrière', 'noeuds de vent arrière', 'avec vent arrière', 'vent arrière au', 'longitudinal', 'contre-qfu', 'allongement', 'distance de roulement', 'atterrissage plus long', 'décollage plus long', 'no go', 'allonge', 'allongent', 'raccourc', 'kt allonge', 'arrière de', 'arrière de 10', 'distances']},
     },
     'vent arrière basse hauteur': {
         'definition': "Phase d'intégration abrégée dans la circulation d'aérodrome, effectuée à une hauteur inférieure à celle publiée. Elle impose une attention accrue aux paramètres de vol et au relief environnant.",
@@ -11133,6 +11151,7 @@ GLOSSAIRE = {
         'schema': False,
         'variantes': ['vents de face', 'de face', 'face au vent', 'headwind'],
         'xrefs': ['composante de face', 'composante arrière', 'composante de travers', 'QFU'],
+        'contexte_requis': ['piste', 'vent', 'décollage', 'atterriss', 'QFU', 'composante', 'kt', 'axe'],
     },
     'vent de travers démontré': {
         'famille': 'composantes_vent',
@@ -11232,6 +11251,7 @@ GLOSSAIRE = {
         'schema': True,
         'variantes': ['verticale du terrain', 'verticale de terrain', 'verticale', 'overhead join'],
         'xrefs': ['intégration', 'tour de piste', 'manche à air', 'VAC'],
+        'contexte_requis': ['terrain', 'aérodrome', 'intégration', 'tour de piste', 'piste', 'manche à air', 'circuit'],
     },
     'VFE': {
         'definition': "Velocity Flaps Extended: vitesse maximale autorisée avec les volets sortis. La dépasser risque d'endommager la structure.",
@@ -11659,6 +11679,7 @@ GLOSSAIRE = {
         'statut': 'redigee',
         'origine': 'corpus',
         'schema': True,
+        'contexte_singulier': ['atterriss', 'sorti', 'rentr', 'braquage', 'aile', 'flap', 'portance', 'hypersustent', 'cran', 'décollage', 'approche', 'manette', 'bord de fuite', 'traînée', 'configuration', 'vitesse', 'finale', 'asymétrie', 'broche', 'rail', 'charge', 'profil', 'contrôle visuel', 'prévol', 'pré-vol'],
     },
     'volets rentrés': {
         'definition': "Configuration de vol propre, où les volets de courbure sont complètement intégrés au profil de l'aile. C'est la configuration optimale pour réduire la traînée en vol de croisière et optimiser la vitesse.",
@@ -12067,6 +12088,7 @@ GLOSSAIRE = {
         'schema': False,
         'variantes': ['base', 'branche de base', 'étapes de base', 'étape base', 'base leg'],
         'xrefs': ['tour de piste', 'finale', 'dernier virage', 'vent arrière'],
+        'contexte_requis': ['tour de piste', 'finale', 'vent arrière', 'circuit', 'piste'],
     },
     'état de piste': {
         'definition': "Description périodique des conditions physiques de la surface de la piste d'atterrissage (sèche, mouillée, contaminée par de l'eau, de la neige ou du verglas). Il influence directement les calculs de distance de freinage.",
@@ -12169,8 +12191,17 @@ GLOSSAIRE = {
         'categorie': 'À classer',
         'famille': 'masses',
         'variantes': ['poids total', 'masse brute'],
-        'xrefs': ['masse maximale au décollage', "masse maximale à l'atterrissage", 'charge utile', 'masse a vide', 'masse du jour', 'masse sans carburant', 'devis de masse', 'manuel de vol'],
+        'xrefs': ['masse maximale au décollage', "masse maximale à l'atterrissage", 'charge utile', 'masse à vide', 'masse du jour', 'masse sans carburant', 'devis de masse', 'manuel de vol'],
         'origine': 'suggest',
+        'statut': 'redigee',
+    },
+    'aérodrome': {
+        'definition': "Un aérodrome est une surface définie, sur terre ou sur l'eau, aménagée pour l'arrivée, le départ et les mouvements des aéronefs : piste ou aire d'atterrissage, voies de circulation, aire de stationnement, bâtiments et installations. Il est dit contrôlé quand une tour de contrôle y assure le service du contrôle, non contrôlé sinon. Sur les cartes il est abrégé en AD (Aerodrome — aérodrome) ; la carte VAC (Visual Approach Chart — carte d'approche à vue) en donne les pistes, les fréquences et les procédures d'arrivée.",
+        'categorie': 'Aérodrome & cartes',
+        'famille': 'cartes_aeronautiques',
+        'origine': 'corpus',
+        'variantes': ['aérodromes', 'aerodrome'],
+        'xrefs': ['piste', 'atz', 'tour de contrôle', 'VAC'],
         'statut': 'redigee',
     },
 }

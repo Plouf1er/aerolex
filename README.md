@@ -155,6 +155,28 @@ mot, ou à le mettre explicitement dans Divers.
   (avertissement) ; `--strict` échoue s'il en reste, à activer une fois le classement appliqué (puis supprimer
   le fichier baseline).
 
+## Reconnaissance : règles du moteur (aerolex.js v1.3.0)
+
+Une seule fonction décide (`findMatches`, exposée en test par `window.AeroLexCore`) ; tests : `python3 scripts/test_matching.py`.
+
+- **Frontières de mot Unicode** : une lettre accentuée n'est plus une coupure (« écarte » ne contient pas « carte »). Le trait d'union ne
+  bloque à gauche que derrière une lettre : « -SHRA » (METAR) est reconnu. Pas de repli d'accents global : « estimé » ≠ « estime ».
+- **Sigles de 2 lettres** : acceptés en MAJUSCULES exactes (CG, FL, AD, TS, °C) ou sous leur forme déclarée avec majuscule (Vy, Vx, Cz, Cm…) ;
+  refusés en minuscules et pour 1 lettre (sauf nombre à gauche : « 50 l »). Un sigle suivi d'un exposant (« GS² ») n'est pas un sigle.
+  `contexte_sigle: [...]` (fiche) : le SIGLE de la fiche n'est lié que si un de ces mots est dans la fenêtre de 70 caractères
+  (« CL = 7 » code OMM ≠ Cl ; « SS PLUS30 » ≠ SS).
+- **Pluriel automatique** : une expression nom + adjectif sans mot-outil s'accorde en entier (« milles nautiques ») ; avec un mot-outil
+  seule la tête varie (« points de rosée »). **Singulier automatique** : « volets » → « volet », « flaps » → « flap » (mots invariants et
+  exceptions comme « indices » ↛ « indice » dans INVARIANTS_S / SINGULIER_EXCLUS). `contexte_singulier: [...]` : le singulier généré
+  n'est lié que dans ce contexte (« volet radio » exclu). Les surfaces déclarées l'emportent toujours sur les surfaces générées.
+- **Contexte / homonyme / casse** (champs de la fiche `contexte_requis`, `homonyme`, `casse_sensible`) : exportés dans l'index (`ctx`,
+  `hom`, `cs`) et appliqués. Ils vivent dans `data_glossaire.py` ; `import_lexique.py --write` les COPIE (additif, jamais d'écrasement) vers
+  le full pour les fiches existantes — avant le 2026-11-04 cette copie manquait : l'index n'avait aucun `ctx`/`hom`/`cs`.
+- **AD** : fiche « AD » (sigle d'aérodrome) ; `homonyme` → « consignes de navigabilité » si la fenêtre contient navigabilité, CRS, Part-M,
+  entretien, visite, airworthiness. La fiche « aérodrome » explique le concept (AD y est développé à la 1re occurrence).
+- **Titres accentués** : le titre d'une fiche porte ses accents (variomètre) ; l'ancienne graphie reste en variante, le slug (sans accent)
+  est inchangé.
+
 ## Licence
 
 - **Code** (script JS, outils Python) : MIT

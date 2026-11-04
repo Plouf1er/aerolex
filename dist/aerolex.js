@@ -1,5 +1,5 @@
 /*!
- * AeroLex Runtime v1.2.0
+ * AeroLex Runtime v1.3.0
  * Surlignage des termes aéronautiques (vanilla JS, zéro dépendance)
  *
  * Usage :
@@ -129,6 +129,28 @@
     return surface.length <= 2 && !/\s/.test(surface) && !/^[0-9]+$/.test(surface);
   }
 
+  /* ── SIGLES DE 2 LETTRES (v1.3.0, diagnostic 2026-11-04 S2) ──────────
+     Le commentaire ci-dessus annonçait « casse exacte » mais le code ne
+     l'implémentait pas : Vy, Vx, FL, CG, GS… n'étaient presque jamais liés.
+     Règle : un symbole court est accepté si
+       1. il est dans csMap (homographe français déclaré en casse exacte), ou
+       2. un nombre le précède (« 50 l », « 10 m »), ou
+       3. il fait exactement 2 caractères ET
+          a. il est tout en MAJUSCULES (CG, FL, AD, TS, °C), ou
+          b. il est identique à une forme DÉCLARÉE contenant une majuscule
+             (Vy, Vx, Cz, Cm… : maps.exact).
+     Toujours refusés : minuscules (« cl », « vy »), 1 lettre sans nombre.
+     Garde-fou : un sigle suivi d'un exposant (« GS² ») n'est pas un sigle. */
+  function symboleCourtOk(norm, text, index, maps) {
+    if (maps.csMap[norm]) return true;
+    if (precedeParNombre(text, index)) return true;
+    if (norm.length !== 2) return false;
+    var maj = norm === norm.toUpperCase() && norm !== norm.toLowerCase();
+    if (!maj && !maps.exact[norm]) return false;
+    if (/[\u00b2\u00b3\u2070-\u209f]/.test(text.charAt(index + norm.length))) return false;
+    return true;
+  }
+
   /* Vrai si le symbole court est précédé d'une valeur numérique (« 50 l »,
      « 10 m », « 2,5 cm »). Sert de contexte minimal pour les formes minuscules. */
   function precedeParNombre(texte, index) {
@@ -145,7 +167,22 @@
       var parts = mot.split(' ');
       var tete = parts[0], reste = parts.slice(1).join(' ');
       if (MOTS_OUTILS.has(stripAccents(tete.toLowerCase()))) return [];
-      return pluriels(tete).map(function(p){return p+' '+reste;});
+      var res = pluriels(tete).map(function(p){return p+' '+reste;});
+      /* v1.3.0 (S3) : expression nom + adjectif SANS mot-outil (« mille
+         nautique », « calage altimétrique ») → TOUS les mots pleins s'accordent
+         (« milles nautiques », « calages altimétriques »). Avec un mot-outil
+         (« point de rosée »), seule la tête varie : on ne génère pas
+         « points de rosées ». */
+      var sansOutil = parts.every(function(w){ return !MOTS_OUTILS.has(stripAccents(w.toLowerCase())); });
+      if (sansOutil) {
+        var tous = parts.map(function(w){
+          if (w.length <= 2 || /[0-9]/.test(w)) return w;
+          var pw = pluriels(w);
+          return pw.length ? pw[0] : w;
+        }).join(' ');
+        if (tous !== mot && res.indexOf(tous) < 0) res.push(tous);
+      }
+      return res;
     }
     if (/[sxz]$/.test(mot)) return [];
     if (/al$/.test(mot)) return [mot.slice(0,-2)+'aux'];
@@ -153,42 +190,100 @@
     return [mot+'s'];
   }
 
+  /* Singuliers automatiques (v1.3.0, S3) : « volets » → « volet », « flaps »
+     → « flap », « amers » → « amer », « red lines » → « red line ».
+     Condition : tous les mots pleins (hors mots-outils et mots de 3 lettres
+     ou moins) finissent en « s » (hors ss/us/is). Rien si majuscule ou
+     apostrophe (comme pluriels()). Les mots invariants et les exceptions
+     (« indices » ne doit pas devenir « indice » : index ≠ indice) sont exclus. */
+  var INVARIANTS_S = new Set([
+    'bras','temps','travers','poids','cours','secours','acces','mois','corps',
+    'pays','repas','succes','progres','concours','discours','parcours','recours',
+    'abus','jus','dos','gaz','tous','plus','moins','sans','vers','fois','lors',
+    'puis','alors','hors','dessus','dessous','avis','pardessus','velours'
+  ]);
+  var SINGULIER_EXCLUS = new Set(['indices']);
+  function singuliers(mot) {
+    if (!mot || /[A-Z]/.test(mot) || mot.indexOf("'")>=0) return [];
+    var base = stripAccents(mot.toLowerCase());
+    if (SINGULIER_EXCLUS.has(base)) return [];
+    var parts = mot.split(' ');
+    var pleins = 0;
+    for (var i=0;i<parts.length;i++) {
+      var w = parts[i], wl = stripAccents(w.toLowerCase());
+      if (MOTS_OUTILS.has(wl) || w.length <= 3) continue;
+      if (!/s$/.test(wl) || /(ss|us|is)$/.test(wl) || /[0-9]/.test(wl) || INVARIANTS_S.has(wl)) return [];
+      pleins++;
+    }
+    if (!pleins) return [];
+    return [parts.map(function(w){
+      var wl = stripAccents(w.toLowerCase());
+      return (MOTS_OUTILS.has(wl) || w.length <= 3) ? w : w.slice(0,-1);
+    }).join(' ')];
+  }
+
   // ══════════════════════════════════════════════════════════════════════════
   // TABLE DES SURFACES
   // ══════════════════════════════════════════════════════════════════════════
   function buildMaps(termsData) {
-    var ciMap = Object.create(null); // lower_surface -> {canon, s}
-    var csMap = Object.create(null); // exact_surface -> {canon, s} (case-sensitive)
-    var ctx   = Object.create(null); // canon -> [motifs]
-    var hom   = Object.create(null); // canon -> {c, ctx}
+    var ciMap = Object.create(null); // lower_surface -> {canon, s, auto?} (casse libre)
+    var csMap = Object.create(null); // exact_surface -> {canon, s, auto?} (casse exacte)
+    var ctx   = Object.create(null); // canon -> [motifs]   (contexte_requis)
+    var hom   = Object.create(null); // canon -> {c, ctx}   (homonyme : aiguillage)
+    var cxs   = Object.create(null); // canon -> [motifs]   (contexte exigé pour le singulier AUTOMATIQUE seulement)
+    var cxg   = Object.create(null); // canon -> [motifs]   (contexte exigé pour les SIGLES de 2 lettres seulement : « CL = 7 » n'est pas Cl)
+    var exact = Object.create(null); // formes courtes déclarées avec majuscule (Vy, Cz…)
 
-    function add(surface, canon, s) {
+    function add(surface, canon, s, auto, forceCs) {
       surface = (surface||'').trim();
       if (!surface) return;
       var lc = surface.toLowerCase();
       // Skip variantes minuscules ambiguës
       if (nbMots(surface)===1 && HOMOGRAPHES_FR.has(stripAccents(lc)) && !/[A-Z]/.test(surface)) return;
-      if (needsExactCase(surface)) {
-        if (!csMap[surface]) csMap[surface] = {canon:canon, s:s};
+      var ent = {canon:canon, s:s};
+      if (auto) ent.auto = auto;
+      if (forceCs || needsExactCase(surface)) {   // forceCs : champ cs de la fiche (casse_sensible : TORA, TODA…)
+        if (!csMap[surface]) csMap[surface] = ent;
       } else {
-        if (!ciMap[lc]) ciMap[lc] = {canon:canon, s:s};
+        if (!ciMap[lc]) ciMap[lc] = ent;
       }
     }
 
-    for (var canon in termsData) {
+    var canons = Object.keys(termsData);
+    function formesDe(canon) {
       var e = termsData[canon];
-      var s = e.s||0;
       var formes = [canon];
       if (e.v) for (var j=0;j<e.v.length;j++) formes.push(e.v[j]);
-      for (var fi=0;fi<formes.length;fi++) {
-        add(formes[fi], canon, s);
-        var pls = pluriels(formes[fi]);
-        for (var pi=0;pi<pls.length;pi++) add(pls[pi], canon, s);
+      return formes;
+    }
+
+    /* Phase 1 : formes DÉCLARÉES (clé + variantes) de toutes les fiches.
+       Phase 2 : formes AUTOMATIQUES (pluriels, singuliers). Une surface
+       déclarée l'emporte donc toujours sur une surface générée, quel que
+       soit l'ordre des fiches (v1.3.0). */
+    for (var ci=0; ci<canons.length; ci++) {
+      var canon = canons[ci], e = termsData[canon], s = e.s||0;
+      var fm = formesDe(canon);
+      for (var fi=0; fi<fm.length; fi++) {
+        add(fm[fi], canon, s, null, !!e.cs);
+        if (fm[fi].length <= 2 && !/\s/.test(fm[fi]) && /[A-Z]/.test(fm[fi])) exact[fm[fi]] = true;
       }
       if (e.ctx && e.ctx.length) ctx[canon] = e.ctx;
       if (e.hom) hom[canon] = e.hom;
+      if (e.cxs && e.cxs.length) cxs[canon] = e.cxs;
+      if (e.cxg && e.cxg.length) cxg[canon] = e.cxg;
     }
-    return {ciMap:ciMap, csMap:csMap, ctx:ctx, hom:hom};
+    for (var cj=0; cj<canons.length; cj++) {
+      var can2 = canons[cj], s2 = termsData[can2].s||0;
+      var fm2 = formesDe(can2);
+      for (var fj=0; fj<fm2.length; fj++) {
+        var pls = pluriels(fm2[fj]);
+        for (var pi=0;pi<pls.length;pi++) add(pls[pi], can2, s2, 'pl');
+        var sgs = singuliers(fm2[fj]);
+        for (var si=0;si<sgs.length;si++) add(sgs[si], can2, s2, 'sg');
+      }
+    }
+    return {ciMap:ciMap, csMap:csMap, ctx:ctx, hom:hom, cxs:cxs, cxg:cxg, exact:exact, terms:termsData};
   }
 
   // ══════════════════════════════════════════════════════════════════════════
@@ -227,15 +322,19 @@
       var t = surfaces[i].t;
       if (!t) continue;
       var esc = escRx(t).replace(/(?:\\ |\s)+/g,'\\s+');
-      if (/^\w/.test(t)) wParts.push(esc);
+      if (/^[\w\u00c0-\u00d6\u00d8-\u00f6\u00f8-\u024f]/.test(t)) wParts.push(esc);
       else sParts.push(esc);
     }
 
     var src = '';
-    if (wParts.length) src += '(?<![\\w\\-])(' + wParts.join('|') + ')(?![\\w\\-])';
+    /* v1.3.0 (S1) : frontières de mot UNICODE. Avant, [\\w] ASCII faisait d'une
+       lettre accentuée une frontière (« carte » reconnu dans « écarte »,
+       « pos » dans « posé »). Le trait d'union ne bloque à gauche que s'il
+       suit une lettre : « -SHRA » (METAR) est reconnu, « anti-carte » non. */
+    if (wParts.length) src += '(?<![\\w\\u00c0-\\u00d6\\u00d8-\\u00f6\\u00f8-\\u024f])(?<![\\w\\u00c0-\\u00d6\\u00d8-\\u00f6\\u00f8-\\u024f]-)(' + wParts.join('|') + ')(?![\\w\\-\\u00c0-\\u00d6\\u00d8-\\u00f6\\u00f8-\\u024f])';
     if (sParts.length) {
       if (src) src += '|';
-      src += '(' + sParts.join('|') + ')(?![\\w\\-])';
+      src += '(' + sParts.join('|') + ')(?![\\w\\-\\u00c0-\\u00d6\\u00d8-\\u00f6\\u00f8-\\u024f])';
     }
     if (!src) return null;
     return new RegExp(src, 'gi');
@@ -260,6 +359,48 @@
       if (m && f.indexOf(m)>=0) return true;
     }
     return false;
+  }
+
+  /* ── CŒUR DE LA DÉCISION (v1.3.0) ────────────────────────────────────
+     UNE seule fonction décide quelles occurrences d'un texte sont des termes :
+     utilisée par le surlignage DOM, par resolveSurface (SVG) et par les tests
+     (window.AeroLexCore). Retourne [{index, raw, canon, s}] dans l'ordre. */
+  function findMatches(text, rx, maps) {
+    var out = [];
+    rx.lastIndex = 0;
+    var m;
+    while ((m = rx.exec(text)) !== null) {
+      var raw = matchedGroup(m);
+      if (!raw) { if (rx.lastIndex === m.index) rx.lastIndex++; continue; }
+      var norm = raw.replace(/\s+/g, ' ');
+      var lu = maps.csMap[norm] || maps.ciMap[norm.toLowerCase()];
+      if (!lu) continue;
+      var canon = lu.canon, s = lu.s;
+      var end = m.index + raw.length;
+      /* Sigle / symbole court : voir symboleCourtOk (majuscules exactes,
+         forme déclarée exacte ou nombre à gauche). */
+      if (isSymboleCourt(norm) && !symboleCourtOk(norm, text, m.index, maps)) continue;
+      /* Sigle de 2 lettres d'une fiche qui exige un contexte pour ses SIGLES
+         (champ contexte_sigle) : « CL = 7 » (code OMM) ≠ Cl (coefficient de
+         portance) ; « SS PLUS30 » (horaire) ≠ SS (tempête de sable). Les
+         formes longues de la même fiche ne sont pas concernées. */
+      if (isSymboleCourt(norm) && maps.cxg[canon] && !contexteOk(text, m.index, m.index + raw.length, maps.cxg[canon])) continue;
+      // Contexte requis ?
+      if (maps.ctx[canon] && !contexteOk(text, m.index, end, maps.ctx[canon])) continue;
+      /* Singulier généré automatiquement : contexte exigé si la fiche le
+         déclare (« volet » : sens aéro seulement près de flaps, sortis…). */
+      if (lu.auto === 'sg' && maps.cxs[canon] && !contexteOk(text, m.index, end, maps.cxs[canon])) continue;
+      // Homonyme : aiguillage vers une autre fiche si le contexte le demande
+      if (maps.hom[canon]) {
+        var h = maps.hom[canon];
+        if (contexteOk(text, m.index, end, h.ctx)) {
+          canon = h.c;
+          s = (maps.terms[canon] || {s: s}).s || 0;
+        }
+      }
+      out.push({index: m.index, raw: raw, canon: canon, s: s});
+    }
+    return out;
   }
 
   // ══════════════════════════════════════════════════════════════════════════
@@ -383,36 +524,12 @@
   // ══════════════════════════════════════════════════════════════════════════
   // APPLICATION GLOSSAIRE SUR UN NŒUD TEXTE — retourne le nb de remplacements
   // ══════════════════════════════════════════════════════════════════════════
-  function applyGlossaryToTextNode(node, rx, ciMap, csMap, ctxMap, homMap, occMap) {
+  function applyGlossaryToTextNode(node, rx, maps, occMap) {
     var text = node.nodeValue;
     if (!text || !text.trim()) return;
 
-    // Collecter les matches dans ce nœud texte
-    rx.lastIndex = 0;
-    var matches = [];
-    var m;
-    while ((m = rx.exec(text)) !== null) {
-      var raw = matchedGroup(m);
-      if (!raw) continue;
-      var norm = raw.replace(/\s+/g, ' ');
-      var lu = csMap[norm] || ciMap[norm.toLowerCase()];
-      if (!lu) continue;
-      var canon = lu.canon, s = lu.s;
-      /* Symbole d'unité de 1-2 car. en minuscules : exiger une valeur numérique
-         à gauche, sinon on surligne l'élision « l' » ou le mot-outil. */
-      if (isSymboleCourt(norm) && !csMap[norm] && !precedeParNombre(text, m.index)) continue;
-      // Contexte requis ?
-      if (ctxMap[canon] && !contexteOk(text, m.index, m.index + raw.length, ctxMap[canon])) continue;
-      // Homonyme ?
-      if (homMap[canon]) {
-        var h = homMap[canon];
-        if (contexteOk(text, m.index, m.index + raw.length, h.ctx)) {
-          canon = h.c;
-          s = (ciMap[canon] || csMap[canon] || {s: s}).s;
-        }
-      }
-      matches.push({index: m.index, raw: raw, canon: canon, s: s});
-    }
+    // Collecter les matches dans ce nœud texte (cœur partagé : findMatches)
+    var matches = findMatches(text, rx, maps);
 
     if (!matches.length) return;
 
@@ -451,7 +568,7 @@
   // 2. Applique les remplacements (peut modifier le DOM, mais les refs
   //    collectées à l'étape 1 ne bougent pas).
   // ══════════════════════════════════════════════════════════════════════════
-  function applyGlossaryToDOM(container, rx, ciMap, csMap, ctxMap, homMap, occMap) {
+  function applyGlossaryToDOM(container, rx, maps, occMap) {
     var filter = makeGlossaryFilter(container);
     var tw = document.createTreeWalker(container, NodeFilter.SHOW_TEXT, filter);
 
@@ -463,7 +580,7 @@
     // Passe 2 : application (peut muter le DOM)
     for (var i = 0; i < textNodes.length; i++) {
       if (textNodes[i].parentNode) { // nœud encore attaché ?
-        applyGlossaryToTextNode(textNodes[i], rx, ciMap, csMap, ctxMap, homMap, occMap);
+        applyGlossaryToTextNode(textNodes[i], rx, maps, occMap);
       }
     }
   }
@@ -602,7 +719,7 @@
             }
           }
           try {
-            applyGlossaryToDOM(root, rx, maps.ciMap, maps.csMap, maps.ctx, maps.hom, occLocal);
+            applyGlossaryToDOM(root, rx, maps, occLocal);
           } finally {
             for (var q = 0; q < retires.length; q++) {
               if (retires[q][0] === 'ci') maps.ciMap[retires[q][1]] = retires[q][2];
@@ -633,38 +750,17 @@
           var s = String(texte == null ? '' : texte).replace(/\u00a0/g, ' ');
           if (!s.trim()) return [];
           var res = [];
-          rx.lastIndex = 0;
-          var m;
-          while ((m = rx.exec(s)) !== null) {
-            var raw = matchedGroup(m);
-            if (!raw) { if (rx.lastIndex === m.index) rx.lastIndex++; continue; }
-            var key = raw.replace(/\s+/g, ' ');
-            var lu = maps.csMap[key] || maps.ciMap[key.toLowerCase()];
-            if (!lu) continue;
-            var canon = lu.canon, st = lu.s;
-            /* Même garde que le moteur texte (cf. isSymboleCourt) : un libellé
-               de schéma « l » isolé n'est pas un litre. */
-            if (isSymboleCourt(key) && !maps.csMap[key] && !precedeParNombre(s, m.index)) continue;
-            /* Contexte requis : un libellé de schéma est une étiquette isolée,
-               il n'offre pas la fenêtre de texte que contexteOk() exige. On
-               écarte donc les termes à contexte plutôt que de les accepter à
-               tort (faux positif visible = lien qui trompe l'élève). */
-            if (maps.ctx[canon] && !contexteOk(s, m.index, m.index + raw.length, maps.ctx[canon])) continue;
-            if (maps.hom[canon]) {
-              var h = maps.hom[canon];
-              if (contexteOk(s, m.index, m.index + raw.length, h.ctx)) {
-                canon = h.c;
-                st = (maps.ciMap[canon] || maps.csMap[canon] || {s: st}).s;
-              }
-            }
-            var ent = termsData[canon] || {};
+          var found = findMatches(s, rx, maps);
+          for (var fi = 0; fi < found.length; fi++) {
+            var f = found[fi];
+            var ent = termsData[f.canon] || {};
             res.push({
-              raw: raw,
-              index: m.index,
-              end: m.index + raw.length,
-              terme: canon,
+              raw: f.raw,
+              index: f.index,
+              end: f.index + f.raw.length,
+              terme: f.canon,
               slug: ent.sl || null,
-              s: st
+              s: f.s
             });
           }
           return res;
@@ -689,7 +785,7 @@
         var nMetar = container.querySelectorAll('.glos-metar').length;
 
         // 2. Glossaire
-        applyGlossaryToDOM(container, rx, maps.ciMap, maps.csMap, maps.ctx, maps.hom, occMap);
+        applyGlossaryToDOM(container, rx, maps, occMap);
 
         // 3. Comptages
         var nTotal = container.querySelectorAll('.glos').length;
@@ -709,7 +805,11 @@
   // ══════════════════════════════════════════════════════════════════════════
   // EXPOSITION + AUTO-INIT
   // ══════════════════════════════════════════════════════════════════════════
-  window.AeroLex = { init: init, version: '1.2.0' };
+  window.AeroLex = { init: init, version: '1.3.0' };
+  /* Cœur de décision exposé pour les tests (test_matching.py, mesures sur les
+     séances) : aucun effet sur le rendu. */
+  window.AeroLexCore = { buildMaps: buildMaps, buildRegex: buildRegex, findMatches: findMatches,
+                         pluriels: pluriels, singuliers: singuliers };
 
   if (document.readyState==='loading') {
     document.addEventListener('DOMContentLoaded', init);

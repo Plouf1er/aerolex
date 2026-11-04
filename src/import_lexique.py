@@ -59,6 +59,12 @@ BASE = Path(__file__).resolve().parent.parent
 PLACEHOLDER = "Fiche en construction."
 START_MARK = "GLOSSAIRE = {\n"
 
+# Règles de RECONNAISSANCE portées par la source (data_glossaire.py) pour des fiches DÉJÀ présentes dans le
+# full : contexte_requis, casse_sensible, homonyme. Avant le 2026-11-04 elles n'étaient jamais copiées (la
+# fusion ignorait toute fiche existante) : l'index publié n'avait donc aucun champ ctx / cs / hom et le
+# moteur n'appliquait aucune désambiguïsation. Copie ADDITIVE : jamais d'écrasement d'un champ déjà présent.
+REGLES_RECONNAISSANCE = ("contexte_requis", "casse_sensible", "homonyme")
+
 
 # --------------------------------------------------------------------------
 # Normalisation — identique à scripts/suggest_core.norm et au moteur de rendu
@@ -145,10 +151,14 @@ def split_preamble(text: str):
 def merge(full: dict, src: dict, lex=None):
     """Retourne (résultat dict ordonné, rapport dict). Ne modifie ni full ni src."""
     out = dict(full)  # ordre conservé
-    rep = {"ajoutes_src": [], "doublons_probables": [], "src_divergents": [], "stubs": []}
+    rep = {"ajoutes_src": [], "doublons_probables": [], "src_divergents": [], "stubs": [], "regles_propagees": []}
     covered = covered_forms(out)
     for k, v in src.items():
         if k in out:
+            for champ in REGLES_RECONNAISSANCE:
+                if champ in v and champ not in out[k]:
+                    out[k] = dict(out[k], **{champ: v[champ]})
+                    rep["regles_propagees"].append((k, champ))
             if {c: x for c, x in v.items()} != {c: out[k].get(c) for c in v} and any(
                     out[k].get(c) != x for c, x in v.items() if c in out[k]):
                 rep["src_divergents"].append(k)
@@ -254,6 +264,9 @@ def run(root: Path, write=False, with_stubs=False, out=print, backup_dir=None, a
     out("  full existant ............ %d fiches (conservées telles quelles)" % len(full))
     out("  source data_glossaire.py . %d fiches" % len(src))
     out("  ajoutées depuis la source  %d %s" % (len(rep["ajoutes_src"]), rep["ajoutes_src"][:15]))
+    if rep["regles_propagees"]:
+        out("  règles de reconnaissance copiées (contexte_requis / casse_sensible / homonyme) : %d champ(s) sur %d fiche(s)"
+            % (len(rep["regles_propagees"]), len({k for k, _ in rep["regles_propagees"]})))
     if rep["doublons_probables"]:
         out("  ATTENTION doublons probables (forme normalisée déjà couverte): %s" % rep["doublons_probables"])
     if rep["src_divergents"]:

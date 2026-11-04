@@ -1,0 +1,149 @@
+#!/usr/bin/env python3
+# -*- coding: utf-8 -*-
+"""Lot « reconnaissance » 2026-11-04 (diagnostic validé par Louis : S2 données, S4, S5, S6, S3 données).
+Usage : python3 _patch_20261104_reco.py <racine du projet aerolex>
+Idempotent. N'écrit que data/data_glossaire_full.py, data/data_glossaire.py, scripts/term_expansions.py (commentaire).
+Suivre de : src/import_lexique.py --write (propage contexte_requis / casse_sensible / homonyme du source vers le full)."""
+import re, sys, importlib.util
+from pathlib import Path
+
+root = Path(sys.argv[1]).resolve()
+spec = importlib.util.spec_from_file_location("imp", root / "src" / "import_lexique.py")
+imp = importlib.util.module_from_spec(spec); spec.loader.exec_module(imp)
+sys.path.insert(0, str(root / "scripts"))
+
+full_p = root / "data" / "data_glossaire_full.py"
+src_p = root / "data" / "data_glossaire.py"
+text = full_p.read_text(encoding="utf-8")
+G = imp.load_glossaire(full_p)
+log = []
+
+# ── S4 : 10 fiches au titre sans accent -> titre accentué (forme de base) ─────────────────────────────
+RENAMES = {
+    "masse a vide": "masse à vide",
+    "limite arriere": "limite arrière",
+    "reserve finale": "réserve finale",
+    "tachymetre": "tachymètre",
+    "variometre": "variomètre",
+    "troposphere": "troposphère",
+    "point de decision": "point de décision",
+    "marge de decrochage": "marge de décrochage",
+    "aerofrein": "aérofrein",
+    "temps de reaction": "temps de réaction",
+}
+WORDS = {"arriere": "arrière", "reserve": "réserve", "tachymetre": "tachymètre", "variometre": "variomètre",
+         "troposphere": "troposphère", "decision": "décision", "decrochage": "décrochage",
+         "aerofrein": "aérofrein", "reaction": "réaction"}
+
+
+def accent_word(w):
+    if w in WORDS:
+        return WORDS[w]
+    if w.endswith("s") and w[:-1] in WORDS:
+        return WORDS[w[:-1]] + "s"
+    return w
+
+
+def accent_phrase(p):
+    return " ".join(accent_word(w) for w in p.split(" "))
+
+
+new = {}
+for k, m in G.items():
+    if k in RENAMES:
+        nk = RENAMES[k]
+        assert nk not in G, nk
+        m = dict(m)
+        olds = list(m.get("variantes") or [])
+        variantes = []
+        for v in olds:
+            av = accent_phrase(v)
+            if av != nk and av not in variantes:
+                variantes.append(av)
+        for v in [k] + olds:                       # l'ancienne forme reste reconnue (texte sans accent, citations)
+            if v != nk and v not in variantes:
+                variantes.append(v)
+        m["variantes"] = variantes
+        new[nk] = m
+        log.append("renommée %r -> %r (variantes %r)" % (k, nk, variantes))
+    else:
+        new[k] = m
+G = new
+for k, m in G.items():                              # références : xrefs / synonymes vers l'ancien titre
+    for champ in ("xrefs", "synonymes"):
+        lst = m.get(champ)
+        if lst and any(x in RENAMES for x in lst):
+            m[champ] = [RENAMES.get(x, x) for x in lst]
+            log.append("%s de %r mis à jour" % (champ, k))
+
+# ── S2 : Cc = cap compas (et non cirrocumulus) ────────────────────────────────────────────────────────
+v = [x for x in G["cirrocumulus"].get("variantes", []) if x != "Cc"]
+if v: G["cirrocumulus"]["variantes"] = v
+else: G["cirrocumulus"].pop("variantes", None)
+cc = list(G["cap compas"].get("variantes") or [])
+if "Cc" not in cc: cc.append("Cc")
+G["cap compas"]["variantes"] = cc
+
+# S2 : CL (code OMM des nuages bas) et SS (horaire « SS PLUS30 ») : le sigle n'est lié que dans son contexte
+G["Cl"]["contexte_sigle"] = ["portance", "coefficient", "profil", "aile", "incidence", "Cz", "aérodynamique"]
+G["ss"]["contexte_sigle"] = ["sable", "tempête", "sandstorm", "poussière", "visibilité", "METAR", "TAF", "météo"]
+
+# ── S6 : AD aiguillé (homonyme) ; la variante AD de « consignes de navigabilité » était morte (la clé AD gagnait) ─
+G["AD"]["homonyme"] = {"cible": "consignes de navigabilité",
+                       "contexte": ["navigabilité", "CRS", "Part-M", "Part M", "entretien", "visite", "airworthiness"]}
+v = [x for x in G["consignes de navigabilité"].get("variantes", []) if x != "AD"]
+if v: G["consignes de navigabilité"]["variantes"] = v
+else: G["consignes de navigabilité"].pop("variantes", None)
+
+# ── S5 : « Aerodrome » passe de la fiche AD à la fiche aérodrome ; AD renvoie vers aérodrome ──────────────
+G["AD"]["variantes"] = [x for x in G["AD"].get("variantes", []) if x != "Aerodrome"]
+G["AD"]["definition"] = G["AD"]["definition"].replace("deésigner", "désigner")
+xr = list(G["AD"].get("xrefs") or [])
+if "aérodrome" not in xr: xr.insert(0, "aérodrome")
+G["AD"]["xrefs"] = xr
+
+# ── S3 : « volet » (singulier automatique) : sens aéro seulement près des volets d'aile ──────────────────
+G["volets"]["contexte_singulier"] = ["atterriss", "sorti", "rentr", "braquage", "aile", "flap", "portance",
+                                     "hypersustent", "cran", "décollage", "approche", "manette", "bord de fuite",
+                                     "traînée", "configuration", "vitesse", "finale", "asymétrie", "broche", "rail",
+                                     "charge", "profil", "contrôle visuel", "prévol", "pré-vol"]
+
+full_p_text = imp.render(imp.split_preamble(text), G)
+full_p.write_text(full_p_text, encoding="utf-8")
+
+# ── S5 : fiche aérodrome -> source data_glossaire.py (puis import --write l'ajoute au full) ──────────────
+s = src_p.read_text(encoding="utf-8")
+for old, nw in RENAMES.items():
+    s = s.replace('"%s"' % old, '"%s"' % nw)
+if '"aérodrome": {' not in s:
+    import suggest_core as sc
+    base = ("Un aérodrome est une surface définie, sur terre ou sur l'eau, aménagée pour l'arrivée, le départ et les "
+            "mouvements des aéronefs : piste ou aire d'atterrissage, voies de circulation, aire de stationnement, bâtiments "
+            "et installations. Il est dit contrôlé quand une tour de contrôle y assure le service du contrôle, non contrôlé "
+            "sinon. Sur les cartes il est abrégé en AD ; la carte VAC en donne les pistes, les fréquences et les procédures "
+            "d'arrivée.")
+    dfn, rep = sc.develop_acronyms(base, "aérodrome", sc.get_index("aero"), None)
+    assert "AD (" in dfn and "VAC (" in dfn, dfn
+    entry = ('    "aérodrome": {\n'
+             '        "definition": %s,\n'
+             '        "categorie": "Aérodrome & cartes",\n'
+             '        "famille": "cartes_aeronautiques",\n'
+             '        "origine": "corpus",\n'
+             '        "variantes": ["aérodromes", "aerodrome"],\n'
+             '        "xrefs": ["piste", "atz", "tour de contrôle", "VAC"],\n'
+             '    },\n') % __import__("json").dumps(dfn, ensure_ascii=False)
+    marker = "\n}\n\n\n# ===========================================================================\n# MODE DEV"
+    assert s.count(marker) == 1
+    s = s.replace(marker, "\n" + entry + "}\n\n\n# ===========================================================================\n# MODE DEV", 1)
+    log.append("fiche aérodrome ajoutée à data_glossaire.py : " + dfn)
+src_p.write_text(s, encoding="utf-8")
+
+# commentaire périmé de term_expansions.py (AD)
+te = root / "scripts" / "term_expansions.py"
+t = te.read_text(encoding="utf-8")
+old = "Le sens retenu est celui de la DÉFINITION de la fiche (ex. AD = aérodrome, pas\nAirworthiness Directive : aucune fiche AD « navigabilité » dans le lexique)."
+if old in t:
+    t = t.replace(old, "Le sens retenu est celui de la DÉFINITION de la fiche (ex. AD = aérodrome ; en contexte\nentretien / navigabilité, le moteur aiguille AD vers « consignes de navigabilité » : champ homonyme).")
+    te.write_text(t, encoding="utf-8")
+print("\n".join(log))
+
