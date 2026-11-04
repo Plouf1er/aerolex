@@ -19,7 +19,7 @@ for t in ctx.termes_tries:
     al = list(p["variantes"])
     if sg.get("equivalent"):
         al.append(sg["equivalent"])
-    rows.append([p["titre"], p["slug"], t, sg.get("developpement") or "", "|".join(al)])
+    rows.append([p["titre"], p["slug"], t, sg.get("developpement") or ctx.display[t].get("expr") or "", "|".join(al)])
 out = os.path.join(_ROOT, "dist", "aerolex-search.json")
 with open(out, "w", encoding="utf-8") as f:
     json.dump({"v": 1, "d": rows}, f, ensure_ascii=False, separators=(",", ":"))

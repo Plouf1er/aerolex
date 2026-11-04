@@ -15,7 +15,7 @@ from __future__ import annotations
 
 import re
 
-from term_expansions import EXPANSIONS, GLOSS_FIX, NOT_ACRONYMS, lookup  # noqa: F401
+from term_expansions import EXPANSIONS, EXTRA_ABBREVIATIONS, GLOSS_FIX, NOT_ACRONYMS, lookup  # noqa: F401
 
 STOP = {"of", "and", "the", "de", "des", "du", "la", "le", "les", "et", "d", "l",
         "à", "a", "in", "for", "to", "or", "ou", "en", "au", "aux", "un", "une"}
@@ -179,6 +179,89 @@ def dev_label(info):
     return f"{exp} ({gl})" if gl else exp
 
 
+# ── Sigles contenus DANS une expression ('carte vac', 'VFR de nuit') ──────────
+# Mots courants qui sont aussi des clés sigle en majuscules : jamais traités
+# comme sigles quand ils sont écrits en minuscules ('essence auto').
+_LOWER_STOP = {"auto", "pan", "go", "line", "up", "hold", "short", "shell", "stop", "ils"}
+# Mots en MAJUSCULES qui ne sont pas des sigles (noms de marque, expressions radio).
+_UPPER_NOT_SIGLE = {"SHELL", "GO", "NO", "HOLD", "SHORT", "LINE", "UP", "PAN", "STOP"}
+_WORD = re.compile(r"[A-Za-z0-9À-ÿ°]+")
+
+
+def extra_info(tok: str):
+    """Info d'affichage d'un sigle sans fiche (EXTRA_ABBREVIATIONS) ou None."""
+    e = EXTRA_ABBREVIATIONS.get((tok or "").upper())
+    if not e:
+        return None
+    return {"titre": tok.upper(), "expansion": e[0], "gloss": e[1], "inline": True}
+
+
+def dev_long(info):
+    """'Visual Approach Chart — carte d'approche à vue' (forme des expressions)."""
+    exp = (info or {}).get("expansion")
+    if not exp:
+        return None
+    gl = info.get("gloss")
+    return f"{exp} — {gl}" if gl else exp
+
+
+def expr_sigles(label: str, table: dict, upper_index: dict):
+    """Détecte les tokens sigles d'un libellé multi-mots et les résout via la
+    table d'affichage (term_expansions). Retourne (libellé_recasé, items,
+    non_résolus) ; items = [(SIGLE, développé)].
+
+    Token sigle = MAJUSCULES >= 2 lettres, ou mot en minuscules qui est LUI-MÊME
+    une entrée sigle du lexique (vac, dme, 100ll). Casse corrigée dans le
+    libellé ('carte vac' -> 'carte VAC'). Jamais de développé inventé : un
+    sigle absent de la table est renvoyé dans non_résolus. Un développé déjà
+    écrit en toutes lettres dans le libellé n'est pas répété."""
+    words = list(_WORD.finditer(label or ""))
+    if len(words) < 2 and " " not in (label or "").strip():
+        return label, [], []
+    items, unresolved, out, last = [], [], [], 0
+    low = (label or "").lower()
+    for m in words:
+        tok = m.group(0)
+        info = None
+        shown = tok
+        if tok.isupper() and len(tok) >= 2 and re.search(r"[A-Z]", tok):
+            key = upper_index.get(tok)
+            info = table.get(key) if key else None
+            if not (info and info.get("expansion")):
+                info = extra_info(tok)
+            if not (info and info.get("expansion")):
+                if tok not in NOT_ACRONYMS and tok not in _UPPER_NOT_SIGLE and not tok.isdigit():
+                    unresolved.append(tok)
+                continue
+        elif tok.islower() or (tok[0].isdigit() and tok == tok.lower() and re.search(r"[a-z]", tok)):
+            ck = upper_index.get(tok.upper())
+            cand = table.get(ck) if ck else None
+            if cand is None and tok.upper() in EXTRA_ABBREVIATIONS:
+                cand = extra_info(tok)
+            if (cand and cand.get("expansion") and len(tok) >= 3 and tok not in NOT_ACRONYMS
+                    and tok not in _LOWER_STOP):
+                info, shown = cand, tok.upper()
+        if not info:
+            continue
+        out.append(label[last:m.start()] + shown)
+        last = m.end()
+        dev = dev_long(info)
+        if dev and dev.lower() not in low and shown not in [i[0] for i in items]:
+            items.append((shown, dev))
+    out.append(label[last:])
+    return "".join(out), items, unresolved
+
+
+def expr_text(items):
+    """Texte entre parenthèses : un sigle -> 'Visual … — carte …' ; plusieurs ->
+    'VAC : … ; AIP : …' (développé limité au sigle concerné)."""
+    if not items:
+        return None
+    if len(items) == 1:
+        return items[0][1]
+    return " ; ".join(f"{s} : {d}" for s, d in items)
+
+
 def build_display_table(glossaire: dict):
     """{terme: {titre, expansion, gloss, definition_base}} pour tout le lexique."""
     out = {}
@@ -187,7 +270,20 @@ def build_display_table(glossaire: dict):
             meta = {}
         t, e, g, d, inl = compute_entry_full(k, meta)
         out[k] = {"titre": t, "expansion": e, "gloss": g, "definition_base": d,
-                  "inline": inl}
+                  "inline": inl, "expr": None, "sigles_expr": [], "unresolved": []}
+    upper_index = {}
+    for k, v in out.items():
+        if v["expansion"]:
+            upper_index.setdefault(k.upper(), k)
+    # 2e passe : expressions (non-sigles) contenant des sigles
+    for k, v in out.items():
+        if v["expansion"]:
+            continue
+        lab, items, unres = expr_sigles(v["titre"], out, upper_index)
+        v["titre"] = lab
+        v["sigles_expr"] = items
+        v["expr"] = expr_text(items)
+        v["unresolved"] = unres
     return out
 
 

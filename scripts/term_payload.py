@@ -41,7 +41,7 @@ from slugify import build_slug_map            # noqa: E402  (ne pas réécrire)
 from schema_map import TERM_TO_SCHEMA         # noqa: E402
 from svg_glossaire import SCHEMAS, get_schema  # noqa: E402
 from term_display import (build_display_table, clean_aliases, family_label,  # noqa: E402
-                          expand_acronyms, dev_label)
+                          expand_acronyms, dev_label, expr_sigles, expr_text, extra_info)
 
 # Version du schéma de payload. Incrémenter si la forme change de façon
 # incompatible : le JS peut alors refuser un cache périmé.
@@ -79,6 +79,10 @@ class PayloadContext:
         self.upper_index = {}
         for k, d in self.display.items():
             self.upper_index.setdefault(k.upper(), k)
+        self.unresolved_sigles = {}  # sigle d'expression/alias sans développé connu -> où
+        for k, d in self.display.items():
+            for u in d.get("unresolved", []):
+                self.unresolved_sigles.setdefault(u, []).append(k)
         self.unknown_acronyms = {}   # sigle -> [termes où il apparaît sans développement]
 
         # Cache des SVG : get_schema() est appelé une fois par (schéma, terme).
@@ -122,11 +126,26 @@ def build_payload(terme: str, ctx: PayloadContext) -> dict:
     all_variantes = clean_aliases(disp["titre"], terme, variantes + synonymes,
                                   disp["expansion"], disp["gloss"])
 
+    # Alias EXPRESSIONS contenant des sigles ('carte vac') : casse corrigée et
+    # {alias: texte développé}. Même détection que pour les titres.
+    variantes_expr = {}
+    _recased = []
+    for a in all_variantes:
+        lab, items, unres = expr_sigles(a, ctx.display, ctx.upper_index)
+        _recased.append(lab)
+        if items:
+            variantes_expr[lab] = expr_text(items)
+        for u in unres:
+            ctx.unresolved_sigles.setdefault(u, []).append(f"alias de {terme}")
+    all_variantes = _recased
+
     # Alias qui sont eux-mêmes des sigles connus : {alias: développé}.
     variantes_dev = {}
     for a in all_variantes:
         ak = ctx.upper_index.get(a.upper())
         dv = dev_label(ctx.display[ak]) if ak and ak != terme else None
+        if not dv and not ak:
+            dv = dev_label(extra_info(a))   # sigle sans fiche (ex. KIAS)
         if dv:
             variantes_dev[a] = dv
 
@@ -136,7 +155,8 @@ def build_payload(terme: str, ctx: PayloadContext) -> dict:
     for xr in (meta.get("xrefs") or []):
         if xr in g and xr != terme:
             xrefs.append({"t": xr, "titre": ctx.display[xr]["titre"], "sl": ctx.slug(xr),
-                          "dev": dev_label(ctx.display[xr])})
+                          "dev": dev_label(ctx.display[xr]),
+                          "expr": ctx.display[xr]["expr"]})
 
     # Membres de la famille (>= 2 pour valoir un tableau), avec slug + marqueur
     # du terme courant (jamais de lien d'un terme vers lui-même).
@@ -151,6 +171,7 @@ def build_payload(terme: str, ctx: PayloadContext) -> dict:
                     "sl": ctx.slug(m),
                     "courant": (m == terme),
                     "dev": dev_label(ctx.display[m]),
+                    "expr": ctx.display[m]["expr"],
                 })
 
     # Schéma : nom + SVG inline (c'est le point clé — la popup n'a plus besoin
@@ -189,6 +210,8 @@ def build_payload(terme: str, ctx: PayloadContext) -> dict:
         "famille_membres": famille_membres,
         "variantes": all_variantes,
         "variantes_dev": variantes_dev,
+        "variantes_expr": variantes_expr,
+        "sigles_expr": [{"s": s, "dev": d} for s, d in disp.get("sigles_expr", [])],
         "xrefs": xrefs,
         "schema": schema_name,
         "schema_svg": schema_svg,

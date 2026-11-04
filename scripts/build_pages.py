@@ -102,6 +102,16 @@ def escape(s):
 PAYLOAD_CTX = PayloadContext(GLOSSAIRE)
 
 
+def _dev_span(m):
+    """Développé à côté d'un libellé de liste : sigle -> '— développé (FR)',
+    expression contenant un sigle -> '(développé du sigle — FR)'."""
+    if m.get('dev'):
+        return f' <span class="dev">— {escape(m["dev"])}</span>'
+    if m.get('expr'):
+        return f' <span class="dev">({escape(m["expr"])})</span>'
+    return ''
+
+
 def generate_term_page(terme, index_list):
     # ── Tout le contenu vient du payload, jamais de GLOSSAIRE en direct ──
     p = build_payload(terme, PAYLOAD_CTX)
@@ -124,7 +134,7 @@ def generate_term_page(terme, index_list):
     if has_family_table:
         family_html = f"<h3>Famille : {escape(p['famille_label'])}</h3><ul>"
         for m in p['famille_membres']:
-            dev = f' <span class="dev">— {escape(m["dev"])}</span>' if m.get('dev') else ''
+            dev = _dev_span(m)
             if m['courant']:
                 family_html += f"<li><strong>{escape(m['titre'])}</strong>{dev}</li>"
             else:
@@ -146,6 +156,9 @@ def generate_term_page(terme, index_list):
     if sg:
         sigle_html = (f'<p class="sigle"><strong>{escape(p["titre"])}</strong> — {escape(sg["developpement"])}'
                       + (f' ({escape(sg["equivalent"])})' if sg.get('equivalent') else '') + '</p>')
+    if not sigle_html and p['sigles_expr']:
+        sigle_html = '<p class="sigle">' + ' ; '.join(
+            f'<strong>{escape(x["s"])}</strong> — {escape(x["dev"])}' for x in p['sigles_expr']) + '</p>'
     html_content = f"""<!DOCTYPE html>
 <html lang="fr">
 <head>
@@ -189,9 +202,10 @@ def generate_term_page(terme, index_list):
         </div>
 """
     if variantes:
-        html_content += f"<div class=\"aliases\"><strong>Aussi appelé :</strong> {escape(', '.join(variantes))}</div>" if not p['variantes_dev'] else (
+        html_content += f"<div class=\"aliases\"><strong>Aussi appelé :</strong> {escape(', '.join(variantes))}</div>" if not (p['variantes_dev'] or p['variantes_expr']) else (
             '<div class="aliases"><strong>Aussi appelé :</strong> ' + '; '.join(
-                escape(a) + (f' <span class="dev">— {escape(p["variantes_dev"][a])}</span>' if a in p['variantes_dev'] else '')
+                escape(a) + (f' <span class="dev">— {escape(p["variantes_dev"][a])}</span>' if a in p['variantes_dev']
+                             else f' <span class="dev">({escape(p["variantes_expr"][a])})</span>' if a in p['variantes_expr'] else '')
                 for a in variantes) + '</div>')
         
     if svg_html:
@@ -207,7 +221,7 @@ def generate_term_page(terme, index_list):
     if valid_xrefs:
         html_content += '<div class="xrefs"><strong>Voir aussi :</strong><ul>'
         for xr in valid_xrefs:
-            dev = f' <span class="dev">— {escape(xr["dev"])}</span>' if xr.get('dev') else ''
+            dev = _dev_span(xr)
             html_content += f'<li><a href="{escape(xr["sl"])}.html">{escape(xr["titre"])}</a>{dev}</li>'
         html_content += '</ul></div>'
         
@@ -281,6 +295,8 @@ def generate_index():
             _gl = PAYLOAD_CTX.display[terme]["gloss"]
             dev_html = (f' <span class="dev">— {escape(_exp)}' + (f' ({escape(_gl)})' if _gl else '') + '</span>') if _exp else ''
             html_content += f'<li data-cat="{escape(cat)}" data-fam="{escape(fam)}"><a href="{escape(slug)}.html">{escape(PAYLOAD_CTX.display[terme]["titre"])}</a>{dev_html}</li>'
+            if not _exp and PAYLOAD_CTX.display[terme].get("expr"):
+                dev_html = f' <span class="dev">({escape(PAYLOAD_CTX.display[terme]["expr"])})</span>'
         html_content += '</ul></div>'
         
     html_content += """
