@@ -11,6 +11,7 @@
     Object.keys(attrs || {}).forEach(function (k) {
       if (k === "class") e.className = attrs[k];
       else if (k === "text") e.textContent = attrs[k];
+      else if (typeof attrs[k] === "function") e[k] = attrs[k];
       else e.setAttribute(k, attrs[k]);
     });
     (kids || []).forEach(function (c) { if (c) e.appendChild(typeof c === "string" ? document.createTextNode(c) : c); });
@@ -28,14 +29,15 @@
   function token() { try { return localStorage.getItem(TOKEN_KEY) || ""; } catch (e) { return ""; } }
 
   function api(method, path, body, raw) {
-    var opt = { method: method, headers: { "X-Suggest-Token": token() } };
+    var opt = { method: method, headers: {} };
+    if (token()) opt.headers["X-Suggest-Token"] = token();
     if (body !== undefined) {
       if (raw) { opt.body = body; }
       else { opt.body = JSON.stringify(body); opt.headers["Content-Type"] = "application/json"; }
     }
     return fetch(API + path, opt).then(function (r) {
       return r.json().catch(function () { return { error: "réponse illisible" }; }).then(function (j) {
-        if (r.status === 401) { $("auth").hidden = false; }
+        if (r.status === 401 && path.indexOf("/proposals") === 0) { $("tab-review").hidden = true; }
         if (!r.ok) { var err = new Error(j.error || ("HTTP " + r.status)); err.status = r.status; throw err; }
         return j;
       });
@@ -57,10 +59,14 @@
   }
   $("tab-submit").onclick = function () { tab("submit"); };
   $("tab-review").onclick = function () { tab("review"); };
-  $("token-save").onclick = function () {
-    try { localStorage.setItem(TOKEN_KEY, $("token").value.trim()); } catch (e) {}
-    $("auth").hidden = true; init();
-  };
+  var subStatus = "pending";
+  function sub(st) {
+    subStatus = st;
+    $("sub-pending").classList.toggle("on", st === "pending"); $("sub-discarded").classList.toggle("on", st === "discarded");
+    loadProposals();
+  }
+  $("sub-pending").onclick = function () { sub("pending"); };
+  $("sub-discarded").onclick = function () { sub("discarded"); };
 
   // ---------- compteur de termes ----------
   function countTerms() {
@@ -90,7 +96,8 @@
   // ---------- résultats ----------
   var VERDICT = {
     present: ["Déjà présent", ""], alias: ["Alias probable", "warn"], a_valider: ["À valider", "ok"],
-    hors_domaine: ["Hors domaine", "ko"], non_pertinent: ["Non pertinent", "ko"], attente: ["En cours…", ""], erreur: ["Erreur", "ko"]
+    hors_domaine: ["Écarté automatiquement", "ko"], non_pertinent: ["Écarté automatiquement", "ko"], ecarte: ["Écarté automatiquement", "ko"],
+    limite: ["Limite atteinte", "ko"], attente: ["En cours…", ""], erreur: ["Erreur", "ko"]
   };
   function kindOf(r) {
     if (r.statut === "analyse") return r.verdict || "a_valider";
@@ -106,10 +113,13 @@
     var kids = [h];
     if (r.statut === "present") kids.push(kv("Fiche", link(r.terme === r.terme ? r.terme : r.terme, r.lien)), kv("Terme du lexique", r.terme));
     if (r.statut === "present") { kids = [h, kv("Fiche existante", link("« " + r.terme + " » — ouvrir", r.lien))]; }
+    if (r.statut === "ecarte") kids.push(kv("Raison", r.raison), r.lien ? kv("Fiche proche", link(r.terme_proche, r.lien)) : null);
+    if (r.statut === "limite") kids.push(kv("Détail", r.raison));
     if (r.statut === "alias") kids.push(kv("Alias de", link(r.terme, r.lien)), kv("Nature", r.nature));
     if (r.statut === "analyse") {
       kids.push(kv("Domaine", (r.domaine ? "oui — " : "non — ") + (r.raison_domaine || "")));
       kids.push(kv("À définir ?", (r.pertinent ? "oui — " : "non — ") + (r.raison_pertinent || "")));
+      if (k !== "a_valider") { kids.push(el("p", { class: "conf", text: "Écarté : non ajouté à la file de validation." })); return el("div", { class: "res " + k }, kids); }
       if (r.origine) kids.push(kv("Développé", r.origine + (r.traduction ? " (" + r.traduction + ")" : "")));
       kids.push(kv("Définition", r.definition));
       kids.push(kv("Famille", r.famille || (r.famille_nouvelle ? "nouvelle : " + r.famille_nouvelle : "")));
@@ -125,7 +135,7 @@
     return el("div", { class: "res " + k }, kids);
   }
 
-  var ORDER = { a_valider: 0, attente: 1, alias: 2, present: 3, non_pertinent: 4, hors_domaine: 5, erreur: 6 };
+  var ORDER = { a_valider: 0, attente: 1, alias: 2, present: 3, ecarte: 4, non_pertinent: 4, hors_domaine: 4, limite: 5, erreur: 6 };
   function render(job) {
     var rs = job.resultats.slice().sort(function (a, b) { return (ORDER[kindOf(a)] || 9) - (ORDER[kindOf(b)] || 9); });
     var box = $("results"); box.textContent = "";
@@ -133,7 +143,11 @@
     var c = {}; job.resultats.forEach(function (r) { var k = kindOf(r); c[k] = (c[k] || 0) + 1; });
     var parts = Object.keys(VERDICT).filter(function (k) { return c[k]; }).map(function (k) { return c[k] + " " + VERDICT[k][0].toLowerCase(); });
     var i = job.info || {};
-    var cost = (i.usd !== undefined) ? " · coût " + i.usd.toFixed(4) + " $" + (i.secs ? " en " + i.secs + " s" : "") : "";
+    var nValid = c.a_valider || 0;
+    var sent = $("sent");
+    sent.hidden = !(nValid && job.etat !== "running");
+    sent.textContent = nValid ? "Proposition envoyée pour validation : " + nValid + " terme" + (nValid > 1 ? "s" : "") + ". Elle sera relue avant d'être ajoutée au lexique." : "";
+    var cost = (i.usd !== undefined && token()) ? " · coût " + i.usd.toFixed(4) + " $" + (i.secs ? " en " + i.secs + " s" : "") : "";
     $("summary").textContent = parts.join(" · ") + cost + (i.doublons ? " · " + i.doublons + " doublon(s) fusionné(s)" : "");
   }
 
@@ -155,10 +169,10 @@
   $("go").onclick = function () {
     var text = $("terms").value;
     if (!text.trim()) { say("Saisissez au moins un terme.", true); return; }
-    say(""); $("go").disabled = true; $("results").textContent = ""; $("summary").textContent = "";
+    say(""); $("go").disabled = true; $("results").textContent = ""; $("summary").textContent = ""; $("sent").hidden = true;
     var n = text.split(/[,;\n\r\t]+/).filter(function (s) { return s.trim(); }).length;
     $("progress").hidden = n <= 3; $("bar-fill").style.width = "3%"; $("progress-text").textContent = "Envoi…";
-    api("POST", "/submit", { domain: $("domain").value, text: text }).then(function (job) {
+    api("POST", "/submit", { domain: $("domain").value || "aero", text: text }).then(function (job) {
       history.replaceState(null, "", location.pathname + "?job=" + job.id);
       showJob(job);
     }).catch(function (e) { say(e.message, true); $("go").disabled = false; $("progress").hidden = true; });
@@ -172,8 +186,30 @@
     Object.keys(fams).forEach(function (f) { var o = el("option", { value: f, text: f + " (" + fams[f] + ")" }); if (f === current) o.selected = true; s.appendChild(o); });
     return s;
   }
+  function checkPanel(rep, onForce, onOk) {
+    var ul = el("ul", {}, rep.controles.map(function (c) {
+      return el("li", { class: c.statut }, [document.createTextNode((c.statut === "ok" ? "✓ " : c.statut === "warn" ? "⚠ " : "✗ ") + c.nom + (c.detail ? " — " + c.detail : ""))]);
+    }));
+    var box = el("div", { class: "check" }, [el("b", { text: rep.ok ? (rep.avertissements.length ? "Contrôle de cohérence : avertissements" : "Contrôle de cohérence : OK") : "Contrôle de cohérence : BLOQUANT" }), ul]);
+    if (!rep.ok) box.appendChild(el("button", { class: "btn ko", text: "Forcer la validation", onclick: onForce }));
+    else if (rep.avertissements.length) box.appendChild(el("button", { class: "btn ok", text: "Valider malgré les avertissements", onclick: onOk }));
+    return box;
+  }
   function proposalCard(p) {
-    var d = p.data, box = el("div", { class: "res a_valider" });
+    var d = p.data, disc = subStatus === "discarded", box = el("div", { class: "res " + (disc ? "ecarte" : "a_valider") });
+    if (disc) {
+      var h = el("h3", {}, [document.createTextNode(p.terme), el("span", { class: "badge ko", text: "écarté automatiquement" })]);
+      var rb = el("button", { class: "btn", text: "Repêcher" });
+      rb.onclick = function () {
+        rb.disabled = true; rb.textContent = "Analyse…";
+        api("POST", "/proposals/" + p.id + "/rescue", {}).then(loadProposals).catch(function (e) { alert(e.message); rb.disabled = false; rb.textContent = "Repêcher"; });
+      };
+      box.appendChild(h);
+      box.appendChild(kv("Raison", d.raison || d.raison_pertinent || d.raison_domaine));
+      if (d.definition) box.appendChild(kv("Définition proposée", d.definition));
+      box.appendChild(el("div", { class: "actions" }, [rb]));
+      return box;
+    }
     var title = el("h3", {}, [document.createTextNode(p.terme), el("span", { class: "badge ok", text: "à valider" }),
       el("span", { class: "conf", text: "confiance " + Math.round((d.confiance || 0) * 100) + " %" })]);
     var view = el("div", {}, [
@@ -190,14 +226,14 @@
     ]);
     edit.querySelector("textarea").value = d.definition || "";
     function collect() {
-      var o = { term: edit.querySelector('[data-f="term"]').value, data: {
+      return { term: edit.querySelector('[data-f="term"]').value, data: {
         definition: edit.querySelector("textarea").value, famille: edit.querySelector("select").value,
         synonymes: edit.querySelector('[data-f="synonymes"]').value } };
-      return o;
     }
     var bVal = el("button", { class: "btn ok", text: "Valider" });
     var bMod = el("button", { class: "btn", text: "Modifier" });
     var bRej = el("button", { class: "btn ko", text: "Rejeter" });
+    var panel = el("div", {});
     var busy = function (b) { [bVal, bMod, bRej].forEach(function (x) { x.disabled = b; }); };
     bMod.onclick = function () {
       if (edit.hidden) { edit.hidden = false; view.hidden = true; bMod.textContent = "Enregistrer"; return; }
@@ -208,28 +244,36 @@
       busy(true);
       api("POST", "/proposals/" + p.id + "/reject", {}).then(loadProposals).catch(function (e) { alert(e.message); busy(false); });
     };
-    bVal.onclick = function () {
-      busy(true); bVal.textContent = "Ajout + rebuild…";
-      var pre = edit.hidden ? Promise.resolve() : api("POST", "/proposals/" + p.id + "/edit", collect());
-      pre.then(function () { return api("POST", "/validate", { ids: [p.id] }); }).then(function (r) {
+    function doValidate(force) {
+      bVal.textContent = "Ajout + rebuild…"; busy(true); panel.textContent = "";
+      api("POST", "/validate", { ids: [p.id], force: !!force }).then(function (r) {
         $("review-msg").textContent = (r.valides.length ? "Ajouté : " + r.valides.join(", ") : "") + (r.ignores.length ? " Ignoré : " + r.ignores.map(function (i) { return i.terme + " (" + i.raison + ")"; }).join(", ") : "");
         loadProposals();
       }).catch(function (e) { alert(e.message); busy(false); bVal.textContent = "Valider"; });
+    }
+    bVal.onclick = function () {
+      busy(true); bVal.textContent = "Contrôle…"; panel.textContent = "";
+      var pre = edit.hidden ? Promise.resolve() : api("POST", "/proposals/" + p.id + "/edit", collect());
+      pre.then(function () { return api("POST", "/proposals/" + p.id + "/check", {}); }).then(function (rep) {
+        if (rep.ok && !rep.avertissements.length) { doValidate(false); return; }
+        panel.appendChild(checkPanel(rep, function () { doValidate(true); }, function () { doValidate(false); }));
+        busy(false); bVal.textContent = "Valider";
+      }).catch(function (e) { alert(e.message); busy(false); bVal.textContent = "Valider"; });
     };
-    box.appendChild(title); box.appendChild(view); box.appendChild(edit);
+    box.appendChild(title); box.appendChild(view); box.appendChild(edit); box.appendChild(panel);
     box.appendChild(el("div", { class: "actions" }, [bVal, bMod, bRej]));
     return box;
   }
   function loadProposals() {
-    return api("GET", "/proposals?status=pending").then(function (r) {
+    return api("GET", "/proposals?status=" + subStatus).then(function (r) {
       var box = $("proposals"); box.textContent = "";
-      if (!r.propositions.length) box.appendChild(el("p", { class: "hint", text: "Aucune proposition en attente." }));
+      if (!r.propositions.length) box.appendChild(el("p", { class: "hint", text: subStatus === "pending" ? "Aucune proposition en attente." : "Aucun terme écarté." }));
       r.propositions.forEach(function (p) { box.appendChild(proposalCard(p)); });
-      setPending(r.propositions.length);
+      if (subStatus === "pending") setPending(r.propositions.length); else { var c = $("discarded-count"); c.hidden = !r.propositions.length; c.textContent = r.propositions.length; }
     }).catch(function (e) { $("review-msg").textContent = e.message; });
   }
   function setPending(n) { var p = $("pending-count"); p.hidden = !n; p.textContent = n; }
-  function refreshPending() { api("GET", "/proposals?status=pending").then(function (r) { setPending(r.propositions.length); }).catch(function () {}); }
+  function refreshPending() { if (!token()) return; api("GET", "/proposals?status=pending").then(function (r) { setPending(r.propositions.length); }).catch(function () {}); }
   $("refresh").onclick = loadProposals;
 
   // ---------- init ----------
@@ -239,9 +283,10 @@
       j.lexiques.forEach(function (l) { lexicons[l.id] = l; sel.appendChild(el("option", { value: l.id, text: l.label })); });
       var d = new URLSearchParams(location.search).get("lexicon"); if (d && lexicons[d]) sel.value = d;
     }).catch(function () { say("API indisponible.", true); });
-    if (!token()) $("auth").hidden = false; else refreshPending();
+    $("tab-review").hidden = !token();       // revue/validation : réservées au porteur du jeton
+    refreshPending();
     var job = new URLSearchParams(location.search).get("job");
-    if (job && token()) poll(job);
+    if (job) poll(job);
   }
   init();
 })();

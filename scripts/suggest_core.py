@@ -48,7 +48,13 @@ BATCH_SIZE = 20            # termes par appel LLM
 PARALLEL_BATCHES = 4       # appels LLM simultanés (job asynchrone)
 UNIT_SYNC_MAX = 3          # <= 3 termes à analyser : réponse synchrone
 DAILY_USD_CAP = float(os.environ.get("AEROLEX_SUGGEST_DAILY_USD", "2.0"))
-MAX_UPLOAD_BYTES = 8 * 1024 * 1024
+MAX_UPLOAD_BYTES = 5 * 1024 * 1024
+# Anti-abus de coût (soumission publique, sans jeton). Ne comptent QUE les termes envoyés au LLM :
+# l'entonnoir gratuit (index, cache, contrôles déterministes) reste illimité.
+LLM_TERMS_PER_IP_HOUR = int(os.environ.get("AEROLEX_SUGGEST_IP_HOUR", "30"))
+LLM_TERMS_PER_IP_DAY = int(os.environ.get("AEROLEX_SUGGEST_IP_DAY", "300"))
+PARSE_PER_IP_HOUR = 20     # analyses de fichier par IP et par heure (CPU : pdf/docx)
+LOW_CONF = 0.6             # confiance < 0,6 : avertissement à la validation
 MAX_TERM_LEN = 80
 MAX_TERM_WORDS = 6
 CANDIDATE_LIMIT = 150      # termes extraits d'un document en prose
@@ -242,7 +248,7 @@ def extract_text(filename: str, data: bytes) -> str:
 
 def parse_upload(filename: str, data: bytes, limit: int = MAX_TERMS_PER_SUBMISSION) -> dict:
     if len(data) > MAX_UPLOAD_BYTES:
-        raise ValueError("fichier trop gros (max 8 Mo)")
+        raise ValueError("fichier trop gros (max 5 Mo)")
     text = extract_text(filename, data)
     ext = (filename or "").lower().rsplit(".", 1)[-1]
     if ext in ("pdf", "docx") and not looks_like_list(text):
@@ -255,6 +261,56 @@ def parse_upload(filename: str, data: bytes, limit: int = MAX_TERMS_PER_SUBMISSI
     r["mode"] = mode
     r["chars"] = len(text)
     return r
+
+
+def edit_distance(a: str, b: str, cap: int = 3) -> int:
+    """Levenshtein avec coupe (retourne cap+1 dès que dépassé)."""
+    if abs(len(a) - len(b)) > cap:
+        return cap + 1
+    prev = list(range(len(b) + 1))
+    for i, ca in enumerate(a, 1):
+        cur = [i]
+        for j, cb in enumerate(b, 1):
+            cur.append(min(prev[j] + 1, cur[j - 1] + 1, prev[j - 1] + (ca != cb)))
+        if min(cur) > cap:
+            return cap + 1
+        prev = cur
+    return prev[-1]
+
+
+# Contrôles déterministes gratuits AVANT le LLM : écartent ce qui n'a manifestement pas sa place.
+# Mots courants sans AUCUN sens aéronautique spécifique. Volontairement PAS : vent, vol, piste, avion, hélice,
+# pilote, nuage… (sens aéro précis possible -> décision laissée au LLM dans le doute).
+GENERIC_WORDS = set(norm(w) for w in """chose choses truc trucs machin bidule exemple exemples problème problèmes question questions
+cas fois partie parties article articles page pages chapitre chapitres manière façon sorte genre personne personnes gens monde
+oui non ok bonjour merci bonsoir salut voilà etc suite début fin liste tableau figure schéma texte mot mots phrase
+maison voiture chien chat table chaise pain fromage""".split())
+UNITS = set(norm(w) for w in """mètre mètres metre metres kilomètre kilomètres kilogramme kilogrammes gramme grammes litre litres seconde secondes
+minute minutes heure heures jour jours degré degrés pourcent pourcentage m km kg g s h min l cm mm °c °f %""".split())
+_NUM = re.compile(r"^[\d\s.,:/+\-°%]+$")
+_NUM_UNIT = re.compile(r"^\d+(?:[.,]\d+)?\s*[a-zA-Z°%]{1,10}$")
+_VERBISH = set("est sont doit doivent peut peuvent fait font faut ont il elle ils elles je tu nous vous on qui que ne pas sera seront était serait avez avons".split())
+
+
+def free_discard(term: str, idx: "LexiconIndex"):
+    """Écarte sans LLM. -> None | {motif, raison[, terme_proche, lien]}"""
+    n = norm(term)
+    words = n.split()
+    if not n or _NUM.match(term.strip()):
+        return {"motif": "nombre", "raison": "Un nombre ou une valeur seule n'est pas un terme de lexique."}
+    if _NUM_UNIT.match(term.strip()):
+        return {"motif": "valeur_chiffree", "raison": "Une valeur chiffrée avec unité n'est pas un terme de lexique."}
+    if n in UNITS:
+        return {"motif": "unite", "raison": "Unité courante du système international, déjà connue de tous (pas de fiche dédiée)."}
+    if len(words) == 1 and (n in _STOP or n in GENERIC_WORDS):
+        return {"motif": "mot_courant", "raison": "Mot courant de la langue, sans sens aéronautique spécifique."}
+    if len(words) > 5 or (len(words) >= 3 and any(w in _VERBISH for w in words)):
+        return {"motif": "fragment_phrase", "raison": "Fragment de phrase plutôt qu'un terme (trop long ou verbe conjugué)."}
+    near = idx.typo_match(term)
+    if near:
+        return {"motif": "faute_de_frappe", "raison": "Alias probable / faute de frappe de « %s » (fiche existante)." % near,
+                "terme_proche": near, "lien": idx.link(near)}
+    return None
 
 
 # ── 2. Index du lexique (gratuit) ────────────────────────────────────────────
@@ -341,6 +397,25 @@ class LexiconIndex:
                     out.append(t)
         return [{"terme": t, "lien": self.link(t)} for t in out[:limit]]
 
+    def typo_match(self, raw: str):
+        """Terme existant à distance d'édition <= 2 (<= 1 si 5-6 lettres ; jamais < 5 lettres, sigles exclus)
+        -> terme | None. Les formes présentes (match exact) sont traitées avant."""
+        n = norm(raw)
+        if len(n) < 5 or (raw.strip().isupper() and len(n) < 7):
+            return None
+        maxd = 2 if len(n) >= 7 else 1
+        if not hasattr(self, "_bylen"):
+            self._bylen = {}
+            for f, t in self.exact.items():
+                self._bylen.setdefault(len(f), []).append((f, t))
+        best = None
+        for L in range(len(n) - maxd, len(n) + maxd + 1):
+            for f, t in self._bylen.get(L, ()):
+                d = edit_distance(n, f, maxd)
+                if 1 <= d <= maxd and (best is None or d < best[0]):
+                    best = (d, t)
+        return best[1] if best else None
+
     def match(self, raw: str):
         """-> None | {"statut": "present"|"alias", "terme", "lien", "nature"}"""
         for f in keyforms(raw):
@@ -385,10 +460,33 @@ def db() -> sqlite3.Connection:
         status TEXT, data TEXT, job TEXT, ts REAL, upd REAL, UNIQUE(domain,key,status));
     CREATE TABLE IF NOT EXISTS jobs(id TEXT PRIMARY KEY, domain TEXT, state TEXT, total INTEGER, done INTEGER,
         results TEXT, info TEXT, ts REAL, upd REAL);
+    CREATE TABLE IF NOT EXISTS ratelimit(ip TEXT, kind TEXT, ts REAL, n INTEGER);
+    CREATE INDEX IF NOT EXISTS ratelimit_ip ON ratelimit(ip, kind, ts);
     CREATE TABLE IF NOT EXISTS costlog(id INTEGER PRIMARY KEY AUTOINCREMENT, ts REAL, job TEXT, model TEXT,
         n_terms INTEGER, tok_in INTEGER, tok_out INTEGER, usd REAL, secs REAL, ok INTEGER);
     """)
     return con
+
+
+def _ipkey(ip: str) -> str:
+    import hashlib
+    return hashlib.sha256(("aerolex|" + ip).encode()).hexdigest()[:16]     # pas d'IP en clair en base
+
+
+def rate_used(ip: str, kind: str, window: float) -> int:
+    with _db_lock, db() as con:
+        return int(con.execute("SELECT COALESCE(SUM(n),0) FROM ratelimit WHERE ip=? AND kind=? AND ts>?",
+                               (_ipkey(ip), kind, time.time() - window)).fetchone()[0])
+
+
+def rate_record(ip: str, kind: str, n: int = 1):
+    with _db_lock, db() as con:
+        con.execute("INSERT INTO ratelimit(ip,kind,ts,n) VALUES(?,?,?,?)", (_ipkey(ip), kind, time.time(), n))
+        con.execute("DELETE FROM ratelimit WHERE ts<?", (time.time() - 2 * 86400,))
+
+
+def llm_quota_remaining(ip: str) -> int:
+    return max(0, min(LLM_TERMS_PER_IP_HOUR - rate_used(ip, "llm", 3600), LLM_TERMS_PER_IP_DAY - rate_used(ip, "llm", 86400)))
 
 
 def cost_today() -> float:
@@ -591,8 +689,8 @@ def cache_put(lex_id: str, key: str, item: dict):
                     (lex_id, key, json.dumps(item, ensure_ascii=False), item.get("modele", ""), time.time()))
 
 
-def funnel_free(lex_id: str, terms: list) -> tuple:
-    """Étapes 2 et 3 (gratuites). -> (résultats par terme (dict ordonné), à_envoyer_au_LLM)"""
+def funnel_free(lex_id: str, terms: list, skip_checks: bool = False) -> tuple:
+    """Étapes 2 et 3 (gratuites) + contrôles déterministes. -> (résultats par terme, à_envoyer_au_LLM)"""
     idx = get_index(lex_id)
     res, todo = {}, []
     for t in terms:
@@ -600,6 +698,11 @@ def funnel_free(lex_id: str, terms: list) -> tuple:
         if m:
             res[t] = {"terme": t, **m}
             continue
+        if not skip_checks:
+            dsc = free_discard(t, idx)
+            if dsc:
+                res[t] = {"terme": t, "statut": "ecarte", "verdict": "ecarte", **dsc}
+                continue
         c = cache_get(lex_id, ckey(t))
         if c:
             res[t] = {"terme": t, "statut": "analyse", "cache": True, **{k: v for k, v in c.items() if k != "terme"}}
@@ -623,6 +726,20 @@ def classify(item: dict) -> str:
     return "a_valider"
 
 
+NOT_DATA = ("statut", "cache", "terme", "verdict", "voisins")
+
+
+def store_outcomes(lex_id: str, res: dict, job: str):
+    """Verdicts -> file : à valider (pending) ; écartés automatiquement (discarded, repêchables)."""
+    for t, r in res.items():
+        if r.get("statut") == "analyse":
+            r["verdict"] = classify(r)
+            enqueue_proposal(lex_id, t, {k: v for k, v in r.items() if k not in NOT_DATA}, job,
+                             "pending" if r["verdict"] == "a_valider" else "discarded")
+        elif r.get("statut") == "ecarte":
+            enqueue_proposal(lex_id, t, {k: v for k, v in r.items() if k not in NOT_DATA}, job, "discarded")
+
+
 def apply_llm_results(lex_id: str, res: dict, got: dict, job: str):
     for t, item in got.items():
         cache_put(lex_id, ckey(t), item)
@@ -630,32 +747,38 @@ def apply_llm_results(lex_id: str, res: dict, got: dict, job: str):
         res[t] = {"terme": t, "statut": "analyse", "cache": False, **{k: v for k, v in item.items() if k != "terme"}}
         if nb:
             res[t]["voisins"] = nb
-    for t, r in res.items():
-        if r.get("statut") == "analyse":
-            r["verdict"] = classify(r)
-            if r["verdict"] == "a_valider":
-                enqueue_proposal(lex_id, t, {k: v for k, v in r.items() if k not in ("statut", "cache", "terme", "verdict", "voisins")}, job)
+    store_outcomes(lex_id, res, job)
 
 
-def enqueue_proposal(lex_id: str, term: str, data: dict, job: str):
+def enqueue_proposal(lex_id: str, term: str, data: dict, job: str, status: str = "pending"):
     key = ckey(term)
     now = time.time()
     with _db_lock, db() as con:
         if con.execute("SELECT 1 FROM proposals WHERE domain=? AND key=? AND status='pending'", (lex_id, key)).fetchone():
             return
+        if status == "pending":
+            con.execute("DELETE FROM proposals WHERE domain=? AND key=? AND status='discarded'", (lex_id, key))
         con.execute("INSERT OR REPLACE INTO proposals(domain,key,term,status,data,job,ts,upd) VALUES(?,?,?,?,?,?,?,?)",
-                    (lex_id, key, term, "pending", json.dumps(data, ensure_ascii=False), job, now, now))
+                    (lex_id, key, term, status, json.dumps(data, ensure_ascii=False), job, now, now))
 
 
-def new_job(lex_id: str, terms: list, info: dict) -> str:
+QUOTA_MSG = ("Limite d'analyses atteinte pour cette connexion (%d termes/heure, %d/jour) : "
+             "réessayez plus tard. Les termes déjà connus ne comptent pas." % (LLM_TERMS_PER_IP_HOUR, LLM_TERMS_PER_IP_DAY))
+
+
+def new_job(lex_id: str, terms: list, info: dict, ip: str | None = None) -> str:
     jid = secrets.token_hex(8)
     res, todo = funnel_free(lex_id, terms)
-    # termes déjà analysés (cache) qui n'ont pas de proposition : on (ré)alimente la file
-    for t, r in res.items():
-        if r.get("statut") == "analyse":
-            r["verdict"] = classify(r)
-            if r["verdict"] == "a_valider":
-                enqueue_proposal(lex_id, t, {k: v for k, v in r.items() if k not in ("statut", "cache", "terme", "verdict", "voisins")}, jid)
+    if ip and todo:                       # quota LLM par IP (soumission publique)
+        rem = llm_quota_remaining(ip)
+        for t in todo[rem:]:
+            res[t] = {"terme": t, "statut": "limite", "raison": QUOTA_MSG}
+        if len(todo) > rem:
+            info = dict(info, limite_atteinte=True)
+        todo = todo[:rem]
+        if todo:
+            rate_record(ip, "llm", len(todo))
+    store_outcomes(lex_id, res, jid)
     info = dict(info, todo=todo, free=len(terms) - len(todo))
     now = time.time()
     with _db_lock, db() as con:
@@ -697,7 +820,8 @@ def run_job(jid: str):
             for t in b:
                 if res[t].get("statut") == "attente":
                     res[t]["statut"] = "erreur"
-                    res[t]["erreur"] = "; ".join(errs)[:200] or "pas de réponse"
+                    res[t]["erreur"] = "Analyse momentanément indisponible (service saturé ou plafond de coût atteint) : réessayez plus tard."
+                    res[t]["detail"] = "; ".join(errs)[:200] or "pas de réponse"
             done = sum(1 for r in res.values() if r.get("statut") != "attente")
             with _db_lock, db() as con:
                 con.execute("UPDATE jobs SET done=?,results=?,info=?,upd=? WHERE id=?",
@@ -714,19 +838,22 @@ def run_job(jid: str):
             con.execute("UPDATE jobs SET state='done',info=?,upd=? WHERE id=?", (json.dumps(info, ensure_ascii=False), time.time(), jid))
 
 
-def job_view(jid: str):
+def job_view(jid: str, full: bool = True):
     with _db_lock, db() as con:
         row = con.execute("SELECT * FROM jobs WHERE id=?", (jid,)).fetchone()
     if not row:
         return None
     info = json.loads(row["info"])
     info.pop("todo", None)
+    if not full:                          # visiteur anonyme : pas de détail technique ni de coût
+        info["errors"] = len(info.get("errors") or [])
+        info.pop("usd", None); info.pop("usd_par_terme", None)
     res = json.loads(row["results"])
     return {"id": row["id"], "domaine": row["domain"], "etat": row["state"], "total": row["total"], "fait": row["done"],
             "info": info, "resultats": list(res.values())}
 
 
-def submit(lex_id: str, text: str = "", terms: list | None = None, background: bool = True) -> dict:
+def submit(lex_id: str, text: str = "", terms: list | None = None, background: bool = True, ip: str | None = None, full: bool = True) -> dict:
     """Point d'entrée unique (unitaire ET lot). -> vue du job (terminée si ≤ UNIT_SYNC_MAX à analyser)."""
     if lex_id not in LEXICONS:
         raise KeyError("lexique inconnu : " + lex_id)
@@ -737,15 +864,15 @@ def submit(lex_id: str, text: str = "", terms: list | None = None, background: b
     if not p["terms"]:
         raise ValueError("aucun terme exploitable")
     info = {"doublons": p["duplicates"], "rejetes": p["rejected"], "au_dela_limite": len(p["over_limit"])}
-    jid = new_job(lex_id, p["terms"], info)
-    v = job_view(jid)
+    jid = new_job(lex_id, p["terms"], info, ip)
+    v = job_view(jid, full)
     with _db_lock, db() as con:
         n_todo = len(json.loads(con.execute("SELECT info FROM jobs WHERE id=?", (jid,)).fetchone()["info"]).get("todo", []))
     if n_todo == 0:
         return v
     if n_todo <= UNIT_SYNC_MAX or not background:
         run_job(jid)
-        return job_view(jid)
+        return job_view(jid, full)
     threading.Thread(target=run_job, args=(jid,), daemon=True, name="suggest-" + jid).start()
     return v
 
@@ -787,6 +914,204 @@ def reject_proposal(pid: int) -> dict:
         con.execute("DELETE FROM proposals WHERE domain=? AND key=? AND status='rejected'", (r["domain"], r["key"]))
         con.execute("UPDATE proposals SET status='rejected', upd=? WHERE id=?", (time.time(), pid))
     return {"ok": True}
+
+
+def rescue_proposal(pid: int) -> dict:
+    """Repêche un terme écarté automatiquement -> file « À valider ».
+    Écarté par le LLM : on réutilise son analyse. Écarté par un contrôle gratuit : analyse LLM forcée."""
+    with _db_lock, db() as con:
+        r = con.execute("SELECT * FROM proposals WHERE id=? AND status='discarded'", (pid,)).fetchone()
+    if not r:
+        raise KeyError("terme écarté introuvable")
+    d = json.loads(r["data"])
+    if "definition" not in d:             # écarté sans LLM : on l'analyse maintenant (relecteur authentifié)
+        got, errs, usd = llm_batch(r["domain"], [r["term"]], get_index(r["domain"]).families, "rescue")
+        if r["term"] not in got:
+            raise ValueError("analyse impossible : " + "; ".join(errs)[:200])
+        d = {k: v for k, v in got[r["term"]].items() if k not in NOT_DATA}
+        cache_put(r["domain"], r["key"], got[r["term"]])
+    d["repeche"] = True
+    now = time.time()
+    with _db_lock, db() as con:
+        con.execute("DELETE FROM proposals WHERE domain=? AND key=? AND status='pending'", (r["domain"], r["key"]))
+        con.execute("UPDATE proposals SET status='pending', data=?, upd=? WHERE id=?", (json.dumps(d, ensure_ascii=False), now, pid))
+    return {"ok": True}
+
+
+# ── Contrôle de cohérence AVANT écriture (clic « Valider ») ─────────────────
+_DEV_STOP = set(norm(w) for w in "of the and for to in on at de du des la le les à a au aux et en pour sur d l un une by with".split())
+_ABBREV = re.compile(r"\b(env|ex|etc|cf|fig|max|min|ft|kt|nm|hpa|qnh|approx|vs|resp|c-à-d|càd)\.", re.I)
+
+
+def count_sentences(text: str) -> int:
+    t = re.sub(r"<[^>]+>", "", text or "")
+    t = _ABBREV.sub(lambda m: m.group(1), t)
+    t = re.sub(r"(\d)\.(\d)", r"\1\2", t)
+    return len([x for x in re.split(r"[.!?…]+(?:\s+|$)", t.strip()) if len(x.strip()) > 2])
+
+
+def _subseq(sub: str, word: str) -> bool:
+    it = iter(word)
+    return all(c in it for c in sub)
+
+
+def acronym_matches(sig: str, dev: str) -> bool:
+    """Initiales du développé = lettres du sigle (mots vides facultatifs ; un mot peut fournir 1-3 lettres
+    (la 1re = son initiale) : NOTAM = NOtice To AirMen). Vrai pour le développé anglais OU français."""
+    a = re.sub(r"[^a-z0-9]", "", norm(sig))
+    dev = re.sub(r"\([^)]*\)", " ", dev or "")
+    words = [w for w in re.split(r"[\s\-/]+", norm(dev)) if w]
+    if not a or not words:
+        return False
+    from functools import lru_cache
+
+    @lru_cache(None)
+    def dp(i, j):
+        if i == len(words):
+            return j == len(a)
+        w = words[i]
+        if w in _DEV_STOP and dp(i + 1, j):
+            return True
+        for k in range(1, min(3, len(w)) + 1):
+            seg = a[j:j + k]
+            if len(seg) == k and seg[0] == w[0] and _subseq(seg[1:], w[1:]) and dp(i + 1, j + k):
+                return True
+        return False
+    return dp(0, 0)
+
+
+def related_fiches(idx: "LexiconIndex", term: str, d: dict, limit: int = 3) -> list:
+    """Fiches existantes les plus proches : termes voisins, quasi-homonyme, fiches citées dans la définition/le développé."""
+    out = [n["terme"] for n in idx.neighbours(term, 3)]
+    near = idx.typo_match(term)
+    if near:
+        out.append(near)
+    text = norm(" ".join([d.get("definition", ""), d.get("origine", ""), d.get("traduction", "")]))
+    toks = text.split()
+    for n in (3, 2, 1):
+        for i in range(len(toks) - n + 1):
+            g = " ".join(toks[i:i + n])
+            if len(g) >= 4 and g not in _STOP and g in idx.exact:
+                out.append(idx.exact[g])
+    for e in (d.get("origine"), d.get("traduction")):
+        if e:
+            for f in keyforms(e):
+                a = idx.alias.get(f)
+                if a:
+                    out.append(a[0])
+    seen, res = {norm(term)}, []
+    for t in out:
+        if norm(t) in seen or t not in idx.glossaire:
+            continue
+        seen.add(norm(t)); res.append(t)
+    return res[:limit]
+
+
+def _plain(s: str, n: int = 450) -> str:
+    return re.sub(r"\s+", " ", re.sub(r"<[^>]+>", "", s or "")).strip()[:n]
+
+
+def coherence_llm(messages: list) -> dict:
+    """Appel court : grok-4.3 (reasoning none) puis Qwopus local. -> dict JSON ; lève si tout échoue."""
+    last = None
+    for prov in ("xai", "local"):
+        if prov == "xai" and cost_today() >= DAILY_USD_CAP:
+            continue
+        t0 = time.time()
+        try:
+            content, usage, model, usd = _call_provider(prov, messages, 1)
+            with _db_lock, db() as con:
+                con.execute("INSERT INTO costlog(ts,job,model,n_terms,tok_in,tok_out,usd,secs,ok) VALUES(?,?,?,?,?,?,?,?,?)",
+                            (time.time(), "coherence", model, 1, usage["in"], usage["out"], usd, time.time() - t0, 1))
+            return json.loads(_strip_json(content))
+        except Exception as e:
+            last = e
+    raise RuntimeError("contrôle de cohérence indisponible : %s" % (str(last)[:120] if last else "plafond atteint"))
+
+
+def check_proposal(row, run_llm: bool = True) -> dict:
+    """Contrôle de cohérence d'une proposition AVANT écriture. -> {ok, controles:[{nom,statut ok|warn|ko,detail}], bloquants, avertissements, fiches_liees}"""
+    dom, term, d = row["domain"], row["term"], json.loads(row["data"])
+    idx = get_index(dom)
+    ctl = []
+
+    def add(nom, statut, detail=""):
+        ctl.append({"nom": nom, "statut": statut, "detail": detail})
+
+    m = idx.match(term)                                    # re-vérifié contre l'index COURANT, alias compris
+    if m:
+        add("Terme inexistant", "ko", "« %s » existe déjà (%s : %s)." % (term, "alias" if m["statut"] == "alias" else "fiche", m["terme"]))
+    else:
+        near = idx.typo_match(term)
+        add("Terme inexistant", "warn" if near else "ok", ("très proche de « %s » (faute de frappe ?)" % near) if near else "")
+    fam, fam_new = d.get("famille") or "", d.get("famille_nouvelle") or ""
+    if fam and fam in idx.families:
+        add("Famille", "ok", fam)
+    elif fam_new:
+        add("Famille", "warn", "nouvelle famille « %s » proposée : à justifier (aucune fiche existante)." % fam_new)
+    else:
+        add("Famille", "ko", "aucune famille (ni existante, ni nouvelle justifiée).")
+    definition = (d.get("definition") or "").strip()
+    if not definition:
+        add("Définition", "ko", "définition vide.")
+    else:
+        ns = count_sentences(definition)
+        words = [w for w in norm(definition).split() if len(w) > 3 and w not in _STOP and w not in set(norm(term).split())]
+        if ns < 2 or ns > 4:
+            add("Définition", "ko", "%d phrase(s) : il en faut 2 à 4." % ns)
+        elif len(set(words)) < 4 or norm(definition).startswith(norm(term) + " est " + norm(term)):
+            add("Définition", "ko", "circulaire : le terme sert seul d'explication.")
+        else:
+            add("Définition", "ok", "%d phrases." % ns)
+    t0 = term.strip()
+    if re.fullmatch(r"[A-Z0-9][A-Z0-9/\-]{1,7}", t0) and re.search(r"[A-Z]{2}", t0):
+        devs = [x for x in (d.get("origine"), d.get("traduction")) if x]
+        if not devs:
+            add("Développé du sigle", "warn", "sigle sans développé.")
+        elif any(acronym_matches(t0, x) for x in devs):
+            add("Développé du sigle", "ok", " / ".join(devs))
+        else:
+            add("Développé du sigle", "ko", "les initiales de « %s » ne correspondent pas au sigle %s." % (" / ".join(devs), t0))
+    rel = related_fiches(idx, term, d)
+    if not run_llm:
+        add("Cohérence avec les fiches liées", "warn", "non vérifiée.")
+    elif not definition:
+        pass
+    elif not rel:
+        add("Cohérence avec les fiches liées", "ok", "aucune fiche voisine à comparer.")
+    else:
+        fich = "\n".join("- %s : %s" % (t, _plain(idx.glossaire[t].get("definition", ""))) for t in rel)
+        msgs = [{"role": "system", "content": (
+            "Tu relis une proposition de fiche de lexique d'aéronautique (élève pilote). On te donne la proposition et des fiches "
+            "existantes liées. Réponds UNIQUEMENT par un JSON {\"coherent\": true|false, \"raison\": \"1 phrase\"}. "
+            "coherent=false si la proposition CONTREDIT une fiche existante (sigle développé autrement, sens, grandeur ou unité "
+            "différents) ou est manifestement fausse au regard d'elles ; true sinon (une simple différence de formulation ou "
+            "un complément n'est pas une contradiction).")},
+            {"role": "user", "content": "Proposition : %s\nDéveloppé : %s %s\nDéfinition : %s\n\nFiches existantes :\n%s" % (
+                term, d.get("origine", ""), d.get("traduction", ""), _plain(definition, 700), fich)}]
+        try:
+            j = coherence_llm(msgs)
+            if _b(j.get("coherent", True)):
+                add("Cohérence avec les fiches liées", "ok", "cohérent avec : " + ", ".join(rel))
+            else:
+                add("Cohérence avec les fiches liées", "ko", "contradiction avec %s : %s" % (", ".join(rel), str(j.get("raison", ""))[:300]))
+        except Exception as e:
+            add("Cohérence avec les fiches liées", "warn", str(e)[:200])
+    conf = float(d.get("confiance") or 0)
+    if conf < LOW_CONF:
+        add("Confiance", "warn", "confiance du modèle %d %% (< %d %%) : relire avec attention." % (round(conf * 100), round(LOW_CONF * 100)))
+    return {"ok": not any(c["statut"] == "ko" for c in ctl), "controles": ctl,
+            "bloquants": [c["nom"] + " : " + c["detail"] for c in ctl if c["statut"] == "ko"],
+            "avertissements": [c["nom"] + " : " + c["detail"] for c in ctl if c["statut"] == "warn"],
+            "fiches_liees": rel, "confiance": conf}
+
+
+def check_proposal_id(pid: int, run_llm: bool = True) -> dict:
+    with _db_lock, db() as con:
+        r = con.execute("SELECT * FROM proposals WHERE id=? AND status='pending'", (pid,)).fetchone()
+    if not r:
+        raise KeyError("proposition introuvable")
+    return check_proposal(r, run_llm)
 
 
 def _py(s) -> str:
@@ -845,13 +1170,13 @@ def rebuild(steps=None) -> list:
     return log
 
 
-def validate_proposals(ids: list, do_rebuild: bool = True, steps=None) -> dict:
+def validate_proposals(ids: list, do_rebuild: bool = True, steps=None, force: bool = False, run_llm: bool = True) -> dict:
     with _db_lock, db() as con:
         rows = [con.execute("SELECT * FROM proposals WHERE id=? AND status='pending'", (i,)).fetchone() for i in ids]
     rows = [r for r in rows if r]
     if not rows:
         raise KeyError("aucune proposition en attente parmi les ids")
-    done, skipped, chunks = [], [], []
+    done, skipped, chunks, refused = [], [], [], []
     by_dom: dict = {}
     for r in rows:
         by_dom.setdefault(r["domain"], []).append(r)
@@ -862,8 +1187,11 @@ def validate_proposals(ids: list, do_rebuild: bool = True, steps=None) -> dict:
             if m and m["statut"] == "present":
                 skipped.append({"terme": r["term"], "raison": "déjà présent (%s)" % m["terme"]})
                 continue
+            rep_ = check_proposal(r, run_llm)
+            if not rep_["ok"] and not force:       # contrôle bloquant : rien n'est écrit pour ce terme
+                refused.append({"id": r["id"], "terme": r["term"], **rep_})
+                continue
             d = json.loads(r["data"])
-            fam = d.get("famille") or ""
             chunks.append((dom, r, render_entry(r["term"], d)))
         if any(c[0] == dom for c in chunks):
             insert_into_source(ROOT / LEXICONS[dom]["source"], "".join(c[2] for c in chunks if c[0] == dom))
@@ -873,7 +1201,7 @@ def validate_proposals(ids: list, do_rebuild: bool = True, steps=None) -> dict:
             con.execute("UPDATE proposals SET status='validated', upd=? WHERE id=?", (time.time(), r["id"]))
             done.append(r["term"])
     log = rebuild(steps) if (do_rebuild and done) else []
-    return {"valides": done, "ignores": skipped, "build": log}
+    return {"valides": done, "ignores": skipped, "refuses": refused, "build": log, "force": bool(force)}
 
 
 def stats() -> dict:

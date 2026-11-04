@@ -42,3 +42,11 @@ input[type=file]{width:100%}
 .actions{display:flex;gap:.5rem;flex-wrap:wrap;margin-top:.7rem}
 .conf{color:var(--mut);font-size:.85rem}
 @media (min-width:700px){.tab{flex:0 0 auto;padding:.6rem 1.4rem}}
+.msg.ok{background:#e3f4ea;color:var(--ok)}
+.res.ecarte,.res.limite{border-left-color:var(--ko)}
+.subtabs{display:flex;gap:.4rem;margin:.8rem 0 0}
+.subtabs .tab{border-bottom:1px solid var(--bd);border-radius:10px;flex:0 0 auto;padding:.4rem 1rem}
+.check{margin:.7rem 0;padding:.6rem;border:1px solid var(--bd);border-radius:8px;background:#fafbfc}
+.check li{margin:.2rem 0;font-size:.92rem;list-style:none}
+.check ul{padding:0;margin:.3rem 0}
+.check .ko{color:var(--ko)}.check .warn{color:var(--warn)}.check .ok{color:var(--ok)}

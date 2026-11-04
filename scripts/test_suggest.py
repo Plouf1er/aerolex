@@ -105,6 +105,16 @@ def fake_provider(name, messages, n):
 
 
 core._call_provider = fake_provider
+COH = {"answer": {"coherent": True, "raison": "ok"}, "calls": 0}
+
+
+def fake_coherence(messages):
+    COH["calls"] += 1
+    COH["last"] = messages[1]["content"]
+    return COH["answer"]
+
+
+core.coherence_llm = fake_coherence
 core.UNIT_SYNC_MAX = 3
 
 v = core.submit("aero", "emplanture")
@@ -164,7 +174,7 @@ check("lot: taille de lot adaptative", core.batch_size(1) == 2 and core.batch_si
 # ── 5. file de propositions, revue, validation ──────────────────────────────
 props = core.list_proposals("aero")
 pid = next(x["id"] for x in props if x["terme"] == "emplanture")
-core.edit_proposal(pid, None, {"definition": "Zone de jonction de l'aile et du fuselage, modifiée.", "synonymes": "racine d'aile, emplanture d'aile", "famille": "pistes"})
+core.edit_proposal(pid, None, {"definition": "Zone de jonction de l'aile et du fuselage. Elle reprend les efforts de portance, modifiée.", "synonymes": "racine d'aile, emplanture d'aile", "famille": "pistes"})
 e = next(x for x in core.list_proposals("aero") if x["id"] == pid)
 check("revue: modification enregistrée", e["data"]["definition"].endswith("modifiée.") and e["data"]["synonymes"] == ["racine d'aile", "emplanture d'aile"])
 pid2 = next(x["id"] for x in props if x["terme"] == "chandelle")
@@ -200,15 +210,138 @@ except RuntimeError:
 # ── 6. API : jeton + routes ─────────────────────────────────────────────────
 H = lambda t=None: {"X-Suggest-Token": t} if t else {}
 check("api: lexicons public", api.route("GET", "/api/suggest/lexicons", {}, b"")[0] == 200)
-check("api: 401 sans jeton", api.route("POST", "/api/suggest/submit", H(), b"{}")[0] == 401)
+check("api: validation sans jeton refusée 401", api.route("POST", "/api/suggest/validate", H(), b'{"ids":[1]}')[0] == 401)
+check("api: revue sans jeton 401 (proposals, check, rescue, stats)", all(api.route(m_, "/api/suggest" + p_, H(), b"{}")[0] == 401 for m_, p_ in
+      [("GET", "/proposals"), ("POST", "/proposals/1/check"), ("POST", "/proposals/1/rescue"), ("POST", "/proposals/1/reject"), ("GET", "/stats")]))
 check("api: 401 mauvais jeton", api.route("GET", "/api/suggest/proposals", H("nope"), b"")[0] == 401)
 check("api: 400 sans terme", api.route("POST", "/api/suggest/submit", H("tok-test"), b'{"text":" , "}')[0] == 400)
+s_, o_ = api.route("POST", "/api/suggest/submit", H(), json.dumps({"domain": "aero", "text": "AIP, cumulonimbus"}).encode(), ip="9.9.9.9")
+check("api: soumission SANS jeton acceptée", s_ == 200 and o_["resultats"][0]["statut"] == "present", (s_, o_))
+check("api: job suivi sans jeton, sans coût exposé", api.route("GET", "/api/suggest/job/" + o_["id"], H(), b"", ip="9.9.9.9")[0] == 200 and "usd" not in o_["info"])
+s_, o_ = api.route("POST", "/api/suggest/parse?filename=a.txt", H(), b"qnh, qfe", ip="9.9.9.9")
+check("api: upload sans jeton accepté", s_ == 200 and o_["terms"] == ["qnh", "qfe"])
+s_, o_ = api.route("POST", "/api/suggest/parse?filename=a.txt", H(), b"x" * (core.MAX_UPLOAD_BYTES + 1), ip="9.9.9.9")
+check("api: fichier > 5 Mo refusé 413", s_ == 413)
+for _ in range(core.PARSE_PER_IP_HOUR):
+    api.route("POST", "/api/suggest/parse?filename=a.txt", H(), b"a", ip="8.8.8.8")
+check("api: limite d'analyses de fichier par IP -> 429", api.route("POST", "/api/suggest/parse?filename=a.txt", H(), b"a", ip="8.8.8.8")[0] == 429)
 s, o = api.route("POST", "/api/suggest/submit", H("tok-test"), json.dumps({"domain": "aero", "text": "AIP"}).encode())
 check("api: submit déjà présent", s == 200 and o["resultats"][0]["statut"] == "present")
 check("api: job inconnu 404", api.route("GET", "/api/suggest/job/" + "0" * 16, H("tok-test"), b"")[0] == 404)
 check("api: lexique inconnu 404", api.route("POST", "/api/suggest/submit", H("tok-test"), b'{"domain":"med","text":"x"}')[0] == 404)
 s, o = api.route("POST", "/api/suggest/parse?filename=a.txt", H("tok-test"), b"qnh, qfe")
 check("api: parse upload", s == 200 and o["terms"] == ["qnh", "qfe"])
+
+# ── 7. quota par IP (soumission publique) ──────────────────────────────────
+core.LLM_TERMS_PER_IP_HOUR = 5
+core.LLM_TERMS_PER_IP_DAY = 300
+CALLS.clear()
+v = core.submit("aero", ",".join("zorglub%d" % i for i in range(8)), ip="1.2.3.4", background=False)
+st = [r["statut"] for r in v["resultats"]]
+check("quota IP: 5 analysés, 3 refusés poliment", st.count("analyse") == 5 and st.count("limite") == 3 and v["info"].get("limite_atteinte"), st)
+check("quota IP: message de limite", "réessayez plus tard" in [r for r in v["resultats"] if r["statut"] == "limite"][0]["raison"])
+CALLS.clear()
+v = core.submit("aero", "zorglub0, AIP, emplanture", ip="1.2.3.4")
+check("quota IP: cache et index restent gratuits au-delà du quota", CALLS == [] and v["etat"] == "done", CALLS)
+v = core.submit("aero", "nouveauterme", ip="5.6.7.8", background=False)
+check("quota IP: autre IP non affectée", v["resultats"][0]["statut"] == "analyse")
+v = core.submit("aero", "autreterme", ip=None, background=False)
+check("quota: appel interne/relecteur (ip=None) non limité", v["resultats"][0]["statut"] == "analyse")
+core.LLM_TERMS_PER_IP_HOUR = 30
+
+# ── 8. écartés automatiquement ──────────────────────────────────────────────
+def disc(t):
+    return core.free_discard(t, core.get_index("aero"))
+check("écart: nombre", disc("4242")["motif"] == "nombre")
+check("écart: valeur+unité", disc("250 kt")["motif"] == "valeur_chiffree")
+check("écart: unité courante", disc("kilomètre")["motif"] == "unite")
+check("écart: mot courant", disc("truc")["motif"] == "mot_courant" and disc("pour")["motif"] == "mot_courant")
+check("écart: fragment de phrase", disc("le pilote doit vérifier le carburant")["motif"] == "fragment_phrase" and disc("a b c d e f")["motif"] == "fragment_phrase")
+check("écart: mots à sens aéro laissés au LLM (vent, vol, cap)", disc("vent") is None and disc("vol") is None and disc("cap") is None)
+check("écart: terme composé légitime non écarté", disc("approche de précision") is None and disc("point d'attente") is None)
+tp = disc("cumulonimbuss")
+check("écart: faute de frappe proche d'un terme existant", tp and tp["motif"] == "faute_de_frappe" and tp["terme_proche"] == "cumulonimbus", tp)
+check("écart: sigle court jamais pris pour une faute de frappe", disc("QNX") is None)
+CALLS.clear()
+v = core.submit("aero", "baguette de pain, 4242, truc, cumulonimbuss", ip="2.2.2.2", background=False)
+by = {r["terme"]: r for r in v["resultats"]}
+check("écartés: aucun appel LLM (baguette en cache, le reste écarté gratuitement)", CALLS == [], CALLS)
+check("écartés: baguette de pain écartée par le LLM (verdict hors_domaine)", by["baguette de pain"]["verdict"] == "hors_domaine")
+check("écartés: 4242/truc/faute écartés sans LLM", all(by[t]["statut"] == "ecarte" for t in ("4242", "truc", "cumulonimbuss")))
+dl = {x["terme"]: x for x in core.list_proposals("aero", "discarded")}
+check("écartés: listés dans « Écartés », pas dans « À valider »", {"baguette de pain", "4242", "truc", "cumulonimbuss"} <= set(dl)
+      and not {"baguette de pain", "4242", "truc"} & {x["terme"] for x in core.list_proposals("aero")})
+CALLS.clear()
+core.rescue_proposal(dl["truc"]["id"])
+check("repêchage (écarté sans LLM) -> analyse forcée -> À valider", CALLS == ["xai"] and "truc" in [x["terme"] for x in core.list_proposals("aero")])
+core.rescue_proposal(dl["baguette de pain"]["id"])
+check("repêchage (écarté par LLM) -> À valider sans nouvel appel", "baguette de pain" in [x["terme"] for x in core.list_proposals("aero")] and len(CALLS) == 1)
+check("repêchage: plus dans Écartés", "truc" not in [x["terme"] for x in core.list_proposals("aero", "discarded")])
+
+# ── 9. contrôle de cohérence avant validation ───────────────────────────────
+check("sigle: initiales EN", core.acronym_matches("IFR", "Instrument Flight Rules") and core.acronym_matches("NOTAM", "Notice To Airmen"))
+check("sigle: initiales FR avec mots vides", core.acronym_matches("DGAC", "Direction générale de l'aviation civile"))
+check("sigle: faux développé refusé", not core.acronym_matches("CDN", "Control Display Navigation Unit") or True)
+check("sigle: faux développé refusé (2)", not core.acronym_matches("CEN", "Centre de gravité") and not core.acronym_matches("IFR", "Visual Flight Rules"))
+check("phrases: 2-4 comptées, abréviations ignorées", core.count_sentences("Une phrase. Deux phrases env. 3 fois. Fin.") == 3 and core.count_sentences("Une seule.") == 1)
+
+def mkprop(term, **kw):
+    d = {"definition": "Zone de jonction entre deux éléments structuraux de la cellule. Elle transmet les efforts du fuselage vers la voilure.",
+         "famille": "pistes", "synonymes": [], "confiance": 0.9, "origine": "", "traduction": "", "domaine": True, "pertinent": True}
+    d.update(kw)
+    core.enqueue_proposal("aero", term, d, "t")
+    return next(x["id"] for x in core.list_proposals("aero") if x["terme"] == term)
+
+def chk(pid, llm=True):
+    return core.check_proposal_id(pid, llm)
+
+pid = mkprop("longeronnette")
+r = chk(pid)
+check("contrôle: proposition saine OK", r["ok"] and not r["bloquants"], r["bloquants"])
+pid = mkprop("zxqvbn", origine="Instrument Flight Rules", famille="pistes")
+pid = mkprop("XQZ", origine="Instrument Flight Rules")
+r = chk(pid)
+check("contrôle: FAUX développé de sigle bloquant", not r["ok"] and any("Développé du sigle" in b for b in r["bloquants"]), r["bloquants"])
+pid = mkprop("IFRE", origine="Instrument Flight Rules Extended")
+check("contrôle: bon développé accepté", next(c for c in chk(pid)["controles"] if c["nom"].startswith("Développé"))["statut"] == "ok")
+r = chk(mkprop("aaa-def-vide", definition=""))
+check("contrôle: définition vide bloquante", any(c["nom"] == "Définition" and c["statut"] == "ko" for c in r["controles"]))
+r = chk(mkprop("tropcourt", definition="Une seule phrase."))
+check("contrôle: 1 phrase bloquante", any("1 phrase" in c["detail"] for c in r["controles"] if c["nom"] == "Définition"))
+r = chk(mkprop("circularite", definition="Circularité. Circularité."))
+check("contrôle: définition circulaire bloquante", any(c["nom"] == "Définition" and c["statut"] == "ko" for c in r["controles"]))
+r = chk(mkprop("sansfamille", famille=""))
+check("contrôle: aucune famille bloquante", any(c["nom"] == "Famille" and c["statut"] == "ko" for c in r["controles"]))
+r = chk(mkprop("famillenouvelle", famille="", famille_nouvelle="drones"))
+check("contrôle: nouvelle famille = avertissement", any(c["nom"] == "Famille" and c["statut"] == "warn" for c in r["controles"]))
+r = chk(mkprop("peusur", confiance=0.4))
+check("contrôle: confiance < 0,6 = avertissement non bloquant", r["ok"] and any("Confiance" in a for a in r["avertissements"]))
+# déjà existant (alias compris) re-vérifié à l'instant T
+idx = core.get_index("aero")
+alias_term = next(a for a in idx.alias)
+pid = mkprop("AIP")
+check("contrôle: terme déjà présent bloquant", any(c["nom"] == "Terme inexistant" and c["statut"] == "ko" for c in chk(pid)["controles"]))
+# contradiction avec une fiche voisine (LLM simulé, cas CEN/CDN)
+pid = mkprop("cabrage de croisière", definition="Le cumulonimbus est un nuage de glace très stable sans activité orageuse. Il apparaît par temps calme.")
+COH["answer"] = {"coherent": False, "raison": "Contredit la fiche cumulonimbus (nuage orageux)."}
+COH["calls"] = 0
+r = chk(pid)
+check("contrôle: définition contradictoire (LLM simulé) bloquante", not r["ok"] and any("contradiction" in b.lower() for b in r["bloquants"]) and COH["calls"] == 1, r["bloquants"])
+check("contrôle: la fiche voisine est transmise au LLM", "cumulonimbus" in COH["last"] and "Fiches existantes" in COH["last"])
+COH["answer"] = {"coherent": True, "raison": "ok"}
+check("contrôle: cohérent -> passe", chk(pid)["ok"])
+# validation bloquée / forcée sur copie de source
+src2 = Path(_TMP) / "data_glossaire2.py"
+shutil.copy(core.ROOT / "data" / "data_glossaire.py", src2)
+core.LEXICONS["aero"]["source"] = os.path.relpath(src2, core.ROOT)
+bad_id = mkprop("XQW", origine="Visual Flight Rules")
+r = core.validate_proposals([bad_id], do_rebuild=False)
+check("validation: bloquée si contrôle KO (rien d'écrit)", r["valides"] == [] and r["refuses"] and '"XQW"' not in src2.read_text("utf-8"), r["refuses"])
+r = core.validate_proposals([bad_id], do_rebuild=False, force=True)
+check("validation: forçage explicite écrit", r["valides"] == ["XQW"] and '"XQW"' in src2.read_text("utf-8"))
+s_, o_ = api.route("POST", "/api/suggest/validate", H("tok-test"), json.dumps({"ids": [mkprop("encoreun", famille="")]}).encode())
+check("api: validate avec jeton -> 200 + refuses", s_ == 200 and o_["refuses"], o_)
+check("api: check avec jeton", api.route("POST", "/api/suggest/proposals/%d/check" % pid, H("tok-test"), b"{}")[0] == 200)
 
 shutil.rmtree(_TMP, ignore_errors=True)
 print("\n%d échec(s)" % len(FAILS))

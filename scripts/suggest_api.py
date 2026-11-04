@@ -5,18 +5,23 @@ suggest_api.py — routes HTTP de « Suggérer des termes », montées par serve
 sous /api/suggest/ (le site est statique, servi par serve_cors.py derrière le tunnel
 cloudflared : c'est le seul processus HTTP ; pas de second service ni de second port).
 
-Protection : jeton (en-tête X-Suggest-Token) sur TOUT sauf GET /api/suggest/lexicons.
-Le jeton vit hors dépôt (~/.aerolex-suggest-token, 0600) ; soumission, revue et
-validation exigent le même jeton -> pas d'abus de coût LLM sur le site public.
+Accès :
+  PUBLIC (sans jeton) : lexicons, parse, submit, job. Garde-fous de coût côté serveur : quota LLM par IP
+  (30 termes/h, 300/j ; le cache et l'entonnoir gratuit sont illimités), plafond global 2 $/24 h (puis
+  Qwopus local, puis refus poli), fichier <= 5 Mo, 300 termes/soumission, 20 analyses de fichier/h/IP.
+  JETON (X-Suggest-Token, ~/.aerolex-suggest-token, 0600) : revue (proposals, écartés, repêchage), validation
+  (écriture dans le lexique + rebuild du site), stats.
 
   GET  /api/suggest/lexicons                    lexiques + familles (public)
   POST /api/suggest/parse?filename=x.pdf        corps = fichier brut -> termes extraits
   POST /api/suggest/submit   {domain,text|terms}  unitaire (réponse directe) ou lot (job)
   GET  /api/suggest/job/<id>                    progression / résultats
-  GET  /api/suggest/proposals?status=pending&domain=aero
+  GET  /api/suggest/proposals?status=pending|discarded&domain=aero
+  POST /api/suggest/proposals/<id>/check        contrôle de cohérence (sans écrire)
+  POST /api/suggest/proposals/<id>/rescue       repêche un terme écarté automatiquement
   POST /api/suggest/proposals/<id>/edit  {term?,data}
   POST /api/suggest/proposals/<id>/reject
-  POST /api/suggest/validate {ids:[...]}        ajout à la source + rebuild
+  POST /api/suggest/validate {ids:[...],force?}  contrôle puis ajout à la source + rebuild
   GET  /api/suggest/stats
 """
 from __future__ import annotations
@@ -35,7 +40,7 @@ def handles(path: str) -> bool:
     return path.split("?", 1)[0].startswith(PREFIX + "/") or path.split("?", 1)[0] == PREFIX
 
 
-def route(method: str, path: str, headers, body: bytes):
+def route(method: str, path: str, headers, body: bytes, ip: str | None = None):
     """-> (status, dict). Pure (testable sans socket)."""
     u = urlparse(path)
     p = u.path[len(PREFIX):].rstrip("/") or "/"
@@ -47,25 +52,37 @@ def route(method: str, path: str, headers, body: bytes):
                 idx = core.get_index(k)
                 out.append({"id": k, "label": cfg["label"], "familles": idx.families, "termes": len(idx.glossaire)})
             return 200, {"lexiques": out, "max_termes": core.MAX_TERMS_PER_SUBMISSION}
-        if not core.check_token(headers.get("X-Suggest-Token")):
-            return 401, {"error": "jeton manquant ou invalide"}
+        authed = core.check_token(headers.get("X-Suggest-Token"))
+        # ── public (sans jeton) ──
         if method == "POST" and p == "/parse":
             if len(body) > core.MAX_UPLOAD_BYTES:
-                return 413, {"error": "fichier trop gros"}
-            r = core.parse_upload(q.get("filename", "x.txt"), body)
-            return 200, r
+                return 413, {"error": "fichier trop gros (max 5 Mo)"}
+            if ip and not authed:
+                if core.rate_used(ip, "parse", 3600) >= core.PARSE_PER_IP_HOUR:
+                    return 429, {"error": "trop de fichiers envoyés depuis cette connexion : réessayez plus tard"}
+                core.rate_record(ip, "parse")
+            return 200, core.parse_upload(q.get("filename", "x.txt"), body)
         if method == "POST" and p == "/submit":
             d = json.loads(body.decode("utf-8") or "{}")
-            return 200, core.submit(d.get("domain", "aero"), text=d.get("text", ""), terms=d.get("terms"))
+            # le relecteur authentifié n'est pas soumis au quota par IP
+            return 200, core.submit(d.get("domain", "aero"), text=d.get("text", ""), terms=d.get("terms"),
+                                    ip=None if authed else (ip or "?"), full=authed)
         m = re.fullmatch(r"/job/([0-9a-f]{16})", p)
         if method == "GET" and m:
-            v = core.job_view(m.group(1))
+            v = core.job_view(m.group(1), full=authed)
             return (200, v) if v else (404, {"error": "job inconnu"})
+        # ── protégé : revue / validation (écriture en production) ──
+        if not authed:
+            return 401, {"error": "jeton manquant ou invalide"}
         if method == "GET" and p == "/proposals":
             return 200, {"propositions": core.list_proposals(q.get("domain"), q.get("status", "pending"))}
-        m = re.fullmatch(r"/proposals/(\d+)/(edit|reject)", p)
+        m = re.fullmatch(r"/proposals/(\d+)/(edit|reject|check|rescue)", p)
         if method == "POST" and m:
             pid = int(m.group(1))
+            if m.group(2) == "check":
+                return 200, core.check_proposal_id(pid)
+            if m.group(2) == "rescue":
+                return 200, core.rescue_proposal(pid)
             if m.group(2) == "reject":
                 return 200, core.reject_proposal(pid)
             d = json.loads(body.decode("utf-8") or "{}")
@@ -73,7 +90,7 @@ def route(method: str, path: str, headers, body: bytes):
         if method == "POST" and p == "/validate":
             d = json.loads(body.decode("utf-8") or "{}")
             ids = [int(i) for i in d.get("ids", [])]
-            return 200, core.validate_proposals(ids)
+            return 200, core.validate_proposals(ids, force=bool(d.get("force")))
         if method == "GET" and p == "/stats":
             return 200, core.stats()
         return 404, {"error": "route inconnue"}
@@ -86,6 +103,16 @@ def route(method: str, path: str, headers, body: bytes):
         return 500, {"error": "erreur interne : " + str(e)[:200]}
 
 
+def client_ip(handler) -> str:
+    """IP réelle du visiteur : derrière cloudflared (connexion locale), en-tête CF-Connecting-IP / X-Forwarded-For."""
+    remote = handler.client_address[0]
+    if remote in ("127.0.0.1", "::1", "::ffff:127.0.0.1"):
+        h = handler.headers.get("CF-Connecting-IP") or (handler.headers.get("X-Forwarded-For") or "").split(",")[0].strip()
+        if h:
+            return h
+    return remote
+
+
 def serve(handler) -> None:
     """Adaptateur BaseHTTPRequestHandler -> route()."""
     n = int(handler.headers.get("Content-Length") or 0)
@@ -93,7 +120,7 @@ def serve(handler) -> None:
         status, out = 413, {"error": "corps trop gros"}
     else:
         body = handler.rfile.read(n) if n else b""
-        status, out = route(handler.command, handler.path, handler.headers, body)
+        status, out = route(handler.command, handler.path, handler.headers, body, client_ip(handler))
     data = json.dumps(out, ensure_ascii=False).encode("utf-8")
     handler.send_response(status)
     handler.send_header("Content-Type", "application/json; charset=utf-8")

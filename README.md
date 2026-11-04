@@ -145,3 +145,10 @@ Réutilisation libre, y compris commerciale. Attribution demandée pour le conte
 
 - **[AeroTest](https://aerotest.prunel.net)** — banque de questions PPL avec suivi de progression
 - **Aero Coach ATCF** — cours PPL qui utilisent AeroLex et AeroTest
+
+## Suggérer des termes (`/aero/suggest.html`)
+- **Soumission ouverte, sans jeton** (termes ou fichier ≤ 5 Mo, 300 termes max, suivi `?job=<id>`). Garde-fous de coût : 30 termes envoyés au LLM / h / IP et 300 / jour / IP (IP réelle via `CF-Connecting-IP`), plafond global 2 $/24 h (puis Qwopus local, puis refus poli), 20 analyses de fichier / h / IP. Cache, index et contrôles déterministes : illimités.
+- **Revue / validation = jeton** (`~/.aerolex-suggest-token`, onglet visible seulement si `#t=…` a été posé en localStorage). Sous-onglets « À valider » / « Écartés » (repêchage).
+- **Écartés automatiquement** : nombre, valeur+unité, unité courante, mot courant sans sens aéro, fragment de phrase, faute de frappe d'un terme existant (distance ≤ 2), puis LLM (`domaine=false` / `pertinent=false`).
+- **Contrôle avant « Valider »** (`check_proposal`) : terme absent de l'index courant (alias compris), famille, définition 2-4 phrases non circulaire, initiales du développé = sigle, cohérence avec les fiches voisines (LLM court), confiance < 0,6 → avertissement. Échec = bloquant, avec « Forcer ».
+- Tests : `python3 scripts/test_suggest.py`.

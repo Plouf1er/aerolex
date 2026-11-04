@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="robots" content="noindex">
 <title>Suggérer des termes — AeroLex</title>
-<link rel="stylesheet" href="suggest.css?v=1">
+<link rel="stylesheet" href="suggest.css?v=2">
 </head>
 <body>
 <header class="top">
@@ -15,17 +15,10 @@
 
 <nav class="tabs" role="tablist">
   <button id="tab-submit" class="tab on" role="tab" aria-selected="true">Suggérer</button>
-  <button id="tab-review" class="tab" role="tab" aria-selected="false">À valider <span id="pending-count" class="pill" hidden></span></button>
+  <button id="tab-review" class="tab" role="tab" aria-selected="false" hidden>À valider <span id="pending-count" class="pill" hidden></span></button>
 </nav>
 
 <main>
-  <section id="auth" class="card" hidden>
-    <label for="token">Jeton d'accès</label>
-    <input id="token" type="password" autocomplete="off" placeholder="Coller le jeton">
-    <button id="token-save" class="btn">Enregistrer</button>
-    <p class="hint">Gardé uniquement dans ce navigateur.</p>
-  </section>
-
   <section id="pane-submit">
     <div class="card">
       <label for="domain">Lexique</label>
@@ -34,7 +27,7 @@
       <label for="terms">Termes <span class="hint">(séparés par des virgules, points-virgules ou retours à la ligne)</span></label>
       <textarea id="terms" rows="5" placeholder="emplanture, chandelle, cumulonimbus"></textarea>
 
-      <label class="file" for="file">Ou envoyer un fichier <span class="hint">.txt .csv .md .pdf .docx</span></label>
+      <label class="file" for="file">Ou envoyer un fichier <span class="hint">.txt .csv .md .pdf .docx, 5 Mo max</span></label>
       <input id="file" type="file" accept=".txt,.csv,.md,.pdf,.docx">
       <p id="file-info" class="hint" hidden></p>
 
@@ -43,6 +36,7 @@
         <span id="count" class="hint"></span>
       </div>
       <p id="msg" class="msg" role="status" hidden></p>
+      <p class="hint">Les termes sont analysés automatiquement ; les propositions pertinentes sont ensuite relues avant publication. Rien n'est ajouté au lexique sans validation.</p>
     </div>
 
     <div id="progress" class="card" hidden>
@@ -51,15 +45,17 @@
       <p class="hint">Vous pouvez fermer la page : <a id="job-link" href="#">lien de ce traitement</a>.</p>
     </div>
 
+    <div id="sent" class="msg ok" role="status" hidden></div>
     <div id="summary" class="hint"></div>
     <div id="results"></div>
   </section>
 
   <section id="pane-review" hidden>
+    <div class="subtabs"><button id="sub-pending" class="tab on">À valider</button><button id="sub-discarded" class="tab">Écartés <span id="discarded-count" class="pill" hidden></span></button></div>
     <div class="row"><button id="refresh" class="btn">Actualiser</button><span id="review-msg" class="hint"></span></div>
     <div id="proposals"></div>
   </section>
 </main>
-<script src="suggest.js?v=1"></script>
+<script src="suggest.js?v=3"></script>
 </body>
 </html>
