@@ -193,3 +193,18 @@ h1 {
 .sigle strong { color: var(--pg-ink); }
 .aliases { margin: 0.8rem 0; color: var(--pg-ink-sec); }
 .term-list .dev { color: var(--pg-ink-sec); font-size: 0.92em; }
+
+
+/* Mobile 390 px (2026-11-04) : les développés longs (sigle, listes famille / voir aussi,
+   alias) passent à la ligne au lieu de pousser la page vers la droite. */
+h1, .sigle, .meta, .aliases, .definition, .definition + div,
+.family-table li, .family-table td, .family-table th, .xrefs li, .term-list li, .dev, nav a {
+  overflow-wrap: anywhere;
+  word-break: normal;
+}
+.family-table { overflow-wrap: anywhere; }
+.family-table table { table-layout: fixed; }
+.family-table li, .xrefs li { min-width: 0; }
+@media (max-width: 560px) {
+  .family-table, .xrefs { padding-left: .9rem; padding-right: .9rem; }
+}

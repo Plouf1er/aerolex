@@ -117,7 +117,7 @@ check("cache: pluriel déjà analysé -> aucun appel", CALLS == [] and v["result
 check("cache: pas de doublon de proposition", len(core.list_proposals("aero")) == 1)
 
 CALLS.clear()
-v = core.submit("aero", "masse totale, datum, emplanture, AIP, chandelle, cumulonimbus, baguette de pain", )
+v = core.submit("aero", "masse totale, levier, emplanture, AIP, chandelle, cumulonimbus, baguette de pain", )
 for _ in range(100):
     v = core.job_view(v["id"])
     if v["etat"] == "done":
@@ -128,7 +128,8 @@ check("lot: job terminé, 7 résultats", v["etat"] == "done" and len(by) == 7 an
 check("lot: AIP et cumulonimbus déjà présents (gratuit)", by["AIP"]["statut"] == "present" and by["cumulonimbus"]["statut"] == "present")
 check("lot: baguette de pain hors domaine", by["baguette de pain"]["verdict"] == "hors_domaine")
 check("lot: 4 termes restants -> 2 appels parallèles de 2 (emplanture en cache)", len(CALLS) == 2, CALLS)
-check("lot: datum voisins", by["datum"].get("voisins"))
+# « datum » est désormais une fiche (validée) : on teste les voisins avec un terme absent (levier -> bras de levier)
+check("lot: levier voisins (bras de levier)", by["levier"].get("voisins"))
 check("lot: coût journalisé", core.stats()["usd_total"] > 0)
 check("lot: hors domaine jamais en file", "baguette de pain" not in [x["terme"] for x in core.list_proposals("aero")])
 

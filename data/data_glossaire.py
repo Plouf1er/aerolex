@@ -801,6 +801,15 @@ GLOSSAIRE = {
         "variantes": ["inertiel", "inertielle"],
         "xrefs": ["énergie cinétique"],
     },
+    # ---------------- Suggestions validées (suggest) ----------------
+    "datum": {
+        "definition": "Ligne ou plan de référence choisi par le constructeur, à partir duquel on mesure tous les bras de levier du calcul de masse et centrage. Sa position est donnée dans le manuel de vol ou la fiche de pesée : c'est par rapport à lui que s'expriment le centre de gravité (« mm aft datum »), le moment de la masse à vide et celui de chaque passager, bagage ou litre de carburant. Peu importe où il se trouve, tant qu'on utilise le même datum pour tout le calcul.",
+        "categorie": "Masse & centrage",
+        "famille": "masses",
+        "variantes": ["référence datum", "plan de référence", "datum de référence"],
+        "xrefs": ["bras de levier", "mm aft datum", "moment", "masse a vide", "fiche de pesée"],
+        "origine": "suggest",
+    },
 }
 
 

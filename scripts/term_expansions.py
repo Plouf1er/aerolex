@@ -29,6 +29,10 @@ EXPANSIONS = {
     "AIC":   ("Aeronautical Information Circular", "circulaire d'information aéronautique", ""),
     "APP":   ("Approach Control", "contrôle d'approche", ""),
     "AWY":   ("Airway", "voie aérienne", ""),
+    # Documents de bord : sens confirmé par la séance 017 (« CDN (certificat de navigabilité) »,
+    # « CEN (certificat d'examen de navigabilité) », ARC = ex-CEN) — 2026-11-04.
+    "CDN":   ("Certificat de navigabilité", "CofA — Certificate of Airworthiness", ""),
+    "CEN":   ("Certificat d'examen de navigabilité", "équivalent français de l'ARC — Airworthiness Review Certificate", ""),
     "TWR":   ("Aerodrome Control Tower", "tour de contrôle d'aérodrome", ""),
     "siv":   ("Service d'information de vol", "Flight Information Service", "U"),
     "SAR":   ("Search and Rescue", "recherche et sauvetage", ""),
@@ -258,9 +262,7 @@ NOT_ACRONYMS = {
 # données : volontairement non développées (à valider par Louis).
 # Les mots de code radio (AFFIRM…) ne sont pas des acronymes.
 UNRESOLVED = {
-    "APRS":  "définition : « autorisation spéciale » en zone réglementée/dangereuse ; sigle non identifié",
-    "CEN":   "définition : « centre de contrôle » ; sigle non standard (CCR/ACC ?)",
-    "CDN":   "définition : service de délivrance des clairances ; sigle non standard (DEL ? Clearance Delivery)",
+    "APRS":  "définition : « autorisation spéciale » en zone réglementée/dangereuse ; sigle absent des séances et du POH, sens non confirmé (hypothèse : Approbation pour remise en service / CRS, à valider par Louis)",
     "7000 (VFR)": "code transpondeur, pas un acronyme (contient VFR)",
 }
 CODEWORDS = {"AFFIRM", "NEGATIVE", "HOLD SHORT", "LINE UP", "PAN PAN", "GO/NO GO", "no-go"}
