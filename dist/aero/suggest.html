@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="robots" content="noindex">
+<title>Suggérer des termes — AeroLex</title>
+<link rel="stylesheet" href="suggest.css?v=1">
+</head>
+<body>
+<header class="top">
+  <a class="back" href="index.html">← Index</a>
+  <h1>Suggérer des termes</h1>
+</header>
+
+<nav class="tabs" role="tablist">
+  <button id="tab-submit" class="tab on" role="tab" aria-selected="true">Suggérer</button>
+  <button id="tab-review" class="tab" role="tab" aria-selected="false">À valider <span id="pending-count" class="pill" hidden></span></button>
+</nav>
+
+<main>
+  <section id="auth" class="card" hidden>
+    <label for="token">Jeton d'accès</label>
+    <input id="token" type="password" autocomplete="off" placeholder="Coller le jeton">
+    <button id="token-save" class="btn">Enregistrer</button>
+    <p class="hint">Gardé uniquement dans ce navigateur.</p>
+  </section>
+
+  <section id="pane-submit">
+    <div class="card">
+      <label for="domain">Lexique</label>
+      <select id="domain"></select>
+
+      <label for="terms">Termes <span class="hint">(séparés par des virgules, points-virgules ou retours à la ligne)</span></label>
+      <textarea id="terms" rows="5" placeholder="emplanture, chandelle, cumulonimbus"></textarea>
+
+      <label class="file" for="file">Ou envoyer un fichier <span class="hint">.txt .csv .md .pdf .docx</span></label>
+      <input id="file" type="file" accept=".txt,.csv,.md,.pdf,.docx">
+      <p id="file-info" class="hint" hidden></p>
+
+      <div class="row">
+        <button id="go" class="btn primary">Analyser</button>
+        <span id="count" class="hint"></span>
+      </div>
+      <p id="msg" class="msg" role="status" hidden></p>
+    </div>
+
+    <div id="progress" class="card" hidden>
+      <div class="bar"><div id="bar-fill"></div></div>
+      <p id="progress-text" class="hint"></p>
+      <p class="hint">Vous pouvez fermer la page : <a id="job-link" href="#">lien de ce traitement</a>.</p>
+    </div>
+
+    <div id="summary" class="hint"></div>
+    <div id="results"></div>
+  </section>
+
+  <section id="pane-review" hidden>
+    <div class="row"><button id="refresh" class="btn">Actualiser</button><span id="review-msg" class="hint"></span></div>
+    <div id="proposals"></div>
+  </section>
+</main>
+<script src="suggest.js?v=1"></script>
+</body>
+</html>

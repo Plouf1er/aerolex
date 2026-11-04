@@ -41,11 +41,11 @@ from slugify import build_slug_map            # noqa: E402  (ne pas réécrire)
 from schema_map import TERM_TO_SCHEMA         # noqa: E402
 from svg_glossaire import SCHEMAS, get_schema  # noqa: E402
 from term_display import (build_display_table, clean_aliases, family_label,  # noqa: E402
-                          expand_acronyms)
+                          expand_acronyms, dev_label)
 
 # Version du schéma de payload. Incrémenter si la forme change de façon
 # incompatible : le JS peut alors refuser un cache périmé.
-PAYLOAD_VERSION = 2
+PAYLOAD_VERSION = 2   # champ "dev" ajouté (additif, compatible)
 
 
 class PayloadContext:
@@ -122,12 +122,21 @@ def build_payload(terme: str, ctx: PayloadContext) -> dict:
     all_variantes = clean_aliases(disp["titre"], terme, variantes + synonymes,
                                   disp["expansion"], disp["gloss"])
 
+    # Alias qui sont eux-mêmes des sigles connus : {alias: développé}.
+    variantes_dev = {}
+    for a in all_variantes:
+        ak = ctx.upper_index.get(a.upper())
+        dv = dev_label(ctx.display[ak]) if ak and ak != terme else None
+        if dv:
+            variantes_dev[a] = dv
+
     # Xrefs : filtrées sur l'existence réelle dans le glossaire → aucun lien
     # mort possible, ni en HTML ni dans la popup. Résolues en slug ici.
     xrefs = []
     for xr in (meta.get("xrefs") or []):
         if xr in g and xr != terme:
-            xrefs.append({"t": xr, "titre": ctx.display[xr]["titre"], "sl": ctx.slug(xr)})
+            xrefs.append({"t": xr, "titre": ctx.display[xr]["titre"], "sl": ctx.slug(xr),
+                          "dev": dev_label(ctx.display[xr])})
 
     # Membres de la famille (>= 2 pour valoir un tableau), avec slug + marqueur
     # du terme courant (jamais de lien d'un terme vers lui-même).
@@ -141,6 +150,7 @@ def build_payload(terme: str, ctx: PayloadContext) -> dict:
                     "titre": ctx.display[m]["titre"],
                     "sl": ctx.slug(m),
                     "courant": (m == terme),
+                    "dev": dev_label(ctx.display[m]),
                 })
 
     # Schéma : nom + SVG inline (c'est le point clé — la popup n'a plus besoin
@@ -178,6 +188,7 @@ def build_payload(terme: str, ctx: PayloadContext) -> dict:
         "famille_label": family_label(famille),
         "famille_membres": famille_membres,
         "variantes": all_variantes,
+        "variantes_dev": variantes_dev,
         "xrefs": xrefs,
         "schema": schema_name,
         "schema_svg": schema_svg,

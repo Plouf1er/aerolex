@@ -124,10 +124,11 @@ def generate_term_page(terme, index_list):
     if has_family_table:
         family_html = f"<h3>Famille : {escape(p['famille_label'])}</h3><ul>"
         for m in p['famille_membres']:
+            dev = f' <span class="dev">— {escape(m["dev"])}</span>' if m.get('dev') else ''
             if m['courant']:
-                family_html += f"<li><strong>{escape(m['titre'])}</strong></li>"
+                family_html += f"<li><strong>{escape(m['titre'])}</strong>{dev}</li>"
             else:
-                family_html += f'<li><a href="{escape(m["sl"])}.html">{escape(m["titre"])}</a></li>'
+                family_html += f'<li><a href="{escape(m["sl"])}.html">{escape(m["titre"])}</a>{dev}</li>'
         family_html += "</ul>"
 
     prev_link = f'<a href="{escape(p["prev"]["sl"])}.html">&laquo; {escape(p["prev"]["titre"])}</a>' if p['prev'] else '<span></span>'
@@ -188,7 +189,10 @@ def generate_term_page(terme, index_list):
         </div>
 """
     if variantes:
-        html_content += f"<div class=\"aliases\"><strong>Aussi appelé :</strong> {escape(', '.join(variantes))}</div>"
+        html_content += f"<div class=\"aliases\"><strong>Aussi appelé :</strong> {escape(', '.join(variantes))}</div>" if not p['variantes_dev'] else (
+            '<div class="aliases"><strong>Aussi appelé :</strong> ' + '; '.join(
+                escape(a) + (f' <span class="dev">— {escape(p["variantes_dev"][a])}</span>' if a in p['variantes_dev'] else '')
+                for a in variantes) + '</div>')
         
     if svg_html:
         html_content += f'<div class="svg-container">\n{svg_html}\n</div>'
@@ -203,7 +207,8 @@ def generate_term_page(terme, index_list):
     if valid_xrefs:
         html_content += '<div class="xrefs"><strong>Voir aussi :</strong><ul>'
         for xr in valid_xrefs:
-            html_content += f'<li><a href="{escape(xr["sl"])}.html">{escape(xr["titre"])}</a></li>'
+            dev = f' <span class="dev">— {escape(xr["dev"])}</span>' if xr.get('dev') else ''
+            html_content += f'<li><a href="{escape(xr["sl"])}.html">{escape(xr["titre"])}</a>{dev}</li>'
         html_content += '</ul></div>'
         
     html_content += f"""

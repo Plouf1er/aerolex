@@ -151,6 +151,8 @@ h1 {
 
 .family-table ul { margin: 0; padding-left: 1.15rem; }
 .family-table li { margin: .2rem 0; }
+/* Développé d'un sigle dans les listes (famille, voir aussi) */
+.dev { font-size: .85em; color: var(--pg-ink-sec); }
 
 /* ── Voir aussi ───────────────────────────────────────────────────────────*/
 .xrefs {

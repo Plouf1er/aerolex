@@ -168,6 +168,17 @@ def _compute_auto(key: str, meta: dict):
     return titre, expansion, gloss, rest
 
 
+def dev_label(info):
+    """Développé affichable d'un terme pour les listes (famille, voir aussi) :
+    'Area Control Centre (centre de contrôle régional)' ou None si ce n'est pas
+    un sigle. Source unique HTML + popup (transite par le payload)."""
+    exp = (info or {}).get("expansion")
+    if not exp:
+        return None
+    gl = info.get("gloss")
+    return f"{exp} ({gl})" if gl else exp
+
+
 def build_display_table(glossaire: dict):
     """{terme: {titre, expansion, gloss, definition_base}} pour tout le lexique."""
     out = {}

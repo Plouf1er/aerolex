@@ -1,6 +1,6 @@
 {
-  "empreinte": "d9f5ef74",
-  "date": "2026-11-04T16:26:36+00:00",
+  "empreinte": "8fccbe00",
+  "date": "2026-11-04T16:28:55+00:00",
   "nb_termes": 1302,
   "assets": [
     {
@@ -15,8 +15,8 @@
     },
     {
       "fichier": "aerolex-page.css",
-      "octets": 7249,
-      "sha256": "ffbbc588"
+      "octets": 7369,
+      "sha256": "1c50fc16"
     },
     {
       "fichier": "aerolex-svg.js",
