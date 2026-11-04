@@ -226,6 +226,21 @@
     return box;
   }
 
+  // sigles : développés insérés automatiquement + nouveaux sigles (hors term_expansions.py) avec leur développé proposé
+  function sigleNode(d) {
+    var ins = d.sigles_inseres || [], neu = d.sigles || [];
+    if (!ins.length && !neu.length) return null;
+    var box = el("div", { class: "sigles" });
+    if (ins.length) box.appendChild(kv("Sigles développés automatiquement", ins.join(", ")));
+    neu.forEach(function (x) {
+      var ok = x.coherent && x.developpe;
+      box.appendChild(el("p", { class: "kv " + (ok ? "sig-new" : "sig-warn") }, [el("b", { text: "Nouveau sigle " + x.sigle + " : " }),
+        document.createTextNode(ok ? x.developpe + (x.traduction_fr ? " — " + x.traduction_fr : "") + " (sera ajouté à term_expansions.py à la validation)"
+          : "⚠ " + (x.developpe_modele ? "initiales de « " + x.developpe_modele + " » incohérentes avec " + x.sigle : "développé inconnu") + " : à développer à la main")]));
+    });
+    return box;
+  }
+
   function proposalCard(p) {
     var d = p.data, disc = subStatus === "discarded", box = el("div", { class: "res " + (disc ? "ecarte" : "a_valider") });
     if (disc) {
@@ -259,6 +274,7 @@
     var view = el("div", {}, [
       d.origine ? kv("Développé", d.origine + (d.traduction ? " (" + d.traduction + ")" : "")) : null,
       kv("Définition", d.definition),
+      sigleNode(d),
       kv("Famille proposée", famText(p.domaine, d)),
       kv("Justification", d.famille_justification),
       (d.voir_aussi || []).length ? kvNode("Voir aussi proposés", linkList(d.voir_aussi, liens)) : null,
@@ -290,12 +306,13 @@
     var bVal = el("button", { class: "btn ok", text: "Valider" });
     var bMod = el("button", { class: "btn", text: "Modifier" });
     var bRej = el("button", { class: "btn ko", text: "Rejeter" });
+    var bChk = el("button", { class: "btn", text: "Contrôler" });
     var panel = el("div", {});
     // relance commentée + historique des versions
     var cmt = el("textarea", { rows: "3", id: "cmt-" + p.id, placeholder: "ex. mets-la dans la même famille que bord d'attaque, et ajoute bord de fuite en voir aussi" });
     var bRel = el("button", { class: "btn", text: "Relancer avec ce commentaire" });
     var relMsg = el("p", { class: "msg err", hidden: "" });
-    var busy = function (b) { [bVal, bMod, bRej, bRel].forEach(function (x) { x.disabled = b; }); };
+    var busy = function (b) { [bVal, bMod, bRej, bRel, bChk].forEach(function (x) { x.disabled = b; }); };
     bRel.onclick = function () {
       var c = cmt.value.trim();
       if (c.length < 3) { relMsg.hidden = false; relMsg.textContent = "Écrivez d'abord un commentaire pour le modèle."; return; }
@@ -344,6 +361,16 @@
         loadProposals();
       }).catch(function (e) { alert(e.message); busy(false); bVal.textContent = "Valider"; });
     }
+    bChk.onclick = function () {       // contrôle de cohérence seul : n'écrit rien, aucun bouton de validation
+      busy(true); bChk.textContent = "Contrôle…"; panel.textContent = "";
+      var pre = !edit.hidden ? api("POST", "/proposals/" + p.id + "/edit", collect()) : Promise.resolve();
+      pre.then(function () { return api("POST", "/proposals/" + p.id + "/check", {}); }).then(function (rep) {
+        var pn = checkPanel(rep, null, null);
+        Array.prototype.slice.call(pn.querySelectorAll("button")).forEach(function (b) { b.remove(); });
+        panel.appendChild(pn);
+        busy(false); bChk.textContent = "Contrôler";
+      }).catch(function (e) { alert(e.message); busy(false); bChk.textContent = "Contrôler"; });
+    };
     bVal.onclick = function () {
       busy(true); bVal.textContent = "Contrôle…"; panel.textContent = "";
       var pre = !edit.hidden ? api("POST", "/proposals/" + p.id + "/edit", collect())
@@ -357,7 +384,7 @@
     };
     box.appendChild(title); box.appendChild(view); box.appendChild(edit); box.appendChild(relBox); if (verBox) box.appendChild(verBox);
     box.appendChild(panel);
-    box.appendChild(el("div", { class: "actions" }, [bVal, bMod, bRej]));
+    box.appendChild(el("div", { class: "actions" }, [bVal, bChk, bMod, bRej]));
     return box;
   }
   function loadProposals() {

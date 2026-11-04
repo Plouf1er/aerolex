@@ -663,8 +663,17 @@ def _fiche_line(idx: "LexiconIndex", t: str) -> str:
 
 def _item_json(it: dict) -> str:
     keep = ("definition", "famille", "famille_nouvelle", "famille_nouvelle_label", "famille_justification", "rattachements",
-            "voir_aussi", "synonymes", "origine", "traduction", "confiance")
+            "voir_aussi", "synonymes", "origine", "traduction", "sigles", "confiance")
     return json.dumps({k: it.get(k) for k in keep if k in it}, ensure_ascii=False)
+
+
+ACRONYM_RULE = (
+    "RÈGLE DES SIGLES (partout, dans la définition) : à la PREMIÈRE occurrence d'un sigle, mets son développé entre parenthèses juste à côté, "
+    "avec la traduction française si le développé est anglais. Exemple : « … inférieure à la MTOM (Maximum Take-Off Mass — masse maximale au décollage). » "
+    "Si le texte donne déjà la forme longue juste avant le sigle, complète seulement avec la forme d'origine, sans doublon : "
+    "« … la masse maximale au décollage (MTOM — Maximum Take-Off Mass) … ». Autre exemple : « QNH (Q-code — calage altimétrique…) » "
+    "→ pour un sigle comme TORA : « TORA (Take-Off Run Available — distance de roulement utilisable au décollage) ». "
+    "Ne laisse jamais un sigle sans développé, et liste-le dans le champ \"sigles\".\n")
 
 
 def build_prompt(lex_id: str, terms: list, families: dict, ctx: dict | None = None, previous: dict | None = None,
@@ -695,7 +704,10 @@ def build_prompt(lex_id: str, terms: list, families: dict, ctx: dict | None = No
         '  "rattachements": fiches EXISTANTES SANS FAMILLE (liste ci-dessous, noms exacts) qui devraient rejoindre la famille choisie/proposée (vide si aucune),\n'
         '  "voir_aussi": jusqu\'à 8 fiches EXISTANTES (noms exacts, voisines ou liste du lexique) à relier en « voir aussi »,\n'
         '  "synonymes": variantes, synonymes, alias, formes courantes (peut être vide),\n'
+        '  "sigles": [{"sigle", "developpe", "traduction_fr"}] pour CHAQUE sigle/abréviation employé dans ta définition (hors le terme lui-même) : '
+        'developpe = forme d\'origine complète, traduction_fr = traduction française si le développé est anglais, sinon "" (liste vide si aucun sigle),\n'
         '  "confiance": nombre 0..1 (ta certitude sur la définition).\n'
+        + ACRONYM_RULE +
         "RÈGLES DE FAMILLE : regarde d'abord les fiches voisines fournies avec chaque terme et le catalogue des familles ; choisis une famille "
         "EXISTANTE dès qu'elle convient. Ne crée une nouvelle famille que si aucune ne convient ; dans ce cas, propose les fiches existantes sans famille "
         "qui devraient la rejoindre (ex. pour « emplanture » : bord d'attaque, bord de fuite, longeron, nervure, corde, profil). "
@@ -715,7 +727,10 @@ def build_prompt(lex_id: str, terms: list, families: dict, ctx: dict | None = No
         user += ("\n\nTa proposition précédente pour ce terme (JSON) :\n" + _item_json(previous) +
                  "\n\nCommentaire du relecteur : " + comment.strip()[:1500] +
                  "\n\nRéponds par une NOUVELLE version complète (même format, un seul item) qui tient compte du commentaire, "
-                 "en restant exacte ; ne change que ce que le commentaire ou les fiches voisines justifient.")
+                 "en restant exacte ; ne change que ce que le commentaire ou les fiches voisines justifient. "
+                 "Rappel de la règle des sigles : à la 1re occurrence de chaque sigle de la définition, développé entre parenthèses "
+                 "(+ traduction française si anglais ; si la forme longue précède déjà, compléter seulement avec la forme d'origine, sans doublon), "
+                 "et champ \"sigles\" renseigné.")
     return [{"role": "system", "content": system}, {"role": "user", "content": user}]
 
 
@@ -781,6 +796,204 @@ def _names(v, idx, own: str, limit: int, no_family_only: bool = False) -> list:
     return out[:limit]
 
 
+# ── Sigles développés dans les définitions (règle de Louis : 1re occurrence = sigle + développé entre parenthèses) ──
+# « MTOM (Maximum Take-Off Mass — masse maximale au décollage) » ; si la forme longue précède déjà
+# (« masse maximale au décollage (MTOM) »), on complète seulement : « (MTOM — Maximum Take-Off Mass) ».
+_ACR_TOKEN = re.compile(r"(?<!\w)(?<!\w-)([A-Za-z0-9]{2,7})(?!\w)")
+_ACR_NOT = {"SHELL", "GO", "NO", "HOLD", "SHORT", "LINE", "UP", "PAN", "STOP", "OK", "AFFIRM", "NEGATIVE", "CLEARED", "STANDBY"}
+_ROMAN = re.compile(r"[IVXLC]+")
+
+
+def _dev_mods():
+    """(term_display, term_expansions) du projet (ROOT/scripts) : source unique des développés."""
+    sp = str(ROOT / "scripts")
+    sys.path.insert(0, sp)
+    try:
+        import term_display, term_expansions  # type: ignore
+    finally:
+        try:
+            sys.path.remove(sp)
+        except ValueError:
+            pass
+    return term_display, term_expansions
+
+
+def reload_dev_mods() -> None:
+    import importlib
+    td, te = _dev_mods()
+    importlib.reload(te)
+    importlib.reload(td)
+    _idx_cache.clear()
+
+
+def _acr_tables(idx):
+    """(table d'affichage des fiches, index MAJUSCULES->clé, EXPANSIONS par MAJUSCULES) — mis en cache sur l'index."""
+    t = getattr(idx, "_acr", None)
+    if t is None:
+        td, te = _dev_mods()
+        table = td.build_display_table(idx.glossaire)
+        upper = {}
+        for k, v in table.items():
+            if v["expansion"]:
+                upper.setdefault(k.upper(), k)
+        exp_up = {k.upper(): k for k in te.EXPANSIONS}
+        t = idx._acr = (table, upper, exp_up)
+    return t
+
+
+def acr_info(tok: str, idx):
+    """Développé OFFICIEL d'un sigle (fiche du lexique, EXPANSIONS, EXTRA_ABBREVIATIONS) ou None.
+    -> {expansion, gloss, inline, source:'lexique'}"""
+    td, te = _dev_mods()
+    table, upper, exp_up = _acr_tables(idx)
+    key = tok if (tok in table and table[tok]["expansion"]) else upper.get(tok.upper())
+    info = table.get(key) if key else None
+    if info and info["expansion"]:
+        return {"expansion": info["expansion"], "gloss": info.get("gloss"), "inline": info.get("inline") is not False, "source": "lexique"}
+    ek = exp_up.get(tok.upper())
+    if ek and (tok.isupper() or tok == ek):
+        exp, gl, flags = te.EXPANSIONS[ek]
+        return {"expansion": exp, "gloss": gl, "inline": "N" not in flags, "source": "lexique"}
+    e = te.EXTRA_ABBREVIATIONS.get(tok.upper())
+    if e and tok.isupper():
+        return {"expansion": e[0], "gloss": e[1] or None, "inline": True, "source": "lexique"}
+    return None
+
+
+def _model_sigles(v) -> dict:
+    """Champ « sigles » du modèle -> {SIGLE: (développé, traduction_fr)}."""
+    out = {}
+    for x in v if isinstance(v, list) else []:
+        if isinstance(x, dict):
+            s = str(x.get("sigle") or "").strip()
+            dev = re.sub(r"<[^>]+>", "", str(x.get("developpe") or x.get("origine") or "")).strip()[:200]
+            fr = re.sub(r"<[^>]+>", "", str(x.get("traduction_fr") or x.get("traduction") or "")).strip()[:200]
+            if s and dev:
+                out.setdefault(s.upper(), (dev, fr))
+    return out
+
+
+def _plan_acr(text: str, s: int, e: int, tok: str, exp: str, gloss):
+    """Insertion à faire pour la 1re occurrence : (début, fin, texte) ou None si déjà développé. Jamais de double parenthèse."""
+    full = exp + (" — " + gloss if gloss else "")
+    before, after = text[:s], text[e:]
+    if before.endswith("("):
+        if after.startswith(")"):                     # forme longue déjà devant : « masse maximale au décollage (MTOM) »
+            nb = norm(before[:-1])
+            has_g, has_e = bool(gloss) and nb.endswith(norm(gloss)), nb.endswith(norm(exp))
+            if has_g and has_e:
+                return None
+            add = exp if has_g else (gloss if (has_e and gloss) else (None if has_e else full))
+            return None if add is None else (e, e, " — " + add)
+        if re.match(r"\s*[—–-]", after):               # « (MTOM — Maximum Take-Off Mass) » : déjà fait
+            return None
+    pm = re.match(r"(\s*)\(([^)]*)\)", after)
+    if pm:                                            # parenthèse déjà là : est-ce le développé ?
+        c = pm.group(2)
+        head = re.split(r"\s*[—–;]\s*", c)[0]
+        if norm(exp) in norm(c) or (gloss and norm(gloss.split(" — ")[0]) in norm(c)) or acronym_matches(tok, head):
+            return None
+        p = e + len(pm.group(1)) + 1                  # on fusionne dans la parenthèse existante
+        return (p, p, full + " ; ")
+    if re.search(r"\([^()]*$", before):               # déjà dans une parenthèse : crochets, pas de parenthèse imbriquée
+        return (e, e, " [" + full + "]")
+    return (e, e, " (" + full + ")")
+
+
+def analyse_acronyms(text: str, own: str, idx, model=None) -> list:
+    """Sigles de la définition (1re occurrence de chacun). -> [{sigle, info|None, source, plan|None, incoherent}]
+    info = développé retenu (lexique, sinon proposé par le modèle SI les initiales correspondent) ;
+    plan = insertion nécessaire (None = déjà développé / rien à faire)."""
+    td, te = _dev_mods()
+    model = model or {}
+    own_n = norm(own or "")
+    seen, out = set(), []
+    for m in _ACR_TOKEN.finditer(text or ""):
+        tok = m.group(1)
+        if tok in seen or norm(tok) == own_n:
+            continue
+        info = acr_info(tok, idx)
+        if info is None:
+            if tok.isdigit() or _ROMAN.fullmatch(tok) or not tok.isupper() or tok in _ACR_NOT or tok in te.NOT_ACRONYMS \
+                    or tok in td._UPPER_NOT_SIGLE or sum(c.isalpha() for c in tok) < 2 or any(c.isdigit() for c in tok):
+                continue
+        seen.add(tok)
+        inc = False
+        if info is None and tok.upper() in model:
+            dev, fr = model[tok.upper()]
+            if acronym_matches(tok, dev) or (fr and acronym_matches(tok, fr)):
+                info = {"expansion": dev, "gloss": fr or None, "inline": True, "source": "modele"}
+            else:
+                inc = True
+        plan = None
+        if info is not None and info["inline"] and info["expansion"].lower() != tok.lower():
+            plan = _plan_acr(text, m.start(1), m.end(1), tok, info["expansion"], info["gloss"])
+        out.append({"sigle": tok, "info": info, "source": info["source"] if info else "", "plan": plan, "incoherent": inc})
+    return out
+
+
+def develop_acronyms(text: str, own: str, idx, model=None) -> tuple:
+    """Post-traitement déterministe. -> (texte, rapport) ; rapport = {inseres:[sigle], sigles:[sigles hors lexique]}."""
+    ents = analyse_acronyms(text, own, idx, model)
+    ins = []
+    for e in sorted((e for e in ents if e["plan"]), key=lambda e: -e["plan"][0]):
+        a, b, s = e["plan"]
+        text = text[:a] + s + text[b:]
+    ins = [e["sigle"] for e in ents if e["plan"]]
+    new = []
+    for e in ents:
+        if e["source"] == "lexique":
+            continue
+        inf = e["info"]
+        new.append({"sigle": e["sigle"], "developpe": inf["expansion"] if inf else "", "traduction_fr": (inf["gloss"] or "") if inf else "",
+                    "coherent": bool(inf) and not e["incoherent"], "nouveau": True,
+                    **({"developpe_modele": model[e["sigle"].upper()][0]} if e["incoherent"] else {})})
+    return text, {"inseres": ins, "sigles": new}
+
+
+def acronym_check(d: dict, term: str, idx) -> dict:
+    """État des sigles d'une proposition (définition courante, éventuellement éditée à la main).
+    -> {non_developpes:[sigle], nouveaux:[{sigle,developpe,traduction_fr}], incoherents:[sigle], tous:[sigle]}"""
+    model = _model_sigles(d.get("sigles"))
+    ents = analyse_acronyms(d.get("definition") or "", term, idx, model)
+    return {"tous": [e["sigle"] for e in ents],
+            "non_developpes": [e["sigle"] for e in ents if e["info"] is None or e["plan"]],
+            "incoherents": [e["sigle"] for e in ents if e["incoherent"]],
+            "nouveaux": [{"sigle": e["sigle"], "developpe": e["info"]["expansion"], "traduction_fr": e["info"]["gloss"] or ""}
+                         for e in ents if e["source"] == "modele" and not e["plan"]]}
+
+
+def add_abbreviations(path: Path, items: list) -> list:
+    """Ajoute des sigles à EXTRA_ABBREVIATIONS de term_expansions.py (écriture atomique, relue et vérifiée).
+    items = [{sigle, developpe, traduction_fr}] -> liste des sigles réellement ajoutés."""
+    txt = path.read_text("utf-8")
+    m = re.search(r"^EXTRA_ABBREVIATIONS = \{\n(.*?)^\}\n", txt, re.S | re.M)
+    if not m:
+        raise RuntimeError("EXTRA_ABBREVIATIONS introuvable dans " + path.name)
+    ns: dict = {}
+    exec(compile(txt, str(path), "exec"), ns)               # noqa: S102 — fichier du dépôt, relu avant/après
+    have = {k.upper() for k in ns["EXPANSIONS"]} | {k.upper() for k in ns["EXTRA_ABBREVIATIONS"]}
+    lines, added = [], []
+    for it in items:
+        s = it["sigle"].strip().upper()
+        if not re.fullmatch(r"[A-Z0-9]{2,7}", s) or s in have or s in added:
+            continue
+        lines.append("    %s: (%s, %s, \"\"),\n" % (_py(s), _py(it["developpe"].strip()), _py(it["traduction_fr"].strip()) if it.get("traduction_fr") else "None"))
+        added.append(s)
+    if not added:
+        return []
+    head = "    # ajoutés via « Suggérer des termes » (développé vérifié : initiales = sigle)\n" if "ajoutés via « Suggérer" not in txt else ""
+    new = txt[:m.end(1)] + head + "".join(lines) + txt[m.end(1):]
+    ns2: dict = {}
+    exec(compile(new, str(path), "exec"), ns2)              # noqa: S102 — doit rester un module valide
+    if not all(a in ns2["EXTRA_ABBREVIATIONS"] for a in added):
+        raise RuntimeError("ajout de sigles non pris en compte")
+    tmp = path.with_name(path.name + ".tmp")
+    tmp.write_text(new, "utf-8")
+    os.replace(tmp, path)
+    return added
+
+
 def validate_item(it: dict, asked: str, families: dict, idx: "LexiconIndex | None" = None) -> dict:
     """Contrat de sortie LLM -> item normalisé ; lève ValueError si inutilisable."""
     if not isinstance(it, dict):
@@ -828,6 +1041,17 @@ def validate_item(it: dict, asked: str, families: dict, idx: "LexiconIndex | Non
         "synonymes": list(dict.fromkeys(syn))[:10],
         "confiance": round(conf, 2),
     }
+    if out["definition"]:      # sigles : développés à la 1re occurrence (déterministe, après la réponse du modèle)
+        try:
+            new_def, rep_ = develop_acronyms(out["definition"], asked, idx or get_index("aero"), _model_sigles(it.get("sigles")))
+        except Exception as e:  # le post-traitement ne doit jamais faire perdre une proposition
+            sys.stderr.write("sigles: %r\n" % (e,))
+        else:
+            if new_def != out["definition"]:
+                out["definition_modele"] = out["definition"]
+                out["definition"] = new_def
+            out["sigles_inseres"] = rep_["inseres"]
+            out["sigles"] = rep_["sigles"]
     if out["domaine"] and out["pertinent"] and len(out["definition"]) < 20:
         out["pertinent"] = False
         out["raison_pertinent"] = (out["raison_pertinent"] + " (définition manquante : à rédiger)").strip()
@@ -1390,6 +1614,23 @@ def check_proposal(row, run_llm: bool = True) -> dict:
             add("Définition", "ko", "circulaire : le terme sert seul d'explication.")
         else:
             add("Définition", "ok", "%d phrases." % ns)
+    if definition:             # sigles développés à la 1re occurrence (liste des non développés = bloquant, sauf forçage)
+        try:
+            ac = acronym_check(d, term, idx)
+        except Exception as e:
+            ac = None
+            add("Sigles développés", "warn", "non vérifiés (%s)" % str(e)[:120])
+        if ac is not None:
+            if ac["non_developpes"]:
+                lst = ", ".join(ac["non_developpes"])
+                ctl.append({"nom": "Sigles développés", "statut": "warn", "bloquant": True,
+                            "detail": "non développés : %s (développé entre parenthèses à la 1re occurrence)." % lst
+                                      + (" Initiales du développé proposé incohérentes : %s." % ", ".join(ac["incoherents"]) if ac["incoherents"] else "")})
+            else:
+                add("Sigles développés", "ok", (", ".join(ac["tous"]) + " : tous développés.") if ac["tous"] else "aucun sigle dans la définition.")
+            if ac["nouveaux"]:
+                add("Sigles nouveaux", "ok", "ajoutés à term_expansions.py à la validation : " + " ; ".join(
+                    "%s = %s%s" % (x["sigle"], x["developpe"], " (%s)" % x["traduction_fr"] if x["traduction_fr"] else "") for x in ac["nouveaux"]))
     t0 = term.strip()
     if re.fullmatch(r"[A-Z0-9][A-Z0-9/\-]{1,7}", t0) and re.search(r"[A-Z]{2}", t0):
         devs = [x for x in (d.get("origine"), d.get("traduction")) if x]
@@ -1427,9 +1668,10 @@ def check_proposal(row, run_llm: bool = True) -> dict:
     conf = float(d.get("confiance") or 0)
     if conf < LOW_CONF:
         add("Confiance", "warn", "confiance du modèle %d %% (< %d %%) : relire avec attention." % (round(conf * 100), round(LOW_CONF * 100)))
-    return {"ok": not any(c["statut"] == "ko" for c in ctl), "controles": ctl,
-            "bloquants": [c["nom"] + " : " + c["detail"] for c in ctl if c["statut"] == "ko"],
-            "avertissements": [c["nom"] + " : " + c["detail"] for c in ctl if c["statut"] == "warn"],
+    blk_ = lambda c: c["statut"] == "ko" or c.get("bloquant")          # « bloquant » = affiché ⚠ mais exige le forçage
+    return {"ok": not any(blk_(c) for c in ctl), "controles": ctl,
+            "bloquants": [c["nom"] + " : " + c["detail"] for c in ctl if blk_(c)],
+            "avertissements": [c["nom"] + " : " + c["detail"] for c in ctl if c["statut"] == "warn" and not c.get("bloquant")],
             "fiches_liees": rel, "confiance": conf}
 
 
@@ -1570,6 +1812,14 @@ LINKS_TEST = ["python3", "scripts/test_links_resolve.py"]
 _SKIP_DATA = shutil.ignore_patterns("suggest")      # data/suggest = base SQLite vivante (propositions, sessions) : jamais restaurée
 
 
+class _ExpPath:        # chemin évalué à l'usage (ROOT change dans les tests)
+    def exists(self): return (ROOT / "scripts" / "term_expansions.py").exists()
+    def __fspath__(self): return str(ROOT / "scripts" / "term_expansions.py")
+
+
+EXPANSIONS_REL = _ExpPath()
+
+
 class ValidationError(RuntimeError):
     """Validation annulée ; data/ et dist/aero/ ont été restaurés."""
 
@@ -1588,6 +1838,8 @@ def backup_site() -> Path:
     dest.mkdir(parents=True)
     shutil.copytree(ROOT / "data", dest / "data", symlinks=True, ignore=_SKIP_DATA)
     shutil.copytree(ROOT / "dist" / "aero", dest / "dist_aero", symlinks=True)
+    if EXPANSIONS_REL.exists():            # développés des sigles : modifiés par la validation (sigles nouveaux)
+        shutil.copy2(EXPANSIONS_REL, dest / "term_expansions.py")
     try:                                   # ne garder que les 20 dernières sauvegardes automatiques (jamais les manuelles)
         _load_module(ROOT / "src" / "import_lexique.py", "import_lexique_prune").prune_backups(BACKUP_ROOT)
     except Exception as e:
@@ -1596,6 +1848,8 @@ def backup_site() -> Path:
 
 
 def restore_site(bk: Path) -> None:
+    if (bk / "term_expansions.py").exists():
+        shutil.copy2(bk / "term_expansions.py", EXPANSIONS_REL)
     for live, saved, ign in ((ROOT / "data", bk / "data", _SKIP_DATA), (ROOT / "dist" / "aero", bk / "dist_aero", None)):
         tmp = live.with_name(live.name + ".restore-tmp")
         shutil.rmtree(tmp, ignore_errors=True)
@@ -1643,14 +1897,19 @@ def validate_proposals(ids: list, do_rebuild: bool = True, steps=None, force: bo
                 d["famille"] = d["famille_nouvelle"]
             d["voir_aussi"] = _names(d.get("voir_aussi"), idx, r["term"], MAX_VOIR_AUSSI)
             att = _names(d.get("rattachements_retenus"), idx, r["term"], 15, True) if d.get("famille") else []
-            chunks.append((dom, r, render_entry(r["term"], d), d, att))
+            new_abbr = [x for x in acronym_check(d, r["term"], idx)["nouveaux"]]
+            chunks.append((dom, r, render_entry(r["term"], d), d, att, new_abbr))
     if not chunks:
         return {"valides": [], "ignores": skipped, "refuses": refused, "build": [], "force": bool(force)}
 
     attached: list = []
     skipped_att: list = []
+    added_abbr: list = []
 
     def write_sources():
+        items = [x for c in chunks for x in c[5]]
+        if items:                       # sigles nouveaux : même opération sûre (sauvegarde + restauration)
+            added_abbr.extend(add_abbreviations(ROOT / "scripts" / "term_expansions.py", items))
         for dom in by_dom:
             if any(c[0] == dom for c in chunks):
                 insert_into_source(ROOT / LEXICONS[dom]["source"], "".join(c[2] for c in chunks if c[0] == dom))
@@ -1678,9 +1937,11 @@ def validate_proposals(ids: list, do_rebuild: bool = True, steps=None, force: bo
 
     if not do_rebuild:
         write_sources()
+        if added_abbr:
+            reload_dev_mods()
         mark_validated()
         return {"valides": done, "ignores": skipped, "refuses": refused, "build": [], "force": bool(force),
-                "rattaches": attached, "rattachements_ignores": skipped_att}
+                "rattaches": attached, "rattachements_ignores": skipped_att, "sigles_ajoutes": added_abbr}
 
     # ── chemin sûr : un seul à la fois, sauvegarde, reconstruction, contrôles, restauration auto ──
     DATA_DIR.mkdir(parents=True, exist_ok=True)
@@ -1710,10 +1971,12 @@ def validate_proposals(ids: list, do_rebuild: bool = True, steps=None, force: bo
                     con.execute("UPDATE proposals SET data=?, upd=? WHERE id=?", (json.dumps(d, ensure_ascii=False), time.time(), r["id"]))
             _idx_cache.clear()
             raise ValidationError("validation annulée, site restauré (sauvegarde %s) : %s" % (bk, msg))
+        if added_abbr:
+            reload_dev_mods()
         mark_validated()
         return {"valides": done, "ignores": skipped, "refuses": refused, "build": log, "force": bool(force),
                 "fiches": [before, after], "sauvegarde": str(bk),
-                "rattaches": attached, "rattachements_ignores": skipped_att}
+                "rattaches": attached, "rattachements_ignores": skipped_att, "sigles_ajoutes": added_abbr}
     finally:
         fcntl.flock(lock, fcntl.LOCK_UN)
         lock.close()

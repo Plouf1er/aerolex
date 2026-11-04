@@ -64,3 +64,4 @@ input[type=file]{width:100%}
 .login{max-width:820px;margin:.8rem auto;display:flex;flex-direction:column;gap:.5rem}
 .login .msg:empty{display:none}
 [hidden]{display:none!important}
+.sigles .kv{margin:.2rem 0}.kv.sig-new{color:var(--ok)}.kv.sig-warn{color:var(--warn)}

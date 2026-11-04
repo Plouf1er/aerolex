@@ -120,17 +120,17 @@ def fake_coherence(messages):
 core.coherence_llm = fake_coherence
 core.UNIT_SYNC_MAX = 3
 
-v = core.submit("aero", "emplanture")
+v = core.submit("aero", "zxqplant")
 check("unitaire: réponse synchrone terminée", v["etat"] == "done" and v["resultats"][0]["statut"] == "analyse", v["etat"])
 check("unitaire: 1 appel LLM", CALLS == ["xai"], CALLS)
-check("unitaire: proposition en file", [x["terme"] for x in core.list_proposals("aero")] == ["emplanture"])
+check("unitaire: proposition en file", [x["terme"] for x in core.list_proposals("aero")] == ["zxqplant"])
 CALLS.clear()
-v = core.submit("aero", "emplantures")        # pluriel du même terme : cache
+v = core.submit("aero", "zxqplants")        # pluriel du même terme : cache
 check("cache: pluriel déjà analysé -> aucun appel", CALLS == [] and v["resultats"][0].get("cache") is True, CALLS)
 check("cache: pas de doublon de proposition", len(core.list_proposals("aero")) == 1)
 
 CALLS.clear()
-v = core.submit("aero", "masse totale, levier, emplanture, AIP, chandelle, cumulonimbus, baguette de pain", )
+v = core.submit("aero", "masse totale, levier, zxqplant, AIP, zxqchand, cumulonimbus, baguette de pain", )
 for _ in range(100):
     v = core.job_view(v["id"])
     if v["etat"] == "done":
@@ -176,13 +176,13 @@ check("lot: taille de lot adaptative", core.batch_size(1) == 2 and core.batch_si
 
 # ── 5. file de propositions, revue, validation ──────────────────────────────
 props = core.list_proposals("aero")
-pid = next(x["id"] for x in props if x["terme"] == "emplanture")
+pid = next(x["id"] for x in props if x["terme"] == "zxqplant")
 core.edit_proposal(pid, None, {"definition": "Zone de jonction de l'aile et du fuselage. Elle reprend les efforts de portance, modifiée.", "synonymes": "racine d'aile, emplanture d'aile", "famille": "pistes"})
 e = next(x for x in core.list_proposals("aero") if x["id"] == pid)
 check("revue: modification enregistrée", e["data"]["definition"].endswith("modifiée.") and e["data"]["synonymes"] == ["racine d'aile", "emplanture d'aile"])
-pid2 = next(x["id"] for x in props if x["terme"] == "chandelle")
+pid2 = next(x["id"] for x in props if x["terme"] == "zxqchand")
 core.reject_proposal(pid2)
-check("revue: rejet", "chandelle" not in [x["terme"] for x in core.list_proposals("aero")] and len(core.list_proposals("aero", "rejected")) == 1)
+check("revue: rejet", "zxqchand" not in [x["terme"] for x in core.list_proposals("aero")] and len(core.list_proposals("aero", "rejected")) == 1)
 
 # validation sur une COPIE de la source (jamais le vrai fichier)
 src = Path(_TMP) / "data_glossaire.py"
@@ -194,9 +194,9 @@ ns = {}
 exec(compile(txt.replace("from glos_utils import dev_mode", "dev_mode=lambda *a,**k: False"), "src", "exec"), ns) if False else None
 import ast
 ast.parse(txt)
-check("validation: valide la proposition", r["valides"] == ["emplanture"], r)
-check("validation: entrée écrite dans la source, fichier toujours valide", '"emplanture"' in txt and "racine d'aile" in txt)
-check("validation: statut validated", core.list_proposals("aero", "validated")[0]["terme"] == "emplanture")
+check("validation: valide la proposition", r["valides"] == ["zxqplant"], r)
+check("validation: entrée écrite dans la source, fichier toujours valide", '"zxqplant"' in txt and "racine d'aile" in txt)
+check("validation: statut validated", core.list_proposals("aero", "validated")[0]["terme"] == "zxqplant")
 try:
     core.validate_proposals([pid], do_rebuild=False)
     check("validation: déjà validée -> erreur", False)
@@ -245,7 +245,7 @@ st = [r["statut"] for r in v["resultats"]]
 check("quota IP: 5 analysés, 3 refusés poliment", st.count("analyse") == 5 and st.count("limite") == 3 and v["info"].get("limite_atteinte"), st)
 check("quota IP: message de limite", "réessayez plus tard" in [r for r in v["resultats"] if r["statut"] == "limite"][0]["raison"])
 CALLS.clear()
-v = core.submit("aero", "zorglub0, AIP, emplanture", ip="1.2.3.4")
+v = core.submit("aero", "zorglub0, AIP, zxqplant", ip="1.2.3.4")
 check("quota IP: cache et index restent gratuits au-delà du quota", CALLS == [] and v["etat"] == "done", CALLS)
 v = core.submit("aero", "nouveauterme", ip="5.6.7.8", background=False)
 check("quota IP: autre IP non affectée", v["resultats"][0]["statut"] == "analyse")
@@ -602,6 +602,99 @@ except ValueError as e:
     check("verrou: 2e validation simultanée refusée", "déjà en cours" in str(e))
 fcntl.flock(lk, fcntl.LOCK_UN); lk.close()
 check("verrou: aucune écriture pendant le refus", state() == st)
+
+# ── 12. sigles développés dans les définitions (post-traitement déterministe) ─
+_ix = core.get_index("aero")
+_t1, _r1 = core.develop_acronyms("Elle reste sous la MTOM indiquée. La MTOM limite la masse ; voir la MTOM et le MTOM.", "masse totale", _ix)
+check("sigles: insertion à la 1re occurrence seulement (MTOM x3 -> 1 développé)",
+      _t1.count("Maximum Take-Off Mass") == 1 and _t1.startswith("Elle reste sous la MTOM (Maximum Take-Off Mass — masse maximale au décollage) indiquée.")
+      and _t1.count("(") == 1 and _r1["inseres"] == ["MTOM"], _t1)
+_t2, _r2 = core.develop_acronyms("Elle doit rester inférieure à la masse maximale au décollage (MTOM) indiquée dans le manuel de vol.", "masse totale", _ix)
+check("sigles: forme longue déjà devant -> complété seulement avec la forme d'origine, sans doublon",
+      _t2 == "Elle doit rester inférieure à la masse maximale au décollage (MTOM — Maximum Take-Off Mass) indiquée dans le manuel de vol."
+      and _t2.count("masse maximale au décollage") == 1, _t2)
+_t2b, _ = core.develop_acronyms("Elle dépasse le Maximum Take-Off Mass (MTOM) autorisé.", "masse totale", _ix)
+check("sigles: forme anglaise déjà devant -> ajout de la traduction française seule", "(MTOM — masse maximale au décollage)" in _t2b and _t2b.count("Maximum Take-Off Mass") == 1, _t2b)
+_t3, _r3 = core.develop_acronyms("Elle reste sous la MTOM (Maximum Take-Off Mass — masse maximale au décollage) du manuel. Voir MTOM.", "masse totale", _ix)
+check("sigles: déjà développé -> inchangé, pas de double parenthèse", _t3 == "Elle reste sous la MTOM (Maximum Take-Off Mass — masse maximale au décollage) du manuel. Voir MTOM." and _r3["inseres"] == [])
+_t4, _ = core.develop_acronyms("Vol en VFR puis IFR, avec le QNH.", "masse totale", _ix)
+check("sigles: idempotent (2e passage = identique), QNH (code) non développé en ligne", core.develop_acronyms(_t4, "masse totale", _ix)[0] == _t4 and "QNH (" not in _t4 and "VFR (Visual Flight Rules" in _t4, _t4)
+_t5, _ = core.develop_acronyms("Dans (MTOM, MLW) la MTOM compte.", "masse totale", _ix)
+check("sigles: dans une parenthèse ouverte -> crochets, jamais de parenthèse imbriquée", "[Maximum Take-Off Mass" in _t5 and "((" not in _t5 and "( (" not in _t5, _t5)
+check("sigles: le terme lui-même n'est pas développé dans sa propre définition", core.develop_acronyms("Le MTOM est une masse.", "MTOM", _ix)[0] == "Le MTOM est une masse.")
+check("sigles: MTOM connu de term_expansions.py (Maximum Take-Off Mass — masse maximale au décollage)",
+      core.acr_info("MTOM", _ix)["expansion"] == "Maximum Take-Off Mass" and core.acr_info("MTOM", _ix)["gloss"] == "masse maximale au décollage")
+
+# sigle INCONNU : demandé au modèle (champ sigles) ; initiales vérifiées ; sinon avertissement, jamais d'invention silencieuse
+_it = {"domaine": True, "pertinent": True, "definition": "Elle utilise le ZQX pour le calcul. Deuxième phrase de la définition.", "confiance": 0.9}
+_v = core.validate_item(dict(_it, sigles=[{"sigle": "ZQX", "developpe": "Zone Quick Xchange", "traduction_fr": "échange rapide de zone"}]), "masse totale", fams, _ix)
+check("sigles inconnus: développé du modèle inséré si les initiales correspondent, et listé pour la carte",
+      "ZQX (Zone Quick Xchange — échange rapide de zone)" in _v["definition"] and _v["sigles"][0]["coherent"] and _v["sigles"][0]["developpe"] == "Zone Quick Xchange", _v["definition"])
+_v2 = core.validate_item(dict(_it, sigles=[{"sigle": "ZQX", "developpe": "Foo Bar Baz", "traduction_fr": ""}]), "masse totale", fams, _ix)
+check("sigles inconnus: initiales incohérentes -> texte non modifié, sigle signalé incohérent",
+      "Foo Bar Baz" not in _v2["definition"] and not _v2["sigles"][0]["coherent"] and _v2["sigles"][0]["developpe_modele"] == "Foo Bar Baz", _v2)
+_v3 = core.validate_item(_it, "masse totale", fams, _ix)
+check("sigles inconnus: sans réponse du modèle -> signalé sans développé", _v3["sigles"] and not _v3["sigles"][0]["developpe"] and _v3["definition"] == _it["definition"])
+_pw = mkprop("zzsiglewarn", definition=_v3["definition"], sigles=_v3["sigles"])
+_cw = chk(_pw, llm=False)
+_sd = next(c for c in _cw["controles"] if c["nom"] == "Sigles développés")
+check("sigles inconnus: contrôle « Sigles développés » = ⚠ avec la liste, validation bloquée", _sd["statut"] == "warn" and "ZQX" in _sd["detail"] and not _cw["ok"] and any("ZQX" in b for b in _cw["bloquants"]), _sd)
+_rw = core.validate_proposals([_pw], run_llm=False)
+check("sigles inconnus: validation refusée sans forçage (rien d'écrit)", _rw["valides"] == [] and _rw["refuses"] and _rw["refuses"][0]["terme"] == "zzsiglewarn", _rw)
+_cok = chk(mkprop("zzsigleok", definition="Elle reste sous la MTOM (Maximum Take-Off Mass — masse maximale au décollage). Deuxième phrase."), llm=False)
+_so = next(c for c in _cok["controles"] if c["nom"] == "Sigles développés")
+check("sigles: contrôle « Sigles développés » = ✓ quand tout est développé", _so["statut"] == "ok" and _cok["ok"], _so)
+_cno = chk(mkprop("zzsiglenone"), llm=False)
+check("sigles: ✓ aussi sans aucun sigle", next(c for c in _cno["controles"] if c["nom"] == "Sigles développés")["statut"] == "ok")
+_cu = chk(mkprop("zzsiglemtom", definition="Elle reste sous la MTOM du manuel. Deuxième phrase."), llm=False)
+check("sigles: MTOM non développé (édition manuelle) = ⚠ bloquant", not _cu["ok"] and any("MTOM" in b for b in _cu["bloquants"]))
+
+# la relance commentée applique la même règle (prompt + post-traitement)
+_ps = mkprop("zzrelancesigle")
+_sav = core._call_provider
+
+
+def _rel_sigle(name, messages, n):
+    SEEN["m"] = messages
+    t_ = [l[2:] for l in messages[1]["content"].splitlines() if l.startswith("- ")][0]
+    it_ = {"terme": t_, "domaine": True, "pertinent": True, "raison_domaine": "r", "raison_pertinent": "r", "famille": "pistes", "confiance": 0.9,
+           "definition": "La masse totale est la masse de l'avion en ordre de vol. Elle doit rester inférieure à la masse maximale au décollage (MTOM) indiquée dans le manuel de vol.",
+           "sigles": [{"sigle": "MTOM", "developpe": "Maximum Take-Off Mass", "traduction_fr": "masse maximale au décollage"}]}
+    return json.dumps({"items": [it_]}), {"in": 1, "out": 1}, "grok-4.3", 0.001
+
+
+core._call_provider = _rel_sigle
+core.relaunch_proposal(_ps, "développe les sigles")
+_pr = prop_state(_ps)
+check("relance: le prompt porte la règle des sigles (système + rappel) avec 2 exemples",
+      "RÈGLE DES SIGLES" in SEEN["m"][0]["content"] and "Rappel de la règle des sigles" in SEEN["m"][1]["content"]
+      and SEEN["m"][0]["content"].count("Maximum Take-Off Mass") >= 2 and '"sigles"' in SEEN["m"][0]["content"])
+check("relance: la v2 applique la règle (MTOM complété à la forme d'origine)", "(MTOM — Maximum Take-Off Mass)" in _pr["data"]["definition"] and _pr["data"]["version"] == 2, _pr["data"]["definition"])
+core.submit("aero", "zzanalysesigle", background=False)
+check("analyse: le prompt d'analyse porte aussi la règle des sigles", "RÈGLE DES SIGLES" in SEEN["m"][0]["content"] and "Rappel de la règle des sigles" not in SEEN["m"][1]["content"])
+core._call_provider = _sav
+
+# sigles nouveaux ajoutés à term_expansions.py dans l'opération sûre (copie temporaire) ; restauration si échec
+_exp = CP / "scripts/term_expansions.py"
+_exp_real_sha = sha(REAL / "scripts/term_expansions.py")
+_sig = [{"sigle": "ZQX", "developpe": "Zone Quick Xchange", "traduction_fr": "échange rapide de zone"}]
+_dn = "Terme fictif de test. Le ZQX (Zone Quick Xchange — échange rapide de zone) sert à vérifier l'ajout du sigle."
+_pz = mkprop("zzsiglenouveau", definition=_dn, sigles=_sig)
+_st = (sha(_exp), state())
+try:
+    core.validate_proposals([_pz], run_llm=False, steps=[core.REBUILD_STEPS[0], ["python3", "-c", "import sys; sys.exit(3)"]])
+    check("sigles nouveaux: échec d'étape remonté", False)
+except core.ValidationError:
+    check("sigles nouveaux: échec d'étape remonté", True)
+check("sigles nouveaux: après échec, term_expansions.py restauré à l'identique (et data/dist)", (sha(_exp), state()) == _st)
+_rz = core.validate_proposals([_pz], run_llm=False)
+_txt = _exp.read_text("utf-8")
+check("sigles nouveaux: validation OK, ZQX ajouté à term_expansions.py (copie)", _rz["valides"] == ["zzsiglenouveau"] and _rz["sigles_ajoutes"] == ["ZQX"]
+      and '"ZQX": ("Zone Quick Xchange", "échange rapide de zone", "")' in _txt, _rz.get("sigles_ajoutes"))
+check("sigles nouveaux: fichier relu et valide, MTOM/MTOW intacts", "mtom" in _txt and "MTOW" in _txt and _txt.count('"ZQX"') == 1)
+check("sigles nouveaux: term_expansions.py RÉEL jamais modifié par les tests", sha(REAL / "scripts/term_expansions.py") == _exp_real_sha)
+check("sigles nouveaux: la sauvegarde -validate contient term_expansions.py", any((d_ / "term_expansions.py").exists() for d_ in core.BACKUP_ROOT.iterdir() if d_.name.endswith("-validate")))
+check("sigles nouveaux: pas d'ajout en double (2e appel)", core.add_abbreviations(_exp, _sig) == [])
 
 core.ROOT = REAL
 check("validation: data/ réel jamais modifié par les tests", sha(REAL / "data/data_glossaire_full.py") == real_full_sha)
