@@ -810,6 +810,25 @@ GLOSSAIRE = {
         "xrefs": ["bras de levier", "mm aft datum", "moment", "masse a vide", "fiche de pesée"],
         "origine": "suggest",
     },
+    "emplanture": {
+        "definition": "L'emplanture est la zone de jonction entre l'aile et le fuselage où les longerons et nervures s'ancrent à la structure centrale. Elle assure la transmission des efforts aérodynamiques de la voilure vers le fuselage et doit résister aux flexions et torsions. C'est une région critique pour la rigidité et la sécurité de l'ensemble cellule.",
+        "categorie": "À classer",
+        "famille": "structure_aile",
+        "xrefs": ["aile", "longeron", "nervure", "corde", "profil", "bord de fuite"],
+        "origine": "suggest",
+    },
+    "chandelle": {
+        "definition": "Manœuvre de voltige verticale consistant à cabrer l'avion jusqu'à la position verticale, moteur à fond, puis à laisser l'avion retomber en ligne droite après le point mort. Elle permet de travailler la coordination et la maîtrise des faibles vitesses.",
+        "categorie": "À classer",
+        "famille": "virages",
+        "origine": "suggest",
+    },
+    "surface de transition": {
+        "definition": "Surface inclinée qui s’élève à partir des bords de la piste et des surfaces d’approche. Elle assure un espace dégagé pour les trajectoires d’avions en phase d’atterrissage ou de décollage. Sa pente est généralement de 14,3 % (1:7) pour les pistes de code 3 et 4.",
+        "categorie": "À classer",
+        "famille": "pistes",
+        "origine": "suggest",
+    },
 }
 
 

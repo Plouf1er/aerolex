@@ -271,6 +271,7 @@ GLOSSAIRE = {
         'xrefs': ['SIA', 'complément aux cartes', 'AD'],
     },
     'aile': {
+        'famille': 'structure_aile',
         'definition': "Voilure principale de l'aéronef destinée à générer la portance nécessaire au vol. Son profil aérodynamique crée une dépression sur l'extrados et une surpression sur l'intrados.",
         'categorie': 'Structure & cellule',
         'statut': 'redigee',
@@ -1391,6 +1392,7 @@ GLOSSAIRE = {
         'xrefs': ['prise statique', 'erreur altimétrique'],
     },
     "bord d'attaque": {
+        'famille': 'structure_aile',
         'definition': "Partie avant d'un profil d'aile qui rencontre le vent relatif en premier. Sa forme arrondie divise le flux d'air entre l'extrados et l'intrados pour initier la portance.",
         'categorie': 'Aérodynamique',
         'statut': 'redigee',
@@ -1400,6 +1402,7 @@ GLOSSAIRE = {
         'xrefs': ['profil', 'vent relatif', 'extrados', 'intrados'],
     },
     'bord de fuite': {
+        'famille': 'structure_aile',
         'definition': "Partie arrière affinée d'un profil d'aile où se rejoignent les écoulements de l'extrados et de l'intrados. Sa géométrie nette permet de stabiliser les filets d'air en sortie.",
         'categorie': 'Aérodynamique',
         'statut': 'redigee',
@@ -2854,6 +2857,7 @@ GLOSSAIRE = {
         'xrefs': ['latitude', 'longitude'],
     },
     'corde': {
+        'famille': 'structure_aile',
         'definition': "Segment de droite reliant le bord d'attaque au bord de fuite d'un profil d'aile. Sa longueur sert de référence géométrique pour le calcul de la surface alaire et de l'allongement.",
         'categorie': 'Aérodynamique',
         'statut': 'redigee',
@@ -4705,6 +4709,7 @@ GLOSSAIRE = {
         'schema': False,
     },
     'fuselage': {
+        'famille': 'structure_aile',
         'definition': "Corps principal de la structure d'un avion, reliant les ailes, l'empennage et le train d'atterrissage. Il abrite la cabine de pilotage, les passagers, les bagages et parfois le groupe motopropulseur.",
         'categorie': 'Structure & cellule',
         'statut': 'redigee',
@@ -6541,6 +6546,7 @@ GLOSSAIRE = {
         'xrefs': ['journal de navigation', 'estime'],
     },
     'longeron': {
+        'famille': 'structure_aile',
         'definition': "Élément structural longitudinal principal d'une aile ou d'un empennage, conçu pour supporter la majeure partie des forces de flexion et des charges aérodynamiques subies par l'appareil en vol.",
         'categorie': 'Structure & cellule',
         'statut': 'redigee',
@@ -7358,6 +7364,7 @@ GLOSSAIRE = {
         'xrefs': ['sn', 'visibilité météo', 'dégivrage'],
     },
     'nervure': {
+        'famille': 'structure_aile',
         'definition': "Élément de structure transversal de l'aile qui donne son profil aérodynamique à la voilure et transmet les efforts aérodynamiques du revêtement vers le longeron principal.",
         'categorie': 'Structure & cellule',
         'statut': 'redigee',
@@ -8674,6 +8681,7 @@ GLOSSAIRE = {
         'xrefs': ['arrêt moteur', 'circuit électrique'],
     },
     'profil': {
+        'famille': 'structure_aile',
         'definition': "Forme de la section transversale d'une aile ou d'une pale. Sa géométrie particulière accélère l'écoulement de l'air sur l'extrados, créant ainsi une différence de pression génératrice de portance.",
         'categorie': 'Aérodynamique',
         'statut': 'redigee',
@@ -10079,6 +10087,7 @@ GLOSSAIRE = {
         'schema': True,
     },
     'structure': {
+        'famille': 'structure_aile',
         'definition': 'Ensemble des éléments de la cellule qui reprennent et transmettent les efforts: longerons, nervures, cadres et revêtement. Elle est dimensionnée pour encaisser les charges de vol sans déformation permanente.',
         'categorie': 'Structure & cellule',
         'statut': 'redigee',
@@ -11668,6 +11677,7 @@ GLOSSAIRE = {
         'xrefs': ['VS0', 'finale', 'arrondi', 'vent traversier'],
     },
     'vrillage': {
+        'famille': 'structure_aile',
         'definition': "Variation progressive de l'angle de calage d'un profil d'aile entre l'emplanture et le saumon. Ce vrillage aérodynamique garantit que l'emplanture décroche en premier pour préserver le contrôle des ailerons.",
         'categorie': 'Aérodynamique',
         'statut': 'redigee',
@@ -12054,5 +12064,27 @@ GLOSSAIRE = {
         'xrefs': ['empennage', 'tangage', 'manche', 'compensateur'],
         'statut': 'redigee',
         'origine': 'ajout-manuel-2026-08-04',
+    },
+    'emplanture': {
+        'definition': "L'emplanture est la zone de jonction entre l'aile et le fuselage où les longerons et nervures s'ancrent à la structure centrale. Elle assure la transmission des efforts aérodynamiques de la voilure vers le fuselage et doit résister aux flexions et torsions. C'est une région critique pour la rigidité et la sécurité de l'ensemble cellule.",
+        'categorie': 'À classer',
+        'famille': 'structure_aile',
+        'xrefs': ['aile', 'longeron', 'nervure', 'corde', 'profil', 'bord de fuite'],
+        'origine': 'suggest',
+        'statut': 'redigee',
+    },
+    'chandelle': {
+        'definition': "Manœuvre de voltige verticale consistant à cabrer l'avion jusqu'à la position verticale, moteur à fond, puis à laisser l'avion retomber en ligne droite après le point mort. Elle permet de travailler la coordination et la maîtrise des faibles vitesses.",
+        'categorie': 'À classer',
+        'famille': 'virages',
+        'origine': 'suggest',
+        'statut': 'redigee',
+    },
+    'surface de transition': {
+        'definition': 'Surface inclinée qui s’élève à partir des bords de la piste et des surfaces d’approche. Elle assure un espace dégagé pour les trajectoires d’avions en phase d’atterrissage ou de décollage. Sa pente est généralement de 14,3 % (1:7) pour les pistes de code 3 et 4.',
+        'categorie': 'À classer',
+        'famille': 'pistes',
+        'origine': 'suggest',
+        'statut': 'redigee',
     },
 }
