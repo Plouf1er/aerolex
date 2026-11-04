@@ -28,7 +28,7 @@ sys.path.insert(0, _DIR)
 from svg_glossaire import SCHEMAS, get_schema  # noqa: E402
 from schema_map import TERM_TO_SCHEMA  # noqa: E402
 
-OUT = os.path.join(_ROOT, "dist", "aero", "schemas.json")
+OUT = os.path.join(_ROOT, "dist", os.environ.get("AEROLEX_LEXICON") or "aero", "schemas.json")
 
 
 def main():

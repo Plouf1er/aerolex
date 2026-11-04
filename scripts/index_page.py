@@ -39,7 +39,7 @@ def _esc(s):
 
 
 def render_index(glossaire, display, terme_to_slug, families, fam_order, categories_set,
-                 family_label, asset_v):
+                 family_label, asset_v, search_name='aerolex-search.json', title='Index du Glossaire Aéronautique — AeroLex'):
     letters = defaultdict(list)
     for terme in sorted(glossaire.keys(), key=lambda x: norm(x)):
         letters[_letter(terme)].append(terme)
@@ -91,7 +91,7 @@ def render_index(glossaire, display, terme_to_slug, families, fam_order, categor
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Index du Glossaire Aéronautique — AeroLex</title>
+    <title>{_esc(title)}</title>
     <meta name="description" content="AeroLex : {len(glossaire)} termes aéronautiques, sigles développés, classés par lettre et par famille.">
     <link rel="stylesheet" href="../aerolex-page.css?v={v}">
     <link rel="stylesheet" href="../aerolex-indexpage.css?v={v}">
@@ -124,7 +124,7 @@ def render_index(glossaire, display, terme_to_slug, families, fam_order, categor
     </main>
     <p class="ix-empty" id="ix-empty" hidden>Aucun terme ne correspond. <a href="suggest.html">Suggérer ce terme</a></p>
     <script src="../aerolex-searchbox.js?v={v}"></script>
-    <script src="../aerolex-indexpage.js?v={v}" data-search="../aerolex-search.json?v={v}"></script>
+    <script src="../aerolex-indexpage.js?v={v}" data-search="../{search_name}?v={v}"></script>
 </body>
 </html>
 """

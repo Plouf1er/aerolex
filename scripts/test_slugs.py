@@ -10,7 +10,9 @@ sys.path.insert(0, os.path.join(ROOT, "scripts")); sys.path.insert(0, os.path.jo
 import slugify as S
 from data_glossaire_full import GLOSSAIRE as G
 
-D = os.path.join(ROOT, "dist", "aero")
+LEX = os.environ.get("AEROLEX_LEXICON") or "aero"       # un lexique créé par new_lexicon.py : AEROLEX_LEXICON=<slug>, cwd = sa racine
+D = os.path.join(ROOT, "dist", LEX)
+MARK = "Index du Glossaire" if LEX == "aero" else "ix-head"
 FAILS = []
 def check(name, cond, extra=""):
     print(("OK   " if cond else "FAIL ") + name + ("" if cond else " " + str(extra)[:300]))
@@ -21,7 +23,8 @@ for t, exp in [("°", "degre"), ("°C", "degre-celsius"), ("°F", "degre-fahrenh
                ("manœuvre", "manoeuvre"), ("Tour de piste", "tour-de-piste")]:
     check("slugify(%r) == %r" % (t, exp), S.slugify(t) == exp, S.slugify(t))
 m, coll = S.build_slug_map(list(G), G)
-check("build_slug_map : 'index' -> slug réservé évité", m["index"] == "index-terme", m["index"])
+if "index" in G:
+    check("build_slug_map : 'index' -> slug réservé évité", m["index"] == "index-terme", m["index"])
 check("slug dérivé jamais générique pour un terme vide de sens", all(S.slug_ok(S.build_slug_map([x], {x: {"variantes": ["degré"]}})[0][x]) for x in ["", "?", "x", "°°"]))
 check("réservés (index, suggest, search, slugmap, build-info) -> suffixe", all(S.build_slug_map([r])[0][r] == r + "-terme" for r in ["index", "suggest", "search", "slugmap", "build-info"]))
 
@@ -42,14 +45,16 @@ gen = {s + ".html" for s in terms.values()}
 check("aucune fiche ne masque un fichier statique", not (gen & {f for f in static_files if f in ("index.html", "suggest.html") or not f.endswith(".html")}))
 check("chaque fiche a son HTML et son JSON", all(os.path.exists(os.path.join(D, s + ".html")) and os.path.exists(os.path.join(D, "t", s + ".json")) for s in terms.values()))
 _ix = os.path.join(D, "index-terme.html")
-check("la fiche « index » existe (index-terme.html) et n'est pas la page d'index",
-      terms["index"] == "index-terme" and os.path.exists(_ix) and "Index du Glossaire" not in open(_ix, encoding="utf-8").read()[:1500])
-check("index.html reste la page d'index", "Index du Glossaire" in open(os.path.join(D, "index.html"), encoding="utf-8").read())
+if "index" in G:
+    check("la fiche « index » existe (index-terme.html) et n'est pas la page d'index",
+          terms["index"] == "index-terme" and os.path.exists(_ix) and MARK not in open(_ix, encoding="utf-8").read()[:1500])
+check("index.html reste la page d'index", MARK in open(os.path.join(D, "index.html"), encoding="utf-8").read())
 
 # 3. redirections
 want = S.build_redirects(terms)
 check("redirections = calcul courant", red == want)
-check("°, °C, θ : anciens slugs redirigés", red.get("terme") == "degre" and red.get("c") == "degre-celsius" and red.get("terme-2") == "theta", red)
+if LEX == "aero":
+    check("°, °C, θ : anciens slugs redirigés", red.get("terme") == "degre" and red.get("c") == "degre-celsius" and red.get("terme-2") == "theta", red)
 errs = []
 for old, new in red.items():
     p = os.path.join(D, old + ".html")

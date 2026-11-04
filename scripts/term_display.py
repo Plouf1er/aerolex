@@ -343,7 +343,8 @@ def _custom_family_labels() -> dict:
     (dans data/ : sauvegardé/restauré avec la validation sûre)."""
     import json as _json
     from pathlib import Path as _Path
-    p = _Path(__file__).resolve().parent.parent / "data" / "familles_labels.json"
+    import os as _os
+    p = _Path(_os.environ.get("AEROLEX_LEXROOT") or _Path(__file__).resolve().parent.parent) / "data" / "familles_labels.json"
     try:
         d = _json.loads(p.read_text("utf-8"))
         return d if isinstance(d, dict) else {}

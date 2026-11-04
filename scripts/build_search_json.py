@@ -20,7 +20,8 @@ for t in ctx.termes_tries:
     if sg.get("equivalent"):
         al.append(sg["equivalent"])
     rows.append([p["titre"], p["slug"], t, sg.get("developpement") or ctx.display[t].get("expr") or "", "|".join(al)])
-out = os.path.join(_ROOT, "dist", "aerolex-search.json")
+_LEX = os.environ.get("AEROLEX_LEXICON") or "aero"
+out = os.path.join(_ROOT, "dist", "aerolex-search.json" if _LEX == "aero" else "aerolex-%s-search.json" % _LEX)
 with open(out, "w", encoding="utf-8") as f:
     json.dump({"v": 1, "d": rows}, f, ensure_ascii=False, separators=(",", ":"))
 import gzip

@@ -58,7 +58,8 @@ sys.path.insert(0, os.path.join(_DIR, "scripts"))
 from data_glossaire_full import GLOSSAIRE  # noqa: E402
 from slugify import build_slug_map  # noqa: E402
 
-DEFAULT_OUT = os.path.join(_DIR, "dist", "aerolex-index.json")
+_LEX = os.environ.get("AEROLEX_LEXICON") or "aero"
+DEFAULT_OUT = os.path.join(_DIR, "dist", "aerolex-index.json" if _LEX == "aero" else "aerolex-%s-index.json" % _LEX)
 
 
 def build_index(glossaire: dict) -> dict:

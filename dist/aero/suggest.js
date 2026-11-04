@@ -4,6 +4,7 @@
   var $ = function (id) { return document.getElementById(id); };
   var lexicons = {};
   var polling = null;
+  var DEFAULT_LEX = (document.currentScript && document.currentScript.getAttribute("data-lexicon")) || "";   // page d'un lexique créé par new_lexicon.py
 
   function el(tag, attrs, kids) {
     var e = document.createElement(tag);
@@ -313,6 +314,65 @@
       saveFam({ famille_nouvelle: lab, famille_nouvelle_label: lab, famille_justification: newBox.querySelector('[data-nf="just"]').value,
                 famille_accord: newBox.querySelector('[data-nf="accord"]').checked });
     };
+    // ── règles de qualité : forme de base, variantes d'appel (cases), fiche existante, soulignements simulés ──
+    var qual = el("div", { class: "qual" });
+    if (d.forme_base_proposee) {
+      var bUse = el("button", { class: "btn small", text: "Utiliser « " + d.forme_base_proposee + " » comme terme" });
+      bUse.onclick = function () {
+        bUse.disabled = true;
+        api("POST", "/proposals/" + p.id + "/edit", { term: d.forme_base_proposee, data: {} }).then(loadProposals).catch(function (e) { alert(e.message); bUse.disabled = false; });
+      };
+      qual.appendChild(el("div", { class: "kv warn" }, [el("b", { text: "Forme de base : " }),
+        document.createTextNode("⚠ « " + p.terme + " » → « " + d.forme_base_proposee + " » (" + (d.forme_base_motif || "accents / singulier") + ") "), bUse]));
+    }
+    var vlist = (d.variantes || []).filter(function (v) { return v && v.forme; });
+    var simLine = el("div", { class: "kv sim", id: "sim-" + p.id }, [el("b", { text: "Soulignements simulés : " }), document.createTextNode("calcul…")]);
+    function showSim(rep) {
+      simLine.textContent = "";
+      var cls = rep.statut === "ko" ? "ko" : rep.statut === "warn" ? "warn" : "ok";
+      simLine.className = "kv sim " + cls;
+      simLine.appendChild(el("b", { text: "Soulignements simulés : " }));
+      simLine.appendChild(document.createTextNode((cls === "ok" ? "✓ " : cls === "warn" ? "⚠ " : "✗ BLOQUANT — ") + (rep.simulation && rep.simulation.disponible === false ? rep.detail : (rep.simulation ? rep.simulation.n + " nouveau(x) soulignement(s) dans " + rep.simulation.seances + " séance(s)" : rep.detail))));
+      if (cls === "ko") simLine.appendChild(el("p", { class: "msg err", text: rep.detail }));
+      var ex = (rep.simulation && rep.simulation.exemples) || [];
+      if (ex.length) simLine.appendChild(el("ul", { class: "ex" }, ex.map(function (e) { return el("li", {}, [el("span", { class: "hint", text: e.seance + " : " }), document.createTextNode(e.texte)]); })));
+    }
+    function runSim() {
+      api("POST", "/proposals/" + p.id + "/simulate", {}).then(showSim).catch(function (e) { simLine.textContent = "Soulignements simulés : indisponible (" + e.message + ")"; });
+    }
+    if (vlist.length) {
+      var vbox = el("div", { class: "variants" }, [el("p", { class: "kv" }, [el("b", { text: "Variantes d'appel proposées" }), el("span", { class: "hint", text: " (cochées = ajoutées à la fiche ; décochez celles qui souligneraient à tort)" })])]);
+      vlist.forEach(function (v, i) {
+        var cb = el("input", { type: "checkbox", id: "var-" + p.id + "-" + i, value: v.forme });
+        cb.checked = v.coche !== false;
+        cb.onchange = function () {
+          var keep = Array.prototype.slice.call(vbox.querySelectorAll("input[type=checkbox]")).filter(function (c) { return c.checked; }).map(function (c) { return c.value; });
+          api("POST", "/proposals/" + p.id + "/edit", { data: { variantes_cochees: keep } }).then(runSim).catch(function (e) { alert(e.message); });
+        };
+        vbox.appendChild(el("label", { class: "chk", for: "var-" + p.id + "-" + i }, [cb, document.createTextNode(" " + v.forme + " "), el("span", { class: "badge", text: v.type })]));
+      });
+      if ((d.variantes_ecartees || []).length) vbox.appendChild(el("p", { class: "hint", text: "Écartées automatiquement : " + d.variantes_ecartees.map(function (x) { return x.forme + " (" + x.raison + ")"; }).join(" ; ") }));
+      qual.appendChild(vbox);
+    }
+    if ((d.contexte_requis || []).length || d.homographe_courant) {
+      qual.appendChild(kv("Contexte requis", ((d.contexte_requis || []).join(", ") || "(aucun mot fourni)") + (d.homographe_courant ? "  — homographe courant : le terme ne sera souligné qu'avec l'un de ces mots à proximité" : "")));
+    }
+    qual.appendChild(simLine);
+    (d.variante_candidats || []).slice(0, 2).forEach(function (c) {
+      var bVar = el("button", { class: "btn small ok", text: "Ajouter comme variante de « " + c.fiche + " »" });
+      var vm = el("p", { class: "msg err", hidden: "" });
+      bVar.onclick = function () {
+        if (!confirm("Ajouter « " + p.terme + " » (et ses variantes cochées) comme formes d'appel de la fiche « " + c.fiche + " » ? Aucune nouvelle fiche ne sera créée ; sauvegarde et contrôles automatiques.")) return;
+        bVar.disabled = true; bVar.textContent = "Ajout + rebuild…"; vm.hidden = true;
+        api("POST", "/proposals/" + p.id + "/as-variant", { fiche: c.fiche }).then(function (r) {
+          $("review-msg").textContent = "Ajouté comme variante de « " + r.fiche + " » : " + (r.variantes_ajoutees || []).join(", ") + ".";
+          loadProposals();
+        }).catch(function (e) { vm.hidden = false; vm.textContent = e.message; bVar.disabled = false; bVar.textContent = "Ajouter comme variante de « " + c.fiche + " »"; });
+      };
+      qual.appendChild(el("div", { class: "kv exist" }, [el("b", { text: "Fiche existante : " }), document.createTextNode("« " + p.terme + " » semble être une forme d'appel de "),
+        link(c.fiche, liens[c.fiche]), document.createTextNode(" (" + c.raison + "). "), bVar, vm]));
+    });
+    setTimeout(runSim, 0);
     var famRow = el("div", { class: "famrow" }, [el("label", { for: "fam-" + p.id, text: "Famille" }), famSel, famMsg, newBox]);
     var view = el("div", {}, [
       d.origine ? kv("Développé", d.origine + (d.traduction ? " (" + d.traduction + ")" : "")) : null,
@@ -322,7 +382,8 @@
       kv("Justification", d.famille_justification),
       famRow,
       (d.voir_aussi || []).length ? kvNode("Voir aussi proposés", linkList(d.voir_aussi, liens)) : null,
-      kv("Synonymes", (d.synonymes || []).join(", ")),
+      vlist.length ? null : kv("Synonymes", (d.synonymes || []).join(", ")),
+      qual,
       (d.voisins_consultes || []).length ? kvNode("Fiches voisines consultées", linkList(d.voisins_consultes)) : null,
       attach
     ]);
@@ -333,7 +394,9 @@
       d.famille_nouvelle ? el("label", { text: "Libellé de la nouvelle famille" }) : null,
       d.famille_nouvelle ? el("input", { type: "text", "data-f": "famille_nouvelle_label", value: d.famille_nouvelle_label || "" }) : null,
       el("label", { text: "Voir aussi (fiches existantes, virgules)" }), el("input", { type: "text", "data-f": "voir_aussi", value: (d.voir_aussi || []).join(", ") }),
-      el("label", { text: "Synonymes (virgules)" }), el("input", { type: "text", "data-f": "synonymes", value: (d.synonymes || []).join(", ") })
+      el("label", { text: "Synonymes (virgules)" }), el("input", { type: "text", "data-f": "synonymes", value: (d.synonymes || []).join(", ") }),
+      el("label", { text: "Contexte requis (mots déclencheurs, virgules : le terme n'est souligné que près d'un de ces mots)" }), el("input", { type: "text", "data-f": "contexte_requis", value: (d.contexte_requis || []).join(", ") }),
+      el("label", { text: "Ajouter une variante d'appel (virgules ; refusée si < 3 lettres en minuscules ou mot grammatical)" }), el("input", { type: "text", "data-f": "variantes_ajout", value: "" })
     ]);
     edit.querySelector("textarea").value = d.definition || "";
     function checked() { return boxes.filter(function (b) { return b.checked; }).map(function (b) { return b.value; }); }
@@ -341,10 +404,12 @@
       var data = {
         definition: edit.querySelector("textarea").value, famille: edit.querySelector("select").value,
         synonymes: edit.querySelector('[data-f="synonymes"]').value,
+        contexte_requis: edit.querySelector('[data-f="contexte_requis"]').value,
         voir_aussi: edit.querySelector('[data-f="voir_aussi"]').value.split(",").map(function (s) { return s.trim(); }).filter(Boolean)
       };
       var lab = edit.querySelector('[data-f="famille_nouvelle_label"]'); if (lab) data.famille_nouvelle_label = lab.value;
       if (boxes.length) data.rattachements_retenus = checked();
+      var va = edit.querySelector('[data-f="variantes_ajout"]').value.trim(); if (va) data.variantes_ajout = va;
       return { term: edit.querySelector('[data-f="term"]').value, data: data };
     }
     var bVal = el("button", { class: "btn ok", text: "Valider" });
@@ -448,7 +513,7 @@
     fetch(API + "/lexicons").then(function (r) { return r.json(); }).then(function (j) {
       var sel = $("domain"); sel.textContent = "";
       j.lexiques.forEach(function (l) { lexicons[l.id] = l; sel.appendChild(el("option", { value: l.id, text: l.label })); });
-      var d = new URLSearchParams(location.search).get("lexicon"); if (d && lexicons[d]) sel.value = d;
+      var d = new URLSearchParams(location.search).get("lexicon") || DEFAULT_LEX; if (d && lexicons[d]) sel.value = d;
     }).catch(function () { say("API indisponible.", true); });
     fetch(API + "/session", { credentials: "same-origin" }).then(function (r) { return r.json(); }).then(function (j) {
       setReviewer(!!j.relecteur); refreshPending();

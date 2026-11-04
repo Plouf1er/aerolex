@@ -71,3 +71,15 @@ input[type=file]{width:100%}
 .newfam{margin:.4rem 0;padding:.5rem .7rem;border:1px dashed var(--bd);border-radius:8px;background:#fafbfc}
 .newfam label{display:block;margin:.3rem 0 .1rem}.newfam .chk{display:flex;align-items:center;gap:.4rem;min-height:32px;font-weight:400}
 .newfam input[type=checkbox]{width:20px;height:20px;flex:none}
+
+/* règles de qualité : variantes d'appel, soulignements simulés, fiche existante */
+.qual{margin:.4rem 0}.qual .kv.warn{color:var(--warn)}
+.variants{margin:.5rem 0;padding:.5rem .7rem;border:1px dashed var(--bd);border-radius:8px;background:#fafbfc}
+.variants .chk{display:flex;align-items:center;gap:.4rem;margin:.1rem 0;font-weight:400;min-height:32px}
+.variants input[type=checkbox]{width:20px;height:20px;flex:none}
+.sim{margin:.5rem 0;padding:.5rem .7rem;border:1px solid var(--bd);border-radius:8px;background:#fafbfc}
+.sim.ok{border-color:var(--ok)}.sim.warn{border-color:var(--warn)}.sim.ko{border-color:var(--ko);color:var(--ko)}
+.sim .ex{margin:.3rem 0 0;padding-left:1.1rem;font-size:.9rem}.sim .ex li{margin:.15rem 0;color:var(--fg)}
+.sim .msg{margin:.3rem 0;font-size:.88rem}
+.exist{margin:.5rem 0;padding:.5rem .7rem;border:1px solid var(--ac);border-radius:8px;background:#f2f7ff}
+.exist .btn{margin-top:.3rem}

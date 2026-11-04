@@ -279,7 +279,7 @@ check("écart: unité courante", disc("kilomètre")["motif"] == "unite")
 check("écart: mot courant", disc("truc")["motif"] == "mot_courant" and disc("pour")["motif"] == "mot_courant")
 check("écart: fragment de phrase", disc("le pilote doit vérifier le carburant")["motif"] == "fragment_phrase" and disc("a b c d e f")["motif"] == "fragment_phrase")
 check("écart: mots à sens aéro laissés au LLM (vent, vol, cap)", disc("vent") is None and disc("vol") is None and disc("cap") is None)
-check("écart: terme composé légitime non écarté", disc("approche de précision") is None and disc("point d'attente") is None)
+check("écart: terme composé légitime non écarté", disc("approche de précision") is None and disc("circuit de contrôle moteur") is None)
 tp = disc("cumulonimbuss")
 check("écart: faute de frappe proche d'un terme existant", tp and tp["motif"] == "faute_de_frappe" and tp["terme_proche"] == "cumulonimbus", tp)
 check("écart: sigle court jamais pris pour une faute de frappe", disc("QNX") is None)
@@ -714,6 +714,123 @@ check("sigles nouveaux: fichier relu et valide, MTOM/MTOW intacts", "mtom" in _t
 check("sigles nouveaux: term_expansions.py RÉEL jamais modifié par les tests", sha(REAL / "scripts/term_expansions.py") == _exp_real_sha)
 check("sigles nouveaux: la sauvegarde -validate contient term_expansions.py", any((d_ / "term_expansions.py").exists() for d_ in core.BACKUP_ROOT.iterdir() if d_.name.endswith("-validate")))
 check("sigles nouveaux: pas d'ajout en double (2e appel)", core.add_abbreviations(_exp, _sig) == [])
+
+
+# ── 13. RÈGLES DE QUALITÉ (2026-11-04) : forme de base, variantes, fiche existante, anti-ridicule ──────────
+import suggest_rules as RULES  # noqa: E402
+def _enq(term, data):
+    core.enqueue_proposal("aero", term, data, "t13", "pending")
+    return [p["id"] for p in core.list_proposals("aero") if p["terme"] == term][0]
+
+
+_idx = core.get_index("aero")
+_cnt = RULES.accent_forms(RULES.corpus_dir(core.ROOT, _idx.cfg), _idx.glossaire)
+_s = RULES.accent_suggestion("variometre", _cnt)
+check("qualité 1: forme sans accent -> forme accentuée du corpus (variomètre)", _s and _s["forme"] == "variomètre", _s)
+check("qualité 1: forme déjà accentuée / sigle -> aucune suggestion", RULES.accent_suggestion("variomètre", _cnt) is None and RULES.accent_suggestion("QNH", _cnt) is None)
+_fams = _idx.families
+_it = core.validate_item({"domaine": True, "pertinent": True, "definition": "Instrument qui mesure la vitesse verticale de l'avion en montée ou en descente.",
+                          "famille": "divers", "forme_base": "variomètre", "confiance": 0.9}, "variometre", _fams, _idx)
+check("qualité 1: validate_item propose la forme accentuée", _it.get("forme_base_proposee") == "variomètre", _it.get("forme_base_proposee"))
+_it2 = core.validate_item({"domaine": True, "pertinent": True, "definition": "Instrument qui mesure la vitesse verticale de l'avion en montée.", "famille": "divers",
+                           "forme_base": "variomètre"}, "variomètre", _fams, _idx)
+check("qualité 1: forme déjà correcte -> pas d'avertissement", not _it2.get("forme_base_proposee"))
+_it3 = core.validate_item({"domaine": True, "pertinent": True, "definition": "Surface de contrôle qui commande le mouvement autour de l'axe de lacet de l'avion.",
+                           "famille": "divers", "forme_base": "VOR"}, "VOR", _fams, _idx)
+check("qualité 1: le sigle reste forme de base s'il est l'usage (VOR)", not _it3.get("forme_base_proposee"))
+
+# variantes générées
+_vs = {v["type"]: v["forme"] for v in RULES.build_variants("point de rosée", {"equivalent_anglais": "dew point"}, _idx)[0]}
+check("qualité 2: pluriel de la tête avec mot-outil (points de rosée)", RULES.plural_form("point de rosée") == "points de rosée")
+check("qualité 2: accord complet nom + adjectif (milles nautiques)", RULES.plural_form("mille nautique") == "milles nautiques")
+check("qualité 2: singulier d'un pluriel (volets -> volet) ; pas de pluriel d'un infinitif", RULES.singular_form("volets") == "volet" and RULES.plural_form("virer de bord") is None)
+check("qualité 2: variantes proposées = pluriel + sans accent + anglais", "pluriel" in _vs and "sans accent" in _vs and _vs.get("anglais") == "dew point", _vs)
+_kp, _dr = RULES.build_variants("QZX", {"origine": "Quick Zone Xchange", "traduction": "échange rapide de zone"}, _idx)
+check("qualité 2: sigle -> développés proposés (origine + traduction), pas de pluriel", {v["forme"] for v in _kp} == {"Quick Zone Xchange", "échange rapide de zone"}, _kp)
+_kp, _dr = RULES.build_variants("zzterme", {"synonymes": ["dans", "ab", "variomètre", "zzsyn"]}, _idx)
+_why = {x["forme"]: x["raison"] for x in _dr}
+check("qualité 2: variante grammaticale / < 3 lettres / déjà forme d'une autre fiche écartées avec raison",
+      "grammatical" in _why.get("dans", "") and "3 lettres" in _why.get("ab", "") and "variomètre" in _why.get("variomètre", ""), _why)
+check("qualité 2: interdictions (< 3 lettres minuscules, grammatical) ; sigle de 2 lettres MAJUSCULES admis",
+      RULES.forbidden_variant("va") and RULES.forbidden_variant("de la") and not RULES.forbidden_variant("TS") and not RULES.forbidden_variant("vario"))
+_pv = core.validate_item({"domaine": True, "pertinent": True, "definition": "Zone de l'aérodrome réservée aux manœuvres de test des moteurs avant le vol.",
+                          "famille": "divers", "synonymes": ["banc d'essais", "de"], "equivalent_anglais": "run-up area", "forme_base": "aire d'essai moteur"},
+                         "aire d'essai moteur", _fams, _idx)
+check("qualité 2: validate_item génère les variantes cochées par défaut", _pv["variantes"] and all(v["coche"] for v in _pv["variantes"]) and any(v["type"] == "anglais" for v in _pv["variantes"]), _pv["variantes"])
+_pid = _enq("aire d'essai moteur", _pv)
+core.edit_proposal(_pid, None, {"variantes_cochees": ["run-up area"]})
+_row = [p for p in core.list_proposals("aero") if p["id"] == _pid][0]
+check("qualité 2: le relecteur décoche une variante (carte) -> état conservé", [v["forme"] for v in _row["data"]["variantes"] if v["coche"]] == ["run-up area"], _row["data"]["variantes"])
+check("qualité 2: seules les variantes cochées sont écrites dans la fiche", '"variantes": ["run-up area"]' in core.render_entry("aire d'essai moteur", _row["data"]).replace("'", '"') or "run-up area" in core.render_entry("aire d'essai moteur", _row["data"]) and "banc d'essais" not in core.render_entry("aire d'essai moteur", _row["data"]))
+try:
+    core.edit_proposal(_pid, None, {"variantes_ajout": "ab"})
+    check("qualité 2: variante manuelle < 3 lettres refusée", False)
+except ValueError:
+    check("qualité 2: variante manuelle < 3 lettres refusée", True)
+
+# détection d'une fiche existante -> « ajouter comme variante de X »
+_c = RULES.detect_existing("vario", _idx)
+check("qualité 3: vario -> forme d'appel de variomètre", _c and _c[0]["fiche"] == "variomètre", _c)
+_c = RULES.detect_existing("anticyclonique", _idx)
+check("qualité 3: anticyclonique -> forme d'appel d'anticyclone (même radical)", _c and _c[0]["fiche"] == "anticyclone", _c)
+check("qualité 3: un sigle ou un mot sans rapport n'est pas rattaché", RULES.detect_existing("QNH", _idx) == [] and not RULES.detect_existing("plan", _idx))
+_vi = core.validate_item({"domaine": True, "pertinent": True, "definition": "Qui se rapporte à un anticyclone, zone de hautes pressions atmosphériques.",
+                          "famille": "divers", "variante_de": "anticyclone"}, "anticyclonal", _fams, _idx)
+check("qualité 3: le candidat est mémorisé sur la proposition (bouton « Ajouter comme variante »)", _vi["variante_candidats"] and _vi["variante_candidats"][0]["fiche"] == "anticyclone", _vi.get("variante_candidats"))
+_pv_id = _enq("anticyclonal", _vi)
+_full = core.ROOT / "data" / "data_glossaire_full.py"
+_before = _full.read_text("utf-8")
+try:
+    core.apply_as_variant(_pv_id, "anticyclone", steps=[["python3", "-c", "import sys; sys.exit(3)"]])
+    check("qualité 3: échec de l'étape -> erreur remontée", False)
+except core.ValidationError:
+    check("qualité 3: échec de l'étape -> erreur remontée et full restauré à l'identique", _full.read_text("utf-8") == _before)
+_ra = core.apply_as_variant(_pv_id, "anticyclone", do_rebuild=False)
+_after = _full.read_text("utf-8")
+_gg = _IL.load_glossaire(_full)
+check("qualité 3: application sûre : « anticyclonal » ajouté aux variantes d'anticyclone, aucune nouvelle fiche",
+      "anticyclonal" in _gg["anticyclone"]["variantes"] and "anticyclonal" not in _gg, (_ra, _gg["anticyclone"].get("variantes")))
+check("qualité 3: le reste du fichier est conservé (une seule fiche modifiée)", abs(len(_after.splitlines()) - len(_before.splitlines())) <= 1 and
+      _IL.load_glossaire(_full)["variomètre"] == _g["variomètre"])
+check("qualité 3: sauvegarde créée et proposition marquée validée", Path(_ra["sauvegarde"]).exists() and
+      [p for p in core.list_proposals("aero", "validated") if p["id"] == _pv_id] != [])
+_c2 = core.apply_as_variant if False else None
+try:
+    core.apply_as_variant(_pv_id, "anticyclone")
+    check("qualité 3: 2e application refusée (proposition plus en attente)", False)
+except KeyError:
+    check("qualité 3: 2e application refusée (proposition plus en attente)", True)
+
+# anti-ridicule BLOQUANT : simulation du moteur sur le corpus des séances
+_hv = core.validate_item({"domaine": True, "pertinent": True, "definition": "Nuage mince et étendu en voile voilant le ciel, signe avant-coureur d'un front chaud.",
+                          "famille": "divers", "synonymes": ["voile"], "forme_base": "zzvoile nuageux", "homographe_courant": True}, "zzvoile nuageux", _fams, _idx)
+check("qualité 4: le modèle ne fournit pas de contexte -> variante « voile » (homographe) proposée", "voile" in [v["forme"] for v in _hv["variantes"]] and not _hv["contexte_requis"], _hv["variantes"])
+_hid = _enq("zzvoile nuageux", _hv)
+_rep = core.check_proposal_id(_hid, run_llm=False)
+_sim = [c for c in _rep["controles"] if c["nom"] == "Soulignements simulés"]
+check("qualité 4: ligne « Soulignements simulés » dans le contrôle de cohérence", len(_sim) == 1 and _sim[0].get("simulation"), _rep["controles"])
+check("qualité 4: homographe courant sans contexte_requis = BLOQUANT (incontournable) avec 3 exemples", _sim and _sim[0]["statut"] == "ko" and _sim[0]["incontournable"]
+      and len(_sim[0]["simulation"]["exemples"]) == 3 and not _rep["ok"], _sim and _sim[0]["detail"][:300])
+check("qualité 4: le détail demande contexte_requis ou le retrait de la variante", _sim and "contexte_requis" in _sim[0]["detail"] and "retirer" in _sim[0]["detail"])
+_vv = core.validate_proposals([_hid], run_llm=False, force=True, steps=[["python3", "-c", "pass"]])
+check("qualité 4: même avec forçage, la validation est refusée", _vv["valides"] == [] and _vv["refuses"], _vv)
+core.edit_proposal(_hid, None, {"variantes_cochees": [v["forme"] for v in _hv["variantes"] if v["forme"] != "voile"]})
+_rep = core.check_proposal_id(_hid, run_llm=False)
+_sim = [c for c in _rep["controles"] if c["nom"] == "Soulignements simulés"][0]
+check("qualité 4: variante retirée (décochée) -> le contrôle passe", _sim["statut"] != "ko", _sim["detail"][:200])
+core.edit_proposal(_hid, None, {"variantes_cochees": [v["forme"] for v in _hv["variantes"]], "contexte_requis": "nuage, front, cirrus, ciel"})
+_rep = core.check_proposal_id(_hid, run_llm=False)
+_sim = [c for c in _rep["controles"] if c["nom"] == "Soulignements simulés"][0]
+check("qualité 4: contexte_requis fourni -> le contrôle passe (soulignements filtrés par le contexte)", _sim["statut"] != "ko", _sim["detail"][:240])
+check("qualité 4: contexte_requis écrit dans la fiche", '"contexte_requis"' in core.render_entry("zzvoile nuageux", [p for p in core.list_proposals("aero") if p["id"] == _hid][0]["data"]))
+_tc = core.validate_item({"domaine": True, "pertinent": True, "definition": "Terme de test suffisamment long pour la définition.", "famille": "divers"}, "va", _fams, _idx)
+_tid = _enq("va", _tc)
+_rt = core.check_proposal_id(_tid, run_llm=False)
+check("qualité 4: terme de moins de 3 lettres en minuscules = bloquant incontournable", any(c["nom"] == "Terme" and c["statut"] == "ko" and c.get("incontournable") for c in _rt["controles"]) and not _rt["ok"])
+_r = api.handle("POST", "/proposals/%d/simulate" % _hid, b"{}", {"cookie": ""}) if False else core.simulate_proposal_id(_hid)
+check("qualité 4: simulate_proposal_id (route /simulate) renvoie statut + exemples", _r["statut"] in ("ok", "warn") and "simulation" in _r, _r)
+for _p_ in (_pid, _hid, _tid):
+    core.reject_proposal(_p_)
 
 core.ROOT = REAL
 check("validation: data/ réel jamais modifié par les tests", sha(REAL / "data/data_glossaire_full.py") == real_full_sha)

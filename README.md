@@ -200,3 +200,48 @@ Réutilisation libre, y compris commerciale. Attribution demandée pour le conte
 - **Relance commentée** (session relecteur, plafond de coût du LLM) : champ « Commentaire pour le modèle » -> `POST /proposals/<id>/relaunch`. Le modèle reçoit sa proposition précédente, le commentaire et les voisins, renvoie une nouvelle version ; historique v1, v2… sur la carte, `/proposals/<id>/revert` pour revenir (table `proposal_versions`). La relance contourne et invalide le cache du terme.
 - **Rattachements** : à la validation, les fiches cochées reçoivent la famille dans `data_glossaire_full.py` (une ligne ajoutée par fiche, jamais d'écrasement d'une famille existante) et le libellé d'une nouvelle famille est écrit dans `data/familles_labels.json` — dans la même opération sûre (sauvegarde, `import_lexique --write`, rebuild, `test_links_resolve`, restauration auto).
 - Tests : `python3 scripts/test_suggest.py`.
+
+### Règles de qualité appliquées d'office à l'ajout d'un mot (2026-11-04)
+
+Le code vit dans `scripts/suggest_rules.py` (règles) et `scripts/suggest_core.py` (prompt d'analyse **et** de relance, contrôles avant « Valider », post-traitement). Chaque carte de proposition montre :
+
+- **Forme de base** : le modèle renvoie `forme_base` ; la forme est comparée au corpus (séances + définitions) : « variometre » alors que le corpus écrit « variomètre » → avertissement + bouton « Utiliser « variomètre » comme terme ». Un pluriel est ramené au singulier ; le sigle reste forme de base seulement si c'est l'usage (VOR, METAR, AVGAS, BEA).
+- **Variantes d'appel générées**, une case à cocher chacune (décocher = ne pas écrire dans la fiche) : pluriel/singulier, forme sans accent, équivalent anglais, sigle ↔ développé, synonymes. Sont écartées avec leur raison : toute forme de moins de 3 lettres en minuscules, tout mot grammatical, toute forme déjà appelée par une autre fiche.
+- **Fiche existante** : si le terme est une forme d'appel d'une fiche (« vario » → variomètre, « anticyclonique » → anticyclone : abréviation, même radical, ou `variante_de` du modèle), la carte propose le bouton **« Ajouter comme variante de X »** (`POST /api/suggest/proposals/<id>/as-variant`) à la place d'une nouvelle fiche : application sûre (verrou, sauvegarde, ajout dans `data_glossaire_full.py` de cette seule entrée, import + rebuild + test des liens, **restauration automatique** en cas d'échec).
+- **Soulignements simulés** (contrôle anti-ridicule, `POST …/simulate` pour la ligne seule) : le moteur `dist/aerolex.js` (exécuté sous Node) est lancé sur le corpus des séances `aero-coach/sessions` avec la nouvelle fiche et ses variantes cochées ; la ligne donne le nombre de nouveaux soulignements, les formes en cause et 3 exemples. **Bloquant (non forçable)** si une forme à risque (homographe courant : liste interne, `homographe_courant` du modèle, ou forme dont plus de 80 % des passages n'ont aucun mot de la définition alentour) souligne plus de 3 cas ou plus de 5 % de faux probables sans `contexte_requis` : il faut fournir les mots déclencheurs (champ « Contexte requis » de l'édition, proposés par le modèle) ou décocher la variante.
+- Toujours en place : sigles développés à la 1re occurrence (avec traduction FR ; le développé d'un terme qui est lui-même un sigle entre dans `term_expansions.py`), famille obligatoire ou Divers, slug sûr (translittération, slugs réservés, jamais générique), contrôle des initiales des sigles, fiches voisines, relance commentée, sauvegarde/restauration. Jamais de validation en prod par un script : seul le relecteur valide.
+
+## Créer un nouveau lexique
+
+```
+python3 scripts/new_lexicon.py --slug voile --label "Voile" \
+    [--source termes.txt] [--famille greement="Gréement et voiles" ...] [--audience "…"] [--scope "…"] \
+    [--corpus DOSSIER_DE_PAGES_HTML] [--analysis items.json | --no-llm]
+python3 scripts/check_lexicon.py voile        # verdict : LEXIQUE PROPRE ✓ / NON CONFORME ✗
+```
+
+Le script crée `lexicons/<slug>/` (racine propre : `data/`, `dist/<slug>/`, et `scripts/`, `src/`, `build_index_js.py` **liés** à la chaîne du projet : une seule chaîne de build, pilotée par `AEROLEX_LEXICON` / `AEROLEX_LEXROOT`, cf. `scripts/lexicon_env.py`) avec d'office :
+
+- famille **Divers** + catalogue de familles de départ (`data/familles_labels.json`, option `--famille`) ; structure `data/` ; métadonnées `data/lexicon.json` ;
+- pages **index** (lettres vides masquées, autocomplétion, popups mis en page) et **suggest** (`/<slug>/suggest.html`), slugmap, JSON des fiches / de recherche / de l'index du moteur (`aerolex-<slug>-search.json`, `aerolex-<slug>-index.json`), overlay (recherche + bouton Index) ;
+- **moteur v1.3.0** (frontières Unicode, sigles de 2 lettres en casse exacte, pluriel/singulier, `contexte_requis`) copié dans `dist/` ; **cache-bust** par empreinte (`build-info.json`) ;
+- déclaration dans `lexicons/registry.json` (lu par `suggest_core` ; **redémarrer** le service `com.prunel.aerolex` pour l'activer).
+
+Avec `--source` (liste de termes `.txt .csv .md .pdf .docx`), les termes passent **en lot** par le même pipeline que « Suggérer » (entonnoir gratuit → analyse du modèle → forme de base → variantes → famille → sigles → anti-ridicule, plus post-traitement automatique : forme de base adoptée, variantes à risque décochées, `contexte_requis` proposé d'après la définition, à relire) et sont déposés dans la file **« À valider »** : rien n'est publié. `--analysis` fournit des analyses déjà faites (JSON, contrat du modèle ; voir `scripts/fixtures/demo-voile-items.json`), `--no-llm` ne contacte pas le modèle (définitions « à rédiger », famille Divers : la validation reste bloquée tant que la définition est vide). Après relecture et « Valider » dans l'espace relecteur, `check_lexicon.py` doit passer du premier coup (preuve : `scripts/test_new_lexicon.py`, lexique de démonstration de 15 termes dont 3 sigles, un mot sans accent, un pluriel, un homographe courant). Limites connues : `term_expansions.py` (développés de sigles) est commun à tous les lexiques ; un sigle dont le développé contient des mots courts (« Safety **Of** Life **At** Sea ») n'est pas résolu par `term_display` (le test des sigles le signale) ; les assets de `dist/` sont copiés à la création (les recopier si le moteur change).
+
+## Règles de qualité d'un lexique
+
+Un lexique est propre quand **toutes** ces règles tiennent (`scripts/check_lexicon.py <slug>` les enchaîne et rend un verdict) :
+
+1. **Forme de base correcte** : accents comme dans les cours/le corpus, singulier, forme française usuelle ; le sigle seulement si c'est l'usage. Titre sans accent alors que le corpus l'accentue = non conforme (contrôle « titres accentués »).
+2. **Variantes d'appel** générées et décochables : pluriel/singulier (tous les mots pleins), forme sans accent, équivalent anglais, sigle ↔ développé, synonymes.
+3. **Pas de doublon d'appel** : un terme qui n'est qu'une forme d'appel d'une fiche existante devient une variante de cette fiche (bouton « Ajouter comme variante »), pas une nouvelle fiche.
+4. **Anti-ridicule bloquant** : simulation du soulignement sur le corpus des séances (nombre de nouveaux soulignements + 3 exemples) ; homographe courant ⇒ `contexte_requis` exigé ou variante retirée ; **aucune variante de moins de 3 lettres en minuscules, aucun mot grammatical** (contrôles « variantes » de `check_lexicon`).
+5. **Sigles développés** à la 1re occurrence (traduction française si le développé est étranger), initiales cohérentes avec le sigle (tests `acronyms`, `family_acronyms`).
+6. **Famille obligatoire** (Divers à défaut), catalogue de familles cohérent (`familles --strict`).
+7. **Slug sûr** (translittération, slugs réservés évités, jamais générique) et liens résolus (`slugs`, `links_resolve`) ; fiches voisines proposées.
+8. **Moteur v1.3.0** : frontières Unicode, sigles de 2 lettres en casse exacte, pluriel/singulier, `contexte_requis` (`matching` ; aller-retour : chaque titre et chaque variante est reconnu et mène à sa fiche).
+9. **Chaîne officielle sans écart** : `import_lexique --write → build_pages → build_terms_json → build_search_json → build_index_js` ; `import --check` = 0 écart ; cache-bust à jour ; index à lettres vides masquées avec autocomplétion.
+10. **Sauvegarde/restauration** à chaque validation ; relance commentée ; **jamais de validation en prod par un script**.
+
+Tests : `python3 scripts/test_suggest.py` (règles de qualité en section 13), `python3 scripts/test_new_lexicon.py`, `python3 scripts/check_lexicon.py aero`. (Pas de `CODING.md` dans ce projet : les règles de code sont dans `projects/coding-rules.md`.)

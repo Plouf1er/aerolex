@@ -76,6 +76,8 @@ except Exception:  # pragma: no cover
     _family_label_default = lambda f: f.replace("_", " ").capitalize()  # noqa: E731
 
 
+import suggest_rules as RULES  # noqa: E402  (règles de qualité : variantes, anti-ridicule, détection de fiches existantes)
+
 DIVERS = "divers"          # famille de repli, présente d'office dans tout lexique (cf. term_display.DIVERS_SLUG)
 
 
@@ -105,6 +107,29 @@ LEXICONS = {
         "base_url": "/aero/",
     },
 }
+
+def _load_registry() -> None:
+    """Lexiques créés par scripts/new_lexicon.py : lexicons/registry.json. Chacun a SA racine (data/, dist/<slug>/, scripts liés)."""
+    try:
+        reg = json.loads((ROOT / "lexicons" / "registry.json").read_text("utf-8")).get("lexicons", {})
+    except (OSError, ValueError, AttributeError):
+        return
+    for lid, cfg in reg.items():
+        if lid not in LEXICONS and isinstance(cfg, dict) and cfg.get("root") and cfg.get("full"):
+            LEXICONS[lid] = dict(cfg)
+
+
+_load_registry()
+
+
+def lex_root(lex_id: str) -> Path:
+    """Racine d'un lexique : le projet pour « aero », lexicons/<slug>/ pour les lexiques créés par new_lexicon.py."""
+    return ROOT / LEXICONS[lex_id].get("root", ".")
+
+
+def dist_rel(lex_id: str) -> str:
+    return LEXICONS[lex_id].get("slug_dir") or ("dist/" + lex_id)
+
 
 # ── Normalisation ────────────────────────────────────────────────────────────
 def norm(s: str) -> str:
@@ -350,16 +375,17 @@ class LexiconIndex:
         self.id = lex_id
         cfg = LEXICONS[lex_id]
         self.cfg = cfg
-        full = ROOT / cfg["full"]
+        self.root = lex_root(lex_id)
+        full = self.root / cfg["full"]
         self._mtime = full.stat().st_mtime
-        sys.path[:0] = [str(ROOT / "scripts"), str(ROOT / "data")]
+        sys.path[:0] = [str(ROOT / "scripts"), str(self.root / "data")]
         try:
             gl = dict(_load_module(full, "glossaire_full_" + lex_id + str(int(self._mtime))).GLOSSAIRE)
         finally:
             del sys.path[:2]
         self.glossaire = gl
         slugmap = {}
-        sm = ROOT / cfg["slug_dir"] / "slugmap.json"
+        sm = self.root / cfg["slug_dir"] / "slugmap.json"
         if sm.exists():
             slugmap = json.loads(sm.read_text("utf-8"))
         self.slugmap = slugmap
@@ -404,9 +430,16 @@ class LexiconIndex:
             if meta.get("famille"):
                 fams[meta["famille"]] = fams.get(meta["famille"], 0) + 1
         n_div = fams.pop(DIVERS, 0)
+        if cfg.get("catalog_seed"):                  # lexique créé par new_lexicon.py : catalogue de familles de départ (data/familles_labels.json)
+            try:
+                for f_ in json.loads((self.root / "data" / "familles_labels.json").read_text("utf-8")):
+                    if f_ != DIVERS:
+                        fams.setdefault(f_, 0)
+            except (OSError, ValueError):
+                pass
         self.families = dict(sorted(fams.items(), key=lambda kv: (-kv[1], kv[0])))
         self.families[DIVERS] = n_div                 # « Divers » existe dans TOUT lexique, toujours en dernier
-        self.family_labels = {f: family_label(f, ROOT) for f in self.families}
+        self.family_labels = {f: family_label(f, self.root) for f in self.families}
         self.no_family = sorted(t for t, m in gl.items() if not m.get("famille"))
 
     def family_info(self, examples: int = 3) -> list:
@@ -572,7 +605,7 @@ _idx_lock = threading.Lock()
 def get_index(lex_id: str) -> LexiconIndex:
     if lex_id not in LEXICONS:
         raise KeyError("lexique inconnu : " + lex_id)
-    full = ROOT / LEXICONS[lex_id]["full"]
+    full = lex_root(lex_id) / LEXICONS[lex_id]["full"]
     mt = full.stat().st_mtime
     with _idx_lock:
         cur = _idx_cache.get(lex_id)
@@ -670,7 +703,8 @@ def _fiche_line(idx: "LexiconIndex", t: str) -> str:
 
 def _item_json(it: dict) -> str:
     keep = ("definition", "famille", "famille_nouvelle", "famille_nouvelle_label", "famille_justification", "rattachements",
-            "voir_aussi", "synonymes", "origine", "traduction", "sigles", "confiance")
+            "voir_aussi", "synonymes", "origine", "traduction", "sigles", "confiance",
+            "forme_base", "equivalent_anglais", "sigle_equivalent", "variante_de", "homographe_courant", "contexte_requis")
     return json.dumps({k: it.get(k) for k in keep if k in it}, ensure_ascii=False)
 
 
@@ -681,6 +715,14 @@ ACRONYM_RULE = (
     "« … la masse maximale au décollage (MTOM — Maximum Take-Off Mass) … ». Autre exemple : « QNH (Q-code — calage altimétrique…) » "
     "→ pour un sigle comme TORA : « TORA (Take-Off Run Available — distance de roulement utilisable au décollage) ». "
     "Ne laisse jamais un sigle sans développé, et liste-le dans le champ \"sigles\".\n")
+
+
+QUALITY_RULE = (
+    "RÈGLES DE QUALITÉ : (1) FORME DE BASE : accents corrects (compare avec les fiches voisines), singulier, forme française usuelle ; le sigle comme forme de base "
+    "seulement si c'est l'usage. (2) Les VARIANTES D'APPEL (pluriel/singulier, forme sans accent, équivalent anglais, sigle ↔ développé, synonymes) sont générées "
+    "automatiquement à partir de tes champs equivalent_anglais, sigle_equivalent, synonymes : ne propose JAMAIS comme variante ou synonyme un mot de moins de 3 lettres "
+    "en minuscules, ni un mot grammatical (de, la, en, est…). (3) Si le terme est une forme d'appel d'une fiche existante (abréviation, dérivé), renseigne variante_de. "
+    "(4) Si le terme (ou un synonyme) est un homographe courant du français, contexte_requis est OBLIGATOIRE (sinon le moteur soulignerait des phrases sans rapport).\n")
 
 
 def build_prompt(lex_id: str, terms: list, families: dict, ctx: dict | None = None, previous: dict | None = None,
@@ -713,8 +755,16 @@ def build_prompt(lex_id: str, terms: list, families: dict, ctx: dict | None = No
         '  "synonymes": variantes, synonymes, alias, formes courantes (peut être vide),\n'
         '  "sigles": [{"sigle", "developpe", "traduction_fr"}] pour CHAQUE sigle/abréviation employé dans ta définition (hors le terme lui-même) : '
         'developpe = forme d\'origine complète, traduction_fr = traduction française si le développé est anglais, sinon "" (liste vide si aucun sigle),\n'
+        '  "forme_base": forme de BASE correcte du terme : accents exacts (comme dans les fiches voisines et les cours), singulier, forme française usuelle ; '
+        'le SIGLE seulement si c\'est l\'usage (VOR, METAR, AVGAS, BEA), sinon l\'expression développée ; recopie le terme fourni s\'il est déjà correct,\n'
+        '  "equivalent_anglais": équivalent anglais usuel (vide si aucun ou si le terme est déjà anglais),\n'
+        '  "sigle_equivalent": sigle usuel si le terme est une expression développée (vide sinon),\n'
+        '  "variante_de": si le terme n\'est en réalité qu\'une FORME D\'APPEL d\'une fiche existante (abréviation, dérivé, graphie : vario → variomètre, '
+        'anticyclonique → anticyclone), le nom EXACT de cette fiche ; sinon "",\n'
+        '  "homographe_courant": true si le terme (ou un synonyme) est aussi un mot courant du français hors aéronautique (tour, plan, air, point, base, carte…), sinon false,\n'
+        '  "contexte_requis": si homographe_courant : 3 à 8 mots déclencheurs (minuscules, un mot chacun) dont la présence près du terme garantit le sens aéronautique ; [] sinon,\n'
         '  "confiance": nombre 0..1 (ta certitude sur la définition).\n'
-        + ACRONYM_RULE +
+        + ACRONYM_RULE + QUALITY_RULE +
         "RÈGLE ABSOLUE : tout terme a une famille. Réponds TOUJOURS par une famille existante, par « divers » (repli explicite) ou par une "
         "nouvelle famille justifiée (famille_justification obligatoire + au moins 2 rattachements). Une famille vide est refusée.\n"
         "RÈGLES DE FAMILLE : regarde d'abord les fiches voisines fournies avec chaque terme et le catalogue des familles ; choisis une famille "
@@ -739,7 +789,9 @@ def build_prompt(lex_id: str, terms: list, families: dict, ctx: dict | None = No
                  "en restant exacte ; ne change que ce que le commentaire ou les fiches voisines justifient. "
                  "Rappel de la règle des sigles : à la 1re occurrence de chaque sigle de la définition, développé entre parenthèses "
                  "(+ traduction française si anglais ; si la forme longue précède déjà, compléter seulement avec la forme d'origine, sans doublon), "
-                 "et champ \"sigles\" renseigné.")
+                 "et champ \"sigles\" renseigné. Rappel des règles de qualité : forme_base accentuée, au singulier, forme usuelle (sigle seulement si c'est l'usage) ; "
+                 "equivalent_anglais / sigle_equivalent / synonymes sans mot grammatical ni forme de moins de 3 lettres en minuscules ; variante_de si le terme n'est "
+                 "qu'une forme d'appel d'une fiche existante ; homographe_courant + contexte_requis (3 à 8 mots déclencheurs) si le terme est aussi un mot courant.")
     return [{"role": "system", "content": system}, {"role": "user", "content": user}]
 
 
@@ -1003,6 +1055,118 @@ def add_abbreviations(path: Path, items: list) -> list:
     return added
 
 
+def _short(v, n: int = 80) -> str:
+    return re.sub(r"\s+", " ", v).strip()[:n] if isinstance(v, str) else ""
+
+
+def _ctx_words(v) -> list:
+    """Mots déclencheurs de contexte_requis : minuscules, 3 à 30 lettres, hors mots grammaticaux, 8 max."""
+    if isinstance(v, str):
+        v = re.split(r"[,;\n]", v)
+    out = []
+    for x in v if isinstance(v, list) else []:
+        w = _short(x, 30).lower().strip(" .")
+        if len(w) >= 3 and not RULES.is_grammatical(w) and w not in out:
+            out.append(w)
+    return out[:8]
+
+
+def _quality_fields(out: dict, it: dict, asked: str, idx) -> dict:
+    """Forme de base (accents du corpus), variantes d'appel générées, fiches existantes dont le terme est une forme d'appel, contexte requis."""
+    q: dict = {"equivalent_anglais": _short(it.get("equivalent_anglais")), "sigle_equivalent": _short(it.get("sigle_equivalent"), 20),
+               "contexte_requis": _ctx_words(it.get("contexte_requis"))}
+    q["homographe_courant"] = _b(it.get("homographe_courant")) or (" " not in norm(asked) and norm(asked) in RULES.COMMON_HOMOGRAPHS)
+    fb = clean_term(_short(it.get("forme_base")))
+    prop, motif = "", ""
+    if fb and fb != asked and ckey(fb) == ckey(asked) and not (asked.isupper() and fb.upper() == asked):
+        prop, motif = fb, "forme de base proposée par le modèle"
+    try:
+        acc = RULES.accent_suggestion(asked, RULES.accent_forms(RULES.corpus_dir(ROOT, idx.cfg), idx.glossaire))
+    except Exception:
+        acc = None
+    if acc:
+        q["forme_base_corpus"] = acc
+        if not prop or prop == asked:
+            prop, motif = acc["forme"], "le corpus l'accentue : " + " ; ".join(acc["details"])
+    if prop and prop != asked:
+        q["forme_base_proposee"], q["forme_base_motif"] = prop, motif
+    hint = idx.canon(_short(it.get("variante_de"))) if _short(it.get("variante_de")) else None
+    q["variante_de"] = hint or ""
+    d = dict(out)
+    d.update(q)
+    q["variantes"], q["variantes_ecartees"] = RULES.build_variants(asked, d, idx)
+    q["variante_candidats"] = RULES.detect_existing(asked, idx, hint or "")
+    return q
+
+
+def _regen_variants(cur: dict, term: str, idx) -> None:
+    """Régénère les variantes (terme renommé, synonymes modifiés…) en conservant l'état coché et les variantes manuelles."""
+    old = {RULES.exact_key(v["forme"]): v.get("coche", True) for v in cur.get("variantes") or [] if isinstance(v, dict)}
+    manual = [v for v in cur.get("variantes") or [] if isinstance(v, dict) and v.get("type") == "manuelle"]
+    keep, drop = RULES.build_variants(term, cur, idx)
+    for v in keep:
+        v["coche"] = old.get(RULES.exact_key(v["forme"]), True)
+    seen = {RULES.exact_key(v["forme"]) for v in keep}
+    keep += [m for m in manual if RULES.exact_key(m["forme"]) not in seen]
+    cur["variantes"], cur["variantes_ecartees"] = keep, drop
+    cur["variante_candidats"] = RULES.detect_existing(term, idx, cur.get("variante_de") or "")
+
+
+_SIM_CACHE: dict = {}
+
+
+def simulate_proposal(dom: str, term: str, d: dict, idx, forms: list | None = None, existing: str | None = None) -> tuple:
+    """Simule le moteur de soulignement sur le corpus des séances -> (simulation, verdict anti-ridicule)."""
+    forms = RULES.retained_forms(d) if forms is None else forms
+    forms = [f for f in forms if norm(f) != norm(term)]
+    ctxw = _ctx_words(d.get("contexte_requis"))
+    surfaces = list(forms) if existing else [term] + forms
+    risky = {f for f in surfaces if norm(f) in RULES.COMMON_HOMOGRAPHS or RULES.is_grammatical(f)}
+    if d.get("homographe_courant"):
+        risky |= set(surfaces)
+    cdir = RULES.corpus_dir(ROOT, idx.cfg)
+    support = RULES.support_words(term, d.get("definition", ""), list(ctxw) + [w for x in d.get("voir_aussi") or [] for w in str(x).split()])
+    key = (dom, term, tuple(forms), tuple(ctxw), tuple(sorted(risky)), existing, idx._mtime, str(cdir), tuple(support))
+    if key not in _SIM_CACHE:
+        if len(_SIM_CACHE) > 200:
+            _SIM_CACHE.clear()
+        _SIM_CACHE[key] = RULES.simulate(term, forms, ctxw, lexroot=idx.root, lex_id=dom, cdir=cdir, existing=existing, risky=risky,
+                                         casse_sensible=bool(d.get("casse_sensible")), support=support)
+    sim = _SIM_CACHE[key]
+    return sim, RULES.anti_ridicule_verdict(sim, ctxw)
+
+
+def _quality_controls(ctl: list, dom: str, term: str, d: dict, idx) -> None:
+    def add(nom, statut, detail="", **kw):
+        ctl.append({"nom": nom, "statut": statut, "detail": detail, **kw})
+    why = "" if RULES._is_sigle(term) else RULES.forbidden_variant(term)
+    if why:
+        add("Terme", "ko", "« %s » : %s (interdit comme forme d'appel soulignée)." % (term, why), incontournable=True)
+    fb = d.get("forme_base_proposee")
+    if fb:
+        add("Forme de base", "warn", "« %s » proposé ; forme plus correcte : « %s » (%s). Bouton « Utiliser cette forme » sur la carte." % (term, fb, d.get("forme_base_motif") or "accents / singulier"))
+    else:
+        add("Forme de base", "ok", "accents et singulier cohérents avec le corpus.")
+    forms = RULES.retained_forms(d)
+    bad = [(f, RULES.forbidden_variant(f)) for f in forms if RULES.forbidden_variant(f)]
+    if bad:
+        add("Variantes d'appel", "ko", "variante(s) interdite(s) : %s — à décocher." % ", ".join("« %s » (%s)" % b for b in bad), incontournable=True)
+    else:
+        ecart = len(d.get("variantes_ecartees") or [])
+        add("Variantes d'appel", "ok", ("%d retenue(s) : %s" % (len(forms), ", ".join(forms)) if forms else "aucune variante retenue") +
+            ("  (%d écartée(s) automatiquement)" % ecart if ecart else ""))
+    for c in d.get("variante_candidats") or []:
+        add("Fiche existante", "warn", "« %s » semble être une forme d'appel de la fiche « %s » (%s) : utiliser « Ajouter comme variante de %s » plutôt que créer une fiche." % (
+            term, c["fiche"], c["raison"], c["fiche"]))
+        break
+    try:
+        sim, v = simulate_proposal(dom, term, d, idx)
+        add("Soulignements simulés", v["statut"], v["detail"], incontournable=bool(v.get("incontournable")),
+            simulation={k: sim.get(k) for k in ("disponible", "n", "n_sans_contexte", "exemples", "par_forme", "formes_risque", "seances", "passages", "volees")})
+    except Exception as e:
+        add("Soulignements simulés", "warn", "non simulés (%s)" % str(e)[:160])
+
+
 def validate_item(it: dict, asked: str, families: dict, idx: "LexiconIndex | None" = None) -> dict:
     """Contrat de sortie LLM -> item normalisé ; lève ValueError si inutilisable."""
     if not isinstance(it, dict):
@@ -1061,6 +1225,10 @@ def validate_item(it: dict, asked: str, families: dict, idx: "LexiconIndex | Non
                 out["definition"] = new_def
             out["sigles_inseres"] = rep_["inseres"]
             out["sigles"] = rep_["sigles"]
+    try:       # règles de qualité : forme de base, variantes d'appel, fiches existantes, contexte (jamais bloquant pour la réception)
+        out.update(_quality_fields(out, it, asked, idx or get_index("aero")))
+    except Exception as e:
+        sys.stderr.write("qualité: %r\n" % (e,))
     if out["domaine"] and out["pertinent"] and len(out["definition"]) < 20:
         out["pertinent"] = False
         out["raison_pertinent"] = (out["raison_pertinent"] + " (définition manquante : à rédiger)").strip()
@@ -1349,7 +1517,7 @@ def list_proposals(lex_id: str | None, status: str = "pending") -> list:
         liens = {}
         if r["domain"] in LEXICONS and status == "pending":      # liens vers les fiches citées (voir aussi, rattachements)
             idx = get_index(r["domain"])
-            for n in list(d.get("voir_aussi") or []) + list(d.get("rattachements") or []):
+            for n in list(d.get("voir_aussi") or []) + list(d.get("rattachements") or []) + [c["fiche"] for c in d.get("variante_candidats") or []]:
                 if n in idx.glossaire:
                     liens[n] = idx.link(n)
         out.append({"id": r["id"], "domaine": r["domain"], "terme": r["term"], "statut": r["status"], "data": d, "job": r["job"],
@@ -1359,7 +1527,8 @@ def list_proposals(lex_id: str | None, status: str = "pending") -> list:
 
 def edit_proposal(pid: int, term: str | None, data: dict) -> dict:
     allowed = {"definition", "famille", "famille_nouvelle", "famille_nouvelle_label", "famille_justification", "synonymes",
-               "origine", "traduction", "voir_aussi", "rattachements_retenus", "famille_accord"}
+               "origine", "traduction", "voir_aussi", "rattachements_retenus", "famille_accord",
+               "contexte_requis", "homographe_courant", "equivalent_anglais", "sigle_equivalent"}
     with _db_lock, db() as con:
         r = con.execute("SELECT * FROM proposals WHERE id=? AND status='pending'", (pid,)).fetchone()
         if not r:
@@ -1391,8 +1560,28 @@ def edit_proposal(pid: int, term: str | None, data: dict) -> dict:
             cur["voir_aussi"] = _names(cur.get("voir_aussi"), idx, r["term"], MAX_VOIR_AUSSI)
         if "rattachements_retenus" in data:      # uniquement des fiches existantes sans famille
             cur["rattachements_retenus"] = _names(cur.get("rattachements_retenus"), idx, r["term"], 15, True)
+        new_term = clean_term(term) if term else r["term"]
+        if "contexte_requis" in data:
+            cur["contexte_requis"] = _ctx_words(cur.get("contexte_requis"))
+        regen = bool(new_term != r["term"] or {"synonymes", "equivalent_anglais", "sigle_equivalent", "origine", "traduction"} & set(data))
+        if regen and isinstance(cur.get("variantes"), list):
+            _regen_variants(cur, new_term, idx)
+        if new_term != r["term"]:                 # le terme change : la proposition de forme de base est consommée
+            cur.pop("forme_base_proposee", None); cur.pop("forme_base_motif", None); cur.pop("forme_base_corpus", None)
+        if "variantes_ajout" in data:             # variantes saisies à la main : mêmes interdictions que les générées
+            own, seen = RULES.known_forms(idx), {RULES.exact_key(v["forme"]) for v in cur.get("variantes") or [] if isinstance(v, dict)}
+            for f in data["variantes_ajout"] if isinstance(data["variantes_ajout"], list) else re.split(r"[,;]", str(data["variantes_ajout"])):
+                v, x = RULES.make_variant(f, "manuelle", norm(new_term), own, seen, "", RULES.exact_key(new_term))
+                if x:
+                    raise ValueError("variante refusée « %s » : %s" % (x["forme"], x["raison"]))
+                if v:
+                    cur.setdefault("variantes", []).append(v)
+        if "variantes_cochees" in data and isinstance(cur.get("variantes"), list):
+            keep_ = {RULES.exact_key(x) for x in (data["variantes_cochees"] or [])}
+            for v in cur["variantes"]:
+                v["coche"] = RULES.exact_key(v["forme"]) in keep_
         con.execute("UPDATE proposals SET data=?, term=?, upd=? WHERE id=?",
-                    (json.dumps(cur, ensure_ascii=False), clean_term(term) if term else r["term"], time.time(), pid))
+                    (json.dumps(cur, ensure_ascii=False), new_term, time.time(), pid))
         cv = cur.get("version")
         if cv:                                   # la version courante suit les modifications manuelles
             con.execute("UPDATE proposal_versions SET data=? WHERE proposal_id=? AND v=?", (json.dumps(cur, ensure_ascii=False), pid, cv))
@@ -1663,6 +1852,7 @@ def check_proposal(row, run_llm: bool = True) -> dict:
             if ac["nouveaux"]:
                 add("Sigles nouveaux", "ok", "ajoutés à term_expansions.py à la validation : " + " ; ".join(
                     "%s = %s%s" % (x["sigle"], x["developpe"], " (%s)" % x["traduction_fr"] if x["traduction_fr"] else "") for x in ac["nouveaux"]))
+    _quality_controls(ctl, dom, term, d, idx)
     t0 = term.strip()
     if re.fullmatch(r"[A-Z0-9][A-Z0-9/\-]{1,7}", t0) and re.search(r"[A-Z]{2}", t0):
         devs = [x for x in (d.get("origine"), d.get("traduction")) if x]
@@ -1707,6 +1897,121 @@ def check_proposal(row, run_llm: bool = True) -> dict:
             "fiches_liees": rel, "confiance": conf}
 
 
+def autofix_proposal(pid: int, adopt_base: bool = True) -> list:
+    """Post-traitement DÉTERMINISTE d'une proposition (lots sans relecteur : new_lexicon.py) : adopte la forme de base proposée
+    (accents du corpus, singulier), puis décoche les variantes qui feraient souligner à tort (anti-ridicule). Ne valide rien.
+    -> notes (aussi enregistrées dans data["corrections_auto"])."""
+    notes: list = []
+
+    def row():
+        with _db_lock, db() as con:
+            return con.execute("SELECT * FROM proposals WHERE id=? AND status='pending'", (pid,)).fetchone()
+
+    r = row()
+    if not r:
+        raise KeyError("proposition introuvable")
+    d = json.loads(r["data"])
+    if adopt_base and d.get("forme_base_proposee"):
+        new = d["forme_base_proposee"]
+        edit_proposal(pid, new, {})
+        notes.append("forme de base : « %s » → « %s » (%s)" % (r["term"], new, d.get("forme_base_motif") or "accents / singulier"))
+        r = row()
+        d = json.loads(r["data"])
+    idx = get_index(r["domain"])
+    sim, v = simulate_proposal(r["domain"], r["term"], d, idx)
+    if v["statut"] == "ko":
+        risky = {norm(x) for x in v.get("formes_risque") or []}
+        forms = [x for x in d.get("variantes") or [] if isinstance(x, dict)]
+        off = [x["forme"] for x in forms if x.get("coche", True) and norm(x["forme"]) in risky and norm(x["forme"]) != norm(r["term"])]
+        if off:
+            keep = [x["forme"] for x in forms if x.get("coche", True) and x["forme"] not in off]
+            edit_proposal(pid, None, {"variantes_cochees": keep})
+            notes.append("variante(s) décochée(s) (homographe courant sans contexte) : " + ", ".join(off))
+            r = row()
+            d = json.loads(r["data"])
+            sim, v = simulate_proposal(r["domain"], r["term"], d, idx)
+        if v["statut"] == "ko" and not d.get("contexte_requis"):      # contexte proposé d'après la définition (lot sans relecteur : à relire ensuite)
+            words = RULES.support_words(r["term"], d.get("definition", ""))[:8]
+            if words:
+                edit_proposal(pid, None, {"contexte_requis": words})
+                notes.append("contexte_requis proposé d'après la définition (à relire) : " + ", ".join(words))
+                r = row()
+                d = json.loads(r["data"])
+                sim, v = simulate_proposal(r["domain"], r["term"], d, idx)
+        if v["statut"] == "ko":
+            notes.append("à traiter par le relecteur : le terme lui-même souligne à tort sans contexte_requis (%d cas)" % sim.get("n_risque_sans_contexte", 0))
+    if notes:
+        with _db_lock, db() as con:
+            d["corrections_auto"] = list(d.get("corrections_auto") or []) + notes
+            con.execute("UPDATE proposals SET data=?, upd=? WHERE id=?", (json.dumps(d, ensure_ascii=False), time.time(), pid))
+    return notes
+
+
+def offline_item(term: str, idx, famille: str = DIVERS) -> dict:
+    """Item « sans modèle » (--no-llm) : définition à rédiger, famille Divers par défaut ; passe tout de même par validate_item
+    (forme de base, variantes, fiches existantes) et reste dans la file À valider (le contrôle bloque tant que la définition est vide)."""
+    it = validate_item({"domaine": True, "pertinent": True, "definition": "", "famille": famille, "confiance": 0.0,
+                        "raison_domaine": "analyse hors ligne", "raison_pertinent": "analyse hors ligne",
+                        "famille_justification": "famille par défaut (analyse hors ligne)"}, term, idx.families, idx)
+    it["domaine"], it["pertinent"], it["a_rediger"] = True, True, True
+    it["modele"] = "hors-ligne"
+    return it
+
+
+def seed_terms(lex_id: str, terms: list, analysis: dict | None = None, llm: bool = True, adopt_base: bool = True, job: str = "seed") -> dict:
+    """Lot de termes source -> file « À valider » (RIEN n'est publié), par le MÊME pipeline que Suggérer : entonnoir gratuit (présent/alias/écarté),
+    analyse (modèle, ou `analysis` = {terme: item au contrat LLM}, ou hors ligne), forme de base, variantes, famille, sigles, anti-ridicule.
+    -> {en_file, deja_presents, ecartes, corriges{pid: notes}, erreurs}"""
+    idx = get_index(lex_id)
+    res, todo = funnel_free(lex_id, terms)
+    got, errs, usd = {}, [], 0.0
+    if todo:
+        if analysis:
+            by = {norm(k): v for k, v in analysis.items()}
+            for t in todo:
+                it = by.get(norm(t))
+                if it is not None:
+                    got[t] = validate_item(it, t, idx.families, idx)
+                    got[t]["modele"] = "analyse-fournie"
+            missing = [t for t in todo if t not in got]
+        else:
+            missing = list(todo)
+        if missing and llm:
+            g2, errs, usd = llm_batch(lex_id, missing, idx.families, job)
+            got.update(g2)
+        elif missing:
+            for t in missing:
+                got[t] = offline_item(t, idx)
+    apply_llm_results(lex_id, res, got, job)
+    corriges = {}
+    with _db_lock, db() as con:
+        pend = {x["term"]: x["id"] for x in con.execute("SELECT id,term FROM proposals WHERE domain=? AND status='pending' AND job=?", (lex_id, job))}
+    for t, pid in pend.items():
+        try:
+            n = autofix_proposal(pid, adopt_base)
+        except Exception as e:  # jamais bloquant pour le lot
+            n = ["post-traitement impossible : %s" % str(e)[:120]]
+        if n:
+            corriges[pid] = n
+    kinds: dict = {}
+    for t, r_ in res.items():
+        kinds[r_.get("statut", "?")] = kinds.get(r_.get("statut", "?"), 0) + 1
+    return {"en_file": len(pend), "statuts": kinds, "corriges": corriges, "erreurs": errs, "usd": round(usd, 4),
+            "deja_presents": [t for t, r_ in res.items() if r_.get("statut") in ("present", "alias")],
+            "ecartes": [t for t, r_ in res.items() if r_.get("statut") == "ecarte"]}
+
+
+def simulate_proposal_id(pid: int) -> dict:
+    with _db_lock, db() as con:
+        r = con.execute("SELECT * FROM proposals WHERE id=? AND status='pending'", (pid,)).fetchone()
+    if not r:
+        raise KeyError("proposition introuvable")
+    d = json.loads(r["data"])
+    sim, v = simulate_proposal(r["domain"], r["term"], d, get_index(r["domain"]))
+    return {"simulation": {k: sim.get(k) for k in ("disponible", "n", "n_sans_contexte", "exemples", "par_forme", "formes_risque", "seances", "passages", "volees", "raison")},
+            "statut": v["statut"], "detail": v["detail"], "incontournable": bool(v.get("incontournable"))}
+
+
 def check_proposal_id(pid: int, run_llm: bool = True) -> dict:
     with _db_lock, db() as con:
         r = con.execute("SELECT * FROM proposals WHERE id=? AND status='pending'", (pid,)).fetchone()
@@ -1732,9 +2037,12 @@ def render_entry(term: str, d: dict, categorie: str = "À classer") -> str:
              "        \"categorie\": %s," % _py(categorie)]
     if d.get("famille"):
         lines.append("        \"famille\": %s," % _py(d["famille"]))
-    syn = [s for s in d.get("synonymes", []) if norm(s) != norm(term)]
+    syn = [s for s in RULES.retained_forms(d) if norm(s) != norm(term) and not RULES.forbidden_variant(s)]
     if syn:
-        lines.append("        \"variantes\": %s," % _py(syn))
+        lines.append("        \"variantes\": %s," % _py(list(dict.fromkeys(syn))))
+    ctxw = _ctx_words(d.get("contexte_requis"))
+    if ctxw:
+        lines.append("        \"contexte_requis\": %s," % _py(ctxw))
     xr = [x for x in (d.get("voir_aussi") or []) if isinstance(x, str) and norm(x) != norm(term)]
     if xr:
         lines.append("        \"xrefs\": %s," % _py(xr))
@@ -1751,6 +2059,130 @@ def insert_into_source(src: Path, entries: str) -> None:
     lines[end:end] = ["    # ---------------- Suggestions validées (suggest) ----------------\n" if not any(
         "Suggestions validées" in l for l in lines) else "", entries]
     src.write_text("".join(lines), "utf-8")
+
+
+def add_variants_in_full(full: Path, assign: dict) -> tuple:
+    """Ajoute des variantes d'appel à des fiches EXISTANTES de data_glossaire_full.py ({fiche: [formes]}) en ne modifiant que ces entrées
+    (liste 'variantes' complétée, ou ligne insérée) ; le reste du fichier est conservé octet pour octet ; relecture vérifiée.
+    -> (appliquées [(fiche, [formes ajoutées])], ignorées [(fiche, raison)]). Toute incohérence lève une exception (le site est restauré)."""
+    import ast
+    raw = full.read_text("utf-8")
+
+    def glossaire(tr):
+        return next(n for n in tr.body if isinstance(n, ast.Assign) and any(isinstance(x, ast.Name) and x.id == "GLOSSAIRE" for x in n.targets))
+
+    node = glossaire(ast.parse(raw))
+    lines = raw.splitlines(keepends=True)
+    applied, skipped, ops = [], [], []
+    keys_before = [k.value for k in node.value.keys if isinstance(k, ast.Constant)]
+    for k, v in zip(node.value.keys, node.value.values):
+        if not (isinstance(k, ast.Constant) and k.value in assign):
+            continue
+        term, forms = k.value, assign[k.value]
+        if not isinstance(v, ast.Dict):
+            skipped.append((term, "entrée illisible")); continue
+        vk = next((i for i, kk in enumerate(v.keys) if isinstance(kk, ast.Constant) and kk.value == "variantes"), None)
+        if vk is not None:
+            lv = v.values[vk]
+            try:
+                cur = ast.literal_eval(lv)
+            except Exception:
+                skipped.append((term, "liste de variantes illisible")); continue
+            if not isinstance(cur, list):
+                skipped.append((term, "variantes non listées")); continue
+            new = [f for f in forms if RULES.exact_key(f) not in {RULES.exact_key(c) for c in cur if isinstance(c, str)}]
+            if not new:
+                skipped.append((term, "déjà présentes")); continue
+            ops.append((lv.lineno, "set", lv, repr(cur + new)))
+        else:
+            if v.lineno != k.lineno or not v.keys or v.keys[0].lineno <= v.lineno:
+                skipped.append((term, "format d'entrée inattendu")); continue
+            new = list(forms)
+            ops.append((v.lineno, "ins", v, repr(new)))
+        applied.append((term, new))
+    for lineno, kind, nd, txt in sorted(ops, key=lambda o: -o[0]):
+        if kind == "ins":
+            lines.insert(lineno, "%s'variantes': %s,\n" % (" " * nd.keys[0].col_offset, txt))
+        else:
+            l0, l1 = lineno - 1, nd.end_lineno - 1
+            b0 = lines[l0].encode("utf-8")
+            b1 = lines[l1].encode("utf-8")
+            lines[l0:l1 + 1] = [(b0[:nd.col_offset] + txt.encode("utf-8") + b1[nd.end_col_offset:]).decode("utf-8")]
+    out = "".join(lines)
+    node2 = glossaire(ast.parse(out))
+    if [k.value for k in node2.value.keys if isinstance(k, ast.Constant)] != keys_before:
+        raise RuntimeError("ajout de variantes : les clés du glossaire ont changé (annulé)")
+    got = {k.value: ast.literal_eval(next((vv for kk, vv in zip(v.keys, v.values) if isinstance(kk, ast.Constant) and kk.value == "variantes"), ast.Constant([])))
+           for k, v in zip(node2.value.keys, node2.value.values) if isinstance(k, ast.Constant) and k.value in assign and isinstance(v, ast.Dict)}
+    for term, forms in applied:
+        if not all(f in got.get(term, []) for f in forms):
+            raise RuntimeError("ajout de variantes : %r non appliqué (annulé)" % term)
+    full.write_text(out, "utf-8")
+    return applied, skipped
+
+
+def variant_forms_of(row, d: dict, fiche: str, idx) -> list:
+    """Formes à ajouter à `fiche` quand la proposition devient une variante : le terme lui-même + ses variantes cochées valides."""
+    own = RULES.known_forms(idx)
+    me, seen, out = norm(fiche), set(), []
+    for f in [row["term"]] + RULES.retained_forms(d):
+        v, x = RULES.make_variant(f, "variante", me, own, seen, "", RULES.exact_key(fiche))
+        if v:
+            out.append(v["forme"])
+    return out
+
+
+def apply_as_variant(pid: int, fiche: str, force: bool = False, do_rebuild: bool = True, steps=None, links_cmd=None) -> dict:
+    """« Ajouter comme variante de <fiche> » : au lieu d'une nouvelle fiche, le terme (et ses variantes cochées) deviennent des formes d'appel
+    de la fiche existante. Application sûre (même chemin que la validation : un seul à la fois, sauvegarde, import + rebuild, test des liens,
+    restauration automatique). Le contrôle anti-ridicule (simulation du moteur) s'applique : bloquant si homographe courant sans contexte."""
+    with _db_lock, db() as con:
+        r = con.execute("SELECT * FROM proposals WHERE id=? AND status='pending'", (pid,)).fetchone()
+    if not r:
+        raise KeyError("proposition introuvable")
+    dom, d = r["domain"], json.loads(r["data"])
+    idx = get_index(dom)
+    target = idx.canon(fiche) if fiche else None
+    if not target:
+        raise ValueError("fiche inconnue : %s" % fiche)
+    forms = variant_forms_of(r, d, target, idx)
+    if not forms:
+        raise ValueError("rien à ajouter : ces formes sont déjà des formes d'appel de « %s » ou d'une autre fiche" % target)
+    sim, verdict = simulate_proposal(dom, target, d, idx, forms=forms, existing=target)
+    if verdict["statut"] == "ko":
+        raise ValueError("variante refusée par le contrôle anti-ridicule : " + verdict["detail"][:600])
+    DATA_DIR.mkdir(parents=True, exist_ok=True)
+    lock = open(DATA_DIR / "validate.lock", "w")
+    try:
+        fcntl.flock(lock, fcntl.LOCK_EX | fcntl.LOCK_NB)
+    except OSError:
+        lock.close()
+        raise ValueError("une validation est déjà en cours, réessayez dans un instant")
+    try:
+        full = lex_root(dom) / LEXICONS[dom]["full"]
+        bk = backup_site(dom)
+        before = _count_cards(dom)
+        try:
+            applied, skipped = add_variants_in_full(full, {target: forms})
+            if not applied:
+                raise RuntimeError("aucune variante appliquée : %s" % (skipped,))
+            log = rebuild(steps, dom) if do_rebuild else []
+            if do_rebuild:
+                _run(links_cmd if links_cmd is not None else LINKS_TEST, dom)
+                if _count_cards(dom) < before:
+                    raise RuntimeError("le nombre de fiches a baissé")
+        except Exception as e:
+            restore_site(bk, dom)
+            _idx_cache.clear()
+            raise ValidationError("ajout comme variante annulé, site restauré (sauvegarde %s) : %s" % (bk, str(e)[:500]))
+        with _db_lock, db() as con:
+            d.update({"variante_de_appliquee": target, "variantes_ajoutees": applied[0][1]})
+            con.execute("DELETE FROM proposals WHERE domain=? AND key=? AND status='validated'", (dom, r["key"]))
+            con.execute("UPDATE proposals SET status='validated', data=?, upd=? WHERE id=?", (json.dumps(d, ensure_ascii=False), time.time(), pid))
+        return {"ok": True, "fiche": target, "variantes_ajoutees": applied[0][1], "simulation": verdict["detail"], "sauvegarde": str(bk), "build": log}
+    finally:
+        fcntl.flock(lock, fcntl.LOCK_UN)
+        lock.close()
 
 
 def set_families_in_full(full: Path, assign: dict) -> tuple:
@@ -1810,6 +2242,7 @@ def set_families_in_full(full: Path, assign: dict) -> tuple:
 
 def register_family_label(root: Path, slug: str, label: str) -> None:
     p = root / "data" / "familles_labels.json"
+    p.parent.mkdir(parents=True, exist_ok=True)
     try:
         d = json.loads(p.read_text("utf-8"))
     except (OSError, ValueError):
@@ -1828,11 +2261,24 @@ REBUILD_STEPS = [
 _build_lock = threading.Lock()
 
 
-def rebuild(steps=None) -> list:
+def lex_env(lex_id: str) -> dict:
+    """Environnement des scripts de build : quel lexique, quelle racine (cf. scripts/lexicon_env.py)."""
+    return dict(os.environ, AEROLEX_LEXICON=lex_id, AEROLEX_LEXROOT=str(lex_root(lex_id)))
+
+
+def rebuild_steps(lex_id: str = "aero") -> list:
+    """Chaîne officielle ; pour un lexique créé par new_lexicon.py, l'import reçoit sa racine (--root)."""
+    out = [list(c) for c in REBUILD_STEPS]
+    if lex_id != "aero":
+        out[0] += ["--root", str(lex_root(lex_id))]
+    return out
+
+
+def rebuild(steps=None, lex_id: str = "aero") -> list:
     log = []
     with _build_lock:
-        for cmd in (steps if steps is not None else REBUILD_STEPS):
-            p = subprocess.run(cmd, cwd=str(ROOT), capture_output=True, text=True, timeout=600)
+        for cmd in (steps if steps is not None else rebuild_steps(lex_id)):
+            p = subprocess.run(cmd, cwd=str(lex_root(lex_id)), env=lex_env(lex_id), capture_output=True, text=True, timeout=600)
             log.append({"cmd": " ".join(cmd), "rc": p.returncode, "tail": (p.stdout + p.stderr)[-300:]})
             if p.returncode != 0:
                 raise RuntimeError("build échoué : %s\n%s" % (" ".join(cmd), (p.stdout + p.stderr)[-500:]))
@@ -1842,6 +2288,10 @@ def rebuild(steps=None) -> list:
 BACKUP_ROOT = Path(os.environ.get("AEROLEX_BACKUP_DIR", Path.home() / "Backups" / "aerolex"))
 LINKS_TEST = ["python3", "scripts/test_links_resolve.py"]
 _SKIP_DATA = shutil.ignore_patterns("suggest")      # data/suggest = base SQLite vivante (propositions, sessions) : jamais restaurée
+
+
+def _bk_dist(lex_id: str) -> str:
+    return "dist_aero" if lex_id == "aero" else "dist_" + lex_id
 
 
 class _ExpPath:        # chemin évalué à l'usage (ROOT change dans les tests)
@@ -1856,11 +2306,11 @@ class ValidationError(RuntimeError):
     """Validation annulée ; data/ et dist/aero/ ont été restaurés."""
 
 
-def _count_cards() -> int:
-    return len(list((ROOT / "dist" / "aero" / "t").glob("*.json")))
+def _count_cards(lex_id: str = "aero") -> int:
+    return len(list((lex_root(lex_id) / dist_rel(lex_id) / "t").glob("*.json")))
 
 
-def backup_site() -> Path:
+def backup_site(lex_id: str = "aero") -> Path:
     """Sauvegarde horodatée de data/ et dist/aero/ -> ~/Backups/aerolex/<AAAAmmjj-HHMMSS>-validate/."""
     stamp = time.strftime("%Y%m%d-%H%M%S")
     dest, n = BACKUP_ROOT / (stamp + "-validate"), 1
@@ -1868,8 +2318,9 @@ def backup_site() -> Path:
         n += 1
         dest = BACKUP_ROOT / ("%s-%d-validate" % (stamp, n))
     dest.mkdir(parents=True)
-    shutil.copytree(ROOT / "data", dest / "data", symlinks=True, ignore=_SKIP_DATA)
-    shutil.copytree(ROOT / "dist" / "aero", dest / "dist_aero", symlinks=True)
+    lr = lex_root(lex_id)
+    shutil.copytree(lr / "data", dest / "data", symlinks=True, ignore=_SKIP_DATA)
+    shutil.copytree(lr / dist_rel(lex_id), dest / _bk_dist(lex_id), symlinks=True)
     if EXPANSIONS_REL.exists():            # développés des sigles : modifiés par la validation (sigles nouveaux)
         shutil.copy2(EXPANSIONS_REL, dest / "term_expansions.py")
     try:                                   # ne garder que les 20 dernières sauvegardes automatiques (jamais les manuelles)
@@ -1879,10 +2330,11 @@ def backup_site() -> Path:
     return dest
 
 
-def restore_site(bk: Path) -> None:
+def restore_site(bk: Path, lex_id: str = "aero") -> None:
     if (bk / "term_expansions.py").exists():
         shutil.copy2(bk / "term_expansions.py", EXPANSIONS_REL)
-    for live, saved, ign in ((ROOT / "data", bk / "data", _SKIP_DATA), (ROOT / "dist" / "aero", bk / "dist_aero", None)):
+    lr = lex_root(lex_id)
+    for live, saved, ign in ((lr / "data", bk / "data", _SKIP_DATA), (lr / dist_rel(lex_id), bk / _bk_dist(lex_id), None)):
         tmp = live.with_name(live.name + ".restore-tmp")
         shutil.rmtree(tmp, ignore_errors=True)
         if ign:      # on garde data/suggest en place
@@ -1896,8 +2348,8 @@ def restore_site(bk: Path) -> None:
             shutil.copytree(saved, live, symlinks=True)
 
 
-def _run(cmd) -> None:
-    p = subprocess.run(cmd, cwd=str(ROOT), capture_output=True, text=True, timeout=600)
+def _run(cmd, lex_id: str = "aero") -> None:
+    p = subprocess.run(cmd, cwd=str(lex_root(lex_id)), env=lex_env(lex_id), capture_output=True, text=True, timeout=600)
     if p.returncode != 0:
         raise RuntimeError("échec de %s : %s" % (" ".join(cmd), (p.stdout + p.stderr)[-400:].strip()))
 
@@ -1930,6 +2382,9 @@ def validate_proposals(ids: list, do_rebuild: bool = True, steps=None, force: bo
             d["voir_aussi"] = _names(d.get("voir_aussi"), idx, r["term"], MAX_VOIR_AUSSI)
             att = _names(d.get("rattachements_retenus"), idx, r["term"], 15, True) if d.get("famille") else []
             new_abbr = [x for x in acronym_check(d, r["term"], idx)["nouveaux"]]
+            if re.fullmatch(r"[A-Z0-9]{2,7}", r["term"].strip()) and re.search(r"[A-Z]{2}", r["term"]) and str(d.get("origine") or "").strip():
+                # le terme est lui-même un sigle : son développé (origine + traduction) entre aussi dans term_expansions (règle « sigles développés »)
+                new_abbr.append({"sigle": r["term"].strip(), "developpe": str(d["origine"]).strip(), "traduction_fr": str(d.get("traduction") or "").strip()})
             chunks.append((dom, r, render_entry(r["term"], d), d, att, new_abbr))
     if not chunks:
         return {"valides": [], "ignores": skipped, "refuses": refused, "build": [], "force": bool(force)}
@@ -1944,7 +2399,7 @@ def validate_proposals(ids: list, do_rebuild: bool = True, steps=None, force: bo
             added_abbr.extend(add_abbreviations(ROOT / "scripts" / "term_expansions.py", items))
         for dom in by_dom:
             if any(c[0] == dom for c in chunks):
-                insert_into_source(ROOT / LEXICONS[dom]["source"], "".join(c[2] for c in chunks if c[0] == dom))
+                insert_into_source(lex_root(dom) / LEXICONS[dom]["source"], "".join(c[2] for c in chunks if c[0] == dom))
                 assign, labels = {}, {}
                 for c in chunks:                 # rattachements + libellé d'une nouvelle famille : même opération sûre
                     if c[0] != dom:
@@ -1955,9 +2410,9 @@ def validate_proposals(ids: list, do_rebuild: bool = True, steps=None, force: bo
                     for t_ in att_:
                         assign.setdefault(t_, d_["famille"])
                 for slug, lab in labels.items():
-                    register_family_label(ROOT, slug, lab)
+                    register_family_label(lex_root(dom), slug, lab)
                 if assign:
-                    a_, s_ = set_families_in_full(ROOT / LEXICONS[dom]["full"], assign)
+                    a_, s_ = set_families_in_full(lex_root(dom) / LEXICONS[dom]["full"], assign)
                     attached.extend(a_); skipped_att.extend(s_)
 
     def mark_validated():
@@ -1984,17 +2439,24 @@ def validate_proposals(ids: list, do_rebuild: bool = True, steps=None, force: bo
         lock.close()
         raise ValueError("une validation est déjà en cours, réessayez dans un instant")
     try:
-        bk = backup_site()
-        before = _count_cards()
+        doms = [d_ for d_ in by_dom if any(c[0] == d_ for c in chunks)]
+        bks = {d_: backup_site(d_) for d_ in doms}
+        bk = bks[doms[0]]
+        counts = {d_: _count_cards(d_) for d_ in doms}
+        before = sum(counts.values())
         try:
             write_sources()
-            log = rebuild(steps)
-            _run(links_cmd if links_cmd is not None else LINKS_TEST)
-            after = _count_cards()
+            log = []
+            for d_ in doms:
+                log += rebuild(steps, d_)
+            for d_ in doms:
+                _run(links_cmd if links_cmd is not None else LINKS_TEST, d_)
+            after = sum(_count_cards(d_) for d_ in doms)
             if after < before:
                 raise RuntimeError("le nombre de fiches a baissé (%d -> %d)" % (before, after))
         except Exception as e:
-            restore_site(bk)
+            for d_, bk_ in bks.items():
+                restore_site(bk_, d_)
             msg = str(e)[:600]
             with _db_lock, db() as con:     # la proposition reste « à valider », avec le message d'erreur
                 for dom, r, *_ in chunks:

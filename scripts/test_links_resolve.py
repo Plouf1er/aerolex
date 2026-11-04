@@ -12,11 +12,12 @@ Lancer : python3 scripts/test_links_resolve.py  (après build_pages.py)
 import glob, json, os, re, sys
 
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
-D = os.path.join(ROOT, "dist", "aero")
+LEX = os.environ.get("AEROLEX_LEXICON") or "aero"
+D = os.path.join(ROOT, "dist", LEX)
 errs = []
 
 smap = json.load(open(os.path.join(D, "slugmap.json"), encoding="utf-8"))
-idx = json.load(open(os.path.join(ROOT, "dist", "aerolex-index.json"), encoding="utf-8"))
+idx = json.load(open(os.path.join(ROOT, "dist", "aerolex-index.json" if LEX == "aero" else "aerolex-%s-index.json" % LEX), encoding="utf-8"))
 terms = idx.get("terms", idx)
 
 for t, v in terms.items():

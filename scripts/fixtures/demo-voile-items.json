@@ -1,0 +1,217 @@
+[
+ {
+  "terme": "voile",
+  "domaine": true,
+  "pertinent": true,
+  "definition": "Surface de toile qui capte le vent pour propulser un voilier. Sa forme et son orientation par rapport au vent déterminent la force vélique et donc la vitesse du bateau. Le mot désigne aussi, par extension, l'ensemble de la voilure d'un navire.",
+  "famille": "greement",
+  "famille_justification": "La voile est l'élément central du gréement.",
+  "synonymes": [
+   "voilure"
+  ],
+  "forme_base": "voile",
+  "equivalent_anglais": "sail",
+  "homographe_courant": true,
+  "contexte_requis": [
+   "voilier",
+   "bateau",
+   "gréement",
+   "foc",
+   "mât",
+   "bôme",
+   "cap",
+   "barre"
+  ],
+  "confiance": 0.95
+ },
+ {
+  "terme": "derive",
+  "domaine": true,
+  "pertinent": true,
+  "definition": "Appendice mobile ou fixe sous la coque qui s'oppose à la dérive latérale du voilier sous l'action du vent. Elle peut être relevable (dériveur) ou intégrée à la quille. Plus elle est profonde, mieux le bateau remonte au vent.",
+  "famille": "coque",
+  "famille_justification": "Appendice immergé de la coque.",
+  "synonymes": [
+   "dérive latérale"
+  ],
+  "forme_base": "dérive",
+  "equivalent_anglais": "centreboard",
+  "homographe_courant": true,
+  "contexte_requis": [
+   "voilier",
+   "dériveur",
+   "quille",
+   "bateau",
+   "coque",
+   "lest"
+  ],
+  "confiance": 0.9
+ },
+ {
+  "terme": "écoutes",
+  "domaine": true,
+  "pertinent": true,
+  "definition": "Cordages qui servent à border ou à choquer une voile, c'est-à-dire à régler son angle par rapport au vent. Chaque voile a sa ou ses écoutes : écoute de grand-voile, écoutes de foc. Les régler finement est la base du réglage de la voilure.",
+  "famille": "manoeuvres",
+  "famille_justification": "Manœuvre courante servant au réglage des voiles.",
+  "synonymes": [],
+  "forme_base": "écoute",
+  "equivalent_anglais": "sheet",
+  "confiance": 0.93
+ },
+ {
+  "terme": "EPIRB",
+  "domaine": true,
+  "pertinent": true,
+  "origine": "Emergency Position Indicating Radio Beacon",
+  "traduction": "balise de détresse indiquant la position",
+  "definition": "Balise radio qui, déclenchée à la main ou automatiquement à l'immersion, émet un signal de détresse avec la position du bateau. Les secours captent le signal par satellite. Elle fait partie de l'armement de sécurité hauturier d'un voilier.",
+  "famille": "reglementation",
+  "famille_justification": "Texte réglementaire de navigation.",
+  "synonymes": [],
+  "forme_base": "EPIRB",
+  "confiance": 0.96
+ },
+ {
+  "terme": "AIS",
+  "domaine": true,
+  "pertinent": true,
+  "origine": "Automatic Identification System",
+  "traduction": "système d'identification automatique",
+  "definition": "Système qui fait émettre en continu par radio l'identité, la position, le cap et la vitesse d'un navire. Les bateaux équipés se voient mutuellement sur leur écran, ce qui aide à prévenir les abordages, surtout de nuit ou par mauvaise visibilité.",
+  "famille": "reglementation",
+  "famille_justification": "Équipement de navigation et de sécurité.",
+  "synonymes": [],
+  "forme_base": "AIS",
+  "confiance": 0.95
+ },
+ {
+  "terme": "VMG",
+  "domaine": true,
+  "pertinent": true,
+  "origine": "Velocity Made Good",
+  "traduction": "vitesse utile",
+  "definition": "Composante de la vitesse du bateau dans la direction du but, ou du vent quand on remonte au près. Elle sert à choisir l'allure et le cap les plus efficaces. Une vitesse élevée sur un mauvais cap peut donner une VMG faible.",
+  "famille": "divers",
+  "famille_justification": "Notion de performance qui ne rentre dans aucune des familles de départ.",
+  "synonymes": [],
+  "forme_base": "VMG",
+  "confiance": 0.9
+ },
+ {
+  "terme": "foc",
+  "domaine": true,
+  "pertinent": true,
+  "definition": "Voile d'avant triangulaire établie sur l'étai, devant le mât. Elle améliore le passage de l'air sur la grand-voile et la maniabilité du bateau. On en change selon la force du vent.",
+  "famille": "greement",
+  "famille_justification": "Voile d'avant du gréement.",
+  "synonymes": [],
+  "forme_base": "foc",
+  "equivalent_anglais": "jib",
+  "confiance": 0.95
+ },
+ {
+  "terme": "génois",
+  "domaine": true,
+  "pertinent": true,
+  "definition": "Grand foc qui déborde largement le mât et recouvre une partie de la grand-voile. Il offre beaucoup de surface aux allures de près et de petit largue. Il s'enroule souvent sur un enrouleur d'étai.",
+  "famille": "greement",
+  "famille_justification": "Voile d'avant du gréement.",
+  "synonymes": [],
+  "forme_base": "génois",
+  "equivalent_anglais": "genoa",
+  "confiance": 0.93
+ },
+ {
+  "terme": "grand-voile",
+  "domaine": true,
+  "pertinent": true,
+  "definition": "Voile principale du voilier, hissée le long du mât et bordée sur la bôme. Elle fournit l'essentiel de la propulsion au près. On la réduit en prenant des ris quand le vent forcit.",
+  "famille": "greement",
+  "famille_justification": "Voile principale du gréement.",
+  "synonymes": [
+   "grand voile"
+  ],
+  "forme_base": "grand-voile",
+  "equivalent_anglais": "mainsail",
+  "confiance": 0.95
+ },
+ {
+  "terme": "spinnaker",
+  "domaine": true,
+  "pertinent": true,
+  "definition": "Grande voile d'avant, légère et très creuse, utilisée aux allures portantes. Elle est hissée en tête de mât et tenue par un tangon ou un bout-dehors. Sa mise en œuvre demande un équipage entraîné.",
+  "famille": "greement",
+  "famille_justification": "Voile d'allures portantes.",
+  "synonymes": [],
+  "forme_base": "spinnaker",
+  "equivalent_anglais": "spinnaker",
+  "confiance": 0.95
+ },
+ {
+  "terme": "safran",
+  "domaine": true,
+  "pertinent": true,
+  "definition": "Plan mobile immergé à l'arrière de la coque, commandé par la barre. En le braquant, on dévie l'écoulement de l'eau et le bateau change de cap. Il se situe en général derrière la quille.",
+  "famille": "coque",
+  "famille_justification": "Appendice immergé de la coque.",
+  "synonymes": [
+   "gouvernail"
+  ],
+  "forme_base": "safran",
+  "equivalent_anglais": "rudder",
+  "confiance": 0.95
+ },
+ {
+  "terme": "quille",
+  "domaine": true,
+  "pertinent": true,
+  "definition": "Appendice lesté fixé sous la coque, qui assure à la fois la stabilité et la résistance à la dérive. Son poids ramène le voilier à la verticale quand il gîte. Elle se prolonge parfois par un bulbe en plomb.",
+  "famille": "coque",
+  "famille_justification": "Appendice immergé de la coque.",
+  "synonymes": [],
+  "forme_base": "quille",
+  "equivalent_anglais": "keel",
+  "confiance": 0.95
+ },
+ {
+  "terme": "empannage",
+  "domaine": true,
+  "pertinent": true,
+  "definition": "Manœuvre qui consiste à changer de bord en faisant passer l'arrière du bateau dans l'axe du vent. La bôme traverse alors le cockpit d'un bord à l'autre, ce qui exige de la contrôler. Un empannage mal préparé peut casser du matériel ou blesser.",
+  "famille": "manoeuvres",
+  "famille_justification": "Changement de bord vent arrière.",
+  "synonymes": [
+   "empanner"
+  ],
+  "forme_base": "empannage",
+  "equivalent_anglais": "gybe",
+  "confiance": 0.93
+ },
+ {
+  "terme": "virement de bord",
+  "domaine": true,
+  "pertinent": true,
+  "definition": "Manœuvre qui consiste à changer de bord en faisant passer l'avant du bateau dans l'axe du vent. Le voilier doit garder assez d'élan pour franchir la zone où il ne peut pas avancer. On l'appelle aussi un virement vent debout.",
+  "famille": "manoeuvres",
+  "famille_justification": "Changement de bord vent debout.",
+  "synonymes": [
+   "virer de bord"
+  ],
+  "forme_base": "virement de bord",
+  "equivalent_anglais": "tack",
+  "confiance": 0.93
+ },
+ {
+  "terme": "bôme",
+  "domaine": true,
+  "pertinent": true,
+  "definition": "Espar horizontal articulé au pied du mât, sur lequel est tendue la bordure de la grand-voile. Elle pivote d'un bord à l'autre selon l'écoute. Elle peut être dangereuse lors d'un empannage brutal.",
+  "famille": "greement",
+  "famille_justification": "Espar de la grand-voile.",
+  "synonymes": [],
+  "forme_base": "bôme",
+  "equivalent_anglais": "boom",
+  "confiance": 0.93
+ }
+]

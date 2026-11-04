@@ -19,13 +19,13 @@ from data_glossaire_full import GLOSSAIRE   # noqa: E402
 from term_display import build_display_table, dev_label, expr_sigles, expr_text  # noqa: E402
 from term_payload import PayloadContext     # noqa: E402
 
-DIST = os.path.join(_ROOT, "dist", "aero")
+DIST = os.path.join(_ROOT, "dist", os.environ.get("AEROLEX_LEXICON") or "aero")
 
 
 def main():
     disp = build_display_table(GLOSSAIRE)
     sigles = {k for k, d in disp.items() if d["expansion"]}
-    assert len(sigles) > 100, "détection des sigles anormalement basse"
+    assert len(sigles) > 100 or (os.environ.get("AEROLEX_LEXICON") or "aero") != "aero", "détection des sigles anormalement basse"
     ctx = PayloadContext(GLOSSAIRE)
     bad, checked = [], 0
     n_expr = [0]

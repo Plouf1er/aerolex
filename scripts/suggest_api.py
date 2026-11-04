@@ -22,6 +22,8 @@ Accès :
   POST /api/suggest/proposals/<id>/edit  {term?,data}
   POST /api/suggest/proposals/<id>/relaunch {comment}  nouvelle version (v2, v3…) : le modèle revoit sa proposition + le commentaire
   POST /api/suggest/proposals/<id>/revert {version}    revient à une version précédente
+  POST /api/suggest/proposals/<id>/simulate     soulignements simulés (moteur sur le corpus des séances) — sans appel au modèle
+  POST /api/suggest/proposals/<id>/as-variant {fiche}  ajoute le terme (+ variantes cochées) comme variante d'une fiche existante (sauvegarde/restauration)
   POST /api/suggest/proposals/<id>/reject
   POST /api/suggest/validate {ids:[...],force?}  contrôle puis ajout à la source + rattachements de fiches + rebuild (sauvegarde/restauration)
   GET  /api/suggest/stats
@@ -92,9 +94,14 @@ def route(method: str, path: str, headers, body: bytes, ip: str | None = None):
             return 401, {"error": "connexion relecteur requise"}
         if method == "GET" and p == "/proposals":
             return 200, {"propositions": core.list_proposals(q.get("domain"), q.get("status", "pending"))}
-        m = re.fullmatch(r"/proposals/(\d+)/(edit|reject|check|rescue|relaunch|revert)", p)
+        m = re.fullmatch(r"/proposals/(\d+)/(edit|reject|check|rescue|relaunch|revert|simulate|as-variant)", p)
         if method == "POST" and m:
             pid = int(m.group(1))
+            if m.group(2) == "simulate":           # « Soulignements simulés » seuls (sans appel au modèle)
+                return 200, core.simulate_proposal_id(pid)
+            if m.group(2) == "as-variant":         # « Ajouter comme variante de X » (application sûre avec sauvegarde)
+                d = json.loads(body.decode("utf-8") or "{}")
+                return 200, core.apply_as_variant(pid, str(d.get("fiche", "")))
             if m.group(2) == "relaunch":       # session relecteur (garde ci-dessus) + plafond de coût (llm_batch)
                 d = json.loads(body.decode("utf-8") or "{}")
                 return 200, core.relaunch_proposal(pid, str(d.get("comment", "")))

@@ -60,11 +60,11 @@ from asset_fingerprint import asset_fingerprint, write_build_info  # noqa: E402
 
 ASSET_V = asset_fingerprint()
 
-LEXICON_ID = 'aero'
+from lexicon_env import LEX_ID as LEXICON_ID, index_name as _INDEX_NAME, search_name as _SEARCH_NAME, meta as _lex_meta  # noqa: E402
 VISIBILITY = 'public'
 EMBED_KEY = None
 
-DIST_DIR = 'dist/aero'
+DIST_DIR = 'dist/' + LEXICON_ID
 os.makedirs(DIST_DIR, exist_ok=True)
 
 # Build slug map
@@ -147,7 +147,7 @@ def generate_term_page(terme, index_list):
     meta_desc = escape(definition[:152] + '...') if len(definition) > 155 else escape(definition)
     robots = '<meta name="robots" content="noindex">' if VISIBILITY == 'private' else ''
     
-    canonical_url = f"https://example.com/aero/{escape(slug)}.html"
+    canonical_url = f"https://example.com/{LEXICON_ID}/{escape(slug)}.html"
     
     fam_label_esc = escape(p['famille_label'])
     fam_meta = (f'<span class="chip aerolex-skip">Famille: <a href="index.html?fam={quote(famille)}">{fam_label_esc}</a></span>' if famille else "")
@@ -229,7 +229,7 @@ def generate_term_page(terme, index_list):
         
     html_content += f"""
     </main>
-    <script src="../aerolex.js?v={ASSET_V}" data-index="../aerolex-index.json?v={ASSET_V}" data-lexicon="aero" defer></script>
+    <script src="../aerolex.js?v={ASSET_V}" data-index="../{_INDEX_NAME()}?v={ASSET_V}" data-lexicon="{LEXICON_ID}" defer></script>
     <!-- Libellés des schémas SVG cliquables (aerolex-svg.js). Sur une page de
          fiche, aucun hook onTermClick n'est posé : le module navigue lui-même
          vers la page du mot. -->
@@ -252,7 +252,8 @@ def generate_index():
     fam_order = sorted(families.keys(), key=family_sort_key)
     html_content = render_index(
         GLOSSAIRE, PAYLOAD_CTX.display, terme_to_slug, families, fam_order, categories_set,
-        family_label, ASSET_V)
+        family_label, ASSET_V, search_name=_SEARCH_NAME(),
+        title=('Index du Glossaire Aéronautique — AeroLex' if LEXICON_ID == 'aero' else 'Index — ' + (_lex_meta(os.getcwd()).get('label') or LEXICON_ID) + ' — AeroLex'))
     with open(os.path.join(DIST_DIR, 'index.html'), 'w', encoding='utf-8') as f:
         f.write(html_content)
 

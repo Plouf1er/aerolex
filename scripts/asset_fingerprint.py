@@ -39,7 +39,8 @@ import os
 from datetime import datetime, timezone
 
 _DIR = os.path.dirname(os.path.abspath(__file__))
-_ROOT = os.path.dirname(_DIR)
+_ROOT = os.environ.get("AEROLEX_LEXROOT") or os.path.dirname(_DIR)
+_LEX = os.environ.get("AEROLEX_LEXICON") or "aero"
 
 # Ordre FIGÉ : le hash doit être reproductible d'un build à l'autre.
 ASSET_FILES = (
@@ -55,10 +56,10 @@ ASSET_FILES = (
     os.path.join(_ROOT, "dist", "aerolex-indexpage.css"),
     os.path.join(_ROOT, "dist", "aerolex-searchbox.js"),
     os.path.join(_ROOT, "dist", "aerolex-indexpage.js"),
-    os.path.join(_ROOT, "dist", "aero", "lexicon.json"),
+    os.path.join(_ROOT, "dist", _LEX, "lexicon.json"),
 )
 
-BUILD_INFO_PATH = os.path.join(_ROOT, "dist", "aero", "build-info.json")
+BUILD_INFO_PATH = os.path.join(_ROOT, "dist", _LEX, "build-info.json")
 
 FINGERPRINT_LEN = 8
 
