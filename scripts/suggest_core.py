@@ -1195,6 +1195,10 @@ def backup_site() -> Path:
     dest.mkdir(parents=True)
     shutil.copytree(ROOT / "data", dest / "data", symlinks=True, ignore=_SKIP_DATA)
     shutil.copytree(ROOT / "dist" / "aero", dest / "dist_aero", symlinks=True)
+    try:                                   # ne garder que les 20 dernières sauvegardes automatiques (jamais les manuelles)
+        _load_module(ROOT / "src" / "import_lexique.py", "import_lexique_prune").prune_backups(BACKUP_ROOT)
+    except Exception as e:
+        sys.stderr.write("rotation des sauvegardes: %r\n" % (e,))
     return dest
 
 

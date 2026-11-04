@@ -446,6 +446,14 @@ check("verrou: aucune écriture pendant le refus", state() == st)
 core.ROOT = REAL
 check("validation: data/ réel jamais modifié par les tests", sha(REAL / "data/data_glossaire_full.py") == real_full_sha)
 
+# rotation : backup_site garde 20 sauvegardes automatiques max, jamais les manuelles
+(core.BACKUP_ROOT / "20261104-2114").mkdir(parents=True, exist_ok=True)
+for _i in range(22):
+    (core.BACKUP_ROOT / ("19990101-0000%02d-validate" % _i)).mkdir(exist_ok=True)
+core.backup_site()
+_auto = [x for x in core.BACKUP_ROOT.iterdir() if x.name.endswith("-validate")]
+check("sauvegardes: rotation à 20 automatiques, sauvegarde manuelle intacte", len(_auto) == 20 and (core.BACKUP_ROOT / "20261104-2114").exists(), len(_auto))
+
 shutil.rmtree(_TMP, ignore_errors=True)
 print("\n%d échec(s)" % len(FAILS))
 sys.exit(1 if FAILS else 0)

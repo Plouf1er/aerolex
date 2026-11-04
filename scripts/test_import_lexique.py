@@ -129,6 +129,23 @@ def main():
                 ko.append("full modifié malgré le refus")
         I.merge = orig_merge
 
+        # 4d. sauvegardes : création horodatée + conservation des 20 dernières automatiques seulement
+        bkd = Path(t) / "bk-prune"
+        (bkd / "20261104-2114").mkdir(parents=True)            # sauvegarde MANUELLE : jamais supprimée
+        for i in range(25):
+            (bkd / ("import-20260101-%06d" % i)).mkdir()
+        for i in range(3):
+            (bkd / ("20260102-00000%d-validate" % i)).mkdir()
+        gone = I.prune_backups(bkd)
+        left = sorted(x.name for x in bkd.iterdir())
+        if len(left) != 21 or "20261104-2114" not in left or len(gone) != 8:
+            ko.append("rotation des sauvegardes incorrecte: %d restantes, %d supprimées" % (len(left), len(gone)))
+        tmp4 = clone(Path(t) / "p4")
+        (tmp4 / "dist").mkdir(); (tmp4 / "dist" / "x.txt").write_text("x")
+        bk4 = I.backup_project(tmp4, Path(t) / "bk4")
+        if not (bk4 / "data" / "data_glossaire_full.py").exists() or not (bk4 / "dist" / "x.txt").exists():
+            ko.append("sauvegarde data/ + dist/ non créée")
+
         # 5. --check : code 1 s'il reste un diff
         tmp2 = clone(Path(t) / "p2")
         s2 = tmp2 / "data" / "data_glossaire.py"

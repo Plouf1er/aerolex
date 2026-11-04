@@ -198,6 +198,24 @@ def backup_project(root: Path, backup_dir: Path) -> Path:
     return dest
 
 
+KEEP_BACKUPS = 20
+
+
+def prune_backups(backup_dir: Path, keep: int = KEEP_BACKUPS, prefixes=("import-", "validate-")) -> list:
+    """Ne garde que les <keep> plus récentes sauvegardes AUTOMATIQUES (dossiers import-*/validate-*).
+    Les sauvegardes manuelles (autre nom) ne sont jamais touchées."""
+    d = Path(backup_dir)
+    if not d.is_dir():
+        return []
+    def is_auto(name):                     # import-AAAAmmjj-… ou <horodatage>-validate (créé par suggest_core)
+        return name.startswith(prefixes) or re.search(r"-validate$", name)
+    auto = sorted((x for x in d.iterdir() if x.is_dir() and is_auto(x.name)), key=lambda x: re.sub(r"^(import|validate)-", "", x.name))
+    gone = auto[:-keep] if keep > 0 else auto
+    for x in gone:
+        shutil.rmtree(x, ignore_errors=True)
+    return [x.name for x in gone]
+
+
 def run(root: Path, write=False, with_stubs=False, out=print, backup_dir=None, allow_shrink=False):
     """Cœur testable. Retourne (changed: bool, rapport dict)."""
     data = root / "data"
@@ -238,6 +256,7 @@ def run(root: Path, write=False, with_stubs=False, out=print, backup_dir=None, a
                              % (len(full), len(merged)))
         bk = backup_project(root, Path(backup_dir) if backup_dir else DEFAULT_BACKUP_DIR)
         out("  Sauvegarde -> %s" % bk)
+        prune_backups(Path(backup_dir) if backup_dir else DEFAULT_BACKUP_DIR)
         atomic_write(full_p, new_text)
         after = load_glossaire(full_p)
         lost = [k for k in full if k not in after]
