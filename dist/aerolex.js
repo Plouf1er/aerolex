@@ -142,6 +142,9 @@
      Toujours refusés : minuscules (« cl », « vy »), 1 lettre sans nombre.
      Garde-fou : un sigle suivi d'un exposant (« GS² ») n'est pas un sigle. */
   function symboleCourtOk(norm, text, index, maps) {
+    /* Élision (conformité 2026-11-04) : « l'humidité », « s'applique », « L'altimètre » — un symbole court suivi d'une
+       apostrophe est un mot-outil élidé, jamais une unité (« Td = 5, l'humidité » ne doit pas lier « l » → litre). */
+    if (/['’]/.test(text.charAt(index + norm.length))) return false;
     if (maps.csMap[norm]) return true;
     if (precedeParNombre(text, index)) return true;
     if (norm.length !== 2) return false;

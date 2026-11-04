@@ -165,7 +165,7 @@ GLOSSAIRE = {
         'statut': 'redigee',
         'origine': 'v2-audit-ppl',
         'schema': False,
-        'variantes': ['ad'],
+        'variantes': [],
         'xrefs': ['aérodrome', 'SIA', 'carte OACI 1/500 000', 'aérodrome contrôlé'],
         'homonyme': {'cible': 'consignes de navigabilité', 'contexte': ['navigabilité', 'CRS', 'Part-M', 'Part M', 'entretien', 'visite', 'airworthiness']},
     },
@@ -885,14 +885,14 @@ GLOSSAIRE = {
         'schema': True,
         'variantes': ['assiettes de montée'],
     },
-    'assiette de reference': {
+    'assiette de référence': {
         'definition': "Assiette standard prise comme repère visuel fondamental par rapport à l'horizon pour un régime de vol donné. Elle sert de base au pilote pour ajuster l'assiette lors des changements de configuration.",
         'categorie': 'Aérodynamique',
         'famille': 'assiettes',
         'statut': 'redigee',
         'origine': 'metier',
         'schema': True,
-        'variantes': ['assiettes de reference'],
+        'variantes': ['assiettes de reference', 'assiette de reference'],
     },
     'assurance': {
         'definition': "Document contractuel par lequel un assureur s'engage à couvrir les risques financiers associés à l'exploitation et à la navigation d'un aéronef contre le paiement d'une prime.",
@@ -958,13 +958,14 @@ GLOSSAIRE = {
         'schema': False,
         'variantes': ['forced landing', 'forced landings'],
     },
-    'atterrissage precaution': {
+    'atterrissage précaution': {
         'definition': "Variante orthographique de l'atterrissage de précaution. Atterrissage anticipé décidé par le pilote sur un terrain de fortune ou de dégagement face à une situation devenant incertaine en vol.",
         'categorie': 'Procédures',
         'famille': 'atterrissages',
         'statut': 'redigee',
         'origine': 'metier',
         'schema': False,
+        'variantes': ['atterrissage precaution'],
     },
     'atterrissage train rentré': {
         'definition': "Procédure d'urgence exécutée sur un aéronef équipé d'un train d'atterrissage escamotable en cas de dysfonctionnement mécanique ou sur surface meuble pour éviter le capotage.",
@@ -1677,13 +1678,14 @@ GLOSSAIRE = {
         'variantes': ["angle de calage de l'hélice", 'calage des pales'],
         'xrefs': ['hélice à pas fixe', 'hélice à pas variable'],
     },
-    'calage helice': {
+    'calage hélice': {
         'definition': "Angle formé entre la corde de profil de la pale d'hélice et le plan de rotation. Sur hélice à pas variable, il s'ajuste pour optimiser la traction au décollage et en croisière.",
         'categorie': 'Moteur & hélice',
         'famille': 'helice',
         'statut': 'redigee',
         'origine': 'metier',
         'schema': True,
+        'variantes': ['calage helice'],
     },
     'calage standard': {
         'definition': "Calage altimétrique à 1013,25 hPa (29,92 inHg), utilisé en croisière au-dessus de l'altitude de transition. Tout le monde utilise la même référence pour garantir la séparation verticale.",
@@ -1787,13 +1789,14 @@ GLOSSAIRE = {
         'variantes': ['100LL', 'carburant 100LL', 'essence 100LL', 'Avgas 100LL'],
         'xrefs': ['consommation spécifique de carburant', 'ul91'],
     },
-    'carburant degagement': {
+    'carburant dégagement': {
         'definition': "Quantité minimale de carburant requise pour voler de la destination prévue jusqu'à un aérodrome de dégagement en cas d'impossibilité d'atterrir sur le terrain de destination. Sa planification est obligatoire selon les règles de préparation des vols VFR.",
         'categorie': 'Réglementation & docs',
         'famille': 'gestion_carburant',
         'statut': 'redigee',
         'origine': 'metier',
         'schema': False,
+        'variantes': ['carburant degagement'],
     },
     'carburant inutilisable': {
         'definition': "Quantité de carburant qui ne peut pas être acheminée vers les moteurs dans les attitudes de vol normales et autorisées de l'aéronef. Cette quantité morte doit être impérativement déduite du carburant embarqué lors du calcul de l'autonomie réelle.",
@@ -1980,7 +1983,7 @@ GLOSSAIRE = {
         'statut': 'redigee',
         'origine': 'v2-audit-ppl',
         'schema': False,
-        'variantes': ['coefficient de traînée de profil', 'cd'],
+        'variantes': ['coefficient de traînée de profil'],
         'xrefs': ['coefficient de traînée', 'Cx', 'profil'],
     },
     'CDN': {
@@ -2127,13 +2130,14 @@ GLOSSAIRE = {
         'schema': False,
         'variantes': ['cgs'],
     },
-    'chaine des erreurs': {
+    'chaîne des erreurs': {
         'definition': "Succession logique et temporelle de défaillances mineures, d'omissions ou d'erreurs d'évaluation qui, accumulées sans être détectées ou corrigées, finissent par conduire inéluctablement à un accident. Briser cette chaîne nécessite une attitude vigilante et l'application stricte des procédures de vérification.",
         'categorie': 'Sécurité & facteurs humains',
         'famille': 'fh_prise_de_decision',
         'statut': 'redigee',
         'origine': 'metier',
         'schema': True,
+        'variantes': ['chaine des erreurs'],
     },
     'chaleur latente': {
         'definition': "Quantité d'énergie thermique absorbée ou libérée par une substance lors de son changement d'état physique. En météo, la condensation de la vapeur d'eau libère une forte chaleur réchauffant l'air.",
@@ -2372,7 +2376,7 @@ GLOSSAIRE = {
         'statut': 'redigee',
         'origine': 'v2-audit-ppl',
         'schema': False,
-        'variantes': ['coefficient de portance local', 'cl'],
+        'variantes': ['coefficient de portance local'],
         'xrefs': ['coefficient de portance', 'Cz', 'profil'],
         'contexte_sigle': ['portance', 'coefficient', 'profil', 'aile', 'incidence', 'Cz', 'aérodynamique'],
     },
@@ -3244,13 +3248,14 @@ GLOSSAIRE = {
         'origine': 'metier',
         'schema': False,
     },
-    'derive constatee': {
+    'dérive constatée': {
         'definition': "Angle mesuré en vol entre l'axe longitudinal de l'aéronef (le cap) et sa trajectoire sol réelle (la route). Contrairement à la dérive estimée lors de la préparation de navigation, elle se mesure directement à l'aide de repères au sol.",
         'categorie': 'Navigation',
         'famille': 'navigation_caps_et_routes',
         'statut': 'redigee',
         'origine': 'metier',
         'schema': False,
+        'variantes': ['derive constatee'],
     },
     'dernier point connu': {
         'definition': "Dernière position géographique précise déterminée avec certitude par repérage visuel ou radionavigation. Elle sert de référence de recalage pour entamer ou poursuivre une phase de navigation à l'estime.",
@@ -4191,6 +4196,7 @@ GLOSSAIRE = {
         'schema': False,
         'variantes': ["navigation à l'estime"],
         'xrefs': ['dead reckoning', 'dernier point connu'],
+        'titre_sans_accent': "nom (navigation à l'estime) ≠ participe « estimé » (fiches heure/temps/vent estimé)",
     },
     'eta': {
         'definition': "Estimated Time of Arrival: heure estimée d'arrivée à destination. Calculée à partir de l'heure de départ et du temps de vol estimé, elle doit être réévaluée en vol selon le vent réel.",
@@ -4326,6 +4332,7 @@ GLOSSAIRE = {
         'schema': False,
         'variantes': ['°F'],
         'xrefs': ["effet température sur l'altimètre", 'altitude vraie', 'pression atmosphérique'],
+        'unites_apres_nombre': ['°F'],
     },
     'fatigue': {
         'definition': "État d'épuisement physique ou mental diminuant la vigilance, le temps de réaction et la qualité des décisions du pilote. Elle ne se combat qu'avec un sommeil réparateur et doit inciter à annuler un vol.",
@@ -5475,6 +5482,7 @@ GLOSSAIRE = {
         'statut': 'redigee',
         'origine': 'corpus',
         'schema': False,
+        'variantes': ['ILS'],
     },
     'IMC': {
         'definition': 'Instrument Meteorological Conditions: conditions météorologiques de vol aux instruments, inférieures aux minima définissant les conditions VMC. Y pénétrer sans qualification IFR et avion équipé présente un risque mortel de perte de contrôle.',
@@ -5777,13 +5785,14 @@ GLOSSAIRE = {
         'variantes': ['isallobares'],
         'xrefs': ['surface isobare', 'pression atmosphérique', 'carte isobarique'],
     },
-    'iso zero': {
+    'iso zéro': {
         'definition': "Altitude à laquelle la température de l'air atteint zéro degré Celsius dans l'atmosphère libre. C'est une altitude de référence essentielle pour prévoir le risque de givrage en vol lors de la traversée de nuages.",
         'categorie': 'Météo',
         'famille': 'isothermes_temperatures',
         'statut': 'redigee',
         'origine': 'metier',
         'schema': True,
+        'variantes': ['iso zero'],
     },
     'isobare': {
         'definition': "Ligne d'égale pression sur une carte météo. Des isobares serrées = gradient de pression fort = vent fort. C'est la première chose à regarder sur la carte du jour.",
@@ -5804,13 +5813,14 @@ GLOSSAIRE = {
         'schema': True,
         'variantes': ['isothermes'],
     },
-    'isotherme zero': {
+    'isotherme zéro': {
         'definition': "Altitude à laquelle la température de l'air atteint 0°C dans l'atmosphère libre. Crucial pour le pilote VFR afin d'anticiper le risque de givrage en cas de vol dans les nuages ou sous la pluie.",
         'categorie': 'Météo',
         'famille': 'isothermes_temperatures',
         'statut': 'redigee',
         'origine': 'metier',
         'schema': True,
+        'variantes': ['isotherme zero'],
     },
     'isothermie': {
         'definition': "État d'une couche atmosphérique dans laquelle la température reste constante avec l'altitude. Cette absence de variation thermique verticale bloque les mouvements ascendants et favorise la stabilité de l'air.",
@@ -6584,6 +6594,7 @@ GLOSSAIRE = {
         'schema': False,
         'variantes': ['litres', 'L'],
         'xrefs': ['litre/gallon', 'gallon', 'kilogramme'],
+        'unites_apres_nombre': ['L'],
     },
     'litre/gallon': {
         'definition': "Le litre/gallon désigne le facteur de conversion permettant de passer des litres métriques aux gallons américains dans les calculs de quantité de carburant pour l'aviation.",
@@ -6604,6 +6615,7 @@ GLOSSAIRE = {
         'schema': False,
         'variantes': ['lb', 'pound'],
         'xrefs': ['kilogramme', 'masse maximale au décollage', 'charge utile'],
+        'unites_apres_nombre': ['lb'],
     },
     'log de navigation': {
         'definition': "Tableau de marche détaillé utilisé pour la conduite du vol. Il permet d'effectuer un suivi rigoureux de la route et du temps de vol afin d'assurer la sécurité du voyage.",
@@ -7153,13 +7165,14 @@ GLOSSAIRE = {
         'variantes': ['Mode S', 'transpondeur mode S'],
         'xrefs': ['transpondeur en mode standby', 'code 7500', '7000 (VFR)'],
     },
-    'modele threat and error': {
+    'modèle threat and error': {
         'definition': "Threat and Error Management (TEM). Modèle conceptuel d'analyse de la sécurité visant à identifier et gérer activement les menaces extérieures et les erreurs de l'équipage avant qu'elles ne mènent à un état indésirable de l'aéronef.",
         'categorie': 'Sécurité & facteurs humains',
         'famille': 'fh_modeles_et_biais',
         'statut': 'redigee',
         'origine': 'metier',
         'schema': True,
+        'variantes': ['modele threat and error'],
     },
     'modèle de Reason': {
         'definition': "Théorie systémique expliquant la survenue d'accidents par la superposition de défaillances actives de l'équipage et de faiblesses latentes de l'organisation à travers several barrières défensives.",
@@ -7314,6 +7327,7 @@ GLOSSAIRE = {
         'schema': False,
         'variantes': ['m'],
         'xrefs': ['ampèremètre', 'facteur de conversion pied/mètre', 'kilomètre', "effet température sur l'altimètre"],
+        'unites_apres_nombre': ['m'],
     },
     'médicaments': {
         'definition': "Substances thérapeutiques dont l'absorption peut altérer la vigilance, les réflexes ou la perception sensorielle du pilote. L'automédication est proscrite sans un avis médical spécialisé.",
@@ -7426,6 +7440,7 @@ GLOSSAIRE = {
         'schema': False,
         'variantes': ['négatif'],
         'xrefs': ['AFFIRM', 'WILCO', 'STANDBY', 'CLEARED'],
+        'titre_sans_accent': 'mot de phraséologie radio (anglais) en capitales ; « négatif » reste en variante',
     },
     'neige': {
         'definition': 'Précipitation solide composée de cristaux de glace ramifiés en flocons. Elle réduit la visibilité météo, altère les performances aérodynamiques et nécessite un traitement de dégivrage complet au sol avant le décollage.',
@@ -7490,7 +7505,7 @@ GLOSSAIRE = {
         'statut': 'redigee',
         'origine': 'corpus',
         'schema': False,
-        'variantes': ['NM', 'nm', 'mille marin', 'milles marins', 'nautical mile', 'nautical miles'],
+        'variantes': ['NM', 'mille marin', 'milles marins', 'nautical mile', 'nautical miles'],
         'xrefs': ['kt', 'vitesse', 'navigation'],
     },
     'no-go': {
@@ -8743,13 +8758,14 @@ GLOSSAIRE = {
         'variantes': ['PROB40', 'prob40'],
         'xrefs': ['TAF', 'PROB30', 'GO/NO GO'],
     },
-    "procedure d'attente": {
+    "procédure d'attente": {
         'definition': "Trajectoire calibrée effectuée au-dessus d'un point géographique fixe, à une altitude donnée, permettant de retarder le vol en toute sécurité sur ordre du contrôle aérien en raison de la saturation du trafic.",
         'categorie': 'Procédures',
         'famille': 'circuit_procedures',
         'statut': 'redigee',
         'origine': 'metier',
         'schema': False,
+        'variantes': ["procedure d'attente"],
     },
     'procédure de mise en route': {
         'definition': "Ensemble d'actions ordonnées, guidées par une check-list, visant à démarrer le groupe motopropulseur en toute sécurité. Elle permet de vérifier le bon fonctionnement initial des systèmes associés.",
@@ -8810,13 +8826,14 @@ GLOSSAIRE = {
         'variantes': ['projection cylindrique Mercator', 'Mercator'],
         'xrefs': ['projection', 'projection Lambert', 'loxodromie', 'orthodromie'],
     },
-    "prolongement d'arret": {
+    "prolongement d'arrêt": {
         'definition': "Zone située au-delà de l'extrémité de la piste de décollage, préparée de manière à pouvoir supporter le freinage d'un avion devant interrompre son décollage. Elle intervient dans le calcul de la distance ASDA.",
         'categorie': 'Aérodrome & cartes',
         'famille': 'dimensions_piste',
         'statut': 'redigee',
         'origine': 'metier',
         'schema': False,
+        'variantes': ["prolongement d'arret"],
     },
     'prolongement dégagé': {
         'definition': "Zone rectangulaire au sol ou au-dessus de l'eau, située sous le contrôle de l'autorité compétente, choisie comme aire appropriée sur laquelle un aéronef peut exécuter sa montée initiale après décollage.",
@@ -9195,13 +9212,14 @@ GLOSSAIRE = {
         'variantes': ['système de refroidissement', 'refroidissement moteur'],
         'xrefs': ['moteur à 4 temps', 'échappement'],
     },
-    'regime venturi': {
+    'régime venturi': {
         'definition': "Phénomène aérodynamique d'aspiration et de baisse de pression créé par le passage de l'air dans un rétrécissement (effet Venturi). Ce principe est exploité dans le carburateur pour vaporiser le mélange et par certains gyroscopes entraînés par dépression.",
         'categorie': 'Aérodynamique',
         'famille': 'instruments_anemobarometriques',
         'statut': 'redigee',
         'origine': 'metier',
         'schema': False,
+        'variantes': ['regime venturi'],
     },
     'relief': {
         'definition': "Configuration physique de la surface terrestre présentant des irrégularités d'altitude. Sa présence impose de respecter scrupuleusement les hauteurs minimales de survol publiées pour éviter tout impact sans perte de contrôle.",
@@ -9742,6 +9760,7 @@ GLOSSAIRE = {
         'schema': False,
         'variantes': ['sec', 's'],
         'xrefs': ['coordonnées géographiques', 'latitude', 'longitude', "minute d'arc"],
+        'unites_apres_nombre': ['s'],
     },
     'secteur chaud': {
         'definition': "Zone d'une perturbation située entre le front chaud antérieur et le front froid postérieur. Le temps y est souvent humide avec des nuages stratiformes et une visibilité parfois réduite par la brume.",
@@ -11058,7 +11077,7 @@ GLOSSAIRE = {
         'statut': 'redigee',
         'origine': 'corpus',
         'schema': False,
-        'variantes': ['Va', 'va', 'V A', 'V_A', 'V-A', 'vitesse de manœuvre', 'vitesse de manoeuvre'],
+        'variantes': ['Va', 'V A', 'V_A', 'V-A', 'vitesse de manœuvre', 'vitesse de manoeuvre'],
         'xrefs': ['VNO', 'VNE', 'vitesses caractéristiques'],
     },
     'VAC': {
@@ -11127,13 +11146,14 @@ GLOSSAIRE = {
         'origine': 'corpus',
         'schema': True,
     },
-    'vent arriere de securite': {
+    'vent arrière de sécurité': {
         'definition': "Phase d'un circuit de piste de détresse effectuée plus près de la piste que l'étape vent arrière standard, à hauteur réduite. Elle permet de garder la piste à portée de plané en cas de panne.",
         'categorie': 'Procédures',
         'famille': 'circuit_branches',
         'statut': 'redigee',
         'origine': 'metier',
         'schema': True,
+        'variantes': ['vent arriere de securite'],
     },
     'vent arrière': {
         'definition': "Branche du tour de piste parallèle à la piste, en sens inverse de l'atterrissage. On y effectue la préparation machine, l'annonce radio et l'espacement visuel avec les autres aéronefs.",
@@ -11257,13 +11277,14 @@ GLOSSAIRE = {
         'variantes': ['branche vent traversier', 'crosswind leg', 'traversier'],
         'xrefs': ['tour de piste', 'montée initiale', 'vent arrière', 'composante de travers'],
     },
-    'verification vitale': {
+    'vérification vitale': {
         'definition': 'Action ou contrôle de sécurité hautement prioritaire devant être exécuté scrupuleusement à des étapes clés du vol. La vérification de la libre course des commandes de vol avant décollage en est un exemple type.',
         'categorie': 'Procédures',
         'famille': 'listes_de_verification',
         'statut': 'redigee',
         'origine': 'metier',
         'schema': False,
+        'variantes': ['verification vitale'],
     },
     'verticale terrain': {
         'definition': "Passage au-dessus du circuit de piste pour observer les installations (manche à air, piste active, trafic). C'est l'intégration standard en l'absence d'information radio ou sur terrain inconnu.",
@@ -11490,13 +11511,14 @@ GLOSSAIRE = {
         'variantes': ['Calibrated Airspeed', 'vitesses conventionnelles'],
         'xrefs': ['erreur instrumentale', 'erreur de position', 'cas'],
     },
-    'vitesse corrigee': {
+    'vitesse corrigée': {
         'definition': "Vitesse indiquée lue sur l'anémomètre corrigée des erreurs de position et d'antenne de la prise de pression statique et du tube de Pitot. Elle est spécifiée dans le manuel de vol pour les calculs de performances.",
         'categorie': 'Vitesses & performances',
         'famille': 'vitesses_mesurees',
         'statut': 'redigee',
         'origine': 'metier',
         'schema': False,
+        'variantes': ['vitesse corrigee'],
     },
     "vitesse d'approche": {
         'definition': "Vitesse à maintenir stabilisée lors de la phase finale d'approche pour garantir une marge de sécurité suffisante par rapport au décrochage tout en limitant la distance d'atterrissage. Elle varie selon la configuration des volets.",
@@ -11530,7 +11552,7 @@ GLOSSAIRE = {
         'statut': 'redigee',
         'origine': 'corpus',
         'schema': True,
-        'variantes': ['Vs', 'VS', 'vs', 'V S', 'vitesses de décrochage', 'vitesse de decrochage', 'stall speed'],
+        'variantes': ['Vs', 'VS', 'V S', 'vitesses de décrochage', 'vitesse de decrochage', 'stall speed'],
         'xrefs': ['VS0', 'VS1', 'décrochage', 'facteur de charge', 'vitesses caractéristiques'],
     },
     'vitesse de rotation': {
@@ -11860,7 +11882,7 @@ GLOSSAIRE = {
         'statut': 'redigee',
         'origine': 'corpus',
         'schema': True,
-        'variantes': ['VX', 'vx', 'V X', 'meilleur angle de montée'],
+        'variantes': ['VX', 'V X', 'meilleur angle de montée'],
         'xrefs': ['Vy', 'vitesses caractéristiques'],
     },
     'Vy': {
@@ -11870,7 +11892,7 @@ GLOSSAIRE = {
         'statut': 'redigee',
         'origine': 'corpus',
         'schema': True,
-        'variantes': ['VY', 'vy', 'V Y', 'meilleur taux de montée'],
+        'variantes': ['VY', 'V Y', 'meilleur taux de montée'],
         'xrefs': ['Vx', 'vitesses caractéristiques'],
     },
     'wca': {
@@ -12003,6 +12025,7 @@ GLOSSAIRE = {
         'schema': False,
         'variantes': ['° C', 'deg C', 'degrés Celsius', 'degré Celsius'],
         'xrefs': ['point de rosée', 'altitude-densité', 'température', 'ISA'],
+        'unites_apres_nombre': ['° C'],
     },
     'échappement': {
         'definition': "Dernier temps du cycle d'un moteur à combustion interne, durant lequel le piston remonte pour évacuer les gaz brûlés vers l'extérieur à travers la soupape ouverte.",

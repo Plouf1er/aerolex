@@ -53,6 +53,13 @@ CASES = [
     ("S2 GS souligné", "GS = TAS = 110 kt", [("GS", "GS")], []),
     ("S2 1 lettre refusée sans nombre", "le L et le m de la liste", [], ["L", "m"]),
     ("S2 nombre à gauche accepté", "emporte 50 l de carburant", [("l", "litre")], []),
+    ("S2 élision après un nombre refusée (l')", "Si T = 10 et Td = 5, l'humidité relative est forte.", [], ["l"]),
+    ("S2 élision après un nombre refusée (L')", "alors que tu es à 2700. L'altimètre est faux", [], ["L"]),
+    ("S2 élision après un nombre refusée (s')", "Le facteur 1,3 s'applique ensuite.", [], ["s"]),
+    ("S2 unité après nombre : m, s, lb, °F", "à 50 m, pendant 5 s, 800 lb et 70 °F", [("m", "mètre"), ("s", "seconde"), ("lb", "livre"), ("°F", "Fahrenheit")], []),
+    ("S2 unité sans nombre refusée : m, s, lb", "le m et le s puis lb", [], ["m", "s", "lb"]),
+    ("S2 Va (VA) souligné en casse exacte", "Va = 112 KIAS, sous Va en turbulence", [("Va", "VA")], []),
+    ("S2 va (verbe) jamais souligné", "il va chercher et on va voir", [], ["va"]),
     # ── S3 : pluriels / singuliers automatiques
     ("S3 milles nautiques", "Dix milles nautiques au départ.", [("milles nautiques", "mille nautique")], []),
     ("S3 calages altimétriques", "des calages altimétriques différents", [("calages altimétriques", "calage altimétrique")], []),

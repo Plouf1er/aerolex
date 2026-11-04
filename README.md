@@ -176,6 +176,22 @@ Une seule fonction décide (`findMatches`, exposée en test par `window.AeroLexC
   entretien, visite, airworthiness. La fiche « aérodrome » explique le concept (AD y est développé à la 1re occurrence).
 - **Titres accentués** : le titre d'une fiche porte ses accents (variomètre) ; l'ancienne graphie reste en variante, le slug (sans accent)
   est inchangé.
+- **Élision** (2026-11-04) : un symbole court suivi d'une apostrophe (« l'humidité », « s'applique », « L'altimètre ») n'est jamais lié, même
+  derrière un nombre (« Td = 5, l'humidité » liait « l » → litre : 40 faux soulignements sur les 75 séances, supprimés).
+- **Exceptions documentées aux règles de variantes** (vérifiées dans le moteur par `check_lexicon`) :
+  - **Unité après nombre** — champ de la fiche `unites_apres_nombre: ["m", "L", ...]` : une variante de moins de 3 lettres en minuscules est
+    admise si elle y figure ET si le moteur la lie après un nombre (« 50 m ») sans jamais la lier seule (« le m »). Fiches concernées :
+    mètre (m), litre (L), livre (lb), seconde (s), Fahrenheit (°F), °C (« ° C », qui porte déjà le signe degré). « nm » n'y est PAS : le
+    moteur ne lie NM qu'en capitales, la minuscule n'aurait aucun effet.
+  - **Sigle en casse exacte** — « Va » pour la fiche « VA » (vitesse de manœuvre), comme Vy, Vx, Cz : `check_lexicon` ne le tient pas pour un mot
+    grammatical (règle `suggest_rules.is_exact_case_sigle`, titre de la fiche requis) mais vérifie dans le moteur que « Va » est lié et que « va »
+    (verbe aller) ne l'est jamais. Contrepartie connue : un « Va » verbe en tête de phrase serait lié (0 cas dans les 75 séances).
+  - **Titre sans accent voulu** — champ `titre_sans_accent: "raison"` : le contrôle « titres accentués » saute la fiche. Cas : « estime » (nom :
+    navigation à l'estime, ≠ participe « estimé ») et « NEGATIVE » (mot de phraséologie radio en capitales).
+  - **Aller-retour du moteur** : « non reconnue » = échec ; « liée à une autre fiche » (forme déclarée dans deux fiches : « carburant 100LL » ↔ « 100LL »,
+    « vol à vue » ↔ « VFR »…) = avertissement à arbitrer (fusion de fiches), pas un défaut de reconnaissance. Un titre en minuscules de 3 lettres
+    ou moins (« kt », « cg ») est testé en capitales ou après un nombre, seules formes que le moteur lie. Un titre qui est un mot courant (« ils »)
+    doit déclarer sa forme en capitales (« ILS ») en variante.
 
 ## Licence
 

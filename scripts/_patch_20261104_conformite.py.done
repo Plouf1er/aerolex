@@ -1,0 +1,82 @@
+#!/usr/bin/env python3
+# -*- coding: utf-8 -*-
+"""Conformité du lexique aero (2026-11-04) : titres accentués, variantes courtes, Va, exemptions documentées.
+Usage : python3 scripts/_patch_20261104_conformite.py [--write]   (essai à blanc par défaut). Rejouable (idempotent)."""
+import sys
+from pathlib import Path
+ROOT = Path(__file__).resolve().parent.parent
+sys.path.insert(0, str(ROOT / "src"))
+import import_lexique as IL  # noqa: E402
+
+F = ROOT / "data" / "data_glossaire_full.py"
+RENAMES = {   # ancien titre sans accent -> forme accentuée du corpus (slug inchangé : le slug est translittéré)
+    "assiette de reference": "assiette de référence",
+    "atterrissage precaution": "atterrissage précaution",
+    "calage helice": "calage hélice",
+    "carburant degagement": "carburant dégagement",
+    "chaine des erreurs": "chaîne des erreurs",
+    "derive constatee": "dérive constatée",
+    "iso zero": "iso zéro",
+    "isotherme zero": "isotherme zéro",
+    "modele threat and error": "modèle threat and error",
+    "procedure d'attente": "procédure d'attente",
+    "prolongement d'arret": "prolongement d'arrêt",
+    "regime venturi": "régime venturi",
+    "vent arriere de securite": "vent arrière de sécurité",
+    "verification vitale": "vérification vitale",
+    "vitesse corrigee": "vitesse corrigée",
+}
+# titres volontairement sans accent (mot distinct de la forme accentuée) : champ titre_sans_accent = raison
+EXEMPT = {
+    "estime": "nom (navigation à l'estime) ≠ participe « estimé » (fiches heure/temps/vent estimé)",
+    "NEGATIVE": "mot de phraséologie radio (anglais) en capitales ; « négatif » reste en variante",
+}
+# variantes minuscules < 3 lettres : retirées (sigle/symbole en casse exacte reconnu par le moteur)
+REMOVE = {"AD": ["ad"], "Cd": ["cd"], "Cl": ["cl"], "NM": ["nm"], "Vx": ["vx"], "Vy": ["vy"], "vitesse de décrochage": ["vs"], "VA": ["va"]}   # « nm » : le moteur ne lie NM qu'en capitales (casse exacte), même après un nombre
+# fiche au titre en minuscules dont le sigle est un mot courant (« ils ») : le moteur ne lie alors que la forme en capitales déclarée
+ADD_VARIANTS = {"ils": ["ILS"]}
+# unités : minuscules légitimes car le moteur ne les lie qu'après un nombre (champ unites_apres_nombre)
+UNITS = {"mètre": ["m"], "litre": ["L"], "livre": ["lb"], "Fahrenheit": ["°F"], "seconde": ["s"], "°C": ["° C"]}
+
+
+def main(write):
+    G = IL.load_glossaire(F)
+    out, log = {}, []
+    for k, v in G.items():
+        v = dict(v)
+        nk = RENAMES.get(k, k)
+        if nk != k:
+            var = list(v.get("variantes") or [])
+            for f in (k,):
+                if f not in var:
+                    var.append(f)
+            v["variantes"] = var
+            log.append("renommé %r -> %r" % (k, nk))
+        if k in EXEMPT and not v.get("titre_sans_accent"):
+            v["titre_sans_accent"] = EXEMPT[k]; log.append("exempt accent %r" % k)
+        if k in REMOVE:
+            old = list(v.get("variantes") or [])
+            new = [x for x in old if x not in REMOVE[k]]
+            if new != old:
+                v["variantes"] = new; log.append("variantes retirées %r : %s" % (k, [x for x in old if x not in new]))
+        if k in ADD_VARIANTS:
+            var = list(v.get("variantes") or [])
+            add = [x for x in ADD_VARIANTS[k] if x not in var]
+            if add:
+                v["variantes"] = var + add; log.append("variante ajoutée %r : %s" % (k, add))
+        if k in UNITS and v.get("unites_apres_nombre") != UNITS[k]:
+            v["unites_apres_nombre"] = list(UNITS[k]); log.append("unité après nombre %r : %s" % (k, UNITS[k]))
+        out[nk] = v
+    # xrefs vers un titre renommé
+    for k, v in out.items():
+        xr = v.get("xrefs")
+        if xr and any(x in RENAMES for x in xr):
+            v["xrefs"] = [RENAMES.get(x, x) for x in xr]; log.append("xrefs mis à jour dans %r" % k)
+    print("\n".join(log)); print(len(log), "modification(s)")
+    if write:
+        IL.atomic_write(F, IL.render(IL.split_preamble(F.read_text()), out))
+        print("écrit", F)
+
+
+if __name__ == "__main__":
+    main("--write" in sys.argv)

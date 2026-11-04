@@ -7,7 +7,7 @@ check_lexicon.py <slug> — enchaîne TOUS les contrôles de qualité d'un lexiq
     python3 scripts/check_lexicon.py demo-voile [--base DOSSIER] [--json] [--only a,b]
 
 Contrôles : acronyms · family_acronyms · links_resolve · slugs · familles (--strict) · matching · import (diff = 0) · titres accentués ·
-variantes < 3 lettres en minuscules · mots grammaticaux · aller-retour du moteur · empreinte de cache · index (lettres vides masquées).
+variantes < 3 lettres en minuscules (exceptions : unités après nombre, sigles en casse exacte, vérifiées dans le moteur) · mots grammaticaux · aller-retour du moteur · empreinte de cache · index (lettres vides masquées).
 Code retour : 0 = lexique propre, 1 = au moins un contrôle en échec. N'écrit rien dans data/ ni dist/.
 """
 from __future__ import annotations
@@ -68,8 +68,32 @@ vm.runInContext(fs.readFileSync(inp.engine,'utf8'),ctx);
 const core=win.AeroLexCore, idx=JSON.parse(fs.readFileSync(inp.index,'utf8')).terms;
 const maps=core.buildMaps(idx), rx=core.buildRegex(maps.ciMap,maps.csMap);
 const bad=[];
-for(const c of inp.cases){const ms=core.findMatches(c.text,rx,maps); if(!ms.some(m=>m.canon===c.canon)) bad.push([c.form,c.canon,ms.map(m=>m.raw+'>'+m.canon).join(',')]);}
+for(const c of inp.cases){
+  const texts=c.texts||[c.text]; let ok=false, coll=false, got=[];
+  for(const t of texts){const ms=core.findMatches(t,rx,maps); if(ms.some(m=>m.canon===c.canon)) ok=true;
+    if(ms.some(m=>m.raw.toLowerCase()===c.form.toLowerCase()||m.raw.toLowerCase()===c.form.toUpperCase().toLowerCase())) coll=true;
+    got=got.concat(ms.map(m=>m.raw+'>'+m.canon));}
+  if(!ok) bad.push([c.form,c.canon,got.join(','),coll?'collision':'non reconnue']);
+}
 console.log(JSON.stringify({version:win.AeroLex&&win.AeroLex.version,bad}));
+"""
+
+# Sonde des variantes courtes : cases {text, raw, canon, expect:'match'|'nomatch'}
+NODE_PROBE = r"""
+const fs=require('fs'), vm=require('vm');
+const inp=JSON.parse(fs.readFileSync(0,'utf8'));
+const win={}, doc={readyState:'loading',addEventListener(){},querySelector(){return null;}};
+const ctx=vm.createContext({window:win,document:doc,console,performance:{now:()=>0}});
+vm.runInContext(fs.readFileSync(inp.engine,'utf8'),ctx);
+const core=win.AeroLexCore, idx=JSON.parse(fs.readFileSync(inp.index,'utf8')).terms;
+const maps=core.buildMaps(idx), rx=core.buildRegex(maps.ciMap,maps.csMap);
+const bad=[];
+for(const c of inp.cases){
+  const ms=core.findMatches(c.text,rx,maps);
+  const ok = c.expect==='match' ? ms.some(m=>m.raw===c.raw && m.canon===c.canon) : !ms.some(m=>m.raw===c.raw);
+  if(!ok) bad.push([c.label,c.expect,ms.map(m=>m.raw+'>'+m.canon).join(',')]);
+}
+console.log(JSON.stringify({bad}));
 """
 
 
@@ -131,6 +155,8 @@ def main(argv=None) -> int:
         cnt = RULES.accent_forms(cdir, defs_only)
         bad = []
         for t in G:
+            if G[t].get("titre_sans_accent"):      # graphie sans accent voulue et justifiée (champ de la fiche : la raison)
+                continue
             s = RULES.accent_suggestion(t, cnt)
             if s:
                 bad.append("%s → %s" % (t, s["forme"]))
@@ -138,35 +164,79 @@ def main(argv=None) -> int:
               else "tous les titres suivent l'accentuation du corpus" + ("" if cdir else " (corpus introuvable : non comparé)"), warn=not cdir)
     # 9-10 : variantes interdites
     if want("variantes"):
-        short, gram = [], []
+        short, gram, units, exact = [], [], [], []
         for t, m in G.items():
+            declared = set(m.get("unites_apres_nombre") or [])
             for v in list(m.get("variantes") or []) + list(m.get("synonymes") or []):
-                if isinstance(v, str):
-                    if RULES.too_short(v):
+                if not isinstance(v, str):
+                    continue
+                if RULES.too_short(v):
+                    if v in declared:
+                        units.append((t, v))
+                    else:
                         short.append("%s ⊃ %r" % (t, v))
-                    elif RULES.forbidden_variant(v) == "mot grammatical":
-                        gram.append("%s ⊃ %r" % (t, v))
-        R.add("aucune variante < 3 lettres en minuscules", not short, ("%d : %s" % (len(short), " ; ".join(short[:8]))) if short else "")
+                elif RULES.forbidden_variant(v, t) == "mot grammatical":
+                    gram.append("%s ⊃ %r" % (t, v))
+                elif RULES.is_exact_case_sigle(v, t):
+                    exact.append((t, v))
+        # exceptions documentées, vérifiées DANS LE MOTEUR : unité = reconnue après un nombre et jamais seule ; « Va » = reconnue en
+        # casse exacte, jamais en minuscules (le verbe « va »).
+        probes = []
+        for t, v in units:
+            probes.append({"label": "unité %r (%s) après un nombre" % (v, t), "expect": "match", "raw": v, "canon": t, "text": "Il y a 12 %s au total." % v})
+            if "°" not in v and " " not in v:
+                probes.append({"label": "unité %r (%s) sans nombre" % (v, t), "expect": "nomatch", "raw": v, "canon": t, "text": "le %s, le %s et puis %s." % (v, v, v)})
+        for t, v in exact:
+            probes.append({"label": "casse exacte %r (%s)" % (v, t), "expect": "match", "raw": v, "canon": t, "text": "%s = 112 KIAS" % v})
+            probes.append({"label": "minuscules %r (%s) jamais liées" % (v.lower(), t), "expect": "nomatch", "raw": v.lower(), "canon": t,
+                           "text": "il %s chercher, on %s voir et elle %s bien." % (v.lower(), v.lower(), v.lower())})
+        if probes:
+            if eng.exists() and idxp.exists():
+                p = subprocess.run(["node", "-e", NODE_PROBE], input=json.dumps({"engine": str(eng), "index": str(idxp), "cases": probes}),
+                                   capture_output=True, text=True, timeout=120)
+                try:
+                    for b_ in json.loads(p.stdout)["bad"]:
+                        short.append("moteur : %s → attendu %s, obtenu %s" % (b_[0], b_[1], b_[2] or "rien"))
+                except Exception:
+                    short.append("sonde du moteur illisible : " + (p.stderr or p.stdout)[-120:])
+            else:
+                short.append("moteur introuvable : exceptions (unités, casse exacte) non vérifiables")
+        extra = (" ; exceptions vérifiées dans le moteur : %d unité(s) après nombre (%s), %d sigle(s) en casse exacte (%s)" % (
+            len(units), ", ".join(v for _, v in units[:8]), len(exact), ", ".join(v for _, v in exact[:6]))) if (units or exact) else ""
+        R.add("aucune variante < 3 lettres en minuscules", not short,
+              ("%d : %s" % (len(short), " ; ".join(short[:8]))) if short else "aucune forme interdite" + extra)
         R.add("aucun mot grammatical en variante", not gram, ("%d : %s" % (len(gram), " ; ".join(gram[:8]))) if gram else "")
     # 11 : aller-retour du moteur (chaque titre / variante est reconnu et mène à sa fiche)
+    #      non reconnue = aucune souligné ; collision = la forme est liée mais à UNE AUTRE fiche (forme déclarée dans deux fiches)
     if want("aller_retour") and eng.exists() and idxp.exists():
         cases = []
         for t, m in G.items():
             ctxw = " ".join(m.get("contexte_requis") or [])
-            hom = m.get("homonyme") or {}
             if m.get("contexte_sigle"):
                 ctxw += " " + " ".join(m["contexte_sigle"])
             for f in [t] + [v for v in (m.get("variantes") or []) if isinstance(v, str) and not RULES.too_short(v)]:
                 if len(re.sub(r"[^A-Za-zÀ-ÿ]", "", f)) < 2 or m.get("casse_sensible") and f != t:
                     continue
-                cases.append({"form": f, "canon": t, "text": "Voici %s, %s utilisé ici." % (f, ctxw or "terme")})
+                texts = ["Voici %s, %s utilisé ici." % (f, ctxw or "terme")]
+                alnum = re.sub(r"[^0-9A-Za-zÀ-ÿ]", "", f)
+                if f == f.lower() and (len(alnum) <= 2 or m.get("casse_sensible") or " " not in f):
+                    # sigle/unité écrit en minuscules dans le titre : le moteur ne le lie qu'en capitales (« CG ») ou après un nombre (« 12 kt »)
+                    texts = ["Voici %s, %s utilisé ici." % (f.upper(), ctxw or "terme"), "Il y a 12 %s, %s utilisé ici." % (f, ctxw or "terme")]
+                cases.append({"form": f, "canon": t, "texts": texts})
         inp = {"engine": str(eng), "index": str(idxp), "cases": cases}
         p = subprocess.run(["node", "-e", NODE_ROUNDTRIP], input=json.dumps(inp), capture_output=True, text=True, timeout=300)
         if p.returncode == 0:
             res = json.loads(p.stdout)
-            bad = res["bad"]
-            R.add("aller-retour du moteur", not bad or slug == "aero", ("%d forme(s) non reconnue(s) sur %d : %s" % (len(bad), len(cases), " ; ".join("%s→%s" % (b[0], b[1]) for b in bad[:6])) if bad else "%d forme(s) reconnue(s)" % len(cases)),
-                  warn=bool(bad) and slug == "aero")
+            unrec = [b for b in res["bad"] if b[3] == "non reconnue"]
+            coll = [b for b in res["bad"] if b[3] == "collision"]
+            parts = []
+            if unrec:
+                parts.append("%d non reconnue(s) : %s" % (len(unrec), " ; ".join("%s→%s" % (b[0], b[1]) for b in unrec[:6])))
+            if coll:
+                parts.append("%d forme(s) liée(s) à une autre fiche (déclarée dans deux fiches) : %s" % (coll.__len__(), " ; ".join("%s→%s (lié : %s)" % (b[0], b[1], b[2].split(",")[0]) for b in coll[:5])))
+            ok = not unrec and (not coll or slug == "aero")
+            R.add("aller-retour du moteur", ok, ("; ".join(parts) + " — sur %d formes" % len(cases)) if parts else "%d forme(s) reconnue(s)" % len(cases),
+                  warn=bool(coll) and ok)
         else:
             R.add("aller-retour du moteur", False, (p.stderr or p.stdout)[-200:])
     # 12 : empreinte de cache

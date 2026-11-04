@@ -96,14 +96,25 @@ def too_short(form: str) -> bool:
     return not (len(alnum) == 2 and any(c.isupper() for c in alnum))
 
 
-def forbidden_variant(form: str) -> str:
-    """Raison de refus d'une variante (ou '')."""
+def is_exact_case_sigle(form: str, title: str = "") -> bool:
+    """« Va » pour la fiche « VA » : variante de 2 lettres, avec une majuscule mais pas toutes, qui est la forme en casse EXACTE du sigle
+    de la fiche (mêmes lettres que le titre en majuscules). Le moteur v1.3.0 ne la lie que dans cette casse (maps.exact) : « Va » (vitesse
+    de manœuvre) est lié, « va » (verbe aller) ne l'est jamais. Sans le titre de la fiche on ne distingue pas « Va » de « Si » ou « Ne »
+    (mots grammaticaux en début de phrase) : l'exemption exige donc le titre, et check_lexicon vérifie dans le moteur que la forme en
+    minuscules n'est pas reconnue."""
+    f = (form or "").strip()
+    t = (title or "").strip()
+    return bool(t) and len(f) == 2 and f.isalpha() and f[0].isupper() and f[1].islower() and t.isupper() and t.upper() == f.upper()
+
+
+def forbidden_variant(form: str, title: str = "") -> str:
+    """Raison de refus d'une variante (ou ''). title : titre de la fiche (admet « Va » pour « VA », cf. is_exact_case_sigle)."""
     f = (form or "").strip()
     if not f:
         return "vide"
     if too_short(f):
         return "moins de 3 lettres en minuscules"
-    if is_grammatical(f) and not (len(f) >= 2 and f.isupper()):      # « TA », « SI » en MAJUSCULES = sigles, pas des mots grammaticaux
+    if is_grammatical(f) and not (len(f) >= 2 and f.isupper()) and not is_exact_case_sigle(f, title):   # « TA », « SI » en MAJUSCULES = sigles
         return "mot grammatical"
     return ""
 
