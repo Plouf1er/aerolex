@@ -1321,6 +1321,13 @@ _SCRYPT = dict(n=2 ** 14, r=8, p=1, dklen=32)
 _pw_ref = None      # (sel, hash scrypt) gardé en mémoire ; le mot de passe en clair n'est jamais conservé
 
 
+def _kdf(pw: str, salt: bytes) -> bytes:
+    """scrypt ; repli PBKDF2-HMAC-SHA256 600 000 itérations si l'interpréteur n'a pas scrypt (python3 système macOS / LibreSSL)."""
+    if hasattr(hashlib, "scrypt"):
+        return hashlib.scrypt(pw.encode("utf-8"), salt=salt, **_SCRYPT)
+    return hashlib.pbkdf2_hmac("sha256", pw.encode("utf-8"), salt, 600_000)
+
+
 def load_password(path=None):
     """Lit le fichier (une ligne), n'en garde que sel + hash scrypt. -> True si un mot de passe est défini."""
     global _pw_ref
@@ -1331,7 +1338,7 @@ def load_password(path=None):
         return False
     if pw:
         salt = secrets.token_bytes(16)
-        _pw_ref = (salt, hashlib.scrypt(pw.encode("utf-8"), salt=salt, **_SCRYPT))
+        _pw_ref = (salt, _kdf(pw, salt))
     return _pw_ref is not None
 
 
@@ -1342,7 +1349,7 @@ def check_password(given: str) -> bool:
     if _pw_ref is None or not given:
         return False
     salt, ref = _pw_ref
-    return hmac.compare_digest(hashlib.scrypt(given.encode("utf-8"), salt=salt, **_SCRYPT), ref)
+    return hmac.compare_digest(_kdf(given, salt), ref)
 
 
 def login_blocked(ip: str) -> int:

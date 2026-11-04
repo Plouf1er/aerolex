@@ -12,7 +12,10 @@ from pathlib import Path
 
 _TMP = tempfile.mkdtemp(prefix="suggest-test-")
 os.environ["AEROLEX_SUGGEST_DIR"] = _TMP
-os.environ["AEROLEX_SUGGEST_PASSWORD"] = "pw-factice-test"
+_PWF = os.path.join(_TMP, "pw-factice")          # mot de passe FACTICE, fichier temporaire (jamais le vrai)
+with open(_PWF, "w") as _f:
+    _f.write("pw-factice-test\n")
+os.environ["AEROLEX_SUGGEST_PASSWORD_FILE"] = _PWF
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 
 import suggest_core as core  # noqa: E402
@@ -362,6 +365,86 @@ check("force brute: 5 échecs -> 401 puis blocage 429", codes[:4] == [401] * 4 a
 check("force brute: même le BON mot de passe est refusé pendant le blocage", LG("pw-factice-test", "5.5.5.5")[0] == 429)
 check("force brute: autre IP non bloquée", LG("pw-factice-test", "4.4.4.4")[0] == 200)
 check("login: cookie absent du JSON final (serve le retire) et aucun mot de passe dans le code", "pw-factice" not in open(core.__file__).read())
+
+# ── 11. validation SÛRE (sur une COPIE temporaire du projet, jamais data/ réel) ──
+import fcntl, hashlib, subprocess  # noqa: E402
+REAL = core.ROOT
+check("validation: REBUILD_STEPS lance import_lexique --write", core.REBUILD_STEPS[0] == ["python3", "src/import_lexique.py", "--write"], core.REBUILD_STEPS[0])
+check("session: aucune trace de jeton dans le code (TOKEN_FILE, check_token, X-Suggest-Token, #t=, localStorage)",
+      not any(w in (open(core.__file__).read() + open(api.__file__.replace(".pyc", ".py")).read() + (REAL / "dist/aero/suggest.js").read_text())
+              for w in ("TOKEN_FILE", "check_token", "X-Suggest-Token", "#t=", "localStorage")))
+sha = lambda pth: hashlib.sha256(Path(pth).read_bytes()).hexdigest()
+real_full_sha = sha(REAL / "data/data_glossaire_full.py")
+CP = Path(_TMP) / "copie"
+subprocess.run(["rsync", "-a", "--exclude", ".git", "--exclude", "backups", "--exclude", "*.png", "--exclude", "data/suggest", str(REAL) + "/", str(CP) + "/"], check=True)
+core.ROOT = CP
+core.BACKUP_ROOT = Path(_TMP) / "bk"
+core.LEXICONS["aero"]["source"] = "data/data_glossaire.py"
+core._idx_cache.clear()
+n0 = core._count_cards()
+check("validation: la copie contient les fiches", n0 > 1000, n0)
+
+# a) succès : la fiche arrive dans le lexique COMPLET (essai à blanc impossible grâce à --write)
+pid = mkprop("zzvalidationtest", definition="Terme fictif de test. Il sert uniquement à vérifier la propagation.")
+r = core.validate_proposals([pid], force=True, run_llm=False)
+full_txt = (CP / "data/data_glossaire_full.py").read_text("utf-8")
+check("validation: reconstruction complète OK", r["valides"] == ["zzvalidationtest"] and len(r["build"]) == len(core.REBUILD_STEPS), r.get("build"))
+check("validation: la fiche est dans data_glossaire_full.py (propagée par --write)", "zzvalidationtest" in full_txt)
+check("validation: la fiche a sa page (nombre de fiches +1)", core._count_cards() == n0 + 1, (n0, core._count_cards()))
+check("validation: sauvegarde horodatée -validate de data/ et dist/aero/", any(d.name.endswith("-validate") and (d / "data").is_dir() and (d / "dist_aero").is_dir() for d in core.BACKUP_ROOT.iterdir()))
+check("validation: data/ RÉEL intact", sha(REAL / "data/data_glossaire_full.py") == real_full_sha)
+n1 = core._count_cards()
+
+def state():
+    return (sha(CP / "data/data_glossaire.py"), sha(CP / "data/data_glossaire_full.py"), core._count_cards())
+
+def prop_state(pid_):
+    return next(x for x in core.list_proposals("aero", "pending") if x["id"] == pid_)
+
+# b) échec d'une étape -> restauration automatique, proposition de nouveau « à valider » avec le message
+pid = mkprop("zzechectest", definition="Terme fictif de test. Il sert à simuler un échec.")
+st = state()
+try:
+    core.validate_proposals([pid], force=True, run_llm=False, steps=[core.REBUILD_STEPS[0], ["python3", "-c", "import sys; sys.exit(3)"]])
+    check("restauration: échec d'étape remonté", False)
+except core.ValidationError as e:
+    check("restauration: échec d'étape remonté", True)
+check("restauration: data/ + dist/aero/ identiques à l'avant", state() == st, (state(), st))
+pp = prop_state(pid)
+check("restauration: proposition de nouveau à valider avec le message d'erreur", "erreur_validation" in json.dumps(pp, ensure_ascii=False) and "zzechectest" not in (CP / "data/data_glossaire_full.py").read_text("utf-8"))
+
+# c) le nombre de fiches baisse -> refus + restauration
+st = state()
+drop = ["python3", "-c", "import glob,os; os.remove(sorted(glob.glob('dist/aero/t/*.json'))[0])"]
+try:
+    core.validate_proposals([pid], force=True, run_llm=False, steps=[drop], links_cmd=["python3", "-c", "pass"])
+    check("restauration: baisse du nombre de fiches refusée", False)
+except core.ValidationError as e:
+    check("restauration: baisse du nombre de fiches refusée", "baissé" in str(e), e)
+check("restauration: fiches rétablies après la baisse", state() == st)
+
+# d) test_links_resolve en échec -> restauration
+st = state()
+try:
+    core.validate_proposals([pid], force=True, run_llm=False, steps=[["python3", "-c", "pass"]], links_cmd=["python3", "-c", "import sys; sys.exit(1)"])
+    check("restauration: échec de test_links_resolve", False)
+except core.ValidationError:
+    check("restauration: échec de test_links_resolve", True)
+check("restauration: état identique après échec des liens", state() == st)
+
+# e) verrou : une seule validation à la fois
+lk = open(core.DATA_DIR / "validate.lock", "w")
+fcntl.flock(lk, fcntl.LOCK_EX)
+try:
+    core.validate_proposals([pid], force=True, run_llm=False, steps=[["python3", "-c", "pass"]], links_cmd=["python3", "-c", "pass"])
+    check("verrou: 2e validation simultanée refusée", False)
+except ValueError as e:
+    check("verrou: 2e validation simultanée refusée", "déjà en cours" in str(e))
+fcntl.flock(lk, fcntl.LOCK_UN); lk.close()
+check("verrou: aucune écriture pendant le refus", state() == st)
+
+core.ROOT = REAL
+check("validation: data/ réel jamais modifié par les tests", sha(REAL / "data/data_glossaire_full.py") == real_full_sha)
 
 shutil.rmtree(_TMP, ignore_errors=True)
 print("\n%d échec(s)" % len(FAILS))
