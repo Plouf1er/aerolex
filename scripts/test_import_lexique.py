@@ -85,7 +85,7 @@ def main():
         txt = src_tmp.read_text(encoding="utf-8")
         i = txt.index("GLOSSAIRE = {")
         j = txt.index("\n}", i)
-        txt = txt[:j] + "\n    'zz terme suggest': {'definition': 'def suggest', 'categorie': 'X', 'origine': 'suggest'},\n" + txt[j + 1:]
+        txt = txt[:j] + "\n    'zz terme suggest': {'definition': 'def suggest', 'categorie': 'X', 'famille': 'divers', 'origine': 'suggest'},\n" + txt[j + 1:]
         src_tmp.write_text(txt, encoding="utf-8")
         ft = full_tmp.read_text(encoding="utf-8")
         ft = ft[:ft.rindex("}")] + "    'zz ajout direct': {\n        'definition': 'def directe',\n        'categorie': 'X',\n        'statut': 'redigee',\n    },\n}\n"

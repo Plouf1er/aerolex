@@ -188,14 +188,26 @@
   };
 
   // ---------- revue ----------
-  function famSelect(domain, current) {
-    var s = el("select", { "data-f": "famille" });
-    s.appendChild(el("option", { value: "", text: "— aucune —" }));
+  function famKeys(domain) {       // familles existantes (alphabétique), « Divers » TOUJOURS en dernier
     var fams = (lexicons[domain] && lexicons[domain].familles) || {};
-    Object.keys(fams).forEach(function (f) { var o = el("option", { value: f, text: famLabel(domain, f) + " — " + f + " (" + fams[f] + ")" }); if (f === current) o.selected = true; s.appendChild(o); });
+    var ks = Object.keys(fams).filter(function (f) { return f !== "divers"; });
+    ks.sort(function (a, b) { return famLabel(domain, a).localeCompare(famLabel(domain, b), "fr"); });
+    ks.push("divers");
+    return ks;
+  }
+  function famSelect(domain, current, withNew) {
+    var s = el("select", { "data-f": "famille" });
+    var fams = (lexicons[domain] && lexicons[domain].familles) || {};
+    if (!current) s.appendChild(el("option", { value: "", text: "— famille à choisir —" }));
+    famKeys(domain).forEach(function (f) {
+      var o = el("option", { value: f, text: famLabel(domain, f) + (f === "divers" ? "" : " — " + f) + " (" + (fams[f] || 0) + ")" });
+      if (f === current) o.selected = true; s.appendChild(o);
+    });
+    if (withNew) s.appendChild(el("option", { value: "__new__", text: "nouvelle famille…" }));
     return s;
   }
   function famLabel(domain, slug) {
+    if (slug === "divers") return "Divers";
     var l = lexicons[domain] && lexicons[domain].familles_labels;
     return (l && l[slug]) || slug;
   }
@@ -220,7 +232,8 @@
       return el("li", { class: c.statut }, [document.createTextNode((c.statut === "ok" ? "✓ " : c.statut === "warn" ? "⚠ " : "✗ ") + c.nom + (c.detail ? " — " + c.detail : ""))]);
     }));
     var box = el("div", { class: "check" }, [el("b", { text: rep.ok ? (rep.avertissements.length ? "Contrôle de cohérence : avertissements" : "Contrôle de cohérence : OK") : "Contrôle de cohérence : BLOQUANT" }), ul]);
-    if (!rep.ok) box.appendChild(el("button", { class: "btn ko", text: "Forcer la validation", onclick: onForce }));
+    if (!rep.ok && rep.incontournable) box.appendChild(el("p", { class: "msg err", text: "Validation impossible : corrigez la famille (menu « Famille » de la carte). Le forçage n'est pas permis pour ce contrôle." }));
+    else if (!rep.ok) box.appendChild(el("button", { class: "btn ko", text: "Forcer la validation", onclick: onForce }));
     else if (rep.avertissements.length) box.appendChild(el("button", { class: "btn ok", text: "Valider malgré les avertissements", onclick: onOk }));
     else box.appendChild(el("button", { class: "btn ok", text: "Confirmer la validation", onclick: onOk }));
     return box;
@@ -271,12 +284,43 @@
         attach.appendChild(el("label", { class: "chk", for: "att-" + p.id + "-" + i }, [cb, document.createTextNode(" "), link(n, liens[n])]));
       });
     }
+    // menu « Famille » sur la carte : changement immédiat (aucun appel au modèle)
+    var famMsg = el("p", { class: "msg err", hidden: "" });
+    var famSel = famSelect(p.domaine, d.famille, true);
+    famSel.setAttribute("data-card-fam", "1"); famSel.id = "fam-" + p.id;
+    if (!d.famille && d.famille_nouvelle) famSel.value = "__new__";
+    var newBox = el("div", { class: "newfam", hidden: "" }, [
+      el("label", { text: "Libellé de la nouvelle famille" }), el("input", { type: "text", "data-nf": "label", value: d.famille_nouvelle_label || "" }),
+      el("label", { text: "Justification (obligatoire)" }), el("input", { type: "text", "data-nf": "just", value: d.famille_justification || "" }),
+      el("label", { class: "chk" }, [el("input", { type: "checkbox", "data-nf": "accord" }), document.createTextNode(" J'accepte cette famille (même avec moins de 2 rattachements)")]),
+      el("div", { class: "actions" }, [el("button", { class: "btn small", "data-nf": "save", text: "Enregistrer la famille" })])]);
+    newBox.querySelector('[data-nf="accord"]').checked = !!d.famille_accord;
+    if (!d.famille && d.famille_nouvelle) newBox.hidden = false;
+    function saveFam(data) {
+      famMsg.hidden = true; famSel.disabled = true;
+      api("POST", "/proposals/" + p.id + "/edit", { data: data }).then(loadProposals).catch(function (e) {
+        famMsg.hidden = false; famMsg.textContent = "Famille non modifiée : " + e.message; famSel.disabled = false;
+      });
+    }
+    famSel.onchange = function () {
+      if (famSel.value === "__new__") { newBox.hidden = false; return; }
+      newBox.hidden = true;
+      if (famSel.value) saveFam({ famille: famSel.value });
+    };
+    newBox.querySelector('[data-nf="save"]').onclick = function () {
+      var lab = newBox.querySelector('[data-nf="label"]').value.trim();
+      if (!lab) { famMsg.hidden = false; famMsg.textContent = "Donnez un libellé à la nouvelle famille."; return; }
+      saveFam({ famille_nouvelle: lab, famille_nouvelle_label: lab, famille_justification: newBox.querySelector('[data-nf="just"]').value,
+                famille_accord: newBox.querySelector('[data-nf="accord"]').checked });
+    };
+    var famRow = el("div", { class: "famrow" }, [el("label", { for: "fam-" + p.id, text: "Famille" }), famSel, famMsg, newBox]);
     var view = el("div", {}, [
       d.origine ? kv("Développé", d.origine + (d.traduction ? " (" + d.traduction + ")" : "")) : null,
       kv("Définition", d.definition),
       sigleNode(d),
       kv("Famille proposée", famText(p.domaine, d)),
       kv("Justification", d.famille_justification),
+      famRow,
       (d.voir_aussi || []).length ? kvNode("Voir aussi proposés", linkList(d.voir_aussi, liens)) : null,
       kv("Synonymes", (d.synonymes || []).join(", ")),
       (d.voisins_consultes || []).length ? kvNode("Fiches voisines consultées", linkList(d.voisins_consultes)) : null,
@@ -285,7 +329,7 @@
     var edit = el("div", { class: "edit", hidden: "" }, [
       el("label", { text: "Terme" }), el("input", { type: "text", "data-f": "term", value: p.terme }),
       el("label", { text: "Définition" }), el("textarea", { rows: "4", "data-f": "definition" }),
-      el("label", { text: "Famille" }), famSelect(p.domaine, d.famille),
+      el("label", { text: "Famille" }), famSelect(p.domaine, d.famille, false),
       d.famille_nouvelle ? el("label", { text: "Libellé de la nouvelle famille" }) : null,
       d.famille_nouvelle ? el("input", { type: "text", "data-f": "famille_nouvelle_label", value: d.famille_nouvelle_label || "" }) : null,
       el("label", { text: "Voir aussi (fiches existantes, virgules)" }), el("input", { type: "text", "data-f": "voir_aussi", value: (d.voir_aussi || []).join(", ") }),

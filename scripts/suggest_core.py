@@ -76,7 +76,12 @@ except Exception:  # pragma: no cover
     _family_label_default = lambda f: f.replace("_", " ").capitalize()  # noqa: E731
 
 
+DIVERS = "divers"          # famille de repli, présente d'office dans tout lexique (cf. term_display.DIVERS_SLUG)
+
+
 def family_label(slug: str, root=None) -> str:
+    if slug == DIVERS:
+        return "Divers"
     try:
         d = json.loads(((root or ROOT) / "data" / "familles_labels.json").read_text("utf-8"))
         if isinstance(d, dict) and d.get(slug):
@@ -398,7 +403,9 @@ class LexiconIndex:
         for meta in gl.values():
             if meta.get("famille"):
                 fams[meta["famille"]] = fams.get(meta["famille"], 0) + 1
+        n_div = fams.pop(DIVERS, 0)
         self.families = dict(sorted(fams.items(), key=lambda kv: (-kv[1], kv[0])))
+        self.families[DIVERS] = n_div                 # « Divers » existe dans TOUT lexique, toujours en dernier
         self.family_labels = {f: family_label(f, ROOT) for f in self.families}
         self.no_family = sorted(t for t, m in gl.items() if not m.get("famille"))
 
@@ -697,8 +704,8 @@ def build_prompt(lex_id: str, terms: list, families: dict, ctx: dict | None = No
         '  "origine": si sigle/abréviation, forme développée d\'origine (langue d\'origine), sinon "",\n'
         '  "traduction": si l\'origine est étrangère, traduction française du développé, sinon "",\n'
         '  "definition": 2 à 4 phrases claires, exactes, niveau ' + cfg["audience"] + ' (vide "" si domaine=false),\n'
-        '  "famille": le SLUG d\'UNE famille existante (liste ci-dessous) dès qu\'elle convient, sinon "" ;\n'
-        '  "famille_nouvelle": slug snake_case d\'une nouvelle famille UNIQUEMENT si aucune famille existante ne convient, sinon "" ;\n'
+        '  "famille": OBLIGATOIRE, JAMAIS vide : le SLUG d\'UNE famille existante (liste ci-dessous) dès qu\'elle convient, sinon "divers" (le terme ne rentre dans aucune famille et aucune nouvelle ne se justifie) ;\n'
+        '  "famille_nouvelle": slug snake_case d\'une nouvelle famille UNIQUEMENT si aucune famille existante ne convient ET qu\'au moins 2 fiches existantes sans famille peuvent la rejoindre (sinon "divers"), sinon "" ;\n'
         '  "famille_nouvelle_label": libellé lisible en français de cette nouvelle famille (ex. « Structure de l\'aile », jamais un slug), sinon "" ;\n'
         '  "famille_justification": 1 à 2 phrases : pourquoi cette famille existante convient, ou pourquoi aucune ne convient et que cette nouvelle famille se justifie,\n'
         '  "rattachements": fiches EXISTANTES SANS FAMILLE (liste ci-dessous, noms exacts) qui devraient rejoindre la famille choisie/proposée (vide si aucune),\n'
@@ -708,8 +715,10 @@ def build_prompt(lex_id: str, terms: list, families: dict, ctx: dict | None = No
         'developpe = forme d\'origine complète, traduction_fr = traduction française si le développé est anglais, sinon "" (liste vide si aucun sigle),\n'
         '  "confiance": nombre 0..1 (ta certitude sur la définition).\n'
         + ACRONYM_RULE +
+        "RÈGLE ABSOLUE : tout terme a une famille. Réponds TOUJOURS par une famille existante, par « divers » (repli explicite) ou par une "
+        "nouvelle famille justifiée (famille_justification obligatoire + au moins 2 rattachements). Une famille vide est refusée.\n"
         "RÈGLES DE FAMILLE : regarde d'abord les fiches voisines fournies avec chaque terme et le catalogue des familles ; choisis une famille "
-        "EXISTANTE dès qu'elle convient. Ne crée une nouvelle famille que si aucune ne convient ; dans ce cas, propose les fiches existantes sans famille "
+        "EXISTANTE dès qu'elle convient. Ne crée une nouvelle famille que si aucune ne convient (sinon « divers ») ; dans ce cas, propose les fiches existantes sans famille "
         "qui devraient la rejoindre (ex. pour « emplanture » : bord d'attaque, bord de fuite, longeron, nervure, corde, profil). "
         "Les noms de fiches (voir_aussi, rattachements) doivent exister dans le lexique : n'invente rien.\n"
         "Pas de HTML, pas de markdown, pas de commentaire hors JSON. Sois exact : si tu ne connais pas un terme, "
@@ -1350,7 +1359,7 @@ def list_proposals(lex_id: str | None, status: str = "pending") -> list:
 
 def edit_proposal(pid: int, term: str | None, data: dict) -> dict:
     allowed = {"definition", "famille", "famille_nouvelle", "famille_nouvelle_label", "famille_justification", "synonymes",
-               "origine", "traduction", "voir_aussi", "rattachements_retenus"}
+               "origine", "traduction", "voir_aussi", "rattachements_retenus", "famille_accord"}
     with _db_lock, db() as con:
         r = con.execute("SELECT * FROM proposals WHERE id=? AND status='pending'", (pid,)).fetchone()
         if not r:
@@ -1360,6 +1369,22 @@ def edit_proposal(pid: int, term: str | None, data: dict) -> dict:
         for k, v in data.items():
             if k in allowed:
                 cur[k] = v
+        if data.get("famille_nouvelle"):             # le relecteur choisit « nouvelle… » : slug (ou libellé) + libellé
+            fn = str(data["famille_nouvelle"]).strip()
+            if not re.fullmatch(r"[a-z0-9_]+", fn):
+                cur["famille_nouvelle_label"] = cur.get("famille_nouvelle_label") or fn
+                fn = _slug(fn)
+            if fn in idx.families:                   # elle existe déjà : on la prend telle quelle
+                cur["famille"], cur["famille_nouvelle"], cur["famille_nouvelle_label"] = fn, "", ""
+            else:
+                cur["famille"], cur["famille_nouvelle"] = "", fn[:60]
+                cur["famille_nouvelle_label"] = str(cur.get("famille_nouvelle_label") or "").strip()[:80] or family_label(fn)
+        elif (data.get("famille") or "").strip():    # famille existante ou Divers choisie : la « nouvelle » est abandonnée
+            if cur["famille"].strip() not in idx.families:
+                raise ValueError("famille inconnue : %s" % cur["famille"])
+            cur["famille_nouvelle"], cur["famille_nouvelle_label"], cur["famille_accord"] = "", "", False
+        if "famille_accord" in cur:
+            cur["famille_accord"] = bool(cur["famille_accord"])
         if isinstance(cur.get("synonymes"), str):
             cur["synonymes"] = [clean_term(s) for s in cur["synonymes"].split(",") if clean_term(s)]
         if "voir_aussi" in data:
@@ -1585,19 +1610,26 @@ def check_proposal(row, run_llm: bool = True) -> dict:
     fam, fam_new = d.get("famille") or "", d.get("famille_nouvelle") or ""
     raw_att = d.get("rattachements_retenus") or []
     att = _names(raw_att, idx, term, 15, True)
+    accord = bool(d.get("famille_accord"))
     if fam and fam in idx.families:
-        add("Famille", "ok", "%s (%s)" % (idx.family_labels.get(fam, fam), fam))
+        add("Famille", "ok", "%s (%s)" % (idx.family_labels.get(fam, fam), fam) + (" — repli explicite" if fam == DIVERS else ""))
+    elif fam:
+        ctl.append({"nom": "Famille", "statut": "ko", "incontournable": True,
+                    "detail": "famille inconnue « %s » (choisir une famille existante, Divers ou une nouvelle famille justifiée)." % fam})
     elif fam_new:
         lab = d.get("famille_nouvelle_label") or family_label(fam_new)
         just = (d.get("famille_justification") or "").strip()
-        if att and just:
-            add("Famille", "ok", "nouvelle famille « %s » — %s" % (lab, just))
-        elif att:
-            add("Famille", "warn", "nouvelle famille « %s » sans justification écrite (%d fiche(s) rattachée(s))." % (lab, len(att)))
+        if not just:
+            ctl.append({"nom": "Famille", "statut": "ko", "incontournable": True,
+                        "detail": "nouvelle famille « %s » sans justification écrite (obligatoire)." % lab})
+        elif len(att) >= 2 or accord:
+            add("Famille", "ok", "nouvelle famille « %s » — %s%s" % (lab, just, "" if len(att) >= 2 else " (accord explicite du relecteur)"))
         else:
-            add("Famille", "warn", "nouvelle famille « %s » proposée : à justifier (aucune fiche existante à rattacher)." % lab)
+            ctl.append({"nom": "Famille", "statut": "warn", "bloquant": True,
+                        "detail": "nouvelle famille « %s » avec %d rattachement(s) : il en faut au moins 2, ou l'accord explicite du relecteur (case « J'accepte cette famille »), ou choisir Divers." % (lab, len(att))})
     else:
-        add("Famille", "ko", "aucune famille (ni existante, ni nouvelle justifiée).")
+        ctl.append({"nom": "Famille", "statut": "ko", "incontournable": True,
+                    "detail": "aucune famille. Tout terme a une famille : choisir une famille existante, « Divers » ou une nouvelle famille justifiée."})
     if att:
         add("Rattachements", "ok", "%d fiche(s) sans famille rejoindront la famille : %s" % (len(att), ", ".join(att)))
     if len(att) < len(raw_att):
@@ -1668,8 +1700,8 @@ def check_proposal(row, run_llm: bool = True) -> dict:
     conf = float(d.get("confiance") or 0)
     if conf < LOW_CONF:
         add("Confiance", "warn", "confiance du modèle %d %% (< %d %%) : relire avec attention." % (round(conf * 100), round(LOW_CONF * 100)))
-    blk_ = lambda c: c["statut"] == "ko" or c.get("bloquant")          # « bloquant » = affiché ⚠ mais exige le forçage
-    return {"ok": not any(blk_(c) for c in ctl), "controles": ctl,
+    blk_ = lambda c: c["statut"] == "ko" or c.get("bloquant") or c.get("incontournable")          # « bloquant » = affiché ⚠ mais exige le forçage
+    return {"ok": not any(blk_(c) for c in ctl), "incontournable": any(c.get("incontournable") for c in ctl), "controles": ctl,
             "bloquants": [c["nom"] + " : " + c["detail"] for c in ctl if blk_(c)],
             "avertissements": [c["nom"] + " : " + c["detail"] for c in ctl if c["statut"] == "warn" and not c.get("bloquant")],
             "fiches_liees": rel, "confiance": conf}
@@ -1889,7 +1921,7 @@ def validate_proposals(ids: list, do_rebuild: bool = True, steps=None, force: bo
                 skipped.append({"terme": r["term"], "raison": "déjà présent (%s)" % m["terme"]})
                 continue
             rep_ = check_proposal(r, run_llm)
-            if not rep_["ok"] and not force:       # contrôle bloquant : rien n'est écrit pour ce terme
+            if not rep_["ok"] and (not force or rep_.get("incontournable")):   # bloquant : rien n'est écrit ; la famille vide n'est PAS forçable
                 refused.append({"id": r["id"], "terme": r["term"], **rep_})
                 continue
             d = json.loads(r["data"])

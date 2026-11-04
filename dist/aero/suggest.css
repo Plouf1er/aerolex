@@ -65,3 +65,9 @@ input[type=file]{width:100%}
 .login .msg:empty{display:none}
 [hidden]{display:none!important}
 .sigles .kv{margin:.2rem 0}.kv.sig-new{color:var(--ok)}.kv.sig-warn{color:var(--warn)}
+
+.famrow{margin:.5rem 0}.famrow>label{display:block;font-weight:600;margin-bottom:.2rem}
+.famrow select{max-width:100%}
+.newfam{margin:.4rem 0;padding:.5rem .7rem;border:1px dashed var(--bd);border-radius:8px;background:#fafbfc}
+.newfam label{display:block;margin:.3rem 0 .1rem}.newfam .chk{display:flex;align-items:center;gap:.4rem;min-height:32px;font-weight:400}
+.newfam input[type=checkbox]{width:20px;height:20px;flex:none}

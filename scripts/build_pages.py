@@ -22,7 +22,7 @@ from extra_content import get_extra_content
 # payload : il ne relit jamais GLOSSAIRE pour décider d'un contenu, donc la
 # fiche en ligne et la popup ne peuvent pas diverger.
 from term_payload import PayloadContext, build_payload
-from term_display import family_label
+from term_display import family_label, family_sort_key
 
 # --- JS de navigation (hors f-string : contient des accolades) ---
 NAV_JS_TMPL = """<script>
@@ -253,7 +253,7 @@ def generate_index():
         letters[letter].append(terme)
         
     cat_opts = "".join(f'<option value="{escape(c)}">{escape(c)}</option>' for c in sorted(categories_set))
-    fam_opts = "".join(f'<option value="{escape(f)}">{escape(family_label(f))} ({len(families[f])})</option>' for f in sorted(families.keys()))
+    fam_opts = "".join(f'<option value="{escape(f)}">{escape(family_label(f))} ({len(families[f])})</option>' for f in sorted(families.keys(), key=family_sort_key))
     
     html_content = f"""<!DOCTYPE html>
 <html lang="fr">
@@ -412,6 +412,10 @@ def main():
     
     print(f"Pages écrites: {num_files} | Poids total: {total_size/1024:.1f} KB | Poids moyen: {avg_size:.1f} bytes")
     print(f"Pages avec SVG: {total_svg} | Pages avec tableau de famille: {total_fam} | Pages sans famille: {total_no_fam}")
+    if total_no_fam:
+        print(f"AVERTISSEMENT : {total_no_fam} fiche(s) sans famille. Regle AeroLex : tout terme a une famille "
+              f"(divers si aucune ne convient). Non bloquant tant que le classement existant n'est pas applique ; "
+              f"les NOUVEAUX ajouts sans famille sont refuses par src/import_lexique.py --write.")
     # Empreinte + métadonnées de build, consultables en public d'un simple curl
     # (/aero/build-info.json) pour diagnostiquer un cache CDN périmé.
     info = write_build_info(len(GLOSSAIRE))

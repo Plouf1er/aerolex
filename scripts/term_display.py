@@ -326,7 +326,13 @@ _FAM_WORDS = {
 }
 
 
+# Famille de repli, présente d'office dans TOUT lexique (règle : chaque terme a une famille ;
+# si aucune ne convient → « divers »). Jamais supprimable, toujours affichée en dernier.
+DIVERS_SLUG = "divers"
+DIVERS_LABEL = "Divers"
+
 _FAM_SPECIAL = {
+    DIVERS_SLUG: DIVERS_LABEL,
     "facteurs_humains_physiologie": "Facteurs humains : physiologie",
     "codes_meteo_etat": "Codes météo : état",
 }
@@ -345,9 +351,16 @@ def _custom_family_labels() -> dict:
         return {}
 
 
+def family_sort_key(slug: str):
+    """Ordre d'affichage des familles : alphabétique (libellé), « Divers » TOUJOURS en dernier."""
+    return (slug == DIVERS_SLUG, family_label(slug).lower(), slug)
+
+
 def family_label(fam: str) -> str:
     if not fam:
         return ""
+    if fam == DIVERS_SLUG:          # non surchargeable par data/familles_labels.json
+        return DIVERS_LABEL
     custom = _custom_family_labels().get(fam)
     if custom:
         return custom

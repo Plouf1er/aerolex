@@ -132,6 +132,29 @@ polysémiques).
 
 ---
 
+## Familles (règle : tout terme a une famille)
+
+**Chaque terme, dans TOUT lexique AeroLex (aero et lexiques futurs, cf. `data-lexicon`), a une famille.**
+Si aucune famille ne convient : la famille **« Divers »** (slug `divers`). Ça force à classer chaque nouveau
+mot, ou à le mettre explicitement dans Divers.
+
+- **« Divers »** existe d'office dans le catalogue des familles de chaque lexique (`scripts/term_display.py` :
+  `DIVERS_SLUG`, libellé non surchargeable ; `LexiconIndex.families` dans `suggest_core.py`), toujours affichée
+  **en dernier** (index, listes, menu de la carte Suggérer).
+- **Suggérer** : le modèle doit répondre par une famille existante, `divers`, ou une nouvelle famille justifiée
+  (justification obligatoire + au moins 2 rattachements, ou accord explicite du relecteur). Le contrôle de cohérence
+  **bloque** une famille vide et le forçage est impossible pour ce cas. La carte a un menu « Famille » (existantes +
+  Divers + « nouvelle famille… ») qui change la famille sans relancer le modèle.
+- **Import** : `src/import_lexique.py --write` refuse d'ajouter un terme sans famille (message listant les termes).
+  `--default-famille-divers` les met explicitement dans Divers (ne pas l'utiliser sur le vrai lexique).
+  Les fiches existantes sans famille (héritage) ne bloquent pas : avertissement avec leur nombre (build_pages.py, import).
+- **Nouveau lexique** : il n'existe pas de script de création ; un lexique = une entrée de `LEXICONS` (suggest_core.py)
+  + son glossaire. Il hérite d'office de Divers et de la même règle (aucun terme sans famille à l'import).
+- **Test** : `python3 scripts/test_familles.py` (0 nouveau terme sans famille, Divers partout, suggest bloque,
+  import refuse). Les fiches orphelines historiques sont listées dans `data/familles_orphelines_baseline.txt`
+  (avertissement) ; `--strict` échoue s'il en reste, à activer une fois le classement appliqué (puis supprimer
+  le fichier baseline).
+
 ## Licence
 
 - **Code** (script JS, outils Python) : MIT

@@ -32,7 +32,13 @@ après écriture (aucune fiche perdue, nombre >= avant) sinon restauration autom
 --check : essai à blanc + code retour 1 s'il y a un diff.
 Le préambule (docstring) du full est conservé tel quel.
 
-Usage : python3 src/import_lexique.py [--write] [--check] [--with-stubs] [--root DIR]
+Règle « famille obligatoire » : chaque terme de tout lexique AeroLex a une famille (slug « divers » si
+aucune ne convient). Avec --write, un terme AJOUTÉ sans famille est REFUSÉ (message listant les termes ;
+rien n'est écrit). --default-famille-divers met explicitement dans « divers » les termes sans famille
+(à ne PAS utiliser sur le vrai lexique tant que le classement des fiches orphelines n'est pas validé).
+Les fiches existantes sans famille (héritage) ne bloquent pas : simple avertissement avec leur nombre.
+
+Usage : python3 src/import_lexique.py [--write] [--check] [--with-stubs] [--default-famille-divers] [--root DIR]
 """
 
 import argparse
@@ -166,6 +172,14 @@ def merge(full: dict, src: dict, lex=None):
     return out, rep
 
 
+DIVERS = "divers"      # famille de repli (scripts/term_display.DIVERS_SLUG)
+
+
+def sans_famille(gloss: dict) -> list:
+    """Termes sans famille (absente, vide ou blanche)."""
+    return [k for k, v in gloss.items() if not str(v.get("famille") or "").strip()]
+
+
 def render(preamble: str, gloss: dict) -> str:
     return preamble + "".join(dump_entry(k, v) for k, v in gloss.items()) + "}\n"
 
@@ -216,7 +230,7 @@ def prune_backups(backup_dir: Path, keep: int = KEEP_BACKUPS, prefixes=("import-
     return [x.name for x in gone]
 
 
-def run(root: Path, write=False, with_stubs=False, out=print, backup_dir=None, allow_shrink=False):
+def run(root: Path, write=False, with_stubs=False, out=print, backup_dir=None, allow_shrink=False, default_divers=False):
     """Cœur testable. Retourne (changed: bool, rapport dict)."""
     data = root / "data"
     full_p, src_p, lex_p = data / "data_glossaire_full.py", data / "data_glossaire.py", data / "lexique-filtre.txt"
@@ -227,6 +241,13 @@ def run(root: Path, write=False, with_stubs=False, out=print, backup_dir=None, a
     full, src = load_glossaire(full_p), load_glossaire(src_p)
     lex = read_lexique(lex_p) if with_stubs else None
     merged, rep = merge(full, src, lex)
+    old_orph = set(sans_famille(full))
+    if default_divers:                     # explicite : les orphelins (ajoutés ou hérités) vont dans « divers »
+        for k in sans_famille(merged):
+            merged[k] = dict(merged[k], famille=DIVERS)
+    new_orph = [k for k in sans_famille(merged) if k not in old_orph]      # ajoutés par cette fusion, sans famille
+    rep["sans_famille_ajoutes"] = new_orph
+    rep["sans_famille_existants"] = sorted(old_orph & set(sans_famille(merged)))
     new_text = render(split_preamble(old_text), merged)
     changed = new_text != old_text
     out("IMPORT LEXIQUE -> data_glossaire_full.py  (%s)" % ("ECRITURE" if write else "essai à blanc"))
@@ -240,6 +261,13 @@ def run(root: Path, write=False, with_stubs=False, out=print, backup_dir=None, a
     if with_stubs:
         out("  stubs lexique ajoutés .... %d" % len(rep["stubs"]))
     out("  total après fusion ....... %d" % len(merged))
+    if default_divers:
+        n_div = sum(1 for k, v in merged.items() if v.get("famille") == DIVERS and full.get(k, {}).get("famille") != DIVERS)
+        out("  --default-famille-divers : %d fiche(s) mise(s) dans la famille « divers »" % n_div)
+    if rep["sans_famille_existants"]:
+        out("  AVERTISSEMENT : %d fiche(s) existante(s) sans famille (héritage, non bloquant ; classement en attente de validation)" % len(rep["sans_famille_existants"]))
+    if new_orph:
+        out("  %s %d terme(s) ajouté(s) SANS FAMILLE : %s" % ("ERREUR (bloquant en --write) :" if write else "ATTENTION (--write refusera) :", len(new_orph), ", ".join(new_orph)))
     if changed:
         diff = list(difflib.unified_diff(old_text.splitlines(), new_text.splitlines(),
                                          "full (actuel)", "full (après import)", lineterm="", n=1))
@@ -250,6 +278,11 @@ def run(root: Path, write=False, with_stubs=False, out=print, backup_dir=None, a
             out("    ... (%d lignes de plus)" % (len(diff) - 80))
     else:
         out("  DIFF = 0 : le full est déjà à jour.")
+    if write and new_orph:
+        raise SystemExit("REFUS: %d terme(s) à ajouter sans famille : %s. Règle AeroLex : chaque terme a une famille "
+                         "(« divers » si aucune ne convient). Renseigner 'famille' dans data_glossaire.py, ou relancer avec "
+                         "--default-famille-divers pour les mettre explicitement dans Divers. Rien écrit."
+                         % (len(new_orph), ", ".join(new_orph)))
     if write and changed:
         if len(merged) < len(full) and not allow_shrink:
             raise SystemExit("REFUS: le nombre de fiches baisserait (%d -> %d). Rien écrit. --allow-shrink pour forcer."
@@ -275,12 +308,14 @@ def main(argv=None):
     ap.add_argument("--write", action="store_true", help="écrit réellement data_glossaire_full.py")
     ap.add_argument("--check", action="store_true", help="essai à blanc, code retour 1 s'il y a un diff")
     ap.add_argument("--with-stubs", action="store_true", help="ajoute aussi les stubs du lexique brut (déconseillé)")
+    ap.add_argument("--default-famille-divers", action="store_true",
+                    help="met explicitement dans la famille « divers » les termes sans famille (NE PAS utiliser sur le vrai lexique)")
     ap.add_argument("--allow-shrink", action="store_true", help="autorise une baisse du nombre de fiches")
     ap.add_argument("--backup-dir", default=None, help="dossier des sauvegardes (défaut ~/Backups/aerolex)")
     ap.add_argument("--root", default=str(BASE), help="racine du projet (tests : dossier temporaire)")
     a = ap.parse_args(argv)
     changed, _ = run(Path(a.root), write=a.write and not a.check, with_stubs=a.with_stubs,
-                      backup_dir=a.backup_dir, allow_shrink=a.allow_shrink)
+                      backup_dir=a.backup_dir, allow_shrink=a.allow_shrink, default_divers=a.default_famille_divers)
     return 1 if (a.check and changed) else 0
 
 

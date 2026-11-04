@@ -18,6 +18,23 @@ with open(_PWF, "w") as _f:
 os.environ["AEROLEX_SUGGEST_PASSWORD_FILE"] = _PWF
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 
+# ── Fixture : le test travaille sur une COPIE normalisée du projet (indépendante des fiches validées en prod) ──
+# (avant : « bord d'attaque / longeron sans famille » et l'absence de data/familles_labels.json étaient supposés sur le vrai data/)
+import subprocess as _sp  # noqa: E402
+_REAL_ROOT = Path(__file__).resolve().parent.parent
+_FIX = Path(_TMP) / "fixture"
+_sp.run(["rsync", "-a", "--exclude", ".git", "--exclude", "backups", "--exclude", "*.png", "--exclude", "data/suggest",
+         "--exclude", "*BACKUP*", "--exclude", "*BAK*", "--exclude", "*.bak*", "--exclude", "data/familles_labels.json",
+         str(_REAL_ROOT) + "/", str(_FIX) + "/"], check=True)
+sys.path.insert(0, str(_REAL_ROOT / "src"))
+import import_lexique as _IL  # noqa: E402
+_fp = _FIX / "data" / "data_glossaire_full.py"
+_g = _IL.load_glossaire(_fp)
+for _k in ("bord d'attaque", "bord de fuite", "longeron", "corde", "profil"):     # fiches « orphelines » de référence pour les tests de rattachement
+    _g[_k].pop("famille", None)
+_fp.write_text(_IL.render(_IL.split_preamble(_fp.read_text("utf-8")), _g), "utf-8")
+os.environ["AEROLEX_ROOT"] = str(_FIX)
+
 import suggest_core as core  # noqa: E402
 import suggest_api as api    # noqa: E402
 
@@ -317,7 +334,9 @@ check("contrôle: définition circulaire bloquante", any(c["nom"] == "Définitio
 r = chk(mkprop("sansfamille", famille=""))
 check("contrôle: aucune famille bloquante", any(c["nom"] == "Famille" and c["statut"] == "ko" for c in r["controles"]))
 r = chk(mkprop("famillenouvelle", famille="", famille_nouvelle="drones"))
-check("contrôle: nouvelle famille = avertissement", any(c["nom"] == "Famille" and c["statut"] == "warn" for c in r["controles"]))
+check("contrôle: nouvelle famille sans justification = bloquant NON forçable", not r["ok"] and r["incontournable"] and any(c["nom"] == "Famille" and c["statut"] == "ko" for c in r["controles"]))
+r = chk(mkprop("famillenouvelle2", famille="", famille_nouvelle="drones", famille_justification="Aucune famille ne regroupe les drones."))
+check("contrôle: nouvelle famille justifiée mais < 2 rattachements = bloquant forçable (accord du relecteur ou Divers)", not r["ok"] and not r["incontournable"] and any(c["nom"] == "Famille" and c.get("bloquant") for c in r["controles"]))
 r = chk(mkprop("peusur", confiance=0.4))
 check("contrôle: confiance < 0,6 = avertissement non bloquant", r["ok"] and any("Confiance" in a for a in r["avertissements"]))
 # déjà existant (alias compris) re-vérifié à l'instant T
