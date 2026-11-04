@@ -6791,6 +6791,7 @@ GLOSSAIRE = {
         'statut': 'redigee',
         'origine': 'corpus',
         'schema': False,
+        'variantes': ['masse à vide'],
     },
     'masse du jour': {
         'definition': "Masse totale de l'aéronef calculée pour un vol précis, incluant la masse à vide, l'équipage, les passagers, les bagages et le carburant embarqué. Elle doit impérativement rester inférieure à la masse maximale autorisée.",

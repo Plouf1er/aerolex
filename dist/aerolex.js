@@ -278,6 +278,7 @@
   var SKIP_TAGS_TW = new Set([
     'SCRIPT','STYLE','CODE','PRE','TEXTAREA','INPUT','SELECT','OPTION',
     'NOSCRIPT','SVG','CANVAS','IFRAME','A','SUMMARY','BUTTON',
+    'H1','H2','H3','H4','H5','H6',
   ]);
 
   // Classes d'éléments racine à exclure complètement (mêmes zones que PARK_RE) :
@@ -550,6 +551,7 @@
     fetch(indexUrl)
       .then(function(r){ return r.json(); })
       .then(function(data){
+        if (container.dataset && container.dataset.aerolexDone==='1') return; // 2e appel concurrent
         var termsData = data.terms || data;
         /* Expose l'index de SURLIGNAGE. Depuis le 2026-08-04 il ne contient
            plus les définitions : la popup ne lit ici que le slug (routage) et
@@ -670,14 +672,11 @@
 
         var occMap = Object.create(null);
 
-        // Idempotence : si des spans glossaire (hors METAR) existent déjà, ne pas
-        // re-traiter. Les spans .glos-metar posés au BUILD (couche METAR) ne
-        // comptent pas : avant ce correctif (2026-11-03), ils faisaient sauter
-        // tout le surlignage glossaire des séances 001-037 (aucun terme cliquable).
-        if (container.querySelector('.glos:not(.glos-metar)')) {
-          if (container.dataset) container.dataset.aerolexDone = '1';
-          return;
-        }
+        // Idempotence : portée par container.dataset.aerolexDone (testé en tête
+        // d'init). Les spans .glos posés au BUILD (METAR ou glossaire) ne doivent
+        // PAS court-circuiter le passage : le TreeWalker rejette déjà les nœuds
+        // situés dans .glos (SKIP_CLS_TW), donc pas de double soulignement, et les
+        // termes absents du build (ex. « masse à vide », « datum ») sont complétés.
 
         // ── Stratégie : TreeWalker sur nœuds texte ──────────────────────
         // Passe 1 METAR (div.metar) → passe 2 glossaire (tout le reste).
