@@ -25,6 +25,15 @@ import subprocess
 import unicodedata
 from pathlib import Path
 
+def _node_bin():
+    """Chemin absolu de node : le service launchd n'a pas /opt/homebrew/bin dans son PATH."""
+    import os, shutil
+    for c in (os.environ.get("AEROLEX_NODE"), shutil.which("node"), "/opt/homebrew/bin/node", "/usr/local/bin/node", "/usr/bin/node"):
+        if c and os.path.exists(c):
+            return c
+    return "node"
+
+
 
 # ── normalisation (identique à suggest_core.norm / import_lexique.norm) ─────
 def strip_accents(s: str) -> str:
@@ -553,7 +562,7 @@ def simulate(term: str, forms: list, ctx_words: list, *, lexroot: Path, lex_id: 
     inp = {"engine": str(eng), "base": base, "passages": [p[1] for p in pass_],
            "runs": {"avant": {}, "ctx": {canon: entry(True)}, "brut": {canon: entry(False)}}}
     try:
-        p = subprocess.run(["node", "-e", DRIVER], input=json.dumps(inp), capture_output=True, text=True, timeout=timeout)
+        p = subprocess.run([_node_bin(), "-e", DRIVER], input=json.dumps(inp), capture_output=True, text=True, timeout=timeout)
         if p.returncode != 0:
             raise RuntimeError((p.stderr or p.stdout)[-300:])
         runs = json.loads(p.stdout)

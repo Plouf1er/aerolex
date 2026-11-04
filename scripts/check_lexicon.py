@@ -27,6 +27,15 @@ sys.path.insert(0, str(HERE))
 sys.path.insert(0, str(HERE.parent / "src"))
 import suggest_rules as RULES  # noqa: E402
 
+def _node_bin():
+    """Chemin absolu de node : le service launchd n'a pas /opt/homebrew/bin dans son PATH."""
+    import os, shutil
+    for c in (os.environ.get("AEROLEX_NODE"), shutil.which("node"), "/opt/homebrew/bin/node", "/usr/local/bin/node", "/usr/bin/node"):
+        if c and os.path.exists(c):
+            return c
+    return "node"
+
+
 
 def lexroot(slug: str, base: Path) -> Path:
     if slug == "aero":
@@ -192,7 +201,7 @@ def main(argv=None) -> int:
                            "text": "il %s chercher, on %s voir et elle %s bien." % (v.lower(), v.lower(), v.lower())})
         if probes:
             if eng.exists() and idxp.exists():
-                p = subprocess.run(["node", "-e", NODE_PROBE], input=json.dumps({"engine": str(eng), "index": str(idxp), "cases": probes}),
+                p = subprocess.run([_node_bin(), "-e", NODE_PROBE], input=json.dumps({"engine": str(eng), "index": str(idxp), "cases": probes}),
                                    capture_output=True, text=True, timeout=120)
                 try:
                     for b_ in json.loads(p.stdout)["bad"]:
@@ -224,7 +233,7 @@ def main(argv=None) -> int:
                     texts = ["Voici %s, %s utilisé ici." % (f.upper(), ctxw or "terme"), "Il y a 12 %s, %s utilisé ici." % (f, ctxw or "terme")]
                 cases.append({"form": f, "canon": t, "texts": texts})
         inp = {"engine": str(eng), "index": str(idxp), "cases": cases}
-        p = subprocess.run(["node", "-e", NODE_ROUNDTRIP], input=json.dumps(inp), capture_output=True, text=True, timeout=300)
+        p = subprocess.run([_node_bin(), "-e", NODE_ROUNDTRIP], input=json.dumps(inp), capture_output=True, text=True, timeout=300)
         if p.returncode == 0:
             res = json.loads(p.stdout)
             unrec = [b for b in res["bad"] if b[3] == "non reconnue"]
