@@ -29,7 +29,7 @@ GLOSSAIRE = {
         'statut': 'redigee',
         'origine': 'v2-audit-ppl',
         'schema': False,
-        'variantes': ['hauteur de 1000 ft', 'survol de 1000 ft'],
+        'variantes': ['hauteur de 1000 ft', 'survol de 1000 ft', 'zone congestionnée', 'zones congestionnées'],
         'xrefs': ['500 ft', 'hauteur de survol'],
     },
     '100LL': {
@@ -395,7 +395,7 @@ GLOSSAIRE = {
         'schema': False,
         'variantes': ['alignements', "s'aligner", 'aligné', 'alignement piste'],
         'xrefs': ['QFU', 'décollage', 'finale', 'seuil de piste'],
-        'contexte_requis': ['piste', 'axe', 'QFU', 'décollage', 'finale', 'seuil', 'cap'],
+        'contexte_requis': ['piste', 'axe', 'QFU', 'décollage', 'finale', 'seuil', 'cap', 'clairance', 'roulage', 'holding', "point d'attente", 'décoller', 'atterri', 'arrondi', 'tour', 'TWR', 'tenir', 'alignez', 'stop bar', 'attendez', 'frein', "s'aligner", 'lâcher', 'trafic'],
     },
     'alimentation croisée': {
         'definition': "Système de plomberie permettant d'alimenter un moteur à partir d'un réservoir situé du côté opposé. Cette fonction est essentielle pour rééquilibrer les masses de carburant entre les ailes.",
@@ -460,7 +460,7 @@ GLOSSAIRE = {
         'statut': 'redigee',
         'origine': 'v2-audit-ppl',
         'schema': False,
-        'variantes': ['alternats', "poussoir d'émission"],
+        'variantes': ['alternats', "poussoir d'émission", 'PTT', 'Push-To-Talk', 'push to talk', 'bouton PTT', 'appui PTT', "bouton d'alternat"],
         'xrefs': ['blocage micro', 'essai radio'],
     },
     'alternateur': {
@@ -645,7 +645,7 @@ GLOSSAIRE = {
         'statut': 'redigee',
         'origine': 'corpus',
         'schema': False,
-        'variantes': ['above mean sea level', 'AMSL'],
+        'variantes': ['above mean sea level', 'AMSL', 'altitude AMSL'],
         'xrefs': ['QNH', 'altitude', 'AAL'],
     },
     "angle d'attaque": {
@@ -692,7 +692,7 @@ GLOSSAIRE = {
         'statut': 'redigee',
         'origine': 'corpus',
         'schema': False,
-        'variantes': ['anticyclone', 'anticyclones', 'haute pression'],
+        'variantes': ['anticyclone', 'anticyclones', 'haute pression', 'anticyclonique', 'anticycloniques', 'régime anticyclonique', 'situation anticyclonique'],
         'xrefs': ['dépression', 'brume', 'altitude-densité'],
     },
     'antigivrage': {
@@ -901,7 +901,7 @@ GLOSSAIRE = {
         'statut': 'redigee',
         'origine': 'v2-audit-ppl',
         'schema': False,
-        'variantes': ['assurances', "contrat d'assurance"],
+        'variantes': ['assurances', "contrat d'assurance", 'assurance responsabilité civile', 'assurance RC'],
         'xrefs': ['ra', 'ss', 'autorisation', 'certificat de navigabilité'],
     },
     'atc': {
@@ -938,6 +938,7 @@ GLOSSAIRE = {
         'statut': 'redigee',
         'origine': 'corpus',
         'schema': False,
+        'variantes': ['organisme ATS', 'organismes ATS', 'services ATS', 'service ATS'],
     },
     'atterrissage de précaution': {
         'definition': "Atterrissage volontaire sur un terrain ou un champ répertorié face à une dégradation météo ou une baisse de carburant. Il s'anticipe tant que l'aéronef reste parfaitement contrôlable.",
@@ -946,7 +947,7 @@ GLOSSAIRE = {
         'statut': 'redigee',
         'origine': 'corpus',
         'schema': False,
-        'variantes': ['atterrissages de précaution'],
+        'variantes': ['atterrissages de précaution', 'precautionary landing'],
     },
     'atterrissage forcé': {
         'definition': 'Atterrissage immédiat et inévitable consécutif à une panne majeure (souvent moteur) rendant la poursuite du vol impossible. La priorité absolue est la sauvegarde des vies humaines à bord.',
@@ -955,6 +956,7 @@ GLOSSAIRE = {
         'statut': 'redigee',
         'origine': 'corpus',
         'schema': False,
+        'variantes': ['forced landing', 'forced landings'],
     },
     'atterrissage precaution': {
         'definition': "Variante orthographique de l'atterrissage de précaution. Atterrissage anticipé décidé par le pilote sur un terrain de fortune ou de dégagement face à une situation devenant incertaine en vol.",
@@ -1015,7 +1017,7 @@ GLOSSAIRE = {
         'statut': 'redigee',
         'origine': 'corpus',
         'schema': False,
-        'variantes': ['observation automatique', 'AUTO'],
+        'variantes': ['observation automatique', 'AUTO', 'station automatique', 'stations automatiques', 'station météo automatique'],
         'xrefs': ['METAR', 'SPECI'],
     },
     'auto-allumage': {
@@ -1045,7 +1047,7 @@ GLOSSAIRE = {
         'statut': 'redigee',
         'origine': 'corpus',
         'schema': False,
-        'variantes': ['autonomies'],
+        'variantes': ['autonomies', 'endurance', 'endurances'],
     },
     'autonomie carburant': {
         'definition': 'Quantité de carburant utilisable exprimée en heures et minutes de vol. Elle intègre obligatoirement la réserve finale réglementaire pour parer aux imprévus de navigation.',
@@ -1174,7 +1176,7 @@ GLOSSAIRE = {
         'statut': 'redigee',
         'origine': 'v2-audit-ppl',
         'schema': False,
-        'variantes': ['aérodromes non contrôlés', 'terrain non contrôlé'],
+        'variantes': ['aérodromes non contrôlés', 'terrain non contrôlé', 'terrains non contrôlés'],
         'xrefs': ['auto-information', 'agent AFIS', 'aérodrome contrôlé'],
     },
     'aérofreinage': {
@@ -1254,7 +1256,7 @@ GLOSSAIRE = {
         'schema': False,
         'variantes': ['bande de piste', 'bandes'],
         'xrefs': ['piste', 'seuil de piste', 'alignement'],
-        'contexte_requis': ['piste', 'aérodrome', 'terrain', 'dégagée'],
+        'contexte_requis': ['piste', 'aérodrome', 'terrain', 'dégagée', 'strip', 'marquage', 'RWY', 'TDZ', 'side stripes'],
     },
     'bande derobee': {
         'definition': "Bande de terrain sommairement aménagée, dérobée à la culture ou au pâturage, utilisable comme aire d'atterrissage occasionnelle. Sans balisage ni services, elle impose une reconnaissance en vol de l'état du sol et des obstacles avant usage.",
@@ -1282,7 +1284,7 @@ GLOSSAIRE = {
         'statut': 'redigee',
         'origine': 'v2-audit-ppl',
         'schema': False,
-        'variantes': ["barres d'arrêt"],
+        'variantes': ["barres d'arrêt", 'stop bar', 'stop bars'],
         'xrefs': ["point d'attente intermédiaire", 'balisage de taxiway', 'aérodrome contrôlé'],
     },
     'base de temps': {
@@ -1644,8 +1646,9 @@ GLOSSAIRE = {
         'statut': 'redigee',
         'origine': 'v2-audit-ppl',
         'schema': False,
-        'variantes': ['buffetage', 'vibrations de décrochage'],
+        'variantes': ['buffetage', 'vibrations de décrochage', 'buffet', 'buffets', 'buffet de décrochage'],
         'xrefs': ['décrochage', 'écoulement turbulent', 'décollement'],
+        'contexte_requis': ['décrochage', 'avertisseur', 'vibration', 'vibrations', 'commandes', 'ailerons', 'incidence', 'écoulement', 'stall', 'manche', 'vitesse', 'alarme', 'extrados', 'abattée', 'enfoncement'],
     },
     'cabré': {
         'definition': "Attitude ou mouvement de l'aéronef caractérisé par une élévation du nez au-dessus de l'horizon, augmentant ainsi l'assiette et généralement l'angle d'attaque. Il est commandé en tirant sur le manche.",
@@ -1654,7 +1657,7 @@ GLOSSAIRE = {
         'statut': 'redigee',
         'origine': 'corpus',
         'schema': False,
-        'variantes': ['cabrés'],
+        'variantes': ['cabrés', 'cabrée', 'cabrées', 'faux cabré'],
     },
     'calage altimétrique': {
         'definition': "Valeur de pression barométrique affichée dans la fenêtre de l'altimètre pour mesurer des hauteurs (calage QFE), des altitudes (calage QNH) ou des niveaux de vol (calage standard 1013,25 hPa).",
@@ -1807,6 +1810,7 @@ GLOSSAIRE = {
         'statut': 'redigee',
         'origine': 'corpus',
         'schema': False,
+        'variantes': ['fuel utilisable', 'plein utilisable', 'carburant utilisable maximal'],
     },
     'carburateur': {
         'definition': "Organe mécanique assurant le dosage et le mélange de l'air et du carburant admis dans le moteur. Il est particulièrement exposé au givrage en présence d'humidité atmosphérique.",
@@ -1825,7 +1829,7 @@ GLOSSAIRE = {
         'statut': 'redigee',
         'origine': 'corpus',
         'schema': False,
-        'variantes': ['carnets de route'],
+        'variantes': ['carnets de route', 'journey log', 'journey logs', 'journal de route'],
     },
     'carnet de vol': {
         'definition': "Document officiel dans lequel le pilote consigne les détails de chaque vol effectué, incluant les heures de vol, les aéronefs utilisés et les conditions rencontrées, pour le suivi de l'expérience et la conformité réglementaire.",
@@ -1907,6 +1911,7 @@ GLOSSAIRE = {
         'statut': 'redigee',
         'origine': 'corpus',
         'schema': True,
+        'variantes': ['altocumulus castellanus', 'Ac cas'],
     },
     'cat': {
         'definition': "Turbulence en air clair se produisant à haute altitude en l'absence de nuages. Souvent liée à la proximité d'un courant-jet, elle est invisible et difficilement détectable par les radars embarqués.",
@@ -2043,7 +2048,7 @@ GLOSSAIRE = {
         'statut': 'redigee',
         'origine': 'v2-audit-ppl',
         'schema': False,
-        'variantes': ['limite arrière de centrage', 'centrages arrière'],
+        'variantes': ['limite arrière de centrage', 'centrages arrière', 'CG arrière', 'CG arrières', 'position arrière du CG'],
         'xrefs': ['limites de centrage', 'centrage avant'],
     },
     'centrage avant': {
@@ -2092,7 +2097,7 @@ GLOSSAIRE = {
         'statut': 'redigee',
         'origine': 'v2-audit-ppl',
         'schema': False,
-        'variantes': ['CdN'],
+        'variantes': ['CdN', 'Certificate of Airworthiness'],
         'xrefs': ['cat', "certificat d'immatriculation", 'consignes de navigabilité'],
     },
     'certificat médical': {
@@ -2378,7 +2383,7 @@ GLOSSAIRE = {
         'statut': 'redigee',
         'origine': 'corpus',
         'schema': False,
-        'variantes': ['clairances'],
+        'variantes': ['clairances', 'clairance ATC', 'clairances ATC'],
     },
     'clairance de décollage': {
         'definition': 'Autorisation explicite accordée par le contrôleur de la tour de contrôle permettant au pilote de décoller. Elle ne peut être délivrée que si la piste est dégagée et que les conditions de sécurité de séparation avec les autres aéronefs sont assurées.',
@@ -2593,6 +2598,7 @@ GLOSSAIRE = {
         'statut': 'redigee',
         'origine': 'corpus',
         'schema': False,
+        'variantes': ['collationnement', 'collationnements', 'collationné', 'collationnée'],
     },
     'collationner': {
         'definition': "Action de répéter à la radio les instructions et clairances clés reçues du contrôleur (altitudes, caps, fréquences, pistes, calages altimétriques). Le collationnement rigoureux est une règle de sécurité absolue pour prévenir les erreurs d'interprétation dans les espaces contrôlés.",
@@ -2619,7 +2625,8 @@ GLOSSAIRE = {
         'statut': 'redigee',
         'origine': 'corpus',
         'schema': False,
-        'variantes': ['commandants de bord'],
+        'variantes': ['commandants de bord', 'PIC', 'Pilot In Command', 'pilote commandant de bord', 'Commandant de bord', 'Commandants de bord'],
+        'casse_sensible': True,
     },
     'compas': {
         'definition': "Instrument autonome indiquant le cap magnétique de l'avion en utilisant le champ magnétique terrestre. Sujet à de nombreuses erreurs en virage et en accélération, il doit être recalé régulièrement en vol rectiligne et uniforme à l'aide du conservateur de cap.",
@@ -2628,6 +2635,7 @@ GLOSSAIRE = {
         'statut': 'redigee',
         'origine': 'corpus',
         'schema': False,
+        'variantes': ['compas de bord'],
     },
     'compas magnétique': {
         'definition': "Instrument de bord autonome indiquant le cap magnétique de l'aéronef grâce à un équipage mobile aimanté. Il est sensible aux erreurs de virage, d'accélération et aux perturbations magnétiques internes.",
@@ -2695,7 +2703,7 @@ GLOSSAIRE = {
         'statut': 'redigee',
         'origine': 'corpus',
         'schema': False,
-        'variantes': ['vent de travers', 'composantes de travers', 'crosswind'],
+        'variantes': ['vent de travers', 'composantes de travers', 'crosswind', 'composante traversière', 'composantes traversières', 'vent travers', 'travers moyen', 'travers rafale'],
         'xrefs': ['composante de face', 'décrabage', 'vent traversier', 'θ'],
     },
     'composite': {
@@ -2705,7 +2713,7 @@ GLOSSAIRE = {
         'statut': 'redigee',
         'origine': 'corpus',
         'schema': False,
-        'variantes': ['composites'],
+        'variantes': ['composites', 'CFRP', 'GFRP', 'fibre de carbone', 'fibre de verre', 'composite sandwich'],
     },
     'compression': {
         'definition': "Deuxième phase du cycle d'un moteur alternatif, au cours de laquelle le piston remonte pour comprimer le mélange inflammable. Cette action augmente la température et favorise l'explosion.",
@@ -2806,6 +2814,7 @@ GLOSSAIRE = {
         'statut': 'redigee',
         'origine': 'metier',
         'schema': False,
+        'variantes': ['conso', 'consos', 'conso horaire'],
     },
     'consommation spécifique': {
         'definition': "Quantité de carburant consommée par unité de puissance ou de poussée et par unité de temps. C'est un indicateur clé de l'efficacité énergétique du groupe motopropulseur en croisière.",
@@ -2842,7 +2851,7 @@ GLOSSAIRE = {
         'statut': 'redigee',
         'origine': 'corpus',
         'schema': False,
-        'variantes': ['convections'],
+        'variantes': ['convections', 'convectif', 'convective', 'convectifs', 'convectives', 'nuage convectif', 'nuages convectifs', 'convection diurne', 'turbulence convective'],
     },
     'convection thermique': {
         'definition': "Mouvement ascendant de bulles ou de colonnes d'air réchauffé par le contact avec le sol ensoleillé. Ce phénomène crée des courants thermiques exploitables en vol de distance, mais s'accompagne de turbulences parfois marquées sous la base des cumulus associés.",
@@ -3260,7 +3269,7 @@ GLOSSAIRE = {
         'statut': 'redigee',
         'origine': 'corpus',
         'schema': True,
-        'variantes': ['derniers virages', 'virage de base en finale', 'dernier virage base-finale'],
+        'variantes': ['derniers virages', 'virage de base en finale', 'dernier virage base-finale', 'base-finale', 'base finale', 'virage base-finale'],
         'xrefs': ['étape de base', 'finale', 'décrochage', 'remise des gaz'],
     },
     'descente initiale': {
@@ -3305,7 +3314,7 @@ GLOSSAIRE = {
         'statut': 'redigee',
         'origine': 'v2-audit-ppl',
         'schema': False,
-        'variantes': ['diagramme en V-n', 'diagrammes de manœuvre'],
+        'variantes': ['diagramme en V-n', 'diagrammes de manœuvre', 'coin de manœuvre'],
         'xrefs': ['facteur de charge limite', 'facteur de charge ultime'],
     },
     'diagramme v-n': {
@@ -3505,7 +3514,7 @@ GLOSSAIRE = {
         'statut': 'redigee',
         'origine': 'v2-audit-ppl',
         'schema': False,
-        'variantes': ['drizzle', 'bruine'],
+        'variantes': ['drizzle', 'bruine', 'DZRA'],
         'xrefs': ['bruine', 'visibilité météo', 'fg'],
     },
     'déclinaison magnétique': {
@@ -3545,7 +3554,7 @@ GLOSSAIRE = {
         'statut': 'redigee',
         'origine': 'corpus',
         'schema': False,
-        'variantes': ['décraber', 'décrabé', 'crabe', 'décrabages'],
+        'variantes': ['décraber', 'décrabé', 'crabe', 'décrabages', 'décabage', 'crab'],
         'xrefs': ['composante de travers', 'vent de travers', 'palonnier', 'dérive'],
     },
     'décrochage': {
@@ -3555,7 +3564,7 @@ GLOSSAIRE = {
         'statut': 'redigee',
         'origine': 'corpus',
         'schema': True,
-        'variantes': ['décrochages', 'décrocher', 'incidence critique', 'stall'],
+        'variantes': ['décrochages', 'décrocher', 'incidence critique', 'stall', 'angle critique', "angle d'attaque critique", "angle d'incidence critique"],
         'xrefs': ['facteur de charge', 'vitesse de décrochage', 'remise des gaz'],
     },
     'décrochage accéléré': {
@@ -3671,7 +3680,7 @@ GLOSSAIRE = {
         'statut': 'redigee',
         'origine': 'corpus',
         'schema': False,
-        'variantes': ['déroutements'],
+        'variantes': ['déroutements', 'diversion', 'diversions', 'dérouter', 'se dérouter'],
     },
     'déshydratation': {
         'definition': "Perte excessive d'eau de l'organisme, favorisée par la chaleur, l'altitude et la climatisation en cabine. Elle altère rapidement la concentration, l'attention et augmente la fatigue du pilote.",
@@ -3916,6 +3925,7 @@ GLOSSAIRE = {
         'statut': 'redigee',
         'origine': 'corpus',
         'schema': False,
+        'variantes': ['venturi', 'tube de Venturi', 'venturi du carburateur'],
     },
     "effets de l'altitude": {
         'definition': "Conséquences physiologiques sur l'organisme liées à la baisse de la pression barométrique et de la densité de l'air. Elles peuvent altérer les performances cognitives et physiques du pilote.",
@@ -4248,7 +4258,7 @@ GLOSSAIRE = {
         'statut': 'redigee',
         'origine': 'corpus',
         'schema': False,
-        'variantes': ['facteurs de charge', 'facteur de charge g', 'facteur g', 'load factor'],
+        'variantes': ['facteurs de charge', 'facteur de charge g', 'facteur g', 'load factor', 'load factors'],
         'xrefs': ['décrochage', 'vitesse de décrochage', 'assiette'],
     },
     'facteur de charge limite': {
@@ -4258,7 +4268,7 @@ GLOSSAIRE = {
         'statut': 'redigee',
         'origine': 'v2-audit-ppl',
         'schema': False,
-        'variantes': ['facteur de charge de calcul', 'facteurs de charge limites'],
+        'variantes': ['facteur de charge de calcul', 'facteurs de charge limites', 'limite structurale', 'limites structurales', 'limite de structure'],
         'xrefs': ['facteur de charge ultime', 'diagramme de manœuvre', 'catégorie normale'],
     },
     'facteur de charge ultime': {
@@ -4448,7 +4458,7 @@ GLOSSAIRE = {
         'statut': 'redigee',
         'origine': 'v2-audit-ppl',
         'schema': False,
-        'variantes': ['fog'],
+        'variantes': ['fog', 'MIFG', 'brouillard mince', 'bancs bas de brouillard'],
         'xrefs': ['visibilité météo', "brouillard d'advection", "brouillard d'évaporation", 'brouillard'],
     },
     'fi': {
@@ -4488,7 +4498,7 @@ GLOSSAIRE = {
         'schema': True,
         'variantes': ['final', 'finales', 'final approach'],
         'xrefs': ['tour de piste', 'décrabage', 'remise des gaz', 'courte finale', 'longue finale', 'arrondi'],
-        'contexte_requis': ['piste', 'atterriss', 'axe', 'tour de piste', 'approche', 'QFU', 'remise des gaz'],
+        'contexte_requis': ['piste', 'atterriss', 'axe', 'tour de piste', 'approche', 'QFU', 'remise des gaz', 'remise de gaz', 'go-around', 'circuit', 'vent arrière', 'base/', 'base-', 'étape de base', 'virage', 'PAPI', 'pente', 'arrondi', 'trafic', 'tour de contrôle', 'la tour', 'seuil', 'Vref', 'palier', 'volets', 'gradient', 'IAS', 'couche', 'toucher', 'cisaillement', 'LDG', 'gaz', 'cabré', 'nuit', 'vent de travers', 'vent de face', 'vent faible', 'vent fort', 'décroch', 'facteur de charge', 'stabilis'],
     },
     'finale courte': {
         'definition': "Dernière partie de la trajectoire d'approche, située juste avant le seuil de piste. Cette position fait l'objet d'un message radio obligatoire et exige une concentration maximale pour stabiliser la vitesse et l'arrondi.",
@@ -4515,6 +4525,7 @@ GLOSSAIRE = {
         'statut': 'redigee',
         'origine': 'corpus',
         'schema': False,
+        'variantes': ['finesse maximale', 'finesse maximum'],
     },
     'fir': {
         'definition': "Flight Information Region: région d'information de vol. Espace aérien de grandes dimensions à l'intérieur duquel les services d'information de vol et d'alerte sont assurés par un centre de contrôle de zone.",
@@ -4597,6 +4608,7 @@ GLOSSAIRE = {
         'statut': 'redigee',
         'origine': 'corpus',
         'schema': True,
+        'variantes': ['stratus fractus', 'cumulus fractus', 'fractus de temps humide', 'fractus de beau temps'],
     },
     'fromage suisse': {
         'definition': "Modèle d'analyse de la sécurité théorisé par James Reason. Chaque plaque représente une barrière défensive et les trous sont les défaillances; l'accident survient uniquement lorsque les trous de chaque plaque s'alignent parfaitement.",
@@ -4680,7 +4692,7 @@ GLOSSAIRE = {
         'statut': 'redigee',
         'origine': 'corpus',
         'schema': False,
-        'variantes': ['fréquences'],
+        'variantes': ['fréquences', 'fréq'],
     },
     'ft': {
         'definition': "Foot / feet — pied: unité d'altitude et de hauteur en aviation (1 ft = 0,3048 m). Les hauteurs, altitudes et niveaux de vol parlent en pieds, pas en mètres.",
@@ -4806,7 +4818,7 @@ GLOSSAIRE = {
         'statut': 'redigee',
         'origine': 'v2-audit-ppl',
         'schema': False,
-        'variantes': ['FZ', 'congelant', 'se congelant'],
+        'variantes': ['FZ', 'congelant', 'se congelant', 'brouillard givrant', 'FZFG', 'pluie verglaçante', 'FZRA', 'bruine verglaçante', 'FZDZ'],
         'xrefs': ['surfusion', 'givrage clair'],
     },
     'föhn': {
@@ -4866,7 +4878,7 @@ GLOSSAIRE = {
         'statut': 'redigee',
         'origine': 'corpus',
         'schema': False,
-        'variantes': ['girouettes', 'effet girouette'],
+        'variantes': ['girouettes', 'effet girouette', 'girouettage'],
         'xrefs': ['manche à air', 'rose des vents', 'vent de face'],
     },
     'gisement': {
@@ -4886,7 +4898,7 @@ GLOSSAIRE = {
         'statut': 'redigee',
         'origine': 'corpus',
         'schema': True,
-        'variantes': ['givrages'],
+        'variantes': ['givrages', 'icing'],
     },
     'givrage carburateur': {
         'definition': "Formation de glace dans le venturi du carburateur due à la détente de l'air et à l'évaporation de l'essence. Il peut survenir même par température positive en présence d'humidité, et nécessite l'utilisation de la réchauffe carburateur.",
@@ -4895,6 +4907,7 @@ GLOSSAIRE = {
         'statut': 'redigee',
         'origine': 'corpus',
         'schema': True,
+        'variantes': ['givrage carbu'],
     },
     'givrage clair': {
         'definition': "Glace dure, dense et transparente se formant sur le profil d'un avion par la congélation lente de grosses gouttes d'eau surfondues. Ce type de givrage dégrade rapidement la portance.",
@@ -4913,6 +4926,7 @@ GLOSSAIRE = {
         'statut': 'redigee',
         'origine': 'metier',
         'schema': True,
+        'variantes': ['givrage cellule', 'givrage de la cellule'],
     },
     'givrage mixte': {
         'definition': "Accumulation de glace composée d'un mélange de givre blanc et de givre clair. Elle présente un aspect irrégulier qui perturbe l'écoulement de l'air, réduisant la portance et augmentant la traînée.",
@@ -4947,7 +4961,7 @@ GLOSSAIRE = {
         'statut': 'redigee',
         'origine': 'corpus',
         'schema': True,
-        'variantes': ['givres'],
+        'variantes': ['givres', 'givrée'],
     },
     'givre blanc': {
         'definition': "Dépôt de glace d'aspect cristallin et opaque se formant par sublimation directe de la vapeur d'eau sur la cellule. Moins dangereux que le givre clair, il doit néanmoins être éliminé avant le décollage.",
@@ -5095,7 +5109,7 @@ GLOSSAIRE = {
         'statut': 'redigee',
         'origine': 'corpus',
         'schema': False,
-        'variantes': ['vitesse sol', 'GS', 'Ground Speed'],
+        'variantes': ['vitesse sol', 'GS', 'Ground Speed', 'GS réelle', 'GS réelles', 'vitesse sol réelle'],
         'xrefs': ['TAS', 'IAS', 'vent'],
     },
     'gyroscope': {
@@ -5105,7 +5119,7 @@ GLOSSAIRE = {
         'statut': 'redigee',
         'origine': 'corpus',
         'schema': False,
-        'variantes': ['gyroscopes'],
+        'variantes': ['gyroscopes', 'gyros', 'gyro', 'gyroscopique', 'gyroscopiques', 'instruments gyroscopiques'],
     },
     'harnais': {
         'definition': "Système de retenue multipoints maintenant fermement le haut du corps du pilote en cas de fortes décélérations ou de turbulences. Il offre une protection supérieure à celle d'une simple ceinture.",
@@ -5347,7 +5361,7 @@ GLOSSAIRE = {
         'statut': 'redigee',
         'origine': 'corpus',
         'schema': True,
-        'variantes': ['hélices'],
+        'variantes': ['hélices', 'propeller', 'propellers'],
     },
     'hélice à pas fixe': {
         'definition': "Hélice dont l'angle de calage des pales ne peut pas être modifié en vol. Sa conception représente un compromis fixe entre les performances au décollage et en croisière.",
@@ -5366,7 +5380,7 @@ GLOSSAIRE = {
         'statut': 'redigee',
         'origine': 'v2-audit-ppl',
         'schema': False,
-        'variantes': ['hélice pas variable', 'hélice à calage variable'],
+        'variantes': ['hélice pas variable', 'hélice à calage variable', 'hélice à régime constant', 'hélice à vitesse constante', 'constant-speed', 'constant speed'],
         'xrefs': ['hélice à pas fixe', "calage d'hélice"],
     },
     'iac': {
@@ -5433,7 +5447,7 @@ GLOSSAIRE = {
         'statut': 'redigee',
         'origine': 'v2-audit-ppl',
         'schema': False,
-        'variantes': ['illusion somato-gravique', "fausse sensation d'assiette"],
+        'variantes': ['illusion somato-gravique', "fausse sensation d'assiette", 'somatogravitaire', 'somatogravitaires', 'illusion somatogravitaire', 'illusions somatogravitaires', 'somatogravique'],
         'xrefs': ['illusions sensorielles', 'désorientation spatiale'],
     },
     'illusion somatogyrale': {
@@ -5664,7 +5678,7 @@ GLOSSAIRE = {
         'statut': 'redigee',
         'origine': 'corpus',
         'schema': True,
-        'variantes': ['instables'],
+        'variantes': ['instables', 'air instable', "masse d'air instable"],
     },
     'instructeur': {
         'famille': 'equipage_formation',
@@ -5722,7 +5736,7 @@ GLOSSAIRE = {
         'schema': True,
         'variantes': ['intégrations', "s'intégrer", 'intégration au tour de piste', 'intégration verticale'],
         'xrefs': ['tour de piste', 'verticale terrain', 'VAC', 'vent arrière'],
-        'contexte_requis': ['tour de piste', 'circuit', 'terrain', 'aérodrome', 'piste', 'VAC', 'verticale', 'radio'],
+        'contexte_requis': ['tour de piste', 'circuit', 'terrain', 'aérodrome', 'piste', 'VAC', 'verticale', 'radio', 'point de report', 'CTR', 'LFLX', 'LFPN', 'arrivée', 'clairance', 'organisme', 'report', 'transit', 'roulage', 'tours', 'trafic', 'vent arrière', 'finale', 'LFPV'],
     },
     'inversion': {
         'definition': "Couche où la température augmente avec l'altitude au lieu de diminuer. Couvercle stable: elle piège brume et pollution en dessous, et marque souvent le haut de la couche turbulente.",
@@ -6019,6 +6033,7 @@ GLOSSAIRE = {
         'statut': 'redigee',
         'origine': 'corpus',
         'schema': True,
+        'variantes': ['lenticulaire', 'lenticulaires', 'nuage lenticulaire', 'nuages lenticulaires', 'altocumulus lenticularis', 'Ac len'],
     },
     'lfac': {
         'famille': 'codes_aerodromes',
@@ -6482,7 +6497,7 @@ GLOSSAIRE = {
         'statut': 'redigee',
         'origine': 'v2-audit-ppl',
         'schema': False,
-        'variantes': ['licence radio'],
+        'variantes': ['licence radio', 'licence de station', 'licence de station radio'],
         'xrefs': ['certificat de navigabilité', 'autorisation', "certificat d'immatriculation"],
     },
     'ligne de grain': {
@@ -6770,6 +6785,7 @@ GLOSSAIRE = {
         'statut': 'redigee',
         'origine': 'corpus',
         'schema': True,
+        'variantes': ['mamma', 'mammas'],
     },
     'manche': {
         'definition': "Organe de pilotage primaire permettant au pilote de contrôler l'assiette longitudinale (profondeur) et l'inclinaison latérale (ailerons) de l'aéronef en transmettant ses actions aux gouvernes de vol.",
@@ -7013,7 +7029,7 @@ GLOSSAIRE = {
         'statut': 'redigee',
         'origine': 'v2-audit-ppl',
         'schema': False,
-        'variantes': ['microbursts', 'micro-rafale'],
+        'variantes': ['microbursts', 'micro-rafale', 'microrafale', 'microrafales', 'micro rafale', 'micro rafales'],
         'xrefs': ['rafale descendante', 'ts', 'aérodrome contrôlé'],
     },
     'mille nautique': {
@@ -7531,7 +7547,7 @@ GLOSSAIRE = {
         'statut': 'redigee',
         'origine': 'corpus',
         'schema': False,
-        'variantes': ['NOSIG', 'no significant change'],
+        'variantes': ['NOSIG', 'no significant change', 'pas de changement significatif'],
         'xrefs': ['METAR', 'TAF'],
     },
     'NOTAM': {
@@ -8023,7 +8039,7 @@ GLOSSAIRE = {
         'statut': 'redigee',
         'origine': 'corpus',
         'schema': True,
-        'variantes': ['piqués'],
+        'variantes': ['piqués', 'piquer'],
     },
     'piste': {
         'definition': "Bande aménagée pour le décollage et l'atterrissage, désignée par son QFU arrondi à la dizaine de degrés (ex. piste 07 et 25). Elle s'utilise face au vent pour réduire la vitesse sol au décollage et à l'atterrissage.",
@@ -8224,6 +8240,7 @@ GLOSSAIRE = {
         'statut': 'redigee',
         'origine': 'corpus',
         'schema': False,
+        'variantes': ['WOT', 'Wide Open Throttle', 'pleine admission'],
     },
     'plongée sous-marine': {
         'definition': "Activité sportive provoquant la dissolution d'azote dans les tissus corporels sous l'effet de la pression. Un vol trop précoce après la plongée expose au risque d'accident de décompression.",
@@ -8310,6 +8327,7 @@ GLOSSAIRE = {
         'statut': 'redigee',
         'origine': 'corpus',
         'schema': False,
+        'variantes': ["points d'attente"],
     },
     "point d'attente intermédiaire": {
         'definition': "Emplacement matérialisé sur une voie de circulation secondaire où un aéronef au sol doit s'arrêter et attendre des instructions du contrôle ou vérifier la liberté d'accès avant de poursuivre son roulage.",
@@ -8366,7 +8384,7 @@ GLOSSAIRE = {
         'statut': 'redigee',
         'origine': 'corpus',
         'schema': False,
-        'variantes': ['points de report'],
+        'variantes': ['points de report', 'checkpoint', 'checkpoints'],
     },
     'point de rosée': {
         'definition': "Température à laquelle l'air devient saturé en refroidissant. L'écart température/point de rosée te donne la base des cumulus (≈ 400 ft par degré d'écart) et annonce brume ou brouillard quand il se resserre.",
@@ -8395,6 +8413,7 @@ GLOSSAIRE = {
         'statut': 'redigee',
         'origine': 'metier',
         'schema': False,
+        'variantes': ['run-up', 'run up', 'runup'],
     },
     'point tournant': {
         'definition': "Repère géographique remarquable choisi lors de la préparation de la navigation pour marquer une modification de la route de vol ou un point de contrôle intermédiaire de l'estime.",
@@ -8890,7 +8909,7 @@ GLOSSAIRE = {
         'statut': 'redigee',
         'origine': 'corpus',
         'schema': False,
-        'variantes': ['purges'],
+        'variantes': ['purges', 'drain', 'drains', 'drains fuel'],
     },
     'qcm': {
         'famille': 'equipage_formation',
@@ -9023,7 +9042,7 @@ GLOSSAIRE = {
         'statut': 'redigee',
         'origine': 'corpus',
         'schema': False,
-        'variantes': ['radiales'],
+        'variantes': ['radiales', 'radial', 'radials', 'radiaux'],
     },
     'radio': {
         'definition': "Équipement émetteur-récepteur VHF de bord opérant dans la bande de fréquences 118 - 137 MHz. C'est l'outil indispensable pour communiquer avec les organismes de contrôle, recevoir l'ATIS ou assurer l'auto-information sur les aérodromes non contrôlés.",
@@ -9164,6 +9183,7 @@ GLOSSAIRE = {
         'statut': 'redigee',
         'origine': 'corpus',
         'schema': False,
+        'variantes': ['redline'],
     },
     'refroidissement': {
         'definition': "Système évacuant l'excédent thermique produit par la combustion et les frottements moteur. L'aviation légère utilise principalement l'air par circulation directe ou un circuit de liquide caloporteur.",
@@ -9208,7 +9228,7 @@ GLOSSAIRE = {
         'statut': 'redigee',
         'origine': 'v2-audit-ppl',
         'schema': False,
-        'variantes': ['relèvements'],
+        'variantes': ['relèvements', 'relèvement magnétique', 'relèvements magnétiques'],
         'xrefs': ['gisement', 'ndb'],
     },
     'remise de gaz interrompue': {
@@ -9359,7 +9379,7 @@ GLOSSAIRE = {
         'statut': 'redigee',
         'origine': 'corpus',
         'schema': False,
-        'variantes': ['rotors'],
+        'variantes': ['rotors', 'nuage de rotor', 'nuages de rotor', 'rotor cloud'],
     },
     'roue': {
         'famille': 'train_atterrissage',
@@ -9397,7 +9417,7 @@ GLOSSAIRE = {
         'schema': False,
         'variantes': ['rouements', 'roulements', 'roulement au décollage', "roulement à l'atterrissage"],
         'xrefs': ['décollage', 'roulage', 'composante arrière', 'arrondi'],
-        'contexte_requis': ['piste', 'décollage', 'atterriss', 'distance', 'sol', 'frein', 'vitesse'],
+        'contexte_requis': ['piste', 'décollage', 'atterriss', 'distance', 'sol', 'frein', 'vitesse', 'TOD', 'TORA', 'Take-Off', 'abaque', 'POH', 'lift-off', 'ground roll', 'lâcher', 'panne', 'herbe', 'pente', 'corrigé', 'décoll', 'atterri', 'freinage'],
     },
     'roulette': {
         'famille': 'train_atterrissage',
@@ -9546,6 +9566,7 @@ GLOSSAIRE = {
         'statut': 'redigee',
         'origine': 'metier',
         'schema': True,
+        'variantes': ['Carburetor heat', 'carb heat', 'réchauffe carburateur', 'réchauffage carbu', 'réchauffe carbu'],
     },
     'réchauffage pitot': {
         'definition': "Système de protection thermique électrique chauffant l'antenne pour prévenir l'accumulation de glace ou de givre clair. Il évite le blocage de la prise de pression dynamique et maintient les indications de vitesse.",
@@ -9652,8 +9673,9 @@ GLOSSAIRE = {
         'statut': 'redigee',
         'origine': 'v2-audit-ppl',
         'schema': False,
-        'variantes': ['force aérodynamique totale', 'résultante des forces aérodynamiques'],
+        'variantes': ['force aérodynamique totale', 'résultante des forces aérodynamiques', 'résultante', 'résultantes'],
         'xrefs': ['profil', 'portance', 'traînée', 'vent relatif'],
+        'contexte_requis': ['portance', 'traînée', 'aérodynamique', 'aéro', 'force', 'forces', 'poids', 'vent relatif', 'pression', 'pressions', 'extrados', 'intrados', 'aile', 'poussée', 'profil', 'application', 'mécanique', 'centre de poussée'],
     },
     'salr': {
         'definition': "Acronyme anglais désignant le taux de refroidissement de l'air saturé en ascension. Sa valeur variable dépend de la température de la masse d'air et de la libération de chaleur latente.",
@@ -9682,7 +9704,7 @@ GLOSSAIRE = {
         'statut': 'redigee',
         'origine': 'corpus',
         'schema': False,
-        'variantes': ['saturations'],
+        'variantes': ['saturations', 'air saturé', 'air saturée', 'air saturés', 'air presque saturé', 'air non saturé'],
     },
     'say again': {
         'definition': "Expression anglaise de phraséologie radio signifiant « répétez ». Elle est utilisée par le pilote ou le contrôleur pour demander la répétition d'un message qui n'a pas été clairement reçu ou compris.",
@@ -9750,7 +9772,7 @@ GLOSSAIRE = {
         'schema': False,
         'variantes': ['secteurs variables', 'vent variable', 'variable'],
         'xrefs': ['composante de travers', 'rafale', 'vent'],
-        'contexte_requis': ['vent', 'METAR', 'V', 'direction', 'kt', 'secteur'],
+        'contexte_requis': ['vent', 'METAR', 'V', 'direction', 'kt', 'secteur', '°', 'VRB', 'ATIS', 'QFU', 'rafale'],
     },
     'semi-circulaire': {
         'definition': "Règle de l'air imposant l'utilisation d'altitudes ou de niveaux de vol pairs ou impairs selon la route magnétique suivie par l'aéronef pour éviter les collisions.",
@@ -9806,7 +9828,7 @@ GLOSSAIRE = {
         'schema': True,
         'variantes': ['seuil', 'seuils', 'seuils de piste', 'seuil décalé', 'runway threshold'],
         'xrefs': ['QFU', 'piste', 'courte finale', 'toucher'],
-        'contexte_requis': ['piste', 'QFU', 'atterriss', 'seuil décalé', 'zébra'],
+        'contexte_requis': ['piste', 'QFU', 'atterriss', 'seuil décalé', 'zébra', 'approche', 'finale', 'atterri', 'arrondi', 'PAPI', 'remise de gaz', 'roulage', 'décoller', 'vitesse de seuil', 'touche', 'ILS', 'VAC', 'court'],
     },
     'sh': {
         'definition': "Code utilisé dans les rapports météorologiques aéronautiques pour signaler des averses. Ces précipitations de courte durée mais d'intensité variable se caractérisent par un début et une fin brusques.",
@@ -10253,7 +10275,7 @@ GLOSSAIRE = {
         'statut': 'redigee',
         'origine': 'v2-audit-ppl',
         'schema': False,
-        'variantes': ['surfondu', 'eau surfondue'],
+        'variantes': ['surfondu', 'eau surfondue', 'surfondue', 'surfondues', 'gouttelettes surfondues', 'gouttes surfondues', 'eau surfondues'],
         'xrefs': ['pluie surfondue', 'givre blanc', 'givrage clair', 'givrage mixte'],
     },
     'sélecteur carburant': {
@@ -10315,7 +10337,7 @@ GLOSSAIRE = {
         'statut': 'redigee',
         'origine': 'corpus',
         'schema': False,
-        'variantes': ['tachymètres', 'tachymetre', 'tachymetres'],
+        'variantes': ['tachymètres', 'tachymetre', 'tachymetres', 'compte-tours', 'compte tours', 'compte-tour'],
     },
     'TAF': {
         'definition': "Terminal Aerodrome Forecast: message de prévision météorologique d'aérodrome, valable de 9 à 30 heures. Il emploie le même code que le METAR mais y intègre des indicateurs d'évolution (BECMG, TEMPO, PROB).",
@@ -10324,7 +10346,7 @@ GLOSSAIRE = {
         'statut': 'redigee',
         'origine': 'corpus',
         'schema': False,
-        'variantes': ['TAF', 'TAF AMD', "prévision d'aérodrome"],
+        'variantes': ['TAF', 'TAF AMD', "prévision d'aérodrome", 'AMD', 'TAF amendé'],
         'xrefs': ['METAR', 'BECMG', 'TEMPO', 'PROB30'],
     },
     'tangage': {
@@ -10378,6 +10400,7 @@ GLOSSAIRE = {
         'statut': 'redigee',
         'origine': 'corpus',
         'schema': False,
+        'variantes': ['ROC', 'Rate Of Climb'],
     },
     'tcds': {
         'definition': "Type Certificate Data Sheet: fiche de données de certificat de type. Document technique officiel émis par l'autorité de certification (EASA) détaillant les limites d'utilisation, de masse et d'équipement certifiées pour un modèle d'aéronef précis.",
@@ -10637,7 +10660,6 @@ GLOSSAIRE = {
         'schema': True,
         'variantes': ['tours de piste', "circuit d'aérodrome", 'circuit de piste', 'traffic pattern'],
         'xrefs': ['vent arrière', 'étape de base', 'finale', 'remise des gaz'],
-        'contexte_requis': ['piste', 'aérodrome', 'finale', 'vent arrière', 'circuit', 'QFU', 'intégration'],
     },
     'tour de piste basse hauteur': {
         'definition': "Circuit de piste effectué à une hauteur inférieure à celle du tour de piste standard, généralement pour s'entraîner à la panne moteur ou en conditions météorologiques dégradées de plafond bas.",
@@ -10739,7 +10761,7 @@ GLOSSAIRE = {
         'statut': 'redigee',
         'origine': 'corpus',
         'schema': False,
-        'variantes': ['transpondeurs'],
+        'variantes': ['transpondeurs', 'XPDR', 'XPNDR', 'transponder'],
     },
     'transpondeur 7500': {
         'definition': "Code transpondeur international d'urgence indiquant une intervention illicite à bord (détournement). Son affichage discret permet d'alerter les services de la circulation aérienne et de la défense aérienne sans communication radio.",
@@ -10908,7 +10930,7 @@ GLOSSAIRE = {
         'statut': 'redigee',
         'origine': 'v2-audit-ppl',
         'schema': False,
-        'variantes': ['thunderstorm', 'orage'],
+        'variantes': ['thunderstorm', 'orage', 'TSRA', 'orage avec pluie'],
         'xrefs': ['capillatus', 'rafale descendante', 'grêle', 'microburst'],
     },
     'tube de pitot': {
@@ -10927,7 +10949,7 @@ GLOSSAIRE = {
         'statut': 'redigee',
         'origine': 'corpus',
         'schema': True,
-        'variantes': ['turbulences'],
+        'variantes': ['turbulences', 'turb', 'air agité', 'air agités'],
     },
     'turbulence de sillage': {
         'definition': "Turbulence générée par les tourbillons marginaux à l'extrémité des ailes de tout aéronef en vol, particulièrement intense derrière les avions lourds. Elle exige de respecter des espacements de sécurité lors des décollages.",
@@ -10936,7 +10958,7 @@ GLOSSAIRE = {
         'statut': 'redigee',
         'origine': 'corpus',
         'schema': True,
-        'variantes': ['turbulences de sillage'],
+        'variantes': ['turbulences de sillage', 'tourbillons marginaux', 'tourbillons de sillage', 'tourbillon de sillage'],
     },
     'turbulence en air clair': {
         'definition': "Turbulence sévère se produisant à haute altitude en dehors de tout nuage convectif visible, souvent liée à la proximité d'un courant-jet. Invisible et soudaine, elle est principalement redoutée en aviation de ligne.",
@@ -11027,7 +11049,7 @@ GLOSSAIRE = {
         'statut': 'redigee',
         'origine': 'corpus',
         'schema': False,
-        'variantes': ['utcs'],
+        'variantes': ['utcs', 'Zulu', 'heure Zulu', 'heure UTC', 'Z = UTC'],
     },
     'VA': {
         'definition': "Vitesse de manœuvre. Vitesse maximale à laquelle on peut appliquer un débattement gouverne complet sans endommager la cellule. Vitesse cible en turbulence, elle diminue quand la masse de l'appareil décroit.",
@@ -11065,7 +11087,7 @@ GLOSSAIRE = {
         'statut': 'redigee',
         'origine': 'corpus',
         'schema': False,
-        'variantes': ['variomètres', 'variometre', 'variometres'],
+        'variantes': ['variomètres', 'variometre', 'variometres', 'vario', 'varios', 'VSI', 'Vertical Speed Indicator', 'indicateur de vitesse verticale'],
     },
     'VASIS': {
         'definition': "Dispositif visuel d'indicateur de pente composé de barres de feux rouges et blancs disposées en deux échelons, fournissant un guidage visuel de descente lors de l'approche finale vers la piste.",
@@ -11084,7 +11106,7 @@ GLOSSAIRE = {
         'statut': 'redigee',
         'origine': 'v2-audit-ppl',
         'schema': False,
-        'variantes': ['vitesse de finesse max', 'vitesse de plané optimal', 'Vbg'],
+        'variantes': ['vitesse de finesse max', 'vitesse de plané optimal', 'Vbg', 'glide', 'best glide', 'meilleure finesse', 'vitesse de meilleure finesse', 'vitesse de finesse', 'vitesse de finesse maximale', 'vitesse de plané'],
         'xrefs': ['vitesse conventionnelle', 'rapport portance/traînée'],
     },
     'vc': {
@@ -11094,7 +11116,7 @@ GLOSSAIRE = {
         'statut': 'redigee',
         'origine': 'v2-audit-ppl',
         'schema': False,
-        'variantes': ['VC', 'vicinity', 'au voisinage'],
+        'variantes': ['VC', 'vicinity', 'au voisinage', 'VCFG', 'brouillard au voisinage'],
         'xrefs': ['aérodrome non contrôlé', 'aérodrome contrôlé'],
     },
     'vent anabatique': {
@@ -11141,6 +11163,7 @@ GLOSSAIRE = {
         'statut': 'redigee',
         'origine': 'corpus',
         'schema': True,
+        'variantes': ['catabatique', 'catabatiques', 'brise catabatique'],
     },
     'vent de face': {
         'famille': 'composantes_vent',
@@ -11151,7 +11174,7 @@ GLOSSAIRE = {
         'schema': False,
         'variantes': ['vents de face', 'de face', 'face au vent', 'headwind'],
         'xrefs': ['composante de face', 'composante arrière', 'composante de travers', 'QFU'],
-        'contexte_requis': ['piste', 'vent', 'décollage', 'atterriss', 'QFU', 'composante', 'kt', 'axe'],
+        'contexte_requis': ['piste', 'vent', 'décollage', 'atterriss', 'QFU', 'composante', 'kt', 'axe', 'travers', 'θ', 'cos', 'face =', 'dérive', 'IAS', 'badin', 'chute', 'nav', 'vent de', 'vent relatif', 'vent fort', 'vent faible', 'le vent', 'du vent', 'au vent', 'vent parfaitement', 'vent exactement', 'vitesse', 'relatif', 'Vapp', 'Vref', 'diminu', 'rafale', 'baisse', 'énergie'],
     },
     'vent de travers démontré': {
         'famille': 'composantes_vent',
@@ -11160,7 +11183,7 @@ GLOSSAIRE = {
         'statut': 'redigee',
         'origine': 'corpus',
         'schema': False,
-        'variantes': ['vents de travers démontré'],
+        'variantes': ['vents de travers démontré', 'limite démontrée', 'limites démontrées', 'valeur démontrée', 'vent démontré'],
     },
     'vent effectif': {
         'famille': 'composantes_vent',
@@ -11251,7 +11274,7 @@ GLOSSAIRE = {
         'schema': True,
         'variantes': ['verticale du terrain', 'verticale de terrain', 'verticale', 'overhead join'],
         'xrefs': ['intégration', 'tour de piste', 'manche à air', 'VAC'],
-        'contexte_requis': ['terrain', 'aérodrome', 'intégration', 'tour de piste', 'piste', 'manche à air', 'circuit'],
+        'contexte_requis': ['terrain', 'aérodrome', 'intégration', 'tour de piste', 'piste', 'manche à air', 'circuit', 'vent arrière', 'VAC', 'point de report', 'overhead', 'altitude de circuit', 'dead side'],
     },
     'VFE': {
         'definition': "Velocity Flaps Extended: vitesse maximale autorisée avec les volets sortis. La dépasser risque d'endommager la structure.",
@@ -11338,6 +11361,7 @@ GLOSSAIRE = {
         'statut': 'redigee',
         'origine': 'corpus',
         'schema': True,
+        'variantes': ['virage stabilisé', 'virage horizontal', 'horizontal stabilisé', 'palier stabilisé'],
     },
     'virage standard': {
         'definition': 'Virage effectué à un taux constant de trois degrés par seconde, permettant de réaliser un demi-tour en une minute et un tour complet en deux minutes. Il est indiqué par le vireur.',
@@ -11437,6 +11461,7 @@ GLOSSAIRE = {
         'statut': 'redigee',
         'origine': 'corpus',
         'schema': False,
+        'variantes': ['visual inspection', 'inspection visuelle'],
     },
     'vitesse': {
         'definition': "Grandeur mesurant le déplacement de l'aéronef par rapport à un repère donné en fonction du temps, généralement exprimée en nœuds en aviation. On distingue principalement la vitesse par rapport à l'air et la vitesse sol.",
@@ -11557,7 +11582,7 @@ GLOSSAIRE = {
         'statut': 'redigee',
         'origine': 'corpus',
         'schema': False,
-        'variantes': ['famille des vitesses', 'vitesses caractéristique', 'les V', 'vitesses repères', 'V-speeds'],
+        'variantes': ['famille des vitesses', 'vitesses caractéristique', 'les V', 'vitesses repères', 'V-speeds', 'V-speed', 'V speed'],
         'xrefs': ['VNE', 'VNO', 'VA', 'VFE', 'VS0', 'VS1', 'IAS', 'manuel de vol'],
     },
     'vle': {
@@ -11788,7 +11813,7 @@ GLOSSAIRE = {
         'statut': 'redigee',
         'origine': 'corpus',
         'schema': True,
-        'variantes': ['vrilles'],
+        'variantes': ['vrilles', 'spin', 'spins'],
     },
     'vrille à plat': {
         'definition': "Vrille caractérisée par une assiette de piqué extrêmement faible. Très difficile, voire impossible à récupérer sur un aéronef léger, elle empêche l'action efficace de la gouverne de profondeur.",
@@ -12088,7 +12113,7 @@ GLOSSAIRE = {
         'schema': False,
         'variantes': ['base', 'branche de base', 'étapes de base', 'étape base', 'base leg'],
         'xrefs': ['tour de piste', 'finale', 'dernier virage', 'vent arrière'],
-        'contexte_requis': ['tour de piste', 'finale', 'vent arrière', 'circuit', 'piste'],
+        'contexte_requis': ['tour de piste', 'finale', 'vent arrière', 'circuit', 'piste', 'trafic', 'numéro', 'virage', 'étape', 'remise de gaz'],
     },
     'état de piste': {
         'definition': "Description périodique des conditions physiques de la surface de la piste d'atterrissage (sèche, mouillée, contaminée par de l'eau, de la neige ou du verglas). Il influence directement les calculs de distance de freinage.",
@@ -12200,7 +12225,7 @@ GLOSSAIRE = {
         'categorie': 'Aérodrome & cartes',
         'famille': 'cartes_aeronautiques',
         'origine': 'corpus',
-        'variantes': ['aérodromes', 'aerodrome'],
+        'variantes': ['aérodromes', 'aerodrome', 'aéroport', 'aéroports'],
         'xrefs': ['piste', 'atz', 'tour de contrôle', 'VAC'],
         'statut': 'redigee',
     },
