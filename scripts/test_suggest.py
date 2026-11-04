@@ -379,6 +379,7 @@ CP = Path(_TMP) / "copie"
 subprocess.run(["rsync", "-a", "--exclude", ".git", "--exclude", "backups", "--exclude", "*.png", "--exclude", "data/suggest", str(REAL) + "/", str(CP) + "/"], check=True)
 core.ROOT = CP
 core.BACKUP_ROOT = Path(_TMP) / "bk"
+os.environ["AEROLEX_BACKUP_DIR"] = str(core.BACKUP_ROOT)      # le sous-processus import_lexique --write sauvegarde AUSSI dans le temporaire
 core.LEXICONS["aero"]["source"] = "data/data_glossaire.py"
 core._idx_cache.clear()
 n0 = core._count_cards()
@@ -451,7 +452,7 @@ check("validation: data/ réel jamais modifié par les tests", sha(REAL / "data/
 for _i in range(22):
     (core.BACKUP_ROOT / ("19990101-0000%02d-validate" % _i)).mkdir(exist_ok=True)
 core.backup_site()
-_auto = [x for x in core.BACKUP_ROOT.iterdir() if x.name.endswith("-validate")]
+_auto = [x for x in core.BACKUP_ROOT.iterdir() if x.name.endswith("-validate") or x.name.startswith("import-")]
 check("sauvegardes: rotation à 20 automatiques, sauvegarde manuelle intacte", len(_auto) == 20 and (core.BACKUP_ROOT / "20261104-2114").exists(), len(_auto))
 
 shutil.rmtree(_TMP, ignore_errors=True)

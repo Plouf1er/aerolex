@@ -181,7 +181,7 @@ def atomic_write(path: Path, text: str):
             os.unlink(tmp)
 
 
-DEFAULT_BACKUP_DIR = Path.home() / "Backups" / "aerolex"
+DEFAULT_BACKUP_DIR = Path(os.environ.get("AEROLEX_BACKUP_DIR") or Path.home() / "Backups" / "aerolex")
 
 
 def backup_project(root: Path, backup_dir: Path) -> Path:
