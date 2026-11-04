@@ -829,6 +829,14 @@ GLOSSAIRE = {
         "famille": "pistes",
         "origine": "suggest",
     },
+    "masse totale": {
+        "definition": "La masse totale est la somme de la masse à vide de l'aéronef et de toutes les masses ajoutées (pilote, passagers, carburant, bagages). Elle est exprimée en kilogrammes ou en livres. Elle doit rester inférieure à la masse maximale au décollage (MTOM — Maximum Take-Off Mass) indiquée dans le manuel de vol.",
+        "categorie": "À classer",
+        "famille": "masses",
+        "variantes": ["poids total", "masse brute"],
+        "xrefs": ["masse maximale au décollage", "masse maximale à l'atterrissage", "charge utile", "masse a vide", "masse du jour", "masse sans carburant", "devis de masse", "manuel de vol"],
+        "origine": "suggest",
+    },
 }
 
 
