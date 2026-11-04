@@ -82,21 +82,46 @@ procédures : ça mérite une fiche.
 data/
   lexique-filtre.txt        1 092 termes retenus (corpus + métier)
   lexique-candidats.txt     extraction brute avant filtrage
-  data_glossaire.py         fiches rédigées à la main — SOURCE
-  data_glossaire_full.py    fusion générée — NE PAS ÉDITER
+  data_glossaire.py         entrées validées via « Suggérer des termes » (origine=suggest) — entrée du import
+  data_glossaire_full.py    STOCK CANONIQUE des fiches (1 303 : v1, lots v2, ajouts manuels) — lu par le build
   PLAN-redaction-fiches.md  méthode de rédaction, 13 lots thématiques
 src/
-  import_lexique.py         fusionne lexique + fiches → data_glossaire_full.py
+  import_lexique.py         synchronise data_glossaire.py → data_glossaire_full.py (fusion additive)
   build_glossaire.py        génère la page index du glossaire
   svg_glossaire.py          schémas (piste, manche à air, rose des vents…)
 dist/                       artefacts publiables (aerolex.js, lexique.json)
 ```
 
+## Chaîne de construction
+
+```
+data/data_glossaire_full.py  ──┐ (stock canonique, fiches jamais écrasées)
+data/data_glossaire.py ────────┴─► src/import_lexique.py --write ─► data_glossaire_full.py
+                                     ├─► scripts/build_pages.py        (dist/aero/*.html, slugmap)
+                                     ├─► scripts/build_terms_json.py
+                                     ├─► scripts/build_search_json.py
+                                     └─► build_index_js.py             (dist/aerolex.js, lexique.json)
+```
+
+Historique : le full a été construit par étapes (v1 757 fiches, lots v2 533, ajouts manuels,
+séances) et enrichi (famille, schema, xrefs). L'ancien import « tout reconstruire depuis le
+lexique » est périmé : il aurait supprimé ~200 fiches. Depuis la remise à niveau
+`import_lexique.py` est une **fusion additive** : il garde le full tel quel, y ajoute les
+fiches de `data_glossaire.py` qui n'y sont pas (clé exacte), et n'injecte plus les stubs du
+lexique brut (monomots purgés exprès ; option `--with-stubs` si besoin).
+
+**Sécurité** : `python3 src/import_lexique.py` = essai à blanc (affiche le diff, n'écrit rien) ;
+`--write` applique (écriture atomique) ; `--check` retourne 1 s'il y a un diff.
+Test de non-régression : `python3 scripts/test_import_lexique.py` (rejoue dans un dossier
+temporaire, diff = 0 contre le full réel).
+
 ## Rédiger une fiche
 
-1. Écrire l'entrée dans `data/data_glossaire.py` (source manuelle)
-2. Relancer `python3 src/import_lexique.py`
-3. `data_glossaire_full.py` est régénéré
+1. Fiche nouvelle : l'écrire dans `data/data_glossaire.py` (ou la valider via Suggérer), puis
+   `python3 src/import_lexique.py --write` pour la propager au full.
+   Fiche existante : la corriger directement dans `data/data_glossaire_full.py`
+   (l'import n'écrase jamais une fiche déjà présente).
+2. Reconstruire les pages (`scripts/build_pages.py` etc., voir la chaîne ci-dessus)
 
 Une fiche minimale porte `definition` (1-2 phrases, ton instructeur) et `categorie`.
 Champs optionnels : `variantes`, `synonymes`, `xrefs`, `contexte_requis`, `schema`.

@@ -1,45 +1,59 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
 """
-import_lexique.py — Fusionne lexique-filtre.txt (1092 termes) avec les fiches
-deja redigees de data_glossaire.py, et produit data_glossaire_full.py.
+import_lexique.py — SYNCHRONISE data_glossaire_full.py (fiche complète servie par le
+site) avec les sources éditables. Remise à niveau 2026-11 (ancienne version : elle
+reconstruisait le full depuis zéro dans un format périmé et supprimait ~200 fiches v2).
 
-Chaque terme sans fiche recoit un stub `fiche en construction` :
-    - definition = placeholder
-    - statut     = "a_rediger"
-    - origine    = "corpus" | "metier"
+Modèle de données actuel
+------------------------
+  data/data_glossaire_full.py   STOCK CANONIQUE des fiches (1 300+ termes : v1, lots v2,
+                                ajouts manuels, séances). Les fiches existantes n'y sont
+                                JAMAIS écrasées ni supprimées par ce script.
+  data/data_glossaire.py        source d'entrée : fiches validées par « Suggérer des termes »
+                                (scripts/suggest_core.py y insère les entrées, origine="suggest").
+  data/lexique-filtre.txt       lexique brut du corpus. N'est plus une source de fiches :
+                                les monomots ont été purgés exprès (284 termes) ; il ne sert
+                                qu'avec --with-stubs.
 
-Regles appliquees :
-  1. ANTI-DOUBLON par forme normalisee (minuscules, accents retires,
-     ponctuation neutralisee) contre l'ensemble cles U variantes U synonymes.
-     Un terme deja couvert n'ouvre PAS de seconde entree.
-  2. COLLISIONS DE CASSE (VA/Va, VNE/Vne, ...) : la cle MAJUSCULE gagne,
-     l'autre casse bascule en `variantes`. Rapport imprime.
-  3. Les fiches deja redigees ne sont JAMAIS ecrasees.
-  4. `origine` reporte sur chaque entree (corpus => lien actif ;
-     metier => fiche sans lien actif).
+Opération (fusion additive, idempotente)
+  1. full existant  -> conservé tel quel (ordre, champs, ajouts faits directement dans le full).
+  2. fiche de data_glossaire.py absente du full (clé exacte) -> ajoutée en fin de fichier
+     (statut="redigee" par défaut, origine conservée). Alerte si sa forme normalisée est déjà
+     couverte par une autre fiche (clés U variantes U synonymes) : doublon probable.
+  3. --with-stubs (jamais par défaut) : termes de lexique-filtre.txt non couverts -> stubs
+     « Fiche en construction. ».
+
+Sécurité : SANS --write c'est un essai à blanc (aucune écriture) qui affiche le diff.
+Avec --write l'écriture est atomique et n'a lieu que s'il y a un changement.
+--check : essai à blanc + code retour 1 s'il y a un diff.
+Le préambule (docstring) du full est conservé tel quel.
+
+Usage : python3 src/import_lexique.py [--write] [--check] [--with-stubs] [--root DIR]
 """
 
+import argparse
+import difflib
+import importlib.util
+import os
 import re
 import sys
+import tempfile
+import types
 import unicodedata
-import importlib.util
+from collections import defaultdict
 from pathlib import Path
-from collections import OrderedDict, defaultdict
 
 BASE = Path(__file__).resolve().parent.parent
-LEXIQUE = BASE / "data" / "lexique-filtre.txt"
-GLOSSAIRE_SRC = BASE / "data" / "data_glossaire.py"
-OUT = BASE / "data" / "data_glossaire_full.py"
-
 PLACEHOLDER = "Fiche en construction."
+START_MARK = "GLOSSAIRE = {\n"
 
 
 # --------------------------------------------------------------------------
-# Normalisation — doit rester IDENTIQUE a celle du moteur de rendu
+# Normalisation — identique à scripts/suggest_core.norm et au moteur de rendu
 # --------------------------------------------------------------------------
 def norm(s: str) -> str:
-    """Minuscules, accents retires, ponctuation neutralisee, espaces tasses."""
+    """Minuscules, accents retirés, ponctuation neutralisée, espaces tassés."""
     s = unicodedata.normalize("NFD", s)
     s = "".join(c for c in s if unicodedata.category(c) != "Mn")
     s = s.lower()
@@ -48,13 +62,9 @@ def norm(s: str) -> str:
     return s.strip()
 
 
-# --------------------------------------------------------------------------
-# 1. Lecture du lexique filtre
-# --------------------------------------------------------------------------
 def read_lexique(path: Path):
-    """Retourne [(terme, occurrences, nb_seances, origine)]."""
-    entries = []
-    bloc = None
+    """Retourne [(terme, occurrences, nb_seances, origine)] (corpus | metier)."""
+    entries, bloc = [], None
     for raw in path.read_text(encoding="utf-8").splitlines():
         line = raw.rstrip()
         if not line.strip():
@@ -65,9 +75,7 @@ def read_lexique(path: Path):
         if line.startswith("### METIER"):
             bloc = "metier"
             continue
-        if line.startswith("#"):
-            continue
-        if bloc is None:
+        if line.startswith("#") or bloc is None:
             continue
         parts = line.split("\t")
         terme = parts[0].strip()
@@ -79,73 +87,24 @@ def read_lexique(path: Path):
     return entries
 
 
-# --------------------------------------------------------------------------
-# 2. Chargement du glossaire redige
-# --------------------------------------------------------------------------
 def load_glossaire(path: Path):
-    """Charge data_glossaire.py en neutralisant sa dependance a glos_utils.
-
-    Le fichier source appelle `from glos_utils import dev_mode` dans une
-    fonction d'injection propre au build Aero Coach. Le projet glossaire est
-    autonome : on injecte un stub avant l'import plutot que de patcher la
-    source (qui reste la propriete du projet cours).
-    """
-    import types
-
+    """Charge un data_glossaire*.py (stub de glos_utils injecté si besoin). -> (GLOSSAIRE dict, source texte)."""
     if "glos_utils" not in sys.modules:
         stub = types.ModuleType("glos_utils")
         stub.dev_mode = lambda *a, **k: False  # noqa: E731
         sys.modules["glos_utils"] = stub
-
     sys.path.insert(0, str(path.parent))
     try:
-        spec = importlib.util.spec_from_file_location("dg_src", path)
+        spec = importlib.util.spec_from_file_location("dg_" + path.stem, path)
         mod = importlib.util.module_from_spec(spec)
         spec.loader.exec_module(mod)
     finally:
         sys.path.pop(0)
-
-    return (
-        dict(getattr(mod, "GLOSSAIRE", {})),
-        dict(getattr(mod, "FICHES_A_REDIGER", {})),
-    )
+    return dict(getattr(mod, "GLOSSAIRE", {}))
 
 
-# --------------------------------------------------------------------------
-# 3. Resolution des collisions de casse
-# --------------------------------------------------------------------------
-def resolve_case_collisions(gloss: dict):
-    """VA/Va, VNE/Vne... -> garde la cle MAJUSCULE, l'autre passe en variante."""
-    by_norm = defaultdict(list)
-    for k in gloss:
-        by_norm[norm(k)].append(k)
-
-    report = []
-    for n, keys in by_norm.items():
-        if len(keys) < 2 or not n:
-            continue
-        # Collision de pure casse uniquement (memes lettres)
-        if len({k.lower() for k in keys}) != 1:
-            continue  # recouvrement semantique -> a arbitrer a la main
-        winner = max(keys, key=lambda k: (sum(c.isupper() for c in k), k))
-        for k in keys:
-            if k == winner:
-                continue
-            entry = gloss[winner]
-            variantes = list(entry.get("variantes", []))
-            if k not in variantes:
-                variantes.append(k)
-            entry["variantes"] = variantes
-            del gloss[k]
-            report.append((k, winner))
-    return report
-
-
-# --------------------------------------------------------------------------
-# 4. Index de couverture
-# --------------------------------------------------------------------------
 def covered_forms(gloss: dict) -> set:
-    """cles U variantes U synonymes, en forme normalisee."""
+    """clés U variantes U synonymes, en forme normalisée."""
     forms = set()
     for k, v in gloss.items():
         forms.add(norm(k))
@@ -157,157 +116,118 @@ def covered_forms(gloss: dict) -> set:
 
 
 # --------------------------------------------------------------------------
-# 5. Serialisation
+# Sérialisation — format du full committé (repr Python, 4 espaces)
 # --------------------------------------------------------------------------
 def dump_entry(key: str, val: dict) -> str:
-    def esc(s):
-        return (
-            str(s)
-            .replace("\\", "\\\\")
-            .replace('"', '\\"')
-            .replace("\n", "\\n")
-        )
-
-    lines = [f'    "{esc(key)}": {{']
-    for champ in (
-        "definition", "categorie", "origine", "statut",
-        "occurrences", "nb_seances",
-        "variantes", "synonymes", "xrefs",
-        "contexte_requis", "schema", "lien",
-    ):
-        if champ not in val:
-            continue
-        v = val[champ]
-        if isinstance(v, (list, tuple)):
-            if not v:
-                continue
-            items = ", ".join(f'"{esc(x)}"' for x in v)
-            lines.append(f'        "{champ}": [{items}],')
-        elif isinstance(v, bool):
-            lines.append(f'        "{champ}": {v},')
-        elif isinstance(v, (int, float)):
-            lines.append(f'        "{champ}": {v},')
-        else:
-            lines.append(f'        "{champ}": "{esc(v)}",')
+    lines = ["    %r: {" % key]
+    for champ, v in val.items():
+        lines.append("        %r: %r," % (champ, v))
     lines.append("    },")
-    return "\n".join(lines)
+    return "\n".join(lines) + "\n"
 
 
-def main():
-    if not LEXIQUE.exists():
-        sys.exit(f"ERREUR: lexique introuvable: {LEXIQUE}")
-    if not GLOSSAIRE_SRC.exists():
-        sys.exit(f"ERREUR: glossaire introuvable: {GLOSSAIRE_SRC}")
+def split_preamble(text: str):
+    i = text.index(START_MARK) + len(START_MARK)
+    return text[:i]
 
-    lex = read_lexique(LEXIQUE)
-    gloss, fiches_a_rediger = load_glossaire(GLOSSAIRE_SRC)
-    n_redigees = len(gloss)
 
-    # -- collisions de casse
-    collisions = resolve_case_collisions(gloss)
-
-    # -- marquer les fiches deja redigees
-    for k, v in gloss.items():
-        v.setdefault("statut", "redigee")
-        v.setdefault("origine", "corpus")
-
-    # -- injecter FICHES_A_REDIGER (17 termes deja identifies)
-    covered = covered_forms(gloss)
-    n_from_far = 0
-    for k, v in fiches_a_rediger.items():
-        if norm(k) in covered:
+def merge(full: dict, src: dict, lex=None):
+    """Retourne (résultat dict ordonné, rapport dict). Ne modifie ni full ni src."""
+    out = dict(full)  # ordre conservé
+    rep = {"ajoutes_src": [], "doublons_probables": [], "src_divergents": [], "stubs": []}
+    covered = covered_forms(out)
+    for k, v in src.items():
+        if k in out:
+            if {c: x for c, x in v.items()} != {c: out[k].get(c) for c in v} and any(
+                    out[k].get(c) != x for c, x in v.items() if c in out[k]):
+                rep["src_divergents"].append(k)
             continue
-        entry = dict(v) if isinstance(v, dict) else {}
-        entry.setdefault("definition", PLACEHOLDER)
-        entry.setdefault("categorie", "divers")
-        entry["statut"] = "a_rediger"
-        entry.setdefault("origine", "corpus")
-        gloss[k] = entry
-        covered.add(norm(k))
-        n_from_far += 1
-
-    # -- injecter le lexique
-    added, skipped = 0, 0
-    stats = defaultdict(int)
-    for terme, occ, nbs, origine in lex:
+        entry = dict(v)
+        entry.setdefault("statut", "redigee")
+        entry.setdefault("origine", "suggest")
+        if norm(k) in covered:
+            rep["doublons_probables"].append(k)
+        out[k] = entry
+        covered |= {norm(k)} | {norm(x) for c in ("variantes", "synonymes") for x in entry.get(c, []) or []}
+        rep["ajoutes_src"].append(k)
+    for terme, occ, nbs, origine in (lex or []):
         n = norm(terme)
         if not n or n in covered:
-            skipped += 1
             continue
-        gloss[terme] = {
-            "definition": PLACEHOLDER,
-            "categorie": "divers",
-            "origine": origine,
-            "statut": "a_rediger",
-            "occurrences": occ,
-            "nb_seances": nbs,
-        }
+        out[terme] = {"definition": PLACEHOLDER, "categorie": "divers", "origine": origine,
+                      "statut": "a_rediger", "occurrences": occ, "nb_seances": nbs}
         covered.add(n)
-        added += 1
-        stats[origine] += 1
+        rep["stubs"].append(terme)
+    return out, rep
 
-    # -- tri : alphabetique sur forme normalisee
-    ordered = OrderedDict(sorted(gloss.items(), key=lambda kv: (norm(kv[0]), kv[0])))
 
-    total = len(ordered)
-    n_red = sum(1 for v in ordered.values() if v.get("statut") == "redigee")
-    n_att = total - n_red
+def render(preamble: str, gloss: dict) -> str:
+    return preamble + "".join(dump_entry(k, v) for k, v in gloss.items()) + "}\n"
 
-    header = f'''# -*- coding: utf-8 -*-
-"""
-data_glossaire_full.py — GENERE par src/import_lexique.py. NE PAS EDITER A LA MAIN.
 
-Fusion du lexique aero filtre ({len(lex)} termes) et des fiches redigees.
+def atomic_write(path: Path, text: str):
+    fd, tmp = tempfile.mkstemp(dir=str(path.parent), prefix=path.name + ".", suffix=".tmp")
+    try:
+        with os.fdopen(fd, "w", encoding="utf-8") as f:
+            f.write(text)
+        os.replace(tmp, path)
+    finally:
+        if os.path.exists(tmp):
+            os.unlink(tmp)
 
-  Total entrees ............ {total}
-  Fiches redigees .......... {n_red}
-  Fiches en construction ... {n_att}
 
-  origine="corpus" -> le terme apparait dans le corpus => LIEN ACTIF
-  origine="metier" -> vocabulaire aero standard absent du corpus
-                      => fiche consultable, PAS de lien actif
+def run(root: Path, write=False, with_stubs=False, out=print):
+    """Cœur testable. Retourne (changed: bool, rapport dict)."""
+    data = root / "data"
+    full_p, src_p, lex_p = data / "data_glossaire_full.py", data / "data_glossaire.py", data / "lexique-filtre.txt"
+    for p in (full_p, src_p):
+        if not p.exists():
+            raise SystemExit("ERREUR: introuvable: %s" % p)
+    old_text = full_p.read_text(encoding="utf-8")
+    full, src = load_glossaire(full_p), load_glossaire(src_p)
+    lex = read_lexique(lex_p) if with_stubs else None
+    merged, rep = merge(full, src, lex)
+    new_text = render(split_preamble(old_text), merged)
+    changed = new_text != old_text
+    out("IMPORT LEXIQUE -> data_glossaire_full.py  (%s)" % ("ECRITURE" if write else "essai à blanc"))
+    out("  full existant ............ %d fiches (conservées telles quelles)" % len(full))
+    out("  source data_glossaire.py . %d fiches" % len(src))
+    out("  ajoutées depuis la source  %d %s" % (len(rep["ajoutes_src"]), rep["ajoutes_src"][:15]))
+    if rep["doublons_probables"]:
+        out("  ATTENTION doublons probables (forme normalisée déjà couverte): %s" % rep["doublons_probables"])
+    if rep["src_divergents"]:
+        out("  info: %d fiches de la source diffèrent du full (le full fait foi, non écrasé)" % len(rep["src_divergents"]))
+    if with_stubs:
+        out("  stubs lexique ajoutés .... %d" % len(rep["stubs"]))
+    out("  total après fusion ....... %d" % len(merged))
+    if changed:
+        diff = list(difflib.unified_diff(old_text.splitlines(), new_text.splitlines(),
+                                         "full (actuel)", "full (après import)", lineterm="", n=1))
+        out("  DIFF: %d lignes" % len(diff))
+        for l in diff[:80]:
+            out("    " + l[:160])
+        if len(diff) > 80:
+            out("    ... (%d lignes de plus)" % (len(diff) - 80))
+    else:
+        out("  DIFF = 0 : le full est déjà à jour.")
+    if write and changed:
+        atomic_write(full_p, new_text)
+        out("  Écrit -> %s" % full_p)
+    elif changed:
+        out("  (rien écrit : relancer avec --write pour appliquer)")
+    return changed, rep
 
-  statut="redigee"    -> definition reelle
-  statut="a_rediger"  -> affiche "Fiche en construction."
 
-Pour rediger une fiche : l'ecrire dans data_glossaire.py (source manuelle),
-puis relancer src/import_lexique.py. Ce fichier est ecrase a chaque run.
-"""
-
-PLACEHOLDER = "{PLACEHOLDER}"
-
-GLOSSAIRE = {{
-'''
-
-    body = "\n".join(dump_entry(k, v) for k, v in ordered.items())
-    footer = "\n}\n"
-
-    OUT.write_text(header + body + footer, encoding="utf-8")
-
-    # -- rapport
-    print("=" * 62)
-    print("IMPORT LEXIQUE -> GLOSSAIRE")
-    print("=" * 62)
-    print(f"  Lexique lu ................. {len(lex)} termes")
-    print(f"    - corpus ................. {sum(1 for e in lex if e[3]=='corpus')}")
-    print(f"    - metier ................. {sum(1 for e in lex if e[3]=='metier')}")
-    print(f"  Fiches redigees (source) ... {n_redigees}")
-    if collisions:
-        print(f"  Collisions de casse fusionnees ... {len(collisions)}")
-        for loser, winner in collisions:
-            print(f"      {loser!r} -> variante de {winner!r}")
-    print(f"  Ajoutes depuis FICHES_A_REDIGER .. {n_from_far}")
-    print(f"  Ajoutes depuis le lexique ........ {added}")
-    print(f"    - corpus ....................... {stats['corpus']}")
-    print(f"    - metier ....................... {stats['metier']}")
-    print(f"  Deja couverts (ignores) .......... {skipped}")
-    print("-" * 62)
-    print(f"  TOTAL ENTREES .................... {total}")
-    print(f"    redigees ....................... {n_red}")
-    print(f"    en construction ................ {n_att}")
-    print(f"  Ecrit -> {OUT}")
-    print("=" * 62)
+def main(argv=None):
+    ap = argparse.ArgumentParser(description=__doc__.split("\n\n")[0])
+    ap.add_argument("--write", action="store_true", help="écrit réellement data_glossaire_full.py")
+    ap.add_argument("--check", action="store_true", help="essai à blanc, code retour 1 s'il y a un diff")
+    ap.add_argument("--with-stubs", action="store_true", help="ajoute aussi les stubs du lexique brut (déconseillé)")
+    ap.add_argument("--root", default=str(BASE), help="racine du projet (tests : dossier temporaire)")
+    a = ap.parse_args(argv)
+    changed, _ = run(Path(a.root), write=a.write and not a.check, with_stubs=a.with_stubs)
+    return 1 if (a.check and changed) else 0
 
 
 if __name__ == "__main__":
-    main()
+    sys.exit(main())
