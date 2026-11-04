@@ -12,7 +12,7 @@ from pathlib import Path
 
 _TMP = tempfile.mkdtemp(prefix="suggest-test-")
 os.environ["AEROLEX_SUGGEST_DIR"] = _TMP
-os.environ["AEROLEX_SUGGEST_TOKEN"] = "tok-test"
+os.environ["AEROLEX_SUGGEST_PASSWORD"] = "pw-factice-test"
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 
 import suggest_core as core  # noqa: E402
@@ -208,12 +208,13 @@ except RuntimeError:
     check("rebuild: échec remonté", True)
 
 # ── 6. API : jeton + routes ─────────────────────────────────────────────────
-H = lambda t=None: {"X-Suggest-Token": t} if t else {}
+_ok, _sid, _ = core.login("pw-factice-test", "10.0.0.1")
+H = lambda t=None: {"Cookie": "aerolex_session=" + _sid} if t else {}
 check("api: lexicons public", api.route("GET", "/api/suggest/lexicons", {}, b"")[0] == 200)
 check("api: validation sans jeton refusée 401", api.route("POST", "/api/suggest/validate", H(), b'{"ids":[1]}')[0] == 401)
 check("api: revue sans jeton 401 (proposals, check, rescue, stats)", all(api.route(m_, "/api/suggest" + p_, H(), b"{}")[0] == 401 for m_, p_ in
       [("GET", "/proposals"), ("POST", "/proposals/1/check"), ("POST", "/proposals/1/rescue"), ("POST", "/proposals/1/reject"), ("GET", "/stats")]))
-check("api: 401 mauvais jeton", api.route("GET", "/api/suggest/proposals", H("nope"), b"")[0] == 401)
+check("api: 401 mauvais jeton", api.route("GET", "/api/suggest/proposals", {"Cookie": "aerolex_session=faux"}, b"")[0] == 401)
 check("api: 400 sans terme", api.route("POST", "/api/suggest/submit", H("tok-test"), b'{"text":" , "}')[0] == 400)
 s_, o_ = api.route("POST", "/api/suggest/submit", H(), json.dumps({"domain": "aero", "text": "AIP, cumulonimbus"}).encode(), ip="9.9.9.9")
 check("api: soumission SANS jeton acceptée", s_ == 200 and o_["resultats"][0]["statut"] == "present", (s_, o_))
@@ -342,6 +343,25 @@ check("validation: forçage explicite écrit", r["valides"] == ["XQW"] and '"XQW
 s_, o_ = api.route("POST", "/api/suggest/validate", H("tok-test"), json.dumps({"ids": [mkprop("encoreun", famille="")]}).encode())
 check("api: validate avec jeton -> 200 + refuses", s_ == 200 and o_["refuses"], o_)
 check("api: check avec jeton", api.route("POST", "/api/suggest/proposals/%d/check" % pid, H("tok-test"), b"{}")[0] == 200)
+
+# ── 10. mot de passe / session / anti-force brute ──────────────────────────
+LG = lambda pw, ip="7.7.7.7": api.route("POST", "/api/suggest/login", {}, json.dumps({"password": pw}).encode(), ip=ip)
+check("login: mauvais mot de passe -> 401", LG("mauvais")[0] == 401)
+s_, o_ = LG("pw-factice-test", "6.6.6.6")
+check("login: bon mot de passe -> 200 + cookie de session", s_ == 200 and o_.get("_cookie"))
+hdr = {"Cookie": "aerolex_session=" + o_["_cookie"]}
+check("session: GET /session relecteur", api.route("GET", "/api/suggest/session", hdr, b"")[1]["relecteur"] is True
+      and api.route("GET", "/api/suggest/session", {}, b"")[1]["relecteur"] is False)
+pidv = mkprop("sessionvalide", famille="pistes")
+check("session: la validation passe avec la session (contrôle, sans rebuild)", api.route("POST", "/api/suggest/proposals/%d/check" % pidv, hdr, b"{}")[0] == 200)
+check("session: mauvais mot de passe ne donne aucun accès", api.route("GET", "/api/suggest/proposals", {}, b"")[0] == 401)
+api.route("POST", "/api/suggest/logout", hdr, b"{}")
+check("logout: la session ne fonctionne plus", api.route("GET", "/api/suggest/proposals", hdr, b"")[0] == 401)
+codes = [LG("faux%d" % i, "5.5.5.5")[0] for i in range(5)]
+check("force brute: 5 échecs -> 401 puis blocage 429", codes[:4] == [401] * 4 and codes[4] in (401, 429) and LG("faux", "5.5.5.5")[0] == 429)
+check("force brute: même le BON mot de passe est refusé pendant le blocage", LG("pw-factice-test", "5.5.5.5")[0] == 429)
+check("force brute: autre IP non bloquée", LG("pw-factice-test", "4.4.4.4")[0] == 200)
+check("login: cookie absent du JSON final (serve le retire) et aucun mot de passe dans le code", "pw-factice" not in open(core.__file__).read())
 
 shutil.rmtree(_TMP, ignore_errors=True)
 print("\n%d échec(s)" % len(FAILS))

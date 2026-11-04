@@ -22,6 +22,8 @@ build existant (pas de copie).
 from __future__ import annotations
 
 import concurrent.futures as cf
+import fcntl
+import shutil
 import importlib.util
 import io
 import json
@@ -1150,7 +1152,7 @@ def insert_into_source(src: Path, entries: str) -> None:
 
 
 REBUILD_STEPS = [
-    ["python3", "src/import_lexique.py"],
+    ["python3", "src/import_lexique.py", "--write"],
     ["python3", "scripts/build_pages.py"],
     ["python3", "scripts/build_terms_json.py"],
     ["python3", "scripts/build_search_json.py"],
@@ -1170,7 +1172,55 @@ def rebuild(steps=None) -> list:
     return log
 
 
-def validate_proposals(ids: list, do_rebuild: bool = True, steps=None, force: bool = False, run_llm: bool = True) -> dict:
+BACKUP_ROOT = Path(os.environ.get("AEROLEX_BACKUP_DIR", Path.home() / "Backups" / "aerolex"))
+LINKS_TEST = ["python3", "scripts/test_links_resolve.py"]
+_SKIP_DATA = shutil.ignore_patterns("suggest")      # data/suggest = base SQLite vivante (propositions, sessions) : jamais restaurée
+
+
+class ValidationError(RuntimeError):
+    """Validation annulée ; data/ et dist/aero/ ont été restaurés."""
+
+
+def _count_cards() -> int:
+    return len(list((ROOT / "dist" / "aero" / "t").glob("*.json")))
+
+
+def backup_site() -> Path:
+    """Sauvegarde horodatée de data/ et dist/aero/ -> ~/Backups/aerolex/<AAAAmmjj-HHMMSS>-validate/."""
+    stamp = time.strftime("%Y%m%d-%H%M%S")
+    dest, n = BACKUP_ROOT / (stamp + "-validate"), 1
+    while dest.exists():
+        n += 1
+        dest = BACKUP_ROOT / ("%s-%d-validate" % (stamp, n))
+    dest.mkdir(parents=True)
+    shutil.copytree(ROOT / "data", dest / "data", symlinks=True, ignore=_SKIP_DATA)
+    shutil.copytree(ROOT / "dist" / "aero", dest / "dist_aero", symlinks=True)
+    return dest
+
+
+def restore_site(bk: Path) -> None:
+    for live, saved, ign in ((ROOT / "data", bk / "data", _SKIP_DATA), (ROOT / "dist" / "aero", bk / "dist_aero", None)):
+        tmp = live.with_name(live.name + ".restore-tmp")
+        shutil.rmtree(tmp, ignore_errors=True)
+        if ign:      # on garde data/suggest en place
+            for item in live.iterdir():
+                if item.name != "suggest":
+                    shutil.rmtree(item) if item.is_dir() and not item.is_symlink() else item.unlink()
+            for item in saved.iterdir():
+                (shutil.copytree(item, live / item.name, symlinks=True) if item.is_dir() else shutil.copy2(item, live / item.name))
+        else:
+            shutil.rmtree(live)
+            shutil.copytree(saved, live, symlinks=True)
+
+
+def _run(cmd) -> None:
+    p = subprocess.run(cmd, cwd=str(ROOT), capture_output=True, text=True, timeout=600)
+    if p.returncode != 0:
+        raise RuntimeError("échec de %s : %s" % (" ".join(cmd), (p.stdout + p.stderr)[-400:].strip()))
+
+
+def validate_proposals(ids: list, do_rebuild: bool = True, steps=None, force: bool = False, run_llm: bool = True,
+                       links_cmd=None) -> dict:
     with _db_lock, db() as con:
         rows = [con.execute("SELECT * FROM proposals WHERE id=? AND status='pending'", (i,)).fetchone() for i in ids]
     rows = [r for r in rows if r]
@@ -1193,15 +1243,60 @@ def validate_proposals(ids: list, do_rebuild: bool = True, steps=None, force: bo
                 continue
             d = json.loads(r["data"])
             chunks.append((dom, r, render_entry(r["term"], d)))
-        if any(c[0] == dom for c in chunks):
-            insert_into_source(ROOT / LEXICONS[dom]["source"], "".join(c[2] for c in chunks if c[0] == dom))
-    with _db_lock, db() as con:
-        for dom, r, _ in chunks:
-            con.execute("DELETE FROM proposals WHERE domain=? AND key=? AND status='validated'", (dom, r["key"]))
-            con.execute("UPDATE proposals SET status='validated', upd=? WHERE id=?", (time.time(), r["id"]))
-            done.append(r["term"])
-    log = rebuild(steps) if (do_rebuild and done) else []
-    return {"valides": done, "ignores": skipped, "refuses": refused, "build": log, "force": bool(force)}
+    if not chunks:
+        return {"valides": [], "ignores": skipped, "refuses": refused, "build": [], "force": bool(force)}
+
+    def write_sources():
+        for dom in by_dom:
+            if any(c[0] == dom for c in chunks):
+                insert_into_source(ROOT / LEXICONS[dom]["source"], "".join(c[2] for c in chunks if c[0] == dom))
+
+    def mark_validated():
+        with _db_lock, db() as con:
+            for dom, r, _ in chunks:
+                con.execute("DELETE FROM proposals WHERE domain=? AND key=? AND status='validated'", (dom, r["key"]))
+                con.execute("UPDATE proposals SET status='validated', upd=? WHERE id=?", (time.time(), r["id"]))
+                done.append(r["term"])
+
+    if not do_rebuild:
+        write_sources()
+        mark_validated()
+        return {"valides": done, "ignores": skipped, "refuses": refused, "build": [], "force": bool(force)}
+
+    # ── chemin sûr : un seul à la fois, sauvegarde, reconstruction, contrôles, restauration auto ──
+    DATA_DIR.mkdir(parents=True, exist_ok=True)
+    lock = open(DATA_DIR / "validate.lock", "w")
+    try:
+        fcntl.flock(lock, fcntl.LOCK_EX | fcntl.LOCK_NB)
+    except OSError:
+        lock.close()
+        raise ValueError("une validation est déjà en cours, réessayez dans un instant")
+    try:
+        bk = backup_site()
+        before = _count_cards()
+        try:
+            write_sources()
+            log = rebuild(steps)
+            _run(links_cmd if links_cmd is not None else LINKS_TEST)
+            after = _count_cards()
+            if after < before:
+                raise RuntimeError("le nombre de fiches a baissé (%d -> %d)" % (before, after))
+        except Exception as e:
+            restore_site(bk)
+            msg = str(e)[:600]
+            with _db_lock, db() as con:     # la proposition reste « à valider », avec le message d'erreur
+                for dom, r, _ in chunks:
+                    d = json.loads(r["data"])
+                    d["erreur_validation"] = msg
+                    con.execute("UPDATE proposals SET data=?, upd=? WHERE id=?", (json.dumps(d, ensure_ascii=False), time.time(), r["id"]))
+            _idx_cache.clear()
+            raise ValidationError("validation annulée, site restauré (sauvegarde %s) : %s" % (bk, msg))
+        mark_validated()
+        return {"valides": done, "ignores": skipped, "refuses": refused, "build": log, "force": bool(force),
+                "fiches": [before, after], "sauvegarde": str(bk)}
+    finally:
+        fcntl.flock(lock, fcntl.LOCK_UN)
+        lock.close()
 
 
 def stats() -> dict:
@@ -1213,22 +1308,88 @@ def stats() -> dict:
             "plafond_usd_24h": DAILY_USD_CAP, "termes_en_cache": t, "propositions": {r[0]: r[1] for r in p}}
 
 
-# ── Jeton ────────────────────────────────────────────────────────────────────
-TOKEN_FILE = Path(os.environ.get("AEROLEX_SUGGEST_TOKEN_FILE", Path.home() / ".aerolex-suggest-token"))
+# ── Mot de passe relecteur + session (cookie HttpOnly) ──────────────────────
+import hashlib
+import hmac
+
+PASSWORD_FILE = Path(os.environ.get("AEROLEX_SUGGEST_PASSWORD_FILE", Path.home() / ".aerolex-suggest-password"))
+SESSION_DAYS = 30
+COOKIE_NAME = "aerolex_session"
+LOGIN_MAX_FAILS = 5
+LOGIN_BLOCK_SECS = 15 * 60
+_SCRYPT = dict(n=2 ** 14, r=8, p=1, dklen=32)
+_pw_ref = None      # (sel, hash scrypt) gardé en mémoire ; le mot de passe en clair n'est jamais conservé
 
 
-def get_token() -> str:
-    t = os.environ.get("AEROLEX_SUGGEST_TOKEN")
-    if t:
-        return t
+def load_password(path=None):
+    """Lit le fichier (une ligne), n'en garde que sel + hash scrypt. -> True si un mot de passe est défini."""
+    global _pw_ref
+    _pw_ref = None
     try:
-        return TOKEN_FILE.read_text("utf-8").strip()
+        pw = Path(path or PASSWORD_FILE).read_text("utf-8").strip()
     except OSError:
-        t = secrets.token_urlsafe(24)
-        TOKEN_FILE.write_text(t + "\n", "utf-8")
-        os.chmod(TOKEN_FILE, 0o600)
-        return t
+        return False
+    if pw:
+        salt = secrets.token_bytes(16)
+        _pw_ref = (salt, hashlib.scrypt(pw.encode("utf-8"), salt=salt, **_SCRYPT))
+    return _pw_ref is not None
 
 
-def check_token(given: str | None) -> bool:
-    return bool(given) and secrets.compare_digest(given, get_token())
+load_password()
+
+
+def check_password(given: str) -> bool:
+    if _pw_ref is None or not given:
+        return False
+    salt, ref = _pw_ref
+    return hmac.compare_digest(hashlib.scrypt(given.encode("utf-8"), salt=salt, **_SCRYPT), ref)
+
+
+def login_blocked(ip: str) -> int:
+    """-> secondes restantes de blocage (0 si libre)."""
+    with _db_lock, db() as con:
+        rows = con.execute("SELECT ts FROM ratelimit WHERE ip=? AND kind='loginfail' AND ts>? ORDER BY ts",
+                           (_ipkey(ip), time.time() - LOGIN_BLOCK_SECS)).fetchall()
+    if len(rows) >= LOGIN_MAX_FAILS:
+        return int(rows[-1][0] + LOGIN_BLOCK_SECS - time.time()) + 1
+    return 0
+
+
+def login(password: str, ip: str):
+    """-> (ok, cookie_value|None, retry_after). 5 échecs par IP -> blocage 15 min."""
+    wait = login_blocked(ip)
+    if wait:
+        return False, None, wait
+    if not check_password(password):
+        rate_record(ip, "loginfail")
+        return False, None, login_blocked(ip)
+    with _db_lock, db() as con:
+        con.execute("DELETE FROM ratelimit WHERE ip=? AND kind='loginfail'", (_ipkey(ip),))
+        con.execute("CREATE TABLE IF NOT EXISTS sessions(h TEXT PRIMARY KEY, exp REAL)")
+        con.execute("DELETE FROM sessions WHERE exp<?", (time.time(),))
+        sid = secrets.token_urlsafe(32)
+        con.execute("INSERT INTO sessions(h,exp) VALUES(?,?)", (hashlib.sha256(sid.encode()).hexdigest(), time.time() + SESSION_DAYS * 86400))
+    return True, sid, 0
+
+
+def _sid_from(headers) -> str:
+    c = headers.get("Cookie") or ""
+    m = re.search(r"(?:^|;\s*)" + COOKIE_NAME + r"=([A-Za-z0-9_\-]+)", c)
+    return m.group(1) if m else ""
+
+
+def check_session(headers) -> bool:
+    sid = _sid_from(headers)
+    if not sid:
+        return False
+    with _db_lock, db() as con:
+        con.execute("CREATE TABLE IF NOT EXISTS sessions(h TEXT PRIMARY KEY, exp REAL)")
+        r = con.execute("SELECT exp FROM sessions WHERE h=?", (hashlib.sha256(sid.encode()).hexdigest(),)).fetchone()
+    return bool(r) and r[0] > time.time()
+
+
+def logout(headers) -> None:
+    sid = _sid_from(headers)
+    if sid:
+        with _db_lock, db() as con:
+            con.execute("DELETE FROM sessions WHERE h=?", (hashlib.sha256(sid.encode()).hexdigest(),))

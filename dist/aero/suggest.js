@@ -2,7 +2,6 @@
   "use strict";
   var API = "/api/suggest";
   var $ = function (id) { return document.getElementById(id); };
-  var TOKEN_KEY = "aerolex-suggest-token";
   var lexicons = {};
   var polling = null;
 
@@ -18,26 +17,17 @@
     return e;
   }
 
-  // jeton : #t=... dans l'URL (une fois), puis localStorage
-  (function () {
-    var m = /[#&]t=([^&]+)/.exec(location.hash);
-    if (m) {
-      try { localStorage.setItem(TOKEN_KEY, decodeURIComponent(m[1])); } catch (e) {}
-      history.replaceState(null, "", location.pathname + location.search);
-    }
-  })();
-  function token() { try { return localStorage.getItem(TOKEN_KEY) || ""; } catch (e) { return ""; } }
+  var reviewer = false;   // session relecteur (cookie HttpOnly posé par le serveur)
 
   function api(method, path, body, raw) {
-    var opt = { method: method, headers: {} };
-    if (token()) opt.headers["X-Suggest-Token"] = token();
+    var opt = { method: method, headers: {}, credentials: "same-origin" };
     if (body !== undefined) {
       if (raw) { opt.body = body; }
       else { opt.body = JSON.stringify(body); opt.headers["Content-Type"] = "application/json"; }
     }
     return fetch(API + path, opt).then(function (r) {
       return r.json().catch(function () { return { error: "réponse illisible" }; }).then(function (j) {
-        if (r.status === 401 && path.indexOf("/proposals") === 0) { $("tab-review").hidden = true; }
+        if (r.status === 401 && path.indexOf("/proposals") === 0) { setReviewer(false); }
         if (!r.ok) { var err = new Error(j.error || ("HTTP " + r.status)); err.status = r.status; throw err; }
         return j;
       });
@@ -48,6 +38,24 @@
     var m = $("msg");
     m.hidden = !text; m.textContent = text || ""; m.className = "msg" + (isErr ? " err" : "");
   }
+
+  // ---------- espace relecteur (mot de passe) ----------
+  function setReviewer(on) {
+    reviewer = on;
+    $("tab-review").hidden = !on; $("btn-logout").hidden = !on; $("btn-login").hidden = on;
+    if (!on) { $("login-box").hidden = true; if (!$("pane-review").hidden) tab("submit"); }
+  }
+  $("btn-login").onclick = function () { $("login-box").hidden = !$("login-box").hidden; if (!$("login-box").hidden) $("pw").focus(); };
+  function doLogin() {
+    var pw = $("pw").value; if (!pw) return;
+    $("login-msg").textContent = "";
+    api("POST", "/login", { password: pw }).then(function () {
+      $("pw").value = ""; $("login-box").hidden = true; setReviewer(true); refreshPending(); tab("review");
+    }).catch(function (e) { $("login-msg").textContent = e.message; $("pw").value = ""; });
+  }
+  $("login-go").onclick = doLogin;
+  $("pw").addEventListener("keydown", function (e) { if (e.key === "Enter") doLogin(); });
+  $("btn-logout").onclick = function () { api("POST", "/logout", {}).then(function () { setReviewer(false); }); };
 
   // ---------- onglets ----------
   function tab(name) {
@@ -147,7 +155,7 @@
     var sent = $("sent");
     sent.hidden = !(nValid && job.etat !== "running");
     sent.textContent = nValid ? "Proposition envoyée pour validation : " + nValid + " terme" + (nValid > 1 ? "s" : "") + ". Elle sera relue avant d'être ajoutée au lexique." : "";
-    var cost = (i.usd !== undefined && token()) ? " · coût " + i.usd.toFixed(4) + " $" + (i.secs ? " en " + i.secs + " s" : "") : "";
+    var cost = (i.usd !== undefined && reviewer) ? " · coût " + i.usd.toFixed(4) + " $" + (i.secs ? " en " + i.secs + " s" : "") : "";
     $("summary").textContent = parts.join(" · ") + cost + (i.doublons ? " · " + i.doublons + " doublon(s) fusionné(s)" : "");
   }
 
@@ -273,7 +281,7 @@
     }).catch(function (e) { $("review-msg").textContent = e.message; });
   }
   function setPending(n) { var p = $("pending-count"); p.hidden = !n; p.textContent = n; }
-  function refreshPending() { if (!token()) return; api("GET", "/proposals?status=pending").then(function (r) { setPending(r.propositions.length); }).catch(function () {}); }
+  function refreshPending() { if (!reviewer) return; api("GET", "/proposals?status=pending").then(function (r) { setPending(r.propositions.length); }).catch(function () {}); }
   $("refresh").onclick = loadProposals;
 
   // ---------- init ----------
@@ -283,10 +291,11 @@
       j.lexiques.forEach(function (l) { lexicons[l.id] = l; sel.appendChild(el("option", { value: l.id, text: l.label })); });
       var d = new URLSearchParams(location.search).get("lexicon"); if (d && lexicons[d]) sel.value = d;
     }).catch(function () { say("API indisponible.", true); });
-    $("tab-review").hidden = !token();       // revue/validation : réservées au porteur du jeton
-    refreshPending();
-    var job = new URLSearchParams(location.search).get("job");
-    if (job) poll(job);
+    fetch(API + "/session", { credentials: "same-origin" }).then(function (r) { return r.json(); }).then(function (j) {
+      setReviewer(!!j.relecteur); refreshPending();
+      var job = new URLSearchParams(location.search).get("job");
+      if (job) poll(job);
+    }).catch(function () { setReviewer(false); });
   }
   init();
 })();

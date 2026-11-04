@@ -5,13 +5,21 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="robots" content="noindex">
 <title>Suggérer des termes — AeroLex</title>
-<link rel="stylesheet" href="suggest.css?v=2">
+<link rel="stylesheet" href="suggest.css?v=3">
 </head>
 <body>
 <header class="top">
   <a class="back" href="index.html">← Index</a>
   <h1>Suggérer des termes</h1>
+  <button id="btn-login" class="btn small" type="button">Espace relecteur</button>
+  <button id="btn-logout" class="btn small" type="button" hidden>Se déconnecter</button>
 </header>
+<section id="login-box" class="card login" hidden>
+  <label for="pw">Mot de passe relecteur</label>
+  <input id="pw" type="password" autocomplete="current-password" placeholder="Mot de passe">
+  <button id="login-go" class="btn primary" type="button">Entrer</button>
+  <p id="login-msg" class="msg err" role="alert"></p>
+</section>
 
 <nav class="tabs" role="tablist">
   <button id="tab-submit" class="tab on" role="tab" aria-selected="true">Suggérer</button>
@@ -56,6 +64,6 @@
     <div id="proposals"></div>
   </section>
 </main>
-<script src="suggest.js?v=3"></script>
+<script src="suggest.js?v=4"></script>
 </body>
 </html>

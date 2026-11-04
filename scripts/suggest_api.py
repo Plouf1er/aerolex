@@ -9,7 +9,7 @@ Accès :
   PUBLIC (sans jeton) : lexicons, parse, submit, job. Garde-fous de coût côté serveur : quota LLM par IP
   (30 termes/h, 300/j ; le cache et l'entonnoir gratuit sont illimités), plafond global 2 $/24 h (puis
   Qwopus local, puis refus poli), fichier <= 5 Mo, 300 termes/soumission, 20 analyses de fichier/h/IP.
-  JETON (X-Suggest-Token, ~/.aerolex-suggest-token, 0600) : revue (proposals, écartés, repêchage), validation
+  SESSION RELECTEUR (POST /login {password}, cookie HttpOnly/Secure/SameSite=Strict 30 j ; mot de passe hors dépôt ~/.aerolex-suggest-password ; 5 échecs/IP -> blocage 15 min) : revue (proposals, écartés, repêchage), validation
   (écriture dans le lexique + rebuild du site), stats.
 
   GET  /api/suggest/lexicons                    lexiques + familles (public)
@@ -52,7 +52,20 @@ def route(method: str, path: str, headers, body: bytes, ip: str | None = None):
                 idx = core.get_index(k)
                 out.append({"id": k, "label": cfg["label"], "familles": idx.families, "termes": len(idx.glossaire)})
             return 200, {"lexiques": out, "max_termes": core.MAX_TERMS_PER_SUBMISSION}
-        authed = core.check_token(headers.get("X-Suggest-Token"))
+        authed = core.check_session(headers)
+        if method == "GET" and p == "/session":
+            return 200, {"relecteur": authed}
+        if method == "POST" and p == "/login":
+            d = json.loads(body.decode("utf-8") or "{}")
+            ok, sid, wait = core.login(str(d.get("password", "")), ip or "?")
+            if ok:
+                return 200, {"ok": True, "_cookie": sid}
+            if wait:
+                return 429, {"error": "trop d'essais : réessayez dans %d min" % (-(-wait // 60)), "retry_after": wait}
+            return 401, {"error": "mot de passe incorrect"}
+        if method == "POST" and p == "/logout":
+            core.logout(headers)
+            return 200, {"ok": True, "_cookie": ""}
         # ── public (sans jeton) ──
         if method == "POST" and p == "/parse":
             if len(body) > core.MAX_UPLOAD_BYTES:
@@ -73,7 +86,7 @@ def route(method: str, path: str, headers, body: bytes, ip: str | None = None):
             return (200, v) if v else (404, {"error": "job inconnu"})
         # ── protégé : revue / validation (écriture en production) ──
         if not authed:
-            return 401, {"error": "jeton manquant ou invalide"}
+            return 401, {"error": "connexion relecteur requise"}
         if method == "GET" and p == "/proposals":
             return 200, {"propositions": core.list_proposals(q.get("domain"), q.get("status", "pending"))}
         m = re.fullmatch(r"/proposals/(\d+)/(edit|reject|check|rescue)", p)
@@ -94,6 +107,8 @@ def route(method: str, path: str, headers, body: bytes, ip: str | None = None):
         if method == "GET" and p == "/stats":
             return 200, core.stats()
         return 404, {"error": "route inconnue"}
+    except core.ValidationError as e:
+        return 409, {"error": str(e)}
     except KeyError as e:
         return 404, {"error": str(e).strip("'\"")}
     except (ValueError, json.JSONDecodeError) as e:
@@ -121,10 +136,14 @@ def serve(handler) -> None:
     else:
         body = handler.rfile.read(n) if n else b""
         status, out = route(handler.command, handler.path, handler.headers, body, client_ip(handler))
+    ck = out.pop("_cookie", None) if isinstance(out, dict) else None
     data = json.dumps(out, ensure_ascii=False).encode("utf-8")
     handler.send_response(status)
     handler.send_header("Content-Type", "application/json; charset=utf-8")
     handler.send_header("Cache-Control", "no-store")
+    if ck is not None:
+        base = "%s=%s; Path=/; HttpOnly; Secure; SameSite=Strict" % (core.COOKIE_NAME, ck)
+        handler.send_header("Set-Cookie", base + ("; Max-Age=%d" % (core.SESSION_DAYS * 86400) if ck else "; Max-Age=0"))
     handler.send_header("Content-Length", str(len(data)))
     handler._cors_done = True       # l'API est same-origin : pas d'en-têtes CORS
     handler.end_headers()
