@@ -273,7 +273,8 @@ def generate_index():
             cat = GLOSSAIRE[terme].get('categorie', '')
             fam = GLOSSAIRE[terme].get('famille', '')
             _exp = PAYLOAD_CTX.display[terme]["expansion"]
-            dev_html = f' <span class="dev">({escape(_exp)})</span>' if _exp else ''
+            _gl = PAYLOAD_CTX.display[terme]["gloss"]
+            dev_html = (f' <span class="dev">— {escape(_exp)}' + (f' ({escape(_gl)})' if _gl else '') + '</span>') if _exp else ''
             html_content += f'<li data-cat="{escape(cat)}" data-fam="{escape(fam)}"><a href="{escape(slug)}.html">{escape(PAYLOAD_CTX.display[terme]["titre"])}</a>{dev_html}</li>'
         html_content += '</ul></div>'
         

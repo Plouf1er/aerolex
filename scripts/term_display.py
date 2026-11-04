@@ -15,6 +15,8 @@ from __future__ import annotations
 
 import re
 
+from term_expansions import EXPANSIONS, GLOSS_FIX, NOT_ACRONYMS, lookup  # noqa: F401
+
 STOP = {"of", "and", "the", "de", "des", "du", "la", "le", "les", "et", "d", "l",
         "à", "a", "in", "for", "to", "or", "ou", "en", "au", "aux", "un", "une"}
 
@@ -82,6 +84,35 @@ def _prefix_expansion(definition: str):
 def compute_entry(key: str, meta: dict):
     """Pour un terme : (titre, expansion|None, gloss|None, definition_sans_prefixe).
 
+    Priorité : développé curaté (term_expansions.EXPANSIONS / code OACI) >
+    développé calculé depuis les données. Voir _compute_auto() pour le calcul.
+    """
+    return compute_entry_full(key, meta)[:4]
+
+
+def compute_entry_full(key: str, meta: dict):
+    """(titre, expansion, gloss, definition_base, inline)."""
+    if key in NOT_ACRONYMS:
+        return key, None, None, ((meta or {}).get("definition") or "").strip(), False
+    titre, exp, gloss, rest = _compute_auto(key, meta)
+    cur = lookup(key, meta)
+    if cur:
+        exp, gloss, upper, inline = cur
+        if upper:
+            titre = key.upper()
+        return titre, exp, gloss, rest, inline
+    if exp and key in GLOSS_FIX:
+        fe, fg = GLOSS_FIX[key]
+        if fe:
+            exp = fe
+        if fg:
+            gloss = fg
+    return titre, exp, gloss, rest, True
+
+
+def _compute_auto(key: str, meta: dict):
+    """Calcul automatique (préfixe de définition / variantes à initiales).
+
     Un terme est un SIGLE si sa clé est courte alphanumérique ET qu'on trouve
     un développement dans les données (préfixe de définition ou variante dont
     les initiales correspondent), OU si la clé est déjà en majuscules.
@@ -143,8 +174,9 @@ def build_display_table(glossaire: dict):
     for k, meta in glossaire.items():
         if not isinstance(meta, dict):
             meta = {}
-        t, e, g, d = compute_entry(k, meta)
-        out[k] = {"titre": t, "expansion": e, "gloss": g, "definition_base": d}
+        t, e, g, d, inl = compute_entry_full(k, meta)
+        out[k] = {"titre": t, "expansion": e, "gloss": g, "definition_base": d,
+                  "inline": inl}
     return out
 
 
@@ -231,6 +263,9 @@ def expand_acronyms(text: str, own_key: str, table: dict, upper_index: dict):
         key = upper_index.get(tok)
         info = table.get(key) if key else None
         exp = info and info["expansion"]
+        if exp and (info.get("inline") is False or exp.lower() == tok.lower()):
+            done.add(tok)
+            return tok
         if not exp:
             if tok not in unknown:
                 unknown.append(tok)
