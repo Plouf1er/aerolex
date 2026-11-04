@@ -71,6 +71,15 @@ def test_case_rule():
     r_lab, items, _u = expr_sigles("carte vac", table, ui)
     if r_lab != "carte VAC" or not items:
         errs.append("libellé déclaré « carte vac » perdu : %s %s" % (r_lab, items))
+    # aucune forme d'appel d'une fiche-sigle n'est un mot courant en minuscules (pronom « ils », nom « cas »)
+    for k in ("ils", "cas"):
+        meta = GLOSSAIRE.get(k) or {}
+        bad = [v for v in (meta.get("variantes") or []) + (meta.get("synonymes") or []) if v == k]
+        if bad or table[k]["titre"] != k.upper():
+            errs.append("fiche « %s » : titre %r, formes d'appel minuscules %r" % (k, table[k]["titre"], bad))
+    t, r = core.develop_acronyms("mais ils peuvent précéder une perturbation", "fibratus", ix)
+    if "(" in t or r["inseres"]:
+        errs.append("« ils peuvent » développé : %s" % t)
     return errs
 
 

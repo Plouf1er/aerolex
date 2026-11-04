@@ -659,6 +659,11 @@ check("casse sigles: acr_info('cas'/'Cas') None, acr_info('CAS') défini, acr_in
       core.acr_info("cas", _ix) is None and core.acr_info("Cas", _ix) is None and core.acr_info("CAS", _ix) and core.acr_info("Vy", _ix) and core.acr_info("base", _ix) is None)
 check("casse sigles: aucun développé inséré après un mot en minuscules (pas de 'cas (Calibrated')", "cas (Calibrated" not in _tc and "cas (Calibrated" not in _tc3)
 
+_ti, _ri = core.develop_acronyms("Les cirrus fibratus sont des nuages d'altitude, mais ils peuvent précéder une perturbation. Ils volent, ils sont là.", "fibratus", _ix)
+check("casse sigles: « ils peuvent » (pronom) jamais développé en ILS, ni listé dans les sigles insérés", "(" not in _ti and _ri["inseres"] == [] and "ils (Instrument" not in _ti, _ti)
+_ti2, _ri2 = core.develop_acronyms("On suit l'ILS puis on vérifie que ils peuvent attendre.", "fibratus", _ix)
+check("casse sigles: « l'ILS » développé, « ils » non (liste des insérés = ['ILS'])", "ILS (Instrument Landing System" in _ti2 and _ri2["inseres"] == ["ILS"] and "ils (" not in _ti2, _ti2)
+
 # sigle INCONNU : demandé au modèle (champ sigles) ; initiales vérifiées ; sinon avertissement, jamais d'invention silencieuse
 _it = {"domaine": True, "pertinent": True, "definition": "Elle utilise le ZQX pour le calcul. Deuxième phrase de la définition.", "confiance": 0.9}
 _v = core.validate_item(dict(_it, sigles=[{"sigle": "ZQX", "developpe": "Zone Quick Xchange", "traduction_fr": "échange rapide de zone"}]), "masse totale", fams, _ix)

@@ -90,6 +90,10 @@ CASES = [
     ("S6 ALT AD", "VAC LFPN, case ALT AD : 538 ft", [("AD", "AD")], []),
     # ── homonyme / contexte déjà déclarés (réparation de la chaîne)
     ("S6 vent arrière -> composante arrière", "composante de vent arrière de 10 kt", [("vent arrière", "composante arrière")], []),
+    ("casse ils pronom jamais souligné", "ils peuvent précéder l'arrivée ; Ils volent", [], ["ils", "Ils"]),
+    ("casse ILS en majuscules souligné", "l'ILS 07 est en service", [("ILS", "ils")], []),
+    ("casse cas (mot courant) jamais souligné", "un cas de nuage ; Cas particulier", [("nuage", "nuage")], ["cas", "Cas"]),
+    ("casse CAS en majuscules souligné", "la CAS est de 90 kt", [("CAS", "cas")], []),
     ("S6 casse sensible TORA", "la tora disponible", [], ["tora"]),
     ("S6 contexte requis : base sans circuit", "la base des cumulus est à 1 600 ft", [], ["base"]),
 ]
