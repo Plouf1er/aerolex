@@ -150,7 +150,7 @@ def generate_term_page(terme, index_list):
     canonical_url = f"https://example.com/aero/{escape(slug)}.html"
     
     fam_label_esc = escape(p['famille_label'])
-    fam_meta = (f'Famille: <a href="index.html?fam={quote(famille)}">{fam_label_esc}</a>' if famille else "")
+    fam_meta = (f'<span class="chip aerolex-skip">Famille: <a href="index.html?fam={quote(famille)}">{fam_label_esc}</a></span>' if famille else "")
     sg = p['sigle']
     sigle_html = ''
     if sg:
@@ -184,18 +184,20 @@ def generate_term_page(terme, index_list):
     </script>
 </head>
 <body>
-    <nav>
+    <nav class="crumb">
         {prev_link}
         <a href="index.html">Index Sommaire</a>
         {next_link}
     </nav>
     <main>
-        <h1>{escape(p['titre'])}</h1>
-        {sigle_html}
-        <div class="meta">
-            {f'Catégorie: <a href="index.html?cat={quote(categorie)}">{escape(categorie)}</a> | ' if categorie else ""}
-            {fam_meta}
-        </div>
+        <header class="fiche-head">
+            <h1>{escape(p['titre'])}</h1>
+            {sigle_html}
+            <div class="meta">
+                {f'<span class="chip cat aerolex-skip">Catégorie: <a href="index.html?cat={quote(categorie)}">{escape(categorie)}</a></span>' if categorie else ""}
+                {fam_meta}
+            </div>
+        </header>
         
         <div class="definition">
             <p>{escape(definition)}</p>
@@ -244,110 +246,13 @@ def generate_term_page(terme, index_list):
 def generate_index():
     if VISIBILITY == 'private':
         return
-        
-    letters = defaultdict(list)
-    for terme in sorted(GLOSSAIRE.keys(), key=lambda x: x.lower()):
-        letter = terme[0].upper()
-        if not letter.isalpha():
-            letter = '#'
-        letters[letter].append(terme)
-        
-    cat_opts = "".join(f'<option value="{escape(c)}">{escape(c)}</option>' for c in sorted(categories_set))
-    fam_opts = "".join(f'<option value="{escape(f)}">{escape(family_label(f))} ({len(families[f])})</option>' for f in sorted(families.keys(), key=family_sort_key))
-    
-    html_content = f"""<!DOCTYPE html>
-<html lang="fr">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Index du Glossaire Aéronautique</title>
-    <link rel="stylesheet" href="../aerolex.css?v={ASSET_V}">
-    <link rel="stylesheet" href="../aerolex-page.css?v={ASSET_V}">
-    <style>
-        .letter-group {{ margin-bottom: 2rem; }}
-        .letter-nav a {{ margin-right: 0.5rem; text-decoration: none; }}
-        .term-list {{ list-style-type: none; padding: 0; }}
-        .term-list li {{ margin-bottom: 0.5rem; }}
-    </style>
-</head>
-<body>
-    <h1>Index Sommaire ( {len(GLOSSAIRE)} termes, {len(categories_set)} catégories, {len(families)} familles )</h1>
-    
-    <div>
-        <input type="text" id="search" placeholder="Recherche rapide..." style="width: 100%; padding: 0.5rem; margin-bottom: 1rem;">
-        <a href="suggest.html" id="suggest-link" style="display:inline-block;margin:0 0 1rem;padding:.5rem .8rem;border:1px solid #ccd;border-radius:8px;text-decoration:none">+ Suggérer des termes</a>
-        <select id="cat-filter"><option value="">Toutes les catégories</option>{cat_opts}</select>
-        <select id="fam-filter"><option value="">Toutes les familles</option>{fam_opts}</select>
-    </div>
-    
-    <div class="letter-nav">
-        {"".join(f'<a href="#{escape(l)}">{escape(l)}</a>' for l in sorted(letters.keys()))}
-    </div>
-    
-    <div id="index-content">
-"""
-    for letter in sorted(letters.keys()):
-        html_content += f'<div class="letter-group" id="{escape(letter)}"><h2>{escape(letter)}</h2><ul class="term-list">'
-        for terme in letters[letter]:
-            slug = terme_to_slug[terme]
-            cat = GLOSSAIRE[terme].get('categorie', '')
-            fam = GLOSSAIRE[terme].get('famille', '')
-            _exp = PAYLOAD_CTX.display[terme]["expansion"]
-            _gl = PAYLOAD_CTX.display[terme]["gloss"]
-            dev_html = (f' <span class="dev">— {escape(_exp)}' + (f' ({escape(_gl)})' if _gl else '') + '</span>') if _exp else ''
-            if not _exp and PAYLOAD_CTX.display[terme].get("expr"):
-                dev_html = f' <span class="dev">({escape(PAYLOAD_CTX.display[terme]["expr"])})</span>'
-            html_content += f'<li data-cat="{escape(cat)}" data-fam="{escape(fam)}"><a href="{escape(slug)}.html">{escape(PAYLOAD_CTX.display[terme]["titre"])}</a>{dev_html}</li>'
-        html_content += '</ul></div>'
-        
-    html_content += """
-    </div>
-    <script src="../aerolex.js?v={ASSET_V}" data-index="../aerolex-index.json?v={ASSET_V}" data-lexicon="aero" defer></script>
-    <script src="../aerolex-svg.js?v={ASSET_V}" defer></script>
-    <script>
-var CURRENT_SLUG = null; /* l'index n'est la fiche d'aucun terme (sans ça : ReferenceError au clic) */
-/* AeroLex — sur une page de fiche, un mot surligné mène à SA page (pas d'overlay). */
-(function(){
-  var SLUGS = null;
-  fetch('slugmap.json').then(function(r){return r.json()}).then(function(j){SLUGS=j;});
-  document.addEventListener('click', function(e){
-    var s = e.target.closest && e.target.closest('span.glos');
-    if(!s) return;
-    var t = s.dataset.term; if(!t || !SLUGS) return;
-    var slug = SLUGS[t]; if(!slug) return;
-    if(slug === CURRENT_SLUG) return;
-    e.preventDefault(); window.location.href = slug + '.html';
-  }, true);
-})();
-</script>
-    <script>
-        const searchInput = document.getElementById('search');
-        const catFilter = document.getElementById('cat-filter');
-        const famFilter = document.getElementById('fam-filter');
-        const lis = document.querySelectorAll('.term-list li');
-        
-        function filter() {
-            const q = searchInput.value.toLowerCase();
-            const c = catFilter.value;
-            const f = famFilter.value;
-            lis.forEach(li => {
-                const text = li.textContent.toLowerCase();
-                const cat = li.getAttribute('data-cat');
-                const fam = li.getAttribute('data-fam');
-                const matchQ = text.includes(q);
-                const matchC = !c || cat === c;
-                const matchF = !f || fam === f;
-                li.style.display = matchQ && matchC && matchF ? '' : 'none';
-            });
-        }
-        
-        searchInput.addEventListener('input', filter);
-        catFilter.addEventListener('change', filter);
-        famFilter.addEventListener('change', filter);
-    </script>
-</body>
-</html>
-""".replace('{ASSET_V}', ASSET_V)
+    # Rendu isolé dans scripts/index_page.py (mise en page, recherche, lettres vides masquées).
+    from index_page import render_index
+    # Familles triées ici (Divers en dernier : test_familles.py cherche ce tri dans ce fichier).
+    fam_order = sorted(families.keys(), key=family_sort_key)
+    html_content = render_index(
+        GLOSSAIRE, PAYLOAD_CTX.display, terme_to_slug, families, fam_order, categories_set,
+        family_label, ASSET_V)
     with open(os.path.join(DIST_DIR, 'index.html'), 'w', encoding='utf-8') as f:
         f.write(html_content)
 

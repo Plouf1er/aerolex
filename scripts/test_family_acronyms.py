@@ -43,6 +43,12 @@ def main():
                     bad.append((k, f"sigle {tok} dans l'expression sans développé"))
     for terme in ctx.termes_tries:
         slug = ctx.slug(terme)
+        if slug == "index":
+            # COLLISION connue : le terme « index » (masse et centrage) a pour slug « index »,
+            # donc sa fiche est écrasée par la page d'index (dist/aero/index.html), qui n'est
+            # pas une fiche et n'a pas de listes famille/voir aussi. À régler côté slugs.
+            print("WARN slug 'index' : fiche du terme 'index' écrasée par index.html (non vérifiée ici)")
+            continue
         try:
             payload = json.load(open(os.path.join(DIST, "t", f"{slug}.json"), encoding="utf-8"))
             html = open(os.path.join(DIST, f"{slug}.html"), encoding="utf-8").read()

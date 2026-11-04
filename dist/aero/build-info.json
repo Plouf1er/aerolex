@@ -1,7 +1,7 @@
 {
-  "empreinte": "a7afda57",
-  "date": "2026-11-04T21:00:30+00:00",
-  "nb_termes": 1307,
+  "empreinte": "55f053bf",
+  "date": "2026-11-04T21:22:30+00:00",
+  "nb_termes": 1308,
   "assets": [
     {
       "fichier": "aerolex.js",
@@ -15,13 +15,28 @@
     },
     {
       "fichier": "aerolex-page.css",
-      "octets": 7980,
-      "sha256": "8604d1a2"
+      "octets": 11327,
+      "sha256": "3b847753"
     },
     {
       "fichier": "aerolex-svg.js",
       "octets": 13511,
       "sha256": "3a4421a9"
+    },
+    {
+      "fichier": "aerolex-indexpage.css",
+      "octets": 7120,
+      "sha256": "f25a5521"
+    },
+    {
+      "fichier": "aerolex-searchbox.js",
+      "octets": 6499,
+      "sha256": "d8de407d"
+    },
+    {
+      "fichier": "aerolex-indexpage.js",
+      "octets": 2815,
+      "sha256": "450e7f70"
     },
     {
       "fichier": "lexicon.json",

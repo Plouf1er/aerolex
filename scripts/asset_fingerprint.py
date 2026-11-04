@@ -51,6 +51,10 @@ ASSET_FILES = (
     # Cloudflare servirait l'ancienne feuille 4 h (exactement le bug d'origine).
     os.path.join(_ROOT, "dist", "aerolex-page.css"),
     os.path.join(_ROOT, "dist", "aerolex-svg.js"),
+    # Index du lexique (2026-11-04) : feuille, moteur de recherche partagé, script de page.
+    os.path.join(_ROOT, "dist", "aerolex-indexpage.css"),
+    os.path.join(_ROOT, "dist", "aerolex-searchbox.js"),
+    os.path.join(_ROOT, "dist", "aerolex-indexpage.js"),
     os.path.join(_ROOT, "dist", "aero", "lexicon.json"),
 )
 

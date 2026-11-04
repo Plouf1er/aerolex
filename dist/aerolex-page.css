@@ -22,13 +22,19 @@
    ========================================================================== */
 
 :root {
-  --pg-bg:      #f7f9fc;
-  --pg-card:    #ffffff;
-  --pg-ink:     #16232f;
-  --pg-ink-sec: #5a6c7d;
-  --pg-line:    #dfe6ee;
-  --pg-accent:  #2563eb;
-  --pg-radius:  10px;
+  /* Jetons OKLCH, neutres teintés vers le bleu de marque (DESIGN.md) */
+  --pg-bg:      oklch(0.975 0.006 250);
+  --pg-card:    oklch(0.995 0.003 250);
+  --pg-ink:     oklch(0.24 0.02 250);
+  --pg-ink-sec: oklch(0.48 0.025 250);   /* ≥ 5:1 sur --pg-bg et --pg-card */
+  --pg-line:    oklch(0.915 0.01 250);
+  --pg-line-strong: oklch(0.8 0.02 250);
+  --pg-accent:  oklch(0.5 0.19 262);
+  --pg-tint:    oklch(0.95 0.025 262);
+  --pg-focus:   oklch(0.5 0.19 262 / .22);
+  --pg-badge-bg:  oklch(0.94 0.03 262);
+  --pg-badge-ink: oklch(0.38 0.12 262);
+  --pg-radius:  12px;
   --pg-w:       860px;
 }
 
@@ -208,3 +214,52 @@ h1, .sigle, .meta, .aliases, .definition, .definition + div,
 @media (max-width: 560px) {
   .family-table, .xrefs { padding-left: .9rem; padding-right: .9rem; }
 }
+
+
+/* ============================================================================
+   Refonte 2026-11-04 — en-tête de fiche, badges, listes aérées (cf. DESIGN.md)
+   Même langage visuel que l'index et les popups : sigle en gras, développé en
+   gris, famille en badge. Ne touche ni aux liens ni au contenu des fiches.
+   ========================================================================== */
+nav.crumb {
+  position: sticky; top: 0; z-index: 20;
+  margin: -2rem -1.25rem 1.4rem; padding: .7rem 1.25rem;
+  background: color-mix(in oklab, var(--pg-bg) 94%, transparent);
+  -webkit-backdrop-filter: blur(10px); backdrop-filter: blur(10px);
+}
+nav.crumb a { padding: .35rem 0; }
+nav.crumb a:nth-child(2) { font-weight: 600; color: var(--pg-accent); }
+@media (max-width: 560px) { nav.crumb { margin: -1.25rem -1rem 1.2rem; padding: .6rem 1rem; } }
+
+.fiche-head { margin-bottom: 1.4rem; }
+.fiche-head h1 { margin-bottom: .35rem; }
+.fiche-head .sigle { margin: 0 0 .8rem; font-size: 1.08rem; line-height: 1.45; }
+.fiche-head .meta { margin: 0; display: flex; flex-wrap: wrap; gap: .4rem; }
+.chip {
+  display: inline-flex; align-items: center; gap: .35rem;
+  font-size: .78rem; font-weight: 600; line-height: 1.2;
+  padding: .3rem .7rem; border-radius: 999px;
+  color: var(--pg-badge-ink); background: var(--pg-badge-bg);
+}
+.chip a { color: inherit; text-decoration: underline; text-underline-offset: 2px; }
+.chip.cat { background: transparent; border: 1px solid var(--pg-line-strong); color: var(--pg-ink-sec); }
+.chip small { font-weight: 500; opacity: .75; font-size: 1em; }
+
+.definition { box-shadow: 0 1px 2px oklch(0.3 0.03 255 / .05); }
+
+/* Listes famille / voir aussi : lignes aérées, développé en gris sous le sigle */
+.family-table ul, .xrefs ul { list-style: none; padding: 0; margin: 0; }
+.family-table li, .xrefs li { margin: 0; padding: .6rem 0; border-top: 1px solid var(--pg-line); line-height: 1.4; }
+.family-table li:first-child, .xrefs li:first-child { border-top: 0; }
+.family-table li > a, .family-table li > strong, .xrefs li > a { font-weight: 650; }
+.family-table li > strong { color: var(--pg-ink); }
+.family-table li .dev, .xrefs li .dev { display: block; margin-top: .1rem; }
+.xrefs { border-top: 0; padding: 1.1rem 1.35rem; background: var(--pg-card); border: 1px solid var(--pg-line); border-radius: var(--pg-radius); }
+@media (min-width: 720px) {
+  .family-table ul, .xrefs ul { columns: 2; column-gap: 2rem; }
+  .family-table li, .xrefs li { break-inside: avoid; }
+  .family-table li:nth-child(n), .xrefs li:nth-child(n) { border-top: 1px solid var(--pg-line); }
+  .family-table li:first-child, .xrefs li:first-child { border-top: 0; }
+}
+a:focus-visible { outline: 2px solid var(--pg-accent); outline-offset: 2px; border-radius: 4px; }
+.xrefs > strong { display: block; margin-bottom: .4rem; font-size: .78rem; font-weight: 600; text-transform: uppercase; letter-spacing: .07em; color: var(--pg-ink-sec); }
