@@ -249,6 +249,9 @@ GLOSS_FIX = {
 # que EXPANSIONS ; consommé par term_display.extra_info() (HTML + popup).
 EXTRA_ABBREVIATIONS = {
     "KIAS": ("Knots Indicated Airspeed", "vitesse indiquée en nœuds", ""),
+    # ajoutés via « Suggérer des termes » (développé vérifié : initiales = sigle)
+    "VHF": ("Very High Frequency", "très haute fréquence", ""),
+    "UHF": ("Ultra High Frequency", "Ultra haute fréquence", ""),
 }
 
 # Mots/phrases dont le calcul automatique tire un « développement » qui n'en est

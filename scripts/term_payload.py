@@ -143,8 +143,10 @@ def build_payload(terme: str, ctx: PayloadContext) -> dict:
     variantes_dev = {}
     for a in all_variantes:
         ak = ctx.upper_index.get(a.upper())
+        if ak and not (a.isupper() or a == ctx.display[ak]["titre"] or a in (ctx.glossaire[ak].get("variantes") or [])):
+            ak = None                                   # règle de casse : MAJUSCULES ou forme exacte déclarée
         dv = dev_label(ctx.display[ak]) if ak and ak != terme else None
-        if not dv and not ak:
+        if not dv and not ak and a.isupper():
             dv = dev_label(extra_info(a))   # sigle sans fiche (ex. KIAS)
         if dv:
             variantes_dev[a] = dv

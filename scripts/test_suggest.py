@@ -644,6 +644,21 @@ check("sigles: le terme lui-même n'est pas développé dans sa propre définiti
 check("sigles: MTOM connu de term_expansions.py (Maximum Take-Off Mass — masse maximale au décollage)",
       core.acr_info("MTOM", _ix)["expansion"] == "Maximum Take-Off Mass" and core.acr_info("MTOM", _ix)["gloss"] == "masse maximale au décollage")
 
+# règle de casse des sigles : MAJUSCULES ou casse exacte déclarée, jamais un mot en minuscules / en casse de phrase
+_tc, _ = core.develop_acronyms("C'est un cas de nuage d'origine locale, sans effet sur le vol.", "silvagenitus", _ix)
+check("casse sigles: « un cas de » (minuscules) n'est PAS développé en CAS", "(" not in _tc and _tc == "C'est un cas de nuage d'origine locale, sans effet sur le vol.", _tc)
+_tc2, _rc2 = core.develop_acronyms("La CAS est de 90 kt en finale.", "silvagenitus", _ix)
+check("casse sigles: « la CAS est de 90 kt » EST développé", "CAS (Calibrated Airspeed" in _tc2 and "CAS" in _rc2["inseres"], _tc2)
+_tc3, _ = core.develop_acronyms("Cas particulier : la base et la tour restent ouvertes, tas de nuages, Ils volent, ils volent, va et vient.", "silvagenitus", _ix)
+check("casse sigles: « Cas » en début de phrase, « base », « tour », « tas », « Ils », « ils », « va » non développés", "(" not in _tc3, _tc3)
+_tc4, _ = core.develop_acronyms("On cherche la Vy en montée.", "silvagenitus", _ix)
+check("casse sigles: « Vy » (casse exacte déclarée) est développé", "Vy (" in _tc4, _tc4)
+_tc5, _ = core.develop_acronyms("On cherche la vy en montée, VY aussi.", "silvagenitus", _ix)
+check("casse sigles: « vy » (minuscules) non développé", "vy (" not in _tc5, _tc5)
+check("casse sigles: acr_info('cas'/'Cas') None, acr_info('CAS') défini, acr_info('Vy') défini, 'base' None",
+      core.acr_info("cas", _ix) is None and core.acr_info("Cas", _ix) is None and core.acr_info("CAS", _ix) and core.acr_info("Vy", _ix) and core.acr_info("base", _ix) is None)
+check("casse sigles: aucun développé inséré après un mot en minuscules (pas de 'cas (Calibrated')", "cas (Calibrated" not in _tc and "cas (Calibrated" not in _tc3)
+
 # sigle INCONNU : demandé au modèle (champ sigles) ; initiales vérifiées ; sinon avertissement, jamais d'invention silencieuse
 _it = {"domaine": True, "pertinent": True, "definition": "Elle utilise le ZQX pour le calcul. Deuxième phrase de la définition.", "confiance": 0.9}
 _v = core.validate_item(dict(_it, sigles=[{"sigle": "ZQX", "developpe": "Zone Quick Xchange", "traduction_fr": "échange rapide de zone"}]), "masse totale", fams, _ix)

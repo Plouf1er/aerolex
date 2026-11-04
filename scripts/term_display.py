@@ -185,6 +185,14 @@ def dev_label(info):
 _LOWER_STOP = {"auto", "pan", "go", "line", "up", "hold", "short", "shell", "stop", "ils"}
 # Mots en MAJUSCULES qui ne sont pas des sigles (noms de marque, expressions radio).
 _UPPER_NOT_SIGLE = {"SHELL", "GO", "NO", "HOLD", "SHORT", "LINE", "UP", "PAN", "STOP"}
+# Libellés (titres de fiches) dont la casse exacte est déclarée : « carte vac » s'affiche « carte VAC » (sigle développé).
+# Seule voie pour qu'un libellé en minuscules soit recasé : jamais de détection d'un sigle en minuscules.
+DECLARED_LABEL_CASE = {
+    "arc dme": "arc DME", "carburant 100ll": "carburant 100LL", "carte oaci": "carte OACI", "carte vac": "carte VAC",
+    "conditions imc": "conditions IMC", "conditions vmc": "conditions VMC", "ft aal": "ft AAL", "ft agl": "ft AGL",
+    "ft amsl": "ft AMSL", "metar/taf": "METAR/TAF", "sup aip": "sup AIP", "tma paris": "TMA paris",
+    "vfr spécial": "VFR spécial",
+}
 _WORD = re.compile(r"[A-Za-z0-9À-ÿ°]+")
 
 
@@ -210,11 +218,13 @@ def expr_sigles(label: str, table: dict, upper_index: dict):
     table d'affichage (term_expansions). Retourne (libellé_recasé, items,
     non_résolus) ; items = [(SIGLE, développé)].
 
-    Token sigle = MAJUSCULES >= 2 lettres, ou mot en minuscules qui est LUI-MÊME
-    une entrée sigle du lexique (vac, dme, 100ll). Casse corrigée dans le
-    libellé ('carte vac' -> 'carte VAC'). Jamais de développé inventé : un
+    Token sigle = MAJUSCULES >= 2 lettres UNIQUEMENT (règle de casse : jamais un mot
+    en minuscules ni en casse de phrase — « Ac cas », « cas d'urgence » ne sont pas
+    développés). Les libellés lexicaux écrits en minuscules mais qui contiennent un sigle
+    sont déclarés en casse exacte dans DECLARED_LABEL_CASE. Jamais de développé inventé : un
     sigle absent de la table est renvoyé dans non_résolus. Un développé déjà
     écrit en toutes lettres dans le libellé n'est pas répété."""
+    label = DECLARED_LABEL_CASE.get(label, label)      # casse exacte déclarée (« carte vac » -> « carte VAC »)
     words = list(_WORD.finditer(label or ""))
     if len(words) < 2 and " " not in (label or "").strip():
         return label, [], []
@@ -233,14 +243,6 @@ def expr_sigles(label: str, table: dict, upper_index: dict):
                 if tok not in NOT_ACRONYMS and tok not in _UPPER_NOT_SIGLE and not tok.isdigit():
                     unresolved.append(tok)
                 continue
-        elif tok.islower() or (tok[0].isdigit() and tok == tok.lower() and re.search(r"[a-z]", tok)):
-            ck = upper_index.get(tok.upper())
-            cand = table.get(ck) if ck else None
-            if cand is None and tok.upper() in EXTRA_ABBREVIATIONS:
-                cand = extra_info(tok)
-            if (cand and cand.get("expansion") and len(tok) >= 3 and tok not in NOT_ACRONYMS
-                    and tok not in _LOWER_STOP):
-                info, shown = cand, tok.upper()
         if not info:
             continue
         out.append(label[last:m.start()] + shown)

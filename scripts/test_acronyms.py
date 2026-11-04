@@ -41,6 +41,39 @@ def is_abbreviation(key, meta):
     return False
 
 
+def test_case_rule():
+    """Règle de casse : un sigle n'est détecté/développé qu'en MAJUSCULES ou en casse exacte déclarée."""
+    import suggest_core as core
+    from term_display import expr_sigles
+    ix = core.get_index("aero")
+    errs = []
+    t, _ = core.develop_acronyms("C'est un cas de nuage.", "silvagenitus", ix)
+    if "(" in t:
+        errs.append("« un cas de » développé : %s" % t)
+    t, _ = core.develop_acronyms("La CAS est de 90 kt.", "silvagenitus", ix)
+    if "CAS (Calibrated Airspeed" not in t:
+        errs.append("« la CAS » non développé : %s" % t)
+    t, _ = core.develop_acronyms("Cas particulier : la base est ouverte.", "silvagenitus", ix)
+    if "(" in t:
+        errs.append("« Cas »/« base » développés : %s" % t)
+    t, _ = core.develop_acronyms("La Vy est de 70 kt.", "silvagenitus", ix)
+    if "Vy (" not in t:
+        errs.append("« Vy » non développé : %s" % t)
+    table = build_display_table(GLOSSAIRE)
+    ui = {}
+    for k, v in table.items():
+        if v["expansion"]:
+            ui.setdefault(k.upper(), k)
+    for lab in ("Ac cas", "cas d'urgence", "un cas de vol"):
+        r_lab, items, _u = expr_sigles(lab, table, ui)
+        if items or r_lab != lab:
+            errs.append("libellé « %s » recasé/développé : %s %s" % (lab, r_lab, items))
+    r_lab, items, _u = expr_sigles("carte vac", table, ui)
+    if r_lab != "carte VAC" or not items:
+        errs.append("libellé déclaré « carte vac » perdu : %s %s" % (r_lab, items))
+    return errs
+
+
 def main():
     table = build_display_table(GLOSSAIRE)
     missing = []
@@ -57,6 +90,9 @@ def main():
                  if v["expansion"] and v["expansion"].strip().lower() == v["titre"].strip().lower()
                  and k not in ("CB", "hPa", "few")]
     ok = True
+    for e in test_case_rule():
+        ok = False
+        print("❌ casse des sigles : %s" % e)
     if missing:
         ok = False
         print("❌ sigles sans développé (%d) : %s" % (len(missing), ", ".join(missing)))

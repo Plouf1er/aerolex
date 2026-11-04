@@ -902,17 +902,28 @@ def _acr_tables(idx):
     return t
 
 
+def declared_case(tok: str, titre: str) -> bool:
+    """RÈGLE DE CASSE DES SIGLES (partout) : un sigle n'est détecté / développé que s'il est écrit en MAJUSCULES
+    (CAS, AD, FL) ou dans sa forme de casse exacte déclarée (Vy, Cz, hPa ; kt, ft pour les unités déclarées en
+    minuscules). Jamais un mot en minuscules ou en casse de phrase (« cas », « Cas », « tas », « Ils », « va »)."""
+    return bool(tok) and (tok.isupper() or tok == titre)
+
+
 def acr_info(tok: str, idx):
     """Développé OFFICIEL d'un sigle (fiche du lexique, EXPANSIONS, EXTRA_ABBREVIATIONS) ou None.
-    -> {expansion, gloss, inline, source:'lexique'}"""
+    -> {expansion, gloss, inline, source:'lexique'}. Respecte la règle de casse (cf. declared_case)."""
     td, te = _dev_mods()
     table, upper, exp_up = _acr_tables(idx)
-    key = tok if (tok in table and table[tok]["expansion"]) else upper.get(tok.upper())
+    key = None
+    if tok in table and table[tok]["expansion"] and declared_case(tok, table[tok]["titre"]):
+        key = tok                                     # forme exacte déclarée (Vy, Cz, kt)
+    elif tok.isupper():
+        key = upper.get(tok.upper())                  # MAJUSCULES -> clé du lexique (CAS -> cas)
     info = table.get(key) if key else None
     if info and info["expansion"]:
         return {"expansion": info["expansion"], "gloss": info.get("gloss"), "inline": info.get("inline") is not False, "source": "lexique"}
     ek = exp_up.get(tok.upper())
-    if ek and (tok.isupper() or tok == ek):
+    if ek and (tok.isupper() or (tok == ek and ek != ek.lower())):   # EXPANSIONS : MAJUSCULES, ou casse mixte exacte (Vy, inHg)
         exp, gl, flags = te.EXPANSIONS[ek]
         return {"expansion": exp, "gloss": gl, "inline": "N" not in flags, "source": "lexique"}
     e = te.EXTRA_ABBREVIATIONS.get(tok.upper())
