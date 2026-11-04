@@ -34,7 +34,7 @@ def clone(tmp: Path) -> Path:
 
 
 def cli(root, *args):
-    return subprocess.run([sys.executable, str(SCRIPT), "--root", str(root), *args],
+    return subprocess.run([sys.executable, str(SCRIPT), "--root", str(root), "--backup-dir", str(root.parent / "bk"), *args],
                           capture_output=True, text=True, timeout=120)
 
 
@@ -106,6 +106,28 @@ def main():
         cli(tmp, "--write")
         if sha(full_tmp) != h1:
             ko.append("non idempotent")
+
+        # 4b. --write a créé une sauvegarde horodatée (data/ + dist/) dans le dossier temporaire
+        bks = list((Path(t) / "p" / ".." / "bk").resolve().glob("import-*"))
+        if not bks or not (bks[0] / "data" / "data_glossaire_full.py").exists():
+            ko.append("pas de sauvegarde créée par --write")
+
+        # 4c. garde anti-réduction : refus si le nombre de fiches baisse, sauf --allow-shrink
+        orig_merge = I.merge
+        def shrinking(full, src, lex=None):
+            m, rep = orig_merge(full, src, lex)
+            m.pop(next(iter(m)))
+            return m, rep
+        I.merge = shrinking
+        tmp3 = clone(Path(t) / "p3")
+        h3 = sha(tmp3 / "data" / "data_glossaire_full.py")
+        try:
+            I.run(tmp3, write=True, backup_dir=Path(t) / "bk3", out=lambda *_: None)
+            ko.append("écriture réduisant le nombre de fiches non refusée")
+        except SystemExit:
+            if sha(tmp3 / "data" / "data_glossaire_full.py") != h3:
+                ko.append("full modifié malgré le refus")
+        I.merge = orig_merge
 
         # 5. --check : code 1 s'il reste un diff
         tmp2 = clone(Path(t) / "p2")

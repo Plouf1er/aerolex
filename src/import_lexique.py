@@ -25,7 +25,10 @@ Opération (fusion additive, idempotente)
      « Fiche en construction. ».
 
 Sécurité : SANS --write c'est un essai à blanc (aucune écriture) qui affiche le diff.
-Avec --write l'écriture est atomique et n'a lieu que s'il y a un changement.
+Avec --write : (1) sauvegarde horodatée de data/ et dist/ dans ~/Backups/aerolex/<date>/
+(--backup-dir pour changer), (2) refus d'écrire si le nombre de fiches baisse (sauf
+--allow-shrink), (3) écriture atomique seulement s'il y a un changement, (4) vérification
+après écriture (aucune fiche perdue, nombre >= avant) sinon restauration automatique.
 --check : essai à blanc + code retour 1 s'il y a un diff.
 Le préambule (docstring) du full est conservé tel quel.
 
@@ -33,10 +36,12 @@ Usage : python3 src/import_lexique.py [--write] [--check] [--with-stubs] [--root
 """
 
 import argparse
+import datetime
 import difflib
 import importlib.util
 import os
 import re
+import shutil
 import sys
 import tempfile
 import types
@@ -176,7 +181,24 @@ def atomic_write(path: Path, text: str):
             os.unlink(tmp)
 
 
-def run(root: Path, write=False, with_stubs=False, out=print):
+DEFAULT_BACKUP_DIR = Path.home() / "Backups" / "aerolex"
+
+
+def backup_project(root: Path, backup_dir: Path) -> Path:
+    """Copie horodatée de data/ et dist/ (et src/) -> backup_dir/<AAAAmmjj-HHMMSS>/. Retourne le dossier."""
+    dest = Path(backup_dir) / ("import-" + datetime.datetime.now().strftime("%Y%m%d-%H%M%S"))
+    n = 1
+    while dest.exists():
+        n += 1
+        dest = Path(backup_dir) / ("import-%s-%d" % (datetime.datetime.now().strftime("%Y%m%d-%H%M%S"), n))
+    dest.mkdir(parents=True)
+    for sub in ("data", "dist", "src"):
+        if (root / sub).is_dir():
+            shutil.copytree(root / sub, dest / sub, symlinks=True)
+    return dest
+
+
+def run(root: Path, write=False, with_stubs=False, out=print, backup_dir=None, allow_shrink=False):
     """Cœur testable. Retourne (changed: bool, rapport dict)."""
     data = root / "data"
     full_p, src_p, lex_p = data / "data_glossaire_full.py", data / "data_glossaire.py", data / "lexique-filtre.txt"
@@ -211,8 +233,19 @@ def run(root: Path, write=False, with_stubs=False, out=print):
     else:
         out("  DIFF = 0 : le full est déjà à jour.")
     if write and changed:
+        if len(merged) < len(full) and not allow_shrink:
+            raise SystemExit("REFUS: le nombre de fiches baisserait (%d -> %d). Rien écrit. --allow-shrink pour forcer."
+                             % (len(full), len(merged)))
+        bk = backup_project(root, Path(backup_dir) if backup_dir else DEFAULT_BACKUP_DIR)
+        out("  Sauvegarde -> %s" % bk)
         atomic_write(full_p, new_text)
-        out("  Écrit -> %s" % full_p)
+        after = load_glossaire(full_p)
+        lost = [k for k in full if k not in after]
+        if (lost or len(after) < len(full)) and not allow_shrink:
+            shutil.copy2(bk / "data" / full_p.name, full_p)
+            raise SystemExit("ECHEC vérification (%d fiche(s) manquante(s): %s) : full restauré depuis %s"
+                             % (len(lost), lost[:5], bk))
+        out("  Écrit -> %s (vérifié : %d fiches, aucune perdue)" % (full_p, len(after)))
     elif changed:
         out("  (rien écrit : relancer avec --write pour appliquer)")
     return changed, rep
@@ -223,9 +256,12 @@ def main(argv=None):
     ap.add_argument("--write", action="store_true", help="écrit réellement data_glossaire_full.py")
     ap.add_argument("--check", action="store_true", help="essai à blanc, code retour 1 s'il y a un diff")
     ap.add_argument("--with-stubs", action="store_true", help="ajoute aussi les stubs du lexique brut (déconseillé)")
+    ap.add_argument("--allow-shrink", action="store_true", help="autorise une baisse du nombre de fiches")
+    ap.add_argument("--backup-dir", default=None, help="dossier des sauvegardes (défaut ~/Backups/aerolex)")
     ap.add_argument("--root", default=str(BASE), help="racine du projet (tests : dossier temporaire)")
     a = ap.parse_args(argv)
-    changed, _ = run(Path(a.root), write=a.write and not a.check, with_stubs=a.with_stubs)
+    changed, _ = run(Path(a.root), write=a.write and not a.check, with_stubs=a.with_stubs,
+                      backup_dir=a.backup_dir, allow_shrink=a.allow_shrink)
     return 1 if (a.check and changed) else 0
 
 
