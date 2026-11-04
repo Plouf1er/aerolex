@@ -60,8 +60,9 @@ out = []
 # sinon aucun (les assertions qui en dépendent sont alors sautées).
 _cj = (json.loads((REAL / "data" / "lexicon.json").read_text("utf-8")).get("corpus") or {})
 _cdir = (REAL / str(_cj.get("path", "-absent-"))).resolve()
-if not _cdir.is_dir() and os.environ.get("AEROLEX_CORPUS_DIR"):
-    _cdir = Path(os.environ["AEROLEX_CORPUS_DIR"]).resolve()
+_ENV_CORPUS = os.environ.pop("AEROLEX_CORPUS_DIR", None)      # la surcharge d'environnement fausserait les cas « sans corpus » ci-dessous
+if not _cdir.is_dir() and _ENV_CORPUS:
+    _cdir = Path(_ENV_CORPUS).resolve()
 HAS_CORPUS = _cdir.is_dir()
 root = NL.create_lexicon("demo-voile", "Voile (démonstration)", BASE, familles=FAM, out=out.append,
                          corpus=NL.corpus_spec(str(_cdir)) if HAS_CORPUS else NL.corpus_spec())
