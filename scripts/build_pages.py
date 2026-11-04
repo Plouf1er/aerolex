@@ -283,6 +283,7 @@ def generate_index():
     <script src="../aerolex.js?v={ASSET_V}" data-index="../aerolex-index.json?v={ASSET_V}" data-lexicon="aero" defer></script>
     <script src="../aerolex-svg.js?v={ASSET_V}" defer></script>
     <script>
+var CURRENT_SLUG = null; /* l'index n'est la fiche d'aucun terme (sans ça : ReferenceError au clic) */
 /* AeroLex — sur une page de fiche, un mot surligné mène à SA page (pas d'overlay). */
 (function(){
   var SLUGS = null;
@@ -324,9 +325,18 @@ def generate_index():
     </script>
 </body>
 </html>
-"""
+""".replace('{ASSET_V}', ASSET_V)
     with open(os.path.join(DIST_DIR, 'index.html'), 'w', encoding='utf-8') as f:
         f.write(html_content)
+
+def write_slugmap():
+    """dist/aero/slugmap.json : terme canonique -> slug. Lu par le JS de clic
+    des fiches ET de l'index. Il était écrit une fois à la main (4 août) et
+    jamais régénéré : tout terme ajouté depuis n'avait plus de cible."""
+    import json as _json
+    with open(os.path.join(DIST_DIR, 'slugmap.json'), 'w', encoding='utf-8') as f:
+        _json.dump(dict(sorted(terme_to_slug.items())), f, ensure_ascii=False, separators=(',', ':'))
+
 
 def main():
     sorted_termes = sorted(GLOSSAIRE.keys(), key=lambda x: x.lower())
@@ -342,6 +352,7 @@ def main():
         if nf: total_no_fam += 1
         
     generate_index()
+    write_slugmap()
     
     files = glob.glob(os.path.join(DIST_DIR, '*.html'))
     num_files = len(files)
