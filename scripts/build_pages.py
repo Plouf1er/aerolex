@@ -275,6 +275,7 @@ def generate_index():
     
     <div>
         <input type="text" id="search" placeholder="Recherche rapide..." style="width: 100%; padding: 0.5rem; margin-bottom: 1rem;">
+        <a href="suggest.html" id="suggest-link" style="display:inline-block;margin:0 0 1rem;padding:.5rem .8rem;border:1px solid #ccd;border-radius:8px;text-decoration:none">+ Suggérer des termes</a>
         <select id="cat-filter"><option value="">Toutes les catégories</option>{cat_opts}</select>
         <select id="fam-filter"><option value="">Toutes les familles</option>{fam_opts}</select>
     </div>
@@ -294,9 +295,9 @@ def generate_index():
             _exp = PAYLOAD_CTX.display[terme]["expansion"]
             _gl = PAYLOAD_CTX.display[terme]["gloss"]
             dev_html = (f' <span class="dev">— {escape(_exp)}' + (f' ({escape(_gl)})' if _gl else '') + '</span>') if _exp else ''
-            html_content += f'<li data-cat="{escape(cat)}" data-fam="{escape(fam)}"><a href="{escape(slug)}.html">{escape(PAYLOAD_CTX.display[terme]["titre"])}</a>{dev_html}</li>'
             if not _exp and PAYLOAD_CTX.display[terme].get("expr"):
                 dev_html = f' <span class="dev">({escape(PAYLOAD_CTX.display[terme]["expr"])})</span>'
+            html_content += f'<li data-cat="{escape(cat)}" data-fam="{escape(fam)}"><a href="{escape(slug)}.html">{escape(PAYLOAD_CTX.display[terme]["titre"])}</a>{dev_html}</li>'
         html_content += '</ul></div>'
         
     html_content += """

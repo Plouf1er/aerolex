@@ -45,6 +45,14 @@ import functools
 import json
 import os
 import sys
+
+# API « Suggérer des termes » (scripts/suggest_api.py), montée sous /api/suggest/.
+sys.path.insert(0, os.path.join(os.path.dirname(os.path.abspath(__file__)), "scripts"))
+try:
+    import suggest_api
+except Exception as _e:                       # le site statique doit survivre à un bug de l'API
+    suggest_api = None
+    sys.stderr.write("suggest_api indisponible: %r\n" % (_e,))
 from http.server import SimpleHTTPRequestHandler, ThreadingHTTPServer
 
 # ── Liste FERMÉE d'origines autorisées ───────────────────────────────────────
@@ -119,7 +127,19 @@ class CorsHandler(SimpleHTTPRequestHandler):
         origin = self.headers.get("Origin")
         return bool(origin) and _cors_eligible(self.path) and origin not in ALLOWED_ORIGINS
 
+    def _api(self) -> bool:
+        if suggest_api is not None and suggest_api.handles(self.path):
+            suggest_api.serve(self)
+            return True
+        return False
+
+    def do_POST(self) -> None:
+        if not self._api():
+            self.send_error(405, "POST non supporte ici")
+
     def do_GET(self) -> None:
+        if self._api():
+            return
         if self._origin_refused():
             self._refuse()
             return
