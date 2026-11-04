@@ -11,7 +11,8 @@ Règles :
   2. VARIANTES D'APPEL générées (pluriel/singulier, sans accent, équivalent anglais, sigle <-> développé, synonymes),
      décochables par le relecteur.
   3. DÉTECTION des fiches existantes : « vario » est une forme d'appel de « variomètre » -> variante, pas nouvelle fiche.
-  4. ANTI-RIDICULE : simulation du moteur de soulignement (dist/aerolex.js, dans Node) sur le corpus des séances ;
+  4. ANTI-RIDICULE : simulation du moteur de soulignement (dist/aerolex.js, dans Node) sur le corpus du lexique (dossier local, sitemap / URL
+     du site hôte, échantillon téléversé — cf. corpus.py ; FACULTATIF : sans corpus, simulation GÉNÉRIQUE sur les définitions du lexique) ;
      aucune variante < 3 lettres en minuscules, aucun mot grammatical, homographe courant => contexte_requis exigé.
 
 Aucune dépendance à suggest_core (pas d'import circulaire) : tout est paramétré par des dicts / chemins.
@@ -25,14 +26,13 @@ import subprocess
 import unicodedata
 from pathlib import Path
 
-def _node_bin():
-    """Chemin absolu de node : le service launchd n'a pas /opt/homebrew/bin dans son PATH."""
-    import os, shutil
-    for c in (os.environ.get("AEROLEX_NODE"), shutil.which("node"), "/opt/homebrew/bin/node", "/usr/local/bin/node", "/usr/bin/node"):
-        if c and os.path.exists(c):
-            return c
-    return "node"
+import sys as _sys
 
+_sys.path.insert(0, str(Path(__file__).resolve().parent))
+import lexicon_env as _lexenv  # noqa: E402
+import corpus as CORPUS  # noqa: E402
+
+_node_bin = _lexenv.node_bin       # chemin absolu de node (un service lancé hors terminal n'a pas le PATH de l'utilisateur)
 
 
 # ── normalisation (identique à suggest_core.norm / import_lexique.norm) ─────
@@ -47,27 +47,19 @@ def norm(s: str) -> str:
     return re.sub(r"\s+", " ", s).strip()
 
 
-# ── mots grammaticaux et homographes courants ───────────────────────────────
-GRAMMATICAL = set(norm(w) for w in """a à au aux avec ce ces cet cette ceci cela ça dans de des du elle elles en et eux il ils je la le les leur leurs
-lui ma mais me même mêmes mes moi mon ne ni nos notre nous on ou où par pas plus pour qu que quel quelle quels quelles qui sa se ses si son
-sont sur ta te tes toi ton tous tout toute toutes tu un une vos votre vous y est été être sera soit sous sans entre vers chez comme donc or
-car puis alors aussi très trop peu bien mal déjà encore jamais toujours ici là hors dès lors avant après depuis pendant selon contre
-suis es sommes êtes était étaient fut ont ai as avons avez avait aura avoir fait faire peut peuvent doit doivent va vont vas
-of the and for to in on at by with is are an not""".split())
+# ── mots grammaticaux et homographes courants : liste GÉNÉRIQUE du français, embarquée (scripts/resources/fr_homographes.json) ──
+def _load_fr() -> dict:
+    try:
+        return json.loads((Path(__file__).resolve().parent / "resources" / "fr_homographes.json").read_text("utf-8"))
+    except (OSError, ValueError):
+        return {}
 
-# mots français courants qui existent aussi comme termes d'aéro (homographes) : jamais soulignés sans contexte
-COMMON_HOMOGRAPHS = set(norm(w) for w in """tour plan air vent point base carte cap mode test bord corde bande vol vitesse temps niveau
-poids charge force masse moment ligne piste bout fond haut bas gauche droite arrière milieu centre côté sens
-type forme face tête pied main coup tir trou fil fer mer terre ciel nuage eau feu glace neige pluie brume brouillard
-vue vie mise prise pose posé porte fin début suite sortie entrée arrêt départ retour trajet
-route chemin voie pont mur toit sol pente rampe marche course coin bloc pièce partie part côte plage île
-ordre règle loi code note carnet livre feuille page table liste tableau échelle cadran cercle rond
-tenue essai rapport décision choix plein vide libre fermé ouvert dur doux clair sombre court long large
-calme fort faible lourd léger vif lent rapide pointe pic cime col vallée voile voiles mât bateau""".split())
 
-_FILLER = set(norm(w) for w in """souvent toujours également ensemble partie assez selon comme cette ainsi parfois permet utilisé utilisée peuvent plusieurs autre autres
-entre aussi notamment généralement lorsque quand ainsi donc alors toute toutes celui celle ceux celles chaque dont être avoir faire fait faits peut doit
-doivent permet permettent sert servent désigne désignent appelle appelée appelés nommé terme mot sens manière façon cas fois leur leurs très plus moins""".split())
+_FR = _load_fr()
+GRAMMATICAL = set(norm(w) for w in _FR.get("grammatical", []))
+# mots français courants qui existent aussi comme termes de métier (homographes) : jamais soulignés sans contexte
+COMMON_HOMOGRAPHS = set(norm(w) for w in _FR.get("common_homographs", []))
+_FILLER = set(norm(w) for w in _FR.get("filler", []))
 
 
 def support_words(term: str, definition: str = "", extra=()) -> list:
@@ -97,7 +89,7 @@ def is_grammatical(form: str) -> bool:
 
 def too_short(form: str) -> bool:
     """Moins de 3 caractères (lettres/chiffres) ET écrite sans aucune majuscule : interdit. Une forme de 2 lettres AVEC majuscule
-    (FL, Vy, Cd : sigle en casse exacte, que le moteur v1.3.0 ne reconnaît que dans cette casse) et toute forme d'au moins 3 caractères
+    (FL, Vy, Cd : sigle en casse exacte, que le moteur v1.4.0 ne reconnaît que dans cette casse) et toute forme d'au moins 3 caractères
     (« 7000 ») restent admises."""
     alnum = re.sub(r"[^0-9A-Za-zÀ-ÖØ-öø-ÿ]", "", form.strip())
     if len(alnum) >= MIN_LEN_LOWER:
@@ -107,7 +99,7 @@ def too_short(form: str) -> bool:
 
 def is_exact_case_sigle(form: str, title: str = "") -> bool:
     """« Va » pour la fiche « VA » : variante de 2 lettres, avec une majuscule mais pas toutes, qui est la forme en casse EXACTE du sigle
-    de la fiche (mêmes lettres que le titre en majuscules). Le moteur v1.3.0 ne la lie que dans cette casse (maps.exact) : « Va » (vitesse
+    de la fiche (mêmes lettres que le titre en majuscules). Le moteur v1.4.0 ne la lie que dans cette casse (maps.exact) : « Va » (vitesse
     de manœuvre) est lié, « va » (verbe aller) ne l'est jamais. Sans le titre de la fiche on ne distingue pas « Va » de « Si » ou « Ne »
     (mots grammaticaux en début de phrase) : l'exemption exige donc le titre, et check_lexicon vérifie dans le moteur que la forme en
     minuscules n'est pas reconnue."""
@@ -131,58 +123,30 @@ def forbidden_variant(form: str, title: str = "") -> str:
 # ── 1. forme de base : comparaison avec le corpus ──────────────────────────
 _TOKEN = re.compile(r"[A-Za-zÀ-ÖØ-öø-ÿ][A-Za-zÀ-ÖØ-öø-ÿ'’\-]*")
 _corpus_cache: dict = {}
+html_text = CORPUS.html_text
 
 
-def corpus_dir(root: Path | None = None, cfg: dict | None = None) -> Path | None:
-    """Dossier des séances (corpus de cours) : cfg['corpus'] > $AEROLEX_CORPUS_DIR > ../aero-coach/sessions."""
-    if cfg and cfg.get("corpus"):
-        p = Path(cfg["corpus"])
-        p = p if p.is_absolute() else (root or Path(".")) / p
-        return p if p.is_dir() else None
-    env = os.environ.get("AEROLEX_CORPUS_DIR")
-    if env:
-        return Path(env) if Path(env).is_dir() else None
-    for c in (Path(__file__).resolve().parent.parent.parent / "aero-coach" / "sessions",
-              (root or Path(".")).resolve().parent / "aero-coach" / "sessions",
-              Path.home() / ".openclaw" / "workspace" / "projects" / "aero-coach" / "sessions"):
-        if c.is_dir():
-            return c
-    return None
+def corpus_dir(root: Path | None = None, cfg: dict | None = None, lex_id: str = "") -> "CORPUS.Corpus":
+    """Corpus du lexique (jamais None) : cfg['corpus'] de data/lexicon.json > $AEROLEX_CORPUS_DIR > aucun (cf. corpus.resolve)."""
+    return CORPUS.resolve(root or Path("."), cfg, lex_id)
 
 
-_TAGS = re.compile(r"<(script|style)\b.*?</\1>", re.S | re.I)
-_TAG = re.compile(r"<[^>]+>")
-
-
-def html_text(raw: str) -> str:
-    import html as _h
-    raw = _TAGS.sub(" ", raw)
-    raw = re.sub(r"</(p|div|li|h\d|tr|section|summary|details|ul|ol|table)\s*>|<br\s*/?>", "\n", raw, flags=re.I)
-    return re.sub(r"[ \t\r\f\v]+", " ", _h.unescape(_TAG.sub(" ", raw)))
-
-
-def corpus_texts(cdir: Path | None) -> list:
-    """[(nom, texte)] des séances, mis en cache (empreinte = nombre de fichiers + dernière date)."""
-    if not cdir or not cdir.is_dir():
+def corpus_texts(cdir) -> list:
+    """[(nom, texte)] du corpus (Corpus, ou dossier de pages pour les anciens appelants) ; [] sans corpus."""
+    if cdir is None:
         return []
-    files = sorted(cdir.glob("*.html"))
-    key = (str(cdir), len(files), max((f.stat().st_mtime for f in files), default=0))
-    hit = _corpus_cache.get("texts")
-    if hit and hit[0] == key:
-        return hit[1]
-    out = []
-    for f in files:
-        try:
-            out.append((f.name, html_text(f.read_text("utf-8", "ignore"))))
-        except OSError:
-            continue
-    _corpus_cache["texts"] = (key, out)
-    return out
+    if not isinstance(cdir, CORPUS.Corpus):
+        cdir = CORPUS.Corpus("dir", "", "séance", {"path": str(cdir)}, Path("."))
+    return cdir.texts()
 
 
-def accent_forms(cdir: Path | None, glossaire: dict | None = None) -> dict:
+def _ckey(cdir) -> str:
+    return str(cdir.key()) if isinstance(cdir, CORPUS.Corpus) else str(cdir)
+
+
+def accent_forms(cdir, glossaire: dict | None = None) -> dict:
     """{forme sans accent (minuscule) -> {forme réelle: nombre}} sur les séances + les titres/variantes/définitions du lexique."""
-    key = (str(cdir), len(glossaire or {}), sum(len(str(m.get("definition") or "")) for m in (glossaire or {}).values()))
+    key = (_ckey(cdir), len(glossaire or {}), sum(len(str(m.get("definition") or "")) for m in (glossaire or {}).values()))
     hit = _corpus_cache.get("accents")
     if hit and hit[0] == key:
         return hit[1]
@@ -465,7 +429,7 @@ const win={}, doc={readyState:'loading',addEventListener(){},querySelector(){ret
 const ctx=vm.createContext({window:win,document:doc,console,performance:{now:()=>0}});
 vm.runInContext(fs.readFileSync(inp.engine,'utf8'),ctx);
 const core=win.AeroLexCore;
-function run(terms){const m=core.buildMaps(terms), rx=core.buildRegex(m.ciMap,m.csMap);
+function run(terms){const m=core.buildMaps(terms, inp.rules), rx=core.buildRegex(m.ciMap,m.csMap);
   if(!rx) return inp.passages.map(()=>[]);
   return inp.passages.map(t=>core.findMatches(t,rx,m).map(x=>[x.raw,x.canon]));}
 const out={};
@@ -480,7 +444,7 @@ console.log(JSON.stringify(out));
 
 def engine_paths(lexroot: Path, lex_id: str) -> tuple:
     d = Path(lexroot) / "dist"
-    cands = [d / ("aerolex-index.json" if lex_id == "aero" else "aerolex-%s-index.json" % lex_id), d / "aerolex-index.json"]
+    cands = [d / _lexenv.index_file(lex_id, str(lexroot)), d / "aerolex-index.json"]
     return d / "aerolex.js", next((p for p in cands if p.exists()), cands[0])
 
 
@@ -524,15 +488,20 @@ def passages_for(texts: list, needles: list, width: int = 260) -> list:
 
 def simulate(term: str, forms: list, ctx_words: list, *, lexroot: Path, lex_id: str, cdir: Path | None,
              existing: str | None = None, risky: set | None = None, casse_sensible: bool = False, timeout: int = 90,
-             support: list | None = None) -> dict:
+             support: list | None = None, definitions: list | None = None) -> dict:
     """Simule le moteur sur le corpus. `term` = nouvelle fiche ; si `existing` est donné, seules `forms` s'ajoutent à cette fiche.
     -> {disponible, n, n_sans_contexte, exemples[3], par_forme{}, faux, ratio, volees, risque, formes_risque[]}"""
     eng, idxp = engine_paths(lexroot, lex_id)
     texts = corpus_texts(cdir)
-    if not (eng.exists() and idxp.exists() and texts):
-        why = "moteur introuvable" if not eng.exists() else "index introuvable" if not idxp.exists() else "corpus des séances introuvable"
-        return {"disponible": False, "raison": why, "n": 0}
-    base = json.loads(idxp.read_text("utf-8")).get("terms", {})
+    info = cdir.describe() if isinstance(cdir, CORPUS.Corpus) else {"type": "dir", "label": "", "unit": "séance", "documents": len(texts), "generique": not texts}
+    generic = not texts
+    if generic:       # AUCUN corpus exploitable : simulation générique sur les définitions du lexique lui-même (jamais une erreur)
+        texts = [(str(n), str(t)) for n, t in (definitions or []) if t]
+        info = dict(info, generique=True, label="définitions du lexique", unit="définition", documents=len(texts))
+    if not (eng.exists() and idxp.exists()):
+        return {"disponible": False, "raison": "moteur introuvable" if not eng.exists() else "index introuvable", "n": 0}
+    idx_json = json.loads(idxp.read_text("utf-8"))
+    base, rules = idx_json.get("terms", {}), (idx_json.get("meta") or {}).get("rules") or {}
     canon = existing or term
     surfaces = list(forms) if existing else [term] + list(forms)
     pass_ = passages_for(texts, surfaces)
@@ -540,10 +509,11 @@ def simulate(term: str, forms: list, ctx_words: list, *, lexroot: Path, lex_id: 
         risky = {f for f in surfaces if norm(f) in COMMON_HOMOGRAPHS or is_grammatical(f)}
     risk_norm = {norm(x) for x in risky}
     ctx_words = [c for c in (ctx_words or []) if c]
-    res = {"disponible": True, "n": 0, "n_sans_contexte": 0, "exemples": [], "par_forme": {}, "faux": 0, "ratio": 0.0, "volees": 0,
+    res = {"disponible": True, "generique": generic, "source": info, "unite": info.get("unit") or "document", "n": 0, "n_sans_contexte": 0, "exemples": [], "par_forme": {}, "faux": 0, "ratio": 0.0, "volees": 0,
            "formes_risque": sorted(risky), "passages": len(pass_), "seances": len({p[0] for p in pass_}),
            "faux_sans_contexte": 0, "n_risque_sans_contexte": 0, "ratio_sans_contexte": 0.0, "risque": False}
     if not pass_:
+        res["risque"] = bool(generic and risky)
         return res
     cur = dict(base.get(canon) or {})
 
@@ -559,7 +529,7 @@ def simulate(term: str, forms: list, ctx_words: list, *, lexroot: Path, lex_id: 
             e["cs"] = True
         return e
 
-    inp = {"engine": str(eng), "base": base, "passages": [p[1] for p in pass_],
+    inp = {"engine": str(eng), "base": base, "rules": rules, "passages": [p[1] for p in pass_],
            "runs": {"avant": {}, "ctx": {canon: entry(True)}, "brut": {canon: entry(False)}}}
     try:
         p = subprocess.run([_node_bin(), "-e", DRIVER], input=json.dumps(inp), capture_output=True, text=True, timeout=timeout)
@@ -620,7 +590,7 @@ def simulate(term: str, forms: list, ctx_words: list, *, lexroot: Path, lex_id: 
         after = {(m[0], m[1]) for m in runs["ctx"][i]}
         lost += sum(1 for m in ms if (m[0], m[1]) not in after)
     res["volees"] = lost
-    res["risque"] = bool(risk_raw)
+    res["risque"] = bool(risk_raw) or bool(generic and risky)
     ex = []
     for i, r in (h or h_raw):
         txt = pass_[i][1]
@@ -640,14 +610,23 @@ def anti_ridicule_verdict(sim: dict, ctx_words: list) -> dict:
     if not sim.get("disponible"):
         return {"statut": "warn", "detail": "non simulé (%s)" % sim.get("raison", "indisponible"), "incontournable": False}
     n = sim["n"]
+    gen = bool(sim.get("generique"))
+    unite = sim.get("unite") or "séance"
     ex = " | ".join("%s : %s" % (e["seance"], e["texte"]) for e in sim["exemples"]) or "aucun passage trouvé"
     pf = ", ".join("%s ×%d" % kv for kv in list(sim["par_forme"].items())[:6])
-    base = "%d nouveau(x) soulignement(s) simulé(s) dans %d séance(s) (%d passage(s) examiné(s))" % (n, sim.get("seances", 0), sim.get("passages", 0))
+    if gen:
+        base = "simulation générique (aucun corpus configuré) : %d nouveau(x) soulignement(s) dans les définitions du lexique (%d passage(s) examiné(s))" % (n, sim.get("passages", 0))
+    else:
+        base = "%d nouveau(x) soulignement(s) simulé(s) dans %d %s(s) (%d passage(s) examiné(s))" % (n, sim.get("seances", 0), unite, sim.get("passages", 0))
     if pf:
         base += " — " + pf
     ex_txt = " Exemples : " + ex
     risk = sim.get("formes_risque") or []
     n_r, ratio_r = sim.get("n_risque_sans_contexte", 0), sim.get("ratio_sans_contexte", 0.0)
+    if gen and risk and not ctx_words:        # sans corpus on ne peut pas mesurer : un homographe courant exige un contexte (ou le retrait de la variante)
+        return {"statut": "ko", "incontournable": True, "formes_risque": risk,
+                "detail": "%s. Forme(s) à risque d'homographe courant (%s) et aucun corpus pour mesurer : exiger des mots déclencheurs "
+                          "(contexte_requis) ou retirer la variante.%s" % (base, ", ".join(risk), ex_txt if n else "")}
     if sim.get("risque") and not ctx_words and (n_r > MAX_HITS_RISKY or ratio_r > MAX_FALSE_RATIO):
         return {"statut": "ko", "incontournable": True, "formes_risque": risk,
                 "detail": "%s. Forme(s) à risque d'homographe courant (%s) : %d cas, %d %% de faux probables. Exiger des mots déclencheurs "

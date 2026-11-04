@@ -10,7 +10,7 @@ def normalize(text):
     text = re.sub(r'\s+', ' ', text).strip()
     return text
 
-index_path = "/Users/aprunel/.openclaw/workspace/projects/aerolex/data/lots-v1/INDEX-EXISTANT.json"
+index_path = __import__("os").path.join(__import__("os").path.dirname(__import__("os").path.abspath(__file__)), "data", "lots-v1", "INDEX-EXISTANT.json")
 with open(index_path, 'r', encoding='utf-8') as f:
     index_list = json.load(f)
 

@@ -43,6 +43,10 @@ from pathlib import Path
 
 ROOT = Path(os.environ.get("AEROLEX_ROOT", Path(__file__).resolve().parent.parent))
 DATA_DIR = Path(os.environ.get("AEROLEX_SUGGEST_DIR", ROOT / "data" / "suggest"))
+sys.path.insert(0, str(Path(__file__).resolve().parent))
+import lexicon_env  # noqa: E402  (configuration par lexique : data/lexicon.json ; par installation : aerolex.config.json)
+
+INSTALL = lexicon_env.install_config(str(ROOT))
 
 # ── Configuration ────────────────────────────────────────────────────────────
 MAX_TERMS_PER_SUBMISSION = 300
@@ -63,8 +67,9 @@ CANDIDATE_LIMIT = 150      # termes extraits d'un document en prose
 
 PRIMARY_MODEL = os.environ.get("AEROLEX_SUGGEST_MODEL", "grok-4.3")
 XAI_URL = "https://api.x.ai/v1/chat/completions"
-LOCAL_URL = os.environ.get("AEROLEX_SUGGEST_LOCAL_URL", "http://OMEN-INFERENCE.local:11434/v1/chat/completions")
-LOCAL_MODEL = os.environ.get("AEROLEX_SUGGEST_LOCAL_MODEL", "current-llm")
+# Modèle local de secours : AUCUN par défaut (installation : aerolex.config.json -> llm.local_url, ou AEROLEX_SUGGEST_LOCAL_URL)
+LOCAL_URL = os.environ.get("AEROLEX_SUGGEST_LOCAL_URL") or (INSTALL.get("llm") or {}).get("local_url") or ""
+LOCAL_MODEL = os.environ.get("AEROLEX_SUGGEST_LOCAL_MODEL") or (INSTALL.get("llm") or {}).get("local_model") or "current-llm"
 PRICE_IN, PRICE_OUT = 1.25, 2.5          # USD / 1M tokens (grok-4.3, openclaw.json) si le fournisseur ne renvoie pas le coût
 LLM_TIMEOUT = 120
 # Mesuré (4 nov. 2026, 1 terme) : none 3,5 s / 0,0016 $ ; minimal 11,8 s / 0,0033 $ ; low 14,6 s / 0,0039 $.
@@ -93,33 +98,45 @@ def family_label(slug: str, root=None) -> str:
     return _family_label_default(slug)
 
 
-LEXICONS = {
-    "aero": {
-        "label": "Aéronautique (PPL / ULM)",
-        "audience": "élève pilote PPL ou ULM",
-        "scope": ("vocabulaire du pilotage d'avions légers et d'ULM : aérodynamique, "
-                  "instruments, météo aéronautique, navigation, réglementation et espaces aériens, "
-                  "radiotéléphonie, performances, masse et centrage, moteur et hélice, "
-                  "facteurs humains, procédures et codes (OACI, METAR/TAF, NOTAM…)"),
-        "slug_dir": "dist/aero",
-        "source": "data/data_glossaire.py",
-        "full": "data/data_glossaire_full.py",
-        "base_url": "/aero/",
-    },
-}
+LEXICONS: dict = {}
+
+
+def _cfg_from_meta(lid: str, meta: dict, base: dict | None = None) -> dict:
+    """Configuration runtime d'un lexique : data/lexicon.json (identité, corpus, règles d'affichage) complétée par les chemins usuels."""
+    label = meta.get("label") or (base or {}).get("label") or lid
+    cfg = dict(base or {})
+    cfg.update({
+        "label": label,
+        "audience": meta.get("audience") or (base or {}).get("audience") or "lecteur du domaine « %s »" % label,
+        "scope": meta.get("scope") or (base or {}).get("scope") or "vocabulaire du domaine « %s »" % label,
+        "slug_dir": (base or {}).get("slug_dir") or "dist/" + lid,
+        "source": (base or {}).get("source") or "data/data_glossaire.py",
+        "full": (base or {}).get("full") or "data/data_glossaire_full.py",
+        "base_url": (base or {}).get("base_url") or "/%s/" % lid,
+    })
+    if meta.get("corpus") is not None:
+        cfg["corpus"] = meta["corpus"]
+    return cfg
+
 
 def _load_registry() -> None:
-    """Lexiques créés par scripts/new_lexicon.py : lexicons/registry.json. Chacun a SA racine (data/, dist/<slug>/, scripts liés)."""
+    """Lexique PRINCIPAL (celui de la racine du projet : data/lexicon.json) puis lexiques créés par scripts/new_lexicon.py
+    (lexicons/registry.json ; chacun a SA racine — data/, dist/<slug>/, scripts liés — et SA configuration data/lexicon.json)."""
+    main = lexicon_env.meta(str(ROOT))
+    if (ROOT / "data" / "data_glossaire_full.py").exists():
+        lid = main.get("id") or lexicon_env.default_id(str(ROOT))
+        LEXICONS.setdefault(lid, _cfg_from_meta(lid, main))
     try:
         reg = json.loads((ROOT / "lexicons" / "registry.json").read_text("utf-8")).get("lexicons", {})
     except (OSError, ValueError, AttributeError):
         return
     for lid, cfg in reg.items():
         if lid not in LEXICONS and isinstance(cfg, dict) and cfg.get("root") and cfg.get("full"):
-            LEXICONS[lid] = dict(cfg)
+            LEXICONS[lid] = _cfg_from_meta(lid, lexicon_env.meta(str(ROOT / cfg["root"])), dict(cfg))
 
 
 _load_registry()
+DEFAULT_LEX = next(iter(LEXICONS), lexicon_env.default_id(str(ROOT)))
 
 
 def lex_root(lex_id: str) -> Path:
@@ -672,7 +689,8 @@ def _xai_key() -> str | None:
     k = os.environ.get("XAI_API_KEY")
     if k:
         return k
-    for p in (Path.home() / ".openclaw" / ".env",):
+    files = [Path(os.path.expanduser(str(f))) for f in ([os.environ["AEROLEX_ENV_FILE"]] if os.environ.get("AEROLEX_ENV_FILE") else INSTALL.get("env_files") or [])]
+    for p in files + [ROOT / ".env"]:
         try:
             for line in p.read_text("utf-8").splitlines():
                 if line.startswith("XAI_API_KEY="):
@@ -815,6 +833,8 @@ def _call_provider(name: str, messages: list, n_terms: int) -> tuple:
         tout = int(u.get("completion_tokens", 0)) + int((u.get("completion_tokens_details") or {}).get("reasoning_tokens", 0))
         usd = (u.get("cost_in_usd_ticks") or 0) / 1e10 or (tin * PRICE_IN + tout * PRICE_OUT) / 1e6
         return r["choices"][0]["message"]["content"], {"in": tin, "out": tout}, PRIMARY_MODEL, usd
+    if not LOCAL_URL:
+        raise RuntimeError("modèle local non configuré (aerolex.config.json : llm.local_url)")
     body = {"model": LOCAL_MODEL, "messages": messages, "temperature": 0.2,
             "response_format": {"type": "json_object"}, "max_tokens": 6000}
     r = _post_json(LOCAL_URL, body, {"Content-Type": "application/json"}, 300)
@@ -1092,7 +1112,7 @@ def _quality_fields(out: dict, it: dict, asked: str, idx) -> dict:
     if fb and fb != asked and ckey(fb) == ckey(asked) and not (asked.isupper() and fb.upper() == asked):
         prop, motif = fb, "forme de base proposée par le modèle"
     try:
-        acc = RULES.accent_suggestion(asked, RULES.accent_forms(RULES.corpus_dir(ROOT, idx.cfg), idx.glossaire))
+        acc = RULES.accent_suggestion(asked, RULES.accent_forms(RULES.corpus_dir(idx.root, idx.cfg, idx.id), idx.glossaire))
     except Exception:
         acc = None
     if acc:
@@ -1126,8 +1146,68 @@ def _regen_variants(cur: dict, term: str, idx) -> None:
 _SIM_CACHE: dict = {}
 
 
+def _definition_texts(idx) -> list:
+    """[(terme, définition en texte brut)] des fiches rédigées : le « corpus » de repli de la simulation générique."""
+    hit = getattr(idx, "_deftexts", None)
+    if hit is None:
+        hit = [(t, re.sub(r"<[^>]+>", " ", str(m.get("definition") or "")).strip()) for t, m in idx.glossaire.items()
+               if isinstance(m, dict) and str(m.get("definition") or "").strip()]
+        idx._deftexts = hit
+    return hit
+
+
+# ── Corpus du lexique (configurable, facultatif : cf. scripts/corpus.py) ───────
+def corpus_status(dom: str) -> dict:
+    if dom not in LEXICONS:
+        raise KeyError("lexique inconnu : %s" % dom)
+    idx = get_index(dom)
+    c = RULES.corpus_dir(idx.root, idx.cfg, dom)
+    d = c.describe()
+    cfg = idx.cfg.get("corpus")
+    d["configure"] = (cfg.get("type") if isinstance(cfg, dict) else "dir" if cfg else "none") or "none"
+    d["message"] = ("simulation générique (aucun corpus configuré) : définitions du lexique, homographes français courants, règles de casse et d'unités"
+                    if d["generique"] else "corpus : %s (%d %s(s))" % (d["label"], d["documents"], d["unit"]))
+    return d
+
+
+def corpus_upload(dom: str, items: list, replace: bool = False) -> dict:
+    """Échantillon de textes téléversé depuis la page « Suggérer » (relecteur) : sert de corpus quand aucun autre n'est configuré."""
+    if dom not in LEXICONS:
+        raise KeyError("lexique inconnu : %s" % dom)
+    if not isinstance(items, list) or not items:
+        raise ValueError("aucun texte à enregistrer")
+    cfg = LEXICONS[dom].get("corpus")
+    if isinstance(cfg, dict) and cfg.get("type") in ("dir", "sitemap", "urls") or isinstance(cfg, str) and cfg:
+        raise ValueError("ce lexique a déjà un corpus configuré (%s) : le téléversement n'est pas utilisé" % (cfg.get("type") if isinstance(cfg, dict) else "dossier"))
+    res = RULES.CORPUS.save_upload(get_index(dom).root, dom, items, replace)
+    _SIM_CACHE.clear()
+    return {**res, **corpus_status(dom)}
+
+
+def corpus_clear(dom: str) -> dict:
+    if dom not in LEXICONS:
+        raise KeyError("lexique inconnu : %s" % dom)
+    n = RULES.CORPUS.clear_upload(get_index(dom).root, dom)
+    _SIM_CACHE.clear()
+    return {"supprimes": n, **corpus_status(dom)}
+
+
+def corpus_refresh(dom: str) -> dict:
+    """Sitemap / URL : récupère de nouveau les pages (le cache dure 24 h)."""
+    if dom not in LEXICONS:
+        raise KeyError("lexique inconnu : %s" % dom)
+    idx = get_index(dom)
+    c = RULES.corpus_dir(idx.root, idx.cfg, dom)
+    if c.kind not in ("sitemap", "urls"):
+        raise ValueError("ce corpus n'est pas distant (sitemap / URL)")
+    rep = c.refresh()
+    _SIM_CACHE.clear()
+    return {**rep, **corpus_status(dom)}
+
+
 def simulate_proposal(dom: str, term: str, d: dict, idx, forms: list | None = None, existing: str | None = None) -> tuple:
-    """Simule le moteur de soulignement sur le corpus des séances -> (simulation, verdict anti-ridicule)."""
+    """Simule le moteur de soulignement sur le corpus du lexique (ou, sans corpus, sur ses définitions : simulation générique)
+    -> (simulation, verdict anti-ridicule)."""
     forms = RULES.retained_forms(d) if forms is None else forms
     forms = [f for f in forms if norm(f) != norm(term)]
     ctxw = _ctx_words(d.get("contexte_requis"))
@@ -1135,14 +1215,15 @@ def simulate_proposal(dom: str, term: str, d: dict, idx, forms: list | None = No
     risky = {f for f in surfaces if norm(f) in RULES.COMMON_HOMOGRAPHS or RULES.is_grammatical(f)}
     if d.get("homographe_courant"):
         risky |= set(surfaces)
-    cdir = RULES.corpus_dir(ROOT, idx.cfg)
+    cdir = RULES.corpus_dir(idx.root, idx.cfg, dom)
     support = RULES.support_words(term, d.get("definition", ""), list(ctxw) + [w for x in d.get("voir_aussi") or [] for w in str(x).split()])
-    key = (dom, term, tuple(forms), tuple(ctxw), tuple(sorted(risky)), existing, idx._mtime, str(cdir), tuple(support))
+    key = (dom, term, tuple(forms), tuple(ctxw), tuple(sorted(risky)), existing, idx._mtime, cdir.key(), tuple(support))
     if key not in _SIM_CACHE:
         if len(_SIM_CACHE) > 200:
             _SIM_CACHE.clear()
         _SIM_CACHE[key] = RULES.simulate(term, forms, ctxw, lexroot=idx.root, lex_id=dom, cdir=cdir, existing=existing, risky=risky,
-                                         casse_sensible=bool(d.get("casse_sensible")), support=support)
+                                         casse_sensible=bool(d.get("casse_sensible")), support=support,
+                                         definitions=_definition_texts(idx))
     sim = _SIM_CACHE[key]
     return sim, RULES.anti_ridicule_verdict(sim, ctxw)
 
@@ -1173,7 +1254,7 @@ def _quality_controls(ctl: list, dom: str, term: str, d: dict, idx) -> None:
     try:
         sim, v = simulate_proposal(dom, term, d, idx)
         add("Soulignements simulés", v["statut"], v["detail"], incontournable=bool(v.get("incontournable")),
-            simulation={k: sim.get(k) for k in ("disponible", "n", "n_sans_contexte", "exemples", "par_forme", "formes_risque", "seances", "passages", "volees")})
+            simulation={k: sim.get(k) for k in ("disponible", "n", "n_sans_contexte", "exemples", "par_forme", "formes_risque", "seances", "passages", "volees", "generique", "source", "unite")})
     except Exception as e:
         add("Soulignements simulés", "warn", "non simulés (%s)" % str(e)[:160])
 
@@ -1227,7 +1308,7 @@ def validate_item(it: dict, asked: str, families: dict, idx: "LexiconIndex | Non
     }
     if out["definition"]:      # sigles : développés à la 1re occurrence (déterministe, après la réponse du modèle)
         try:
-            new_def, rep_ = develop_acronyms(out["definition"], asked, idx or get_index("aero"), _model_sigles(it.get("sigles")))
+            new_def, rep_ = develop_acronyms(out["definition"], asked, idx or get_index(DEFAULT_LEX), _model_sigles(it.get("sigles")))
         except Exception as e:  # le post-traitement ne doit jamais faire perdre une proposition
             sys.stderr.write("sigles: %r\n" % (e,))
         else:
@@ -1237,7 +1318,7 @@ def validate_item(it: dict, asked: str, families: dict, idx: "LexiconIndex | Non
             out["sigles_inseres"] = rep_["inseres"]
             out["sigles"] = rep_["sigles"]
     try:       # règles de qualité : forme de base, variantes d'appel, fiches existantes, contexte (jamais bloquant pour la réception)
-        out.update(_quality_fields(out, it, asked, idx or get_index("aero")))
+        out.update(_quality_fields(out, it, asked, idx or get_index(DEFAULT_LEX)))
     except Exception as e:
         sys.stderr.write("qualité: %r\n" % (e,))
     if out["domaine"] and out["pertinent"] and len(out["definition"]) < 20:
@@ -2019,7 +2100,7 @@ def simulate_proposal_id(pid: int) -> dict:
         raise KeyError("proposition introuvable")
     d = json.loads(r["data"])
     sim, v = simulate_proposal(r["domain"], r["term"], d, get_index(r["domain"]))
-    return {"simulation": {k: sim.get(k) for k in ("disponible", "n", "n_sans_contexte", "exemples", "par_forme", "formes_risque", "seances", "passages", "volees", "raison")},
+    return {"simulation": {k: sim.get(k) for k in ("disponible", "n", "n_sans_contexte", "exemples", "par_forme", "formes_risque", "seances", "passages", "volees", "raison", "generique", "source", "unite")},
             "statut": v["statut"], "detail": v["detail"], "incontournable": bool(v.get("incontournable"))}
 
 
@@ -2277,15 +2358,15 @@ def lex_env(lex_id: str) -> dict:
     return dict(os.environ, AEROLEX_LEXICON=lex_id, AEROLEX_LEXROOT=str(lex_root(lex_id)))
 
 
-def rebuild_steps(lex_id: str = "aero") -> list:
+def rebuild_steps(lex_id: str = DEFAULT_LEX) -> list:
     """Chaîne officielle ; pour un lexique créé par new_lexicon.py, l'import reçoit sa racine (--root)."""
     out = [list(c) for c in REBUILD_STEPS]
-    if lex_id != "aero":
+    if lex_root(lex_id).resolve() != ROOT.resolve():
         out[0] += ["--root", str(lex_root(lex_id))]
     return out
 
 
-def rebuild(steps=None, lex_id: str = "aero") -> list:
+def rebuild(steps=None, lex_id: str = DEFAULT_LEX) -> list:
     log = []
     with _build_lock:
         for cmd in (steps if steps is not None else rebuild_steps(lex_id)):
@@ -2302,7 +2383,7 @@ _SKIP_DATA = shutil.ignore_patterns("suggest")      # data/suggest = base SQLite
 
 
 def _bk_dist(lex_id: str) -> str:
-    return "dist_aero" if lex_id == "aero" else "dist_" + lex_id
+    return "dist_" + lex_id
 
 
 class _ExpPath:        # chemin évalué à l'usage (ROOT change dans les tests)
@@ -2314,15 +2395,15 @@ EXPANSIONS_REL = _ExpPath()
 
 
 class ValidationError(RuntimeError):
-    """Validation annulée ; data/ et dist/aero/ ont été restaurés."""
+    """Validation annulée ; data/ et dist/<lexique>/ ont été restaurés."""
 
 
-def _count_cards(lex_id: str = "aero") -> int:
+def _count_cards(lex_id: str = DEFAULT_LEX) -> int:
     return len(list((lex_root(lex_id) / dist_rel(lex_id) / "t").glob("*.json")))
 
 
-def backup_site(lex_id: str = "aero") -> Path:
-    """Sauvegarde horodatée de data/ et dist/aero/ -> ~/Backups/aerolex/<AAAAmmjj-HHMMSS>-validate/."""
+def backup_site(lex_id: str = DEFAULT_LEX) -> Path:
+    """Sauvegarde horodatée de data/ et dist/<lexique>/ -> ~/Backups/aerolex/<AAAAmmjj-HHMMSS>-validate/."""
     stamp = time.strftime("%Y%m%d-%H%M%S")
     dest, n = BACKUP_ROOT / (stamp + "-validate"), 1
     while dest.exists():
@@ -2341,7 +2422,7 @@ def backup_site(lex_id: str = "aero") -> Path:
     return dest
 
 
-def restore_site(bk: Path, lex_id: str = "aero") -> None:
+def restore_site(bk: Path, lex_id: str = DEFAULT_LEX) -> None:
     if (bk / "term_expansions.py").exists():
         shutil.copy2(bk / "term_expansions.py", EXPANSIONS_REL)
     lr = lex_root(lex_id)
@@ -2359,7 +2440,7 @@ def restore_site(bk: Path, lex_id: str = "aero") -> None:
             shutil.copytree(saved, live, symlinks=True)
 
 
-def _run(cmd, lex_id: str = "aero") -> None:
+def _run(cmd, lex_id: str = DEFAULT_LEX) -> None:
     p = subprocess.run(cmd, cwd=str(lex_root(lex_id)), env=lex_env(lex_id), capture_output=True, text=True, timeout=600)
     if p.returncode != 0:
         raise RuntimeError("échec de %s : %s" % (" ".join(cmd), (p.stdout + p.stderr)[-400:].strip()))
@@ -2500,7 +2581,7 @@ def stats() -> dict:
 import hashlib
 import hmac
 
-PASSWORD_FILE = Path(os.environ.get("AEROLEX_SUGGEST_PASSWORD_FILE", Path.home() / ".aerolex-suggest-password"))
+PASSWORD_FILE = Path(os.path.expanduser(os.environ.get("AEROLEX_SUGGEST_PASSWORD_FILE") or INSTALL.get("password_file") or str(Path.home() / ".aerolex-suggest-password")))
 SESSION_DAYS = 30
 COOKIE_NAME = "aerolex_session"
 LOGIN_MAX_FAILS = 5

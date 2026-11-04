@@ -1,40 +1,21 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
 """
-serve_cors.py — Serveur statique de aerolex.prunel.net avec CORS en liste FERMÉE.
+serve_cors.py — Serveur statique d'un site AeroLex (dist/) avec CORS en liste FERMÉE, et API de suggestion (/api/suggest/).
 
-POURQUOI CE FICHIER EXISTE (décision Louis, 2026-08-04 02h10)
-─────────────────────────────────────────────────────────────
-Les fichiers par mot (aero/t/<slug>.json) vivent à UN SEUL endroit :
-aerolex.prunel.net. Les sites clients (atcf-ppl.prunel.net…) les appellent en
-CROSS-ORIGIN. On ne duplique plus le lexique chez les clients — on s'est fait
-piéger par deux copies divergentes de aero.js.
+POURQUOI (décision 2026-08-04)
+──────────────────────────────
+Les fichiers par mot (<lexique>/t/<slug>.json) vivent à UN SEUL endroit, le site qui publie le lexique ; les sites clients les appellent
+en CROSS-ORIGIN (si le client héberge lui-même dist/, tout est same-origin : aucun CORS à configurer). Sans en-tête CORS,
+\`python3 -m http.server\` fait échouer tout fetch cross-origin côté navigateur.
 
-Sans en-tête CORS, `python3 -m http.server` (ce qui tournait avant) fait
-échouer tout fetch cross-origin côté navigateur. D'où ce remplaçant minimal.
+Pourquoi ici et pas dans un _headers statique ou un Worker : Access-Control-Allow-Origin n'accepte qu'UNE origine ou « * » ; avec une liste
+il faut comparer l'Origin entrante et la renvoyer en ÉCHO — c'est dynamique. \`Vary: Origin\` est OBLIGATOIRE (sinon un cache resservirait la
+réponse d'une origine autorisée à une autre). Un refus est un 403 JSON LISIBLE, pas une erreur CORS opaque.
 
-POURQUOI PAS UN _headers CLOUDFLARE PAGES NI UN WORKER
-──────────────────────────────────────────────────────
-1. `Access-Control-Allow-Origin` n'accepte qu'UNE origine ou `*`. Il ne prend
-   PAS de liste. Avec 2 domaines autorisés il faut donc comparer l'`Origin`
-   entrante et la renvoyer en ÉCHO si elle matche : c'est dynamique, un
-   `_headers` statique ne peut pas le faire.
-2. Mais aerolex.prunel.net n'est PAS servi par Cloudflare Pages : c'est un
-   tunnel cloudflared vers ce serveur local (127.0.0.1:4140, cf.
-   ~/.cloudflared/config.yml). Il n'y a donc pas de Pages où poser un
-   `_headers`, et une Function/Worker serait une couche de plus à déployer
-   pour un besoin que l'origine sait déjà satisfaire.
-   → Le choix le plus simple qui marche pour 2 domaines : le faire ICI.
-
-`Vary: Origin` est OBLIGATOIRE : sans lui, le cache (Cloudflare ou navigateur)
-peut resservir la réponse d'un domaine autorisé à un autre domaine, avec la
-mauvaise en-tête — donc soit une fuite, soit une panne aléatoire.
-
-Un refus est un 403 JSON LISIBLE (pas une erreur CORS opaque) : quand ça
-casse, on veut lire la cause, pas deviner.
-
-Motifs génériques (*.exemple.com) : PAS maintenant, c'est spécifié dans
-TODO-FEATURES.md §4quater. Aujourd'hui : 2 domaines en dur, propre et testé.
+Origines autorisées : $AEROLEX_CORS_ORIGINS (séparées par des virgules) ou aerolex.config.json -> serve.cors_origins ; AUCUNE par défaut
+(comparaison EXACTE sur l'origine, jamais de motif ni de préfixe). Port : argument, sinon serve.port, sinon 8000. Dossier : --dir, sinon
+serve.dir, sinon <projet>/dist. Chemins exposés en cross-origin : l'index de chaque lexique, <lexique>/t/*, <lexique>/lexicon.json.
 
 Usage :
     python3 serve_cors.py [PORT] [--dir CHEMIN]
@@ -44,6 +25,7 @@ from __future__ import annotations
 import functools
 import json
 import os
+import re
 import sys
 
 # API « Suggérer des termes » (scripts/suggest_api.py), montée sous /api/suggest/.
@@ -53,27 +35,28 @@ try:
 except Exception as _e:                       # le site statique doit survivre à un bug de l'API
     suggest_api = None
     sys.stderr.write("suggest_api indisponible: %r\n" % (_e,))
+import lexicon_env  # noqa: E402  (scripts/ est dans sys.path)
 from http.server import SimpleHTTPRequestHandler, ThreadingHTTPServer
 
+_HERE = os.path.dirname(os.path.abspath(__file__))
+_SERVE = lexicon_env.install_config(_HERE).get("serve") or {}
+
 # ── Liste FERMÉE d'origines autorisées ───────────────────────────────────────
-# Comparaison EXACTE sur le tuple (schéma, hôte). Pas de motif, pas de
-# préfixe : 'https://atcf-ppl.prunel.net.evil.com' ne matche donc rien.
-ALLOWED_ORIGINS = frozenset({
-    "https://atcf-ppl.prunel.net",
-    "https://aerolex.prunel.net",
-})
+# Comparaison EXACTE de l'origine (schéma + hôte + port) : pas de motif, pas de préfixe (« https://site.exemple.evil.com » ne matche rien).
+ALLOWED_ORIGINS = frozenset(o.strip() for o in (os.environ.get("AEROLEX_CORS_ORIGINS", "").split(",") if os.environ.get("AEROLEX_CORS_ORIGINS")
+                                                else _SERVE.get("cors_origins") or []) if o.strip())
 
-# Seul ce préfixe est exposé en cross-origin. Le reste du site (pages HTML,
-# index) reste same-origin : on n'ouvre que ce qui doit l'être.
-CORS_PATH_PREFIXES = ("/aero/t/", "/aerolex-index.json", "/aero/lexicon.json")
+# Seuls ces chemins sont exposés en cross-origin (le reste du site, pages HTML comprises, reste same-origin) :
+# index du moteur de chaque lexique, fiches par mot, réglages du lexique.
+CORS_PATH_RE = re.compile(r"^/(?:aerolex-(?:[a-z0-9-]+-)?index\.json|[a-z0-9-]+/t/.*|[a-z0-9-]+/lexicon\.json)$")
 
-DEFAULT_PORT = 4140
-DEFAULT_DIR = "/Users/aprunel/.openclaw/workspace/projects/aerolex/dist"
+DEFAULT_PORT = int(_SERVE.get("port") or 8000)
+DEFAULT_DIR = os.path.expanduser(_SERVE.get("dir") or os.path.join(_HERE, "dist"))
 
 
 def _cors_eligible(path: str) -> bool:
     clean = path.split("?", 1)[0].split("#", 1)[0]
-    return any(clean.startswith(p) for p in CORS_PATH_PREFIXES)
+    return bool(CORS_PATH_RE.match(clean))
 
 
 class CorsHandler(SimpleHTTPRequestHandler):
@@ -189,7 +172,7 @@ def main() -> int:
     httpd = ThreadingHTTPServer(("127.0.0.1", port), handler)
     sys.stderr.write(
         "AeroLex static+CORS sur 127.0.0.1:%d  dir=%s\n  origines: %s\n  chemins CORS: %s\n"
-        % (port, directory, ", ".join(sorted(ALLOWED_ORIGINS)), ", ".join(CORS_PATH_PREFIXES))
+        % (port, directory, ", ".join(sorted(ALLOWED_ORIGINS)) or "(aucune)", CORS_PATH_RE.pattern)
     )
     try:
         httpd.serve_forever()

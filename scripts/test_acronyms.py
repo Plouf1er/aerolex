@@ -43,9 +43,11 @@ def is_abbreviation(key, meta):
 
 def test_case_rule():
     """Règle de casse : un sigle n'est détecté/développé qu'en MAJUSCULES ou en casse exacte déclarée."""
+    if not {"cas", "ils"} <= set(GLOSSAIRE):
+        return []          # contrôles de casse écrits pour les fiches-sigles « cas » / « ils » du lexique d'origine : sans objet ailleurs
     import suggest_core as core
     from term_display import expr_sigles
-    ix = core.get_index("aero")
+    ix = core.get_index(core.DEFAULT_LEX)
     errs = []
     t, _ = core.develop_acronyms("C'est un cas de nuage.", "silvagenitus", ix)
     if "(" in t:

@@ -19,9 +19,9 @@ et le navigateur sont obligés de retélécharger. Aucune discipline humaine req
 Fichiers couverts (tout ce qui est exécuté/interprété côté client) :
     dist/aerolex.js        moteur de surlignage + popup
     dist/aerolex.css       styles du surlignage et de la popup
-    dist/aerolex-page.css  habillage des pages de fiche (dist/aero/*.html)
+    dist/aerolex-page.css  habillage des pages de fiche (dist/<lexique>/*.html)
     dist/aerolex-svg.js    libellés SVG cliquables
-    dist/aero/lexicon.json réglages client (popup.*, html_published)
+    dist/<lexique>/lexicon.json réglages client (popup.*, html_published)
 
 lexicon.json EST inclus volontairement : il pilote l'affichage (quels blocs la
 popup montre). Un changement de réglage sans changement de code doit tout de
@@ -40,7 +40,10 @@ from datetime import datetime, timezone
 
 _DIR = os.path.dirname(os.path.abspath(__file__))
 _ROOT = os.environ.get("AEROLEX_LEXROOT") or os.path.dirname(_DIR)
-_LEX = os.environ.get("AEROLEX_LEXICON") or "aero"
+import sys as _sys
+_sys.path.insert(0, _DIR)
+from lexicon_env import default_id as _default_id  # noqa: E402
+_LEX = os.environ.get("AEROLEX_LEXICON") or _default_id(_ROOT)
 
 # Ordre FIGÉ : le hash doit être reproductible d'un build à l'autre.
 ASSET_FILES = (
@@ -103,7 +106,7 @@ def asset_details(files=ASSET_FILES):
 
 
 def write_build_info(nb_termes: int, extra: dict | None = None) -> dict:
-    """Écrit dist/aero/build-info.json et retourne le dict écrit.
+    """Écrit dist/<lexique>/build-info.json et retourne le dict écrit.
 
     Ce fichier est le point de vérité consultable en public : il permet de
     vérifier d'un `curl` quelle empreinte est censée être servie, et donc de

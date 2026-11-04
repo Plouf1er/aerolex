@@ -22,8 +22,8 @@ const cases=JSON.parse(fs.readFileSync(0,'utf8'));
 const win={}, doc={readyState:'loading',addEventListener(){},querySelector(){return null;}};
 const ctx=vm.createContext({window:win,document:doc,console,performance:{now:()=>0}});
 vm.runInContext(fs.readFileSync(enginePath,'utf8'),ctx);
-const core=win.AeroLexCore, idx=JSON.parse(fs.readFileSync(indexPath,'utf8')).terms;
-const maps=core.buildMaps(idx), rx=core.buildRegex(maps.ciMap,maps.csMap);
+const core=win.AeroLexCore, idxFull=JSON.parse(fs.readFileSync(indexPath,'utf8')), idx=idxFull.terms;
+const maps=core.buildMaps(idx, idxFull.meta&&idxFull.meta.rules), rx=core.buildRegex(maps.ciMap,maps.csMap);
 const out=cases.map(t=>core.findMatches(t,rx,maps).map(m=>[m.raw,m.canon]));
 console.log(JSON.stringify({version:win.AeroLex&&win.AeroLex.version,res:out}));
 """
@@ -135,7 +135,7 @@ def main():
         print(res.stderr)
         sys.exit("node a échoué")
     out = json.loads(res.stdout)
-    check("moteur v1.3.0", out["version"] == "1.3.0", str(out["version"]))
+    check("moteur v1.4.0", out["version"] == "1.4.0", str(out["version"]))
     for (label, text, want, forbid), got in zip(CASES, out["res"]):
         gotset = {tuple(g) for g in got}
         miss = [w for w in want if tuple(w) not in gotset]

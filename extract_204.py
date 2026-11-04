@@ -1,7 +1,8 @@
 import sys
 import json
 from data.data_glossaire_full import GLOSSAIRE
-sys.path.insert(0, '/Users/aprunel/.openclaw/workspace/projects/aero-coach')
+import os
+sys.path.insert(0, os.environ.get('AEROLEX_HOST_PROJECT', '.'))   # dossier du projet hôte qui porte data_glossaire._LOCAL_OVERLAY (facultatif)
 try:
     from data_glossaire import _LOCAL_OVERLAY
 except ImportError:

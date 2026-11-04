@@ -1,0 +1,31 @@
+{
+ "id": "aero",
+ "label": "Aéronautique (PPL / ULM)",
+ "audience": "élève pilote PPL ou ULM",
+ "scope": "vocabulaire du pilotage d'avions légers et d'ULM : aérodynamique, instruments, météo aéronautique, navigation, réglementation et espaces aériens, radiotéléphonie, performances, masse et centrage, moteur et hélice, facteurs humains, procédures et codes (OACI, METAR/TAF, NOTAM…)",
+ "base_url": "https://aerolex.prunel.net/aero/",
+ "index_title": "Index du Glossaire Aéronautique — AeroLex",
+ "legacy_names": true,
+ "corpus": {
+  "type": "dir",
+  "path": "../aero-coach/sessions",
+  "label": "séances aero-coach",
+  "unit": "séance"
+ },
+ "display": {
+  "skip_selectors": [
+   "[class*=\"barre-score\"]",
+   "[class*=\"qcm-options\"]"
+  ],
+  "metar": true
+ },
+ "rules": {
+  "exact_case": [
+   "nm"
+  ],
+  "singular_exclude": [
+   "indices"
+  ]
+ },
+ "titre": "Glossaire Aéronautique"
+}

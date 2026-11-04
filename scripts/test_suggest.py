@@ -33,6 +33,16 @@ _g = _IL.load_glossaire(_fp)
 for _k in ("bord d'attaque", "bord de fuite", "longeron", "corde", "profil"):     # fiches « orphelines » de référence pour les tests de rattachement
     _g[_k].pop("famille", None)
 _fp.write_text(_IL.render(_IL.split_preamble(_fp.read_text("utf-8")), _g), "utf-8")
+# Le corpus de l'installation est déclaré en chemin RELATIF dans data/lexicon.json : la copie de test le reçoit en chemin absolu
+# (les tests de simulation ont besoin d'un vrai corpus ; la section 14 teste le mode générique et les autres sources).
+_lj = _FIX / "data" / "lexicon.json"
+_lc = json.loads(_lj.read_text("utf-8"))
+_real_corpus = (_REAL_ROOT / str(_lc.get("corpus", {}).get("path", "corpus-absent"))).resolve()
+if not _real_corpus.is_dir() and os.environ.get("AEROLEX_CORPUS_DIR"):      # copie de travail hors de l'arborescence de l'installation (worktree)
+    _real_corpus = Path(os.environ["AEROLEX_CORPUS_DIR"]).resolve()
+if isinstance(_lc.get("corpus"), dict) and _real_corpus.is_dir():
+    _lc["corpus"]["path"] = str(_real_corpus)
+    _lj.write_text(json.dumps(_lc, ensure_ascii=False, indent=1), "utf-8")
 os.environ["AEROLEX_ROOT"] = str(_FIX)
 
 import suggest_core as core  # noqa: E402
@@ -744,7 +754,7 @@ def _enq(term, data):
 
 
 _idx = core.get_index("aero")
-_cnt = RULES.accent_forms(RULES.corpus_dir(core.ROOT, _idx.cfg), _idx.glossaire)
+_cnt = RULES.accent_forms(RULES.corpus_dir(_idx.root, _idx.cfg, _idx.id), _idx.glossaire)
 _s = RULES.accent_suggestion("variometre", _cnt)
 check("qualité 1: forme sans accent -> forme accentuée du corpus (variomètre)", _s and _s["forme"] == "variomètre", _s)
 check("qualité 1: forme déjà accentuée / sigle -> aucune suggestion", RULES.accent_suggestion("variomètre", _cnt) is None and RULES.accent_suggestion("QNH", _cnt) is None)
@@ -863,6 +873,80 @@ core.backup_site()
 _auto = [x for x in core.BACKUP_ROOT.iterdir() if x.name.endswith("-validate") or x.name.startswith("import-")]
 check("sauvegardes: rotation à 20 automatiques, sauvegarde manuelle intacte", len(_auto) == 20 and (core.BACKUP_ROOT / "20261104-2114").exists(), len(_auto))
 
+# ── 14. CORPUS CONFIGURABLE ET FACULTATIF (indépendance du site, 2026-11-05) ──────────
+import corpus as CORP  # noqa: E402
+import threading, http.server, functools  # noqa: E402
+
+_env_corpus = os.environ.pop("AEROLEX_CORPUS_DIR", None)      # la section teste « aucun corpus » : pas d'échappatoire par l'environnement
+_g14 = Path(_TMP) / "g14"
+(_g14 / "pages").mkdir(parents=True)
+_c0 = CORP.resolve(_g14, {}, "x14")
+check("corpus: aucun par défaut -> générique, jamais d'erreur", _c0.kind == "none" and _c0.generic and _c0.describe()["generique"] and _c0.texts() == [])
+_cm = CORP.resolve(_g14, {"corpus": {"type": "dir", "path": "absent"}}, "x14")
+check("corpus: dossier introuvable -> générique + note (pas d'exception)", _cm.generic and any("introuvable" in n for n in _cm.describe().get("notes", [])), _cm.describe())
+(_g14 / "pages" / "a.html").write_text("<html><body><h1>Titre</h1><p>La voile est tendue par le vent de travers pendant la régate.</p><script>var x=1</script></body></html>", "utf-8")
+(_g14 / "pages" / "b.txt").write_text("Le bateau gîte sous grand-voile et génois ce matin.", "utf-8")
+_cd = CORP.resolve(_g14, {"corpus": {"type": "dir", "path": "pages", "unit": "page"}}, "x14")
+check("corpus: dossier relatif à la racine du lexique (html + txt, scripts retirés)", [n for n, _ in _cd.texts()] == ["a.html", "b.txt"] and "var x" not in _cd.texts()[0][1] and _cd.unit == "page", _cd.describe())
+check("corpus: raccourci chaîne = dossier", CORP.resolve(_g14, {"corpus": "pages"}, "x14").available)
+_u = CORP.save_upload(_g14, "x14", [{"name": "essai.txt", "text": "Un texte de test assez long pour être gardé dans l'échantillon."}, {"name": "vide.txt", "text": "x"}])
+check("upload: textes enregistrés, trop courts ignorés", _u["documents"] == 1 and _u["ignores"] == 1, _u)
+_cu = CORP.resolve(_g14, {"corpus": {"type": "none"}}, "x14")
+check("upload: sert de corpus quand aucun autre n'est configuré", _cu.kind == "upload" and _cu.available)
+check("upload: ne remplace pas un corpus configuré", CORP.resolve(_g14, {"corpus": "pages"}, "x14").kind == "dir")
+CORP.clear_upload(_g14, "x14")
+check("upload: vidé -> de nouveau générique", CORP.resolve(_g14, {}, "x14").generic)
+# sitemap et liste d'URL (serveur local, cache)
+_site = _g14 / "site"; _site.mkdir()
+(_site / "p1.html").write_text("<html><body><p>La barre franche et l'écoute de grand-voile se règlent ensemble avant le départ de la régate.</p></body></html>", "utf-8")
+(_site / "p2.html").write_text("<html><body><p>Le spinnaker se hisse au portant, le foc se borde au près serré par vent frais.</p></body></html>", "utf-8")
+_hs = http.server.ThreadingHTTPServer(("127.0.0.1", 0), functools.partial(http.server.SimpleHTTPRequestHandler, directory=str(_site)))
+_hs.RequestHandlerClass.log_message = lambda *a, **k: None
+threading.Thread(target=_hs.serve_forever, daemon=True).start()
+_base = "http://127.0.0.1:%d" % _hs.server_port
+(_site / "sitemap.xml").write_text('<?xml version="1.0"?><urlset><url><loc>%s/p1.html</loc></url><url><loc>%s/p2.html</loc></url><url><loc>http://autre.exemple/x.html</loc></url></urlset>' % (_base, _base), "utf-8")
+_cs = CORP.resolve(_g14, {"corpus": {"type": "sitemap", "url": _base + "/sitemap.xml"}}, "x14")
+check("corpus sitemap: pages du même hôte récupérées (hôtes étrangers ignorés)", len(_cs.texts()) == 2 and "spinnaker" in " ".join(t for _, t in _cs.texts()), _cs.describe())
+_hs.shutdown(); _hs.server_close()
+_cs2 = CORP.resolve(_g14, {"corpus": {"type": "sitemap", "url": _base + "/sitemap.xml"}}, "x14")
+check("corpus sitemap: servi par le cache quand le site ne répond plus", len(_cs2.texts()) == 2, _cs2.describe())
+_cu2 = CORP.resolve(_g14, {"corpus": {"type": "urls", "urls": [_base + "/p1.html"]}}, "x14")
+check("corpus URL injoignable sans cache -> générique + note, pas d'exception", _cu2.generic and _cu2.describe().get("notes"), _cu2.describe())
+
+# simulation générique (aucun corpus) : définitions du lexique, homographes embarqués, règles du moteur
+_defs = [("voile", "Pièce de toile qui reçoit le vent et propulse le bateau."), ("écoute", "Cordage qui règle l'angle de la voile par rapport au vent.")]
+_sg = RULES.simulate("zzvoile nuageux", ["voiles"], [], lexroot=core.ROOT, lex_id="aero", cdir=_c0, definitions=_defs, risky={"voiles"})
+check("générique: simulation disponible (pas d'erreur) et signalée comme générique", _sg["disponible"] and _sg["generique"] and _sg["source"]["generique"], _sg)
+_vg = RULES.anti_ridicule_verdict(_sg, [])
+check("générique: le cartouche dit « simulation générique (aucun corpus configuré) »", "simulation générique (aucun corpus configuré)" in _vg["detail"], _vg["detail"][:200])
+check("générique: homographe courant sans contexte_requis = bloquant (rien à mesurer)", _vg["statut"] == "ko" and _vg["incontournable"], _vg)
+_sg2 = RULES.simulate("zzvoile nuageux", ["voiles"], ["nuage"], lexroot=core.ROOT, lex_id="aero", cdir=_c0, definitions=_defs, risky={"voiles"})
+check("générique: avec contexte_requis -> n'est plus bloquant", RULES.anti_ridicule_verdict(_sg2, ["nuage"])["statut"] != "ko")
+_sg3 = RULES.simulate("zzaccroche", [], [], lexroot=core.ROOT, lex_id="aero", cdir=_c0, definitions=[], risky=set())
+check("générique: lexique sans définition -> pas d'erreur, statut non bloquant", _sg3["disponible"] and RULES.anti_ridicule_verdict(_sg3, [])["statut"] in ("ok", "warn"), _sg3)
+check("générique: sans corpus, la forme de base ne dépend que du lexique (aucune exception)", RULES.accent_forms(_c0, {"voilé": {"definition": "x"}}) is not None)
+_cv = RULES.simulate("zzvoile nuageux", ["voiles"], [], lexroot=core.ROOT, lex_id="aero", cdir=_cd, risky={"voiles"})
+check("avec corpus: la simulation n'est PAS générique et nomme l'unité du corpus", _cv["disponible"] and not _cv["generique"] and _cv["unite"] == "page", {k: _cv.get(k) for k in ("generique", "unite", "source")})
+check("liste d'homographes embarquée (fichier de données versionné, pas un corpus)", (Path(RULES.__file__).parent / "resources" / "fr_homographes.json").exists() and "voile" in RULES.COMMON_HOMOGRAPHS and "tour" in RULES.COMMON_HOMOGRAPHS)
+# API
+_rs, _ro = api.route("GET", "/api/suggest/corpus?domain=aero", {}, b"")
+check("api: GET /corpus (public) décrit le corpus", _rs == 200 and "message" in _ro and "generique" in _ro, _ro)
+_rs, _ro = api.route("POST", "/api/suggest/corpus", {}, json.dumps({"domain": "aero", "items": [{"name": "a", "text": "x" * 50}]}).encode())
+check("api: POST /corpus sans session -> 401", _rs == 401, (_rs, _ro))
+_rs, _ro = api.route("POST", "/api/suggest/corpus/clear", {}, b"{}")
+check("api: POST /corpus/clear sans session -> 401", _rs == 401)
+_rs, _ro = api.route("GET", "/api/suggest/lexicons", {}, b"")
+check("api: /lexicons expose le corpus de chaque lexique et le lexique par défaut", _rs == 200 and all("corpus" in l for l in _ro["lexiques"]) and _ro["defaut"] in [l["id"] for l in _ro["lexiques"]], _ro)
+try:
+    core.corpus_upload("aero", [{"name": "a", "text": "x" * 50}])
+    _bad = False
+except ValueError:
+    _bad = True
+check("téléversement refusé quand un corpus est déjà configuré (dossier)", _bad)
+check("corpus_status: message de source (séances) pour le lexique configuré", core.corpus_status("aero")["message"].startswith("corpus :") or core.corpus_status("aero")["generique"])
+
+if _env_corpus:
+    os.environ["AEROLEX_CORPUS_DIR"] = _env_corpus
 shutil.rmtree(_TMP, ignore_errors=True)
 print("\n%d échec(s)" % len(FAILS))
 sys.exit(1 if FAILS else 0)

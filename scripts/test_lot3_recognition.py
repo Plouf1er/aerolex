@@ -32,8 +32,8 @@ const [, , eng, idxp, casesp]=process.argv;
 const win={}, doc={readyState:'loading',addEventListener(){},querySelector(){return null;}};
 const ctx=vm.createContext({window:win,document:doc,console,performance:{now:()=>0}});
 vm.runInContext(fs.readFileSync(eng,'utf8'),ctx);
-const core=win.AeroLexCore, idx=JSON.parse(fs.readFileSync(idxp,'utf8')).terms;
-const maps=core.buildMaps(idx), rx=core.buildRegex(maps.ciMap,maps.csMap);
+const core=win.AeroLexCore, idxFull=JSON.parse(fs.readFileSync(idxp,'utf8')), idx=idxFull.terms;
+const maps=core.buildMaps(idx, idxFull.meta&&idxFull.meta.rules), rx=core.buildRegex(maps.ciMap,maps.csMap);
 const cases=JSON.parse(fs.readFileSync(casesp,'utf8'));
 console.log(JSON.stringify(cases.map(c=>core.findMatches(c[0],rx,maps).map(m=>[m.raw,m.canon]))));
 '''

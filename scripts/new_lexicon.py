@@ -4,16 +4,22 @@
 new_lexicon.py — crée un NOUVEAU lexique AeroLex qui applique d'office toutes les règles de qualité (README « Règles de qualité d'un lexique »).
 
     python3 scripts/new_lexicon.py --slug voile --label "Voile" [--source termes.txt] [--famille slug=Libellé ...]
-                                   [--audience "…"] [--scope "…"] [--corpus DOSSIER] [--analysis items.json] [--no-llm]
-                                   [--base DOSSIER] [--db-dir DOSSIER]
+                                   [--audience "…"] [--scope "…"] [--analysis items.json] [--no-llm]
+                                   [--corpus DOSSIER | --corpus-sitemap URL | --corpus-urls URL,URL… | (aucun)]
+                                   [--public-url https://mon.site] [--skip-selectors ".menu,.bandeau"] [--base DOSSIER] [--db-dir DOSSIER]
 
 Crée lexicons/<slug>/ (racine propre du lexique ; la chaîne de build y tourne avec AEROLEX_LEXICON=<slug>) :
   data/        data_glossaire.py + data_glossaire_full.py (vides), familles_labels.json (catalogue de familles ; « Divers » d'office),
-               lexicon.json (métadonnées), extra_content.py, lexique-filtre.txt
-  dist/        moteur v1.3.0 + feuilles (copiés de dist/ du projet), dist/<slug>/ : index (lettres vides masquées, autocomplétion, popups mis en page),
+               lexicon.json (CONFIGURATION du lexique : identité, corpus facultatif, options d'affichage, règles — voir README),
+               extra_content.py, lexique-filtre.txt
+  dist/        moteur v1.4.0 + feuilles (copiés de dist/ du projet), dist/<slug>/ : index (lettres vides masquées, autocomplétion, popups mis en page),
                suggest.html/js/css (page « Suggérer »), slugmap.json, lexicon.json, build-info.json (cache-bust par empreinte), t/, search/index JSON
   scripts/ src/ build_index_js.py   liens vers ceux du projet (une seule chaîne de build)
-et déclare le lexique dans lexicons/registry.json (lu par suggest_core : redémarrer le service com.prunel.aerolex pour l'activer).
+et déclare le lexique dans lexicons/registry.json (lu par suggest_core : redémarrer le service qui sert l'API de suggestion pour l'activer).
+
+Corpus (facultatif) du contrôle anti-ridicule : dossier local (--corpus), sitemap du site hôte (--corpus-sitemap), liste d'URL (--corpus-urls) ou
+aucun (défaut : la simulation est alors générique — définitions du lexique, homographes français, règles de casse et d'unités ; un échantillon de
+textes peut être téléversé plus tard depuis la page « Suggérer »).
 
 Avec --source (fichier .txt/.csv/.md/.pdf/.docx : liste de termes), les termes passent par le MÊME pipeline que « Suggérer des termes »
 (entonnoir gratuit, analyse par le modèle, forme de base accentuée, variantes d'appel, famille obligatoire ou Divers, sigles développés,
@@ -35,7 +41,9 @@ from pathlib import Path
 
 HERE = Path(__file__).resolve().parent
 BASE_DEFAULT = HERE.parent
-RESERVED = {"aero", "index", "dist", "data", "scripts", "src", "lexicons", "suggest", "api", "t", "svg", "schemas", "slugmap", "build-info",
+sys.path.insert(0, str(HERE))
+import lexicon_env  # noqa: E402
+RESERVED = {"index", "dist", "data", "scripts", "src", "lexicons", "suggest", "api", "t", "svg", "schemas", "slugmap", "build-info",
             "lexicon", "search", "backups", "docs", "deploy", "test", "tests", "admin"}
 SLUG_RE = re.compile(r"[a-z0-9]+(?:-[a-z0-9]+)*")
 ASSETS = ["aerolex.js", "aerolex.css", "aerolex-page.css", "aerolex-svg.js", "aerolex-indexpage.css", "aerolex-indexpage.js", "aerolex-searchbox.js"]
@@ -56,10 +64,11 @@ GLOSSAIRE = {
 '''
 
 
-def check_slug(slug: str) -> None:
+def check_slug(slug: str, base: Path | None = None) -> None:
     if not SLUG_RE.fullmatch(slug or "") or not (3 <= len(slug) <= 40):
         raise SystemExit("slug invalide « %s » : minuscules, chiffres et tirets, 3 à 40 caractères (ex. voile, demo-voile)" % slug)
-    if slug in RESERVED:
+    main_id = lexicon_env.meta(str(base or BASE_DEFAULT)).get("id")       # le lexique de la racine occupe dist/<id>/
+    if slug in RESERVED or slug == main_id:
         raise SystemExit("slug réservé : « %s »" % slug)
 
 
@@ -68,11 +77,24 @@ def _write(p: Path, txt: str) -> None:
     p.write_text(txt, "utf-8")
 
 
-def create_lexicon(slug: str, label: str, base: Path = BASE_DEFAULT, audience: str = "", scope: str = "", corpus: str = "",
-                   familles: dict | None = None, out=print) -> Path:
+def corpus_spec(corpus=None, sitemap: str = "", urls: str = "") -> dict:
+    """Configuration du corpus (clé « corpus » de data/lexicon.json) : dossier local, sitemap, liste d'URL, ou aucun."""
+    if isinstance(corpus, dict):
+        return corpus
+    if corpus:
+        return {"type": "dir", "path": str(Path(corpus).resolve()), "unit": "page"}
+    if sitemap:
+        return {"type": "sitemap", "url": sitemap, "unit": "page"}
+    if urls:
+        return {"type": "urls", "urls": [u.strip() for u in urls.split(",") if u.strip()], "unit": "page"}
+    return {"type": "none"}
+
+
+def create_lexicon(slug: str, label: str, base: Path = BASE_DEFAULT, audience: str = "", scope: str = "", corpus="",
+                   familles: dict | None = None, out=print, public_url: str = "", skip_selectors: str = "") -> Path:
     """Crée la racine du lexique, la déclare au registre et construit une première fois (index vide mais complet). -> racine."""
-    check_slug(slug)
     base = Path(base).resolve()
+    check_slug(slug, base)
     root = base / "lexicons" / slug
     if root.exists():
         raise SystemExit("le lexique existe déjà : %s" % root)
@@ -81,8 +103,9 @@ def create_lexicon(slug: str, label: str, base: Path = BASE_DEFAULT, audience: s
     engine = (base / "dist" / "aerolex.js").read_text("utf-8")
     m = re.search(r"AeroLex Runtime v(\d+\.\d+\.\d+)", engine)
     ver = m.group(1) if m else "?"
-    if tuple(int(x) for x in ver.split(".")) < (1, 3, 0) if m else True:
-        raise SystemExit("moteur trop ancien (%s) : il faut >= 1.3.0 (frontières Unicode, sigles de 2 lettres, pluriel/singulier, contexte_requis)" % ver)
+    if tuple(int(x) for x in ver.split(".")) < (1, 4, 0) if m else True:
+        raise SystemExit("moteur trop ancien (%s) : il faut >= 1.4.0 (frontières Unicode, sigles de 2 lettres, pluriel/singulier, contexte_requis)" % ver)
+    main_id = lexicon_env.meta(str(base)).get("id") or ""
     fams = dict(familles or {})
     fams.pop("divers", None)
     # 1. data/
@@ -94,7 +117,12 @@ def create_lexicon(slug: str, label: str, base: Path = BASE_DEFAULT, audience: s
     _write(root / "data" / "lexique-filtre.txt", "")
     _write(root / "data" / "extra_content.py", '# -*- coding: utf-8 -*-\n"""Contenus additionnels par fiche (aucun pour ce lexique)."""\n\n\ndef get_extra_content(slug):\n    return ""\n')
     meta = {"id": slug, "label": label, "audience": audience or "lecteur du domaine « %s »" % label, "scope": scope or "vocabulaire du domaine « %s »" % label,
-            "base_url": "https://aerolex.prunel.net/%s/" % slug, "moteur": ver, "cree": time.strftime("%Y-%m-%d")}
+            "corpus": corpus if isinstance(corpus, dict) else corpus_spec(corpus),
+            "display": {"skip_selectors": [x.strip() for x in skip_selectors.split(",") if x.strip()]} if skip_selectors else {},
+            "rules": {}, "moteur": ver, "cree": time.strftime("%Y-%m-%d")}
+    pub = (public_url or os.environ.get("AEROLEX_PUBLIC_URL") or "").rstrip("/")
+    if pub:          # URL publique des fiches ; absente : le moteur la déduit de l'emplacement de l'index (relative)
+        meta["base_url"] = "%s/%s/" % (pub, slug)
     _write(root / "data" / "lexicon.json", json.dumps(meta, ensure_ascii=False, indent=1) + "\n")
     # 2. dist/ : moteur + feuilles + pages de service du lexique
     for a in ASSETS:
@@ -103,9 +131,12 @@ def create_lexicon(slug: str, label: str, base: Path = BASE_DEFAULT, audience: s
             shutil.copy2(base / "dist" / a, root / "dist" / a)
     dd = root / "dist" / slug
     dd.mkdir(parents=True, exist_ok=True)
+    tpl = base / "dist" / main_id                      # gabarit de la page « Suggérer » : celle du lexique de la racine
+    if not (tpl / "suggest.html").exists():
+        tpl = next((p.parent for p in sorted((base / "dist").glob("*/suggest.html"))), tpl)
     for f in ("suggest.js", "suggest.css"):
-        shutil.copy2(base / "dist" / "aero" / f, dd / f)
-    html = (base / "dist" / "aero" / "suggest.html").read_text("utf-8")
+        shutil.copy2(tpl / f, dd / f)
+    html = (tpl / "suggest.html").read_text("utf-8")
     html = html.replace("— AeroLex</title>", "— %s — AeroLex</title>" % label).replace('<script src="suggest.js?v=', '<script data-lexicon="%s" src="suggest.js?v=' % slug)
     _write(dd / "suggest.html", html)
     # 3. liens vers la chaîne de build du projet
@@ -121,8 +152,7 @@ def create_lexicon(slug: str, label: str, base: Path = BASE_DEFAULT, audience: s
         reg = {"lexicons": {}}
     reg.setdefault("lexicons", {})[slug] = {
         "label": label, "audience": meta["audience"], "scope": meta["scope"], "root": "lexicons/" + slug, "slug_dir": "dist/" + slug,
-        "source": "data/data_glossaire.py", "full": "data/data_glossaire_full.py", "base_url": "/%s/" % slug, "catalog_seed": True,
-        **({"corpus": corpus} if corpus else {})}
+        "source": "data/data_glossaire.py", "full": "data/data_glossaire_full.py", "base_url": "/%s/" % slug, "catalog_seed": True}
     _write(reg_p, json.dumps(reg, ensure_ascii=False, indent=1, sort_keys=True) + "\n")
     out("✓ structure créée : %s (moteur v%s)" % (root, ver))
     build(slug, root, out=out)
@@ -189,7 +219,11 @@ def main(argv=None) -> int:
     ap.add_argument("--famille", action="append", default=[], help="catalogue de familles de départ : slug=Libellé (répétable ; « divers » existe d'office)")
     ap.add_argument("--audience", default="")
     ap.add_argument("--scope", default="")
-    ap.add_argument("--corpus", default="", help="dossier de pages HTML servant au contrôle anti-ridicule (défaut : séances aero-coach)")
+    ap.add_argument("--corpus", default="", help="dossier local de pages (.html .txt .md) servant au contrôle anti-ridicule (facultatif)")
+    ap.add_argument("--corpus-sitemap", default="", help="sitemap.xml du site hôte : pages récupérées puis mises en cache (facultatif)")
+    ap.add_argument("--corpus-urls", default="", help="liste d'URL séparées par des virgules (facultatif)")
+    ap.add_argument("--public-url", default="", help="URL publique du site qui sert dist/ (défaut : $AEROLEX_PUBLIC_URL, sinon relative)")
+    ap.add_argument("--skip-selectors", default="", help="sélecteurs CSS des zones à ne pas souligner, publiés avec l'index (ex. « .menu,.bandeau »)")
     ap.add_argument("--analysis", default="", help="analyses déjà faites (JSON, contrat du modèle) au lieu d'appeler le modèle")
     ap.add_argument("--no-llm", action="store_true", help="aucun appel au modèle (définitions à rédiger)")
     ap.add_argument("--base", default=str(BASE_DEFAULT), help="racine du projet (tests : copie dans /tmp)")
@@ -204,7 +238,8 @@ def main(argv=None) -> int:
             raise SystemExit("--famille attend slug=Libellé (reçu %r)" % f)
         fams[k.strip()] = v.strip()
     base = Path(a.base).resolve()
-    root = create_lexicon(a.slug, a.label, base, a.audience, a.scope, a.corpus, fams)
+    root = create_lexicon(a.slug, a.label, base, a.audience, a.scope, corpus_spec(a.corpus, a.corpus_sitemap, a.corpus_urls), fams,
+                          public_url=a.public_url, skip_selectors=a.skip_selectors)
     if a.source:
         sys.path.insert(0, str(HERE))
         os.environ["AEROLEX_ROOT"] = str(base)
@@ -216,7 +251,7 @@ def main(argv=None) -> int:
         rep = seed(a.slug, base, terms, a.analysis, llm=not a.no_llm)
         (root / "data" / "lot-source.json").write_text(json.dumps(rep, ensure_ascii=False, indent=1), "utf-8")
     print("\nSuite : relire la file « À valider » sur /%s/suggest.html (espace relecteur) ; vérifier avec  python3 scripts/check_lexicon.py %s" % (a.slug, a.slug))
-    print("Activation côté service : launchctl kickstart -k gui/$(id -u)/com.prunel.aerolex")
+    print("Activation côté service : redémarrer le service qui sert l'API de suggestion (suggest_api, via serve_cors.py)")
     return 0
 
 

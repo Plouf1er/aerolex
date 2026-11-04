@@ -26,19 +26,18 @@ HERE = Path(__file__).resolve().parent
 sys.path.insert(0, str(HERE))
 sys.path.insert(0, str(HERE.parent / "src"))
 import suggest_rules as RULES  # noqa: E402
+import lexicon_env  # noqa: E402
 
-def _node_bin():
-    """Chemin absolu de node : le service launchd n'a pas /opt/homebrew/bin dans son PATH."""
-    import os, shutil
-    for c in (os.environ.get("AEROLEX_NODE"), shutil.which("node"), "/opt/homebrew/bin/node", "/usr/local/bin/node", "/usr/bin/node"):
-        if c and os.path.exists(c):
-            return c
-    return "node"
+_node_bin = lexicon_env.node_bin
 
+
+def is_main(slug: str, base: Path) -> bool:
+    """Vrai si ce lexique est celui de la racine du projet (data/lexicon.json de la racine) ; les autres vivent dans lexicons/<slug>/."""
+    return lexicon_env.meta(str(base)).get("id") == slug
 
 
 def lexroot(slug: str, base: Path) -> Path:
-    if slug == "aero":
+    if is_main(slug, base):
         return base
     p = base / "lexicons" / slug
     if not (p / "data").is_dir():
@@ -74,8 +73,8 @@ const inp=JSON.parse(fs.readFileSync(0,'utf8'));
 const win={}, doc={readyState:'loading',addEventListener(){},querySelector(){return null;}};
 const ctx=vm.createContext({window:win,document:doc,console,performance:{now:()=>0}});
 vm.runInContext(fs.readFileSync(inp.engine,'utf8'),ctx);
-const core=win.AeroLexCore, idx=JSON.parse(fs.readFileSync(inp.index,'utf8')).terms;
-const maps=core.buildMaps(idx), rx=core.buildRegex(maps.ciMap,maps.csMap);
+const core=win.AeroLexCore, idxFull=JSON.parse(fs.readFileSync(inp.index,'utf8')), idx=idxFull.terms;
+const maps=core.buildMaps(idx, idxFull.meta&&idxFull.meta.rules), rx=core.buildRegex(maps.ciMap,maps.csMap);
 const bad=[];
 for(const c of inp.cases){
   const texts=c.texts||[c.text]; let ok=false, coll=false, got=[];
@@ -94,8 +93,8 @@ const inp=JSON.parse(fs.readFileSync(0,'utf8'));
 const win={}, doc={readyState:'loading',addEventListener(){},querySelector(){return null;}};
 const ctx=vm.createContext({window:win,document:doc,console,performance:{now:()=>0}});
 vm.runInContext(fs.readFileSync(inp.engine,'utf8'),ctx);
-const core=win.AeroLexCore, idx=JSON.parse(fs.readFileSync(inp.index,'utf8')).terms;
-const maps=core.buildMaps(idx), rx=core.buildRegex(maps.ciMap,maps.csMap);
+const core=win.AeroLexCore, idxFull=JSON.parse(fs.readFileSync(inp.index,'utf8')), idx=idxFull.terms;
+const maps=core.buildMaps(idx, idxFull.meta&&idxFull.meta.rules), rx=core.buildRegex(maps.ciMap,maps.csMap);
 const bad=[];
 for(const c of inp.cases){
   const ms=core.findMatches(c.text,rx,maps);
@@ -116,6 +115,7 @@ def main(argv=None) -> int:
     base = Path(a.base).resolve()
     slug = a.slug
     root = lexroot(slug, base)
+    main = is_main(slug, base)
     only = set(x for x in a.only.split(",") if x)
     want = lambda n: not only or n in only  # noqa: E731
     R = Report()
@@ -132,7 +132,7 @@ def main(argv=None) -> int:
             R.add(name, rc == 0, tail)
     # 5 : familles
     if want("familles"):
-        if slug == "aero":
+        if main:
             rc, tail = run(py + ["scripts/test_familles.py", "--strict"], root, slug)
             R.add("familles --strict", rc == 0, tail)
         else:
@@ -145,20 +145,22 @@ def main(argv=None) -> int:
     # 6 : moteur
     eng, idxp = RULES.engine_paths(root, slug)
     if want("matching"):
-        if slug == "aero":
+        if main:
             rc, tail = run(py + ["scripts/test_matching.py"], root, slug)
-            R.add("matching (moteur v1.3.0)", rc == 0, tail)
+            R.add("matching (moteur v1.4.0)", rc == 0, tail)
         else:
             txt = eng.read_text("utf-8") if eng.exists() else ""
             m = re.search(r"AeroLex Runtime v(\d+\.\d+\.\d+)", txt)
-            ok = bool(m) and tuple(int(x) for x in m.group(1).split(".")) >= (1, 3, 0) and "contexte" in txt.lower() or bool(m) and "ctx" in txt
-            R.add("matching (moteur v1.3.0)", bool(m) and tuple(int(x) for x in m.group(1).split(".")) >= (1, 3, 0), "moteur " + (m.group(1) if m else "introuvable"))
+            ok = bool(m) and tuple(int(x) for x in m.group(1).split(".")) >= (1, 4, 0) and "contexte" in txt.lower() or bool(m) and "ctx" in txt
+            R.add("matching (moteur v1.4.0)", bool(m) and tuple(int(x) for x in m.group(1).split(".")) >= (1, 4, 0), "moteur " + (m.group(1) if m else "introuvable"))
     # 7 : import diff = 0
     if want("import"):
         rc, tail = run(py + ["src/import_lexique.py", "--check", "--root", str(root)], root, slug)
         R.add("import (diff = 0)", rc == 0, "aucun écart data_glossaire.py → full" if rc == 0 else tail)
     # 8 : titres accentués (le corpus et les définitions accentuent un mot dont le titre est sans accent)
-    cdir = RULES.corpus_dir(base, json.loads((base / "lexicons" / "registry.json").read_text("utf-8")).get("lexicons", {}).get(slug) if (base / "lexicons" / "registry.json").exists() else None)
+    # corpus : FACULTATIF (data/lexicon.json du lexique). Sans corpus, les contrôles s'appuient sur les définitions du lexique seulement.
+    cdir = RULES.corpus_dir(root, lexicon_env.meta(str(root)), slug)
+    print("  corpus : " + (("%s (%d %s(s))" % (cdir.label, len(cdir.texts()), cdir.unit)) if cdir.available else "aucun — contrôles génériques (définitions du lexique)"))
     if want("titres"):
         defs_only = {str(i): {"definition": v.get("definition", "")} for i, v in enumerate(G.values())}
         cnt = RULES.accent_forms(cdir, defs_only)
@@ -170,7 +172,7 @@ def main(argv=None) -> int:
             if s:
                 bad.append("%s → %s" % (t, s["forme"]))
         R.add("titres accentués", not bad, ("%d titre(s) sans accent alors que le corpus l'accentue : %s" % (len(bad), " ; ".join(bad[:8]))) if bad
-              else "tous les titres suivent l'accentuation du corpus" + ("" if cdir else " (corpus introuvable : non comparé)"), warn=not cdir)
+              else "tous les titres suivent l'accentuation " + ("du corpus" if cdir.available else "des définitions du lexique (aucun corpus configuré)"))
     # 9-10 : variantes interdites
     if want("variantes"):
         short, gram, units, exact = [], [], [], []
@@ -243,7 +245,7 @@ def main(argv=None) -> int:
                 parts.append("%d non reconnue(s) : %s" % (len(unrec), " ; ".join("%s→%s" % (b[0], b[1]) for b in unrec[:6])))
             if coll:
                 parts.append("%d forme(s) liée(s) à une autre fiche (déclarée dans deux fiches) : %s" % (coll.__len__(), " ; ".join("%s→%s (lié : %s)" % (b[0], b[1], b[2].split(",")[0]) for b in coll[:5])))
-            ok = not unrec and (not coll or slug == "aero")
+            ok = not unrec and (not coll or main)
             R.add("aller-retour du moteur", ok, ("; ".join(parts) + " — sur %d formes" % len(cases)) if parts else "%d forme(s) reconnue(s)" % len(cases),
                   warn=bool(coll) and ok)
         else:

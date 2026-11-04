@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="robots" content="noindex">
 <title>Suggérer des termes — AeroLex</title>
-<link rel="stylesheet" href="suggest.css?v=5">
+<link rel="stylesheet" href="suggest.css?v=6">
 </head>
 <body>
 <header class="top">
@@ -60,10 +60,21 @@
 
   <section id="pane-review" hidden>
     <div class="subtabs"><button id="sub-pending" class="tab on">À valider</button><button id="sub-discarded" class="tab">Écartés <span id="discarded-count" class="pill" hidden></span></button></div>
+    <div id="corpus-box" class="card corpus" hidden>
+      <p class="kv"><b>Corpus du lexique : </b><span id="corpus-msg"></span></p>
+      <p class="hint">Le corpus sert au contrôle anti-ridicule (simulation des soulignements) et à la suggestion d'accents. Facultatif : sans corpus, la simulation est générique.</p>
+      <div class="row" id="corpus-actions">
+        <label class="file" for="corpus-file">Téléverser un échantillon de textes <span class="hint">.txt .md .html — 40 fichiers max, 200 Ko chacun</span></label>
+        <input id="corpus-file" type="file" accept=".txt,.md,.html,.htm" multiple>
+        <button id="corpus-clear" class="btn small" type="button" hidden>Vider l'échantillon</button>
+        <button id="corpus-refresh" class="btn small" type="button" hidden>Actualiser le corpus</button>
+      </div>
+      <p id="corpus-info" class="hint" hidden></p>
+    </div>
     <div class="row"><button id="refresh" class="btn">Actualiser</button><span id="review-msg" class="hint"></span></div>
     <div id="proposals"></div>
   </section>
 </main>
-<script src="suggest.js?v=10"></script>
+<script src="suggest.js?v=11"></script>
 </body>
 </html>

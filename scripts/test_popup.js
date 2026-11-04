@@ -1,5 +1,5 @@
 #!/usr/bin/env node
-/* test_popup.js — reproduit la logique de _renderGlos (aero-coach/assets/aero.js)
+/* test_popup.js — reproduit la logique de _renderGlos (popup du site hôte)
    contre l'index réel et vérifie que chaque lien produit cible un fichier
    existant dans dist/aero/. Usage : node scripts/test_popup.js */
 const fs = require('fs');
@@ -8,7 +8,7 @@ const path = require('path');
 const ROOT = path.resolve(__dirname, '..');
 const idx = JSON.parse(fs.readFileSync(path.join(ROOT, 'dist/aerolex-index.json'), 'utf8'));
 const schemas = JSON.parse(fs.readFileSync(path.join(ROOT, 'dist/aero/schemas.json'), 'utf8'));
-const AEROLEX_BASE = 'https://aerolex.prunel.net/aero/';
+const AEROLEX_BASE = process.env.AEROLEX_BASE || 'https://lexique.exemple/aero/';
 const DIST = path.join(ROOT, 'dist/aero');
 
 const terms = idx.terms, families = idx.families;

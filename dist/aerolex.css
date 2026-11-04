@@ -1,6 +1,6 @@
 /*!
  * AeroLex — CSS autonome (distributable)
- * Copie fidèle des règles .glos du projet aero-coach/assets/aero.css
+ * Copie fidèle des règles .glos de la feuille de référence du site hôte
  * Distributable sur tout site tiers qui inclut aerolex.js.
  */
 
@@ -69,7 +69,7 @@
 /* ═══════════════════════════════════════════════════════════════════════════
    POPUP ENRICHIE — LE CSS EST L'INTERRUPTEUR          (2026-08-04)
    ═══════════════════════════════════════════════════════════════════════════
-   La popup (aero-coach/assets/aero.js, _renderGlos) émet TOUJOURS les cinq
+   La popup du site hôte (_renderGlos) émet TOUJOURS les cinq
    blocs dans le DOM :
        .alx-pop-def      définition
        .alx-pop-schema   schéma SVG (termes ayant un générateur, clé "g")

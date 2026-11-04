@@ -12,7 +12,8 @@ import re
 # 5. No specific aircraft names or numbers.
 # 6. Matches domains exactly with LOT-4.json.
 
-BASE_DIR = "/Users/aprunel/.openclaw/workspace/projects/aerolex"
+import os as _os
+BASE_DIR = _os.path.dirname(_os.path.dirname(_os.path.abspath(__file__)))   # racine du projet
 LOT4_PATH = os.path.join(BASE_DIR, "data/lots-v2/LOT-4.json")
 VALID_TERMS_PATH = os.path.join(BASE_DIR, "data/lots-v2/all_valid_terms.json")
 OUTPUT_PATH = os.path.join(BASE_DIR, "data/lots-v2/REDIGE-LOT-4.json")

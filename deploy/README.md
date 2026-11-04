@@ -1,5 +1,7 @@
 # Déploiement aerolex.prunel.net
 
+> **FICHIERS PROPRES À NOTRE INSTALLATION** (exemple de service launchd, port, chemins, domaines) : tout ce dossier est à remplacer ou ignorer sur une autre installation. Le code distribuable (scripts/, src/, dist/*.js) n'en dépend pas ; les valeurs d'installation sont dans aerolex.config.json (racine) et data/lexicon.json. Voir README « Installer AeroLex sur un autre site ».
+
 ## Chaîne complète
 ```
 navigateur → Cloudflare → tunnel cloudflared (prunel-home)

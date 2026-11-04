@@ -1,7 +1,7 @@
 /* ============================================================================
    aerolex-searchbox.js — MOTEUR DE RECHERCHE PARTAGÉ d'AeroLex (autocomplétion)
    ----------------------------------------------------------------------------
-   Copie autonome du moteur _alxMountSearch de projects/aero-coach/assets/aero.js
+   Copie autonome du moteur _alxMountSearch de la popup de référence du site hôte (aero.js)
    (même normalisation, même barème de score), pour les pages AeroLex qui
    n'embarquent pas aero.js (index du lexique). La DONNÉE n'est pas copiée : on
    lit le même aerolex-search.json, chargé au premier focus.

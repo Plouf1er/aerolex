@@ -2,7 +2,8 @@ import os
 import xml.dom.minidom
 import subprocess
 
-out_dir = "/Users/aprunel/.openclaw/workspace/projects/aerolex/dist/svg/gemini"
+import os
+out_dir = os.path.dirname(os.path.abspath(__file__))
 
 svgs = {
     "virage-forces.svg": """<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 400">

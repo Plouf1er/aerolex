@@ -34,7 +34,9 @@ for _p in (os.path.join(_ROOT, "data"), _DIR):
 from data_glossaire_full import GLOSSAIRE      # noqa: E402
 from term_payload import build_all_payloads, PAYLOAD_VERSION  # noqa: E402
 
-_LEX = os.environ.get("AEROLEX_LEXICON") or "aero"
+import lexicon_env  # noqa: E402
+_LEX = os.environ.get("AEROLEX_LEXICON") or lexicon_env.default_id(_ROOT)
+_META = lexicon_env.meta(_ROOT)
 OUT_DIR = os.path.join(_ROOT, "dist", _LEX, "t")
 LEXICON_PATH = os.path.join(_ROOT, "dist", _LEX, "lexicon.json")
 
@@ -54,16 +56,17 @@ LEXICON_PATH = os.path.join(_ROOT, "dist", _LEX, "lexicon.json")
 # Autrement dit : publication = condition nécessaire, CSS = filtre facultatif.
 LEXICON = {
     "id": _LEX,
-    "titre": "Glossaire Aéronautique",
+    "titre": _META.get("titre") or _META.get("label") or _LEX,
     # true  = les pages HTML par mot sont publiées et référençables → le JS
     #         PEUT émettre le lien « voir la fiche complète ».
     # false = lexique non publié → le JS n'émet AUCUN lien (le CSS n'y peut rien).
     "html_published": True,
     "visibility": "public",
-    "base_url": "https://aerolex.prunel.net/%s/" % _LEX,
+    # URL publique des fiches : data/lexicon.json (base_url) > $AEROLEX_PUBLIC_URL/<slug>/ > relative /<slug>/
+    "base_url": _META.get("base_url") or ((os.environ.get("AEROLEX_PUBLIC_URL", "").rstrip("/")) + "/%s/" % _LEX),
     "payload_version": PAYLOAD_VERSION,
     # Valeurs par défaut des interrupteurs d'affichage de la popup.
-    # Pour `aero` : TOUT ACTIVÉ (demande explicite de Louis).
+    # Valeurs par défaut : TOUT ACTIVÉ.
     "popup": {
         "def": True,
         "schema": True,     # images / SVG

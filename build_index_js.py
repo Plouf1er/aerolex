@@ -9,7 +9,7 @@ STRICTEMENT limité au SURLIGNAGE.
 RÈGLE (décision Louis, 2026-08-04) : cet index est chargé par TOUS les sites
 hôtes, à chaque page. Il ne doit donc contenir QUE ce qui sert à détecter et
 matcher un terme dans du texte. Tout le contenu affiché (définition, catégorie,
-famille + membres, xrefs, SVG) vit désormais dans dist/aero/t/<slug>.json,
+famille + membres, xrefs, SVG) vit désormais dans dist/<lexique>/t/<slug>.json,
 fetché au clic, mot par mot.
 
 RETIRÉ de l'index (déplacé dans les fichiers par mot) :
@@ -58,8 +58,34 @@ sys.path.insert(0, os.path.join(_DIR, "scripts"))
 from data_glossaire_full import GLOSSAIRE  # noqa: E402
 from slugify import build_slug_map  # noqa: E402
 
-_LEX = os.environ.get("AEROLEX_LEXICON") or "aero"
-DEFAULT_OUT = os.path.join(_DIR, "dist", "aerolex-index.json" if _LEX == "aero" else "aerolex-%s-index.json" % _LEX)
+import lexicon_env  # noqa: E402
+
+_LEX = os.environ.get("AEROLEX_LEXICON") or lexicon_env.default_id(_DIR)
+DEFAULT_OUT = os.path.join(_DIR, "dist", lexicon_env.index_file(_LEX, _DIR))
+
+
+def build_meta(lex_id: str, conf: dict) -> dict:
+    """Bloc « meta » de l'index : tout ce que le moteur doit savoir pour décider SANS rien demander au serveur.
+
+      lexicon      identifiant du lexique (aussi : attribut data-lexicon de la balise script)
+      terms_base   dossier des fiches par mot (au clic) : URL absolue si data/lexicon.json déclare base_url, sinon RELATIF à l'index
+      display      options d'affichage : skip_selectors (zones à ne pas souligner, ajoutées à celles de l'intégrateur), metar (bool)
+      rules        règles de reconnaissance propres au lexique : exact_case (mots à ne souligner qu'en casse exacte),
+                   singular_exclude (pluriels dont le singulier automatique est interdit)
+    """
+    base = (conf.get("base_url") or "").strip()
+    meta: dict = {"format": 2, "lexicon": lex_id, "terms_base": (base.rstrip("/") + "/t/") if base else "%s/t/" % lex_id}
+    if conf.get("label"):
+        meta["label"] = conf["label"]
+    disp = conf.get("display") if isinstance(conf.get("display"), dict) else {}
+    disp = {k: v for k, v in disp.items() if k in ("skip_selectors", "metar") and v}
+    if disp:
+        meta["display"] = disp
+    rules = conf.get("rules") if isinstance(conf.get("rules"), dict) else {}
+    rules = {k: sorted(set(map(str, v))) for k, v in rules.items() if k in ("exact_case", "singular_exclude") and isinstance(v, list) and v}
+    if rules:
+        meta["rules"] = rules
+    return meta
 
 
 def build_index(glossaire: dict) -> dict:
@@ -91,8 +117,8 @@ def build_index(glossaire: dict) -> dict:
 
         entry: dict = {"s": s}
 
-        # PAS de "d" ici : la définition est dans dist/aero/t/<slug>.json,
-        # fetché au clic (aero.js). Elle pesait ~85 % de l'index.
+        # PAS de "d" ici : la définition est dans dist/<lexique>/t/<slug>.json,
+        # fetché au clic (popup). Elle pesait ~85 % de l'index.
         # PAS de "c" (catégorie) : affichage seul, donc fichier par mot.
 
         # Variantes + synonymes
@@ -143,7 +169,7 @@ def build_index(glossaire: dict) -> dict:
 
     # Plus de bloc "families" : la popup reçoit les membres de sa famille,
     # déjà triés et résolus en slugs, dans son fichier par mot.
-    return {"terms": terms}
+    return {"meta": build_meta(_LEX, lexicon_env.meta(_DIR)), "terms": terms}
 
 
 def main():
@@ -175,7 +201,7 @@ def main():
     print(f"   Avec slug     : {n_slug}")
     print(f"   Avec variantes: {n_var}")
     print(f"   Rédigées      : {n_redigees} ({n_terms - n_redigees} à rédiger)")
-    print("   Retiré        : d, c, f, x, g, families -> dist/aero/t/<slug>.json")
+    print("   Retiré        : d, c, f, x, g, families -> dist/<lexique>/t/<slug>.json")
     print(f"   Taille brute  : {raw_size:,} octets ({raw_size/1024:.1f} Ko)")
     print(f"   Taille gzip   : {gz_size:,} octets ({gz_size/1024:.1f} Ko)")
 

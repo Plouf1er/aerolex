@@ -7,7 +7,8 @@ import re
 import requests
 
 # Set paths
-BASE_DIR = "/Users/aprunel/.openclaw/workspace/projects/aerolex"
+import os as _os
+BASE_DIR = _os.path.dirname(_os.path.dirname(_os.path.abspath(__file__)))   # racine du projet
 sys.path.insert(0, os.path.join(BASE_DIR, "data"))
 import data_glossaire_full as dgf
 

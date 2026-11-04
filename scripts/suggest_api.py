@@ -27,6 +27,8 @@ Accès :
   POST /api/suggest/proposals/<id>/reject
   POST /api/suggest/validate {ids:[...],force?}  contrôle puis ajout à la source + rattachements de fiches + rebuild (sauvegarde/restauration)
   GET  /api/suggest/stats
+  GET  /api/suggest/corpus?domain=<lexique>      nature du corpus du lexique (dossier / sitemap / URL / échantillon / aucun -> simulation générique)
+  POST /api/suggest/corpus {domain, items:[{name,text}], replace?}   (relecteur) échantillon de textes téléversé ; /corpus/clear ; /corpus/refresh
 """
 from __future__ import annotations
 
@@ -55,8 +57,10 @@ def route(method: str, path: str, headers, body: bytes, ip: str | None = None):
             for k, cfg in core.LEXICONS.items():
                 idx = core.get_index(k)
                 out.append({"id": k, "label": cfg["label"], "familles": idx.families, "familles_labels": idx.family_labels,
-                            "termes": len(idx.glossaire)})
-            return 200, {"lexiques": out, "max_termes": core.MAX_TERMS_PER_SUBMISSION}
+                            "termes": len(idx.glossaire), "corpus": core.corpus_status(k)})
+            return 200, {"lexiques": out, "max_termes": core.MAX_TERMS_PER_SUBMISSION, "defaut": core.DEFAULT_LEX}
+        if method == "GET" and p == "/corpus":          # état du corpus d'un lexique (public : aucune donnée du corpus, seulement sa nature)
+            return 200, core.corpus_status(q.get("domain") or core.DEFAULT_LEX)
         authed = core.check_session(headers)
         if method == "GET" and p == "/session":
             return 200, {"relecteur": authed}
@@ -83,7 +87,7 @@ def route(method: str, path: str, headers, body: bytes, ip: str | None = None):
         if method == "POST" and p == "/submit":
             d = json.loads(body.decode("utf-8") or "{}")
             # le relecteur authentifié n'est pas soumis au quota par IP
-            return 200, core.submit(d.get("domain", "aero"), text=d.get("text", ""), terms=d.get("terms"),
+            return 200, core.submit(d.get("domain") or core.DEFAULT_LEX, text=d.get("text", ""), terms=d.get("terms"),
                                     ip=None if authed else (ip or "?"), full=authed)
         m = re.fullmatch(r"/job/([0-9a-f]{16})", p)
         if method == "GET" and m:
@@ -116,6 +120,14 @@ def route(method: str, path: str, headers, body: bytes, ip: str | None = None):
                 return 200, core.reject_proposal(pid)
             d = json.loads(body.decode("utf-8") or "{}")
             return 200, core.edit_proposal(pid, d.get("term"), d.get("data") or {})
+        if method == "POST" and p in ("/corpus", "/corpus/clear", "/corpus/refresh"):     # corpus du lexique : relecteur seulement
+            d = json.loads(body.decode("utf-8") or "{}")
+            dom = d.get("domain") or core.DEFAULT_LEX
+            if p == "/corpus/clear":
+                return 200, core.corpus_clear(dom)
+            if p == "/corpus/refresh":
+                return 200, core.corpus_refresh(dom)
+            return 200, core.corpus_upload(dom, d.get("items") or [], bool(d.get("replace")))
         if method == "POST" and p == "/validate":
             d = json.loads(body.decode("utf-8") or "{}")
             ids = [int(i) for i in d.get("ids", [])]

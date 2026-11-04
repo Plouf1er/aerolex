@@ -16,7 +16,7 @@ import unicodedata
 
 RESERVED_BASE = frozenset({"index", "suggest", "search", "slugmap", "build-info", "lexicon", "schemas", "t"})
 RESERVED_SUFFIX = "terme"          # index -> index-terme
-DEFAULT_DIST = os.path.join(os.environ.get("AEROLEX_LEXROOT") or os.path.dirname(os.path.dirname(os.path.abspath(__file__))), "dist", os.environ.get("AEROLEX_LEXICON") or "aero")
+DEFAULT_DIST = os.path.join(os.environ.get("AEROLEX_LEXROOT") or os.path.dirname(os.path.dirname(os.path.abspath(__file__))), "dist", os.environ.get("AEROLEX_LEXICON") or __import__("lexicon_env").default_id())
 GENERIC_RE = re.compile(r"^terme(-\d+)?$")
 
 # Symboles -> mots (ordre : motifs longs d'abord)

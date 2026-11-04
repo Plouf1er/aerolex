@@ -14,7 +14,7 @@ from pathlib import Path
 
 ROOT = Path(__file__).resolve().parent.parent
 sys.path[:0] = [str(ROOT / "scripts"), str(ROOT / "src"), str(ROOT / "data")]
-DEFAULT_TRIAGE = Path.home() / ".openclaw/workspace/outbox/aerolex-triage-termes.json"
+DEFAULT_TRIAGE = Path(os.environ.get("AEROLEX_TRIAGE_FILE") or "aerolex-triage-termes.json")
 
 
 def expansion(developpe: str) -> str:
@@ -79,12 +79,12 @@ def main(argv=None):
     if a.skip_seed:
         res = {"en_file": 0, "reprise": True}
     else:
-        res = sc.seed_terms("aero", list(analysis), analysis=analysis, llm=False, adopt_base=False, job=a.job)
+        res = sc.seed_terms(sc.DEFAULT_LEX, list(analysis), analysis=analysis, llm=False, adopt_base=False, job=a.job)
     # compléments : métadonnées du tri, variantes préparées (mêmes interdictions que les variantes générées)
     rep = {"demandees": len(analysis), "seed": {k: v for k, v in res.items() if k != "corriges"}, "corriges": res.get("corriges"),
            "variantes_refusees": {}, "variantes_ajoutees": {}, "ids": {}}
     with sc._db_lock, sc.db() as con:
-        rows = {r["term"]: r["id"] for r in con.execute("SELECT id,term FROM proposals WHERE domain='aero' AND status='pending' AND job=?", (a.job,))}
+        rows = {r["term"]: r["id"] for r in con.execute("SELECT id,term FROM proposals WHERE domain=? AND status='pending' AND job=?", (sc.DEFAULT_LEX, a.job))}
     for term, ex in extras.items():
         pid = rows.get(term)
         if not pid:

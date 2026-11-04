@@ -83,3 +83,6 @@ input[type=file]{width:100%}
 .sim .msg{margin:.3rem 0;font-size:.88rem}
 .exist{margin:.5rem 0;padding:.5rem .7rem;border:1px solid var(--ac);border-radius:8px;background:#f2f7ff}
 .exist .btn{margin-top:.3rem}
+
+.corpus .row{align-items:center;gap:.6rem;flex-wrap:wrap}.corpus label.file{margin:0}
+.pill.gen{background:var(--bd);color:var(--fg);margin-left:.5rem}

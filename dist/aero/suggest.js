@@ -5,6 +5,8 @@
   var lexicons = {};
   var polling = null;
   var DEFAULT_LEX = (document.currentScript && document.currentScript.getAttribute("data-lexicon")) || "";   // page d'un lexique créé par new_lexicon.py
+  var MAIN_LEX = "";      // lexique principal du serveur (réponse de /lexicons, clé « defaut »)
+  function currentLex() { return $("domain").value || DEFAULT_LEX || MAIN_LEX; }
 
   function el(tag, attrs, kids) {
     var e = document.createElement(tag);
@@ -58,13 +60,50 @@
   $("pw").addEventListener("keydown", function (e) { if (e.key === "Enter") doLogin(); });
   $("btn-logout").onclick = function () { api("POST", "/logout", {}).then(function () { setReviewer(false); }); };
 
+  // ---------- cartouche de la simulation (source du corpus) ----------
+  function simSummary(sim) {
+    if (sim.generique) return "simulation générique (aucun corpus configuré) — " + sim.n + " nouveau(x) soulignement(s) dans les définitions du lexique";
+    return sim.n + " nouveau(x) soulignement(s) dans " + sim.seances + " " + (sim.unite || "document") + "(s)";
+  }
+
+  // ---------- corpus du lexique (relecteur) ----------
+  function showCorpus(c) {
+    var box = $("corpus-box");
+    box.hidden = false;
+    $("corpus-msg").textContent = c.message || "";
+    var remote = c.configure === "sitemap" || c.configure === "urls", fixed = remote || c.configure === "dir";
+    $("corpus-actions").hidden = fixed && !remote;
+    $("corpus-file").parentNode.hidden = fixed;
+    $("corpus-file").hidden = fixed;
+    $("corpus-clear").hidden = c.type !== "upload";
+    $("corpus-refresh").hidden = !remote;
+    var info = $("corpus-info"), notes = c.notes || [];
+    info.hidden = !notes.length; info.textContent = notes.join(" ; ");
+  }
+  function loadCorpus() {
+    if (!reviewer) return;
+    api("GET", "/corpus?domain=" + encodeURIComponent(currentLex())).then(showCorpus).catch(function (e) { $("corpus-msg").textContent = "indisponible (" + e.message + ")"; $("corpus-box").hidden = false; });
+  }
+  $("corpus-file").addEventListener("change", function () {
+    var files = Array.prototype.slice.call(this.files || []).slice(0, 40), input = this;
+    if (!files.length) return;
+    Promise.all(files.map(function (f) { return f.text().then(function (t) { return { name: f.name, text: t }; }); })).then(function (items) {
+      return api("POST", "/corpus", { domain: currentLex(), items: items });
+    }).then(function (r) {
+      showCorpus(r);
+      var i = $("corpus-info"); i.hidden = false; i.textContent = r.documents + " texte(s) enregistré(s)" + (r.ignores ? ", " + r.ignores + " ignoré(s) (vides ou au-delà des plafonds)" : "") + ".";
+    }).catch(function (e) { var i = $("corpus-info"); i.hidden = false; i.textContent = "Téléversement refusé : " + e.message; }).then(function () { input.value = ""; });
+  });
+  $("corpus-clear").onclick = function () { api("POST", "/corpus/clear", { domain: currentLex() }).then(showCorpus).catch(function (e) { alert(e.message); }); };
+  $("corpus-refresh").onclick = function () { api("POST", "/corpus/refresh", { domain: currentLex() }).then(showCorpus).catch(function (e) { alert(e.message); }); };
+
   // ---------- onglets ----------
   function tab(name) {
     var rev = name === "review";
     $("pane-submit").hidden = rev; $("pane-review").hidden = !rev;
     $("tab-submit").classList.toggle("on", !rev); $("tab-review").classList.toggle("on", rev);
     $("tab-submit").setAttribute("aria-selected", String(!rev)); $("tab-review").setAttribute("aria-selected", String(rev));
-    if (rev) loadProposals();
+    if (rev) { loadProposals(); loadCorpus(); }
   }
   $("tab-submit").onclick = function () { tab("submit"); };
   $("tab-review").onclick = function () { tab("review"); };
@@ -131,7 +170,7 @@
       if (k !== "a_valider") { kids.push(el("p", { class: "conf", text: "Écarté : non ajouté à la file de validation." })); return el("div", { class: "res " + k }, kids); }
       if (r.origine) kids.push(kv("Développé", r.origine + (r.traduction ? " (" + r.traduction + ")" : "")));
       kids.push(kv("Définition", r.definition));
-      kids.push(kv("Famille", r.famille ? famLabel($("domain").value || "aero", r.famille) : (r.famille_nouvelle ? "nouvelle : " + (r.famille_nouvelle_label || r.famille_nouvelle) : "")));
+      kids.push(kv("Famille", r.famille ? famLabel(currentLex(), r.famille) : (r.famille_nouvelle ? "nouvelle : " + (r.famille_nouvelle_label || r.famille_nouvelle) : "")));
       kids.push(kv("Justification", r.famille_justification));
       kids.push(kv("Synonymes", (r.synonymes || []).join(", ")));
       kids.push(el("p", { class: "conf", text: "Confiance " + Math.round((r.confiance || 0) * 100) + " %" + (r.modele ? " · " + r.modele : "") }));
@@ -182,7 +221,7 @@
     say(""); $("go").disabled = true; $("results").textContent = ""; $("summary").textContent = ""; $("sent").hidden = true;
     var n = text.split(/[,;\n\r\t]+/).filter(function (s) { return s.trim(); }).length;
     $("progress").hidden = n <= 3; $("bar-fill").style.width = "3%"; $("progress-text").textContent = "Envoi…";
-    api("POST", "/submit", { domain: $("domain").value || "aero", text: text }).then(function (job) {
+    api("POST", "/submit", { domain: currentLex(), text: text }).then(function (job) {
       history.replaceState(null, "", location.pathname + "?job=" + job.id);
       showJob(job);
     }).catch(function (e) { say(e.message, true); $("go").disabled = false; $("progress").hidden = true; });
@@ -332,7 +371,8 @@
       var cls = rep.statut === "ko" ? "ko" : rep.statut === "warn" ? "warn" : "ok";
       simLine.className = "kv sim " + cls;
       simLine.appendChild(el("b", { text: "Soulignements simulés : " }));
-      simLine.appendChild(document.createTextNode((cls === "ok" ? "✓ " : cls === "warn" ? "⚠ " : "✗ BLOQUANT — ") + (rep.simulation && rep.simulation.disponible === false ? rep.detail : (rep.simulation ? rep.simulation.n + " nouveau(x) soulignement(s) dans " + rep.simulation.seances + " séance(s)" : rep.detail))));
+      simLine.appendChild(document.createTextNode((cls === "ok" ? "✓ " : cls === "warn" ? "⚠ " : "✗ BLOQUANT — ") + (rep.simulation && rep.simulation.disponible === false ? rep.detail : (rep.simulation ? simSummary(rep.simulation) : rep.detail))));
+      if (rep.simulation && rep.simulation.generique) simLine.appendChild(el("span", { class: "pill gen", text: "générique", title: "Aucun corpus configuré : simulation sur les définitions du lexique, les homographes français courants et les règles de casse et d'unités." }));
       if (cls === "ko") simLine.appendChild(el("p", { class: "msg err", text: rep.detail }));
       var ex = (rep.simulation && rep.simulation.exemples) || [];
       if (ex.length) simLine.appendChild(el("ul", { class: "ex" }, ex.map(function (e) { return el("li", {}, [el("span", { class: "hint", text: e.seance + " : " }), document.createTextNode(e.texte)]); })));
@@ -512,6 +552,7 @@
   function init() {
     fetch(API + "/lexicons").then(function (r) { return r.json(); }).then(function (j) {
       var sel = $("domain"); sel.textContent = "";
+      MAIN_LEX = j.defaut || "";
       j.lexiques.forEach(function (l) { lexicons[l.id] = l; sel.appendChild(el("option", { value: l.id, text: l.label })); });
       var d = new URLSearchParams(location.search).get("lexicon") || DEFAULT_LEX; if (d && lexicons[d]) sel.value = d;
     }).catch(function () { say("API indisponible.", true); });

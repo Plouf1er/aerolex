@@ -11,7 +11,7 @@ def normalize(text):
     return text
 
 # Load index
-index_path = "/Users/aprunel/.openclaw/workspace/projects/aerolex/data/lots-v1/INDEX-EXISTANT.json"
+index_path = __import__("os").path.join(__import__("os").path.dirname(__import__("os").path.abspath(__file__)), "data", "lots-v1", "INDEX-EXISTANT.json")
 with open(index_path, 'r', encoding='utf-8') as f:
     index_list = json.load(f)
 
@@ -216,7 +216,7 @@ print(f"\nFinal count of missing terms: {len(missing_filtered)}")
 print(f"Verified present from our candidate list: {deja_presents_count}")
 
 # Write to json
-audit_path = "/Users/aprunel/.openclaw/workspace/projects/aerolex/data/lots-v1/AUDIT-aero-perfs.json"
+audit_path = __import__("os").path.join(__import__("os").path.dirname(__import__("os").path.abspath(__file__)), "data", "lots-v1", "AUDIT-aero-perfs.json")
 output_data = {
     "domaine": "Aérodynamique & performances",
     "manquants": missing_filtered,

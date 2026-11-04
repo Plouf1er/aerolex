@@ -253,7 +253,7 @@ def generate_index():
     html_content = render_index(
         GLOSSAIRE, PAYLOAD_CTX.display, terme_to_slug, families, fam_order, categories_set,
         family_label, ASSET_V, search_name=_SEARCH_NAME(),
-        title=('Index du Glossaire Aéronautique — AeroLex' if LEXICON_ID == 'aero' else 'Index — ' + (_lex_meta(os.getcwd()).get('label') or LEXICON_ID) + ' — AeroLex'))
+        title=(_lex_meta(os.getcwd()).get('index_title') or 'Index — ' + (_lex_meta(os.getcwd()).get('label') or LEXICON_ID) + ' — AeroLex'))
     with open(os.path.join(DIST_DIR, 'index.html'), 'w', encoding='utf-8') as f:
         f.write(html_content)
 

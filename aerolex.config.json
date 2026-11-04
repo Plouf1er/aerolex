@@ -1,0 +1,16 @@
+{
+ "_doc": "Configuration de CETTE installation (serveur aerolex.prunel.net). Chemins et adresses seulement, jamais de secret. Autres installations : supprimer ou adapter ce fichier (voir README « Installer AeroLex sur un autre site »).",
+ "env_files": [
+  "~/.openclaw/.env"
+ ],
+ "llm": {
+  "local_url": "http://100.96.203.121:11434/v1/chat/completions"
+ },
+ "serve": {
+  "port": 4140,
+  "cors_origins": [
+   "https://atcf-ppl.prunel.net",
+   "https://aerolex.prunel.net"
+  ]
+ }
+}

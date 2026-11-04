@@ -10,9 +10,11 @@ sys.path.insert(0, os.path.join(ROOT, "scripts")); sys.path.insert(0, os.path.jo
 import slugify as S
 from data_glossaire_full import GLOSSAIRE as G
 
-LEX = os.environ.get("AEROLEX_LEXICON") or "aero"       # un lexique créé par new_lexicon.py : AEROLEX_LEXICON=<slug>, cwd = sa racine
+import lexicon_env  # noqa: E402
+LEX = os.environ.get("AEROLEX_LEXICON") or lexicon_env.default_id(ROOT)
+MAIN = bool(lexicon_env.meta(ROOT).get("legacy_names"))   # lexique d'origine du projet (noms de fichiers historiques)       # un lexique créé par new_lexicon.py : AEROLEX_LEXICON=<slug>, cwd = sa racine
 D = os.path.join(ROOT, "dist", LEX)
-MARK = "Index du Glossaire" if LEX == "aero" else "ix-head"
+MARK = "Index du Glossaire" if MAIN else "ix-head"
 FAILS = []
 def check(name, cond, extra=""):
     print(("OK   " if cond else "FAIL ") + name + ("" if cond else " " + str(extra)[:300]))
@@ -53,7 +55,7 @@ check("index.html reste la page d'index", MARK in open(os.path.join(D, "index.ht
 # 3. redirections
 want = S.build_redirects(terms)
 check("redirections = calcul courant", red == want)
-if LEX == "aero":
+if MAIN:
     check("°, °C, θ : anciens slugs redirigés", red.get("terme") == "degre" and red.get("c") == "degre-celsius" and red.get("terme-2") == "theta", red)
 errs = []
 for old, new in red.items():

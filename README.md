@@ -4,10 +4,11 @@
 
 AeroLex est un glossaire aéro de plus de 1 100 termes, plus un script JS qui souligne
 automatiquement le vocabulaire aéronautique d'une page et affiche la définition au clic.
-Une ligne à ajouter, rien à configurer.
+Une balise à ajouter (voir « Intégration minimale »).
 
 ```html
-<script src="https://aerolex.prunel.net/aerolex.js" defer></script>
+<script src="https://aerolex.prunel.net/aerolex.js" defer data-lexicon="aero"
+        data-src="https://aerolex.prunel.net/aerolex-index.json"></script>
 ```
 
 C'est tout. Le script scanne le texte, reconnaît les termes du lexique, les souligne
@@ -155,7 +156,7 @@ mot, ou à le mettre explicitement dans Divers.
   (avertissement) ; `--strict` échoue s'il en reste, à activer une fois le classement appliqué (puis supprimer
   le fichier baseline).
 
-## Reconnaissance : règles du moteur (aerolex.js v1.3.0)
+## Reconnaissance : règles du moteur (aerolex.js v1.4.0)
 
 Une seule fonction décide (`findMatches`, exposée en test par `window.AeroLexCore`) ; tests : `python3 scripts/test_matching.py`.
 
@@ -207,6 +208,92 @@ Réutilisation libre, y compris commerciale. Attribution demandée pour le conte
 - **[AeroTest](https://aerotest.prunel.net)** — banque de questions PPL avec suivi de progression
 - **Aero Coach ATCF** — cours PPL qui utilisent AeroLex et AeroTest
 
+## Intégration minimale (une balise)
+
+```html
+<link rel="stylesheet" href="https://mon.site/lexique/aerolex.css">
+<script src="https://mon.site/lexique/aerolex.js" defer
+        data-lexicon="mon-lexique"
+        data-src="https://mon.site/lexique/aerolex-mon-lexique-index.json"></script>
+```
+
+`data-lexicon` nomme le lexique, `data-src` est l'URL de son index publié (`dist/aerolex-<slug>-index.json`). **Tout ce qui décide d'un soulignement
+voyage avec le script et l'index** : le moteur ne lit que ce fichier statique, il n'appelle aucun serveur (il ne dépend ni de notre site ni d'un
+corpus). Options (attribut de la balise | `window.AeroLexConfig`, prioritaire | défaut) :
+
+| Option | Rôle | Défaut |
+|---|---|---|
+| `data-src` / `data-index` · `indexUrl` | URL de l'index du lexique | `aerolex-index.json` à côté du script |
+| `data-lexicon` · `lexicon` | identifiant du lexique | `meta.lexicon` de l'index |
+| `data-skip-selectors` · `skipSelectors` | sélecteurs CSS (liste) des zones à NE PAS souligner, **en plus** des défauts et de ceux de l'index | aucun |
+| `data-skip-tags` · `skipTags` | balises ignorées (remplace la liste par défaut) | `script style code pre textarea input select option noscript svg canvas iframe a summary button h1-h6` |
+| attribut `data-aerolex-skip` (sur un élément) | tout son sous-arbre est ignoré | — |
+| classe `aerolex-skip` | idem | — |
+| `data-container` · `container` | zone traitée (sélecteur CSS) | `body` |
+| `data-aerolex-base` · `termsBase` | dossier des fiches par mot (au clic) | `meta.terms_base` de l'index (absolue, ou relative à l'index) |
+| `data-metar` · `metar` | couche METAR/TAF (propre au lexique aéro) | `meta.display.metar` de l'index, sinon désactivée |
+| `onDone: fn(stats)` | rappel en fin de traitement | — |
+
+Les zones propres à un site hôte (barre de score d'un quiz, bandeau de cookies…) se déclarent soit par l'intégrateur (`data-skip-selectors`), soit
+une fois pour toutes **par le publicateur du lexique** dans `data/lexicon.json` (`display.skip_selectors`, publié avec l'index). Le script ne
+connaît aucune classe d'un site particulier. `window.AeroLex.config` expose la configuration résolue (débogage). Documentation détaillée :
+[docs/INTEGRATION.md](docs/INTEGRATION.md).
+
+## Configurer un lexique (`data/lexicon.json`)
+
+Chaque lexique a SA configuration, dans `<racine du lexique>/data/lexicon.json` (créée par `new_lexicon.py`, à la main pour le lexique de la racine) :
+
+```json
+{ "id": "voile", "label": "Voile", "titre": "Glossaire de la voile", "audience": "équipier débutant", "scope": "vocabulaire de la voile légère",
+  "base_url": "https://mon.site/lexique/voile/",
+  "corpus": {"type": "dir", "path": "../mon-site/pages", "unit": "page"},
+  "display": {"skip_selectors": [".cookie-banner"], "metar": false},
+  "rules": {"exact_case": ["ais"], "singular_exclude": ["indices"]},
+  "legacy_names": false }
+```
+
+- **`id`, `label`, `titre`, `audience`, `scope`, `index_title`** : identité et textes (page d'index, prompt d'analyse du modèle) ;
+- **`base_url`** : URL publique des fiches (sinon `$AEROLEX_PUBLIC_URL/<id>/`, sinon relative : le moteur la déduit de l'emplacement de l'index) ;
+- **`display`** : options d'affichage **publiées** dans l'index (`meta.display`) : `skip_selectors`, `metar` ;
+- **`rules`** : règles de reconnaissance propres au lexique, **publiées** dans l'index (`meta.rules`) : `exact_case` (mots à ne souligner qu'en
+  casse exacte : « ais » la planche ≠ AIS), `singular_exclude` (pluriels sans singulier automatique : « indices » ↛ « indice ») ;
+- **`corpus`** : jamais publié (voir ci-dessous) ; **`legacy_names`** : noms de fichiers historiques sans slug (`aerolex-index.json`), réservé au
+  lexique d'origine.
+
+Les règles par fiche (`contexte_requis`, `homonyme`, `casse_sensible`, `contexte_sigle`, `contexte_singulier`) restent dans les fiches et sont exportées
+dans l'index (`ctx`, `hom`, `cs`, `cxs`, `cxg`). Les règles génériques (frontières Unicode, sigles courts, unités après un nombre, élision, pluriel et
+singulier, mots courants du français) sont dans `aerolex.js`. La **configuration de l'installation** (pas du lexique) est dans `aerolex.config.json`
+(`env_files`, `password_file`, `llm.local_url`, `serve.{port,dir,cors_origins}`) ; elle ne contient jamais de secret.
+
+## Corpus du contrôle anti-ridicule : facultatif et configurable
+
+La simulation des soulignements, la suggestion d'accents et `check_lexicon` comparent les fiches à un **corpus de texte**. Il se déclare dans
+`data/lexicon.json` → `corpus` (`scripts/corpus.py`) :
+
+| `type` | Source |
+|---|---|
+| `dir` (`path`, relatif à la racine du lexique) | dossier local de pages `.html .htm .txt .md` |
+| `sitemap` (`url`, `max_pages`) | `sitemap.xml` du site hôte (index de sitemaps accepté, même hôte), récupéré puis **mis en cache 24 h** (`data/suggest/corpus-cache/`) |
+| `urls` (`urls`) | liste d'URL, même cache |
+| `upload` | échantillon de textes **téléversé depuis la page « Suggérer »** (espace relecteur → « Corpus du lexique ») |
+| `none` (défaut) | aucun corpus |
+
+**Sans corpus, ce n'est pas une erreur** : la simulation est *générique* et le cartouche l'indique (« simulation générique (aucun corpus configuré) ») ;
+elle s'appuie sur les définitions du lexique lui-même, sur la liste d'homographes français embarquée (`scripts/resources/fr_homographes.json`,
+versionnée, ce n'est pas un corpus) et sur les règles de casse et d'unités du moteur. Faute de corpus pour mesurer, un homographe courant sans
+`contexte_requis` est bloquant. `python3 scripts/corpus.py <lexique> [--refresh]` décrit ou rafraîchit le corpus.
+
+## Installer AeroLex sur un autre site
+
+1. Récupérer le dépôt ; `python3 scripts/new_lexicon.py --slug mon-lexique --label "Mon lexique" --public-url https://mon.site [--source termes.txt] [--corpus DOSSIER | --corpus-sitemap URL]`.
+2. Publier `dist/` (statique) ; coller la balise d'intégration ci-dessus dans le site hôte.
+3. Facultatif : `python3 serve_cors.py [PORT] --dir dist` (site statique + API de suggestion) ; mot de passe relecteur dans `~/.aerolex-suggest-password` ;
+   clé du modèle `XAI_API_KEY` (variable d'environnement ou fichier listé dans `aerolex.config.json`).
+4. `python3 scripts/check_lexicon.py mon-lexique` → *LEXIQUE PROPRE*. Preuve d'indépendance : `python3 scripts/test_demo_site.py` (mini-site sans rapport
+   avec l'aéro, sans corpus, Chrome headless) ; `python3 scripts/test_portable.py` échoue si un chemin, un domaine, un port ou une classe CSS propres à une
+   installation sont codés en dur dans le code distribuable. `python3 scripts/measure_underlines.py` prouve qu'un changement du moteur ne déplace aucun soulignement.
+   Les fichiers propres à notre installation sont `aerolex.config.json`, `data/lexicon.json`, `deploy/` et `dist/index.html` : à remplacer.
+
 ## Suggérer des termes (`/aero/suggest.html`)
 - **Soumission ouverte, sans jeton** (termes ou fichier ≤ 5 Mo, 300 termes max, suivi `?job=<id>`). Garde-fous de coût : 30 termes envoyés au LLM / h / IP et 300 / jour / IP (IP réelle via `CF-Connecting-IP`), plafond global 2 $/24 h (puis Qwopus local, puis refus poli), 20 analyses de fichier / h / IP. Cache, index et contrôles déterministes : illimités.
 - **Revue / validation = mot de passe** : bouton « Espace relecteur » -> POST /login ; session = cookie HttpOnly/Secure/SameSite=Strict 30 j (table SQLite sessions, hachée) ; bouton « Se déconnecter » ; mot de passe hors dépôt (~/.aerolex-suggest-password, 0600, comparaison en temps constant) ; 5 échecs/IP -> blocage 15 min. Plus de jeton. Sous-onglets « À valider » / « Écartés » (repêchage).
@@ -221,10 +308,10 @@ Réutilisation libre, y compris commerciale. Attribution demandée pour le conte
 
 Le code vit dans `scripts/suggest_rules.py` (règles) et `scripts/suggest_core.py` (prompt d'analyse **et** de relance, contrôles avant « Valider », post-traitement). Chaque carte de proposition montre :
 
-- **Forme de base** : le modèle renvoie `forme_base` ; la forme est comparée au corpus (séances + définitions) : « variometre » alors que le corpus écrit « variomètre » → avertissement + bouton « Utiliser « variomètre » comme terme ». Un pluriel est ramené au singulier ; le sigle reste forme de base seulement si c'est l'usage (VOR, METAR, AVGAS, BEA).
+- **Forme de base** : le modèle renvoie `forme_base` ; la forme est comparée au corpus (s'il y en a un) et aux définitions : « variometre » alors que le corpus écrit « variomètre » → avertissement + bouton « Utiliser « variomètre » comme terme ». Un pluriel est ramené au singulier ; le sigle reste forme de base seulement si c'est l'usage (VOR, METAR, AVGAS, BEA).
 - **Variantes d'appel générées**, une case à cocher chacune (décocher = ne pas écrire dans la fiche) : pluriel/singulier, forme sans accent, équivalent anglais, sigle ↔ développé, synonymes. Sont écartées avec leur raison : toute forme de moins de 3 lettres en minuscules, tout mot grammatical, toute forme déjà appelée par une autre fiche.
 - **Fiche existante** : si le terme est une forme d'appel d'une fiche (« vario » → variomètre, « anticyclonique » → anticyclone : abréviation, même radical, ou `variante_de` du modèle), la carte propose le bouton **« Ajouter comme variante de X »** (`POST /api/suggest/proposals/<id>/as-variant`) à la place d'une nouvelle fiche : application sûre (verrou, sauvegarde, ajout dans `data_glossaire_full.py` de cette seule entrée, import + rebuild + test des liens, **restauration automatique** en cas d'échec).
-- **Soulignements simulés** (contrôle anti-ridicule, `POST …/simulate` pour la ligne seule) : le moteur `dist/aerolex.js` (exécuté sous Node) est lancé sur le corpus des séances `aero-coach/sessions` avec la nouvelle fiche et ses variantes cochées ; la ligne donne le nombre de nouveaux soulignements, les formes en cause et 3 exemples. **Bloquant (non forçable)** si une forme à risque (homographe courant : liste interne, `homographe_courant` du modèle, ou forme dont plus de 80 % des passages n'ont aucun mot de la définition alentour) souligne plus de 3 cas ou plus de 5 % de faux probables sans `contexte_requis` : il faut fournir les mots déclencheurs (champ « Contexte requis » de l'édition, proposés par le modèle) ou décocher la variante.
+- **Soulignements simulés** (contrôle anti-ridicule, `POST …/simulate` pour la ligne seule) : le moteur `dist/aerolex.js` (exécuté sous Node) est lancé sur le corpus du lexique (voir « Corpus ») avec la nouvelle fiche et ses variantes cochées ; la ligne donne le nombre de nouveaux soulignements, les formes en cause et 3 exemples. **Bloquant (non forçable)** si une forme à risque (homographe courant : liste interne, `homographe_courant` du modèle, ou forme dont plus de 80 % des passages n'ont aucun mot de la définition alentour) souligne plus de 3 cas ou plus de 5 % de faux probables sans `contexte_requis` : il faut fournir les mots déclencheurs (champ « Contexte requis » de l'édition, proposés par le modèle) ou décocher la variante.
 - Toujours en place : sigles développés à la 1re occurrence (avec traduction FR ; le développé d'un terme qui est lui-même un sigle entre dans `term_expansions.py`), famille obligatoire ou Divers, slug sûr (translittération, slugs réservés, jamais générique), contrôle des initiales des sigles, fiches voisines, relance commentée, sauvegarde/restauration. Jamais de validation en prod par un script : seul le relecteur valide.
 
 ### Validation en lot (`scripts/validate_batch.py`)
@@ -236,7 +323,7 @@ Pour valider des dizaines de propositions relues d'un coup : `python3 scripts/va
 ```
 python3 scripts/new_lexicon.py --slug voile --label "Voile" \
     [--source termes.txt] [--famille greement="Gréement et voiles" ...] [--audience "…"] [--scope "…"] \
-    [--corpus DOSSIER_DE_PAGES_HTML] [--analysis items.json | --no-llm]
+    [--corpus DOSSIER | --corpus-sitemap URL | --corpus-urls URL,URL] [--public-url https://mon.site] [--skip-selectors ".menu"] [--analysis items.json | --no-llm]
 python3 scripts/check_lexicon.py voile        # verdict : LEXIQUE PROPRE ✓ / NON CONFORME ✗
 ```
 
@@ -244,8 +331,8 @@ Le script crée `lexicons/<slug>/` (racine propre : `data/`, `dist/<slug>/`, et 
 
 - famille **Divers** + catalogue de familles de départ (`data/familles_labels.json`, option `--famille`) ; structure `data/` ; métadonnées `data/lexicon.json` ;
 - pages **index** (lettres vides masquées, autocomplétion, popups mis en page) et **suggest** (`/<slug>/suggest.html`), slugmap, JSON des fiches / de recherche / de l'index du moteur (`aerolex-<slug>-search.json`, `aerolex-<slug>-index.json`), overlay (recherche + bouton Index) ;
-- **moteur v1.3.0** (frontières Unicode, sigles de 2 lettres en casse exacte, pluriel/singulier, `contexte_requis`) copié dans `dist/` ; **cache-bust** par empreinte (`build-info.json`) ;
-- déclaration dans `lexicons/registry.json` (lu par `suggest_core` ; **redémarrer** le service `com.prunel.aerolex` pour l'activer).
+- **moteur v1.4.0** (frontières Unicode, sigles de 2 lettres en casse exacte, pluriel/singulier, `contexte_requis`) copié dans `dist/` ; **cache-bust** par empreinte (`build-info.json`) ;
+- déclaration dans `lexicons/registry.json` (lu par `suggest_core` ; **redémarrer** le service qui sert l'API de suggestion pour l'activer).
 
 Avec `--source` (liste de termes `.txt .csv .md .pdf .docx`), les termes passent **en lot** par le même pipeline que « Suggérer » (entonnoir gratuit → analyse du modèle → forme de base → variantes → famille → sigles → anti-ridicule, plus post-traitement automatique : forme de base adoptée, variantes à risque décochées, `contexte_requis` proposé d'après la définition, à relire) et sont déposés dans la file **« À valider »** : rien n'est publié. `--analysis` fournit des analyses déjà faites (JSON, contrat du modèle ; voir `scripts/fixtures/demo-voile-items.json`), `--no-llm` ne contacte pas le modèle (définitions « à rédiger », famille Divers : la validation reste bloquée tant que la définition est vide). Après relecture et « Valider » dans l'espace relecteur, `check_lexicon.py` doit passer du premier coup (preuve : `scripts/test_new_lexicon.py`, lexique de démonstration de 15 termes dont 3 sigles, un mot sans accent, un pluriel, un homographe courant). Limites connues : `term_expansions.py` (développés de sigles) est commun à tous les lexiques ; un sigle dont le développé contient des mots courts (« Safety **Of** Life **At** Sea ») n'est pas résolu par `term_display` (le test des sigles le signale) ; les assets de `dist/` sont copiés à la création (les recopier si le moteur change).
 
@@ -256,11 +343,11 @@ Un lexique est propre quand **toutes** ces règles tiennent (`scripts/check_lexi
 1. **Forme de base correcte** : accents comme dans les cours/le corpus, singulier, forme française usuelle ; le sigle seulement si c'est l'usage. Titre sans accent alors que le corpus l'accentue = non conforme (contrôle « titres accentués »).
 2. **Variantes d'appel** générées et décochables : pluriel/singulier (tous les mots pleins), forme sans accent, équivalent anglais, sigle ↔ développé, synonymes.
 3. **Pas de doublon d'appel** : un terme qui n'est qu'une forme d'appel d'une fiche existante devient une variante de cette fiche (bouton « Ajouter comme variante »), pas une nouvelle fiche.
-4. **Anti-ridicule bloquant** : simulation du soulignement sur le corpus des séances (nombre de nouveaux soulignements + 3 exemples) ; homographe courant ⇒ `contexte_requis` exigé ou variante retirée ; **aucune variante de moins de 3 lettres en minuscules, aucun mot grammatical** (contrôles « variantes » de `check_lexicon`).
+4. **Anti-ridicule bloquant** : simulation du soulignement sur le corpus du lexique, ou simulation générique sans corpus (nombre de nouveaux soulignements + 3 exemples) ; homographe courant ⇒ `contexte_requis` exigé ou variante retirée ; **aucune variante de moins de 3 lettres en minuscules, aucun mot grammatical** (contrôles « variantes » de `check_lexicon`).
 5. **Sigles développés** à la 1re occurrence (traduction française si le développé est étranger), initiales cohérentes avec le sigle (tests `acronyms`, `family_acronyms`).
 6. **Famille obligatoire** (Divers à défaut), catalogue de familles cohérent (`familles --strict`).
 7. **Slug sûr** (translittération, slugs réservés évités, jamais générique) et liens résolus (`slugs`, `links_resolve`) ; fiches voisines proposées.
-8. **Moteur v1.3.0** : frontières Unicode, sigles de 2 lettres en casse exacte, pluriel/singulier, `contexte_requis` (`matching` ; aller-retour : chaque titre et chaque variante est reconnu et mène à sa fiche).
+8. **Moteur v1.4.0** : frontières Unicode, sigles de 2 lettres en casse exacte, pluriel/singulier, `contexte_requis` (`matching` ; aller-retour : chaque titre et chaque variante est reconnu et mène à sa fiche).
 9. **Chaîne officielle sans écart** : `import_lexique --write → build_pages → build_terms_json → build_search_json → build_index_js` ; `import --check` = 0 écart ; cache-bust à jour ; index à lettres vides masquées avec autocomplétion.
 10. **Sauvegarde/restauration** à chaque validation ; relance commentée ; **jamais de validation en prod par un script**.
 

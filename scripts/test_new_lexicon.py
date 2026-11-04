@@ -35,6 +35,7 @@ real_full, real_exp = sha(REAL / "data" / "data_glossaire_full.py"), sha(REAL / 
 # ── copie minimale du projet : chaîne de build + moteur + modèles de pages (pas les 1300 fiches) ──
 (BASE / "dist" / "aero").mkdir(parents=True)
 (BASE / "data").mkdir()
+subprocess.run(["cp", str(REAL / "data" / "lexicon.json"), str(BASE / "data" / "lexicon.json")], check=True)   # configuration du lexique principal (son id est réservé)
 subprocess.run(["rsync", "-a", "--exclude", "__pycache__", "--exclude", "fixtures", str(REAL / "scripts"), str(REAL / "src"), str(REAL / "build_index_js.py"), str(BASE) + "/"], check=True)
 for f in ("aerolex.js", "aerolex.css", "aerolex-page.css", "aerolex-svg.js", "aerolex-indexpage.css", "aerolex-indexpage.js", "aerolex-searchbox.js"):
     subprocess.run(["cp", str(REAL / "dist" / f), str(BASE / "dist" / f)], check=True)
@@ -55,13 +56,21 @@ NL.check_slug("demo-voile")
 # ── 2. création ──
 FAM = {"greement": "Gréement et voiles", "manoeuvres": "Manœuvres", "coque": "Coque et appendices", "reglementation": "Règlement et navigation"}
 out = []
-root = NL.create_lexicon("demo-voile", "Voile (démonstration)", BASE, familles=FAM, out=out.append)
+# corpus du lexique de démonstration : celui que déclare la configuration du lexique principal (si présent sur cette machine) ;
+# sinon aucun (les assertions qui en dépendent sont alors sautées).
+_cj = (json.loads((REAL / "data" / "lexicon.json").read_text("utf-8")).get("corpus") or {})
+_cdir = (REAL / str(_cj.get("path", "-absent-"))).resolve()
+if not _cdir.is_dir() and os.environ.get("AEROLEX_CORPUS_DIR"):
+    _cdir = Path(os.environ["AEROLEX_CORPUS_DIR"]).resolve()
+HAS_CORPUS = _cdir.is_dir()
+root = NL.create_lexicon("demo-voile", "Voile (démonstration)", BASE, familles=FAM, out=out.append,
+                         corpus=NL.corpus_spec(str(_cdir)) if HAS_CORPUS else NL.corpus_spec())
 dd = root / "dist" / "demo-voile"
 check("création: structure data/ (glossaire, full, familles, méta, extra_content)", all((root / "data" / f).exists() for f in (
     "data_glossaire.py", "data_glossaire_full.py", "familles_labels.json", "lexicon.json", "extra_content.py", "lexique-filtre.txt")))
 check("création: catalogue de familles de départ écrit", json.loads((root / "data" / "familles_labels.json").read_text("utf-8")) == FAM)
-check("création: moteur v1.3.0 + feuilles copiés", all((root / "dist" / f).exists() for f in ("aerolex.js", "aerolex-indexpage.js", "aerolex-searchbox.js")) and
-      "AeroLex Runtime v1.3.0" in (root / "dist" / "aerolex.js").read_text("utf-8"))
+check("création: moteur v1.4.0 + feuilles copiés", all((root / "dist" / f).exists() for f in ("aerolex.js", "aerolex-indexpage.js", "aerolex-searchbox.js")) and
+      "AeroLex Runtime v1.4.0" in (root / "dist" / "aerolex.js").read_text("utf-8"))
 check("création: page index (autocomplétion) + slugmap + lexicon.json + build-info + suggest", all((dd / f).exists() for f in (
     "index.html", "slugmap.json", "lexicon.json", "build-info.json", "suggest.html", "suggest.js", "suggest.css")))
 _ix = (dd / "index.html").read_text("utf-8")
@@ -80,7 +89,8 @@ except SystemExit:
 import suggest_core as core  # noqa: E402
 idx = core.get_index("demo-voile")
 check("suggest: lexique reconnu, famille Divers d'office + catalogue", "divers" in idx.families and set(FAM) <= set(idx.families), idx.families)
-check("suggest: lexique « aero » du projet inchangé dans la liste", "aero" in core.LEXICONS and core.LEXICONS["demo-voile"]["root"] == "lexicons/demo-voile")
+check("suggest: lexique créé déclaré (racine propre, corpus de sa configuration)", core.LEXICONS["demo-voile"]["root"] == "lexicons/demo-voile" and
+      (core.LEXICONS["demo-voile"].get("corpus", {}).get("type") == ("dir" if HAS_CORPUS else "none")), core.LEXICONS["demo-voile"])
 
 # ── 3. lot de termes source -> file « À valider » (même pipeline que Suggérer) ──
 items = json.loads((HERE / "fixtures" / "demo-voile-items.json").read_text("utf-8"))
@@ -95,9 +105,9 @@ check("lot: variantes générées (pluriel, anglais) pour foc", [v["type"] for v
 check("lot: sigles (AIS, VMG, EPIRB) : développés proposés en variantes", {v["forme"] for v in pend["AIS"]["data"]["variantes"]} >= {"Automatic Identification System"})
 check("lot: famille obligatoire (tous classés, Divers autorisé)", all(p["data"].get("famille") for p in pend.values()) and pend["VMG"]["data"]["famille"] == "divers")
 check("lot: homographe courant « voile » : contexte_requis du modèle conservé", pend["voile"]["data"]["contexte_requis"] and pend["voile"]["data"]["homographe_courant"])
-check("lot: variante anglaise « rudder » (homographe des séances) décochée automatiquement", "rudder" not in [v["forme"] for v in pend["safran"]["data"]["variantes"] if v["coche"]] and
+check("lot: variante anglaise « rudder » (homographe des séances) décochée automatiquement", not HAS_CORPUS or "rudder" not in [v["forme"] for v in pend["safran"]["data"]["variantes"] if v["coche"]] and
       any("rudder" in n for n in rep["corriges"].get(pend["safran"]["id"], [])), rep["corriges"])
-check("lot: « écoute » (108 passages hors sujet) : contexte_requis proposé d'après la définition", pend["écoute"]["data"]["contexte_requis"] and
+check("lot: « écoute » (108 passages hors sujet) : contexte_requis proposé d'après la définition", not HAS_CORPUS or pend["écoute"]["data"]["contexte_requis"] and
       any("contexte_requis proposé" in n for n in rep["corriges"].get(pend["écoute"]["id"], [])))
 bad = []
 for p in pend.values():
@@ -113,12 +123,15 @@ po = core.list_proposals("demo-offline")
 check("hors ligne: termes en file, définition à rédiger, famille Divers", len(po) == 2 and all(p["data"].get("a_rediger") and p["data"]["famille"] == "divers" for p in po))
 c = core.check_proposal_id(po[0]["id"], run_llm=False)
 check("hors ligne: validation bloquée tant que la définition est vide", not c["ok"], c["bloquants"])
+_sl = [x for x in c["controles"] if x["nom"] == "Soulignements simulés"]
+check("sans corpus: simulation GÉNÉRIQUE signalée dans le cartouche, sans erreur", len(_sl) == 1 and _sl[0]["simulation"]["generique"] and
+      "simulation générique (aucun corpus configuré)" in _sl[0]["detail"] and _sl[0]["simulation"]["disponible"], _sl)
 
 # ── 5. validation (dans la COPIE) puis verdict check_lexicon ──
 r = core.validate_proposals([p["id"] for p in core.list_proposals("demo-voile")], run_llm=False)
 check("validation: 15 fiches publiées dans le lexique de démonstration", len(r["valides"]) == 15 and r["fiches"] == [0, 15], r)
 p = subprocess.run([sys.executable, "scripts/check_lexicon.py", "demo-voile", "--base", str(BASE)], cwd=str(BASE), capture_output=True, text=True)
-check("check_lexicon: passe du premier coup après le pipeline", p.returncode == 0 and "LEXIQUE PROPRE" in p.stdout, p.stdout[-900:])
+check("check_lexicon: passe du premier coup après le pipeline", p.returncode == 0 and "LEXIQUE PROPRE" in p.stdout, "\n".join(l for l in p.stdout.splitlines() if not l.strip().startswith("✓"))[-1500:])
 check("check_lexicon: enchaîne tous les contrôles du jour", all(k in p.stdout for k in (
     "acronyms", "family_acronyms", "links_resolve", "slugs", "familles --strict", "matching", "import (diff = 0)", "titres accentués",
     "variante < 3 lettres", "mot grammatical", "aller-retour", "empreinte", "index")), p.stdout)

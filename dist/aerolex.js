@@ -1,13 +1,27 @@
 /*!
- * AeroLex Runtime v1.3.0
- * Surlignage des termes aéronautiques (vanilla JS, zéro dépendance)
+ * AeroLex Runtime v1.4.0
+ * Surlignage des termes d'un lexique (vanilla JS, zéro dépendance, aucun appel serveur pour décider d'un soulignement)
  *
- * Usage :
+ * Intégration minimale (une balise) :
  *   <link rel="stylesheet" href=".../aerolex.css">
- *   <script src=".../aerolex.js" defer data-index=".../aerolex-index.json"></script>
+ *   <script src=".../aerolex.js" defer data-lexicon="mon-lexique" data-src=".../aerolex-mon-lexique-index.json"></script>
  *
- * Config optionnelle (window.AeroLexConfig) :
- *   { indexUrl: '...', container: 'body', onDone: fn }
+ * Tout ce qui décide d'un soulignement voyage avec ce fichier (règles génériques : casse exacte, sigles courts, unités après
+ * nombre, élision, frontières Unicode, pluriel/singulier) et avec l'index (règles du lexique : contexte_requis, homonymes, casse,
+ * exclusions ; bloc "meta" : zones à ignorer, mots à casse exacte, METAR). Le seul fichier lu est l'index (statique).
+ *
+ * Options — attribut de la balise script  |  window.AeroLexConfig (prioritaire)  |  défaut
+ *   data-src / data-index      indexUrl        URL de l'index du lexique (défaut : aerolex-index.json à côté du script)
+ *   data-lexicon               lexicon         identifiant du lexique (défaut : meta.lexicon de l'index)
+ *   data-skip-selectors        skipSelectors   sélecteurs CSS (liste séparée par des virgules / tableau) des zones à ne PAS souligner,
+ *                                              EN PLUS des défauts génériques et de meta.display.skip_selectors de l'index
+ *   data-skip-tags             skipTags        balises ignorées (défaut : script style code pre textarea input select option noscript
+ *                                              svg canvas iframe a summary button h1-h6) ; remplace la liste par défaut
+ *   data-container             container       sélecteur CSS de la zone à traiter (défaut : body)
+ *   data-aerolex-base          termsBase       dossier des fiches par mot (défaut : meta.terms_base de l'index)
+ *   data-metar                 metar           true/false : couche METAR (défaut : meta.display.metar de l'index, sinon false)
+ *   (attribut sur un élément)  data-aerolex-skip : tout le sous-arbre est ignoré
+ *   onDone: fn(stats)          rappel en fin de traitement
  *
  * Approche DOM : TreeWalker sur nœuds texte (nodeType 3), deux passes.
  * Passe 1 (METAR) : div.metar → tokenise chaque nœud texte, remplace par
@@ -67,6 +81,8 @@
   // ══════════════════════════════════════════════════════════════════════════
   // CASSE — homographes français
   // ══════════════════════════════════════════════════════════════════════════
+  /* Mots courants de la langue française, jamais soulignés en minuscules (casse exacte exigée).
+     Liste GÉNÉRIQUE : les mots propres à un lexique (« nm » pour l'aéro) viennent de l'index (meta.rules.exact_case). */
   var HOMOGRAPHES_FR = new Set([
     'a','ai','aie','ait','as','au','aux','ay','bien','bon',
     'ca','car','cas','ce','ces','cet','ceux','chez','ci',
@@ -74,7 +90,7 @@
     'elle','en','es','est','et','eu','eux','fa','fait','fit','fois','ha','hier',
     'ici','il','ils','je','la','le','les','leur','lors','lu','lui',
     'ma','mais','mes','met','mets','mien','moi','moins','mon',
-    'ne','ni','nm','non','nos','nous','nu','nul',
+    'ne','ni','non','nos','nous','nu','nul',
     'on','ont','or','ou','ou','oui',
     'par','pas','peu','plus','pour','pu','puis',
     'que','qui','quoi','re','rien',
@@ -109,9 +125,10 @@
     return n;
   }
 
-  function needsExactCase(surface) {
+  function needsExactCase(surface, extra) {
     if (nbMots(surface) !== 1) return false;
-    return /[A-Z]/.test(surface) && HOMOGRAPHES_FR.has(stripAccents(surface.toLowerCase()));
+    var b = stripAccents(surface.toLowerCase());
+    return /[A-Z]/.test(surface) && (HOMOGRAPHES_FR.has(b) || (!!extra && extra.has(b)));
   }
 
   /* ── SYMBOLES D'UNITÉ ULTRA-COURTS ──────────────────────────────────
@@ -205,11 +222,12 @@
     'abus','jus','dos','gaz','tous','plus','moins','sans','vers','fois','lors',
     'puis','alors','hors','dessus','dessous','avis','pardessus','velours'
   ]);
-  var SINGULIER_EXCLUS = new Set(['indices']);
-  function singuliers(mot) {
+  /* Pluriels dont le singulier automatique est interdit (« indices » ≠ « indice » quand le lexique définit « index ») :
+     propres à un lexique, donc fournis par l'index (meta.rules.singular_exclude) ; aucun par défaut. */
+  function singuliers(mot, exclus) {
     if (!mot || /[A-Z]/.test(mot) || mot.indexOf("'")>=0) return [];
     var base = stripAccents(mot.toLowerCase());
-    if (SINGULIER_EXCLUS.has(base)) return [];
+    if (exclus && exclus.has(base)) return [];
     var parts = mot.split(' ');
     var pleins = 0;
     for (var i=0;i<parts.length;i++) {
@@ -228,7 +246,16 @@
   // ══════════════════════════════════════════════════════════════════════════
   // TABLE DES SURFACES
   // ══════════════════════════════════════════════════════════════════════════
-  function buildMaps(termsData) {
+  function buildMaps(termsData, rules) {
+    /* rules : meta.rules de l'index (facultatif). Accepte aussi l'index entier ({meta, terms}). */
+    if (termsData && termsData.terms && typeof termsData.terms === 'object') {
+      rules = rules || (termsData.meta && termsData.meta.rules);
+      termsData = termsData.terms;
+    }
+    rules = rules || {};
+    var normW = function (w) { return stripAccents(String(w).toLowerCase()); };
+    var exactExtra = new Set((rules.exact_case || []).map(normW));
+    var singExcl   = new Set((rules.singular_exclude || []).map(normW));
     var ciMap = Object.create(null); // lower_surface -> {canon, s, auto?} (casse libre)
     var csMap = Object.create(null); // exact_surface -> {canon, s, auto?} (casse exacte)
     var ctx   = Object.create(null); // canon -> [motifs]   (contexte_requis)
@@ -242,10 +269,10 @@
       if (!surface) return;
       var lc = surface.toLowerCase();
       // Skip variantes minuscules ambiguës
-      if (nbMots(surface)===1 && HOMOGRAPHES_FR.has(stripAccents(lc)) && !/[A-Z]/.test(surface)) return;
+      if (nbMots(surface)===1 && (HOMOGRAPHES_FR.has(stripAccents(lc)) || exactExtra.has(stripAccents(lc))) && !/[A-Z]/.test(surface)) return;
       var ent = {canon:canon, s:s};
       if (auto) ent.auto = auto;
-      if (forceCs || needsExactCase(surface)) {   // forceCs : champ cs de la fiche (casse_sensible : TORA, TODA…)
+      if (forceCs || needsExactCase(surface, exactExtra)) {   // forceCs : champ cs de la fiche (casse_sensible : TORA, TODA…)
         if (!csMap[surface]) csMap[surface] = ent;
       } else {
         if (!ciMap[lc]) ciMap[lc] = ent;
@@ -282,7 +309,7 @@
       for (var fj=0; fj<fm2.length; fj++) {
         var pls = pluriels(fm2[fj]);
         for (var pi=0;pi<pls.length;pi++) add(pls[pi], can2, s2, 'pl');
-        var sgs = singuliers(fm2[fj]);
+        var sgs = singuliers(fm2[fj], singExcl);
         for (var si=0;si<sgs.length;si++) add(sgs[si], can2, s2, 'sg');
       }
     }
@@ -416,44 +443,53 @@
   }
 
   // ══════════════════════════════════════════════════════════════════════════
-  // FILTRE TREEWALKER — éléments à ne jamais traverser
-  // ══════════════════════════════════════════════════════════════════════════
-  // Tags dont on rejette tout le sous-arbre texte :
-  var SKIP_TAGS_TW = new Set([
-    'SCRIPT','STYLE','CODE','PRE','TEXTAREA','INPUT','SELECT','OPTION',
-    'NOSCRIPT','SVG','CANVAS','IFRAME','A','SUMMARY','BUTTON',
-    'H1','H2','H3','H4','H5','H6',
-  ]);
+  // ═════════════════════════════════════════════════════════════════
+  // FILTRE TREEWALKER — zones à ne jamais traverser (configurables par l'intégrateur)
+  // ═════════════════════════════════════════════════════════════════
+  // Balises dont on rejette tout le sous-arbre texte (défauts GÉNÉRIQUES : code, liens, boutons, titres, formulaires, médias) :
+  var SKIP_TAGS_DEFAUT = ['SCRIPT','STYLE','CODE','PRE','TEXTAREA','INPUT','SELECT','OPTION',
+    'NOSCRIPT','SVG','CANVAS','IFRAME','A','SUMMARY','BUTTON','H1','H2','H3','H4','H5','H6'];
 
-  // Classes d'éléments racine à exclure complètement (mêmes zones que PARK_RE) :
-  var SKIP_CLS_TW = ['glos','barre-score','qcm-options','aerolex-skip'];
+  // Toujours ignoré, quelle que soit la configuration : les spans posés par le moteur lui-même (idempotence, popups) —
+  // classe « glos » ou préfixe « glos- » (glos-metar, glos-vide, glos-index…) — et la classe d'exclusion « aerolex-skip ».
+  var SKIP_SELECTEUR_MOTEUR = '.glos,[class^="glos-"],[class*=" glos-"],.aerolex-skip,[data-aerolex-skip]';
 
-  // Retourne un NodeFilter pour le TreeWalker.
-  // Vérifie les ancêtres du nœud texte jusqu'au container (stopEl) :
-  //   — tag interdit (SKIP_TAGS_TW)
-  //   — contenteditable
-  //   — classe glos/glos-metar/glos-vide (idempotence), aerolex-skip,
-  //     barre-score, qcm-options
-  //   — attribut data-aerolex-skip
-  function makeGlossaryFilter(stopEl) {
+  function listeConfig(v) {
+    if (!v) return [];
+    if (typeof v === 'string') v = v.split(',');
+    var out = [];
+    for (var i = 0; i < v.length; i++) { var t = String(v[i]).trim(); if (t) out.push(t); }
+    return out;
+  }
+
+  /* Sélecteurs de l'intégrateur + de l'index : chacun est validé seul (un sélecteur invalide est signalé puis ignoré,
+     il ne casse jamais le soulignement). Retourne un sélecteur combiné ou ''. */
+  function selecteurSkip(listes) {
+    var test = document.createElement('div'), ok = [];
+    for (var l = 0; l < listes.length; l++) {
+      for (var i = 0; i < listes[l].length; i++) {
+        var sel = listes[l][i];
+        try { test.matches(sel); ok.push(sel); }
+        catch (e) { console.warn('[AeroLex] sélecteur ignoré (invalide) : ' + sel); }
+      }
+    }
+    return ok.join(',');
+  }
+
+  // Retourne un NodeFilter pour le TreeWalker. Rejette un nœud texte si un de ses ancêtres (jusqu'au conteneur, exclu) est :
+  //   — une balise de skip.tags ; contenteditable ; un élément du moteur (SKIP_SELECTEUR_MOTEUR) ;
+  //   — un élément qui correspond à skip.selector (skipSelectors + meta.display.skip_selectors)
+  function makeGlossaryFilter(stopEl, skip) {
+    skip = skip || {tags: new Set(SKIP_TAGS_DEFAUT), selector: ''};
+    var combine = SKIP_SELECTEUR_MOTEUR + (skip.selector ? ',' + skip.selector : '');
     return {
       acceptNode: function (node) {
         var el = node.parentNode;
         while (el && el !== stopEl) {
           if (el.nodeType !== 1) { el = el.parentNode; continue; }
-          // Tag interdit ?
-          if (SKIP_TAGS_TW.has(el.tagName)) return NodeFilter.FILTER_REJECT;
-          // contenteditable ?
+          if (skip.tags.has(el.tagName)) return NodeFilter.FILTER_REJECT;
           if (el.contentEditable === 'true') return NodeFilter.FILTER_REJECT;
-          // Classe protégée ?
-          var cls = typeof el.className === 'string'
-            ? el.className
-            : (el.className && el.className.baseVal) || '';
-          for (var ci = 0; ci < SKIP_CLS_TW.length; ci++) {
-            if (cls.indexOf(SKIP_CLS_TW[ci]) >= 0) return NodeFilter.FILTER_REJECT;
-          }
-          // Attribut data-aerolex-skip ?
-          if (el.hasAttribute && el.hasAttribute('data-aerolex-skip')) return NodeFilter.FILTER_REJECT;
+          try { if (el.matches(combine)) return NodeFilter.FILTER_REJECT; } catch (e) { /* sélecteur déjà validé */ }
           el = el.parentNode;
         }
         return NodeFilter.FILTER_ACCEPT;
@@ -461,7 +497,6 @@
     };
   }
 
-  // ══════════════════════════════════════════════════════════════════════════
   // COUCHE METAR (Passe 1) — via DOM, sans innerHTML
   // Trouve les div.metar, parcourt leurs nœuds texte, remplace chaque nœud
   // par un DocumentFragment (texte brut + spans glos-metar).
@@ -571,8 +606,8 @@
   // 2. Applique les remplacements (peut modifier le DOM, mais les refs
   //    collectées à l'étape 1 ne bougent pas).
   // ══════════════════════════════════════════════════════════════════════════
-  function applyGlossaryToDOM(container, rx, maps, occMap) {
-    var filter = makeGlossaryFilter(container);
+  function applyGlossaryToDOM(container, rx, maps, occMap, skip) {
+    var filter = makeGlossaryFilter(container, skip);
     var tw = document.createTreeWalker(container, NodeFilter.SHOW_TEXT, filter);
 
     // Passe 1 : collecte (zéro mutation)
@@ -596,6 +631,9 @@
 
     var cfg       = window.AeroLexConfig || {};
     var scriptEl  = document.currentScript || document.querySelector('script[src*="aerolex"]');
+    var ds        = (scriptEl && scriptEl.dataset) || {};
+    /* data-lexicon : identifiant du lexique (le moteur ne fait aucune hypothèse sur son nom) ; data-src = alias de data-index. */
+    var lexiconId = cfg.lexicon || ds.lexicon || '';
 
     /* ── CACHE-BUST (2026-08-04) ────────────────────────────────────────────
        Bug corrigé : le repli `scriptEl.src.replace(/aerolex\.js([?#].*)?$/,…)`
@@ -624,45 +662,46 @@
     }
 
     var indexUrl  = cfg.indexUrl ||
-                    (scriptEl && scriptEl.dataset && scriptEl.dataset.index) ||
+                    (ds.src || ds.index) ||
                     (_scriptSrc ? _scriptSrc.replace(/aerolex\.js([?#].*)?$/, 'aerolex-index.json') : null);
 
     if (!indexUrl) { console.warn('[AeroLex] index URL introuvable.'); return; }
 
     indexUrl = withVer(indexUrl);
 
-    /* Base des fichiers par mot — CROSS-ORIGIN, UNE SEULE SOURCE
-       (décision Louis, 2026-08-04 02h10).
-       Le lexique n'est PLUS dupliqué chez les sites clients : il vit à un seul
-       endroit et les hôtes le lisent en cross-origin (CORS en liste fermée
-       côté serveur, cf. aerolex/serve_cors.py).
-       Ordre de priorité, identique à celui de aero.js pour qu'il n'existe
-       jamais deux avis sur l'emplacement du lexique :
+    /* Base des fichiers par mot (fiche affichée au clic) — le moteur n'en suppose AUCUNE.
+       Ordre de priorité :
          1. AeroLexConfig.termsBase
          2. window.AEROLEX_BASE
          3. <script data-aerolex-base="…">
-         4. https://aerolex.prunel.net/aero/t/ */
-    var TERMS_BASE_DEFAUT = 'https://aerolex.prunel.net/aero/t/';
+         4. meta.terms_base de l'index (URL absolue, ou relative à l'URL de l'index) — déclarée par le lexique
+         5. à défaut : <dossier de l'index>/<data-lexicon>/t/
+       Les niveaux 1 à 3 sont connus tout de suite ; le niveau 4 le devient à la lecture de l'index (window.AeroLex.termsBase
+       est alors mis à jour, window.AeroLex.termUrl() lit toujours la valeur courante). */
     var _baseAttrEl = document.querySelector('script[data-aerolex-base]');
     var termsBase   = cfg.termsBase
                     || (typeof window.AEROLEX_BASE === 'string' && window.AEROLEX_BASE
                           ? window.AEROLEX_BASE : '')
-                    || (_baseAttrEl ? (_baseAttrEl.getAttribute('data-aerolex-base') || '') : '')
-                    || TERMS_BASE_DEFAUT;
-    if (termsBase.charAt(termsBase.length - 1) !== '/') termsBase += '/';
+                    || (_baseAttrEl ? (_baseAttrEl.getAttribute('data-aerolex-base') || '') : '');
+    var _baseExplicite = !!termsBase;
+    function normBase(b) { return b && b.charAt(b.length - 1) !== '/' ? b + '/' : b; }
+    function resolveUrl(u) {
+      try { return new URL(u, new URL(indexUrl, location.href)).href; } catch (e) { return u; }
+    }
+    termsBase = normBase(termsBase);
 
-    /* Exposé pour aero.js (consommateur de la popup) : il fetche
-       termsBase + <sl> + '.json' + ?v=<ver>, en réutilisant NOTRE version. */
+    /* Exposé pour le consommateur de la popup : il fetche termsBase + <sl> + '.json' + ?v=<ver>, en réutilisant NOTRE version. */
     window.AeroLex.indexUrl  = indexUrl;
     window.AeroLex.termsBase = termsBase;
     window.AeroLex.assetVer  = _ver || '';
     window.AeroLex.termUrl   = function (sl) {
-      if (!sl) return null;
-      return withVer(termsBase + encodeURIComponent(String(sl)) + '.json');
+      if (!sl || !window.AeroLex.termsBase) return null;
+      return withVer(window.AeroLex.termsBase + encodeURIComponent(String(sl)) + '.json');
     };
 
-    var container = cfg.container
-      ? (typeof cfg.container==='string' ? document.querySelector(cfg.container) : cfg.container)
+    var containerSel = cfg.container || ds.container || '';
+    var container = containerSel
+      ? (typeof containerSel==='string' ? document.querySelector(containerSel) : containerSel)
       : document.body;
 
     if (!container) { console.warn('[AeroLex] conteneur non trouvé.'); return; }
@@ -673,13 +712,31 @@
       .then(function(data){
         if (container.dataset && container.dataset.aerolexDone==='1') return; // 2e appel concurrent
         var termsData = data.terms || data;
+        var meta = (data.terms && data.meta) || {};
+        var mDisp = meta.display || {}, mRules = meta.rules || {};
+        if (!lexiconId) lexiconId = meta.lexicon || '';
+        /* Base des fiches : déclarée par l'index, sinon déduite de data-lexicon (aucun nom de lexique ni de site codé ici). */
+        if (!_baseExplicite) {
+          var tb = meta.terms_base || (lexiconId ? lexiconId + '/t/' : '');
+          if (tb) { window.AeroLex.termsBase = normBase(resolveUrl(tb)); termsBase = window.AeroLex.termsBase; }
+        }
+        /* Zones à ignorer : défauts génériques + sélecteurs de l'index (meta.display.skip_selectors) + ceux de l'intégrateur. */
+        var skipTags = new Set(SKIP_TAGS_DEFAUT);
+        var tagsCfg = listeConfig(cfg.skipTags || ds.skipTags);
+        if (tagsCfg.length) skipTags = new Set(tagsCfg.map(function (t) { return t.toUpperCase(); }));
+        var skipCfg = {tags: skipTags, selector: selecteurSkip([listeConfig(mDisp.skip_selectors),
+                       listeConfig(cfg.skipSelectors || ds.skipSelectors)])};
+        var metarOn = cfg.metar !== undefined ? !!cfg.metar
+                    : (ds.metar !== undefined ? ds.metar !== 'false' : !!mDisp.metar);
+        window.AeroLex.config = {lexicon: lexiconId, indexUrl: indexUrl, termsBase: window.AeroLex.termsBase,
+                                 skipSelectors: skipCfg.selector, skipTags: Array.from(skipTags), metar: metarOn};
         /* Expose l'index de SURLIGNAGE. Depuis le 2026-08-04 il ne contient
            plus les définitions : la popup ne lit ici que le slug (routage) et
            l'état rédigé (couleur), puis fetche dist/aero/t/<slug>.json au clic.
            Le bloc "families" a disparu de l'index — les membres d'une famille
            arrivent dans le fichier du mot, déjà triés et résolus en slugs. */
         window.AeroLex.terms = termsData;
-        var maps = buildMaps(termsData);
+        var maps = buildMaps(termsData, mRules);
         var rx   = buildRegex(maps.ciMap, maps.csMap);
         if (!rx) { console.warn('[AeroLex] aucun terme.'); return; }
 
@@ -722,7 +779,7 @@
             }
           }
           try {
-            applyGlossaryToDOM(root, rx, maps, occLocal);
+            applyGlossaryToDOM(root, rx, maps, occLocal, skipCfg);
           } finally {
             for (var q = 0; q < retires.length; q++) {
               if (retires[q][0] === 'ci') maps.ciMap[retires[q][1]] = retires[q][2];
@@ -774,7 +831,7 @@
         // Idempotence : portée par container.dataset.aerolexDone (testé en tête
         // d'init). Les spans .glos posés au BUILD (METAR ou glossaire) ne doivent
         // PAS court-circuiter le passage : le TreeWalker rejette déjà les nœuds
-        // situés dans .glos (SKIP_CLS_TW), donc pas de double soulignement, et les
+        // situés dans .glos (SKIP_SELECTEUR_MOTEUR), donc pas de double soulignement, et les
         // termes absents du build (ex. « masse à vide », « datum ») sont complétés.
 
         // ── Stratégie : TreeWalker sur nœuds texte ──────────────────────
@@ -784,11 +841,11 @@
 
         // 1. METAR (doit passer en premier : ses spans seront exclus par le
         //    filtre TreeWalker de la passe glossaire via la classe "glos")
-        applyMetarToDOM(container, occMap);
+        if (metarOn) applyMetarToDOM(container, occMap);
         var nMetar = container.querySelectorAll('.glos-metar').length;
 
         // 2. Glossaire
-        applyGlossaryToDOM(container, rx, maps, occMap);
+        applyGlossaryToDOM(container, rx, maps, occMap, skipCfg);
 
         // 3. Comptages
         var nTotal = container.querySelectorAll('.glos').length;
@@ -808,7 +865,7 @@
   // ══════════════════════════════════════════════════════════════════════════
   // EXPOSITION + AUTO-INIT
   // ══════════════════════════════════════════════════════════════════════════
-  window.AeroLex = { init: init, version: '1.3.0' };
+  window.AeroLex = { init: init, version: '1.4.0' };
   /* Cœur de décision exposé pour les tests (test_matching.py, mesures sur les
      séances) : aucun effet sur le rendu. */
   window.AeroLexCore = { buildMaps: buildMaps, buildRegex: buildRegex, findMatches: findMatches,
