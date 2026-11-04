@@ -240,6 +240,13 @@ GLOSS_FIX = {
     "dgac": (None, None),
 }
 
+# Sigles/abréviations SANS fiche propre mais cités dans des libellés ou alias
+# (ex. alias « KIAS » de la fiche IAS) : développé + équivalent FR. Même format
+# que EXPANSIONS ; consommé par term_display.extra_info() (HTML + popup).
+EXTRA_ABBREVIATIONS = {
+    "KIAS": ("Knots Indicated Airspeed", "vitesse indiquée en nœuds", ""),
+}
+
 # Mots/phrases dont le calcul automatique tire un « développement » qui n'en est
 # pas un (mot ordinaire, répétition du titre, junk) : on n'affiche rien.
 NOT_ACRONYMS = {
