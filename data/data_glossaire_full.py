@@ -216,6 +216,7 @@ GLOSSAIRE = {
         'variantes': ['aerocoliques'],
     },
     'aerofrein': {
+        'famille': 'trainee',
         'definition': "Dispositif mobile augmentant la traînée aérodynamique de l'aéronef sans modifier la portance. Principalement utilisé sur planeur pour accentuer la pente de descente sans prendre de vitesse.",
         'categorie': 'Aérodynamique',
         'statut': 'redigee',
@@ -405,6 +406,7 @@ GLOSSAIRE = {
         'xrefs': ['crossfeed', 'réservoir'],
     },
     'allongement': {
+        'famille': 'structure_aile',
         'definition': "Rapport entre le carré de l'envergure et la surface alaire d'une aile. Un allongement élevé réduit la traînée induite par les tourbillons marginaux, améliorant la finesse en vol plané.",
         'categorie': 'Aérodynamique',
         'statut': 'redigee',
@@ -615,6 +617,7 @@ GLOSSAIRE = {
         'xrefs': ['stabilité dynamique', 'stabilité longitudinale'],
     },
     'amortisseur': {
+        'famille': 'train_atterrissage',
         'definition': "Dispositif mécanique ou oléopneumatique intégré au train d'atterrissage conçu pour absorber l'énergie cinétique de l'impact lors du toucher des roues et amortir les oscillations lors des phases de roulage.",
         'categorie': 'Structure & cellule',
         'statut': 'redigee',
@@ -672,6 +675,7 @@ GLOSSAIRE = {
         'xrefs': ['profil', 'corde'],
     },
     'angle de dérive': {
+        'famille': 'composantes_vent',
         'definition': "Angle formé entre le cap de l'aéronef (orientation du nez) et sa route réelle au sol. Cette différence est causée par le vent de travers et doit être compensée en vol.",
         'categorie': 'Vent',
         'statut': 'redigee',
@@ -755,6 +759,7 @@ GLOSSAIRE = {
         'xrefs': ['autorisation', 'zone R', 'zone D', 'zone P'],
     },
     'aquila': {
+        'famille': 'types_avions',
         'definition': "Constructeur européen d'avions légers de formation, notamment célèbre pour le modèle biplace. Cet appareil moderne en composite est couramment utilisé dans les aéroclubs français.",
         'categorie': 'Aérodrome & cartes',
         'statut': 'redigee',
@@ -965,6 +970,7 @@ GLOSSAIRE = {
         'schema': False,
     },
     'atterrisseur': {
+        'famille': 'train_atterrissage',
         'definition': "Organe mécanique structural d'un aéronef assurant les fonctions indispensables d'absorption des chocs de l'atterrissage, de freinage efficace et de guidage au sol de l'appareil lors du roulage.",
         'categorie': 'Structure & cellule',
         'statut': 'redigee',
@@ -1169,6 +1175,7 @@ GLOSSAIRE = {
         'xrefs': ['auto-information', 'agent AFIS', 'aérodrome contrôlé'],
     },
     'aérofreinage': {
+        'famille': 'trainee',
         'definition': "Technique consistant à utiliser la traînée aérodynamique de la cellule, en maintenant l'assiette cabrée au roulis après le toucher des roues, pour ralentir l'aéronef avant d'utiliser les freins mécaniques.",
         'categorie': 'Aérodynamique',
         'statut': 'redigee',
@@ -1449,6 +1456,7 @@ GLOSSAIRE = {
         'schema': False,
     },
     'brassage': {
+        'famille': 'procedures_sol',
         'definition': "Action manuelle consistant à faire tourner l'hélice à l'arrêt pour lubrifier les cylindres ou évacuer l'huile accumulée. Attention, cette opération doit se faire contact coupé et avec une extrême prudence.",
         'categorie': 'Procédures',
         'statut': 'redigee',
@@ -1906,6 +1914,7 @@ GLOSSAIRE = {
         'xrefs': ['altitude', 'étage supérieur', 'turbulence en air clair'],
     },
     'catégorie normale': {
+        'famille': 'charges_domaine_vol',
         'definition': 'Classification de certification des aéronefs interdisant la voltige et limitant les facteurs de charge admissibles. Elle est destinée au transport de passagers et aux vols de voyage standard sous régime VFR.',
         'categorie': 'Structure & cellule',
         'statut': 'redigee',
@@ -1915,6 +1924,7 @@ GLOSSAIRE = {
         'xrefs': ['catégorie utilitaire', 'catégorie voltige', 'facteur de charge limite'],
     },
     'catégorie utilitaire': {
+        'famille': 'charges_domaine_vol',
         'definition': "Classification de certification des aéronefs autorisant des manœuvres de vol plus exigeantes qu'en catégorie normale, comme les virages serrés, sous réserve de respecter des limites structurales de charge plus restrictives.",
         'categorie': 'Structure & cellule',
         'statut': 'redigee',
@@ -1924,6 +1934,7 @@ GLOSSAIRE = {
         'xrefs': ['catégorie normale', 'catégorie voltige', 'facteur de charge limite'],
     },
     'catégorie voltige': {
+        'famille': 'charges_domaine_vol',
         'definition': "Classification réglementaire de certification de la cellule d'un aéronef l'autorisant à effectuer des manœuvres acrobatiques extrêmes sans limitation de factor de charge autre que les limites structurales très élevées constructeur.",
         'categorie': 'Structure & cellule',
         'statut': 'redigee',
@@ -1983,6 +1994,7 @@ GLOSSAIRE = {
         'xrefs': ['harnais', 'évacuation'],
     },
     'cellule': {
+        'famille': 'cellule_fuselage',
         'definition': "Ensemble de la structure d'un aéronef comprenant le fuselage, la voilure, l'empennage, les trains d'atterrissage et les commandes de vol, à l'exclusion du groupe motopropulseur. C'est l'ossature qui supporte toutes les charges aérodynamiques et de structure en vol.",
         'categorie': 'Structure & cellule',
         'statut': 'redigee',
@@ -2049,6 +2061,7 @@ GLOSSAIRE = {
         'variantes': ['centres de gravité'],
     },
     'centre de poussée': {
+        'famille': 'structure_aile',
         'definition': "Point d'application de la résultante des forces aérodynamiques s'exerçant sur un profil d'aile. Sa position varie le long de la corde en fonction de l'angle d'incidence en vol.",
         'categorie': 'Aérodynamique',
         'statut': 'redigee',
@@ -2491,6 +2504,7 @@ GLOSSAIRE = {
         'xrefs': ['plan de vol déposé', 'INCERFA', 'DETRESFA'],
     },
     'cockpit': {
+        'famille': 'commandes_cockpit',
         'definition': "Espace réservé à l'équipage à l'avant ou dans la cabine de l'aéronef, regroupant l'ensemble des instruments de bord, des commandes de vol et des systèmes de contrôle. Son aménagement ergonomique vise à optimiser le travail du pilote et à réduire la fatigue.",
         'categorie': 'Structure & cellule',
         'statut': 'redigee',
@@ -2594,6 +2608,7 @@ GLOSSAIRE = {
         'variantes': ['coms'],
     },
     'commandant de bord': {
+        'famille': 'equipage_formation',
         'definition': "Pilote responsable de la conduite en toute sécurité et de la direction d'un aéronef pendant le temps de vol. Il détient l'autorité décisionnelle finale à bord pour toutes les opérations, de la mise en route du moteur à l'arrêt complet de l'appareil.",
         'categorie': 'Réglementation & docs',
         'statut': 'redigee',
@@ -2649,6 +2664,7 @@ GLOSSAIRE = {
         'xrefs': ['SIA', 'carte OACI 1/500 000', 'AD'],
     },
     'composante arrière': {
+        'famille': 'composantes_vent',
         'definition': "Vent qui te pousse par l'arrière: il allonge fortement le décollage et l'atterrissage. Souvent limité à 5 ou 10 kt selon l'avion — au-delà, on change de piste. Une composante de face négative est une composante arrière.",
         'categorie': 'Vent',
         'statut': 'redigee',
@@ -2658,6 +2674,7 @@ GLOSSAIRE = {
         'xrefs': ['composante de face', 'vent arrière'],
     },
     'composante de face': {
+        'famille': 'composantes_vent',
         'definition': "Part du vent qui souffle dans l'axe de la piste, face à l'avion (V × cos θ, où θ est l'écart au QFU). Elle raccourcit la distance de décollage et d'atterrissage.",
         'categorie': 'Vent',
         'statut': 'redigee',
@@ -2667,6 +2684,7 @@ GLOSSAIRE = {
         'xrefs': ['composante de travers', 'composante arrière', 'vent de face', 'θ'],
     },
     'composante de travers': {
+        'famille': 'composantes_vent',
         'definition': "Part du vent perpendiculaire à la piste (V × sin θ, où θ est l'écart au QFU). Estimée au tiers par secteurs, elle se compare à la limite démontrée de l'avion calculée sur les rafales.",
         'categorie': 'Vent',
         'statut': 'redigee',
@@ -2676,6 +2694,7 @@ GLOSSAIRE = {
         'xrefs': ['composante de face', 'décrabage', 'vent traversier', 'θ'],
     },
     'composite': {
+        'famille': 'cellule_fuselage',
         'definition': "Matériau constitué de l'assemblage de plusieurs composants (fibres de verre, de carbone, résines) présentant des propriétés mécaniques supérieures. Très utilisé en construction aéronautique moderne, il offre une excellente rigidité pour une masse réduite, mais nécessite une inspection rigoureuse après un choc.",
         'categorie': 'Structure & cellule',
         'statut': 'redigee',
@@ -2720,6 +2739,7 @@ GLOSSAIRE = {
         'schema': False,
     },
     'configuration': {
+        'famille': 'divers',
         'definition': "État des éléments aérodynamiques mobiles ou escamotables d'un aéronef à un instant donné (position des volets, du train d'atterrissage, du compensateur). La configuration influe directement sur la portance, la traînée et les performances de l'appareil.",
         'categorie': 'Aérodynamique',
         'statut': 'redigee',
@@ -2794,6 +2814,7 @@ GLOSSAIRE = {
         'xrefs': ["rayon d'action", 'poussée'],
     },
     'constante structurale': {
+        'famille': 'charges_domaine_vol',
         'definition': "Grandeur caractérisant la résistance retenue au dimensionnement d'un élément de cellule, exprimée comme rapport entre charge admissible et section sollicitée. Elle fixe la marge conservée entre effort de service et rupture.",
         'categorie': 'Structure & cellule',
         'statut': 'redigee',
@@ -3274,6 +3295,7 @@ GLOSSAIRE = {
         'variantes': ['dgacs'],
     },
     'diagramme de manœuvre': {
+        'famille': 'charges_domaine_vol',
         'definition': "Représentation graphique associant la vitesse de l'aéronef au facteur de charge. Il définit l'enveloppe de vol sécurisée, incluant la vitesse de manœuvre et les facteurs de charge limites admissibles par la structure.",
         'categorie': 'Aérodynamique',
         'statut': 'redigee',
@@ -3283,6 +3305,7 @@ GLOSSAIRE = {
         'xrefs': ['facteur de charge limite', 'facteur de charge ultime'],
     },
     'diagramme v-n': {
+        'famille': 'charges_domaine_vol',
         'definition': "Représentation graphique (vitesse en ordonnée, facteur de charge en abscisse) définissant les limites structurales et aérodynamiques d'un aéronef. Il délimite le domaine de vol autorisé en visant à séparer les zones normale, de rafales et de risques de rupture.",
         'categorie': 'Aérodynamique',
         'statut': 'redigee',
@@ -3385,6 +3408,7 @@ GLOSSAIRE = {
         'xrefs': ['distance franchissement 15 m', 'plafond pratique'],
     },
     'dièdre': {
+        'famille': 'structure_aile',
         'definition': "Angle formé par l'aile d'un avion avec le plan horizontal transversal. Un dièdre positif améliore la stabilité latérale naturelle en vol en induisant un roulis correcteur lors d'un glissement.",
         'categorie': 'Aérodynamique',
         'statut': 'redigee',
@@ -3414,6 +3438,7 @@ GLOSSAIRE = {
         'xrefs': ['prise de décision', 'situation awareness'],
     },
     'domaine de vol': {
+        'famille': 'charges_domaine_vol',
         'definition': "Ensemble des limites de vitesse, de facteur de charge et d'altitude à l'intérieur desquelles un aéronef peut être exploité en toute sécurité. Les frontières de ce domaine, définies par le constructeur, ne doivent jamais être franchies sous peine de dommages structurels majeurs.",
         'categorie': 'Vitesses & performances',
         'statut': 'redigee',
@@ -3510,6 +3535,7 @@ GLOSSAIRE = {
         'xrefs': ['couche limite', 'extrados', 'décrochage', 'incidence de décrochage'],
     },
     'décrabage': {
+        'famille': 'composantes_vent',
         'definition': "Manœuvre finale par vent de travers: on approche en crabe pour tenir l'axe, puis juste avant le toucher, on réaligne le nez de l'avion au palonnier en contrant la dérive aux ailerons pour protéger le train.",
         'categorie': 'Vent',
         'statut': 'redigee',
@@ -3944,6 +3970,7 @@ GLOSSAIRE = {
         'variantes': ['empennages'],
     },
     'encadrement': {
+        'famille': 'atterrissages',
         'definition': "Manièvre de sécurité d'urgence (prise de terrain par encadrement, ou PTE) permettant de poser l'avion moteur coupé. Elle s'effectue en planant au-dessus d'une piste entre un point d'entrée clé haute et un point clé basse.",
         'categorie': 'Procédures',
         'statut': 'redigee',
@@ -3982,6 +4009,7 @@ GLOSSAIRE = {
         'xrefs': ['limites de centrage', 'diagramme de manœuvre'],
     },
     'envergure': {
+        'famille': 'structure_aile',
         'definition': "Distance séparant les deux extrémités des ailes d'un aéronef. Cette dimension géométrique majeure est une donnée essentielle pour calculer l'allongement de l'aile et évaluer la traînée induite.",
         'categorie': 'Aérodynamique',
         'statut': 'redigee',
@@ -4190,6 +4218,7 @@ GLOSSAIRE = {
         'xrefs': ['évacuation', 'erreur'],
     },
     'extrados': {
+        'famille': 'structure_aile',
         'definition': "Partie supérieure bombée du profil d'une aile. En vol, l'air s'y écoule plus rapidement que sur l'intrados, provoquant une forte dépression qui génère l'essentiel de la force de portance.",
         'categorie': 'Aérodynamique',
         'statut': 'redigee',
@@ -4209,6 +4238,7 @@ GLOSSAIRE = {
         'xrefs': ['base de temps', 'règle du 1 en 60'],
     },
     'facteur de charge': {
+        'famille': 'charges_domaine_vol',
         'definition': "Rapport portance / masse: 1 en vol rectiligne stabilisé, 2 en virage à 60°. La vitesse de décrochage augmente avec sa racine carrée — à 60° d'inclinaison, Vs monte de 41 %.",
         'categorie': 'Aérodynamique',
         'statut': 'redigee',
@@ -4218,6 +4248,7 @@ GLOSSAIRE = {
         'xrefs': ['décrochage', 'vitesse de décrochage', 'assiette'],
     },
     'facteur de charge limite': {
+        'famille': 'charges_domaine_vol',
         'definition': "Valeur maximale de l'accélération verticale qu'une structure d'aéronef peut supporter en vol sans subir de déformations permanentes. Cette limite varie selon la catégorie d'homologation de l'appareil.",
         'categorie': 'Aérodynamique',
         'statut': 'redigee',
@@ -4227,6 +4258,7 @@ GLOSSAIRE = {
         'xrefs': ['facteur de charge ultime', 'diagramme de manœuvre', 'catégorie normale'],
     },
     'facteur de charge ultime': {
+        'famille': 'charges_domaine_vol',
         'definition': 'Coefficient de charge maximal obtenu en multipliant le facteur de charge limite par un coefficient de sécurité. Au-delà, la rupture structurale de la cellule est immédiate et inévitable.',
         'categorie': 'Aérodynamique',
         'statut': 'redigee',
@@ -4416,6 +4448,7 @@ GLOSSAIRE = {
         'xrefs': ['visibilité météo', "brouillard d'advection", "brouillard d'évaporation", 'brouillard'],
     },
     'fi': {
+        'famille': 'equipage_formation',
         'definition': 'Flight Instructor: instructeur de vol habilité à former les élèves pilotes. Il dispense la formation théorique et pratique, valide les lâchers en vol solo et assure les renouvellements de licence.',
         'categorie': 'Réglementation & docs',
         'statut': 'redigee',
@@ -4461,6 +4494,7 @@ GLOSSAIRE = {
         'schema': True,
     },
     'finesse': {
+        'famille': 'performances_verticales',
         'definition': "Rapport distance parcourue / hauteur perdue moteur coupé. Une finesse de 12, c'est 12 km planés par 1000 m perdu: c'est elle qui décide si ton point d'aboutissement est atteignable.",
         'categorie': 'Vitesses & performances',
         'statut': 'redigee',
@@ -4470,6 +4504,7 @@ GLOSSAIRE = {
         'xrefs': ['vitesse de décrochage', 'vol plané', 'pente de descente'],
     },
     'finesse max': {
+        'famille': 'performances_verticales',
         'definition': "Rapport maximal entre la portance et la traînée, correspondant à la distance franchissable maximale en vol plané sans moteur. Elle s'obtient à une vitesse précise, essentielle à connaître pour gérer une panne moteur.",
         'categorie': 'Vitesses & performances',
         'statut': 'redigee',
@@ -4494,6 +4529,7 @@ GLOSSAIRE = {
         'schema': False,
     },
     'flèche': {
+        'famille': 'structure_aile',
         'definition': "Angle formé entre le bord d'attaque de l'aile et l'axe transversal de l'aéronef. Un angle de flèche prononcé permet de retarder l'apparition des ondes de choc aux vitesses transsoniques.",
         'categorie': 'Aérodynamique',
         'statut': 'redigee',
@@ -4531,6 +4567,7 @@ GLOSSAIRE = {
         'variantes': ['foxtrots'],
     },
     'foyer': {
+        'famille': 'structure_aile',
         'definition': "Point fixe du profil d'une aile par rapport auquel le moment aérodynamique reste constant lorsque l'incidence varie. Il se situe théoriquement au quart de la corde de l'aile.",
         'categorie': 'Aérodynamique',
         'statut': 'redigee',
@@ -4718,6 +4755,7 @@ GLOSSAIRE = {
         'variantes': ['fuselages'],
     },
     'fuselage monocoque': {
+        'famille': 'cellule_fuselage',
         'definition': "Concept architectural de cellule où l'ensemble des efforts mécaniques de torsion, flexion et compression est entièrement supporté par la paroi extérieure de l'aéronef, sans renfort interne longitudinal de type lisse.",
         'categorie': 'Structure & cellule',
         'statut': 'redigee',
@@ -4727,6 +4765,7 @@ GLOSSAIRE = {
         'xrefs': ['fuselage semi-monocoque', 'revêtement travaillant', 'fuselage treillis'],
     },
     'fuselage semi-monocoque': {
+        'famille': 'cellule_fuselage',
         'definition': 'Structure de fuselage moderne combinant un revêtement travaillant et des renforts internes longitudinaux et transversaux. Cette conception offre une excellente résistance mécanique pour un poids structural optimal en aviation générale.',
         'categorie': 'Structure & cellule',
         'statut': 'redigee',
@@ -4736,6 +4775,7 @@ GLOSSAIRE = {
         'xrefs': ['fuselage monocoque', 'revêtement travaillant', 'fuselage treillis'],
     },
     'fuselage treillis': {
+        'famille': 'cellule_fuselage',
         'definition': 'Type de structure de cellule aéronautique constituée de tubes métalliques assemblés et soudés en forme de triangles rigides, généralement recouverte de toile ou de panneaux légers non structurels.',
         'categorie': 'Structure & cellule',
         'statut': 'redigee',
@@ -4815,6 +4855,7 @@ GLOSSAIRE = {
         'xrefs': ["vol au-dessus de l'eau", 'évacuation'],
     },
     'girouette': {
+        'famille': 'description_vent',
         'definition': "Dispositif s'orientant face au vent pour indiquer sa provenance. En aviation, le vent est défini par son origine (ex. 270° pour un vent d'ouest). Un avion au sol tend à s'aligner face au vent.",
         'categorie': 'Vent',
         'statut': 'redigee',
@@ -4922,6 +4963,7 @@ GLOSSAIRE = {
         'schema': False,
     },
     'GO/NO GO': {
+        'famille': 'fh_prise_de_decision',
         'definition': "Décision binaire de partir ou de renoncer au vol, fondée sur des critères objectifs et prédéfinis (météo, performances de l'avion, fatigue du pilote). Choisir le NO GO est une décision de commandant de bord responsable.",
         'categorie': 'Réglementation & docs',
         'statut': 'redigee',
@@ -5538,6 +5580,7 @@ GLOSSAIRE = {
         'variantes': ['indicatifs'],
     },
     'inertie': {
+        'famille': 'divers',
         'definition': "Tendance de l'avion à conserver son mouvement: plus il est lourd et rapide, plus il met de temps et de distance à changer d'état. C'est pourquoi une correction tardive en finale par vent de travers ne « rattrape » pas instantanément la trajectoire.",
         'categorie': 'Aérodynamique',
         'statut': 'redigee',
@@ -5619,6 +5662,7 @@ GLOSSAIRE = {
         'variantes': ['instables'],
     },
     'instructeur': {
+        'famille': 'equipage_formation',
         'definition': "Professionnel qualifié de l'enseignement aéronautique qui assure la formation théorique et pratique des élèves pilotes. Il est responsable de la sécurité lors des vols en double commande et valide l'autorisation solo.",
         'categorie': 'Réglementation & docs',
         'statut': 'redigee',
@@ -5637,6 +5681,7 @@ GLOSSAIRE = {
         'xrefs': ['autorisation', 'APP', 'TWR', 'CLEARED'],
     },
     'instrument': {
+        'famille': 'commandes_cockpit',
         'definition': "Dispositif d'indication ou de mesure monté sur la planche de bord de l'avion. Il fournit au pilote des informations vitales sur les paramètres de vol (altimètre, anémomètre) ou sur l'état du moteur.",
         'categorie': 'Instruments',
         'statut': 'redigee',
@@ -5654,6 +5699,7 @@ GLOSSAIRE = {
         'variantes': ['interceptions'],
     },
     'intrados': {
+        'famille': 'structure_aile',
         'definition': "Partie inférieure du profil d'une aile. L'air s'y déplace moins vite que sur l'extrados, créant une surpression relative qui contribue minoritairement à la portance totale de l'aéronef.",
         'categorie': 'Aérodynamique',
         'statut': 'redigee',
@@ -5841,6 +5887,7 @@ GLOSSAIRE = {
         'xrefs': ['vitesses caractéristiques', 'vent', 'rafale'],
     },
     'kt de travers': {
+        'famille': 'composantes_vent',
         'definition': "Composante transversale du vent par rapport à l'axe de piste, exprimée en nœuds. Chaque avion possède une limite démontrée de vent de travers (indiquée dans le manuel de vol) qu'il est interdit de dépasser sous peine de perte de contrôle à l'atterrissage.",
         'categorie': 'Vent',
         'statut': 'redigee',
@@ -6603,6 +6650,7 @@ GLOSSAIRE = {
         'variantes': ['lâchers'],
     },
     'légal': {
+        'famille': 'regles_vol',
         'definition': "Caractère conforme d'un vol par rapport à la réglementation en vigueur (SERA, arrêté d'immatriculation.). Le commandant de bord doit s'assurer de la légalité du vol (licence, médical, emport carburant, météo VFR) avant chaque départ.",
         'categorie': 'Réglementation & docs',
         'statut': 'redigee',
@@ -7139,6 +7187,7 @@ GLOSSAIRE = {
         'variantes': ['moments de rappel'],
     },
     'monomoteur': {
+        'famille': 'types_avions',
         'definition': "Aéronef équipé d'un seul groupe motopropulseur. C'est la configuration standard pour l'apprentissage du PPL. En cas de panne moteur, la finesse de l'avion détermine la distance franchissable en plané.",
         'categorie': 'Structure & cellule',
         'statut': 'redigee',
@@ -7147,6 +7196,7 @@ GLOSSAIRE = {
         'variantes': ['monomoteurs'],
     },
     'monomoteur léger': {
+        'famille': 'types_avions',
         'definition': "Avion monomoteur de masse maximale certifiée au décollage généralement inférieure à 5700 kg, principalement utilisé pour l'école, le voyage VFR ou le loisir.",
         'categorie': 'Structure & cellule',
         'statut': 'redigee',
@@ -7849,6 +7899,7 @@ GLOSSAIRE = {
         'schema': True,
     },
     'passager': {
+        'famille': 'equipage_formation',
         'definition': "Personne transportée à bord n'exerçant aucune fonction de pilotage. Le commandant de bord est responsable de sa sécurité, doit effectuer un briefing de sécurité complet avant le vol et s'assurer de son confort.",
         'categorie': 'Réglementation & docs',
         'statut': 'redigee',
@@ -7857,6 +7908,7 @@ GLOSSAIRE = {
         'variantes': ['passagers'],
     },
     'pax': {
+        'famille': 'equipage_formation',
         'definition': "Abréviation aéronautique désignant un passager. Utilisée fréquemment dans les devis de masse et centrage ainsi que dans la préparation opérationnelle des vols ou lors des échanges radio avec les services d'escale.",
         'categorie': 'Radio & phraséologie',
         'statut': 'redigee',
@@ -7884,6 +7936,7 @@ GLOSSAIRE = {
         'xrefs': ['résistance de piste', 'nature de surface', 'surface revêtue'],
     },
     'pente': {
+        'famille': 'performances_verticales',
         'definition': "Angle mesurant l'inclinaison de la trajectoire de vol par rapport à l'horizon. Elle s'exprime en degrés ou en pourcentage et ne doit pas être confondue avec l'assiette de l'aéronef.",
         'categorie': 'Vitesses & performances',
         'statut': 'redigee',
@@ -8472,6 +8525,7 @@ GLOSSAIRE = {
         'schema': False,
     },
     'pression': {
+        'famille': 'couches_atmospheriques',
         'definition': "Force exercée par l'atmosphère par unité de surface, exprimée en hectopascals (hPa). Elle diminue d'environ 1 hPa tous les 28 pieds en basse couche, phénomène physique fondamental pour le fonctionnement de l'altimètre.",
         'categorie': 'Altimétrie',
         'statut': 'redigee',
@@ -8831,6 +8885,7 @@ GLOSSAIRE = {
         'variantes': ['purges'],
     },
     'qcm': {
+        'famille': 'equipage_formation',
         'definition': "Questionnaire à Choix Multiples: format de l'examen théorique du brevet de pilote privé (PPL). Chaque épreuve comprend des questions à choix unique, exigeant un taux de réussite minimal de 75 % dans chaque module pour valider l'examen.",
         'categorie': 'Réglementation & docs',
         'statut': 'redigee',
@@ -9040,6 +9095,7 @@ GLOSSAIRE = {
         'xrefs': ['bretelle', 'dégagement de piste', 'numéro de piste'],
     },
     'rayon': {
+        'famille': 'virages',
         'definition': "Distance horizontale mesurant la courbure de la trajectoire d'un aéronef en virage. Ce rayon dépend uniquement de la vitesse propre de l'avion (TAS) et de son inclinaison: pour un virage serré, il faut réduire la vitesse.",
         'categorie': 'Aérodynamique',
         'statut': 'redigee',
@@ -9205,6 +9261,7 @@ GLOSSAIRE = {
         'schema': False,
     },
     'revêtement travaillant': {
+        'famille': 'cellule_fuselage',
         'definition': 'Technique de construction aéronautique où la peau métallique ou composite participe directement à la reprise des efforts de torsion et de flexion subis par le fuselage ou par la voilure.',
         'categorie': 'Structure & cellule',
         'statut': 'redigee',
@@ -9296,6 +9353,7 @@ GLOSSAIRE = {
         'variantes': ['rotors'],
     },
     'roue': {
+        'famille': 'train_atterrissage',
         'definition': "Élément du train d'atterrissage comprenant la jante, le pneu et le système de freinage. Sur avion léger, la roue est soumise à de fortes contraintes lors du toucher des roues et doit faire l'objet d'une inspection rigoureuse avant le vol.",
         'categorie': 'Structure & cellule',
         'statut': 'redigee',
@@ -9332,6 +9390,7 @@ GLOSSAIRE = {
         'xrefs': ['décollage', 'roulage', 'composante arrière', 'arrondi'],
     },
     'roulette': {
+        'famille': 'train_atterrissage',
         'definition': "Petite roue orientable ou folle située à l'arrière d'un avion à train classique (roulette de queue). Elle permet de diriger l'aéronef au sol lors du roulage par action sur les palonniers.",
         'categorie': 'Structure & cellule',
         'statut': 'redigee',
@@ -9673,6 +9732,7 @@ GLOSSAIRE = {
         'xrefs': ['espace non contrôlé', "service d'alerte", 'SIA', 'siv'],
     },
     'secteur variable': {
+        'famille': 'composantes_vent',
         'definition': "Vent dont la direction oscille (ex. 240V300 dans un METAR). Le calcul du vent de travers doit prendre en compte l'extrême du secteur et les rafales, pas seulement la moyenne.",
         'categorie': 'Vent',
         'statut': 'redigee',
@@ -9857,6 +9917,7 @@ GLOSSAIRE = {
         'xrefs': ['neige', 'visibilité météo', 'dégivrage'],
     },
     'solo': {
+        'famille': 'equipage_formation',
         'definition': "Vol effectué par un élève-pilote seul à bord, sous la responsabilité de son instructeur resté au sol. C'est une étape clé de la formation PPL, exigeant une autorisation écrite préalable de l'instructeur dans le carnet de vol.",
         'categorie': 'Réglementation & docs',
         'statut': 'redigee',
@@ -10124,6 +10185,7 @@ GLOSSAIRE = {
         'schema': False,
     },
     'surface alaire': {
+        'famille': 'structure_aile',
         'definition': "Aire totale projetée des ailes d'un aéronef, incluant la partie virtuelle traversant le fuselage. C'est la surface de référence fondamentale servant aux calculs de portance et de charge alaire.",
         'categorie': 'Aérodynamique',
         'statut': 'redigee',
@@ -10384,6 +10446,7 @@ GLOSSAIRE = {
         'schema': False,
     },
     'température standard': {
+        'famille': 'couches_atmospheriques',
         'definition': "Température théorique de l'atmosphère standard (ISA) au niveau de la mer, définie réglementairement à +15 °C. Elle décroît de manière standard de 2 °C par tranche de 1000 pieds d'altitude gagnés.",
         'categorie': 'Altimétrie',
         'statut': 'redigee',
@@ -10598,6 +10661,7 @@ GLOSSAIRE = {
         'xrefs': ['poussée', "angle d'incidence"],
     },
     'trafic': {
+        'famille': 'regles_vol',
         'definition': "Ensemble des aéronefs évoluant en vol ou au sol sur un aérodrome ou dans une zone donnée. Le pilote doit assurer sa propre surveillance visuelle pour éviter toute collision avec d'autres trafics.",
         'categorie': 'Procédures',
         'statut': 'redigee',
@@ -10606,6 +10670,7 @@ GLOSSAIRE = {
         'variantes': ['trafics'],
     },
     'train classique': {
+        'famille': 'train_atterrissage',
         'definition': "Configuration d'atterrisseur comprenant deux roues principales sous la voilure et une roulette ou un patin à l'arrière. Elle exige une technique de pilotage rigoureuse lors du roulage par vent de travers.",
         'categorie': 'Structure & cellule',
         'statut': 'redigee',
@@ -10615,6 +10680,7 @@ GLOSSAIRE = {
         'xrefs': ['train tricycle', 'atterrisseur', 'amortisseur'],
     },
     'train tricycle': {
+        'famille': 'train_atterrissage',
         'definition': "Configuration d'atterrisseur moderne dotée de deux roues principales à l'arrière et d'une roulette de nez orientable. Elle facilite grandement le roulage, la tenue de l'axe au décollage et la visibilité vers l'avant.",
         'categorie': 'Structure & cellule',
         'statut': 'redigee',
@@ -10632,6 +10698,7 @@ GLOSSAIRE = {
         'schema': False,
     },
     'trajectoire': {
+        'famille': 'assiettes',
         'definition': "Ligne décrite par le centre de gravité d'un aéronef dans l'espace au cours de son mouvement. Elle résulte de la combinaison de la vitesse propre de l'appareil et de la vitesse du vent.",
         'categorie': 'Aérodynamique',
         'statut': 'redigee',
@@ -11058,6 +11125,7 @@ GLOSSAIRE = {
         'schema': True,
     },
     'vent de face': {
+        'famille': 'composantes_vent',
         'definition': "Vent soufflant de l'avant dans l'axe de la piste. Il est favorable car il réduit la vitesse sol, raccourcissant le décollage et l'atterrissage. On l'évalue par sa composante de face.",
         'categorie': 'Vent',
         'statut': 'redigee',
@@ -11067,6 +11135,7 @@ GLOSSAIRE = {
         'xrefs': ['composante de face', 'composante arrière', 'composante de travers', 'QFU'],
     },
     'vent de travers démontré': {
+        'famille': 'composantes_vent',
         'definition': "Vitesse maximale du vent perpendiculaire à la piste avec laquelle l'aéronef a été certifié lors des essais en vol. Il ne s'agit pas d'une limite structurale, mais d'une valeur limite de sécurité pour le pilote.",
         'categorie': 'Vent',
         'statut': 'redigee',
@@ -11075,6 +11144,7 @@ GLOSSAIRE = {
         'variantes': ['vents de travers démontré'],
     },
     'vent effectif': {
+        'famille': 'composantes_vent',
         'definition': "Composante du vent parallèle à l'axe de la trajectoire de l'aéronef. Un vent effectif de face réduit la vitesse sol et raccourcit la distance de décollage, tandis qu'un vent arrière produit l'effet inverse.",
         'categorie': 'Vent',
         'statut': 'redigee',
@@ -11082,6 +11152,7 @@ GLOSSAIRE = {
         'schema': False,
     },
     'vent estimé': {
+        'famille': 'description_vent',
         'definition': 'Valeur de la force et de la direction du vent anticipée lors de la préparation de la navigation, généralement issue des prévisions météo. Elle sert à calculer le cap magnétique et le temps de vol estimé.',
         'categorie': 'Vent',
         'statut': 'redigee',
@@ -11089,6 +11160,7 @@ GLOSSAIRE = {
         'schema': False,
     },
     'vent fort': {
+        'famille': 'description_vent',
         'definition': "Conditions de vent de surface d'intensité élevée qui compliquent le pilotage, augmentent la dérive et augmentent les risques de perte de contrôle au sol ou en approche. Il nécessite des corrections appropriées.",
         'categorie': 'Vent',
         'statut': 'redigee',
@@ -11126,6 +11198,7 @@ GLOSSAIRE = {
         'xrefs': ["angle d'incidence", 'résultante aérodynamique'],
     },
     'vent réel': {
+        'famille': 'description_vent',
         'definition': "Vent mesuré ou subi à une altitude et une position données à un instant précis. Il diffère souvent du vent prévu et influence directement la vitesse sol et la trajectoire de l'aéronef.",
         'categorie': 'Vent',
         'statut': 'redigee',
@@ -11255,6 +11328,7 @@ GLOSSAIRE = {
         'schema': True,
     },
     'virage à grande inclinaison': {
+        'famille': 'virages',
         'definition': 'Manœuvre aérienne inclinée au-delà de quarante-cinq degrés où le facteur de charge augmente significativement pour maintenir le vol horizontal. Cela requiert un surplus de puissance moteur.',
         'categorie': 'Aérodynamique',
         'statut': 'redigee',
@@ -11935,6 +12009,7 @@ GLOSSAIRE = {
         'xrefs': ['inertie', 'roulement', 'vitesse de décrochage'],
     },
     'épaisseur relative': {
+        'famille': 'structure_aile',
         'definition': "Rapport entre l'épaisseur maximale d'un profil d'aile et la longueur de sa corde. Ce paramètre géométrique clé influence fortement les performances en termes de portance maximale et de traînée.",
         'categorie': 'Aérodynamique',
         'statut': 'redigee',
@@ -12013,6 +12088,7 @@ GLOSSAIRE = {
         'xrefs': ['gilet de sauvetage', 'extincteur'],
     },
     'évitement': {
+        'famille': 'regles_vol',
         'definition': "Manœuvre rapide effectuée par le pilote pour s'écarter d'une trajectoire de collision détectée visuellement ou signalée par le contrôle aérien. L'évitement d'autres aéronefs est de la responsabilité du pilote en vol à vue.",
         'categorie': 'Procédures',
         'statut': 'redigee',
@@ -12021,6 +12097,7 @@ GLOSSAIRE = {
         'variantes': ['évitements'],
     },
     'θ': {
+        'famille': 'composantes_vent',
         'definition': "Écart angulaire entre l'axe de la piste (QFU) et la provenance du vent. Utilisé pour évaluer mentalement la composante de face (V × cos θ) et de travers (V × sin θ).",
         'categorie': 'Vent',
         'statut': 'redigee',

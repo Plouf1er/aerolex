@@ -65,7 +65,7 @@ def build_index(glossaire: dict) -> dict:
 
     # Slugs : MÊME fonction que build_pages.py (scripts/slugify.py), donc les
     # liens "sl" de la popup pointent exactement sur les fichiers générés.
-    terme_to_slug, collisions = build_slug_map(list(glossaire.keys()))
+    terme_to_slug, collisions = build_slug_map(list(glossaire.keys()), glossaire)
     if collisions:
         print(f"⚠️  collisions de slug : {collisions}", file=sys.stderr)
 

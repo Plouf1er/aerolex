@@ -10,7 +10,7 @@ sys.path.insert(0, 'scripts')
 sys.path.insert(0, 'data')
 sys.path.insert(0, 'src')
 
-from slugify import build_slug_map
+from slugify import build_slug_map, build_redirects
 from data_glossaire_full import GLOSSAIRE
 from svg_glossaire import SCHEMAS, get_schema
 from extra_content import get_extra_content
@@ -69,7 +69,7 @@ os.makedirs(DIST_DIR, exist_ok=True)
 
 # Build slug map
 termes = list(GLOSSAIRE.keys())
-terme_to_slug, collisions = build_slug_map(termes)
+terme_to_slug, collisions = build_slug_map(termes, GLOSSAIRE)
 if collisions:
     print(f"Warning: slug collisions: {collisions}")
 
@@ -261,8 +261,34 @@ def write_slugmap():
     des fiches ET de l'index. Il était écrit une fois à la main (4 août) et
     jamais régénéré : tout terme ajouté depuis n'avait plus de cible."""
     import json as _json
+    redirects = build_redirects(terme_to_slug)
+    out = dict(sorted(terme_to_slug.items()))
+    if redirects:
+        out['_redirects'] = redirects     # ancien slug -> slug actuel (liens existants conserves)
     with open(os.path.join(DIST_DIR, 'slugmap.json'), 'w', encoding='utf-8') as f:
-        _json.dump(dict(sorted(terme_to_slug.items())), f, ensure_ascii=False, separators=(',', ':'))
+        _json.dump(out, f, ensure_ascii=False, separators=(',', ':'))
+    write_redirect_pages(redirects)
+
+
+REDIRECT_MARK = '<!-- aerolex-redirect -->'
+
+
+def write_redirect_pages(redirects):
+    """Une page HTML de renvoi par ancien slug (meta refresh + canonical + JS). Les anciennes pages de renvoi
+    perimees (marqueur) sont supprimees d'abord."""
+    for f in glob.glob(os.path.join(DIST_DIR, '*.html')):
+        with open(f, 'r', encoding='utf-8') as fp:
+            if REDIRECT_MARK in fp.read(400):
+                os.remove(f)
+    for old, new in redirects.items():
+        page = (f'{REDIRECT_MARK}<!doctype html><html lang="fr"><head><meta charset="utf-8">'
+                f'<meta http-equiv="refresh" content="0; url={new}.html">'
+                f'<link rel="canonical" href="{new}.html"><meta name="robots" content="noindex">'
+                f'<title>Redirection</title></head><body>'
+                f'<p>Cette fiche a changé d’adresse : <a href="{new}.html">{new}.html</a></p>'
+                f'<script>location.replace("{new}.html"+location.search+location.hash);</script></body></html>')
+        with open(os.path.join(DIST_DIR, f'{old}.html'), 'w', encoding='utf-8') as fp:
+            fp.write(page)
 
 
 def main():

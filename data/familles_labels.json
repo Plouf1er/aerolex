@@ -1,3 +1,10 @@
 {
- "structure_aile": "Structure de l'aile"
+ "cellule_fuselage": "Cellule et fuselage",
+ "charges_domaine_vol": "Charges et domaine de vol",
+ "composantes_vent": "Composantes du vent",
+ "description_vent": "Description du vent",
+ "equipage_formation": "Équipage et formation PPL",
+ "structure_aile": "Structure de l'aile",
+ "train_atterrissage": "Train d'atterrissage",
+ "types_avions": "Types d'avions"
 }

@@ -60,7 +60,7 @@ class PayloadContext:
         self.termes_tries = sorted(glossaire.keys(), key=lambda x: x.lower())
 
         # Slugs : MÊME fonction que partout ailleurs (scripts/slugify.py).
-        self.terme_to_slug, self.collisions = build_slug_map(list(glossaire.keys()))
+        self.terme_to_slug, self.collisions = build_slug_map(list(glossaire.keys()), glossaire)
 
         # Familles, triées insensible à la casse (ordre unique, HTML == JSON).
         fam = defaultdict(list)
