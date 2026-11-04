@@ -130,7 +130,8 @@
       if (k !== "a_valider") { kids.push(el("p", { class: "conf", text: "Écarté : non ajouté à la file de validation." })); return el("div", { class: "res " + k }, kids); }
       if (r.origine) kids.push(kv("Développé", r.origine + (r.traduction ? " (" + r.traduction + ")" : "")));
       kids.push(kv("Définition", r.definition));
-      kids.push(kv("Famille", r.famille || (r.famille_nouvelle ? "nouvelle : " + r.famille_nouvelle : "")));
+      kids.push(kv("Famille", r.famille ? famLabel($("domain").value || "aero", r.famille) : (r.famille_nouvelle ? "nouvelle : " + (r.famille_nouvelle_label || r.famille_nouvelle) : "")));
+      kids.push(kv("Justification", r.famille_justification));
       kids.push(kv("Synonymes", (r.synonymes || []).join(", ")));
       kids.push(el("p", { class: "conf", text: "Confiance " + Math.round((r.confiance || 0) * 100) + " %" + (r.modele ? " · " + r.modele : "") }));
     }
@@ -191,9 +192,29 @@
     var s = el("select", { "data-f": "famille" });
     s.appendChild(el("option", { value: "", text: "— aucune —" }));
     var fams = (lexicons[domain] && lexicons[domain].familles) || {};
-    Object.keys(fams).forEach(function (f) { var o = el("option", { value: f, text: f + " (" + fams[f] + ")" }); if (f === current) o.selected = true; s.appendChild(o); });
+    Object.keys(fams).forEach(function (f) { var o = el("option", { value: f, text: famLabel(domain, f) + " — " + f + " (" + fams[f] + ")" }); if (f === current) o.selected = true; s.appendChild(o); });
     return s;
   }
+  function famLabel(domain, slug) {
+    var l = lexicons[domain] && lexicons[domain].familles_labels;
+    return (l && l[slug]) || slug;
+  }
+  function famText(domain, d) {
+    if (d.famille) return famLabel(domain, d.famille) + " (" + d.famille + ")";
+    if (d.famille_nouvelle) return "nouvelle : " + (d.famille_nouvelle_label || d.famille_nouvelle) + " (" + d.famille_nouvelle + ")";
+    return "—";
+  }
+  function linkList(names, liens) {
+    var s = el("span", {});
+    (names || []).forEach(function (n, i) {
+      if (i) s.appendChild(document.createTextNode(", "));
+      var u = typeof n === "string" ? (liens || {})[n] : n.lien;
+      s.appendChild(link(typeof n === "string" ? n : n.terme, u));
+    });
+    return s;
+  }
+  function kvNode(k, node) { return el("p", { class: "kv" }, [el("b", { text: k + " : " }), node]); }
+
   function checkPanel(rep, onForce, onOk) {
     var ul = el("ul", {}, rep.controles.map(function (c) {
       return el("li", { class: c.statut }, [document.createTextNode((c.statut === "ok" ? "✓ " : c.statut === "warn" ? "⚠ " : "✗ ") + c.nom + (c.detail ? " — " + c.detail : ""))]);
@@ -201,8 +222,10 @@
     var box = el("div", { class: "check" }, [el("b", { text: rep.ok ? (rep.avertissements.length ? "Contrôle de cohérence : avertissements" : "Contrôle de cohérence : OK") : "Contrôle de cohérence : BLOQUANT" }), ul]);
     if (!rep.ok) box.appendChild(el("button", { class: "btn ko", text: "Forcer la validation", onclick: onForce }));
     else if (rep.avertissements.length) box.appendChild(el("button", { class: "btn ok", text: "Valider malgré les avertissements", onclick: onOk }));
+    else box.appendChild(el("button", { class: "btn ok", text: "Confirmer la validation", onclick: onOk }));
     return box;
   }
+
   function proposalCard(p) {
     var d = p.data, disc = subStatus === "discarded", box = el("div", { class: "res " + (disc ? "ecarte" : "a_valider") });
     if (disc) {
@@ -218,31 +241,92 @@
       box.appendChild(el("div", { class: "actions" }, [rb]));
       return box;
     }
+    var liens = p.liens || {};
     var title = el("h3", {}, [document.createTextNode(p.terme), el("span", { class: "badge ok", text: "à valider" }),
-      el("span", { class: "conf", text: "confiance " + Math.round((d.confiance || 0) * 100) + " %" })]);
+      el("span", { class: "conf", text: "confiance " + Math.round((d.confiance || 0) * 100) + " %" }),
+      d.version ? el("span", { class: "badge", text: "v" + d.version }) : null]);
+    var retained = d.rattachements_retenus || d.rattachements || [];
+    var boxes = [];
+    var attach = null;
+    if ((d.rattachements || []).length && (d.famille || d.famille_nouvelle)) {
+      attach = el("div", { class: "attach" }, [el("p", { class: "kv" }, [el("b", { text: "Fiches à rattacher à cette famille" }), el("span", { class: "hint", text: " (sans famille aujourd'hui ; cochées = rattachées à la validation)" })])]);
+      d.rattachements.forEach(function (n, i) {
+        var cb = el("input", { type: "checkbox", id: "att-" + p.id + "-" + i, value: n });
+        cb.checked = retained.indexOf(n) >= 0; boxes.push(cb);
+        attach.appendChild(el("label", { class: "chk", for: "att-" + p.id + "-" + i }, [cb, document.createTextNode(" "), link(n, liens[n])]));
+      });
+    }
     var view = el("div", {}, [
       d.origine ? kv("Développé", d.origine + (d.traduction ? " (" + d.traduction + ")" : "")) : null,
       kv("Définition", d.definition),
-      kv("Famille", d.famille || (d.famille_nouvelle ? "nouvelle : " + d.famille_nouvelle : "—")),
-      kv("Synonymes", (d.synonymes || []).join(", "))
+      kv("Famille proposée", famText(p.domaine, d)),
+      kv("Justification", d.famille_justification),
+      (d.voir_aussi || []).length ? kvNode("Voir aussi proposés", linkList(d.voir_aussi, liens)) : null,
+      kv("Synonymes", (d.synonymes || []).join(", ")),
+      (d.voisins_consultes || []).length ? kvNode("Fiches voisines consultées", linkList(d.voisins_consultes)) : null,
+      attach
     ]);
     var edit = el("div", { class: "edit", hidden: "" }, [
       el("label", { text: "Terme" }), el("input", { type: "text", "data-f": "term", value: p.terme }),
       el("label", { text: "Définition" }), el("textarea", { rows: "4", "data-f": "definition" }),
       el("label", { text: "Famille" }), famSelect(p.domaine, d.famille),
+      d.famille_nouvelle ? el("label", { text: "Libellé de la nouvelle famille" }) : null,
+      d.famille_nouvelle ? el("input", { type: "text", "data-f": "famille_nouvelle_label", value: d.famille_nouvelle_label || "" }) : null,
+      el("label", { text: "Voir aussi (fiches existantes, virgules)" }), el("input", { type: "text", "data-f": "voir_aussi", value: (d.voir_aussi || []).join(", ") }),
       el("label", { text: "Synonymes (virgules)" }), el("input", { type: "text", "data-f": "synonymes", value: (d.synonymes || []).join(", ") })
     ]);
     edit.querySelector("textarea").value = d.definition || "";
+    function checked() { return boxes.filter(function (b) { return b.checked; }).map(function (b) { return b.value; }); }
     function collect() {
-      return { term: edit.querySelector('[data-f="term"]').value, data: {
+      var data = {
         definition: edit.querySelector("textarea").value, famille: edit.querySelector("select").value,
-        synonymes: edit.querySelector('[data-f="synonymes"]').value } };
+        synonymes: edit.querySelector('[data-f="synonymes"]').value,
+        voir_aussi: edit.querySelector('[data-f="voir_aussi"]').value.split(",").map(function (s) { return s.trim(); }).filter(Boolean)
+      };
+      var lab = edit.querySelector('[data-f="famille_nouvelle_label"]'); if (lab) data.famille_nouvelle_label = lab.value;
+      if (boxes.length) data.rattachements_retenus = checked();
+      return { term: edit.querySelector('[data-f="term"]').value, data: data };
     }
     var bVal = el("button", { class: "btn ok", text: "Valider" });
     var bMod = el("button", { class: "btn", text: "Modifier" });
     var bRej = el("button", { class: "btn ko", text: "Rejeter" });
     var panel = el("div", {});
-    var busy = function (b) { [bVal, bMod, bRej].forEach(function (x) { x.disabled = b; }); };
+    // relance commentée + historique des versions
+    var cmt = el("textarea", { rows: "3", id: "cmt-" + p.id, placeholder: "ex. mets-la dans la même famille que bord d'attaque, et ajoute bord de fuite en voir aussi" });
+    var bRel = el("button", { class: "btn", text: "Relancer avec ce commentaire" });
+    var relMsg = el("p", { class: "msg err", hidden: "" });
+    var busy = function (b) { [bVal, bMod, bRej, bRel].forEach(function (x) { x.disabled = b; }); };
+    bRel.onclick = function () {
+      var c = cmt.value.trim();
+      if (c.length < 3) { relMsg.hidden = false; relMsg.textContent = "Écrivez d'abord un commentaire pour le modèle."; return; }
+      relMsg.hidden = true; busy(true); bRel.textContent = "Relance en cours…";
+      api("POST", "/proposals/" + p.id + "/relaunch", { comment: c }).then(loadProposals).catch(function (e) {
+        relMsg.hidden = false; relMsg.textContent = "Relance impossible : " + e.message; busy(false); bRel.textContent = "Relancer avec ce commentaire";
+      });
+    };
+    var relBox = el("div", { class: "relance" }, [
+      el("label", { for: "cmt-" + p.id, text: "Commentaire pour le modèle" }), cmt,
+      el("div", { class: "actions" }, [bRel]), relMsg]);
+    var vers = p.versions || [];
+    var verBox = null;
+    if (vers.length > 1) {
+      verBox = el("div", { class: "versions" }, [el("p", { class: "kv" }, [el("b", { text: "Historique des versions : " })])]);
+      vers.forEach(function (v) {
+        var cur = v.v === d.version;
+        var row = el("div", { class: "ver" + (cur ? " cur" : "") }, [
+          el("span", { class: "badge" + (cur ? " ok" : ""), text: "v" + v.v + (cur ? " · affichée" : "") }),
+          el("span", { class: "hint", title: v.commentaire || "", text: v.commentaire ? " « " + (v.commentaire.length > 80 ? v.commentaire.slice(0, 80) + "…" : v.commentaire) + " »" : " proposition initiale" })]);
+        if (!cur) {
+          var br = el("button", { class: "btn small", text: "Revenir à v" + v.v });
+          br.onclick = function () {
+            busy(true);
+            api("POST", "/proposals/" + p.id + "/revert", { version: v.v }).then(loadProposals).catch(function (e) { alert(e.message); busy(false); });
+          };
+          row.appendChild(br);
+        }
+        verBox.appendChild(row);
+      });
+    }
     bMod.onclick = function () {
       if (edit.hidden) { edit.hidden = false; view.hidden = true; bMod.textContent = "Enregistrer"; return; }
       busy(true);
@@ -255,20 +339,24 @@
     function doValidate(force) {
       bVal.textContent = "Ajout + rebuild…"; busy(true); panel.textContent = "";
       api("POST", "/validate", { ids: [p.id], force: !!force }).then(function (r) {
-        $("review-msg").textContent = (r.valides.length ? "Ajouté : " + r.valides.join(", ") : "") + (r.ignores.length ? " Ignoré : " + r.ignores.map(function (i) { return i.terme + " (" + i.raison + ")"; }).join(", ") : "");
+        var att = (r.rattaches || []).length ? " Rattaché à la famille : " + r.rattaches.map(function (a) { return a[0]; }).join(", ") + "." : "";
+        $("review-msg").textContent = (r.valides.length ? "Ajouté : " + r.valides.join(", ") + "." : "") + att + (r.ignores.length ? " Ignoré : " + r.ignores.map(function (i) { return i.terme + " (" + i.raison + ")"; }).join(", ") : "");
         loadProposals();
       }).catch(function (e) { alert(e.message); busy(false); bVal.textContent = "Valider"; });
     }
     bVal.onclick = function () {
       busy(true); bVal.textContent = "Contrôle…"; panel.textContent = "";
-      var pre = edit.hidden ? Promise.resolve() : api("POST", "/proposals/" + p.id + "/edit", collect());
+      var pre = !edit.hidden ? api("POST", "/proposals/" + p.id + "/edit", collect())
+        : boxes.length ? api("POST", "/proposals/" + p.id + "/edit", { data: { rattachements_retenus: checked() } }) : Promise.resolve();
       pre.then(function () { return api("POST", "/proposals/" + p.id + "/check", {}); }).then(function (rep) {
-        if (rep.ok && !rep.avertissements.length) { doValidate(false); return; }
+        var nAtt = boxes.length && edit.hidden ? checked().length : 0;
+        if (rep.ok && !rep.avertissements.length && !nAtt) { doValidate(false); return; }
         panel.appendChild(checkPanel(rep, function () { doValidate(true); }, function () { doValidate(false); }));
         busy(false); bVal.textContent = "Valider";
       }).catch(function (e) { alert(e.message); busy(false); bVal.textContent = "Valider"; });
     };
-    box.appendChild(title); box.appendChild(view); box.appendChild(edit); box.appendChild(panel);
+    box.appendChild(title); box.appendChild(view); box.appendChild(edit); box.appendChild(relBox); if (verBox) box.appendChild(verBox);
+    box.appendChild(panel);
     box.appendChild(el("div", { class: "actions" }, [bVal, bMod, bRej]));
     return box;
   }

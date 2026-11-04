@@ -76,7 +76,7 @@ good = {"items": [
 ]}
 out = core.parse_llm("```json\n" + json.dumps(good) + "\n```", ["chandelle", "baguette de pain"], fams)
 check("llm: JSON dans un bloc markdown accepté", set(out) == {"chandelle", "baguette de pain"})
-check("llm: famille inventée -> famille_nouvelle", out["chandelle"]["famille"] == "" and out["chandelle"]["famille_nouvelle"] == "inventée_x")
+check("llm: famille inventée -> famille_nouvelle", out["chandelle"]["famille"] == "" and out["chandelle"]["famille_nouvelle"] == "inventee_x")
 check("llm: classification", core.classify(out["chandelle"]) == "a_valider" and core.classify(out["baguette de pain"]) == "hors_domaine")
 bad = core.validate_item({"domaine": "oui", "pertinent": "true", "definition": "court", "confiance": "abc"}, "t", fams)
 check("llm: booléens texte, confiance invalide, définition trop courte -> non pertinent", bad["domaine"] and not bad["pertinent"] and bad["confiance"] == 0.0)
@@ -347,6 +347,120 @@ s_, o_ = api.route("POST", "/api/suggest/validate", H("tok-test"), json.dumps({"
 check("api: validate avec jeton -> 200 + refuses", s_ == 200 and o_["refuses"], o_)
 check("api: check avec jeton", api.route("POST", "/api/suggest/proposals/%d/check" % pid, H("tok-test"), b"{}")[0] == 200)
 
+# ── 9b. fiches voisines au prompt, relance commentée, versions, rattachements ─
+SEEN = {}
+real_provider = core._call_provider
+
+
+def rel_provider(name, messages, n):
+    SEEN["messages"] = messages
+    terms = [l[2:] for l in messages[1]["content"].splitlines() if l.startswith("- ")]
+    prev = "Ta proposition précédente" in messages[1]["content"]
+    item = {"terme": terms[0], "domaine": True, "raison_domaine": "r", "pertinent": True, "raison_pertinent": "r",
+            "definition": "Zone où l'aile se fixe au fuselage. Elle reprend les efforts de la voilure.",
+            "famille": "", "famille_nouvelle": "Structure de l'aile" if not prev else "structure_de_l_aile",
+            "famille_nouvelle_label": "Structure de l'aile", "famille_justification": "Aucune famille ne regroupe les éléments de la structure de l'aile.",
+            "rattachements": ["bord d'attaque", "bord de fuite", "longeron", "inconnu-xyz", "aileron"],
+            "voir_aussi": ["bord d'attaque"] + (["bord de fuite", "emplanture"] if prev else []), "synonymes": [], "confiance": 0.9}
+    return json.dumps({"items": [item]}), {"in": 10, "out": 10}, "grok-4.3", 0.001
+
+
+core._call_provider = rel_provider
+idx_ = core.get_index("aero")
+v = core.submit("aero", "nervure d'emplanture", background=False)
+sysm, usr = SEEN["messages"][0]["content"], SEEN["messages"][1]["content"]
+check("voisins: le prompt contient les fiches voisines (terme | famille | début de définition)", "Fiches voisines" in usr and "  · " in usr and "famille :" in usr, usr[:300])
+check("voisins: au plus 15 fiches voisines par terme", 1 <= usr.count("  · ") <= 15, usr.count("  · "))
+check("voisins: le catalogue complet des familles est passé (libellé + 3 exemples)", "gouvernes_primaires — Gouvernes primaires" in sysm and "aileron" in sysm)
+check("voisins: les fiches existantes sans famille sont listées (bord d'attaque…)", "SANS famille" in sysm and "bord d'attaque" in sysm.split("SANS famille")[1])
+check("voisins: consignes (famille existante d'abord, libellé lisible, rattachements)", "EXISTANTE dès qu'elle convient" in sysm and "famille_nouvelle_label" in sysm and "rattachements" in sysm)
+it_ = core.list_proposals("aero")
+pe = next(x for x in it_ if x["terme"] == "nervure d'emplanture")
+d1 = pe["data"]
+check("voisins: les voisins consultés sont mémorisés sur la proposition (liens)", d1.get("voisins_consultes") and all("lien" in n and "terme" in n for n in d1["voisins_consultes"]), d1.get("voisins_consultes"))
+check("sortie: libellé lisible de la nouvelle famille, slug normalisé", d1["famille_nouvelle"] == "structure_de_l_aile" and d1["famille_nouvelle_label"] == "Structure de l'aile", (d1["famille_nouvelle"], d1["famille_nouvelle_label"]))
+check("sortie: rattachements = fiches existantes sans famille uniquement (aileron, inconnu écartés)", d1["rattachements"] == ["bord d'attaque", "bord de fuite", "longeron"], d1["rattachements"])
+_six = core.validate_item({"terme": "x", "definition": "Définition suffisamment longue pour le test.", "voir_aussi": ["aile", "longeron", "nervure", "corde", "profil", "bord de fuite", "nimporte quoi"]}, "x", {"pistes": 1}, idx_)
+check("sortie: 6 voir aussi conservés (plafond 8), inconnu écarté", _six["voir_aussi"] == ["aile", "longeron", "nervure", "corde", "profil", "bord de fuite"], _six["voir_aussi"])
+check("sortie: voir aussi = fiches existantes", d1["voir_aussi"] == ["bord d'attaque"], d1["voir_aussi"])
+rc = chk(pe["id"], llm=False)
+check("contrôle: nouvelle famille sans rattachement retenu = avertissement", any(c["nom"] == "Famille" and c["statut"] == "warn" for c in rc["controles"]))
+core.edit_proposal(pe["id"], None, {"rattachements_retenus": ["bord d'attaque", "aileron", "zzz", "longeron"]})
+rc = chk(pe["id"], llm=False)
+check("contrôle: rattachements retenus + justification = Famille OK",
+      any(c["nom"] == "Famille" and c["statut"] == "ok" for c in rc["controles"]) and any(c["nom"] == "Rattachements" and c["statut"] == "ok" for c in rc["controles"]), rc["controles"])
+check("édition: rattachements cochés filtrés (aileron déjà classé et zzz inconnu écartés)",
+      next(x for x in core.list_proposals("aero") if x["id"] == pe["id"])["data"]["rattachements_retenus"] == ["bord d'attaque", "longeron"])
+
+# relance avec commentaire -> v2
+with core.db() as con:
+    con.execute("INSERT OR REPLACE INTO cache(domain,key,data,model,ts) VALUES('aero',?,?,?,?)", (core.ckey("nervure d'emplanture"), "{}", "x", 0))
+n_cost = len(core.list_proposals("aero"))
+r = core.relaunch_proposal(pe["id"], "mets-la dans la même famille que bord d'attaque, et ajoute bord de fuite en voir aussi")
+pe2 = next(x for x in core.list_proposals("aero") if x["id"] == pe["id"])
+um = SEEN["messages"][1]["content"]
+check("relance: nouvelle version v2", r["version"] == 2 and pe2["data"]["version"] == 2 and [x["v"] for x in pe2["versions"]] == [1, 2], pe2["versions"])
+check("relance: le modèle reçoit sa proposition précédente + le commentaire + les voisins",
+      "Ta proposition précédente" in um and "Zone où l'aile se fixe" in um and "mets-la dans la même famille que bord d'attaque" in um and "Fiches voisines" in um)
+check("relance: la fiche nommée dans le commentaire (bord d'attaque) fait partie des voisins", "  · bord d'attaque |" in um)
+check("relance: les voisins affichés sur la carte sont ceux réellement passés au modèle",
+      pe2["data"]["voisins_consultes"] and all(("  · %s |" % n_["terme"]) in um for n_ in pe2["data"]["voisins_consultes"]))
+check("relance: v2 enregistrée avec son commentaire, v1 sans", pe2["versions"][1]["commentaire"].startswith("mets-la") and pe2["versions"][0]["commentaire"] == "")
+check("relance: contenu de la v2 appliqué (voir aussi bord de fuite)", "bord de fuite" in pe2["data"]["voir_aussi"], pe2["data"]["voir_aussi"])
+check("relance: le cache de ce terme est invalidé", core.cache_get("aero", core.ckey("nervure d'emplanture")) is None)
+check("relance: pas de doublon de proposition", len(core.list_proposals("aero")) == n_cost)
+try:
+    core.relaunch_proposal(pe["id"], "  ")
+    check("relance: commentaire vide refusé", False)
+except ValueError:
+    check("relance: commentaire vide refusé", True)
+# retour à v1
+core.revert_proposal(pe["id"], 1)
+pe3 = next(x for x in core.list_proposals("aero") if x["id"] == pe["id"])
+check("versions: retour à v1 (voir aussi d'origine), historique conservé", pe3["data"]["version"] == 1 and pe3["data"]["voir_aussi"] == ["bord d'attaque"] and len(pe3["versions"]) == 2, pe3["data"].get("voir_aussi"))
+core.revert_proposal(pe["id"], 2)
+check("versions: retour possible vers v2", next(x for x in core.list_proposals("aero") if x["id"] == pe["id"])["data"]["version"] == 2)
+try:
+    core.revert_proposal(pe["id"], 9)
+    check("versions: version inconnue -> 404", False)
+except KeyError:
+    check("versions: version inconnue -> 404", True)
+check("relance: plafond de versions", core.MAX_VERSIONS >= 3)
+# API : session relecteur obligatoire
+check("api: relaunch sans session -> 401", api.route("POST", "/api/suggest/proposals/%d/relaunch" % pe["id"], {}, json.dumps({"comment": "x y z"}).encode())[0] == 401)
+check("api: revert sans session -> 401", api.route("POST", "/api/suggest/proposals/%d/revert" % pe["id"], {}, b'{"version":1}')[0] == 401)
+s_, o_ = api.route("POST", "/api/suggest/login", {}, json.dumps({"password": "pw-factice-test"}).encode(), ip="9.9.9.9")
+hdr_ = {"Cookie": "aerolex_session=" + o_["_cookie"]}
+s_, o_ = api.route("POST", "/api/suggest/proposals/%d/relaunch" % pe["id"], hdr_, json.dumps({"comment": "ajoute longeron en voir aussi"}).encode())
+check("api: relaunch avec session -> 200, v3", s_ == 200 and o_.get("version") == 3, (s_, o_))
+s_, o_ = api.route("POST", "/api/suggest/proposals/%d/relaunch" % pe["id"], hdr_, b'{"comment":""}')
+check("api: relaunch commentaire vide -> 400", s_ == 400)
+s_, o_ = api.route("GET", "/api/suggest/proposals", hdr_, b"")
+check("api: la liste expose versions + voisins consultés", any(p_["versions"] and p_["data"].get("voisins_consultes") for p_ in o_["propositions"]))
+core.ensure = None
+core._call_provider = fake_provider
+
+# plafond de coût : plus de xai -> repli local gratuit (le plafond est respecté par llm_batch)
+_cap = core.DAILY_USD_CAP
+core.DAILY_USD_CAP = 0.0
+CALLS.clear()
+core._call_provider = lambda name, m, n: (CALLS.append(name), rel_provider(name, m, n))[1]
+core.relaunch_proposal(pe["id"], "précise la définition")
+check("relance: plafond de coût atteint -> aucun appel payant (repli local)", CALLS == ["local"], CALLS)
+core.DAILY_USD_CAP = _cap
+core._call_provider = fake_provider
+
+# ── 9c. aucun bouton sans libellé (HTML + JS + CSS) ─────────────────────────
+import re  # noqa: E402
+_js = (core.ROOT / "dist/aero/suggest.js").read_text("utf-8")
+_html = (core.ROOT / "dist/aero/suggest.html").read_text("utf-8")
+_css = (core.ROOT / "dist/aero/suggest.css").read_text("utf-8")
+_btn_js = re.findall(r'el\("button",\s*\{[^}]*\}', _js)
+check("boutons JS: au moins 8 créés, tous avec un libellé (text:)", len(_btn_js) >= 8 and all("text:" in b_ for b_ in _btn_js), [b_ for b_ in _btn_js if "text:" not in b_])
+check("boutons HTML: tous ont un texte", all(re.sub(r"<[^>]+>", "", m_).strip() for m_ in re.findall(r"<button[^>]*>(.*?)</button>", _html, re.S)))
+check("boutons: libellé « Confirmer la validation » sur le contrôle OK", "Confirmer la validation" in _js)
+check("CSS: .check .ok ne colore plus les boutons (texte vert sur fond vert = bouton vide)", not re.search(r"\.check \.(ok|ko|warn)\s*\{", _css) and ".check li.ok" in _css)
+
 # ── 10. mot de passe / session / anti-force brute ──────────────────────────
 LG = lambda pw, ip="7.7.7.7": api.route("POST", "/api/suggest/login", {}, json.dumps({"password": pw}).encode(), ip=ip)
 check("login: mauvais mot de passe -> 401", LG("mauvais")[0] == 401)
@@ -401,6 +515,51 @@ def state():
 
 def prop_state(pid_):
     return next(x for x in core.list_proposals("aero", "pending") if x["id"] == pid_)
+
+# a2) rattachements de fiches existantes (sur la copie) dans la même opération sûre
+sha_g = lambda: sha(CP / "data/data_glossaire_full.py")
+pid_a = mkprop("zzemplanturetest", famille="", famille_nouvelle="structure_de_l_aile", famille_nouvelle_label="Structure de l'aile",
+               famille_justification="Regroupe les éléments de la structure de l'aile.", voir_aussi=["bord d'attaque"],
+               definition="Terme fictif de test. Il sert à vérifier les rattachements de famille.",
+               rattachements=["bord d'attaque", "bord de fuite", "longeron"], rattachements_retenus=["bord d'attaque", "longeron"])
+core._idx_cache.clear()
+g_before = core.get_index("aero").glossaire
+check("rattachements: avant, bord d'attaque / longeron sont sans famille", not g_before["bord d'attaque"].get("famille") and not g_before["longeron"].get("famille"))
+r = core.validate_proposals([pid_a], force=False, run_llm=False)
+core._idx_cache.clear()
+g_after = core.get_index("aero").glossaire
+check("rattachements: validation OK sans forçage (famille justifiée + fiches rattachées)", r["valides"] == ["zzemplanturetest"], r)
+check("rattachements: les fiches cochées rejoignent la famille", g_after["bord d'attaque"]["famille"] == "structure_de_l_aile" and g_after["longeron"]["famille"] == "structure_de_l_aile")
+check("rattachements: la fiche décochée (bord de fuite) reste sans famille", not g_after["bord de fuite"].get("famille"))
+check("rattachements: la nouvelle fiche porte la famille + voir aussi", g_after["zzemplanturetest"].get("famille") == "structure_de_l_aile" and g_after["zzemplanturetest"].get("xrefs") == ["bord d'attaque"])
+check("rattachements: nombre de fiches inchangé hors nouvelle fiche (+1)", len(g_after) == len(g_before) + 1, (len(g_before), len(g_after)))
+_tj = json.loads((CP / "dist/aero/t/bord-d-attaque.json").read_text("utf-8"))
+check("rattachements: page régénérée avec le libellé lisible de la famille", _tj["famille"] == "structure_de_l_aile" and _tj["famille_label"] == "Structure de l'aile" and "longeron" in [m_["t"] for m_ in _tj["famille_membres"]], (_tj["famille"], _tj["famille_label"]))
+check("rattachements: résultat renvoyé (appliqués)", sorted(t_ for t_, _f in r["rattaches"]) == ["bord d'attaque", "longeron"], r["rattaches"])
+check("rattachements: data/ RÉEL intact", sha(REAL / "data/data_glossaire_full.py") == real_full_sha and not (REAL / "data/familles_labels.json").exists())
+n1 = core._count_cards()
+
+# a3) échec après rattachement -> restauration complète (full + labels + pages)
+pid_b = mkprop("zzrestauratest", famille="", famille_nouvelle="autre_famille_test", famille_nouvelle_label="Autre famille",
+               famille_justification="Test.", definition="Terme fictif de test. Il sert à simuler un échec après rattachement.",
+               rattachements_retenus=["corde", "profil"])
+st = (sha_g(), core._count_cards(), (CP / "data/familles_labels.json").read_bytes())
+try:
+    core.validate_proposals([pid_b], run_llm=False, steps=[core.REBUILD_STEPS[0], ["python3", "-c", "import sys; sys.exit(3)"]])
+    check("rattachements: échec d'étape remonté", False)
+except core.ValidationError:
+    check("rattachements: échec d'étape remonté", True)
+check("rattachements: après échec, full / pages / libellés restaurés à l'identique", (sha_g(), core._count_cards(), (CP / "data/familles_labels.json").read_bytes()) == st)
+check("rattachements: la proposition reste à valider avec le message", "erreur_validation" in json.dumps(prop_state(pid_b), ensure_ascii=False))
+# éditeur de famille : refuse d'écraser une famille existante, conserve le reste du fichier
+_a, _s = core.set_families_in_full(CP / "data/data_glossaire_full.py", {"aileron": "x_test", "profil": "structure_de_l_aile"})
+check("rattachements: une fiche déjà classée (aileron) n'est jamais déplacée", _a == [("profil", "structure_de_l_aile")] and _s and _s[0][0] == "aileron", (_a, _s))
+shutil.copy(CP / "data/data_glossaire_full.py", CP / "data/zz.bak")
+core.set_families_in_full(CP / "data/data_glossaire_full.py", {"corde": "structure_de_l_aile"})
+_d = subprocess.run(["diff", str(CP / "data/zz.bak"), str(CP / "data/data_glossaire_full.py")], capture_output=True, text=True).stdout
+check("rattachements: le diff du full = UNE seule ligne ajoutée", _d.count("\n> ") == 1 and "\n< " not in ("\n" + _d), _d)
+(CP / "data/zz.bak").unlink()
+core._idx_cache.clear()
 
 # b) échec d'une étape -> restauration automatique, proposition de nouveau « à valider » avec le message
 pid = mkprop("zzechectest", definition="Terme fictif de test. Il sert à simuler un échec.")

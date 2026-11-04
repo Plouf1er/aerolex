@@ -70,6 +70,22 @@ LLM_TIMEOUT = 120
 # Mesuré (4 nov. 2026, 1 terme) : none 3,5 s / 0,0016 $ ; minimal 11,8 s / 0,0033 $ ; low 14,6 s / 0,0039 $.
 REASONING_EFFORT = os.environ.get("AEROLEX_SUGGEST_EFFORT", "none")
 
+try:                                     # libellé lisible d'une famille (term_display + data/familles_labels.json)
+    from term_display import family_label as _family_label_default
+except Exception:  # pragma: no cover
+    _family_label_default = lambda f: f.replace("_", " ").capitalize()  # noqa: E731
+
+
+def family_label(slug: str, root=None) -> str:
+    try:
+        d = json.loads(((root or ROOT) / "data" / "familles_labels.json").read_text("utf-8"))
+        if isinstance(d, dict) and d.get(slug):
+            return d[slug]
+    except (OSError, ValueError):
+        pass
+    return _family_label_default(slug)
+
+
 LEXICONS = {
     "aero": {
         "label": "Aéronautique (PPL / ULM)",
@@ -161,6 +177,7 @@ def parse_terms(text: str, limit: int | None = None) -> dict:
 # Mots vides FR/EN pour l'extraction de candidats depuis un document en prose
 _STOP = set("""a à au aux avec ce ces cet cette dans de des du elle en et eux il ils je la le les leur lui ma mais me même mes moi mon ne nos notre nous on ou où par pas pour qu que qui sa se ses son sur ta te tes toi ton tu un une vos votre vous
 est sont être avoir été fait faire peut doit sans sous plus moins très tout tous toute toutes si ainsi alors donc car comme entre vers chez lors puis aussi selon dont après avant pendant lorsque quand cela celui celle ceux the of and to in is for on with as by an at be this that are from or it""".split())
+_STOP_N = set(norm(w) for w in _STOP)
 _WORD = re.compile(r"[A-Za-zÀ-ÖØ-öø-ÿ0-9][A-Za-zÀ-ÖØ-öø-ÿ0-9/\-]*")
 _CHUNK = re.compile(r"[.;:!?()\[\]«»\u201c\u201d\",\n\r]+")
 _STOP |= {"l", "d", "qu", "n", "s", "j", "c", "m", "t"}
@@ -382,6 +399,116 @@ class LexiconIndex:
             if meta.get("famille"):
                 fams[meta["famille"]] = fams.get(meta["famille"], 0) + 1
         self.families = dict(sorted(fams.items(), key=lambda kv: (-kv[1], kv[0])))
+        self.family_labels = {f: family_label(f, ROOT) for f in self.families}
+        self.no_family = sorted(t for t, m in gl.items() if not m.get("famille"))
+
+    def family_info(self, examples: int = 3) -> list:
+        """[{slug, label, n, exemples[<=3]}] — catalogue complet des familles existantes (pour le prompt et l'audit)."""
+        mem: dict[str, list] = {}
+        for t, m in self.glossaire.items():
+            if m.get("famille"):
+                mem.setdefault(m["famille"], []).append(t)
+        return [{"slug": f, "label": self.family_labels.get(f, f), "n": n, "exemples": sorted(mem.get(f, []), key=lambda x: (len(x), x))[:examples]}
+                for f, n in self.families.items()]
+
+    def canon(self, raw: str):
+        """Nom exact d'une fiche existante (terme, variante) ou None."""
+        for f in keyforms(raw or ""):
+            t = self.exact.get(f)
+            if t and t in self.glossaire:
+                return t
+        return None
+
+    # ── fiches voisines : TF-IDF local (pas d'index d'embeddings dans le projet) ──
+    def _toks(self, s: str) -> list:
+        out = []
+        for w in norm(re.sub(r"<[^>]+>", " ", s or "")).split():
+            if len(w) > 2 and w not in _STOP_N:
+                out.append(singular(w))
+        return out
+
+    def _build_vecs(self):
+        import math
+        from collections import Counter
+        docs, df = {}, Counter()
+        for t, m in self.glossaire.items():
+            c = Counter()
+            for w in self._toks(t):
+                c[w] += 3
+            for v in m.get("variantes") or []:
+                for w in self._toks(v):
+                    c[w] += 2
+            for w in self._toks(m.get("definition", "")):
+                c[w] += 1
+            for x in m.get("xrefs") or []:
+                for w in self._toks(x if isinstance(x, str) else ""):
+                    c[w] += 1
+            docs[t] = c
+            df.update(c.keys())
+        n = len(docs)
+        self._idf = {w: math.log((n + 1) / (d + 1)) + 1 for w, d in df.items()}
+        self._vecs = {t: self._vec(c) for t, c in docs.items()}
+        self._ndef = {t: " " + " ".join(self._toks(m.get("definition", ""))) + " " for t, m in self.glossaire.items()}
+
+    def _vec(self, counter) -> dict:
+        import math
+        v = {w: (1 + math.log(c)) * self._idf.get(w, 1.0) for w, c in counter.items()}
+        nrm = math.sqrt(sum(x * x for x in v.values())) or 1.0
+        return {w: x / nrm for w, x in v.items()}
+
+    def similar(self, term: str, text: str = "", k: int = 12, exclude=()) -> list:
+        """Les k fiches existantes les plus proches du terme (et de `text` : définition, commentaire…).
+        Lexical (mots du terme, variantes, définitions, voir aussi) + similarité TF-IDF + fiches nommées dans `text`
+        + 'retour de pertinence' (voisins des meilleurs résultats) quand on n'a pas de définition."""
+        from collections import Counter
+        if not hasattr(self, "_vecs"):
+            self._build_vecs()
+        own = {norm(term)}
+        skip = {norm(x) for x in exclude} | own
+        q = Counter()
+        for w in self._toks(term):
+            q[w] += 3
+        for w in self._toks(text):
+            q[w] += 1
+        qv = self._vec(q)
+        dot = lambda a, b: sum(x * b.get(w, 0.0) for w, x in a.items())
+        tw = set(self._toks(term))
+        forced = []
+        if text:                                    # fiches explicitement nommées (ex. commentaire « comme bord d'attaque »)
+            toks = norm(text).split()
+            for n_ in (4, 3, 2, 1):
+                for i in range(len(toks) - n_ + 1):
+                    g = " ".join(toks[i:i + n_])
+                    if len(g) >= 4 and g not in _STOP and g in self.exact and self.exact[g] in self.glossaire and norm(self.exact[g]) not in skip:
+                        if self.exact[g] not in forced:
+                            forced.append(self.exact[g])
+        score = {}
+        for t in self.glossaire:
+            if norm(t) in skip:
+                continue
+            s = dot(qv, self._vecs[t])
+            if tw and any(w in self._ndef[t] for w in tw if len(w) > 4):
+                s += 0.5                            # le terme est mentionné dans la définition de la fiche
+            score[t] = s
+        if not text:                                # retour de pertinence : on élargit autour des 3 meilleurs
+            top = sorted(score, key=score.get, reverse=True)[:3]
+            top = [t for t in top if score[t] > 0]
+            if top:
+                cen = Counter()
+                for t in top:
+                    for w, x in self._vecs[t].items():
+                        cen[w] += x
+                import math
+                nrm = math.sqrt(sum(x * x for x in cen.values())) or 1.0
+                cv = {w: x / nrm for w, x in cen.items()}
+                for t in score:
+                    score[t] += 0.7 * dot(cv, self._vecs[t])
+        ranked = forced[:k] + [t for t in sorted(score, key=lambda x: (-score[x], x)) if t not in forced and score[t] > 0.02]
+        return ranked[:k]
+
+    def neighbour_card(self, t: str) -> dict:
+        m = self.glossaire[t]
+        return {"terme": t, "lien": self.link(t), "famille": m.get("famille", "")}
 
     def link(self, term: str) -> str:
         slug = self.slugmap.get(term)
@@ -464,6 +591,8 @@ def db() -> sqlite3.Connection:
         results TEXT, info TEXT, ts REAL, upd REAL);
     CREATE TABLE IF NOT EXISTS ratelimit(ip TEXT, kind TEXT, ts REAL, n INTEGER);
     CREATE INDEX IF NOT EXISTS ratelimit_ip ON ratelimit(ip, kind, ts);
+    CREATE TABLE IF NOT EXISTS proposal_versions(proposal_id INTEGER, v INTEGER, data TEXT, comment TEXT, model TEXT, ts REAL,
+        PRIMARY KEY(proposal_id, v));
     CREATE TABLE IF NOT EXISTS costlog(id INTEGER PRIMARY KEY AUTOINCREMENT, ts REAL, job TEXT, model TEXT,
         n_terms INTEGER, tok_in INTEGER, tok_out INTEGER, usd REAL, secs REAL, ok INTEGER);
     """)
@@ -513,9 +642,39 @@ def _xai_key() -> str | None:
     return None
 
 
-def build_prompt(lex_id: str, terms: list, families: dict) -> list:
+NEIGH_PER_TERM = 12        # fiches voisines passées au modèle (8 si le lot dépasse 4 termes : prompt borné)
+MAX_VOIR_AUSSI = 8         # « voir aussi » proposés par version
+MAX_VERSIONS = 10          # versions max d'une proposition (relances commentées)
+
+
+def neighbours_ctx(lex_id: str, terms: list, texts: dict | None = None) -> dict:
+    """{terme: [fiches voisines existantes]} — récupérées AVANT l'appel LLM (lexical + TF-IDF + voir aussi)."""
+    idx = get_index(lex_id)
+    k = NEIGH_PER_TERM if len(terms) <= 4 else 8
+    return {t: idx.similar(t, (texts or {}).get(t, ""), k) for t in terms}
+
+
+def _fiche_line(idx: "LexiconIndex", t: str) -> str:
+    m = idx.glossaire[t]
+    xr = [x for x in (m.get("xrefs") or []) if isinstance(x, str)][:4]
+    return "  · %s | famille : %s | %s%s" % (t, m.get("famille") or "(aucune)", _plain(m.get("definition", ""), 150),
+                                            (" | voir aussi : " + ", ".join(xr)) if xr else "")
+
+
+def _item_json(it: dict) -> str:
+    keep = ("definition", "famille", "famille_nouvelle", "famille_nouvelle_label", "famille_justification", "rattachements",
+            "voir_aussi", "synonymes", "origine", "traduction", "confiance")
+    return json.dumps({k: it.get(k) for k in keep if k in it}, ensure_ascii=False)
+
+
+def build_prompt(lex_id: str, terms: list, families: dict, ctx: dict | None = None, previous: dict | None = None,
+                 comment: str = "") -> list:
     cfg = LEXICONS[lex_id]
-    fam_list = ", ".join(families.keys())
+    idx = get_index(lex_id)
+    if ctx is None:
+        ctx = neighbours_ctx(lex_id, terms)
+    fam_cat = "\n".join("  %s — %s (%d fiches) : %s" % (f["slug"], f["label"], f["n"], ", ".join(f["exemples"])) for f in idx.family_info())
+    no_fam = ", ".join(idx.no_family)
     system = (
         "Tu es rédacteur de lexique pour AeroLex (" + cfg["label"] + "). Public : " + cfg["audience"] + ".\n"
         "Domaine couvert : " + cfg["scope"] + ".\n"
@@ -529,15 +688,34 @@ def build_prompt(lex_id: str, terms: list, families: dict) -> list:
         '  "origine": si sigle/abréviation, forme développée d\'origine (langue d\'origine), sinon "",\n'
         '  "traduction": si l\'origine est étrangère, traduction française du développé, sinon "",\n'
         '  "definition": 2 à 4 phrases claires, exactes, niveau ' + cfg["audience"] + ' (vide "" si domaine=false),\n'
-        '  "famille": UNE valeur choisie dans la liste des familles existantes si l\'une convient, sinon "" ;\n'
-        '  "famille_nouvelle": proposition courte (snake_case) UNIQUEMENT si aucune famille existante ne convient, sinon "",\n'
-        '  "synonymes": liste de synonymes/alias/formes courantes (peut être vide),\n'
+        '  "famille": le SLUG d\'UNE famille existante (liste ci-dessous) dès qu\'elle convient, sinon "" ;\n'
+        '  "famille_nouvelle": slug snake_case d\'une nouvelle famille UNIQUEMENT si aucune famille existante ne convient, sinon "" ;\n'
+        '  "famille_nouvelle_label": libellé lisible en français de cette nouvelle famille (ex. « Structure de l\'aile », jamais un slug), sinon "" ;\n'
+        '  "famille_justification": 1 à 2 phrases : pourquoi cette famille existante convient, ou pourquoi aucune ne convient et que cette nouvelle famille se justifie,\n'
+        '  "rattachements": fiches EXISTANTES SANS FAMILLE (liste ci-dessous, noms exacts) qui devraient rejoindre la famille choisie/proposée (vide si aucune),\n'
+        '  "voir_aussi": jusqu\'à 8 fiches EXISTANTES (noms exacts, voisines ou liste du lexique) à relier en « voir aussi »,\n'
+        '  "synonymes": variantes, synonymes, alias, formes courantes (peut être vide),\n'
         '  "confiance": nombre 0..1 (ta certitude sur la définition).\n'
+        "RÈGLES DE FAMILLE : regarde d'abord les fiches voisines fournies avec chaque terme et le catalogue des familles ; choisis une famille "
+        "EXISTANTE dès qu'elle convient. Ne crée une nouvelle famille que si aucune ne convient ; dans ce cas, propose les fiches existantes sans famille "
+        "qui devraient la rejoindre (ex. pour « emplanture » : bord d'attaque, bord de fuite, longeron, nervure, corde, profil). "
+        "Les noms de fiches (voir_aussi, rattachements) doivent exister dans le lexique : n'invente rien.\n"
         "Pas de HTML, pas de markdown, pas de commentaire hors JSON. Sois exact : si tu ne connais pas un terme, "
         "mets confiance basse et définition vide plutôt que d'inventer.\n"
-        "Familles existantes : " + fam_list
+        "Familles existantes (slug — libellé (nombre de fiches) : 3 exemples) :\n" + fam_cat + "\n"
+        "Fiches existantes SANS famille (" + str(len(idx.no_family)) + ") : " + no_fam
     )
-    user = "Termes :\n" + "\n".join("- " + t for t in terms)
+    blocks = []
+    for t in terms:
+        near = [n for n in ctx.get(t, []) if n in idx.glossaire]
+        blocks.append("- " + t + ("\n  Fiches voisines (terme | famille | début de définition | voir aussi) :\n" + "\n".join(_fiche_line(idx, n) for n in near)
+                                  if near else "\n  Fiches voisines : aucune trouvée."))
+    user = "Termes :\n" + "\n".join(blocks)
+    if previous is not None:
+        user += ("\n\nTa proposition précédente pour ce terme (JSON) :\n" + _item_json(previous) +
+                 "\n\nCommentaire du relecteur : " + comment.strip()[:1500] +
+                 "\n\nRéponds par une NOUVELLE version complète (même format, un seul item) qui tient compte du commentaire, "
+                 "en restant exacte ; ne change que ce que le commentaire ou les fiches voisines justifient.")
     return [{"role": "system", "content": system}, {"role": "user", "content": user}]
 
 
@@ -584,7 +762,26 @@ def _b(v) -> bool:
     return bool(v)
 
 
-def validate_item(it: dict, asked: str, families: dict) -> dict:
+def _slug(s: str) -> str:
+    return re.sub(r"[^a-z0-9]+", "_", norm(s)).strip("_")[:50]
+
+
+def _names(v, idx, own: str, limit: int, no_family_only: bool = False) -> list:
+    """Liste de noms de fiches -> noms EXACTS de fiches existantes (inconnues et doublons écartés)."""
+    if isinstance(v, str):
+        v = re.split(r"[,;]", v)
+    out = []
+    for x in v if isinstance(v, list) else []:
+        t = idx.canon(x) if idx and isinstance(x, str) else None
+        if not t or norm(t) == norm(own) or t in out:
+            continue
+        if no_family_only and idx.glossaire[t].get("famille"):
+            continue
+        out.append(t)
+    return out[:limit]
+
+
+def validate_item(it: dict, asked: str, families: dict, idx: "LexiconIndex | None" = None) -> dict:
     """Contrat de sortie LLM -> item normalisé ; lève ValueError si inutilisable."""
     if not isinstance(it, dict):
         raise ValueError("item non-objet")
@@ -595,9 +792,20 @@ def validate_item(it: dict, asked: str, families: dict) -> dict:
         conf = 0.0
     fam = (it.get("famille") or "").strip()
     fam_new = (it.get("famille_nouvelle") or "").strip()
+    fam_label = str(it.get("famille_nouvelle_label") or "").strip()[:80]
     if fam and fam not in families:
         # famille inventée : on la rétrograde en proposition de nouvelle famille
         fam_new, fam = fam_new or fam, ""
+    if fam_new:
+        if not re.fullmatch(r"[a-z0-9_]+", fam_new):          # libellé lisible donné à la place du slug
+            fam_label = fam_label or fam_new
+            fam_new = _slug(fam_new)
+        if fam_new in families:                                # la « nouvelle » famille existe déjà
+            fam, fam_new, fam_label = fam or fam_new, "", ""
+    if not fam_new:
+        fam_label = ""
+    elif not fam_label:
+        fam_label = family_label(fam_new)
     syn = it.get("synonymes") or []
     if isinstance(syn, str):
         syn = [s for s in re.split(r"[,;]", syn)]
@@ -613,6 +821,10 @@ def validate_item(it: dict, asked: str, families: dict) -> dict:
         "definition": re.sub(r"<[^>]+>", "", str(it.get("definition") or "")).strip(),
         "famille": fam,
         "famille_nouvelle": fam_new[:60],
+        "famille_nouvelle_label": fam_label,
+        "famille_justification": str(it.get("famille_justification") or "").strip()[:400],
+        "rattachements": _names(it.get("rattachements"), idx, asked, 15, True),
+        "voir_aussi": _names(it.get("voir_aussi"), idx, asked, MAX_VOIR_AUSSI),
         "synonymes": list(dict.fromkeys(syn))[:10],
         "confiance": round(conf, 2),
     }
@@ -622,12 +834,15 @@ def validate_item(it: dict, asked: str, families: dict) -> dict:
     return out
 
 
-def parse_llm(content: str, asked: list, families: dict) -> dict:
+def parse_llm(content: str, asked: list, families: dict, idx: "LexiconIndex | None" = None) -> dict:
     """-> {terme_demandé: item validé}. Associe par ordre, repli par forme normalisée."""
     obj = json.loads(_strip_json(content))
     items = obj.get("items") if isinstance(obj, dict) else obj
     if not isinstance(items, list):
-        raise ValueError("clé items absente")
+        if isinstance(obj, dict) and obj.get("definition") is not None and len(asked) == 1:
+            items = [obj]                     # un seul item renvoyé sans enveloppe
+        else:
+            raise ValueError("clé items absente")
     by_norm = {}
     for it in items:
         if isinstance(it, dict) and it.get("terme"):
@@ -638,16 +853,20 @@ def parse_llm(content: str, asked: list, families: dict) -> dict:
         if it is None:
             continue
         try:
-            out[t] = validate_item(it, t, families)
+            out[t] = validate_item(it, t, families, idx)
         except ValueError:
             continue
     return out
 
 
-def llm_batch(lex_id: str, terms: list, families: dict, job: str = "") -> tuple:
+def llm_batch(lex_id: str, terms: list, families: dict, job: str = "", build=None) -> tuple:
     """Un appel LLM pour <= BATCH_SIZE termes. Repli : retry -> Qwopus local.
+    `build(terms, ctx) -> messages` : prompt personnalisé (relance commentée). Par défaut build_prompt + fiches voisines.
     -> (résultats {terme: item}, [erreurs], coût_usd)"""
-    messages = build_prompt(lex_id, terms, families)
+    idx = get_index(lex_id)
+    build = build or (lambda ts, cx: build_prompt(lex_id, ts, families, cx))
+    ctx = neighbours_ctx(lex_id, terms)
+    messages = build(terms, ctx)
     errors, total_usd = [], 0.0
     plan = ["xai", "xai", "local"]
     results: dict = {}
@@ -658,7 +877,7 @@ def llm_batch(lex_id: str, terms: list, families: dict, job: str = "") -> tuple:
         t0 = time.time()
         try:
             content, usage, model, usd = _call_provider(prov, messages, len(terms))
-            got = parse_llm(content, terms, families)
+            got = parse_llm(content, terms, families, idx)
             ok = len(got) > 0
             with _db_lock, db() as con:
                 con.execute("INSERT INTO costlog(ts,job,model,n_terms,tok_in,tok_out,usd,secs,ok) VALUES(?,?,?,?,?,?,?,?,?)",
@@ -666,12 +885,14 @@ def llm_batch(lex_id: str, terms: list, families: dict, job: str = "") -> tuple:
             total_usd += usd
             for k, v in got.items():
                 v["modele"] = model
+                v["voisins_consultes"] = [idx.neighbour_card(n) for n in ctx.get(k, []) if n in idx.glossaire]
                 results[k] = v
-            missing = [t for t in terms if t not in results]
+            missing = [x for x in terms if x not in results]
             if not missing:
                 return results, errors, total_usd
             terms = missing                     # on ne redemande que les manquants
-            messages = build_prompt(lex_id, terms, families)
+            ctx = neighbours_ctx(lex_id, terms)
+            messages = build(terms, ctx)
             errors.append("%d terme(s) manquant(s) dans la réponse de %s" % (len(missing), model))
         except Exception as e:  # réseau, HTTP, JSON invalide…
             errors.append("%s: %s" % (prov, str(e)[:160]))
@@ -886,25 +1107,116 @@ def list_proposals(lex_id: str | None, status: str = "pending") -> list:
         q += " AND domain=?"; a.append(lex_id)
     with _db_lock, db() as con:
         rows = con.execute(q + " ORDER BY ts DESC", a).fetchall()
-    return [{"id": r["id"], "domaine": r["domain"], "terme": r["term"], "statut": r["status"],
-             "data": json.loads(r["data"]), "job": r["job"], "ts": r["ts"]} for r in rows]
+        vers = {}
+        for v in con.execute("SELECT proposal_id,v,comment,model,ts FROM proposal_versions ORDER BY proposal_id, v"):
+            vers.setdefault(v["proposal_id"], []).append({"v": v["v"], "commentaire": v["comment"], "modele": v["model"], "ts": v["ts"]})
+    out = []
+    for r in rows:
+        d = json.loads(r["data"])
+        liens = {}
+        if r["domain"] in LEXICONS and status == "pending":      # liens vers les fiches citées (voir aussi, rattachements)
+            idx = get_index(r["domain"])
+            for n in list(d.get("voir_aussi") or []) + list(d.get("rattachements") or []):
+                if n in idx.glossaire:
+                    liens[n] = idx.link(n)
+        out.append({"id": r["id"], "domaine": r["domain"], "terme": r["term"], "statut": r["status"], "data": d, "job": r["job"],
+                    "ts": r["ts"], "versions": vers.get(r["id"], []), "liens": liens})
+    return out
 
 
 def edit_proposal(pid: int, term: str | None, data: dict) -> dict:
-    allowed = {"definition", "famille", "famille_nouvelle", "synonymes", "origine", "traduction"}
+    allowed = {"definition", "famille", "famille_nouvelle", "famille_nouvelle_label", "famille_justification", "synonymes",
+               "origine", "traduction", "voir_aussi", "rattachements_retenus"}
     with _db_lock, db() as con:
         r = con.execute("SELECT * FROM proposals WHERE id=? AND status='pending'", (pid,)).fetchone()
         if not r:
             raise KeyError("proposition introuvable")
         cur = json.loads(r["data"])
+        idx = get_index(r["domain"])
         for k, v in data.items():
             if k in allowed:
                 cur[k] = v
         if isinstance(cur.get("synonymes"), str):
             cur["synonymes"] = [clean_term(s) for s in cur["synonymes"].split(",") if clean_term(s)]
+        if "voir_aussi" in data:
+            cur["voir_aussi"] = _names(cur.get("voir_aussi"), idx, r["term"], MAX_VOIR_AUSSI)
+        if "rattachements_retenus" in data:      # uniquement des fiches existantes sans famille
+            cur["rattachements_retenus"] = _names(cur.get("rattachements_retenus"), idx, r["term"], 15, True)
         con.execute("UPDATE proposals SET data=?, term=?, upd=? WHERE id=?",
                     (json.dumps(cur, ensure_ascii=False), clean_term(term) if term else r["term"], time.time(), pid))
+        cv = cur.get("version")
+        if cv:                                   # la version courante suit les modifications manuelles
+            con.execute("UPDATE proposal_versions SET data=? WHERE proposal_id=? AND v=?", (json.dumps(cur, ensure_ascii=False), pid, cv))
     return {"ok": True}
+
+
+# ── Relance commentée + historique des versions ─────────────────────────────
+def _ensure_v1(con, r) -> dict:
+    """Garantit que la proposition courante est enregistrée comme version (v1 au premier appel)."""
+    cur = json.loads(r["data"])
+    if not cur.get("version"):
+        cur["version"] = 1
+        con.execute("INSERT OR REPLACE INTO proposal_versions(proposal_id,v,data,comment,model,ts) VALUES(?,?,?,?,?,?)",
+                    (r["id"], 1, json.dumps(cur, ensure_ascii=False), "", cur.get("modele", ""), r["ts"]))
+        con.execute("UPDATE proposals SET data=? WHERE id=?", (json.dumps(cur, ensure_ascii=False), r["id"]))
+    return cur
+
+
+def relaunch_proposal(pid: int, comment: str) -> dict:
+    """Le modèle reçoit sa proposition précédente + le commentaire + les fiches voisines et renvoie une nouvelle version
+    (v2, v3…). N'utilise pas le cache et le remplace ; soumise au plafond de coût (llm_batch) ; session relecteur exigée par l'API."""
+    comment = (comment or "").strip()
+    if len(comment) < 3:
+        raise ValueError("commentaire vide : écrivez ce que le modèle doit corriger")
+    with _db_lock, db() as con:
+        r = con.execute("SELECT * FROM proposals WHERE id=? AND status='pending'", (pid,)).fetchone()
+        if not r:
+            raise KeyError("proposition introuvable")
+        cur = _ensure_v1(con, r)
+        nmax = con.execute("SELECT MAX(v) FROM proposal_versions WHERE proposal_id=?", (pid,)).fetchone()[0] or 1
+    if nmax >= MAX_VERSIONS:
+        raise ValueError("nombre maximal de versions atteint (%d) : modifiez la fiche à la main" % MAX_VERSIONS)
+    term, dom = r["term"], r["domain"]
+    idx = get_index(dom)
+    text = " ".join([cur.get("definition", ""), comment])
+
+    used: dict = {}
+
+    def build(ts, _cx):                          # voisins recalculés avec la définition précédente + le commentaire
+        cx = {x: idx.similar(x, text, NEIGH_PER_TERM) for x in ts}
+        used.update(cx)
+        return build_prompt(dom, ts, idx.families, cx, previous=cur, comment=comment)
+
+    got, errs, usd = llm_batch(dom, [term], idx.families, "relance:%d" % pid, build=build)
+    if term not in got:
+        raise ValueError("relance impossible : " + ("; ".join(errs)[:200] or "pas de réponse"))
+    item = {k: v for k, v in got[term].items() if k not in NOT_DATA}
+    for k in ("repeche", "erreur_validation"):
+        item.pop(k, None)
+    item["rattachements_retenus"] = list(item.get("rattachements") or [])
+    item["voisins_consultes"] = [idx.neighbour_card(n) for n in used.get(term, []) if n in idx.glossaire]    # ceux réellement passés au modèle
+    with _db_lock, db() as con:
+        nv = (con.execute("SELECT MAX(v) FROM proposal_versions WHERE proposal_id=?", (pid,)).fetchone()[0] or 1) + 1
+        item["version"] = nv
+        con.execute("INSERT INTO proposal_versions(proposal_id,v,data,comment,model,ts) VALUES(?,?,?,?,?,?)",
+                    (pid, nv, json.dumps(item, ensure_ascii=False), comment, item.get("modele", ""), time.time()))
+        con.execute("UPDATE proposals SET data=?, upd=? WHERE id=?", (json.dumps(item, ensure_ascii=False), time.time(), pid))
+        con.execute("DELETE FROM cache WHERE domain=? AND key=?", (dom, r["key"]))      # cache de ce terme invalidé
+    return {"ok": True, "version": nv, "usd": usd}
+
+
+def revert_proposal(pid: int, v: int) -> dict:
+    with _db_lock, db() as con:
+        r = con.execute("SELECT * FROM proposals WHERE id=? AND status='pending'", (pid,)).fetchone()
+        if not r:
+            raise KeyError("proposition introuvable")
+        row = con.execute("SELECT data FROM proposal_versions WHERE proposal_id=? AND v=?", (pid, int(v))).fetchone()
+        if not row:
+            raise KeyError("version introuvable")
+        d = json.loads(row["data"])
+        d["version"] = int(v)
+        con.execute("UPDATE proposals SET data=?, upd=? WHERE id=?", (json.dumps(d, ensure_ascii=False), time.time(), pid))
+    return {"ok": True, "version": int(v)}
 
 
 def reject_proposal(pid: int) -> dict:
@@ -1047,12 +1359,25 @@ def check_proposal(row, run_llm: bool = True) -> dict:
         near = idx.typo_match(term)
         add("Terme inexistant", "warn" if near else "ok", ("très proche de « %s » (faute de frappe ?)" % near) if near else "")
     fam, fam_new = d.get("famille") or "", d.get("famille_nouvelle") or ""
+    raw_att = d.get("rattachements_retenus") or []
+    att = _names(raw_att, idx, term, 15, True)
     if fam and fam in idx.families:
-        add("Famille", "ok", fam)
+        add("Famille", "ok", "%s (%s)" % (idx.family_labels.get(fam, fam), fam))
     elif fam_new:
-        add("Famille", "warn", "nouvelle famille « %s » proposée : à justifier (aucune fiche existante)." % fam_new)
+        lab = d.get("famille_nouvelle_label") or family_label(fam_new)
+        just = (d.get("famille_justification") or "").strip()
+        if att and just:
+            add("Famille", "ok", "nouvelle famille « %s » — %s" % (lab, just))
+        elif att:
+            add("Famille", "warn", "nouvelle famille « %s » sans justification écrite (%d fiche(s) rattachée(s))." % (lab, len(att)))
+        else:
+            add("Famille", "warn", "nouvelle famille « %s » proposée : à justifier (aucune fiche existante à rattacher)." % lab)
     else:
         add("Famille", "ko", "aucune famille (ni existante, ni nouvelle justifiée).")
+    if att:
+        add("Rattachements", "ok", "%d fiche(s) sans famille rejoindront la famille : %s" % (len(att), ", ".join(att)))
+    if len(att) < len(raw_att):
+        add("Rattachements", "warn", "%d fiche(s) cochée(s) ignorée(s) (inconnue ou déjà dans une famille)." % (len(raw_att) - len(att)))
     definition = (d.get("definition") or "").strip()
     if not definition:
         add("Définition", "ko", "définition vide.")
@@ -1136,6 +1461,9 @@ def render_entry(term: str, d: dict, categorie: str = "À classer") -> str:
     syn = [s for s in d.get("synonymes", []) if norm(s) != norm(term)]
     if syn:
         lines.append("        \"variantes\": %s," % _py(syn))
+    xr = [x for x in (d.get("voir_aussi") or []) if isinstance(x, str) and norm(x) != norm(term)]
+    if xr:
+        lines.append("        \"xrefs\": %s," % _py(xr))
     lines.append("        \"origine\": \"suggest\",")
     lines.append("    },")
     return "\n".join(lines) + "\n"
@@ -1149,6 +1477,71 @@ def insert_into_source(src: Path, entries: str) -> None:
     lines[end:end] = ["    # ---------------- Suggestions validées (suggest) ----------------\n" if not any(
         "Suggestions validées" in l for l in lines) else "", entries]
     src.write_text("".join(lines), "utf-8")
+
+
+def set_families_in_full(full: Path, assign: dict) -> tuple:
+    """Rattache des fiches EXISTANTES (sans famille) à une famille, en modifiant uniquement ces entrées de data_glossaire_full.py
+    (insertion d'une ligne 'famille' ou remplissage d'une valeur vide ; le reste du fichier est conservé octet pour octet).
+    Vérifie ensuite que le fichier se relit avec les mêmes clés. -> (appliquées [(terme, famille)], ignorées [(terme, raison)])
+    Toute incohérence lève une exception (la validation restaure alors le site)."""
+    import ast
+    raw = full.read_text("utf-8")
+    tree = ast.parse(raw)
+
+    def glossaire(tr):
+        return next(n for n in tr.body if isinstance(n, ast.Assign) and any(isinstance(x, ast.Name) and x.id == "GLOSSAIRE" for x in n.targets))
+
+    node = glossaire(tree)
+    lines = raw.splitlines(keepends=True)
+    applied, skipped, ops = [], [], []
+    keys_before = [k.value for k in node.value.keys if isinstance(k, ast.Constant)]
+    for k, v in zip(node.value.keys, node.value.values):
+        if not (isinstance(k, ast.Constant) and k.value in assign):
+            continue
+        term, fam = k.value, assign[k.value]
+        if not isinstance(v, ast.Dict):
+            skipped.append((term, "entrée illisible")); continue
+        fk = next((i for i, kk in enumerate(v.keys) if isinstance(kk, ast.Constant) and kk.value == "famille"), None)
+        if fk is not None:
+            fv = v.values[fk]
+            if not (isinstance(fv, ast.Constant) and not fv.value):
+                skipped.append((term, "a déjà une famille")); continue
+            if fv.lineno != fv.end_lineno:
+                skipped.append((term, "valeur multi-ligne")); continue
+            ops.append((fv.lineno, "set", fv, fam))
+        else:
+            if v.lineno != k.lineno or not v.keys or v.keys[0].lineno <= v.lineno:
+                skipped.append((term, "format d'entrée inattendu")); continue
+            ops.append((v.lineno, "ins", v, fam))
+        applied.append((term, fam))
+    for lineno, kind, nd, fam in sorted(ops, key=lambda o: -o[0]):
+        if kind == "ins":
+            indent = " " * nd.keys[0].col_offset
+            lines.insert(lineno, "%s'famille': %s,\n" % (indent, repr(fam)))
+        else:
+            b = lines[lineno - 1].encode("utf-8")
+            lines[lineno - 1] = (b[:nd.col_offset] + repr(fam).encode("utf-8") + b[nd.end_col_offset:]).decode("utf-8")
+    out = "".join(lines)
+    node2 = glossaire(ast.parse(out))
+    if [k.value for k in node2.value.keys if isinstance(k, ast.Constant)] != keys_before:
+        raise RuntimeError("rattachement de familles : les clés du glossaire ont changé (annulé)")
+    got = {k.value: {kk.value: vv.value for kk, vv in zip(v.keys, v.values) if isinstance(kk, ast.Constant) and kk.value == "famille" and isinstance(vv, ast.Constant)}
+           for k, v in zip(node2.value.keys, node2.value.values) if isinstance(k, ast.Constant) and k.value in assign and isinstance(v, ast.Dict)}
+    for term, fam in applied:
+        if got.get(term, {}).get("famille") != fam:
+            raise RuntimeError("rattachement de familles : %r non appliqué (annulé)" % term)
+    full.write_text(out, "utf-8")
+    return applied, skipped
+
+
+def register_family_label(root: Path, slug: str, label: str) -> None:
+    p = root / "data" / "familles_labels.json"
+    try:
+        d = json.loads(p.read_text("utf-8"))
+    except (OSError, ValueError):
+        d = {}
+    d[slug] = label
+    p.write_text(json.dumps(d, ensure_ascii=False, indent=1, sort_keys=True) + "\n", "utf-8")
 
 
 REBUILD_STEPS = [
@@ -1246,18 +1639,39 @@ def validate_proposals(ids: list, do_rebuild: bool = True, steps=None, force: bo
                 refused.append({"id": r["id"], "terme": r["term"], **rep_})
                 continue
             d = json.loads(r["data"])
-            chunks.append((dom, r, render_entry(r["term"], d)))
+            if not d.get("famille") and d.get("famille_nouvelle"):      # nouvelle famille retenue : la fiche en prend le slug
+                d["famille"] = d["famille_nouvelle"]
+            d["voir_aussi"] = _names(d.get("voir_aussi"), idx, r["term"], MAX_VOIR_AUSSI)
+            att = _names(d.get("rattachements_retenus"), idx, r["term"], 15, True) if d.get("famille") else []
+            chunks.append((dom, r, render_entry(r["term"], d), d, att))
     if not chunks:
         return {"valides": [], "ignores": skipped, "refuses": refused, "build": [], "force": bool(force)}
+
+    attached: list = []
+    skipped_att: list = []
 
     def write_sources():
         for dom in by_dom:
             if any(c[0] == dom for c in chunks):
                 insert_into_source(ROOT / LEXICONS[dom]["source"], "".join(c[2] for c in chunks if c[0] == dom))
+                assign, labels = {}, {}
+                for c in chunks:                 # rattachements + libellé d'une nouvelle famille : même opération sûre
+                    if c[0] != dom:
+                        continue
+                    d_, att_ = c[3], c[4]
+                    if d_.get("famille_nouvelle") and d_.get("famille") == d_["famille_nouvelle"] and d_["famille"] not in get_index(dom).families:
+                        labels[d_["famille"]] = d_.get("famille_nouvelle_label") or family_label(d_["famille"])
+                    for t_ in att_:
+                        assign.setdefault(t_, d_["famille"])
+                for slug, lab in labels.items():
+                    register_family_label(ROOT, slug, lab)
+                if assign:
+                    a_, s_ = set_families_in_full(ROOT / LEXICONS[dom]["full"], assign)
+                    attached.extend(a_); skipped_att.extend(s_)
 
     def mark_validated():
         with _db_lock, db() as con:
-            for dom, r, _ in chunks:
+            for dom, r, *_ in chunks:
                 con.execute("DELETE FROM proposals WHERE domain=? AND key=? AND status='validated'", (dom, r["key"]))
                 con.execute("UPDATE proposals SET status='validated', upd=? WHERE id=?", (time.time(), r["id"]))
                 done.append(r["term"])
@@ -1265,7 +1679,8 @@ def validate_proposals(ids: list, do_rebuild: bool = True, steps=None, force: bo
     if not do_rebuild:
         write_sources()
         mark_validated()
-        return {"valides": done, "ignores": skipped, "refuses": refused, "build": [], "force": bool(force)}
+        return {"valides": done, "ignores": skipped, "refuses": refused, "build": [], "force": bool(force),
+                "rattaches": attached, "rattachements_ignores": skipped_att}
 
     # ── chemin sûr : un seul à la fois, sauvegarde, reconstruction, contrôles, restauration auto ──
     DATA_DIR.mkdir(parents=True, exist_ok=True)
@@ -1289,7 +1704,7 @@ def validate_proposals(ids: list, do_rebuild: bool = True, steps=None, force: bo
             restore_site(bk)
             msg = str(e)[:600]
             with _db_lock, db() as con:     # la proposition reste « à valider », avec le message d'erreur
-                for dom, r, _ in chunks:
+                for dom, r, *_ in chunks:
                     d = json.loads(r["data"])
                     d["erreur_validation"] = msg
                     con.execute("UPDATE proposals SET data=?, upd=? WHERE id=?", (json.dumps(d, ensure_ascii=False), time.time(), r["id"]))
@@ -1297,7 +1712,8 @@ def validate_proposals(ids: list, do_rebuild: bool = True, steps=None, force: bo
             raise ValidationError("validation annulée, site restauré (sauvegarde %s) : %s" % (bk, msg))
         mark_validated()
         return {"valides": done, "ignores": skipped, "refuses": refused, "build": log, "force": bool(force),
-                "fiches": [before, after], "sauvegarde": str(bk)}
+                "fiches": [before, after], "sauvegarde": str(bk),
+                "rattaches": attached, "rattachements_ignores": skipped_att}
     finally:
         fcntl.flock(lock, fcntl.LOCK_UN)
         lock.close()

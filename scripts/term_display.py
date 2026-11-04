@@ -332,9 +332,25 @@ _FAM_SPECIAL = {
 }
 
 
+def _custom_family_labels() -> dict:
+    """Libellés lisibles des familles créées via « Suggérer » : data/familles_labels.json {slug: libellé}
+    (dans data/ : sauvegardé/restauré avec la validation sûre)."""
+    import json as _json
+    from pathlib import Path as _Path
+    p = _Path(__file__).resolve().parent.parent / "data" / "familles_labels.json"
+    try:
+        d = _json.loads(p.read_text("utf-8"))
+        return d if isinstance(d, dict) else {}
+    except (OSError, ValueError):
+        return {}
+
+
 def family_label(fam: str) -> str:
     if not fam:
         return ""
+    custom = _custom_family_labels().get(fam)
+    if custom:
+        return custom
     if fam in _FAM_SPECIAL:
         return _FAM_SPECIAL[fam]
     toks = fam.split("_")
