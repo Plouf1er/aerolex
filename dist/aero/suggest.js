@@ -598,6 +598,7 @@
       var last = out.lastChild;
       if (tag && last && last.nodeName.toLowerCase() === tag) { last.textContent += txt; return; }
       if (!tag && last && last.nodeType === 3) { last.textContent += txt; return; }
+      if (tag === "ins" && last && last.nodeName.toLowerCase() === "del") out.appendChild(document.createTextNode(" "));
       out.appendChild(tag ? el(tag, { text: txt }) : document.createTextNode(txt));
     }
     while (i < n && j < m) {
@@ -635,7 +636,7 @@
     var kids = [el("h4", {}, [document.createTextNode(term), it.terme_initial && it.terme_initial !== it.terme ? el("span", { class: "conf", text: "(proposé : « " + it.terme_initial + " »)" }) : null,
                                el("span", { class: "conf", text: pct(it.confiance).replace(/^ · /, "") })])];
     if (st === "douteuse" && it.question) kids.push(el("p", { class: "pv-q", text: it.question }));
-    kids.push(el("p", { class: "pv-why", text: it.raison || "" }));
+    if (!(st === "douteuse" && it.question)) kids.push(el("p", { class: "pv-why", text: it.raison || "" }));
     (it.corrections || []).forEach(function (f) { kids.push(fixNode(f)); });
     var av = avisNode(it); if (av) kids.push(av);
     var box = el("div", { class: st === "douteuse" ? "res pv-doubt" : "pv-item" }, kids);

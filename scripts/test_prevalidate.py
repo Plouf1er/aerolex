@@ -99,6 +99,8 @@ def fake_post(url, body, headers, timeout):
                     it.update(verdict="corriger", correction={"terme": "tout autre mot"}, raison="renommage", confiance=0.95)
                 elif t.startswith("zzmaybe"):
                     it.update(verdict="ok", confiance=0.6, raison="hésitation")
+                elif t.startswith("zzmid"):
+                    it.update(verdict="ok", confiance=0.82, raison="plutôt correct")
             items.append(it)
         content = json.dumps({"items": items}, ensure_ascii=False)
     usage = {"prompt_tokens": 1000, "completion_tokens": 200, "completion_tokens_details": {"reasoning_tokens": 50}, "cost_in_usd_ticks": 5000000}
@@ -198,15 +200,16 @@ check("local: thinking désactivé explicitement (règle OMEN)", CALLS[2]["think
 print("== deuxième avis")
 clear_queue()
 ok1 = mk("zzokone"); ok2 = mk("zzoktwo")
-low = mk("zzlowone"); dfn = mk("zzdefone"); rej = mk("zzrejone"); rej2 = mk("zzrej2one"); fam = mk("zzfamone"); bad = mk("zzbadtermone")
+mid = mk("zzmidone"); low = mk("zzlowone"); dfn = mk("zzdefone"); rej = mk("zzrejone"); rej2 = mk("zzrej2one"); fam = mk("zzfamone"); bad = mk("zzbadtermone")
 CALLS.clear()
 rep = pv.prevalidate(LEX, "all", cfg=CFG)
 sec = llm_calls(True)
-check("2e avis: appelé une seule fois, seulement sur les cas douteux", len(sec) == 1 and sorted(sec[0]["terms"]) == sorted(["zzlowone", "zzdefone", "zzrejone", "zzrej2one"]), [c["terms"] for c in sec])
+check("2e avis: appelé une seule fois, seulement sur les cas douteux", len(sec) == 1 and sorted(sec[0]["terms"]) == sorted(["zzlowone", "zzmidone", "zzdefone", "zzrejone", "zzrej2one"]), [c["terms"] for c in sec])
 check("2e avis: par un modèle DIFFÉRENT (local, pas xai/grok)", sec and sec[0]["local"] and sec[0]["model"] == "current-llm-fast")
 check("2e avis: le premier passage n'a pas reçu les cas sûrs deux fois", len(llm_calls(False)) == 1)
 st = {it["terme"]: it for g in rep["groupes"].values() for it in g}
 check("statut: confiance faible confirmée -> prête", st["zzlowone"]["statut"] == "prete", st["zzlowone"])
+check("statut: confiance 0,82 (< seuil prête 0,85) -> deuxième avis, pas de trou sans issue", st["zzmidone"]["statut"] == "prete", st["zzmidone"])
 check("statut: définition corrigée + confirmée -> corrigée-prête avec diff", st["zzdefone"]["statut"] == "corrigee_prete" and any(f["champ"] == "definition" and f["origine"] == "modèle" and f["avant"] != f["apres"] for f in st["zzdefone"]["corrections"]), st["zzdefone"])
 check("statut: rejet confirmé par 2 modèles -> à rejeter", st["zzrejone"]["statut"] == "a_rejeter", st["zzrejone"])
 check("statut: désaccord entre les modèles -> douteuse avec question", st["zzrej2one"]["statut"] == "douteuse" and st["zzrej2one"]["question"], st["zzrej2one"])

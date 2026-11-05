@@ -9,7 +9,7 @@ Au lieu d'une relecture une par une, trois étages :
      simulation anti-ridicule (sur le corpus du lexique, ou générique sans corpus). Ce qui est mécanique est corrigé tout seul ; le reste bloque.
   b. UN SEUL PASSAGE LLM par paquets de 20 propositions (prompt compact : terme, définition, famille, variantes, voir aussi, 3 fiches
      voisines) -> JSON strict par proposition : verdict ok | corriger | rejeter, correction (champs modifiés seulement), raison, confiance.
-  c. DEUXIÈME AVIS, seulement sur les cas douteux (confiance < 0,8, correction de la définition, désaccord avec un contrôle), par un
+  c. DEUXIÈME AVIS, seulement sur les cas douteux (confiance < 0,85, correction de la définition, désaccord avec un contrôle), par un
      modèle DIFFÉRENT du premier s'il est configuré ; sinon le cas reste douteux.
 Résultat par proposition : « prête », « corrigée-prête », « douteuse » (avec la question posée au relecteur) ou « à rejeter » (raison).
 
@@ -43,7 +43,7 @@ import suggest_core as sc  # noqa: E402
 RULES = sc.RULES
 BATCH = 20                      # propositions par appel au modèle
 READY_CONF = 0.85               # confiance minimale d'une proposition « prête »
-DOUBT_CONF = 0.8                # en dessous : deuxième avis
+DOUBT_CONF = 0.85              # en dessous : deuxième avis (= seuil « prête » : sinon un « ok » à 0,80-0,84 resterait sans issue)
 VERDICTS = ("ok", "corriger", "rejeter")
 CORR_KEYS = ("terme", "definition", "famille", "voir_aussi", "variantes", "contexte_requis")
 READY = ("prete", "corrigee_prete")
@@ -278,9 +278,11 @@ def mechanical(p: P) -> None:
     before = _snap(p.id)
     notes = sc.autofix_proposal(p.id, adopt_base=False)
     after = _snap(p.id)
+    key = {"variantes": "variante", "contexte_requis": "contexte"}
     for k in before:
         if before[k] != after[k]:
-            p.fixes.append({"champ": k, "avant": before[k], "apres": after[k], "origine": "automatique", "motif": " ; ".join(notes)[:300]})
+            mine = [n for n in notes if key.get(k, k) in n.lower()] or notes
+            p.fixes.append({"champ": k, "avant": before[k], "apres": after[k], "origine": "automatique", "motif": " ; ".join(mine)[:300]})
 
 
 def slug_check(term: str) -> str:

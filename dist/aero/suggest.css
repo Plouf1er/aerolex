@@ -118,3 +118,6 @@ input[type=file]{width:100%}
 .pv-open{margin-top:.5rem}
 @media (min-width:700px){.pv-actions{flex-direction:row}.pv-actions .btn{width:auto}}
 @media (max-width:699px){.pv-sticky{position:sticky;bottom:0;background:rgba(246,247,249,.96);padding:.5rem 0;z-index:5;border-top:1px solid var(--bd)}}
+.pv-item h4 .conf,.pv-doubt h4 .conf{margin-left:.4rem;font-weight:400}
+.pv-doubt h4{margin:.1rem 0 .3rem;font-size:1.02rem;display:flex;flex-wrap:wrap;align-items:baseline}
+.pv-q{font-weight:500}
