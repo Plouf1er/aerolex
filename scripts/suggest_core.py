@@ -1560,6 +1560,8 @@ def job_view(jid: str, full: bool = True):
     if not row:
         return None
     info = json.loads(row["info"])
+    if info.get("kind") in ("prevalidate", "apply"):      # jobs du relecteur (suggest_prevalidate) : jamais servis par la route publique
+        return None
     info.pop("todo", None)
     if not full:                          # visiteur anonyme : pas de détail technique ni de coût
         info["errors"] = len(info.get("errors") or [])
@@ -2447,7 +2449,9 @@ def _run(cmd, lex_id: str = DEFAULT_LEX) -> None:
 
 
 def validate_proposals(ids: list, do_rebuild: bool = True, steps=None, force: bool = False, run_llm: bool = True,
-                       links_cmd=None) -> dict:
+                       links_cmd=None, post_check=None) -> dict:
+    """post_check(lex_id) : contrôle supplémentaire (tests de qualité) exécuté APRÈS la reconstruction et le test des liens, dans la zone
+    protégée : s'il lève, tout est restauré (pré-validation en lot : suggest_prevalidate.apply_ready)."""
     with _db_lock, db() as con:
         rows = [con.execute("SELECT * FROM proposals WHERE id=? AND status='pending'", (i,)).fetchone() for i in ids]
     rows = [r for r in rows if r]
@@ -2546,6 +2550,9 @@ def validate_proposals(ids: list, do_rebuild: bool = True, steps=None, force: bo
             after = sum(_count_cards(d_) for d_ in doms)
             if after < before:
                 raise RuntimeError("le nombre de fiches a baissé (%d -> %d)" % (before, after))
+            if post_check:
+                for d_ in doms:
+                    post_check(d_)
         except Exception as e:
             for d_, bk_ in bks.items():
                 restore_site(bk_, d_)

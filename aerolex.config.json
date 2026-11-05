@@ -3,6 +3,12 @@
  "env_files": [
   "~/.openclaw/.env"
  ],
+ "prevalidate": {
+  "model": "xai/grok-4.3",
+  "effort": "low",
+  "second_model": "local/current-llm-fast",
+  "fallback": "local"
+ },
  "llm": {
   "local_url": "http://100.96.203.121:11434/v1/chat/completions"
  },

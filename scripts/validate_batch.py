@@ -46,13 +46,8 @@ import suggest_core as sc  # noqa: E402
 RULES = sc.RULES
 DOM = sc.DEFAULT_LEX              # lexique de la racine du projet (data/lexicon.json)
 KEEP_ON_FAIL = False
-POST_TESTS = [
-    ("test_links_resolve", ["python3", "scripts/test_links_resolve.py"]),
-    ("test_slugs", ["python3", "scripts/test_slugs.py"]),
-    ("test_familles --strict", ["python3", "scripts/test_familles.py", "--strict"]),
-    ("test_matching", ["python3", "scripts/test_matching.py"]),
-    ("check_lexicon", ["python3", "scripts/check_lexicon.py", DOM]),
-]
+import suggest_prevalidate as pv  # noqa: E402  (liste de tests commune avec « Valider les N prêtes »)
+POST_TESTS = [(n, [c.replace("{lex}", DOM) for c in cmd]) for n, cmd in pv.POST_TESTS]
 
 
 def log(*a):

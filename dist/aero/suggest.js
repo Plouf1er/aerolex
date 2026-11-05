@@ -22,6 +22,13 @@
 
   var reviewer = false;   // session relecteur (cookie HttpOnly posé par le serveur)
 
+  var simQ = [], simActive = 0, pvRunning = false;
+  function simPump() {
+    while (simActive < 3 && simQ.length && !pvRunning && !$("proposals").hidden) {
+      simActive++;
+      simQ.shift()(function () { simActive--; simPump(); });
+    }
+  }
   function api(method, path, body, raw) {
     var opt = { method: method, headers: {}, credentials: "same-origin" };
     if (body !== undefined) {
@@ -30,7 +37,7 @@
     }
     return fetch(API + path, opt).then(function (r) {
       return r.json().catch(function () { return { error: "réponse illisible" }; }).then(function (j) {
-        if (r.status === 401 && path.indexOf("/proposals") === 0) { setReviewer(false); }
+        if (r.status === 401 && (path.indexOf("/proposals") === 0 || path.indexOf("/prevalidate") === 0)) { setReviewer(false); }
         if (!r.ok) { var err = new Error(j.error || ("HTTP " + r.status)); err.status = r.status; throw err; }
         return j;
       });
@@ -312,7 +319,7 @@
     var liens = p.liens || {};
     var title = el("h3", {}, [document.createTextNode(p.terme), el("span", { class: "badge ok", text: "à valider" }),
       el("span", { class: "conf", text: "confiance " + Math.round((d.confiance || 0) * 100) + " %" }),
-      d.version ? el("span", { class: "badge", text: "v" + d.version }) : null]);
+      d.version ? el("span", { class: "badge", text: "v" + d.version }) : null, selBox(p.id)]);
     var retained = d.rattachements_retenus || d.rattachements || [];
     var boxes = [];
     var attach = null;
@@ -378,7 +385,11 @@
       if (ex.length) simLine.appendChild(el("ul", { class: "ex" }, ex.map(function (e) { return el("li", {}, [el("span", { class: "hint", text: e.seance + " : " }), document.createTextNode(e.texte)]); })));
     }
     function runSim() {
-      api("POST", "/proposals/" + p.id + "/simulate", {}).then(showSim).catch(function (e) { simLine.textContent = "Soulignements simulés : indisponible (" + e.message + ")"; });
+      simQ.push(function (done) {                        // file d'attente : 3 simulations à la fois, jamais pendant une pré-validation
+        api("POST", "/proposals/" + p.id + "/simulate", {}).then(showSim)
+          .catch(function (e) { simLine.textContent = "Soulignements simulés : indisponible (" + e.message + ")"; }).then(done, done);
+      });
+      simPump();
     }
     if (vlist.length) {
       var vbox = el("div", { class: "variants" }, [el("p", { class: "kv" }, [el("b", { text: "Variantes d'appel proposées" }), el("span", { class: "hint", text: " (cochées = ajoutées à la fiche ; décochez celles qui souligneraient à tort)" })])]);
@@ -538,15 +549,217 @@
   }
   function loadProposals() {
     return api("GET", "/proposals?status=" + subStatus).then(function (r) {
-      var box = $("proposals"); box.textContent = "";
+      var box = $("proposals"); box.textContent = ""; simQ = [];
       if (!r.propositions.length) box.appendChild(el("p", { class: "hint", text: subStatus === "pending" ? "Aucune proposition en attente." : "Aucun terme écarté." }));
       r.propositions.forEach(function (p) { box.appendChild(proposalCard(p)); });
       if (subStatus === "pending") setPending(r.propositions.length); else { var c = $("discarded-count"); c.hidden = !r.propositions.length; c.textContent = r.propositions.length; }
+      pvShow(); if (subStatus === "pending" && !$("pv-summary").firstChild) loadPvSummary();
     }).catch(function (e) { $("review-msg").textContent = e.message; });
   }
   function setPending(n) { var p = $("pending-count"); p.hidden = !n; p.textContent = n; }
   function refreshPending() { if (!reviewer) return; api("GET", "/proposals?status=pending").then(function (r) { setPending(r.propositions.length); }).catch(function () {}); }
   $("refresh").onclick = loadProposals;
+
+  // ---------- pré-validation en lot (relecteur) ----------
+  var selected = {};
+  var pvTimer = null;
+  var PV_FIELD = { terme: "Terme", definition: "Définition", famille: "Famille", voir_aussi: "Voir aussi", variantes: "Variantes retenues", contexte_requis: "Contexte requis" };
+  function nSel() { return Object.keys(selected).length; }
+  function updateSel() {
+    var n = nSel(), b = $("pv-sel");
+    b.disabled = !n || $("pv-all").disabled;
+    b.textContent = n ? "Pré-valider la sélection (" + n + ")" : "Pré-valider la sélection";
+  }
+  function selBox(id) {
+    var cb = el("input", { type: "checkbox", "aria-label": "Sélectionner pour la pré-validation" });
+    cb.checked = !!selected[id];
+    cb.onchange = function () { if (cb.checked) selected[id] = true; else delete selected[id]; updateSel(); };
+    return el("label", { class: "sel" }, [cb, document.createTextNode(" sélection")]);
+  }
+  function pvMsg(text, isErr, ok) {
+    var m = $("pv-msg");
+    m.hidden = !text; m.textContent = text || ""; m.className = "msg" + (isErr ? " err" : (ok ? " ok" : ""));
+  }
+  function pvIdle() {
+    pvRunning = false; simPump();
+    $("pv-all").disabled = false; $("pv-progress").hidden = true; updateSel();
+  }
+  function eur(n) { return (n || 0).toFixed(4).replace(".", ",") + " $"; }
+  function pct(c) { return c === null || c === undefined ? "" : " · confiance " + Math.round(c * 100) + " %"; }
+
+  // diff lisible : mots (texte) ou éléments (listes) ; <del> retiré, <ins> ajouté
+  function wordDiff(a, b) {
+    var x = String(a || "").split(/(\s+)/).filter(Boolean), y = String(b || "").split(/(\s+)/).filter(Boolean);
+    var n = x.length, m = y.length, L = [], i, j;
+    for (i = 0; i <= n; i++) { L.push(new Array(m + 1).fill(0)); }
+    for (i = n - 1; i >= 0; i--) for (j = m - 1; j >= 0; j--) L[i][j] = x[i] === y[j] ? L[i + 1][j + 1] + 1 : Math.max(L[i + 1][j], L[i][j + 1]);
+    var out = document.createElement("span"); i = 0; j = 0;
+    function put(tag, txt) {
+      var last = out.lastChild;
+      if (tag && last && last.nodeName.toLowerCase() === tag) { last.textContent += txt; return; }
+      if (!tag && last && last.nodeType === 3) { last.textContent += txt; return; }
+      out.appendChild(tag ? el(tag, { text: txt }) : document.createTextNode(txt));
+    }
+    while (i < n && j < m) {
+      if (x[i] === y[j]) { put("", x[i]); i++; j++; }
+      else if (L[i + 1][j] >= L[i][j + 1]) { put("del", x[i]); i++; }
+      else { put("ins", y[j]); j++; }
+    }
+    while (i < n) put("del", x[i++]);
+    while (j < m) put("ins", y[j++]);
+    return out;
+  }
+  function listDiff(a, b) {
+    var out = document.createElement("span"), first = true;
+    function add(node) { if (!first) out.appendChild(document.createTextNode(", ")); first = false; out.appendChild(node); }
+    (a || []).forEach(function (v) { add(b.indexOf(v) >= 0 ? document.createTextNode(v) : el("del", { text: v })); });
+    (b || []).forEach(function (v) { if (a.indexOf(v) < 0) add(el("ins", { text: v })); });
+    if (first) out.textContent = "—";
+    return out;
+  }
+  function fixNode(f) {
+    var body;
+    if (Array.isArray(f.avant) || Array.isArray(f.apres)) body = listDiff(f.avant || [], f.apres || []);
+    else if (f.champ === "famille") body = wordDiff(famLabel(currentLex(), f.avant) || "—", famLabel(currentLex(), f.apres) || "—");
+    else body = wordDiff(f.avant, f.apres);
+    var src = f.origine + (f.motif ? " — " + f.motif.slice(0, 170) : "");
+    return el("div", { class: "pv-diff" }, [el("b", { text: (PV_FIELD[f.champ] || f.champ) + " " }), el("span", { class: "src", text: "(" + src + ")" }), el("br"), body]);
+  }
+  function avisNode(it) {
+    if (!it.avis || !it.avis.length) return null;
+    return el("p", { class: "pv-avis", text: it.avis.map(function (a) {
+      return "Avis " + a.etape + " (" + a.modele + ") : " + a.verdict + ", " + Math.round(a.confiance * 100) + " % — " + a.raison; }).join("  |  ") });
+  }
+  function pvItem(it, st) {
+    var term = it.terme + (it.terme_initial && it.terme_initial !== it.terme ? "" : "");
+    var kids = [el("h4", {}, [document.createTextNode(term), it.terme_initial && it.terme_initial !== it.terme ? el("span", { class: "conf", text: "(proposé : « " + it.terme_initial + " »)" }) : null,
+                               el("span", { class: "conf", text: pct(it.confiance).replace(/^ · /, "") })])];
+    if (st === "douteuse" && it.question) kids.push(el("p", { class: "pv-q", text: it.question }));
+    kids.push(el("p", { class: "pv-why", text: it.raison || "" }));
+    (it.corrections || []).forEach(function (f) { kids.push(fixNode(f)); });
+    var av = avisNode(it); if (av) kids.push(av);
+    var box = el("div", { class: st === "douteuse" ? "res pv-doubt" : "pv-item" }, kids);
+    if (st === "douteuse" || st === "a_rejeter") {
+      var open = el("button", { class: "btn small", type: "button", text: "Relire la fiche" });
+      var rej = el("button", { class: "btn small ko", type: "button", text: "Rejeter" });
+      var holder = el("div", { class: "pv-open" });
+      open.onclick = function () {
+        open.disabled = true;
+        api("GET", "/proposals?status=pending").then(function (r) {
+          var p = r.propositions.filter(function (x) { return x.id === it.id; })[0];
+          if (!p) { holder.textContent = "Proposition introuvable (déjà traitée ?)."; return; }
+          holder.textContent = ""; holder.appendChild(proposalCard(p));
+        }).catch(function (e) { holder.textContent = e.message; open.disabled = false; });
+      };
+      rej.onclick = function () {
+        rej.disabled = true;
+        api("POST", "/proposals/" + it.id + "/reject", {}).then(function () { loadPvSummary(); loadProposals(); }).catch(function (e) { alert(e.message); rej.disabled = false; });
+      };
+      box.appendChild(el("div", { class: "actions" }, [open, rej]));
+      box.appendChild(holder);
+    }
+    return box;
+  }
+  function pvApply(ids, label) {
+    if (!ids.length) return;
+    pvMsg(""); pvRunning = true; $("pv-all").disabled = true; updateSel();
+    $("pv-progress").hidden = false; $("pv-fill").style.width = "45%"; $("pv-ptext").textContent = "Validation de " + ids.length + " fiche(s) : sauvegarde, reconstruction, tests…";
+    api("POST", "/prevalidate/apply", { domain: currentLex(), ids: ids }).then(function (r) { pvPoll(r.job, "apply"); })
+      .catch(function (e) { pvMsg(e.message, true); pvIdle(); });
+  }
+  function group(st, title, items, actionBtn) {
+    var d = el("details", { class: "pv-group " + st }, [el("summary", { text: title + " (" + items.length + ")" })]);
+    if (actionBtn) d.appendChild(el("div", { class: "pv-item" }, [actionBtn]));
+    items.forEach(function (it) { d.appendChild(pvItem(it, st)); });
+    return d;
+  }
+  function renderSummary(s) {
+    var box = $("pv-summary"); box.textContent = "";
+    var c = s.comptes || {}, total = (c.prete || 0) + (c.corrigee_prete || 0) + (c.douteuse || 0) + (c.a_rejeter || 0);
+    if (!s.job || !total) return;
+    var G = s.groupes, nReady = (c.prete || 0) + (c.corrigee_prete || 0);
+    var ids = function (arr) { return arr.map(function (x) { return x.id; }); };
+    var head = el("div", { class: "card pv-sum" }, [
+      el("h2", { class: "pv-title", text: "Résultat de la pré-validation" }),
+      el("div", { class: "pv-chips" }, [
+        el("span", { class: "chip prete", text: (c.prete || 0) + " prête" + ((c.prete || 0) > 1 ? "s" : "") }),
+        el("span", { class: "chip corrigee_prete", text: (c.corrigee_prete || 0) + " corrigée" + ((c.corrigee_prete || 0) > 1 ? "s" : "") }),
+        el("span", { class: "chip douteuse", text: (c.douteuse || 0) + " douteuse" + ((c.douteuse || 0) > 1 ? "s" : "") }),
+        el("span", { class: "chip a_rejeter", text: (c.a_rejeter || 0) + " à rejeter" })]),
+      el("p", { class: "pv-meta", text: "Coût " + eur(s.job.usd) + " · durée " + Math.round(s.job.secs || 0) + " s · " + (s.job.appels || 0) + " appel(s)"
+        + (s.job.modeles && s.job.modeles.premier ? " · " + s.job.modeles.premier : "")
+        + (s.job.deuxieme_avis ? " · 2e avis (" + s.job.modeles.second + ") sur " + s.job.deuxieme_avis + " cas" : "")
+        + (s.modifiees_depuis ? " · " + s.modifiees_depuis + " modifiée(s) depuis : à re-pré-valider" : "") })]);
+    var bVal = el("button", { class: "btn ok", type: "button", text: "Valider les " + nReady + " prêtes" + (c.corrigee_prete ? " (dont " + c.corrigee_prete + " corrigée" + (c.corrigee_prete > 1 ? "s" : "") + ")" : "") });
+    bVal.disabled = !nReady;
+    bVal.onclick = function () { pvApply(ids(G.prete).concat(ids(G.corrigee_prete))); };
+    var bRej = el("button", { class: "btn ko", type: "button", text: "Rejeter les " + (c.a_rejeter || 0) + " à rejeter" });
+    bRej.disabled = !c.a_rejeter;
+    bRej.onclick = function () {
+      if (!window.confirm("Rejeter " + c.a_rejeter + " proposition(s) classée(s) « à rejeter » ? Elles passeront dans les termes écartés (repêchage possible).")) return;
+      bRej.disabled = true;
+      api("POST", "/prevalidate/reject", { domain: currentLex(), ids: ids(G.a_rejeter) }).then(function (r) {
+        pvMsg(r.rejetes.length + " proposition(s) rejetée(s).", false, true); loadPvSummary(); loadProposals();
+      }).catch(function (e) { pvMsg(e.message, true); bRej.disabled = false; });
+    };
+    head.appendChild(el("div", { class: "pv-actions pv-sticky" }, [bVal, bRej]));
+    var list = $("proposals"), tog = el("button", { class: "btn small", type: "button" });
+    function togText() { tog.textContent = list.hidden ? "Afficher la file complète (" + s.pending_total + ")" : "Masquer la file complète"; }
+    list.hidden = true; togText();
+    tog.onclick = function () { list.hidden = !list.hidden; togText(); simPump(); };
+    head.appendChild(el("div", { class: "row" }, [tog]));
+    box.appendChild(head);
+    if (G.douteuse.length) {                         // les douteuses d'abord : une carte avec la question posée
+      box.appendChild(el("h3", { class: "pv-title", text: "À trancher : " + G.douteuse.length + " douteuse" + (G.douteuse.length > 1 ? "s" : "") }));
+      G.douteuse.forEach(function (it) { box.appendChild(pvItem(it, "douteuse")); });
+    }
+    var bRej2 = el("button", { class: "btn small ko", type: "button", text: "Rejeter les " + (c.a_rejeter || 0) + " à rejeter" }); bRej2.onclick = function () { bRej.click(); };
+    if (G.a_rejeter.length) box.appendChild(group("a_rejeter", "À rejeter", G.a_rejeter, bRej2));
+    if (G.corrigee_prete.length) {
+      var b2 = el("button", { class: "btn small ok", type: "button", text: "Valider ces " + G.corrigee_prete.length + " corrigées" });
+      b2.onclick = function () { pvApply(ids(G.corrigee_prete)); };
+      box.appendChild(group("corrigee_prete", "Corrigées-prêtes", G.corrigee_prete, b2));
+    }
+    if (G.prete.length) {
+      var b3 = el("button", { class: "btn small ok", type: "button", text: "Valider ces " + G.prete.length + " prêtes" });
+      b3.onclick = function () { pvApply(ids(G.prete)); };
+      box.appendChild(group("prete", "Prêtes", G.prete, b3));
+    }
+  }
+  function loadPvSummary() {
+    if (!reviewer) return Promise.resolve();
+    return api("GET", "/prevalidate/summary?domain=" + encodeURIComponent(currentLex())).then(renderSummary).catch(function () {});
+  }
+  function pvPoll(jid, kind) {
+    api("GET", "/prevalidate/job/" + jid).then(function (j) {
+      var i = j.info || {};
+      if (kind === "prevalidate") {
+        var frac = i.progress !== undefined ? i.progress : (j.total ? j.fait / j.total : 0);
+        $("pv-fill").style.width = Math.max(3, Math.round(100 * frac)) + "%";
+        $("pv-ptext").textContent = (i.etape || "") + " — " + j.total + " proposition(s)" + (i.usd ? " · " + eur(i.usd) : "") + " · " + Math.round(j.duree) + " s";
+      } else { $("pv-ptext").textContent = i.etape || "Validation…"; }
+      if (j.etat === "running") { clearTimeout(pvTimer); pvTimer = setTimeout(function () { pvPoll(jid, kind); }, 1500); return; }
+      pvIdle();
+      if (j.etat !== "done") { pvMsg("Échec : " + (i.erreur || "erreur inconnue"), true); loadPvSummary(); return; }
+      if (kind === "apply") {
+        var r = i.resultat || {};
+        if (r.ok) pvMsg(r.valides.length + " fiche(s) ajoutée(s) en " + Math.round(r.secs || j.duree) + " s (une sauvegarde, une reconstruction, tests réussis)." + (r.ignorees && r.ignorees.length ? " Ignorée(s) : " + r.ignorees.map(function (x) { return x.terme + " (" + x.raison + ")"; }).join(" ; ") : ""), false, true);
+        else pvMsg((r.restaure ? "Validation annulée, site restauré : " : "Rien n'a été validé : ") + (r.erreur || "erreur"), true);
+        selected = {}; updateSel(); refreshPending(); loadProposals();
+      } else { pvMsg(""); refreshPending(); loadProposals(); }
+      loadPvSummary();
+    }).catch(function (e) { pvMsg("Suivi interrompu : " + e.message, true); pvIdle(); });
+  }
+  function pvStart(ids) {
+    pvMsg(""); $("pv-summary").textContent = ""; $("proposals").hidden = false; pvRunning = true;
+    $("pv-all").disabled = true; updateSel();
+    $("pv-progress").hidden = false; $("pv-fill").style.width = "3%"; $("pv-ptext").textContent = "Démarrage…";
+    api("POST", "/prevalidate", { domain: currentLex(), ids: ids }).then(function (r) { pvPoll(r.job, "prevalidate"); })
+      .catch(function (e) { pvMsg(e.message, true); pvIdle(); });
+  }
+  $("pv-all").onclick = function () { pvStart("all"); };
+  $("pv-sel").onclick = function () { pvStart(Object.keys(selected).map(Number)); };
+  function pvShow() { $("pv-box").hidden = !(reviewer && subStatus === "pending"); if ($("pv-box").hidden) { $("pv-summary").textContent = ""; $("proposals").hidden = false; } }
 
   // ---------- init ----------
   function init() {

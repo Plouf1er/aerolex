@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="robots" content="noindex">
 <title>Suggérer des termes — AeroLex</title>
-<link rel="stylesheet" href="suggest.css?v=6">
+<link rel="stylesheet" href="suggest.css?v=7">
 </head>
 <body>
 <header class="top">
@@ -71,10 +71,21 @@
       </div>
       <p id="corpus-info" class="hint" hidden></p>
     </div>
+    <div id="pv-box" class="card pv" hidden>
+      <h2 class="pv-title">Pré-valider la file</h2>
+      <p class="hint">Contrôles gratuits, puis un passage du modèle par paquets de 20, puis un deuxième avis seulement sur les cas douteux. <b>Rien n'est publié</b> avant le clic « Valider les N prêtes ».</p>
+      <div class="row pv-head">
+        <button id="pv-all" class="btn primary" type="button">Pré-valider en lot</button>
+        <button id="pv-sel" class="btn" type="button" disabled>Pré-valider la sélection</button>
+      </div>
+      <div id="pv-progress" hidden><div class="bar"><div id="pv-fill"></div></div><p id="pv-ptext" class="hint" role="status"></p></div>
+      <p id="pv-msg" class="msg" hidden role="status"></p>
+    </div>
+    <div id="pv-summary"></div>
     <div class="row"><button id="refresh" class="btn">Actualiser</button><span id="review-msg" class="hint"></span></div>
     <div id="proposals"></div>
   </section>
 </main>
-<script src="suggest.js?v=11"></script>
+<script src="suggest.js?v=14"></script>
 </body>
 </html>

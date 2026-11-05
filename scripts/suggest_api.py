@@ -128,6 +128,32 @@ def route(method: str, path: str, headers, body: bytes, ip: str | None = None):
             if p == "/corpus/refresh":
                 return 200, core.corpus_refresh(dom)
             return 200, core.corpus_upload(dom, d.get("items") or [], bool(d.get("replace")))
+        # ── pré-validation en lot (relecteur) : jamais d'écriture dans le lexique avant « apply » ──
+        if p.startswith("/prevalidate"):
+            import suggest_prevalidate as pv
+            dom = q.get("domain") or core.DEFAULT_LEX
+            if method == "GET" and p == "/prevalidate/summary":
+                return 200, pv.summary(dom)
+            m2 = re.fullmatch(r"/prevalidate/job/([0-9a-f]{16})", p)
+            if method == "GET" and m2:
+                v = pv.job_view(m2.group(1))
+                return (200, v) if v else (404, {"error": "job inconnu"})
+            if method == "POST":
+                d = json.loads(body.decode("utf-8") or "{}")
+                dom = d.get("domain") or dom
+                ids = d.get("ids", "all")
+                ids = "all" if ids in ("all", None) else [int(i) for i in ids]
+                if p == "/prevalidate":
+                    return 200, {"job": pv.start_prevalidate(dom, ids)}
+                if p == "/prevalidate/apply":          # « Valider les N prêtes » : la SEULE écriture ; ids explicites exigés
+                    if ids == "all":
+                        raise ValueError("ids des propositions prêtes requis")
+                    return 200, {"job": pv.start_apply(dom, ids)}
+                if p == "/prevalidate/reject":         # « Rejeter les N à rejeter » (confirmation côté interface)
+                    if ids == "all":
+                        raise ValueError("ids des propositions à rejeter requis")
+                    return 200, pv.reject_flagged(dom, ids)
+            return 404, {"error": "route inconnue"}
         if method == "POST" and p == "/validate":
             d = json.loads(body.decode("utf-8") or "{}")
             ids = [int(i) for i in d.get("ids", [])]
