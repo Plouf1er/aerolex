@@ -44,14 +44,14 @@ sys.path.insert(0, str(ROOT / "scripts"))
 import suggest_core as sc  # noqa: E402
 
 RULES = sc.RULES
-DOM = "aero"
+DOM = sc.DEFAULT_LEX              # lexique de la racine du projet (data/lexicon.json)
 KEEP_ON_FAIL = False
 POST_TESTS = [
     ("test_links_resolve", ["python3", "scripts/test_links_resolve.py"]),
     ("test_slugs", ["python3", "scripts/test_slugs.py"]),
     ("test_familles --strict", ["python3", "scripts/test_familles.py", "--strict"]),
     ("test_matching", ["python3", "scripts/test_matching.py"]),
-    ("check_lexicon aero", ["python3", "scripts/check_lexicon.py", "aero"]),
+    ("check_lexicon", ["python3", "scripts/check_lexicon.py", DOM]),
 ]
 
 
@@ -180,8 +180,9 @@ def measure() -> dict:
     texts = RULES.corpus_texts(cdir)
     paras = RULES.corpus_paragraphs(texts)
     eng, idxp = RULES.engine_paths(ROOT, DOM)
-    base = json.loads(idxp.read_text("utf-8")).get("terms", {})
-    inp = {"engine": str(eng), "base": base, "passages": [p[1] for p in paras], "runs": {"avant": {}}}
+    idx_json = json.loads(idxp.read_text("utf-8"))
+    base, rules = idx_json.get("terms", {}), (idx_json.get("meta") or {}).get("rules") or {}
+    inp = {"engine": str(eng), "base": base, "rules": rules, "passages": [p[1] for p in paras], "runs": {"avant": {}}}
     p = subprocess.run([RULES._node_bin(), "-e", RULES.DRIVER], input=json.dumps(inp), capture_output=True, text=True, timeout=600)
     if p.returncode != 0:
         raise RuntimeError("mesure : " + (p.stderr or p.stdout)[-300:])
