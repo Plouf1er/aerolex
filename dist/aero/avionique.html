@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>avionique - Glossaire Aéronautique</title>
+    <meta name="description" content="&lt;em&gt;Avionics&lt;/em&gt;. Ensemble des équipements électroniques de bord : radios, transpondeur, GPS (Global Positioning System — système mondial de positionne...">
+    <link rel="canonical" href="https://example.com/aero/avionique.html">
+    <meta property="og:title" content="avionique - Glossaire Aéronautique">
+    <meta property="og:description" content="&lt;em&gt;Avionics&lt;/em&gt;. Ensemble des équipements électroniques de bord : radios, transpondeur, GPS (Global Positioning System — système mondial de positionne...">
+    <meta property="og:type" content="article">
+    <meta property="og:url" content="https://example.com/aero/avionique.html">
+    
+    <link rel="stylesheet" href="../aerolex.css?v=5ce22946">
+    <link rel="stylesheet" href="../aerolex-page.css?v=5ce22946">
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "DefinedTerm",
+      "name": "avionique",
+      "description": "&lt;em&gt;Avionics&lt;/em&gt;. Ensemble des équipements électroniques de bord : radios, transpondeur, GPS (Global Positioning System — système mondial de positionne..."
+    }
+    </script>
+</head>
+<body>
+    <nav class="crumb">
+        <a href="aviation-generale.html">&laquo; aviation générale</a>
+        <a href="index.html">Index Sommaire</a>
+        <a href="avitaillement.html">avitaillement &raquo;</a>
+    </nav>
+    <main>
+        <header class="fiche-head">
+            <h1>avionique</h1>
+            
+            <div class="meta">
+                <span class="chip cat aerolex-skip">Catégorie: <a href="index.html?cat=%C3%80%20classer">À classer</a></span>
+                <span class="chip aerolex-skip">Famille: <a href="index.html?fam=commandes_cockpit">Commandes cockpit</a></span>
+            </div>
+        </header>
+        
+        <div class="definition">
+            <p>&lt;em&gt;Avionics&lt;/em&gt;. Ensemble des équipements électroniques de bord : radios, transpondeur, GPS (Global Positioning System — système mondial de positionnement), instruments électroniques. Un interrupteur dédié (avionics master) les alimente ; on le met sur « off » au démarrage du moteur pour éviter les pointes de tension, puis sur « on » ensuite. Sur l&#x27;AT01, il se règle dans la check-list avant le roulage.</p>
+        </div>
+<div class="aliases"><strong>Aussi appelé :</strong> avioniques, avionics, avionics master, interrupteur avionique</div><div class="family-table"><h3>Famille : Commandes cockpit</h3><ul><li><strong>avionique</strong></li><li><a href="carburateur.html">carburateur</a></li><li><a href="cockpit.html">cockpit</a></li><li><a href="correcteur-d-altitude.html">correcteur d&#x27;altitude</a></li><li><a href="idle.html">idle</a></li><li><a href="injection.html">injection</a></li><li><a href="instrument.html">instrument</a></li><li><a href="lean.html">lean</a></li><li><a href="levier-d-helice.html">levier d&#x27;hélice</a></li><li><a href="manette.html">manette</a></li><li><a href="mixture.html">mixture</a></li><li><a href="papillon-des-gaz.html">papillon des gaz</a></li><li><a href="pression-d-admission.html">pression d&#x27;admission</a></li><li><a href="ralenti.html">ralenti</a></li><li><a href="richesse.html">richesse</a></li><li><a href="richesse-melange.html">richesse mélange</a></li><li><a href="throttle.html">throttle</a></li></ul></div><div class="xrefs"><strong>Voir aussi :</strong><ul><li><a href="transpondeur.html">transpondeur</a></li><li><a href="frequence.html">fréquence</a></li><li><a href="alternateur.html">alternateur</a></li><li><a href="disjoncteur.html">disjoncteur</a></li></ul></div>
+    </main>
+    <script src="../aerolex.js?v=5ce22946" data-index="../aerolex-index.json?v=5ce22946" data-lexicon="aero" defer></script>
+    <!-- Libellés des schémas SVG cliquables (aerolex-svg.js). Sur une page de
+         fiche, aucun hook onTermClick n'est posé : le module navigue lui-même
+         vers la page du mot. -->
+    <script src="../aerolex-svg.js?v=5ce22946" defer></script>
+    <script>
+var CURRENT_SLUG="avionique";
+/* AeroLex - sur une page de fiche, un mot surligne mene a SA page (pas d'overlay). */
+(function(){
+  var SLUGS=null;
+  fetch('slugmap.json').then(function(r){return r.json();}).then(function(j){SLUGS=j;});
+  document.addEventListener('click',function(e){
+    var s=e.target.closest?e.target.closest('span.glos'):null;
+    if(!s)return;
+    var t=s.dataset.term;
+    if(!t||!SLUGS)return;
+    var sl=SLUGS[t];
+    if(!sl||sl===CURRENT_SLUG)return;
+    e.preventDefault();
+    window.location.href=sl+'.html';
+  },true);
+})();
+</script>
+</body>
+</html>

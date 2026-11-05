@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>vent nul - Glossaire Aéronautique</title>
+    <meta name="description" content="Absence de vent ou vent calme, que le METAR (Meteorological Aerodrome Report — message d&#x27;observation météorologique d&#x27;aérodrome) note 00000KT. C&#x27;est le ...">
+    <link rel="canonical" href="https://example.com/aero/vent-nul.html">
+    <meta property="og:title" content="vent nul - Glossaire Aéronautique">
+    <meta property="og:description" content="Absence de vent ou vent calme, que le METAR (Meteorological Aerodrome Report — message d&#x27;observation météorologique d&#x27;aérodrome) note 00000KT. C&#x27;est le ...">
+    <meta property="og:type" content="article">
+    <meta property="og:url" content="https://example.com/aero/vent-nul.html">
+    
+    <link rel="stylesheet" href="../aerolex.css?v=5ce22946">
+    <link rel="stylesheet" href="../aerolex-page.css?v=5ce22946">
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "DefinedTerm",
+      "name": "vent nul",
+      "description": "Absence de vent ou vent calme, que le METAR (Meteorological Aerodrome Report — message d&#x27;observation météorologique d&#x27;aérodrome) note 00000KT. C&#x27;est le ..."
+    }
+    </script>
+</head>
+<body>
+    <nav class="crumb">
+        <a href="vent-moyen.html">&laquo; vent moyen</a>
+        <a href="index.html">Index Sommaire</a>
+        <a href="vent-relatif.html">vent relatif &raquo;</a>
+    </nav>
+    <main>
+        <header class="fiche-head">
+            <h1>vent nul</h1>
+            
+            <div class="meta">
+                <span class="chip cat aerolex-skip">Catégorie: <a href="index.html?cat=%C3%80%20classer">À classer</a></span>
+                <span class="chip aerolex-skip">Famille: <a href="index.html?fam=description_vent">Description du vent</a></span>
+            </div>
+        </header>
+        
+        <div class="definition">
+            <p>Absence de vent ou vent calme, que le METAR (Meteorological Aerodrome Report — message d&#x27;observation météorologique d&#x27;aérodrome) note 00000KT. C&#x27;est le cas de référence des tableaux de performances et des calculs « sans vent » (no-wind) : distance de décollage ou de croisière sans composante de vent. Il sert de point de départ pour corriger ensuite d&#x27;un vent de face ou arrière.</p>
+        </div>
+<div class="aliases"><strong>Aussi appelé :</strong> vents nuls, no-wind, no wind, vent calme</div><div class="family-table"><h3>Famille : Description du vent</h3><ul><li><a href="girouette.html">girouette</a></li><li><a href="vent-estime.html">vent estimé</a></li><li><a href="vent-fort.html">vent fort</a></li><li><a href="vent-moyen.html">vent moyen</a></li><li><strong>vent nul</strong></li><li><a href="vent-reel.html">vent réel</a></li></ul></div><div class="xrefs"><strong>Voir aussi :</strong><ul><li><a href="composante-de-face.html">composante de face</a></li><li><a href="distance-de-roulement.html">distance de roulement</a></li><li><a href="girouette.html">girouette</a></li></ul></div>
+    </main>
+    <script src="../aerolex.js?v=5ce22946" data-index="../aerolex-index.json?v=5ce22946" data-lexicon="aero" defer></script>
+    <!-- Libellés des schémas SVG cliquables (aerolex-svg.js). Sur une page de
+         fiche, aucun hook onTermClick n'est posé : le module navigue lui-même
+         vers la page du mot. -->
+    <script src="../aerolex-svg.js?v=5ce22946" defer></script>
+    <script>
+var CURRENT_SLUG="vent-nul";
+/* AeroLex - sur une page de fiche, un mot surligne mene a SA page (pas d'overlay). */
+(function(){
+  var SLUGS=null;
+  fetch('slugmap.json').then(function(r){return r.json();}).then(function(j){SLUGS=j;});
+  document.addEventListener('click',function(e){
+    var s=e.target.closest?e.target.closest('span.glos'):null;
+    if(!s)return;
+    var t=s.dataset.term;
+    if(!t||!SLUGS)return;
+    var sl=SLUGS[t];
+    if(!sl||sl===CURRENT_SLUG)return;
+    e.preventDefault();
+    window.location.href=sl+'.html';
+  },true);
+})();
+</script>
+</body>
+</html>

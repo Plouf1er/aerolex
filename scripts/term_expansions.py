@@ -158,6 +158,11 @@ EXPANSIONS = {
     "ts":   ("Thunderstorm", "orage", "UN"),
     "vc":   ("In the Vicinity", "au voisinage de l'aérodrome", "UN"),
     "vrb":  ("Variable", "direction de vent variable", "UN"),
+    # ajoutés par validate_batch (titres à trait d'union : développé non calculable automatiquement)
+    "CS-VLA": ("Certification Specifications for Very Light Aeroplanes", "spécifications de certification des avions très légers", ""),
+    "Part-NCO": ("Non-Commercial Operations with other-than-complex motor-powered aircraft", "exploitation non commerciale d'aéronefs à moteur non complexes", ""),
+    "Part-MED": ("Medical requirements", "exigences médicales", ""),
+    "Part-FCL": ("Flight Crew Licensing", "licences des équipages de conduite", ""),
 }
 
 # Compléments FR pour des développés déjà calculés depuis les données mais
@@ -252,6 +257,26 @@ EXTRA_ABBREVIATIONS = {
     # ajoutés via « Suggérer des termes » (développé vérifié : initiales = sigle)
     "VHF": ("Very High Frequency", "très haute fréquence", ""),
     "UHF": ("Ultra High Frequency", "Ultra haute fréquence", ""),
+    "FAA": ("Federal Aviation Administration", "autorité de l'aviation civile américaine", ""),
+    "NSC": ("No Significant Cloud", "pas de nuage significatif", ""),
+    "NCD": ("No Cloud Detected", "aucun nuage détecté", ""),
+    "OBS": ("Omni Bearing Selector", "sélecteur de radial", ""),
+    "CDI": ("Course Deviation Indicator", "indicateur d'écart de route", ""),
+    "ULM": ("Ultra Léger Motorisé", None, ""),
+    "BEA": ("Bureau d'Enquêtes et d'Analyses pour la sécurité de l'aviation civile", None, ""),
+    "AVGAS": ("Aviation Gasoline", "essence aviation", ""),
+    "OMM": ("Organisation météorologique mondiale", None, ""),
+    "ATA": ("Actual Time of Arrival", "heure d'arrivée réelle", ""),
+    "ATO": ("Approved Training Organisation", "organisme de formation agréé", ""),
+    "DTO": ("Declared Training Organisation", "organisme de formation déclaré", ""),
+    "MAC": ("Mean Aerodynamic Chord", "corde aérodynamique moyenne", ""),
+    "UE": ("Union européenne", None, ""),
+    "POB": ("Persons On Board", "personnes à bord", ""),
+    "CS": ("Certification Specifications", "spécifications de certification", ""),
+    "AIRPROX": ("Aircraft Proximity", "rapprochement dangereux", ""),
+    "TUC": ("Time of Useful Consciousness", "temps utile de conscience", ""),
+    "SERA": ("Standardised European Rules of the Air", "règles de l'air européennes standardisées", ""),
+    "ASFC": ("Above Surface", "au-dessus de la surface", ""),
 }
 
 # Mots/phrases dont le calcul automatique tire un « développement » qui n'en est
