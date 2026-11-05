@@ -360,6 +360,11 @@ def build_review_prompt(lex: str, items: list, second: bool = False) -> list:
         "Réponds UNIQUEMENT par un objet JSON {\"items\":[{\"n\":1,\"verdict\":\"ok|corriger|rejeter\",\"correction\":{},\"raison\":\"1 phrase\","
         "\"confiance\":0.9}]} avec exactement un item par proposition, même numérotation.\n"
         "Familles : %s." % (cfg["label"], cfg["audience"], cfg["scope"], fams))
+    if second:
+        system += ("\nDEUXIÈME AVIS indépendant : ces fiches ont déjà été relues (et parfois corrigées) par un premier relecteur qui a hésité. "
+                   "Réponds \"ok\" si la fiche, telle qu'elle est écrite, est exacte et publiable, même perfectible ; \"corriger\" SEULEMENT si elle "
+                   "contient une erreur de fait ou une imprécision technique réelle (donne alors la correction) ; \"rejeter\" si elle est fausse ou inutilisable. "
+                   "Ne réécris pas pour le style.")
     parts = []
     for it in items:
         r = _row(it["id"])

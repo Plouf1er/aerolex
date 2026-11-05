@@ -703,7 +703,7 @@
       }).catch(function (e) { pvMsg(e.message, true); bRej.disabled = false; });
     };
     head.appendChild(el("div", { class: "pv-actions pv-sticky" }, [bVal, bRej]));
-    var list = $("proposals"), tog = el("button", { class: "btn small", type: "button" });
+    var list = $("proposals"), tog = el("button", { class: "btn small", type: "button", text: "Afficher la file complète" });
     function togText() { tog.textContent = list.hidden ? "Afficher la file complète (" + s.pending_total + ")" : "Masquer la file complète"; }
     list.hidden = true; togText();
     tog.onclick = function () { list.hidden = !list.hidden; togText(); simPump(); };

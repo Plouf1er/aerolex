@@ -40,3 +40,17 @@ La popup de définition est celle du site hôte (le moteur expose `window.AeroLe
 
 Si le site hôte héberge lui-même `dist/`, tout est same-origin. Sinon, le serveur du lexique doit répondre en CORS pour l'index, `<lexique>/t/*` et
 `<lexique>/lexicon.json` : `serve_cors.py` le fait pour les origines listées dans `aerolex.config.json` (`serve.cors_origins`) ou `$AEROLEX_CORS_ORIGINS`.
+
+## 6. Valider une file de propositions (hébergeur du lexique)
+
+Si le site expose « Suggérer des termes » (`/<lexique>/suggest.html`), le relecteur peut **pré-valider toute la file d'un coup** (contrôles gratuits, un passage du modèle par paquets de 20, deuxième avis sur les cas douteux) puis valider les propositions prêtes **en une seule opération**. Rien à intégrer côté site client : tout passe par l'API de l'hébergeur, derrière la session du relecteur (mot de passe) :
+
+| Route | Rôle |
+|---|---|
+| `POST /api/suggest/prevalidate` `{domain, ids|"all"}` | lance la pré-validation (job asynchrone) -> `{job}` |
+| `GET /api/suggest/prevalidate/job/<id>` | progression (étape, avancement, coût en cours) |
+| `GET /api/suggest/prevalidate/summary?domain=` | synthèse de la dernière pré-validation (groupes, corrections en avant/après, avis, coût, durée) |
+| `POST /api/suggest/prevalidate/apply` `{domain, ids}` | **seule écriture** : valide les propositions prêtes en une opération (une sauvegarde, une reconstruction, tests, restauration automatique) |
+| `POST /api/suggest/prevalidate/reject` `{domain, ids}` | rejette celles classées « à rejeter » |
+
+Toutes répondent 401 sans session ; les jobs de pré-validation ne sont jamais servis par la route publique `/job/<id>`. Modèles et plafond de coût : section « Valider une file rapidement » du README (`aerolex.config.json`, bloc `prevalidate`). Ligne de commande équivalente : `python3 scripts/prevalidate.py <lexique> [--apply-ready]`.

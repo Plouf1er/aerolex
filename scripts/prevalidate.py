@@ -14,6 +14,7 @@ Sans option d'écriture, RIEN n'est publié : seules la file (corrections, enreg
 import argparse
 import json
 import os
+import re
 import sys
 import time
 
@@ -51,8 +52,9 @@ def main(argv=None) -> int:
     last = [""]
 
     def prog(done, total, etape):
+        etape = re.sub(r"\s*\(\d+/\d+\)$", "", etape)
         if etape != last[0]:
-            print("  … %s (%d/%d)" % (etape, done, total), flush=True)
+            print("  … %s" % etape, flush=True)
             last[0] = etape
 
     rep = pv.prevalidate(a.lexique, ids, cfg=cfg, progress=prog)
