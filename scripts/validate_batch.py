@@ -214,7 +214,7 @@ def post_tests() -> list:
     for name, cmd in POST_TESTS:
         p = subprocess.run(cmd, cwd=str(ROOT), env=sc.lex_env(DOM), capture_output=True, text=True, timeout=900)
         out = (p.stdout + p.stderr)
-        ok = p.returncode == 0 and (name != "check_lexicon aero" or "LEXIQUE PROPRE" in out)
+        ok = p.returncode == 0 and (name != "check_lexicon" or "LEXIQUE PROPRE" in out)
         res.append({"test": name, "ok": ok, "tail": out.strip()[-2500:]})
     return res
 

@@ -1,17 +1,17 @@
 {
-  "empreinte": "5ce22946",
-  "date": "2026-11-05T00:25:10+00:00",
+  "empreinte": "4c1115dd",
+  "date": "2026-11-05T00:29:21+00:00",
   "nb_termes": 1408,
   "assets": [
     {
       "fichier": "aerolex.js",
-      "octets": 43285,
-      "sha256": "5348546c"
+      "octets": 48857,
+      "sha256": "7227920c"
     },
     {
       "fichier": "aerolex.css",
-      "octets": 11463,
-      "sha256": "ecfaf053"
+      "octets": 11456,
+      "sha256": "a39bd7b7"
     },
     {
       "fichier": "aerolex-page.css",
@@ -30,8 +30,8 @@
     },
     {
       "fichier": "aerolex-searchbox.js",
-      "octets": 6499,
-      "sha256": "d8de407d"
+      "octets": 6512,
+      "sha256": "1ca6d945"
     },
     {
       "fichier": "aerolex-indexpage.js",
